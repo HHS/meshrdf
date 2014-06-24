@@ -7,5 +7,6 @@ MeSH XML into the same directory as the XSLTs, and Saxon HE into the $SAXON_HOME
 You can then run the transforms as follows:
 
 ```
-java -jar $SAXON_HOME/saxon9he.jar -s:desc2014.xml -xsl:transformMeSHDescriptors.xsl >desc2014.n3
+java -jar $SAXON_HOME/saxon9he.jar -s:desc2014.xml \
+  -xsl:transformMeSHDescriptors.xsl >desc2014.n3
 ```
