@@ -1,0 +1,433 @@
+<?xml version="1.0"?>
+<!DOCTYPE DescriptorRecordSet SYSTEM "desc2014.dtd">
+<DescriptorRecordSet LanguageCode = "eng">
+<DescriptorRecord DescriptorClass = "1">
+  <DescriptorUI>D000001</DescriptorUI>
+  <DescriptorName>
+   <String>Calcimycin</String>
+  </DescriptorName>
+  <DateCreated>
+   <Year>1974</Year>
+   <Month>11</Month>
+   <Day>19</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2013</Year>
+   <Month>07</Month>
+   <Day>08</Day>
+  </DateRevised>
+  <DateEstablished>
+   <Year>1984</Year>
+   <Month>01</Month>
+   <Day>01</Day>
+  </DateEstablished>
+  <ActiveMeSHYearList>
+   <Year>2014</Year>
+  </ActiveMeSHYearList>
+  <AllowableQualifiersList>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000008</QualifierUI>
+      <QualifierName>
+      <String>administration &amp; dosage</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>AD</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000009</QualifierUI>
+      <QualifierName>
+      <String>adverse effects</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>AE</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000031</QualifierUI>
+      <QualifierName>
+      <String>analogs &amp; derivatives</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>AA</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000032</QualifierUI>
+      <QualifierName>
+      <String>analysis</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>AN</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000037</QualifierUI>
+      <QualifierName>
+      <String>antagonists &amp; inhibitors</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>AI</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000096</QualifierUI>
+      <QualifierName>
+      <String>biosynthesis</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>BI</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000097</QualifierUI>
+      <QualifierName>
+      <String>blood</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>BL</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000134</QualifierUI>
+      <QualifierName>
+      <String>cerebrospinal fluid</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>CF</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000138</QualifierUI>
+      <QualifierName>
+      <String>chemical synthesis</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>CS</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000145</QualifierUI>
+      <QualifierName>
+      <String>classification</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>CL</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000176</QualifierUI>
+      <QualifierName>
+      <String>diagnostic use</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>DU</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000191</QualifierUI>
+      <QualifierName>
+      <String>economics</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>EC</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000266</QualifierUI>
+      <QualifierName>
+      <String>history</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>HI</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000276</QualifierUI>
+      <QualifierName>
+      <String>immunology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>IM</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000302</QualifierUI>
+      <QualifierName>
+      <String>isolation &amp; purification</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>IP</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000378</QualifierUI>
+      <QualifierName>
+      <String>metabolism</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>ME</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000493</QualifierUI>
+      <QualifierName>
+      <String>pharmacokinetics</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>PK</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000494</QualifierUI>
+      <QualifierName>
+      <String>pharmacology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>PD</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000506</QualifierUI>
+      <QualifierName>
+      <String>poisoning</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>PO</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000528</QualifierUI>
+      <QualifierName>
+      <String>radiation effects</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>RE</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000592</QualifierUI>
+      <QualifierName>
+      <String>standards</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>ST</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000600</QualifierUI>
+      <QualifierName>
+      <String>supply &amp; distribution</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>SD</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000627</QualifierUI>
+      <QualifierName>
+      <String>therapeutic use</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>TU</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000633</QualifierUI>
+      <QualifierName>
+      <String>toxicity</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>TO</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000652</QualifierUI>
+      <QualifierName>
+      <String>urine</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>UR</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000737</QualifierUI>
+      <QualifierName>
+      <String>chemistry</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>CH</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000744</QualifierUI>
+      <QualifierName>
+      <String>contraindications</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>CT</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000819</QualifierUI>
+      <QualifierName>
+      <String>agonists</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>AG</Abbreviation>
+   </AllowableQualifier>
+  </AllowableQualifiersList>
+  <HistoryNote>91(75); was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)
+  </HistoryNote>
+  <OnlineNote>use CALCIMYCIN to search A 23187 1975-90
+  </OnlineNote>
+  <PublicMeSHNote>91; was A 23187 1975-90 (see under ANTIBIOTICS 1975-83)
+  </PublicMeSHNote>
+  <PreviousIndexingList>
+   <PreviousIndexing>Antibiotics (1973-1974)</PreviousIndexing>
+   <PreviousIndexing>Carboxylic Acids (1973-1974)</PreviousIndexing>
+  </PreviousIndexingList>
+    <PharmacologicalActionList>
+     <PharmacologicalAction>
+      <DescriptorReferredTo>
+       <DescriptorUI>D061207</DescriptorUI>
+        <DescriptorName>
+         <String>Calcium Ionophores</String>
+        </DescriptorName>
+      </DescriptorReferredTo>
+     </PharmacologicalAction>
+     <PharmacologicalAction>
+      <DescriptorReferredTo>
+       <DescriptorUI>D000900</DescriptorUI>
+        <DescriptorName>
+         <String>Anti-Bacterial Agents</String>
+        </DescriptorName>
+      </DescriptorReferredTo>
+     </PharmacologicalAction>
+    </PharmacologicalActionList>
+  <TreeNumberList>
+   <TreeNumber>D03.438.221.173</TreeNumber>
+  </TreeNumberList>
+  <RecordOriginatorsList>
+   <RecordOriginator>NLM</RecordOriginator>
+   <RecordMaintainer>SYSTEM</RecordMaintainer>
+   <RecordAuthorizer>jtk</RecordAuthorizer>
+  </RecordOriginatorsList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M0000001</ConceptUI>
+    <ConceptName>
+     <String>Calcimycin</String>
+    </ConceptName>
+    <CASN1Name>4-Benzoxazolecarboxylic acid, 5-(methylamino)-2-((3,9,11-trimethyl-8-(1-methyl-2-oxo-2-(1H-pyrrol-2-yl)ethyl)-1,7-dioxaspiro(5.5)undec-2-yl)methyl)-, (6S-(6alpha(2S*,3S*),8beta(R*),9beta,11alpha))-</CASN1Name>
+    <RegistryNumber>37H9VM9WZL</RegistryNumber>
+    <ScopeNote>An ionophorous, polyether antibiotic from Streptomyces chartreusensis. It binds and transports CALCIUM and other divalent cations across membranes and uncouples oxidative phosphorylation while inhibiting ATPase of rat liver mitochondria. The substance is used mostly as a biochemical tool to study the role of divalent cations in various biological systems.
+    </ScopeNote>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T195</SemanticTypeUI>
+      <SemanticTypeName>Antibiotic</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <RelatedRegistryNumberList>
+     <RelatedRegistryNumber>52665-69-7 (Calcimycin)</RelatedRegistryNumber>
+    </RelatedRegistryNumberList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0000001</Concept1UI>
+     <Concept2UI>M0353609</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+      <TermUI>T000002</TermUI>
+      <String>Calcimycin</String>
+      <DateCreated>
+       <Year>1999</Year>
+       <Month>01</Month>
+       <Day>01</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>FDA SRS (2014)</ThesaurusID>
+       <ThesaurusID>NLM (1975)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0353609</ConceptUI>
+    <ConceptName>
+     <String>A-23187</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T195</SemanticTypeUI>
+      <SemanticTypeName>Antibiotic</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0000001</Concept1UI>
+     <Concept2UI>M0353609</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="LAB"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T000001</TermUI>
+      <String>A-23187</String>
+      <DateCreated>
+       <Year>1990</Year>
+       <Month>03</Month>
+       <Day>08</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1991)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="Y"  LexicalTag="LAB"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T000001</TermUI>
+      <String>A 23187</String>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T000003</TermUI>
+      <String>Antibiotic A23187</String>
+      <DateCreated>
+       <Year>1990</Year>
+       <Month>03</Month>
+       <Day>08</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1991)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="Y"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T000003</TermUI>
+      <String>A23187, Antibiotic</String>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="LAB"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T000004</TermUI>
+      <String>A23187</String>
+      <DateCreated>
+       <Year>1974</Year>
+       <Month>11</Month>
+       <Day>11</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>UNK (19XX)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </DescriptorRecord>
+</DescriptorRecordSet>
