@@ -1,0 +1,38 @@
+<!-- MeSH DTD file for Supplementary Concept Records. supp2014.dtd -->
+
+<!-- Author: MeSH				-->
+<!-- Effective: 09/01/2013			-->
+
+
+<!ENTITY  % DescriptorRecordSet SYSTEM "desc2014.dtd">
+%DescriptorRecordSet;
+
+<!ENTITY  % ChemicalReference "(SupplementalRecordUI, SupplementalRecordName)">
+
+<!ELEMENT SupplementalRecordSet (SupplementalRecord*)>
+<!ATTLIST SupplementalRecordSet LanguageCode (cze|dut|eng|fin|fre|ger|ita|jpn|lav|por|scr|slv|spa) #REQUIRED>
+<!ELEMENT SupplementalRecord (%ChemicalReference;,
+                            DateCreated,
+                            DateRevised?,
+                            ActiveMeSHYearList,
+                            Note?,
+                            Frequency?,
+                            PreviousIndexingList?,
+                            HeadingMappedToList+,
+                            IndexingInformationList*,
+                            PharmacologicalActionList?,
+                            SourceList*,
+                            RecordOriginatorsList,
+                            ConceptList) >
+<!ATTLIST SupplementalRecord SCRClass (1 | 2 | 3)  "1">
+
+<!ELEMENT Note (#PCDATA)>
+<!ELEMENT SourceList (Source+)>
+<!ELEMENT Source (#PCDATA)>
+<!ELEMENT Frequency (#PCDATA)>
+<!ELEMENT HeadingMappedToList (HeadingMappedTo+)>
+<!ELEMENT HeadingMappedTo (DescriptorReferredTo,QualifierReferredTo?) >
+<!ELEMENT IndexingInformationList (IndexingInformation+)>
+<!ELEMENT IndexingInformation (DescriptorReferredTo,QualifierReferredTo?)>
+<!ELEMENT SupplementalRecordUI (#PCDATA) >
+<!ELEMENT SupplementalRecordName (String) >

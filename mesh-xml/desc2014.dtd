@@ -1,0 +1,142 @@
+<!-- MeSH DTD file for Descriptor records. desc2014.dtd -->
+<!-- Author: MeSH				-->
+<!-- Effective: 09/01/2013			-->
+
+
+<!-- #PCDATA: parseable character data = text
+
+     occurence indicators (default: required, not repeatable):
+     ?: zero or one occurrence, i.e., at most one (optional)
+     *: zero or more occurrences (optional, repeatable)
+     +: one or more occurrences (required, repeatable)
+
+     |: choice, one or the other, but not both
+ -->
+
+<!ENTITY  % DescriptorReference "(DescriptorUI, DescriptorName)">
+<!ENTITY  % normal.date "(Year, Month, Day)">
+<!ENTITY  % ConceptReference "(ConceptUI,ConceptName)">
+<!ENTITY  % QualifierReference "(QualifierUI, QualifierName)">
+<!ENTITY  % TermReference "(TermUI, String)">
+
+
+<!ELEMENT DescriptorRecordSet (DescriptorRecord*)>
+<!ATTLIST DescriptorRecordSet LanguageCode (cze|dut|eng|fin|fre|ger|ita|jpn|lav|por|scr|slv|spa) #REQUIRED>
+
+<!ELEMENT DescriptorRecord (%DescriptorReference;,
+                            DateCreated,
+                            DateRevised?,
+                            DateEstablished?,
+                            ActiveMeSHYearList,
+                            AllowableQualifiersList?,
+                            Annotation?,
+                            HistoryNote?,
+                            OnlineNote?,
+                            PublicMeSHNote?,
+                            PreviousIndexingList?,
+                            EntryCombinationList?,
+                            SeeRelatedList?,
+                            ConsiderAlso?,
+                            PharmacologicalActionList?,
+                            RunningHead?,
+                            TreeNumberList?,
+                            RecordOriginatorsList,
+                            ConceptList) >
+<!ATTLIST DescriptorRecord DescriptorClass (1 | 2 | 3 | 4)  "1">
+
+<!ELEMENT ActiveMeSHYearList (Year+)>
+<!ELEMENT AllowableQualifiersList (AllowableQualifier+) >
+<!ELEMENT AllowableQualifier (QualifierReferredTo,Abbreviation )>
+<!ELEMENT Annotation (#PCDATA)>
+<!ELEMENT ConsiderAlso (#PCDATA) >
+<!ELEMENT Day (#PCDATA)>
+<!ELEMENT DescriptorUI (#PCDATA) >
+<!ELEMENT DescriptorName (String) >
+<!ELEMENT DateCreated (%normal.date;) >
+<!ELEMENT DateRevised (%normal.date;) >
+<!ELEMENT DateEstablished (%normal.date;) >
+<!ELEMENT DescriptorReferredTo (%DescriptorReference;) >
+
+<!ELEMENT EntryCombinationList (EntryCombination+) >
+<!ELEMENT EntryCombination     (ECIN,
+                                ECOUT)>
+<!ELEMENT ECIN (DescriptorReferredTo,QualifierReferredTo) >
+<!ELEMENT ECOUT (DescriptorReferredTo,QualifierReferredTo? ) >
+<!ELEMENT HistoryNote (#PCDATA)>
+<!ELEMENT Month (#PCDATA)>
+<!ELEMENT OnlineNote (#PCDATA)>
+<!ELEMENT PublicMeSHNote (#PCDATA)>
+<!ELEMENT PreviousIndexingList (PreviousIndexing)+>
+<!ELEMENT PreviousIndexing (#PCDATA) >
+<!ELEMENT RecordOriginatorsList (RecordOriginator,
+                                 RecordMaintainer?,
+                                 RecordAuthorizer? )>
+<!ELEMENT RecordOriginator (#PCDATA)>
+<!ELEMENT RecordMaintainer (#PCDATA)>
+<!ELEMENT RecordAuthorizer (#PCDATA)>
+<!ELEMENT RunningHead (#PCDATA)>
+<!ELEMENT QualifierReferredTo (%QualifierReference;) >
+<!ELEMENT QualifierUI (#PCDATA) >
+<!ELEMENT QualifierName (String) >
+<!ELEMENT Year (#PCDATA) >
+<!ELEMENT SeeRelatedList (SeeRelatedDescriptor+)>
+<!ELEMENT SeeRelatedDescriptor (DescriptorReferredTo)>
+<!ELEMENT TreeNumberList (TreeNumber)+>
+<!ELEMENT TreeNumber (#PCDATA)>
+<!ELEMENT ConceptList (Concept+)  >
+<!ELEMENT Concept (%ConceptReference;,
+                   CASN1Name?,
+                   RegistryNumber?,
+                   ScopeNote?,
+                   TranslatorsEnglishScopeNote?,
+                   TranslatorsScopeNote?,
+                   SemanticTypeList?,
+                   RelatedRegistryNumberList?,
+                   ConceptRelationList?,
+                   TermList)>
+<!ATTLIST Concept PreferredConceptYN (Y | N) #REQUIRED >
+
+<!ELEMENT ConceptUI (#PCDATA)>
+<!ELEMENT ConceptName (String)>
+<!ELEMENT ConceptRelationList (ConceptRelation+) >
+<!ELEMENT ConceptRelation (Concept1UI,
+                           Concept2UI,
+                           RelationAttribute?)>
+<!ATTLIST ConceptRelation RelationName (NRW | BRD | REL) #IMPLIED >
+<!ELEMENT Concept1UI (#PCDATA)>
+<!ELEMENT Concept2UI (#PCDATA)>
+<!ELEMENT CASN1Name (#PCDATA)>
+<!ELEMENT PharmacologicalActionList (PharmacologicalAction+)>
+<!ELEMENT PharmacologicalAction (DescriptorReferredTo) >
+<!ELEMENT RegistryNumber (#PCDATA)>
+<!ELEMENT RelatedRegistryNumberList (RelatedRegistryNumber+)>
+<!ELEMENT RelatedRegistryNumber (#PCDATA)>
+<!ELEMENT RelationAttribute (#PCDATA)>
+<!ELEMENT ScopeNote (#PCDATA)>
+<!ELEMENT TranslatorsEnglishScopeNote (#PCDATA)>
+<!ELEMENT TranslatorsScopeNote (#PCDATA)>
+<!ELEMENT SemanticTypeList (SemanticType+)>
+<!ELEMENT SemanticType (SemanticTypeUI, SemanticTypeName) >
+<!ELEMENT SemanticTypeUI (#PCDATA)>
+<!ELEMENT SemanticTypeName (#PCDATA)>
+<!ELEMENT TermList (Term+)>
+<!ELEMENT Term (%TermReference;,
+                DateCreated?,
+                Abbreviation?,
+                SortVersion?,
+                EntryVersion?,
+                ThesaurusIDlist?,
+                TermNote?)>
+<!ATTLIST Term    ConceptPreferredTermYN (Y | N) #REQUIRED
+                  IsPermutedTermYN (Y | N) #REQUIRED
+                  LexicalTag (ABB|ABX|ACR|ACX|EPO|LAB|NAM|NON|TRD|Frelex) #REQUIRED
+                  PrintFlagYN (Y | N) #REQUIRED
+                  RecordPreferredTermYN (Y | N)  #REQUIRED>
+<!ELEMENT TermUI (#PCDATA)>
+<!ELEMENT String (#PCDATA)>
+<!ELEMENT Abbreviation (#PCDATA)>
+<!ELEMENT SortVersion (#PCDATA)>
+<!ELEMENT EntryVersion (#PCDATA)>
+<!ELEMENT ThesaurusIDlist (ThesaurusID+)>
+<!ELEMENT ThesaurusID (#PCDATA)>
+<!ELEMENT TermNote (#PCDATA)>
