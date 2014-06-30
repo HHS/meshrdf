@@ -85,6 +85,7 @@
 <!ELEMENT TreeNumber (#PCDATA)>
 <!ELEMENT ConceptList (Concept+)  >
 <!ELEMENT Concept (%ConceptReference;,
+                   ConceptUMLSUI?,
                    CASN1Name?,
                    RegistryNumber?,
                    ScopeNote?,
@@ -98,6 +99,7 @@
 
 <!ELEMENT ConceptUI (#PCDATA)>
 <!ELEMENT ConceptName (String)>
+<!ELEMENT ConceptUMLSUI (#PCDATA)>
 <!ELEMENT ConceptRelationList (ConceptRelation+) >
 <!ELEMENT ConceptRelation (Concept1UI,
                            Concept2UI,
