@@ -1,0 +1,383 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+#start = 
+#DescriptorRecordSet = element DescriptorRecordSet { element * }
+
+start = ( DescriptorRecordSet | QualifierRecordSet | SupplementalRecordSet )
+
+DescriptorRecordSet = element DescriptorRecordSet {
+  LanguageCode,
+  DescriptorRecord*
+}
+
+LanguageCode = attribute LanguageCode { 
+  "cze" | "dut" | "eng" | "fin" | "fre" | "ger" | "ita" | "jpn" | "lav" | "por" | "scr" | "slv" | "spa" 
+}
+
+DescriptorRecord = element DescriptorRecord {
+  attribute DescriptorClass { "1" | "2" | "3" | "4" },
+  DescriptorReference,
+  DateCreated,
+  DateRevised?,
+  DateEstablished?,
+  ActiveMeSHYearList,
+  AllowableQualifiersList?,
+  Annotation?,
+  HistoryNote?,
+  OnlineNote?,
+  PublicMeSHNote?,
+  PreviousIndexingList?,
+  EntryCombinationList?,
+  SeeRelatedList?,
+  ConsiderAlso?,
+  PharmacologicalActionList?,
+  RunningHead?,
+  TreeNumberList?,
+  RecordOriginatorsList,
+  ConceptList
+}
+
+DescriptorReference = (
+  DescriptorUI,
+  DescriptorName
+)
+
+DescriptorUI = element DescriptorUI { text }
+
+DescriptorName = element DescriptorName { 
+  String
+}
+
+String = element String { text }
+
+DateCreated = element DateCreated {
+  normal.date
+}
+
+normal.date = ( 
+  Year,
+  Month,
+  Day
+)  
+
+Year = element Year { text }
+Month = element Month { text }
+Day = element Day { text }
+
+DateRevised = element DateRevised {
+  normal.date
+}
+
+DateEstablished = element DateEstablished {
+  normal.date
+}
+
+ActiveMeSHYearList = element ActiveMeSHYearList {
+  Year+
+}
+
+AllowableQualifiersList = element AllowableQualifiersList {
+  AllowableQualifier+
+}
+
+AllowableQualifier = element AllowableQualifier {
+  QualifierReferredTo,
+  Abbreviation
+}
+
+QualifierReferredTo = element QualifierReferredTo {
+  QualifierReference
+}
+
+QualifierReference = (
+  QualifierUI, 
+  QualifierName
+)
+
+QualifierUI = element QualifierUI { text }
+
+QualifierName = element QualifierName { String }
+
+Abbreviation = element Abbreviation { text }
+
+Annotation = element Annotation { text }
+
+HistoryNote = element HistoryNote { text }
+
+OnlineNote = element OnlineNote { text }
+
+PublicMeSHNote = element PublicMeSHNote { text }
+
+PreviousIndexingList = element PreviousIndexingList {
+  PreviousIndexing+
+}
+
+PreviousIndexing = element PreviousIndexing { text }
+
+EntryCombinationList = element EntryCombinationList {
+  EntryCombination+
+}
+
+EntryCombination = element EntryCombination {
+  ECIN,
+  ECOUT
+}
+
+ECIN = element ECIN {
+  DescriptorReferredTo,
+  QualifierReferredTo
+}
+
+ECOUT = element ECOUT {
+  DescriptorReferredTo,
+  QualifierReferredTo?
+}
+
+DescriptorReferredTo = element DescriptorReferredTo {
+  DescriptorReference
+}
+
+SeeRelatedList = element SeeRelatedList {
+  SeeRelatedDescriptor+
+}
+
+SeeRelatedDescriptor = element SeeRelatedDescriptor {
+  DescriptorReferredTo
+}
+
+ConsiderAlso = element ConsiderAlso { text }
+
+PharmacologicalActionList = element PharmacologicalActionList {
+  PharmacologicalAction+
+}
+
+PharmacologicalAction = element PharmacologicalAction {
+  DescriptorReferredTo
+}
+
+RunningHead = element RunningHead { text }
+TreeNumberList = element TreeNumberList {
+  TreeNumber+
+}
+
+TreeNumber = element TreeNumber { text }
+
+RecordOriginatorsList = element RecordOriginatorsList {
+  RecordOriginator,
+  RecordMaintainer?,
+  RecordAuthorizer?
+}
+
+RecordOriginator = element RecordOriginator { text }
+
+RecordMaintainer = element RecordMaintainer { text }
+
+RecordAuthorizer = element RecordAuthorizer { text }
+
+ConceptList = element ConceptList {
+  Concept+
+}
+
+Concept = element Concept {
+  attribute PreferredConceptYN { "Y" | "N" },
+  ConceptReference,
+  ConceptUMLSUI?,
+  CASN1Name?,
+  RegistryNumber?,
+  ScopeNote?,
+  TranslatorsEnglishScopeNote?,
+  TranslatorsScopeNote?,
+  SemanticTypeList?,
+  RelatedRegistryNumberList?,
+  ConceptRelationList?,
+  TermList
+}
+
+ConceptReference = (
+  ConceptUI,
+  ConceptName
+)
+
+ConceptUMLSUI = element ConceptUMLSUI { text }
+
+ConceptUI = element ConceptUI { text }
+
+ConceptName = element ConceptName { String }
+
+CASN1Name = element CASN1Name { text }
+
+RegistryNumber = element RegistryNumber { text }
+
+ScopeNote = element ScopeNote { text }
+
+TranslatorsEnglishScopeNote = element TranslatorsEnglishScopeNote { text }
+
+TranslatorsScopeNote = element TranslatorsScopeNote { text }
+
+SemanticTypeList = element SemanticTypeList {
+  SemanticType+
+}
+
+SemanticType = element SemanticType {
+  SemanticTypeUI,
+  SemanticTypeName
+}
+
+SemanticTypeUI = element SemanticTypeUI { text }
+
+SemanticTypeName = element SemanticTypeName { text }
+
+RelatedRegistryNumberList = element RelatedRegistryNumberList {
+  RelatedRegistryNumber+
+}
+
+RelatedRegistryNumber = element RelatedRegistryNumber { text }
+
+ConceptRelationList = element ConceptRelationList {
+  ConceptRelation+
+}
+
+ConceptRelation = element ConceptRelation {
+  attribute RelationName { "NRW" | "BRD" | "REL" },
+  Concept1UI,
+  Concept2UI,
+  RelationAttribute?
+}
+
+Concept1UI = element Concept1UI { text }
+
+Concept2UI = element Concept2UI { text }
+
+RelationAttribute = element RelationAttribute { text }
+
+TermList = element TermList {
+  Term+
+}
+
+Term = element Term {
+  attribute ConceptPreferredTermYN { "Y" | "N" },
+  attribute IsPermutedTermYN { "Y" | "N" },
+  attribute LexicalTag { "ABB" | "ABX" | "ACR" | "ACX" | "EPO" | "LAB" | "NAM" | "NON" | "TRD" | "Frelex" },
+  attribute PrintFlagYN { "Y" | "N" },
+  attribute RecordPreferredTermYN { "Y" | "N" },
+  TermReference,
+  DateCreated?,
+  Abbreviation?,
+  SortVersion?,
+  EntryVersion?,
+  ThesaurusIDlist?,
+  TermNote?  
+}
+
+TermReference = (
+  TermUI, 
+  String
+)
+
+TermUI = element TermUI { text }
+
+SortVersion = element SortVersion { text }
+
+EntryVersion = element EntryVersion { text }
+
+ThesaurusIDlist = element ThesaurusIDlist {
+  ThesaurusID+
+}
+
+TermNote = element TermNote { text }
+
+ThesaurusID = element ThesaurusID { text }
+
+
+#####################################################################
+
+QualifierRecordSet = element QualifierRecordSet {
+  LanguageCode,
+  QualifierRecord*
+}
+
+QualifierRecord = element QualifierRecord {
+  attribute QualifierType { "1" },
+  QualifierReference,
+  DateCreated,
+  DateRevised?,
+  DateEstablished?,
+  ActiveMeSHYearList,
+  Annotation?,
+  HistoryNote?,
+  OnlineNote?,
+  TreeNumberList?,
+  TreeNodeAllowedList?,
+  RecordOriginatorsList,
+  ConceptList
+}
+
+TreeNodeAllowedList = element TreeNodeAllowedList {
+  TreeNodeAllowed+
+}
+
+TreeNodeAllowed = element TreeNodeAllowed { text }
+
+#####################################################################
+
+SupplementalRecordSet = element SupplementalRecordSet {
+  LanguageCode,
+  SupplementalRecord*
+}
+
+SupplementalRecord = element SupplementalRecord {
+  attribute SCRClass { "1" | "2" | "3" },
+  ChemicalReference,
+  DateCreated,
+  DateRevised?,
+  ActiveMeSHYearList,
+  Note?,
+  Frequency?,
+  PreviousIndexingList?,
+  HeadingMappedToList+,
+  IndexingInformationList*,
+  PharmacologicalActionList?,
+  SourceList*,
+  RecordOriginatorsList,
+  ConceptList
+}
+
+ChemicalReference = (
+  SupplementalRecordUI, 
+  SupplementalRecordName
+)
+
+Note = element Note { text }
+
+SourceList = element SourceList {
+  Source+
+}
+
+Source = element Source { text }
+
+Frequency = element Frequency { text }
+
+HeadingMappedToList = element HeadingMappedToList { 
+  HeadingMappedTo+
+}
+
+HeadingMappedTo = element HeadingMappedTo { 
+  DescriptorReferredTo,
+  QualifierReferredTo?
+}
+
+IndexingInformationList = element IndexingInformationList { 
+  IndexingInformation+
+}
+
+IndexingInformation = element IndexingInformation { 
+  DescriptorReferredTo,
+  QualifierReferredTo?
+}
+
+SupplementalRecordUI = element SupplementalRecordUI { text }
+
+SupplementalRecordName = element SupplementalRecordName { 
+  String
+}
+
