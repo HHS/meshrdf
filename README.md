@@ -1,89 +1,59 @@
-MeSH RDF version
-Current MeSH version in use: 2014
+# MeSH® RDF
 
-These are a set of XSLT files that transform MeSH XML into RDF.
+This repository contains a set of XSLT files that transform MeSH XML into RDF.
 
-Please read the MeSH® Memorandum of Understanding before use.
-http://www.nlm.nih.gov/mesh/2014/download/termscon.html
+Please read the [MeSH Memorandum of Understanding](http://www.nlm.nih.gov/mesh/2014/download/termscon.html)
+before use.
 
-To run these, you will first need to download the MeSH XML.  Next, you can use Saxon
-Home edition to run the transformations.  We'll assume that you have downloaded the
-MeSH XML into the same directory as the XSLTs, and Saxon HE into the $SAXON_HOME directory.
+First, clone this repository:
 
-You can then run the transforms as follows:
+    git clone https://github.com/HHS/mesh-rdf.git
+    cd mesh-rdf
 
-```
-java -jar $SAXON_HOME/saxon9he.jar -s:desc2014.xml \
-  -xsl:transformMeSHDescriptors.xsl >desc2014.n3
-```
+Next, you will first need to download the MeSH XML.  Since they are very large, they are not included
+with this repository.  You can get them from [the download page](http://www.nlm.nih.gov/mesh/filelist.html);
+you will have to agree to the terms of use, and fill out a short form.
 
+The mesh-xml subdirectory of this repository already includes many of the smaller downloadable
+files, but not the very large ones.  In particular, you should download the following, and put
+them into the mesh-xml directory:
 
-# Content of the directory
+* desc2014.xml
+* supp2014.xml
+* pa2014.xml
 
-```
-bin/    - executables needed for generation of nt files
-data/   - original MeSH data: XML and DTD files
-doc/    - documentation
-nt/     - generated .nt files
-sql/    - SPARQL query for generation of the hierarchy
-xslt/   - XSLT scripts for transformation of the XML files into RDF
-README
-```
+To run the XSLT transformations, the open-source Saxon Home Edition works fine. You can download
+it from [here](http://sourceforge.net/projects/saxon/files/Saxon-HE/).  Navigate to the latest version,
+and follow the instructions there (the instructions appear after the list of files).  Typically, you'll
+just download the Java Zip file, for example,
+[SaxonHE9-5-1-5J.zip](http://sourceforge.net/projects/saxon/files/Saxon-HE/9.5/SaxonHE9-5-1-5J.zip/download).
 
-
-# Generation of NT files
-
-Generated using XSLTProc encapsulated in a Java class. From xslt/ (contains dtd files):
+We'll assume that you've downloaded and unzipped that into the saxonhe subdirectory, for example:
 
 ```
-java -jar ../bin/XSLTProc.jar ../data/qual2014.xml transformMeSHQualifierRecords.xsl > ../nt/qual2014.nt &
-java -jar ../bin/XSLTProc.jar ../data/desc2014.xml transformMeSHDescriptors.xsl > ../nt/desc2014.nt &
-java -jar ../bin/XSLTProc.jar ../data/supp2014.xml supplConceptRecord.xsl > ../nt/supp2014.nt &
+unzip -d saxonhe SaxonHE9-5-1-5J.zip
 ```
+
+You can then run the transforms as follows.  Since the files are quite huge, you might find that you
+get an error about running out of heap space.  If so, try adding the command line option
+`-Xmx2G` immediately after the `java` command.
+
+```
+cd mesh-xml
+java -jar ../saxonhe/saxon9he.jar -s:desc2014.xml \
+  -xsl:../transformMeSHDescriptors.xsl > desc2014.n3
+java -jar ../saxonhe/saxon9he.jar -s:qual2014.xml \
+  -xsl:../transformMeSHQualifierRecords.xsl > qual2014.n3
+java -jar ../saxonhe/saxon9he.jar -s:supp2014.xml \
+  -xsl:../supplConceptRecord.xsl > supp2014.n3
+```
+
 
 
 # Generation of the hierarchy
 
+***FIXME:  where is this file?  How does it work?***
+
 In an RDF database, script creatMeSHHierarchy.sql create a relation
 child mesh:upperDescriptor parent based on tree numbers
-
-
-# Technical comments
-
-XSLT script history
--------------------
-
-- supplConceptRecord.xsl was modified on 2013-01-11
-  * to correct the representation of Terms in Supplementary concept records (adding a blank node for termData)
-  * to handle asterisked DescriptorUIs (added a isDescriptorStarred annotation, and removed the asterisk from the identifier)
-  * removed redundancy for type, identifier and label of descriptor mapped via the isMappedToDescriptor relations (type, identifier and label are already present in the descriptors)
-
-MeSH NT files generation
-------------------------
-
-***2014-03-27, By Rainer***
-
-Changed the procedure for creating descriptor hierarchy sql/createMeSHHierarchy.sql:
-
-- in mesh2014 graph added "?child skos:broader ?parent" triples for direct child/parent relations
- - replacing mesh:upperDescriptor with skos:broader
- - replacing regular expression in insert script with substring filter (performace increase)
-sql/createMeSHTC.sql:
-- in mesh_tc_2014 added tc for ALL descriptors based on skos:broader relations for direct child/parent relations
-
-***2013-11-25, By Rainer***
-
-- Applied xslt on MeSH 2014 files
-- Downloaded MeSH 2014 files
-
-
-***2013-01-11, By Bastien***
-
-- Modified xslt for the transformation of supplementary concepts
-- Applied modified xslt on MeSH 2013 files
-
-***2012-10-17, By Bastien***
-
-- Applied historical xslt on MeSH 2013 files
-- Downloaded MeSH 2013 files
 
