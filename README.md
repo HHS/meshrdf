@@ -68,7 +68,7 @@ xslt - The main XSLT processor files that convert the XML into RDF.
 ```
 
 
-# Generation of the tree hierarchy
+## Generation of the tree hierarchy
 
 Once the original RDF data has been loaded to an RDF database such as Virtuoso, the script
 sql/createMeSHHierarchy.sql creates skos:broader links between parent and child nodes
