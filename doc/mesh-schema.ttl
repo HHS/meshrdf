@@ -434,3 +434,19 @@ dcterms:identifier 					rdfs:domain	mesh:Term .
 dcterms:identifier 					rdfs:domain	mesh:TermData .
 dcterms:identifier					rdfs:range	rdfs:Literal . 
 
+
+
+mesh:DescriptorQualifierPair	rdf:type	rdf:Class .
+
+mesh:has_descriptor	rdfs:domain	mesh:DescriptorQualifierPair	.
+mesh:has_descriptor	rdfs:range	mesh:Descriptor .
+mesh:has_descriptor	rdf:type	rdf:Property .
+mesh:has_descriptor	dcterms:identifier	'has_descriptor' .
+mesh:has_descriptor	rdfs:label	'has_descriptor' .
+
+mesh:has_qualifier	rdfs:domain	mesh:DescriptorQualifierPair	.
+mesh:has_qualifier	rdfs:range	mesh:Qualifier	.
+mesh:has_qualifier	rdf:type	rdf:Property .
+mesh:has_qualifier	dcterms:identifier	'has_qualifier' .
+mesh:has_qualifier	rdfs:label	'has_qualifier' .
+
