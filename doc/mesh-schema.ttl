@@ -45,13 +45,13 @@ mesh:allowedTreeNode				rdfs:label	'allowedTreeNode' .
 
 mesh:annotation						rdfs:domain	mesh:Descriptor .
 mesh:annotation						rdfs:domain	mesh:Qualifier .
-mesh:annotation						rdfs:range	rdfs:Literal . 
+mesh:annotation						rdfs:range	rdfs:Literal .
 mesh:annotation						rdf:type	rdf:Property .
 mesh:annotation						dcterms:identifier	'annotation' .
 mesh:annotation						rdfs:label	'annotation' .
 
 mesh:CASN1_label					rdfs:domain	mesh:Concept .
-mesh:CASN1_label					rdfs:range	rdfs:Literal . 
+mesh:CASN1_label					rdfs:range	rdfs:Literal .
 mesh:CASN1_label					rdf:type	rdf:Property .
 mesh:CASN1_label					dcterms:identifier	'CASN1_label' .
 mesh:CASN1_label					rdfs:label	'CASN1_label' .
@@ -83,7 +83,7 @@ mesh:conceptRelation				dcterms:identifier	'conceptRelation' .
 mesh:conceptRelation				rdfs:label	'conceptRelation' .
 
 mesh:considerAlso					rdfs:domain	mesh:Descriptor .
-mesh:considerAlso					rdfs:range	rdfs:Literal . 
+mesh:considerAlso					rdfs:range	rdfs:Literal .
 mesh:considerAlso					rdf:type	rdf:Property .
 mesh:considerAlso					dcterms:identifier	'considerAlso' .
 mesh:considerAlso					rdfs:label	'considerAlso' .
@@ -93,14 +93,14 @@ mesh:dateCreated					rdfs:domain	mesh:Qualifier .
 mesh:dateCreated					rdfs:domain	mesh:SupplementaryConceptRecord .
 mesh:dateCreated					rdfs:domain	mesh:Term .
 mesh:dateCreated					rdfs:domain	mesh:TermData .
-mesh:dateCreated					rdfs:range	rdfs:Literal . 
+mesh:dateCreated					rdfs:range	rdfs:Literal .
 mesh:dateCreated					rdf:type	rdf:Property .
 mesh:dateCreated					dcterms:identifier	'dateCreated' .
 mesh:dateCreated					rdfs:label	'dateCreated' .
 
 mesh:dateEstablished				rdfs:domain	mesh:Descriptor .
 mesh:dateEstablished				rdfs:domain	mesh:Qualifier .
-mesh:dateEstablished				rdfs:range	rdfs:Literal . 
+mesh:dateEstablished				rdfs:range	rdfs:Literal .
 mesh:dateEstablished				rdf:type	rdf:Property .
 mesh:dateEstablished				dcterms:identifier	'dateEstablished' .
 mesh:dateEstablished				rdfs:label	'dateEstablished' .
@@ -108,13 +108,13 @@ mesh:dateEstablished				rdfs:label	'dateEstablished' .
 mesh:dateRevised					rdfs:domain	mesh:Descriptor .
 mesh:dateRevised					rdfs:domain	mesh:Qualifier .
 mesh:dateRevised					rdfs:domain	mesh:SupplementaryConceptRecord .
-mesh:dateRevised					rdfs:range	rdfs:Literal . 
+mesh:dateRevised					rdfs:range	rdfs:Literal .
 mesh:dateRevised					rdf:type	rdf:Property .
 mesh:dateRevised					dcterms:identifier	'dateRevised' .
 mesh:dateRevised					rdfs:label	'dateRevised' .
 
 mesh:DescriptorClass				rdfs:domain	mesh:Descriptor .
-mesh:descriptorClass				rdfs:range	rdfs:Literal . 
+mesh:descriptorClass				rdfs:range	rdfs:Literal .
 mesh:descriptorClass				rdf:type	rdf:Property .
 mesh:descriptorClass				dcterms:identifier	'descriptorClass' .
 mesh:descriptorClass				rdfs:label	'descriptorClass' .
@@ -151,20 +151,20 @@ mesh:entryCombination				rdfs:label	'entryCombination' .
 
 mesh:entryVersion					rdfs:domain	mesh:Term .
 mesh:entryVersion					rdfs:domain	mesh:TermData .
-mesh:entryVersion					rdfs:range	rdfs:Literal . 
+mesh:entryVersion					rdfs:range	rdfs:Literal .
 mesh:entryVersion					rdf:type	rdf:Property .
 mesh:entryVersion					dcterms:identifier	'entryVersion' .
 mesh:entryVersion					rdfs:label	'entryVersion' .
 
 mesh:frequency						rdfs:domain	mesh:SupplementaryConceptRecord .
-mesh:frequency						rdfs:range	rdfs:Literal . 
+mesh:frequency						rdfs:range	rdfs:Literal .
 mesh:frequency						rdf:type	rdf:Property .
 mesh:frequency						dcterms:identifier	'frequency' .
 mesh:frequency						rdfs:label	'frequency' .
 
 mesh:historyNote					rdfs:domain	mesh:Descriptor .
 mesh:historyNote					rdfs:domain	mesh:Qualifier .
-mesh:historyNote					rdfs:range	rdfs:Literal . 
+mesh:historyNote					rdfs:range	rdfs:Literal .
 mesh:historyNote					rdf:type	rdf:Property .
 mesh:historyNote					dcterms:identifier	'historyNote' .
 mesh:historyNote					rdfs:label	'historyNote' .
@@ -189,13 +189,13 @@ mesh:indexingQualifier				rdfs:label	'indexingQualifier' .
 
 mesh:isConceptPreferredTerm			rdfs:domain	mesh:Term .
 mesh:isConceptPreferredTerm			rdfs:domain	mesh:TermData .
-mesh:isConceptPreferredTerm			rdfs:range	rdfs:Literal . 
+mesh:isConceptPreferredTerm			rdfs:range	rdfs:Literal .
 mesh:isConceptPreferredTerm			rdf:type	rdf:Property .
 mesh:isConceptPreferredTerm			dcterms:identifier	'isConceptPreferredTerm' .
 mesh:isConceptPreferredTerm			rdfs:label	'isConceptPreferredTerm' .
 
 mesh:isDescriptorStarred			rdfs:domain	mesh:MappedData
-mesh:isDescriptorStarred			rdfs:range	rdfs:Literal . 
+mesh:isDescriptorStarred			rdfs:range	rdfs:Literal .
 mesh:isDescriptorStarred			rdf:type	rdf:Property .
 mesh:isDescriptorStarred			dcterms:identifier	'isDescriptorStarred' .
 mesh:isDescriptorStarred			rdfs:label	'isDescriptorStarred' .
@@ -214,39 +214,39 @@ mesh:isMappedToQualifier			rdfs:label	'isMappedToQualifier' .
 
 mesh:isPermutedTerm					rdfs:domain	mesh:Term .
 mesh:isPermutedTerm					rdfs:domain	mesh:TermData .
-mesh:isPermutedTerm					rdfs:range	rdfs:Literal . 
+mesh:isPermutedTerm					rdfs:range	rdfs:Literal .
 mesh:isPermutedTerm					rdf:type	rdf:Property .
 mesh:isPermutedTerm					dcterms:identifier	'isPermutedTerm' .
 mesh:isPermutedTerm					rdfs:label	'isPermutedTerm' .
 
 mesh:isPreferredConcept				rdfs:domain	mesh:Concept
-mesh:isPreferredConcept				rdfs:range	rdfs:Literal . 
+mesh:isPreferredConcept				rdfs:range	rdfs:Literal .
 mesh:isPreferredConcept				rdf:type	rdf:Property .
 mesh:isPreferredConcept				dcterms:identifier	'isPreferredConcept' .
 mesh:isPreferredConcept				rdfs:label	'isPreferredConcept' .
 
 mesh:isQualifierStarred				rdfs:domain	mesh:MappedData
-mesh:isQualifierStarred				rdfs:range	rdfs:Literal . 
+mesh:isQualifierStarred				rdfs:range	rdfs:Literal .
 mesh:isQualifierStarred				rdf:type	rdf:Property .
 mesh:isQualifierStarred				dcterms:identifier	'isQualifierStarred' .
 mesh:isQualifierStarred				rdfs:label	'isQualifierStarred' .
 
 mesh:isQualifierType				rdfs:domain	mesh:Qualifier .
-mesh:isQualifierType				rdfs:range	rdfs:Literal . 
+mesh:isQualifierType				rdfs:range	rdfs:Literal .
 mesh:isQualifierType				rdf:type	rdf:Property .
 mesh:isQualifierType				dcterms:identifier	'isQualifierType' .
 mesh:isQualifierType				rdfs:label	'isQualifierType' .
 
 mesh:isRecordPreferredTerm			rdfs:domain	mesh:Term .
 mesh:isRecordPreferredTerm			rdfs:domain	mesh:TermData .
-mesh:isRecordPreferredTerm			rdfs:range	rdfs:Literal . 
+mesh:isRecordPreferredTerm			rdfs:range	rdfs:Literal .
 mesh:isRecordPreferredTerm			rdf:type	rdf:Property .
 mesh:isRecordPreferredTerm			dcterms:identifier	'isRecordPreferredTerm' .
 mesh:isRecordPreferredTerm			rdfs:label	'isRecordPreferredTerm' .
 
 mesh:lexicalTag						rdfs:domain	mesh:Term .
 mesh:lexicalTag						rdfs:domain	mesh:TermData .
-mesh:lexicalTag						rdfs:range	rdfs:Literal . 
+mesh:lexicalTag						rdfs:range	rdfs:Literal .
 mesh:lexicalTag						rdf:type	rdf:Property .
 mesh:lexicalTag						dcterms:identifier	'lexicalTag' .
 mesh:lexicalTag						rdfs:label	'lexicalTag' .
@@ -258,14 +258,14 @@ mesh:mappedData						dcterms:identifier	'mappedData' .
 mesh:mappedData						rdfs:label	'mappedData' .
 
 mesh:note							rdfs:domain	mesh:SupplementaryConceptRecord .
-mesh:note							rdfs:range	rdfs:Literal . 
+mesh:note							rdfs:range	rdfs:Literal .
 mesh:note							rdf:type	rdf:Property .
 mesh:note							dcterms:identifier	'note' .
 mesh:note							rdfs:label	'note' .
 
 mesh:onlineNote						rdfs:domain	mesh:Descriptor .
 mesh:onlineNote						rdfs:domain	mesh:Qualifier .
-mesh:onlineNote						rdfs:range	rdfs:Literal . 
+mesh:onlineNote						rdfs:range	rdfs:Literal .
 mesh:onlineNote						rdf:type	rdf:Property .
 mesh:onlineNote						dcterms:identifier	'onlineNote' .
 mesh:onlineNote						rdfs:label	'onlineNote' .
@@ -279,20 +279,20 @@ mesh:pharmacologicalAction			rdfs:label	'pharmacologicalAction' .
 
 mesh:previousIndexing				rdfs:domain	mesh:Descriptor .
 mesh:previousIndexing				rdfs:domain	mesh:SupplementaryConceptRecord .
-mesh:previousIndexing				rdfs:range	rdfs:Literal . 
+mesh:previousIndexing				rdfs:range	rdfs:Literal .
 mesh:previousIndexing				rdf:type	rdf:Property .
 mesh:previousIndexing				dcterms:identifier	'previousIndexing' .
 mesh:previousIndexing				rdfs:label	'previousIndexing' .
 
 mesh:printFlag						rdfs:domain	mesh:Term .
 mesh:printFlag						rdfs:domain	mesh:TermData .
-mesh:printFlag						rdfs:range	rdfs:Literal . 
+mesh:printFlag						rdfs:range	rdfs:Literal .
 mesh:printFlag						rdf:type	rdf:Property .
 mesh:printFlag						dcterms:identifier	'printFlag' .
 mesh:printFlag						rdfs:label	'printFlag' .
 
 mesh:publicmeshNote					rdfs:domain	mesh:Descriptor .
-mesh:publicMeSHNote					rdfs:range	rdfs:Literal . 
+mesh:publicMeSHNote					rdfs:range	rdfs:Literal .
 mesh:publicMeSHNote					rdf:type	rdf:Property .
 mesh:publicMeSHNote					dcterms:identifier	'publicMeSHNote' .
 mesh:publicMeSHNote					rdfs:label	'publicMeSHNote' .
@@ -300,7 +300,7 @@ mesh:publicMeSHNote					rdfs:label	'publicMeSHNote' .
 mesh:recordAuthorizer				rdfs:domain	mesh:Descriptor .
 mesh:recordAuthorizer				rdfs:domain	mesh:Qualifier .
 mesh:recordAuthorizer				rdfs:domain	mesh:SupplementaryConceptRecord .
-mesh:recordAuthorizer				rdfs:range	rdfs:Literal . 
+mesh:recordAuthorizer				rdfs:range	rdfs:Literal .
 mesh:recordAuthorizer				rdf:type	rdf:Property .
 mesh:recordAuthorizer				dcterms:identifier	'recordAuthorizer' .
 mesh:recordAuthorizer				rdfs:label	'recordAuthorizer' .
@@ -308,7 +308,7 @@ mesh:recordAuthorizer				rdfs:label	'recordAuthorizer' .
 mesh:recordMaintainer				rdfs:domain	mesh:Descriptor .
 mesh:recordMaintainer				rdfs:domain	mesh:Qualifier .
 mesh:recordMaintainer				rdfs:domain	mesh:SupplementaryConceptRecord .
-mesh:recordMaintainer				rdfs:range	rdfs:Literal . 
+mesh:recordMaintainer				rdfs:range	rdfs:Literal .
 mesh:recordMaintainer				rdf:type	rdf:Property .
 mesh:recordMaintainer				dcterms:identifier	'recordMaintainer' .
 mesh:recordMaintainer				rdfs:label	'recordMaintainer' .
@@ -316,43 +316,43 @@ mesh:recordMaintainer				rdfs:label	'recordMaintainer' .
 mesh:recordOriginator				rdfs:domain	mesh:Descriptor .
 mesh:recordOriginator				rdfs:domain	mesh:Qualifier .
 mesh:recordOriginator				rdfs:domain	mesh:SupplementaryConceptRecord .
-mesh:recordOriginator				rdfs:range	rdfs:Literal . 
+mesh:recordOriginator				rdfs:range	rdfs:Literal .
 mesh:recordOriginator				rdf:type	rdf:Property .
 mesh:recordOriginator				dcterms:identifier	'recordOriginator' .
 mesh:recordOriginator				rdfs:label	'recordOriginator' .
 
 mesh:registryNumber					rdfs:domain	mesh:Concept .
-mesh:registryNumber					rdfs:range	rdfs:Literal . 
+mesh:registryNumber					rdfs:range	rdfs:Literal .
 mesh:registryNumber					rdf:type	rdf:Property .
 mesh:registryNumber					dcterms:identifier	'registryNumber' .
 mesh:registryNumber					rdfs:label	'registryNumber' .
 
 mesh:relatedRegistryNumber			rdfs:domain	mesh:Concept .
-mesh:relatedRegistryNumber			rdfs:range	rdfs:Literal . 
+mesh:relatedRegistryNumber			rdfs:range	rdfs:Literal .
 mesh:relatedRegistryNumber			rdf:type	rdf:Property .
 mesh:relatedRegistryNumber			dcterms:identifier	'relatedRegistryNumber' .
 mesh:relatedRegistryNumber			rdfs:label	'relatedRegistryNumber' .
 
 mesh:relationAttribute				rdfs:domain	mesh:ConceptRelation .
-mesh:relationAttribute				rdfs:range	rdfs:Literal . 
+mesh:relationAttribute				rdfs:range	rdfs:Literal .
 mesh:relationAttribute				rdf:type	rdf:Property .
 mesh:relationAttribute				dcterms:identifier	'relationAttribute' .
 mesh:relationAttribute				rdfs:label	'relationAttribute' .
 
 mesh:relation						rdfs:domain	mesh:ConceptRelation .
-mesh:relation						rdfs:range	rdfs:Literal . 
+mesh:relation						rdfs:range	rdfs:Literal .
 mesh:relation						rdf:type	rdf:Property .
 mesh:relation						dcterms:identifier	'relation' .
 mesh:relation						rdfs:label	'relation' .
 
 mesh:runningHead					rdfs:domain	mesh:Descriptor .
-mesh:runningHead					rdfs:range	rdfs:Literal . 
+mesh:runningHead					rdfs:range	rdfs:Literal .
 mesh:runningHead					rdf:type	rdf:Property .
 mesh:runningHead					dcterms:identifier	'runningHead' .
 mesh:runningHead					rdfs:label	'runningHead' .
 
 mesh:SCRClass						rdfs:domain	mesh:SupplementaryConceptRecord .
-mesh:SCRClass						rdfs:range	rdfs:Literal . 
+mesh:SCRClass						rdfs:range	rdfs:Literal .
 mesh:SCRClass						rdf:type	rdf:Property .
 mesh:SCRClass						dcterms:identifier	'SCRClass' .
 mesh:SCRClass						rdfs:label	'SCRClass' .
@@ -365,13 +365,13 @@ mesh:semanticType					rdfs:label	'semanticType' .
 
 mesh:sortVersion					rdfs:domain	mesh:Term .
 mesh:sortVersion					rdfs:domain	mesh:TermData .
-mesh:sortVersion					rdfs:range	rdfs:Literal . 
+mesh:sortVersion					rdfs:range	rdfs:Literal .
 mesh:sortVersion					rdf:type	rdf:Property .
 mesh:sortVersion					dcterms:identifier	'sortVersion' .
 mesh:sortVersion					rdfs:label	'sortVersion' .
 
 mesh:source							rdfs:domain	mesh:SupplementaryConceptRecord .
-mesh:source							rdfs:range	rdfs:Literal . 
+mesh:source							rdfs:range	rdfs:Literal .
 mesh:source							rdf:type	rdf:Property .
 mesh:source							dcterms:identifier	'source' .
 mesh:source							rdfs:label	'source' .
@@ -389,14 +389,14 @@ mesh:term							dcterms:identifier	'term' .
 mesh:term							rdfs:label	'term' .
 
 mesh:thesaurusID					rdfs:domain	mesh:TermData .
-mesh:thesaurusID					rdfs:range	rdfs:Literal . 
+mesh:thesaurusID					rdfs:range	rdfs:Literal .
 mesh:thesaurusID					rdf:type	rdf:Property .
 mesh:thesaurusID					dcterms:identifier	'thesaurusID' .
 mesh:thesaurusID					rdfs:label	'thesaurusID' .
 
 mesh:treeNumber						rdfs:domain	mesh:Descriptor .
 mesh:treeNumber						rdfs:domain	mesh:Qualifier .
-mesh:treeNumber						rdfs:range	rdfs:Literal . 
+mesh:treeNumber						rdfs:range	rdfs:Literal .
 mesh:treeNumber						rdf:type	rdf:Property .
 mesh:treeNumber						dcterms:identifier	'treeNumber' .
 mesh:treeNumber						rdfs:label	'treeNumber' .
@@ -412,7 +412,7 @@ rdfs:label							rdfs:domain	mesh:SemanticType .
 rdfs:label							rdfs:domain	mesh:SupplementaryConceptRecord .
 rdfs:label							rdfs:domain	mesh:Term .
 rdfs:label							rdfs:domain	mesh:TermData .
-rdfs:label							rdfs:range	rdfs:Literal . 
+rdfs:label							rdfs:range	rdfs:Literal .
 
 rdfs:seeAlso						rdfs:domain	mesh:Descriptor .
 rdfs:seeAlso						rdfs:range	mesh:Descriptor .
@@ -423,7 +423,7 @@ skos:broader						rdfs:range	mesh:Descriptor .
 skos:broader						rdfs:range	mesh:Qualifier .
 
 skos:scopeNote						rdfs:domain	mesh:Concept .
-skos:scopeNote						rdfs:range	rdfs:Literal . 
+skos:scopeNote						rdfs:range	rdfs:Literal .
 
 dcterms:identifier					rdfs:domain	mesh:Concept .
 dcterms:identifier 					rdfs:domain	mesh:Descriptor .
@@ -432,7 +432,7 @@ dcterms:identifier 					rdfs:domain	mesh:SemanticType .
 dcterms:identifier 					rdfs:domain	mesh:SupplementaryConceptRecord .
 dcterms:identifier 					rdfs:domain	mesh:Term .
 dcterms:identifier 					rdfs:domain	mesh:TermData .
-dcterms:identifier					rdfs:range	rdfs:Literal . 
+dcterms:identifier					rdfs:range	rdfs:Literal .
 
 
 
