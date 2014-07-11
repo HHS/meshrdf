@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-
-<!--
 <!DOCTYPE xsl:stylesheet [
-  <!ENTITY uri1 "<http://nlm.nih.gov#MeSH:">
+  <!ENTITY dcterms "http://purl.org/dc/terms/">
+  <!ENTITY mesh "http://nlm.nih.gov#MeSH:">
 ]>
--->
+
 
 <xsl:stylesheet version="2.0" 
-     xmlns:defaultns="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#"
+     xmlns:meshrdf="http://nlm.nih.gov/ns/meshrdf"
      xmlns:xs="http://www.w3.org/2001/XMLSchema"
      xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -16,7 +15,8 @@
 <!--
 Function name: replace-substring
 =================================
-Description: This function takes a string and replaces the occurence of a substring, "from", with that of another substring, "to".
+Description: This function takes a string and replaces all occurences of a substring `from` with
+that of another substring `to`.
 -->
 
 <xsl:template name="replace-substring">
@@ -55,11 +55,17 @@ Description: This function takes a string and replaces the occurence of a substr
       ===================================================================================
       Need to address: N/A
       -->
-            
-      <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-      <xsl:text disable-output-escaping="yes">&lt;http://purl.org/dc/terms/identifier&gt; </xsl:text> 
-      <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
-
+      
+      <xsl:value-of select='meshrdf:triple-literal(
+          concat("&mesh;", DescriptorUI), 
+          "&dcterms;identifier", 
+          DescriptorUI
+        )'/>
+    <!--
+      <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+      <xsl:text>&lt;http://purl.org/dc/terms/identifier&gt; </xsl:text> 
+      <xsl:text>"</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>" .&#10;</xsl:text>
+    -->
 
       <!--
       Transformation rule: rdf:type
@@ -69,9 +75,16 @@ Description: This function takes a string and replaces the occurence of a substr
       Additional: This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".
       -->
 
-      <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-      <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
-      <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:Descriptor&gt; .&#10;</xsl:text> 
+      <xsl:value-of select='meshrdf:triple-uri(
+          concat("&mesh;", DescriptorUI), 
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "&mesh;Descriptor"
+        )'/>
+    <!--
+      <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text>
+      <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
+      <xsl:text>&lt;&mesh;Descriptor&gt; .&#10;</xsl:text>
+    -->
 
       
       <!-- 
@@ -84,9 +97,9 @@ Description: This function takes a string and replaces the occurence of a substr
       Need to address: N/A
       -->
       
-      <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-      <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:descriptorClass> </xsl:text> 
-      <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="@DescriptorClass"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>  
+      <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+      <xsl:text>&lt;&mesh;descriptorClass> </xsl:text> 
+      <xsl:text>"</xsl:text><xsl:value-of select="@DescriptorClass"/><xsl:text>" .&#10;</xsl:text>  
 
       <!--
       Transformation rule: rdfs:label
@@ -98,16 +111,16 @@ Description: This function takes a string and replaces the occurence of a substr
       Need to address: N/A.
       -->
       
-      <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-      <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text> 
-      <xsl:text disable-output-escaping="yes">"</xsl:text>
+      <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+      <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text> 
+      <xsl:text>"</xsl:text>
       <xsl:call-template name="replace-substring">
          <!-- escape any double-quote character as per the N-Triple format specification --> 
          <xsl:with-param name="value" select="DescriptorName/String"/>
          <xsl:with-param name="from" select="'&quot;'"/>
          <xsl:with-param name="to">\"</xsl:with-param>
       </xsl:call-template>
-      <xsl:text disable-output-escaping="yes">" .&#10;</xsl:text> 
+      <xsl:text>" .&#10;</xsl:text> 
       
       <xsl:for-each select="ConceptList/Concept">
       
@@ -121,10 +134,10 @@ Description: This function takes a string and replaces the occurence of a substr
         Need to address: N/A.
         -->
         
-        <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-        <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:concept&gt; </xsl:text> 
-        <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text disable-output-escaping="yes">&gt;</xsl:text>
-        <xsl:text disable-output-escaping="yes"> .&#10;</xsl:text> 
+        <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+        <xsl:text>&lt;&mesh;concept&gt; </xsl:text> 
+        <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text>&gt;</xsl:text>
+        <xsl:text> .&#10;</xsl:text> 
 
 
        <!--
@@ -136,9 +149,9 @@ Description: This function takes a string and replaces the occurence of a substr
        ========================================================================================================
        Need to address: N/A.
        -->
-       <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-       <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
-       <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:Concept&gt; .&#10;</xsl:text> 
+       <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text>&gt; </xsl:text>
+       <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
+       <xsl:text>&lt;&mesh;Concept&gt; .&#10;</xsl:text> 
 
         <!--
         Transformation rule: isPreferredConcept
@@ -153,15 +166,15 @@ Description: This function takes a string and replaces the occurence of a substr
         <!-- isPreferredConcept -->
         <!-- Y/N -->
         <xsl:if test="@PreferredConceptYN = 'Y'">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:isPreferredConcept> </xsl:text>
-          <xsl:text disable-output-escaping="yes">"Y</xsl:text><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text>&gt; </xsl:text>
+          <xsl:text>&lt;&mesh;isPreferredConcept> </xsl:text>
+          <xsl:text>"Y</xsl:text><xsl:text>" .&#10;</xsl:text>
         </xsl:if>
 
         <xsl:if test="@PreferredConceptYN = 'N'">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:isPreferredConcept> </xsl:text>
-          <xsl:text disable-output-escaping="yes">"N</xsl:text><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text>&gt; </xsl:text>
+          <xsl:text>&lt;&mesh;isPreferredConcept> </xsl:text>
+          <xsl:text>"N</xsl:text><xsl:text>" .&#10;</xsl:text>
         </xsl:if>
         
         <!--
@@ -174,16 +187,16 @@ Description: This function takes a string and replaces the occurence of a substr
         Need to address: N/A
         -->
         
-        <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-        <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
-        <xsl:text disable-output-escaping="yes">"</xsl:text>
+        <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text>&gt; </xsl:text> 
+        <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
+        <xsl:text>"</xsl:text>
         <xsl:call-template name="replace-substring">
           <!-- escape any double-quote character as per the N-Triple format specification --> 
           <xsl:with-param name="value" select="ConceptName/String"/>
           <xsl:with-param name="from" select="'&quot;'"/>
           <xsl:with-param name="to">\"</xsl:with-param>
         </xsl:call-template>
-        <xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+        <xsl:text>" .&#10;</xsl:text>
 
         <!--
         Transformation rule: dcterms:identifier
@@ -195,9 +208,9 @@ Description: This function takes a string and replaces the occurence of a substr
         Need to address: N/A.
         -->
 
-        <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-        <xsl:text disable-output-escaping="yes">&lt;http://purl.org/dc/terms/identifier&gt; </xsl:text> 
-        <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+        <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text>&gt; </xsl:text> 
+        <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text> 
+        <xsl:text>"</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text>" .&#10;</xsl:text>
         
         <!--
         Transformation rule: UMLS_CUI
@@ -210,9 +223,9 @@ Description: This function takes a string and replaces the occurence of a substr
         -->
         
         <xsl:if test="ConceptUMLSUI">
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:UMLS_CUI> </xsl:text> 
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#UMLS_MT:</xsl:text><xsl:value-of select="ConceptUMLSUI"/><xsl:text disable-output-escaping="yes">&gt; .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text>&gt; </xsl:text> 
+            <xsl:text>&lt;&mesh;UMLS_CUI> </xsl:text> 
+            <xsl:text>&lt;http://nlm.nih.gov#UMLS_MT:</xsl:text><xsl:value-of select="ConceptUMLSUI"/><xsl:text>&gt; .&#10;</xsl:text>
         </xsl:if>
         
         <!--
@@ -226,9 +239,9 @@ Description: This function takes a string and replaces the occurence of a substr
         -->
         
         <xsl:if test="CASN1Name">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:CASN1_label&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="CASN1Name"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;CASN1_label&gt; </xsl:text> 
+          <xsl:text>"</xsl:text><xsl:value-of select="CASN1Name"/><xsl:text>" .&#10;</xsl:text>
         </xsl:if>
         
         <!--
@@ -242,9 +255,9 @@ Description: This function takes a string and replaces the occurence of a substr
         -->
         
         <xsl:if test="RegistryNumber">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:registryNumber> </xsl:text> 
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="RegistryNumber"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;registryNumber> </xsl:text> 
+          <xsl:text>"</xsl:text><xsl:value-of select="RegistryNumber"/><xsl:text>" .&#10;</xsl:text>
         </xsl:if>
         
         <!--
@@ -257,9 +270,9 @@ Description: This function takes a string and replaces the occurence of a substr
         Need to address: N/A.
         -->
         <xsl:if test="ScopeNote">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/2004/02/skos/core#scopeNote&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">"</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ConceptUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;http://www.w3.org/2004/02/skos/core#scopeNote&gt; </xsl:text> 
+          <xsl:text>"</xsl:text>
           
           
           <xsl:call-template name="replace-substring">
@@ -267,7 +280,7 @@ Description: This function takes a string and replaces the occurence of a substr
             <xsl:with-param name="from" select="'&#10;'"/>
             <xsl:with-param name="to">&#10;</xsl:with-param>
           </xsl:call-template>
-          <xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>" .&#10;</xsl:text>
         </xsl:if>
         
         <xsl:if test="SemanticTypeList">
@@ -282,10 +295,10 @@ Description: This function takes a string and replaces the occurence of a substr
             =====================================================================
             Need to address: N/A.
             -->
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="../../ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:semanticType> </xsl:text> 
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="SemanticTypeUI"/><xsl:text disable-output-escaping="yes">&gt;</xsl:text>
-            <xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../ConceptUI"/><xsl:text>&gt; </xsl:text> 
+            <xsl:text>&lt;&mesh;semanticType> </xsl:text> 
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="SemanticTypeUI"/><xsl:text>&gt;</xsl:text>
+            <xsl:text> .&#10;</xsl:text>
 
 
 	    <!--
@@ -298,9 +311,9 @@ Description: This function takes a string and replaces the occurence of a substr
             Need to address: N/A.
             -->
 
-           <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="SemanticTypeUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-           <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
-           <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:SemanticType&gt; .&#10;</xsl:text> 
+           <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="SemanticTypeUI"/><xsl:text>&gt; </xsl:text>
+           <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
+           <xsl:text>&lt;&mesh;SemanticType&gt; .&#10;</xsl:text> 
         
     
             <!--
@@ -314,9 +327,9 @@ Description: This function takes a string and replaces the occurence of a substr
             with a MeSH expert or by a literature search).
             -->
             
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="SemanticTypeUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
-            <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="SemanticTypeName"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="SemanticTypeUI"/><xsl:text>&gt; </xsl:text>
+            <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
+            <xsl:text>"</xsl:text><xsl:value-of select="SemanticTypeName"/><xsl:text>" .&#10;</xsl:text>
 
 	    <!--
             Transformation rule: dcterms:identifier
@@ -326,9 +339,9 @@ Description: This function takes a string and replaces the occurence of a substr
             Additional: This rule states that a semantic type has a unique identifier.
             -->
             
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="SemanticTypeUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://purl.org/dc/terms/identifier&gt; </xsl:text>
-            <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="SemanticTypeUI"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="SemanticTypeUI"/><xsl:text>&gt; </xsl:text>
+            <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
+            <xsl:text>"</xsl:text><xsl:value-of select="SemanticTypeUI"/><xsl:text>" .&#10;</xsl:text>
           </xsl:for-each>
         </xsl:if>
         
@@ -345,9 +358,9 @@ Description: This function takes a string and replaces the occurence of a substr
         
         <xsl:if test="RelatedRegistryNumberList">
           <xsl:for-each select="RelatedRegistryNumberList/RelatedRegistryNumber">
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="../../ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:relatedRegistryNumber> </xsl:text> 
-            <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="."/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../ConceptUI"/><xsl:text>&gt; </xsl:text> 
+            <xsl:text>&lt;&mesh;relatedRegistryNumber> </xsl:text> 
+            <xsl:text>"</xsl:text><xsl:value-of select="."/><xsl:text>" .&#10;</xsl:text>
           </xsl:for-each>
         </xsl:if>
         
@@ -355,47 +368,47 @@ Description: This function takes a string and replaces the occurence of a substr
         <xsl:if test="ConceptRelationList">
           <xsl:for-each select="ConceptRelationList/ConceptRelation">
 
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="../../ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:conceptRelation> </xsl:text>
-            <xsl:text disable-output-escaping="yes">_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>           
-            <xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../ConceptUI"/><xsl:text>&gt; </xsl:text>
+            <xsl:text>&lt;&mesh;conceptRelation> </xsl:text>
+            <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>           
+            <xsl:text> .&#10;</xsl:text>
 
 
-	    <xsl:text disable-output-escaping="yes">_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
-            <xsl:text disable-output-escaping="yes"> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:ConceptRelation&gt; .&#10;</xsl:text>
+	    <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
+            <xsl:text> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
+            <xsl:text>&lt;&mesh;ConceptRelation&gt; .&#10;</xsl:text>
 
 
 	    <xsl:if test="@RelationName">
-               <xsl:text disable-output-escaping="yes">_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
-               <xsl:text disable-output-escaping="yes"> &lt;http://nlm.nih.gov#MeSH:relation&gt; </xsl:text>
-               <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/2004/02/skos/core#</xsl:text>
+               <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
+               <xsl:text> &lt;&mesh;relation&gt; </xsl:text>
+               <xsl:text>&lt;http://www.w3.org/2004/02/skos/core#</xsl:text>
 		<xsl:if test= "matches(@RelationName, 'BRD')">
-			<xsl:text disable-output-escaping="yes">broader</xsl:text>
+			<xsl:text>broader</xsl:text>
 		</xsl:if>
 		<xsl:if test= "matches(@RelationName, 'NRW')">
-			<xsl:text disable-output-escaping="yes">narrower</xsl:text>
+			<xsl:text>narrower</xsl:text>
 		</xsl:if>
 		<xsl:if test= "matches(@RelationName, 'REL')">
-			<xsl:text disable-output-escaping="yes">related</xsl:text>
+			<xsl:text>related</xsl:text>
 		</xsl:if>
-            <xsl:text disable-output-escaping="yes">&gt; .&#10;</xsl:text>
+            <xsl:text>&gt; .&#10;</xsl:text>
 	   </xsl:if>
 
-            <xsl:text disable-output-escaping="yes">_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
-            <xsl:text disable-output-escaping="yes"> &lt;http://nlm.nih.gov#MeSH:concept1> </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="Concept1UI"/><xsl:text disable-output-escaping="yes">&gt;</xsl:text><xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+            <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
+            <xsl:text> &lt;&mesh;concept1> </xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="Concept1UI"/><xsl:text>&gt;</xsl:text><xsl:text> .&#10;</xsl:text>
             
-            <xsl:text disable-output-escaping="yes">_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
-            <xsl:text disable-output-escaping="yes"> &lt;http://nlm.nih.gov#MeSH:concept2> </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="Concept2UI"/><xsl:text disable-output-escaping="yes">&gt;</xsl:text><xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+            <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
+            <xsl:text> &lt;&mesh;concept2> </xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="Concept2UI"/><xsl:text>&gt;</xsl:text><xsl:text> .&#10;</xsl:text>
             
 
 	<!-- added by rw -->
 	<xsl:if test="RelationAttribute">
-          <xsl:text disable-output-escaping="yes">_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
-          <xsl:text disable-output-escaping="yes"> &lt;http://nlm.nih.gov#MeSH:relationAttribute> </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="RelationAttribute"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
+          <xsl:text> &lt;&mesh;relationAttribute> </xsl:text>
+          <xsl:text>"</xsl:text><xsl:value-of select="RelationAttribute"/><xsl:text>" .&#10;</xsl:text>
 	</xsl:if>
 
 
@@ -414,10 +427,10 @@ Description: This function takes a string and replaces the occurence of a substr
           Need to addresa: N/A
           -->
           
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="../../ConceptUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:term> </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="TermUI"/><xsl:text disable-output-escaping="yes">&gt;</xsl:text>
-          <xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../ConceptUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;term> </xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt;</xsl:text>
+          <xsl:text> .&#10;</xsl:text>
 
 
 	  <!--
@@ -428,9 +441,9 @@ Description: This function takes a string and replaces the occurence of a substr
           Additional: A concept has at least one term associated with it.
           -->
 
-	  <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="TermUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-	  <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:Term&gt; .&#10;</xsl:text> 
+	  <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt; </xsl:text>
+	  <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;Term&gt; .&#10;</xsl:text> 
 
           
           <!--
@@ -443,14 +456,14 @@ Description: This function takes a string and replaces the occurence of a substr
           Need to address: N/A.
           -->
           
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="TermUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://purl.org/dc/terms/identifier&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="TermUI"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt; </xsl:text>
+          <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
+          <xsl:text>"</xsl:text><xsl:value-of select="TermUI"/><xsl:text>" .&#10;</xsl:text>
           
           <xsl:if test= "@IsPermutedTermYN = 'N'">
-              <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="TermUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-              <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
-              <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="String"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+              <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt; </xsl:text>
+              <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
+              <xsl:text>"</xsl:text><xsl:value-of select="String"/><xsl:text>" .&#10;</xsl:text>
           </xsl:if>
           
           <!--
@@ -463,9 +476,9 @@ Description: This function takes a string and replaces the occurence of a substr
           Need to address: This relation was created in order to stick with the XML representation of MeSH.
           -->
           
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="TermUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:termData&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;termData&gt; </xsl:text>
+          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> .&#10;</xsl:text>
 
 
           <!--
@@ -478,9 +491,9 @@ Description: This function takes a string and replaces the occurence of a substr
           Need to address: N/A.
           -->   
 
-	  <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:TermData&gt; .&#10;</xsl:text> 
+	  <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;TermData&gt; .&#10;</xsl:text> 
 
 
           <!--
@@ -493,9 +506,9 @@ Description: This function takes a string and replaces the occurence of a substr
           Need to address: N/A.
           -->
 
-          <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:isConceptPreferredTerm&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="@ConceptPreferredTermYN"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>&lt;&mesh;isConceptPreferredTerm&gt; </xsl:text>
+          <xsl:text>"</xsl:text><xsl:value-of select="@ConceptPreferredTermYN"/><xsl:text>" .&#10;</xsl:text>
           
           
           <!--
@@ -508,9 +521,9 @@ Description: This function takes a string and replaces the occurence of a substr
           Need to address: N/A.
           -->
           
-          <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:isPermutedTerm&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="@IsPermutedTermYN"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>&lt;&mesh;isPermutedTerm&gt; </xsl:text>
+          <xsl:text>"</xsl:text><xsl:value-of select="@IsPermutedTermYN"/><xsl:text>" .&#10;</xsl:text>
           
           <!--
           Transformation rule: lexicalTag
@@ -522,9 +535,9 @@ Description: This function takes a string and replaces the occurence of a substr
           Need to address: N/A.
           -->
           
-          <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:lexicalTag&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="@LexicalTag"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>&lt;&mesh;lexicalTag&gt; </xsl:text>
+          <xsl:text>"</xsl:text><xsl:value-of select="@LexicalTag"/><xsl:text>" .&#10;</xsl:text>
           
           <!--
           Transformation rule: printFlag
@@ -536,9 +549,9 @@ Description: This function takes a string and replaces the occurence of a substr
           Need to address: N/A.
           -->
           
-          <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:printFlag&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="@PrintFlagYN"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>&lt;&mesh;printFlag&gt; </xsl:text>
+          <xsl:text>"</xsl:text><xsl:value-of select="@PrintFlagYN"/><xsl:text>" .&#10;</xsl:text>
           
           <!--
           Transformation rule: isRecordPreferredTerm
@@ -550,9 +563,9 @@ Description: This function takes a string and replaces the occurence of a substr
           Need to address: N/A.
           -->
           
-          <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:isRecordPreferredTerm&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="@RecordPreferredTermYN"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>&lt;&mesh;isRecordPreferredTerm&gt; </xsl:text>
+          <xsl:text>"</xsl:text><xsl:value-of select="@RecordPreferredTermYN"/><xsl:text>" .&#10;</xsl:text>
           
           <!--
           Transformation rule: dcterms:identifier
@@ -564,9 +577,9 @@ Description: This function takes a string and replaces the occurence of a substr
           Additional: N/A.
           -->
 
-          <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://purl.org/dc/terms/identifier&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="TermUI"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
+          <xsl:text>"</xsl:text><xsl:value-of select="TermUI"/><xsl:text>" .&#10;</xsl:text>
           
           <!--
           Transformation rule: rdfs:label
@@ -578,9 +591,9 @@ Description: This function takes a string and replaces the occurence of a substr
           Need to address: N/A.
           -->
           
-          <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="String"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
+          <xsl:text>"</xsl:text><xsl:value-of select="String"/><xsl:text>" .&#10;</xsl:text>
           
           
           <!--
@@ -594,9 +607,9 @@ Description: This function takes a string and replaces the occurence of a substr
           -->
                     
           <xsl:if test="DateCreated">
-              <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-              <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:dateCreated&gt; </xsl:text>
-              <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+              <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+              <xsl:text>&lt;&mesh;dateCreated&gt; </xsl:text>
+              <xsl:text>"</xsl:text><xsl:value-of select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"/><xsl:text>" .&#10;</xsl:text>
           </xsl:if>
 
           
@@ -610,9 +623,9 @@ Description: This function takes a string and replaces the occurence of a substr
           Need to address: N/A.
           -->
           <xsl:if test="Abbreviation">
-            <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:abbreviation> </xsl:text>
-            <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="Abbreviation"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            <xsl:text>&lt;&mesh;abbreviation> </xsl:text>
+            <xsl:text>"</xsl:text><xsl:value-of select="Abbreviation"/><xsl:text>" .&#10;</xsl:text>
           </xsl:if>
           
           <!--
@@ -626,9 +639,9 @@ Description: This function takes a string and replaces the occurence of a substr
           -->
           
           <xsl:if test="SortVersion">
-            <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:sortVersion> </xsl:text>
-            <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="SortVersion"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            <xsl:text>&lt;&mesh;sortVersion> </xsl:text>
+            <xsl:text>"</xsl:text><xsl:value-of select="SortVersion"/><xsl:text>" .&#10;</xsl:text>
           </xsl:if>
           
           <!--
@@ -642,9 +655,9 @@ Description: This function takes a string and replaces the occurence of a substr
           -->
           
           <xsl:if test="EntryVersion">
-            <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:entryVersion> </xsl:text>
-            <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="EntryVersion"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            <xsl:text>&lt;&mesh;entryVersion> </xsl:text>
+            <xsl:text>"</xsl:text><xsl:value-of select="EntryVersion"/><xsl:text>" .&#10;</xsl:text>
           </xsl:if>
           
           <!--
@@ -660,16 +673,16 @@ Description: This function takes a string and replaces the occurence of a substr
           <xsl:if test="ThesaurusIDlist">
             <xsl:variable name="pos" select="position()"/>
             <xsl:for-each select="ThesaurusIDlist/ThesaurusID">
-              <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="../../TermUI"/>_<xsl:copy-of select="$pos"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-              <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:thesaurusID> </xsl:text>
-              <xsl:text disable-output-escaping="yes">"</xsl:text>
+              <xsl:text>_:blank</xsl:text><xsl:value-of select="../../TermUI"/>_<xsl:copy-of select="$pos"/><xsl:text> </xsl:text>
+              <xsl:text>&lt;&mesh;thesaurusID> </xsl:text>
+              <xsl:text>"</xsl:text>
               
               <xsl:call-template name="replace-substring"> 
                 <xsl:with-param name="value" select="."/>
                 <xsl:with-param name="from" select="'&#10;'"/>
                 <xsl:with-param name="to">&#10;</xsl:with-param>
               </xsl:call-template>
-              <xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+              <xsl:text>" .&#10;</xsl:text>
             </xsl:for-each>
           </xsl:if>
           
@@ -689,9 +702,9 @@ Description: This function takes a string and replaces the occurence of a substr
           Need to address: N/A
           -->
           
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:entryCombination&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;entryCombination&gt; </xsl:text>
+          <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of select="position()"/><xsl:text> .&#10;</xsl:text>
 
 
 	  <!--
@@ -703,30 +716,30 @@ Description: This function takes a string and replaces the occurence of a substr
           ============================================================================================================================
           Need to address: N/A.
           -->
-	  <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-	  <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:EntryCombination&gt; .&#10;</xsl:text> 
+	  <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+	  <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;EntryCombination&gt; .&#10;</xsl:text> 
           
-          <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:ECINDescriptor&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ECIN/DescriptorReferredTo/DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt;</xsl:text>
-          <xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+          <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>&lt;&mesh;ECINDescriptor&gt; </xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ECIN/DescriptorReferredTo/DescriptorUI"/><xsl:text>&gt;</xsl:text>
+          <xsl:text> .&#10;</xsl:text>
           
-          <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:ECINQualifier&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ECIN/QualifierReferredTo/QualifierUI"/><xsl:text disable-output-escaping="yes">&gt;</xsl:text>
-          <xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+          <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>&lt;&mesh;ECINQualifier&gt; </xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ECIN/QualifierReferredTo/QualifierUI"/><xsl:text>&gt;</xsl:text>
+          <xsl:text> .&#10;</xsl:text>
           
-          <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:ECOUTDescriptor&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ECOUT/DescriptorReferredTo/DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt;</xsl:text>
-          <xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+          <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>&lt;&mesh;ECOUTDescriptor&gt; </xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ECOUT/DescriptorReferredTo/DescriptorUI"/><xsl:text>&gt;</xsl:text>
+          <xsl:text> .&#10;</xsl:text>
           
           <xsl:if test="ECOUT/QualifierReferredTo">
-            <xsl:text disable-output-escaping="yes">_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of select="position()"/><xsl:text disable-output-escaping="yes"> </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:ECOUTQualifier&gt; </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="ECOUT/QualifierReferredTo/QualifierUI"/><xsl:text disable-output-escaping="yes">&gt;</xsl:text>
-            <xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+            <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            <xsl:text>&lt;&mesh;ECOUTQualifier&gt; </xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ECOUT/QualifierReferredTo/QualifierUI"/><xsl:text>&gt;</xsl:text>
+            <xsl:text> .&#10;</xsl:text>
           </xsl:if>
         </xsl:for-each>
       </xsl:if>
@@ -745,10 +758,10 @@ Description: This function takes a string and replaces the occurence of a substr
             Need to address: N/A.
             -->
           
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:allowableQualifier&gt; </xsl:text> 
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierUI"/><xsl:text disable-output-escaping="yes">&gt;</xsl:text>
-            <xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+            <xsl:text>&lt;&mesh;allowableQualifier&gt; </xsl:text> 
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierUI"/><xsl:text>&gt;</xsl:text>
+            <xsl:text> .&#10;</xsl:text>
 
 
 	    <!--
@@ -759,9 +772,9 @@ Description: This function takes a string and replaces the occurence of a substr
       	    Additional: This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".
       	    -->
 
-	    <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierUI"/><xsl:text disable-output-escaping="yes">&gt;</xsl:text><xsl:text disable-output-escaping="yes"> </xsl:text>
-	    <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
-      	    <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:Qualifier&gt; .&#10;</xsl:text> 
+	    <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierUI"/><xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
+	    <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
+      	    <xsl:text>&lt;&mesh;Qualifier&gt; .&#10;</xsl:text> 
 
             
             <!--
@@ -774,9 +787,9 @@ Description: This function takes a string and replaces the occurence of a substr
             Need to address: N/A.
             -->
             
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://purl.org/dc/terms/identifier&gt; </xsl:text> 
-            <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierUI"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierUI"/><xsl:text>&gt; </xsl:text>
+            <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text> 
+            <xsl:text>"</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierUI"/><xsl:text>" .&#10;</xsl:text>
             
             <!--
             Transformation rule: rdfs:label
@@ -788,9 +801,9 @@ Description: This function takes a string and replaces the occurence of a substr
             Need to address: N/A.
             -->
             
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text> 
-            <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierName/String"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierUI"/><xsl:text>&gt; </xsl:text>
+            <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text> 
+            <xsl:text>"</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierName/String"/><xsl:text>" .&#10;</xsl:text>
             
             <!--
             Transformation rule: abbreviation
@@ -802,9 +815,9 @@ Description: This function takes a string and replaces the occurence of a substr
             Need to address: N/A.
             -->
             
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:abbreviation&gt; </xsl:text> 
-            <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="Abbreviation"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="QualifierReferredTo/QualifierUI"/><xsl:text>&gt; </xsl:text>
+            <xsl:text>&lt;&mesh;abbreviation&gt; </xsl:text> 
+            <xsl:text>"</xsl:text><xsl:value-of select="Abbreviation"/><xsl:text>" .&#10;</xsl:text>
             
           </xsl:for-each><!-- AllowableQualifiersList/AllowableQualifier" -->
           
@@ -823,10 +836,10 @@ Description: This function takes a string and replaces the occurence of a substr
               "Tree Number" relation. I named this the hasTreeNumber relation in RDF.
               -->
             
-              <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-              <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:treeNumber&gt; </xsl:text> 
-              <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="."/>
-              <xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+              <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+              <xsl:text>&lt;&mesh;treeNumber&gt; </xsl:text> 
+              <xsl:text>"</xsl:text><xsl:value-of select="."/>
+              <xsl:text>" .&#10;</xsl:text>
               
             <!-- /xsl:for-each --><!-- TreeNumber -->
           </xsl:for-each><!-- TreeNumberList -->
@@ -848,16 +861,16 @@ Description: This function takes a string and replaces the occurence of a substr
         <xsl:if test="Annotation"><!-- This if statement is necessary to ensure that the hasAnnotation relationship is extracted ONLY when the Annotation element exists
         for a descriptor record. This if statements checks to see if the element Annotation exists for a descriptor record. -->
           <!-- hasAnnotation -->
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:annotation> </xsl:text> 
-          <xsl:text disable-output-escaping="yes">"</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;annotation> </xsl:text> 
+          <xsl:text>"</xsl:text>
           
           <xsl:call-template name="replace-substring">
             <xsl:with-param name="value" select="replace(Annotation, '&quot;', '\\&quot;')"/>
             <xsl:with-param name="from" select="'&#10;'"/>
             <xsl:with-param name="to">&#10;</xsl:with-param>
           </xsl:call-template>         
-          <xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>" .&#10;</xsl:text>
         </xsl:if>
         <!-- /xsl:template -->
 
@@ -872,20 +885,20 @@ Description: This function takes a string and replaces the occurence of a substr
         XSLT 2.0 function.
         -->
         
-        <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-        <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:dateCreated> </xsl:text> 
-        <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="xs:date(string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-'))"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+        <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+        <xsl:text>&lt;&mesh;dateCreated> </xsl:text> 
+        <xsl:text>"</xsl:text><xsl:value-of select="xs:date(string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-'))"/><xsl:text>" .&#10;</xsl:text>
         
         <xsl:if test="DateRevised">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:dateRevised> </xsl:text> 
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="xs:date(string-join((DateRevised/Year,DateRevised/Month,DateRevised/Day),'-'))"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;dateRevised> </xsl:text> 
+          <xsl:text>"</xsl:text><xsl:value-of select="xs:date(string-join((DateRevised/Year,DateRevised/Month,DateRevised/Day),'-'))"/><xsl:text>" .&#10;</xsl:text>
         </xsl:if>
         
         <xsl:if test="DateEstablished">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:dateEstablished> </xsl:text> 
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="xs:date(string-join((DateEstablished/Year,DateEstablished/Month,DateEstablished/Day),'-'))"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;dateEstablished> </xsl:text> 
+          <xsl:text>"</xsl:text><xsl:value-of select="xs:date(string-join((DateEstablished/Year,DateEstablished/Month,DateEstablished/Day),'-'))"/><xsl:text>" .&#10;</xsl:text>
         </xsl:if>
         
         <!--
@@ -898,9 +911,9 @@ Description: This function takes a string and replaces the occurence of a substr
         Need to address: N/A.
         -->
         <xsl:for-each select="ActiveMeSHYearList/Year">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:activeMeSHYear> </xsl:text> 
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="."/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;activeMeSHYear> </xsl:text> 
+          <xsl:text>"</xsl:text><xsl:value-of select="."/><xsl:text>" .&#10;</xsl:text>
         </xsl:for-each>
         
         <!--
@@ -914,16 +927,16 @@ Description: This function takes a string and replaces the occurence of a substr
         -->
         
         <xsl:if test="HistoryNote">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:historyNote> </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;historyNote> </xsl:text>
+          <xsl:text>"</xsl:text>
 
           <xsl:call-template name="replace-substring">
                      <xsl:with-param name="value" select="replace(HistoryNote, '&quot;', '\\&quot;')"/>
                      <xsl:with-param name="from" select="'&#10;'"/>
                      <xsl:with-param name="to">&#10;</xsl:with-param>
           </xsl:call-template>
-          <xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>" .&#10;</xsl:text>
         </xsl:if>
         
         <!--
@@ -937,16 +950,16 @@ Description: This function takes a string and replaces the occurence of a substr
         -->
         
         <xsl:if test="OnlineNote">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:onlineNote> </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;onlineNote> </xsl:text>
+          <xsl:text>"</xsl:text>
 
           <xsl:call-template name="replace-substring"> 
                      <xsl:with-param name="value" select="replace(OnlineNote, '&quot;', '\\&quot;')"/>
                      <xsl:with-param name="from" select="'&#10;'"/>
                      <xsl:with-param name="to">&#10;</xsl:with-param>
           </xsl:call-template>
-          <xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>" .&#10;</xsl:text>
         </xsl:if>
         
         <!--
@@ -960,16 +973,16 @@ Description: This function takes a string and replaces the occurence of a substr
         -->
         
         <xsl:if test="PublicMeSHNote">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:publicMeSHNote> </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;publicMeSHNote> </xsl:text>
+          <xsl:text>"</xsl:text>
 
           <xsl:call-template name="replace-substring"> 
             <xsl:with-param name="value" select="replace(PublicMeSHNote, '&quot;', '\\&quot;')"/>
             <xsl:with-param name="from" select="'&#10;'"/>
             <xsl:with-param name="to">&#10;</xsl:with-param>
           </xsl:call-template>
-          <xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>" .&#10;</xsl:text>
         </xsl:if>
         
         <!--
@@ -984,16 +997,16 @@ Description: This function takes a string and replaces the occurence of a substr
         
         <xsl:if test="PreviousIndexingList">
           <xsl:for-each select="PreviousIndexingList/PreviousIndexing">
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:previousIndexing> </xsl:text>
-            <xsl:text disable-output-escaping="yes">"</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+            <xsl:text>&lt;&mesh;previousIndexing> </xsl:text>
+            <xsl:text>"</xsl:text>
 
             <xsl:call-template name="replace-substring"> 
               <xsl:with-param name="value" select="."/>
               <xsl:with-param name="from" select="'&#10;'"/>
               <xsl:with-param name="to">&#10;</xsl:with-param>
             </xsl:call-template>
-            <xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+            <xsl:text>" .&#10;</xsl:text>
           </xsl:for-each>
         </xsl:if>
         
@@ -1012,10 +1025,10 @@ Description: This function takes a string and replaces the occurence of a substr
         
         <xsl:if test="PharmacologicalActionList">
           <xsl:for-each select="PharmacologicalActionList/PharmacologicalAction">
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:pharmacologicalAction> </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorReferredTo/DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-            <xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text>&gt; </xsl:text>
+            <xsl:text>&lt;&mesh;pharmacologicalAction> </xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorReferredTo/DescriptorUI"/><xsl:text>&gt; </xsl:text>
+            <xsl:text> .&#10;</xsl:text>
           </xsl:for-each>
         </xsl:if>
         
@@ -1030,16 +1043,16 @@ Description: This function takes a string and replaces the occurence of a substr
         -->
         
         <xsl:if test="RunningHead">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:runningHead> </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text>
+          <xsl:text>&lt;&mesh;runningHead> </xsl:text>
+          <xsl:text>"</xsl:text>
           
           <xsl:call-template name="replace-substring"> 
             <xsl:with-param name="value" select="replace(RunningHead, '&quot;', '\\&quot;')"/>
             <xsl:with-param name="from" select="'&#10;'"/>
             <xsl:with-param name="to">&#10;</xsl:with-param>
           </xsl:call-template>
-          <xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>" .&#10;</xsl:text>
         </xsl:if>
         
         <!--
@@ -1055,17 +1068,17 @@ Description: This function takes a string and replaces the occurence of a substr
         -->
                 
         <xsl:if test="RecordOriginatorsList">
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:recordOriginator> </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="RecordOriginatorsList/RecordOriginator"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text>
+          <xsl:text>&lt;&mesh;recordOriginator> </xsl:text>
+          <xsl:text>"</xsl:text><xsl:value-of select="RecordOriginatorsList/RecordOriginator"/><xsl:text>" .&#10;</xsl:text>
 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:recordMaintainer> </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="RecordOriginatorsList/RecordMaintainer"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text>
+          <xsl:text>&lt;&mesh;recordMaintainer> </xsl:text>
+          <xsl:text>"</xsl:text><xsl:value-of select="RecordOriginatorsList/RecordMaintainer"/><xsl:text>" .&#10;</xsl:text>
 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text>
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:recordAuthorizer> </xsl:text>
-          <xsl:text disable-output-escaping="yes">"</xsl:text><xsl:value-of select="RecordOriginatorsList/RecordAuthorizer"/><xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text>
+          <xsl:text>&lt;&mesh;recordAuthorizer> </xsl:text>
+          <xsl:text>"</xsl:text><xsl:value-of select="RecordOriginatorsList/RecordAuthorizer"/><xsl:text>" .&#10;</xsl:text>
         </xsl:if>
         
         <!--
@@ -1088,10 +1101,10 @@ Description: This function takes a string and replaces the occurence of a substr
         <xsl:if test="SeeRelatedList">
           <xsl:for-each select="SeeRelatedList/SeeRelatedDescriptor">
 
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-            <xsl:text disable-output-escaping="yes">&lt;http://www.w3.org/2000/01/rdf-schema#seeAlso&gt; </xsl:text>
-            <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorReferredTo/DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt;</xsl:text>
-            <xsl:text disable-output-escaping="yes"> .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+            <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#seeAlso&gt; </xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorReferredTo/DescriptorUI"/><xsl:text>&gt;</xsl:text>
+            <xsl:text> .&#10;</xsl:text>
 
           </xsl:for-each><!-- SeeRelatedList/SeeRelatedDescriptor -->
         </xsl:if>
@@ -1108,20 +1121,57 @@ Description: This function takes a string and replaces the occurence of a substr
         
         <xsl:if test="ConsiderAlso">
         
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text disable-output-escaping="yes">&gt; </xsl:text> 
-          <xsl:text disable-output-escaping="yes">&lt;http://nlm.nih.gov#MeSH:considerAlso> </xsl:text> 
-          <xsl:text disable-output-escaping="yes">"</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text> 
+          <xsl:text>&lt;&mesh;considerAlso> </xsl:text> 
+          <xsl:text>"</xsl:text>
           
           <xsl:call-template name="replace-substring">
               <xsl:with-param name="value" select="replace(ConsiderAlso, '&quot;', '\\&quot;')"/>
               <xsl:with-param name="from" select="'&#10;'"/>
               <xsl:with-param name="to">&#10;</xsl:with-param>
           </xsl:call-template>
-          <xsl:text disable-output-escaping="yes">" .&#10;</xsl:text>
+          <xsl:text>" .&#10;</xsl:text>
         </xsl:if>
     <!-- /xsl:if -->
   </xsl:for-each><!-- DescriptorRecordSet/DescriptorRecord -->
 
 </xsl:template>
+
+  <!-- 
+    Define some functions to aid in outputting triples
+    ==================================================
+  -->
+  
+  <!-- 
+    Output a triple whose object is a string literal
+  -->
+  <xsl:function name="meshrdf:triple-literal">
+    <xsl:param name="subject-uri"/>
+    <xsl:param name='predicate-uri'/>
+    <xsl:param name="object-literal"/>
+    <xsl:value-of select="concat('&lt;', $subject-uri, '&gt; ')"/>
+    <xsl:value-of select="concat('&lt;', $predicate-uri, '&gt; ')"/>
+    <xsl:value-of select="concat('&quot;', 'meshrdf:n3-escape(object-literal)', '&quot; .&#10;')"/>
+  </xsl:function>
+
+  <!-- 
+    Output a triple whose object is a uri
+  -->
+  <xsl:function name="meshrdf:triple-uri">
+    <xsl:param name="subject-uri"/>
+    <xsl:param name='predicate-uri'/>
+    <xsl:param name="object-uri"/>
+    <xsl:value-of select="concat('&lt;', $subject-uri, '&gt; ')"/>
+    <xsl:value-of select="concat('&lt;', $predicate-uri, '&gt; ')"/>
+    <xsl:value-of select="concat('&lt;', $object-uri, '&gt; .&#10;')"/>
+  </xsl:function>
+  
+  <!-- 
+    Escapes literals properly for the N3 format.
+  -->
+  <xsl:function name='meshrdf:n3-escape'>
+    <xsl:param name='literal'/>
+    <xsl:value-of select="replace($literal, '&quot;', '\&quot;')"/>
+  </xsl:function>
 
 </xsl:stylesheet>
