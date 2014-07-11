@@ -1151,7 +1151,7 @@ that of another substring `to`.
     <xsl:param name="object-literal"/>
     <xsl:value-of select="concat('&lt;', $subject-uri, '&gt; ')"/>
     <xsl:value-of select="concat('&lt;', $predicate-uri, '&gt; ')"/>
-    <xsl:value-of select="concat('&quot;', 'meshrdf:n3-escape(object-literal)', '&quot; .&#10;')"/>
+    <xsl:value-of select="concat('&quot;', meshrdf:n3-escape($object-literal), '&quot; .&#10;')"/>
   </xsl:function>
 
   <!-- 
@@ -1171,7 +1171,7 @@ that of another substring `to`.
   -->
   <xsl:function name='meshrdf:n3-escape'>
     <xsl:param name='literal'/>
-    <xsl:value-of select="replace($literal, '&quot;', '\&quot;')"/>
+    <xsl:value-of select="replace($literal, '&quot;', '\\&quot;')"/>
   </xsl:function>
 
 </xsl:stylesheet>
