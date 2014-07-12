@@ -177,26 +177,6 @@
           )'/>
 
         <!--
-          Transformation rule: UMLS_CUI
-          ==============================
-          Output: <conc_uri> UMLS_CUI "concUMLSUI" .
-          ===========================================
-          Additional: This relation states that a concept has a unique UMLS identifier.
-          ==============================================================================
-          Need to address: N/A.
-        -->
-
-
-        <!-- FIXME: see issue #11 -->
-        <xsl:if test="ConceptUMLSUI">
-          <xsl:value-of select='f:triple-uri(
-              concat("&mesh;", ConceptUI), 
-              "&mesh;UMLS_CUI", 
-              concat("http://nlm.nih.gov#UMLS_MT:", ConceptUMLSUI)
-            )'/>
-        </xsl:if>
-
-        <!--
           Transformation rule: CASN1_label
           ===================================
           Output: <conc_uri> CASN1_label "CASN1Name" .

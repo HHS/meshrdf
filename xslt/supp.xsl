@@ -717,24 +717,6 @@
           <xsl:text>" .&#10;</xsl:text>
 
           <!--
-            Transformation rule: UMLS_CUI
-            ======================================
-            Output: <conc_uri> UMLS_CUI "concUMLSUI" .
-            ================================================
-            Additional: A concept can have a UMLS unique identifier.
-          -->
-
-          <xsl:if test="ConceptUMLSUI">
-            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
-            <xsl:value-of select="ConceptUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;http://nlm.nih.gov#MeSH:UMLS_CUI> </xsl:text>
-            <xsl:text>&lt;http://nlm.nih.gov#UMLS_MT:</xsl:text>
-            <xsl:value-of select="ConceptUMLSUI"/>
-            <xsl:text>&gt; .&#10;</xsl:text>
-          </xsl:if>
-
-          <!--
             Transformation rule: CASN1_label
             ======================================
             Output: <conc_uri> CASN1_label "CASN1Name" .
