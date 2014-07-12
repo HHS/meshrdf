@@ -4,6 +4,7 @@
   <!ENTITY mesh "http://nlm.nih.gov#MeSH:">
   <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
 ]>
 
 
@@ -13,6 +14,7 @@
                 xmlns:mesh="&mesh;"
                 xmlns:rdfs="&rdfs;"
                 xmlns:rdf="&rdf;"
+                xmlns:skos="&skos;"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 exclude-result-prefixes="f">
@@ -62,8 +64,9 @@
         ======================================
         Output: <desc_uri> mesh:descriptorClass "descriptorClass" .
         =======================================================
-        Additional: This relation states that a descriptor record has a descriptor class to which it belongs to.
-        =========================================================================================================
+        Additional: This relation states that a descriptor record has a descriptor class to which 
+        it belongs to.
+        ==========================================================================================
         Need to address: N/A
       -->
 
@@ -112,8 +115,9 @@
           =======================================
           Output: <conc_uri> rdf:type <Concept> .
           =========================================
-          Description: This relation states that a Subject node used to identify a concept is of type "Concept".
-          ========================================================================================================
+          Description: This relation states that a Subject node used to identify a concept 
+          is of type "Concept".
+          ======================================================================================
           Need to address: N/A.
         -->
 
@@ -128,38 +132,18 @@
           ========================================
           Output: <conc_uri> isPreferredConcept "Y"/"N" .
           ================================================
-          Additional: This relation states that yes, "Y", a concept is the preferred concept or no, "N", the concept is not the preferred concept.
-          =========================================================================================================================================
+          Additional: This relation states that yes, "Y", a concept is the preferred concept or 
+          no, "N", the concept is not the preferred concept.
+          ========================================================================================
           Need to address: N/A
         -->
 
-        <!-- isPreferredConcept -->
-        <!-- Y/N -->
-        <xsl:if test="@PreferredConceptYN = 'Y' or @PreferredConceptYN = 'N'">
-          <xsl:value-of select='f:triple-literal(
-              concat("&mesh;", ConceptUI), 
-              "&mesh;isPreferredConcept", 
-              @PreferredConceptYN
-            )'/>
-        <!--
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ConceptUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;isPreferredConcept> </xsl:text>
-          <xsl:text>"Y</xsl:text>
-          <xsl:text>" .&#10;</xsl:text>
-        </xsl:if>
-
-        <xsl:if test="@PreferredConceptYN = 'N'">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ConceptUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;isPreferredConcept> </xsl:text>
-          <xsl:text>"N</xsl:text>
-          <xsl:text>" .&#10;</xsl:text>
-        -->
-        </xsl:if>
-
+        <xsl:value-of select='f:triple-literal(
+            concat("&mesh;", ConceptUI), 
+            "&mesh;isPreferredConcept", 
+            @PreferredConceptYN
+          )'/>
+        
         <!--
           Transformation rule: rdfs:label
           ====================================
@@ -170,12 +154,11 @@
           Need to address: N/A
         -->
 
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="ConceptUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-        <xsl:value-of select="f:literal(ConceptName/String)"/>
-        <xsl:text> .&#10;</xsl:text>
+        <xsl:value-of select='f:triple-literal(
+            concat("&mesh;", ConceptUI), 
+            "&rdfs;label", 
+            ConceptName/String
+          )'/>
 
         <!--
           Transformation rule: dcterms:identifier
@@ -187,13 +170,11 @@
           Need to address: N/A.
         -->
 
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="ConceptUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="ConceptUI"/>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:value-of select='f:triple-literal(
+            concat("&mesh;", ConceptUI), 
+            "&dcterms;identifier", 
+            ConceptUI
+          )'/>
 
         <!--
           Transformation rule: UMLS_CUI
@@ -205,14 +186,14 @@
           Need to address: N/A.
         -->
 
+
+        <!-- FIXME: see issue #11 -->
         <xsl:if test="ConceptUMLSUI">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ConceptUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;UMLS_CUI> </xsl:text>
-          <xsl:text>&lt;http://nlm.nih.gov#UMLS_MT:</xsl:text>
-          <xsl:value-of select="ConceptUMLSUI"/>
-          <xsl:text>&gt; .&#10;</xsl:text>
+          <xsl:value-of select='f:triple-uri(
+              concat("&mesh;", ConceptUI), 
+              "&mesh;UMLS_CUI", 
+              concat("http://nlm.nih.gov#UMLS_MT:", ConceptUMLSUI)
+            )'/>
         </xsl:if>
 
         <!--
@@ -226,13 +207,11 @@
         -->
 
         <xsl:if test="CASN1Name">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ConceptUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;CASN1_label&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="CASN1Name"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:value-of select='f:triple-literal(
+              concat("&mesh;", ConceptUI), 
+              "&mesh;CASN1_label", 
+              CASN1Name
+            )'/>
         </xsl:if>
 
         <!--
@@ -246,13 +225,11 @@
         -->
 
         <xsl:if test="RegistryNumber">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ConceptUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;registryNumber> </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="RegistryNumber"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:value-of select='f:triple-literal(
+              concat("&mesh;", ConceptUI), 
+              "&mesh;registryNumber", 
+              RegistryNumber
+            )'/>
         </xsl:if>
 
         <!--
@@ -265,13 +242,11 @@
           Need to address: N/A.
         -->
         <xsl:if test="ScopeNote">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ConceptUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;http://www.w3.org/2004/02/skos/core#scopeNote&gt; </xsl:text>
-          
-          <xsl:value-of select='f:literal(ScopeNote)'/>
-          <xsl:text> .&#10;</xsl:text>
+          <xsl:value-of select='f:triple-literal(
+              concat("&mesh;", ConceptUI), 
+              "&skos;scopeNote", 
+              ScopeNote
+            )'/>
         </xsl:if>
 
         <xsl:if test="SemanticTypeList">
@@ -325,13 +300,11 @@
               with a MeSH expert or by a literature search).
             -->
 
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="SemanticTypeUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="SemanticTypeName"/>
-            <xsl:text>" .&#10;</xsl:text>
+            <xsl:value-of select='f:triple-literal(
+                concat("&mesh;", SemanticTypeUI), 
+                "&rdfs;label", 
+                SemanticTypeName
+              )'/>
 
             <!--
               Transformation rule: dcterms:identifier
@@ -341,13 +314,11 @@
               Additional: This rule states that a semantic type has a unique identifier.
             -->
 
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="SemanticTypeUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="SemanticTypeUI"/>
-            <xsl:text>" .&#10;</xsl:text>
+            <xsl:value-of select='f:triple-literal(
+                concat("&mesh;", SemanticTypeUI), 
+                "&dcterms;identifier", 
+                SemanticTypeUI
+              )'/>
           </xsl:for-each>
         </xsl:if>
 
@@ -365,13 +336,11 @@
 
         <xsl:if test="RelatedRegistryNumberList">
           <xsl:for-each select="RelatedRegistryNumberList/RelatedRegistryNumber">
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="../../ConceptUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;relatedRegistryNumber> </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="."/>
-            <xsl:text>" .&#10;</xsl:text>
+            <xsl:value-of select='f:triple-literal(
+                concat("&mesh;", ../../ConceptUI), 
+                "&mesh;relatedRegistryNumber", 
+                .
+              )'/>
           </xsl:for-each>
         </xsl:if>
 
@@ -380,18 +349,26 @@
           <xsl:for-each select="ConceptRelationList/ConceptRelation">
             <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../ConceptUI"/><xsl:text>&gt; </xsl:text>
             <xsl:text>&lt;&mesh;conceptRelation> </xsl:text>
-            <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of
-              select="position()"/>
+            <xsl:text>_:blank_set1_</xsl:text>
+            <xsl:value-of select="../../ConceptUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
             <xsl:text> .&#10;</xsl:text>
-            <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of
-              select="position()"/>
+            
+            <xsl:text>_:blank_set1_</xsl:text>
+            <xsl:value-of select="../../ConceptUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
             <xsl:text> &lt;&rdf;type&gt; </xsl:text>
             <xsl:text>&lt;&mesh;ConceptRelation&gt; .&#10;</xsl:text>
+            
             <xsl:if test="@RelationName">
-              <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"
-                />_<xsl:value-of select="position()"/>
+              <xsl:text>_:blank_set1_</xsl:text>
+              <xsl:value-of select="../../ConceptUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
               <xsl:text> &lt;&mesh;relation&gt; </xsl:text>
-              <xsl:text>&lt;http://www.w3.org/2004/02/skos/core#</xsl:text>
+              <xsl:text>&lt;&skos;</xsl:text>
               <xsl:if test="matches(@RelationName, 'BRD')">
                 <xsl:text>broader</xsl:text>
               </xsl:if>
@@ -403,26 +380,39 @@
               </xsl:if>
               <xsl:text>&gt; .&#10;</xsl:text>
             </xsl:if>
-            <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of
-              select="position()"/>
+
+            <xsl:text>_:blank_set1_</xsl:text>
+            <xsl:value-of select="../../ConceptUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
             <xsl:text> &lt;&mesh;concept1> </xsl:text>
-            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="Concept1UI"/><xsl:text>&gt;</xsl:text><xsl:text> .&#10;</xsl:text>
-            <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of
-              select="position()"/>
+            <xsl:text>&lt;&mesh;</xsl:text>
+            <xsl:value-of select="Concept1UI"/>
+            <xsl:text>&gt;</xsl:text>
+            <xsl:text> .&#10;</xsl:text>
+            <xsl:text>_:blank_set1_</xsl:text>
+            <xsl:value-of select="../../ConceptUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
             <xsl:text> &lt;&mesh;concept2> </xsl:text>
-            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="Concept2UI"/><xsl:text>&gt;</xsl:text><xsl:text> .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text>
+            <xsl:value-of select="Concept2UI"/>
+            <xsl:text>&gt;</xsl:text>
+            <xsl:text> .&#10;</xsl:text>
+            
             <!-- added by rw -->
             <xsl:if test="RelationAttribute">
-              <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"
-                />_<xsl:value-of select="position()"/>
+              <xsl:text>_:blank_set1_</xsl:text>
+              <xsl:value-of select="../../ConceptUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
               <xsl:text> &lt;&mesh;relationAttribute> </xsl:text>
-              <xsl:text>"</xsl:text><xsl:value-of select="RelationAttribute"
-              /><xsl:text>" .&#10;</xsl:text>
+              <xsl:text>"</xsl:text>
+              <xsl:value-of select="RelationAttribute"/>
+              <xsl:text>" .&#10;</xsl:text>
             </xsl:if>
           </xsl:for-each>
-          <!-- ConceptRelationList/ConceptRelation -->
         </xsl:if>
-        <!-- ConceptRelationList -->
 
         <xsl:for-each select="TermList/Term">
           <!--
@@ -434,10 +424,16 @@
             ============================================================
             Need to addresa: N/A
           -->
-          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../ConceptUI"/><xsl:text>&gt; </xsl:text>
+          
+          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:value-of select="../../ConceptUI"/>
+          <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;&mesh;term> </xsl:text>
-          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>&gt;</xsl:text>
           <xsl:text> .&#10;</xsl:text>
+          
           <!--
             Transformation rule: rdf:type
             ==============================
@@ -445,9 +441,13 @@
             ========================================
             Additional: A concept has at least one term associated with it.
           -->
-          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt; </xsl:text>
+          
+          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;&rdf;type&gt; </xsl:text>
           <xsl:text>&lt;&mesh;Term&gt; .&#10;</xsl:text>
+          
           <!--
             Transformation rule: dcterms:identifier
             =======================================
@@ -457,14 +457,25 @@
             ============================================================================
             Need to address: N/A.
           -->
-          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt; </xsl:text>
+          
+          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
-          <xsl:text>"</xsl:text><xsl:value-of select="TermUI"/><xsl:text>" .&#10;</xsl:text>
+          <xsl:text>"</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>" .&#10;</xsl:text>
+          
           <xsl:if test="@IsPermutedTermYN = 'N'">
-            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt; </xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>&gt; </xsl:text>
             <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of select="String"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="String"/>
+            <xsl:text>" .&#10;</xsl:text>
           </xsl:if>
+          
           <!--
             Transformation rule: termData
             =================================================================
@@ -475,10 +486,17 @@
             ======================================================================================
             Need to address: This relation was created in order to stick with the XML representation of MeSH.
           -->
-          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt; </xsl:text>
+          
+          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;&mesh;termData&gt; </xsl:text>
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> .&#10;</xsl:text>
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> .&#10;</xsl:text>
+          
           <!--
             Transformation rule/Relation: rdf:type
             =======================================
@@ -489,10 +507,15 @@
             ====================================================================================
             Need to address: N/A.
           -->
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> </xsl:text>
+          
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;&rdf;type&gt; </xsl:text>
           <xsl:text>&lt;&mesh;TermData&gt; .&#10;</xsl:text>
+          
           <!--
             Transformation rule: isConceptPreferredTerm
             ============================================
@@ -503,10 +526,17 @@
             ======================================================================================
             Need to address: N/A.
           -->
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> </xsl:text>
+          
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;&mesh;isConceptPreferredTerm&gt; </xsl:text>
-          <xsl:text>"</xsl:text><xsl:value-of select="@ConceptPreferredTermYN"/><xsl:text>" .&#10;</xsl:text>
+          <xsl:text>"</xsl:text>
+          <xsl:value-of select="@ConceptPreferredTermYN"/>
+          <xsl:text>" .&#10;</xsl:text>
+          
           <!--
             Transformation rule: isPermutedTerm
             =====================================
@@ -517,23 +547,38 @@
             ====================================================================================
             Need to address: N/A.
           -->
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> </xsl:text>
+          
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;&mesh;isPermutedTerm&gt; </xsl:text>
-          <xsl:text>"</xsl:text><xsl:value-of select="@IsPermutedTermYN"/><xsl:text>" .&#10;</xsl:text>
+          <xsl:text>"</xsl:text>
+          <xsl:value-of select="@IsPermutedTermYN"/>
+          <xsl:text>" .&#10;</xsl:text>
+          
           <!--
             Transformation rule: lexicalTag
             ===================================
             Output: _:blankTermUI_termNo lexicalTag "lexicalTag" .
             ==========================================================
-            Additional: This relation states that a term has a lexical tag. But it does so indirectly becuase the hasLexicalTag relation is with a blank node.
-            ====================================================================================================================================================
+            Additional: This relation states that a term has a lexical tag. But it does so 
+            indirectly becuase the hasLexicalTag relation is with a blank node.
+            ==============================================================================
             Need to address: N/A.
           -->
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> </xsl:text>
+          
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;&mesh;lexicalTag&gt; </xsl:text>
-          <xsl:text>"</xsl:text><xsl:value-of select="@LexicalTag"/><xsl:text>" .&#10;</xsl:text>
+          <xsl:text>"</xsl:text>
+          <xsl:value-of select="@LexicalTag"/>
+          <xsl:text>" .&#10;</xsl:text>
+          
           <!--
             Transformation rule: printFlag
             ===================================
@@ -544,10 +589,17 @@
             ======================================================================================
             Need to address: N/A.
           -->
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> </xsl:text>
+          
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;&mesh;printFlag&gt; </xsl:text>
-          <xsl:text>"</xsl:text><xsl:value-of select="@PrintFlagYN"/><xsl:text>" .&#10;</xsl:text>
+          <xsl:text>"</xsl:text>
+          <xsl:value-of select="@PrintFlagYN"/>
+          <xsl:text>" .&#10;</xsl:text>
+          
           <!--
             Transformation rule: isRecordPreferredTerm
             ===========================================
@@ -558,10 +610,17 @@
             ========================================================================================
             Need to address: N/A.
           -->
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> </xsl:text>
+          
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;&mesh;isRecordPreferredTerm&gt; </xsl:text>
-          <xsl:text>"</xsl:text><xsl:value-of select="@RecordPreferredTermYN"/><xsl:text>" .&#10;</xsl:text>
+          <xsl:text>"</xsl:text>
+          <xsl:value-of select="@RecordPreferredTermYN"/>
+          <xsl:text>" .&#10;</xsl:text>
+          
           <!--
             Transformation rule: dcterms:identifier
             ========================================
@@ -572,10 +631,17 @@
             ======================================================================================
             Additional: N/A.
           -->
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> </xsl:text>
+          
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
-          <xsl:text>"</xsl:text><xsl:value-of select="TermUI"/><xsl:text>" .&#10;</xsl:text>
+          <xsl:text>"</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>" .&#10;</xsl:text>
+          
           <!--
             Transformation rule: rdfs:label
             =================================
@@ -586,10 +652,17 @@
             ====================================================================================
             Need to address: N/A.
           -->
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> </xsl:text>
+          
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="TermUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-          <xsl:text>"</xsl:text><xsl:value-of select="String"/><xsl:text>" .&#10;</xsl:text>
+          <xsl:text>"</xsl:text>
+          <xsl:value-of select="String"/>
+          <xsl:text>" .&#10;</xsl:text>
+          
           <!--
             Transformation rule: dateCreated
             ======================================
@@ -599,14 +672,19 @@
             ======================================================================================
             Need to address: N/A.
           -->
+          
           <xsl:if test="DateCreated">
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-              select="position()"/><xsl:text> </xsl:text>
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;&mesh;dateCreated&gt; </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of
-              select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"
-            /><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"/>
+            <xsl:text>" .&#10;</xsl:text>
           </xsl:if>
+          
           <!--
             Transformation rule: abbreviation
             =========================================
@@ -616,12 +694,18 @@
             =======================================================================
             Need to address: N/A.
           -->
+          
           <xsl:if test="Abbreviation">
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-              select="position()"/><xsl:text> </xsl:text>
+            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;&mesh;abbreviation> </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of select="Abbreviation"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="Abbreviation"/>
+            <xsl:text>" .&#10;</xsl:text>
           </xsl:if>
+          
           <!--
             Transformation rule: sortVersion
             ====================================
@@ -631,12 +715,18 @@
             ==============================================================
             Need to address: N/A.
           -->
+          
           <xsl:if test="SortVersion">
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-              select="position()"/><xsl:text> </xsl:text>
+            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;&mesh;sortVersion> </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of select="SortVersion"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="SortVersion"/>
+            <xsl:text>" .&#10;</xsl:text>
           </xsl:if>
+          
           <!--
             Transformation rule: entryVersion
             =======================================
@@ -646,12 +736,19 @@
             =================================================================
             Need to address: N/A.
           -->
+          
           <xsl:if test="EntryVersion">
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
-              select="position()"/><xsl:text> </xsl:text>
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;&mesh;entryVersion> </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of select="EntryVersion"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="EntryVersion"/>
+            <xsl:text>" .&#10;</xsl:text>
           </xsl:if>
+          
           <!--
             Transformation rule: thesaurusID
             =====================================
@@ -661,21 +758,23 @@
             ===================================================================
             Need to address: N/A.
           -->
+          
           <xsl:if test="ThesaurusIDlist">
             <xsl:variable name="pos" select="position()"/>
             <xsl:for-each select="ThesaurusIDlist/ThesaurusID">
-              <xsl:text>_:blank</xsl:text><xsl:value-of select="../../TermUI"/>_<xsl:copy-of
-                select="$pos"/><xsl:text> </xsl:text>
+              <xsl:text>_:blank</xsl:text>
+              <xsl:value-of select="../../TermUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:copy-of select="$pos"/>
+              <xsl:text> </xsl:text>
               <xsl:text>&lt;&mesh;thesaurusID> </xsl:text>
-              
               <xsl:value-of select='f:literal(.)'/>
               <xsl:text> .&#10;</xsl:text>
             </xsl:for-each>
           </xsl:if>
         </xsl:for-each>
-        <!-- TermList/Term -->
       </xsl:for-each>
-      <!-- ConceptList/Concept -->
+
 
       <xsl:if test="EntryCombinationList">
         <xsl:for-each select="EntryCombinationList/EntryCombination">
@@ -684,50 +783,81 @@
             =========================================
             Output: <desc_uri> entryCombination _:blankDescriptorUI_entryCombinationNumber .
             ====================================================================================
-            Additional: This relation states that a descriptor record has a entry combination. The entry combination has an ECIN and an ECOUT (see below). 
-            ================================================================================================================================================
+            Additional: This relation states that a descriptor record has a entry combination. The entry
+            combination has an ECIN and an ECOUT (see below). 
+            ============================================================================================
             Need to address: N/A
           -->
-          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../DescriptorUI"/><xsl:text>&gt; </xsl:text>
+          
+          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:value-of select="../../DescriptorUI"/>
+          <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;&mesh;entryCombination&gt; </xsl:text>
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> .&#10;</xsl:text>
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="../../DescriptorUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> .&#10;</xsl:text>
+          
           <!--
             Transformation rule/Relation: rdf:type
             ========================================
             Output: _:blankDescriptorUI_entryCombinationNumber	 rdf:type 	<EntryCombination> .
-            ==============================================================================================
-            Description: This relation states that a Subject node used to identify an entry combination is of type "EntryCombination".
-            ============================================================================================================================
+            =====================================================================================
+            Description: This relation states that a Subject node used to identify an entry 
+            combination is of type "EntryCombination".
+            ==================================================================================
             Need to address: N/A.
           -->
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> </xsl:text>
+          
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="../../DescriptorUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;&rdf;type&gt; </xsl:text>
           <xsl:text>&lt;&mesh;EntryCombination&gt; .&#10;</xsl:text>
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="../../DescriptorUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;&mesh;ECINDescriptor&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of
-            select="ECIN/DescriptorReferredTo/DescriptorUI"/><xsl:text>&gt;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:value-of select="ECIN/DescriptorReferredTo/DescriptorUI"/>
+          <xsl:text>&gt;</xsl:text>
           <xsl:text> .&#10;</xsl:text>
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="../../DescriptorUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;&mesh;ECINQualifier&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="ECIN/QualifierReferredTo/QualifierUI"/><xsl:text>&gt;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:value-of select="ECIN/QualifierReferredTo/QualifierUI"/>
+          <xsl:text>&gt;</xsl:text>
           <xsl:text> .&#10;</xsl:text>
-          <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of
-            select="position()"/><xsl:text> </xsl:text>
+          <xsl:text>_:blank</xsl:text>
+          <xsl:value-of select="../../DescriptorUI"/>
+          <xsl:text>_</xsl:text>
+          <xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;&mesh;ECOUTDescriptor&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of
-            select="ECOUT/DescriptorReferredTo/DescriptorUI"/><xsl:text>&gt;</xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:value-of select="ECOUT/DescriptorReferredTo/DescriptorUI"/>
+          <xsl:text>&gt;</xsl:text>
           <xsl:text> .&#10;</xsl:text>
+          
           <xsl:if test="ECOUT/QualifierReferredTo">
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of
-              select="position()"/><xsl:text> </xsl:text>
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="../../DescriptorUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;&mesh;ECOUTQualifier&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of
-              select="ECOUT/QualifierReferredTo/QualifierUI"/><xsl:text>&gt;</xsl:text>
+            <xsl:text>&lt;&mesh;</xsl:text>
+            <xsl:value-of select="ECOUT/QualifierReferredTo/QualifierUI"/>
+            <xsl:text>&gt;</xsl:text>
             <xsl:text> .&#10;</xsl:text>
           </xsl:if>
         </xsl:for-each>
@@ -828,13 +958,11 @@
           <xsl:text>" .&#10;</xsl:text>
 
         </xsl:for-each>
-        <!-- AllowableQualifiersList/AllowableQualifier" -->
 
       </xsl:if>
 
       <xsl:if test="TreeNumberList">
         <xsl:for-each select="TreeNumberList/TreeNumber">
-          <!-- xsl:for-each select="TreeNumber" -->
 
           <!-- 
             Transformation rule: treeNumber
@@ -853,10 +981,7 @@
           <xsl:value-of select="."/>
           <xsl:text>" .&#10;</xsl:text>
 
-          <!-- /xsl:for-each -->
-          <!-- TreeNumber -->
         </xsl:for-each>
-        <!-- TreeNumberList -->
       </xsl:if>
 
       <!--
@@ -871,11 +996,10 @@
         annotation is simply converted to a string data type.
       -->
 
-      <!-- xsl:template match="Annotation" -->
-      <!-- I'm not sure why, but template cannot go here in the document -->
       <xsl:if test="Annotation">
-        <!-- This if statement is necessary to ensure that the hasAnnotation relationship is extracted ONLY when the Annotation element exists
-        for a descriptor record. This if statements checks to see if the element Annotation exists for a descriptor record. -->
+        <!-- This if statement is necessary to ensure that the hasAnnotation relationship is 
+          extracted ONLY when the Annotation element exists for a descriptor record. This if 
+          statements checks to see if the element Annotation exists for a descriptor record. -->
         <!-- hasAnnotation -->
         <xsl:text>&lt;&mesh;</xsl:text>
         <xsl:value-of select="DescriptorUI"/>
@@ -885,7 +1009,6 @@
         <xsl:value-of select='f:literal(Annotation)'/>
         <xsl:text> .&#10;</xsl:text>
       </xsl:if>
-      <!-- /xsl:template -->
 
       <!-- 
         Transformation rules: dateCreated, dateRevised, dateEstablished
@@ -1163,7 +1286,6 @@
       -->
 
       <xsl:if test="ConsiderAlso">
-
         <xsl:text>&lt;&mesh;</xsl:text>
         <xsl:value-of select="DescriptorUI"/>
         <xsl:text>&gt; </xsl:text>
