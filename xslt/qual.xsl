@@ -11,32 +11,9 @@
                 xmlns:xs="http://www.w3.org/2001/XMLSchema" 
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+  <xsl:import href="common.xsl"/>
   <xsl:output method="text"/>
 
-  <!--
-    This function takes a string and replaces the occurence of a substring, "from", with that of another 
-    substring, "to".
-  -->
-
-  <xsl:template name="replace-substring">
-    <xsl:param name="value"/>
-    <xsl:param name="from"/>
-    <xsl:param name="to"/>
-    <xsl:choose>
-      <xsl:when test="contains($value,$from)">
-        <xsl:value-of select="substring-before($value,$from)"/>
-        <xsl:value-of select="$to"/>
-        <xsl:call-template name="replace-substring">
-          <xsl:with-param name="value" select="substring-after($value,$from)"/>
-          <xsl:with-param name="from" select="$from"/>
-          <xsl:with-param name="to" select="$to"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="$value"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
 
   <xsl:template match="/">
 
@@ -214,12 +191,10 @@
         <xsl:text>&lt;http://nlm.nih.gov#MeSH:annotation> </xsl:text>
         <xsl:text>"</xsl:text>
 
-        <xsl:call-template name="replace-substring">
-          <xsl:with-param name="value" select="replace(Annotation,'&quot;','\\&quot;')"/>
-          <xsl:with-param name="from" select="'&#10;'"/>
-          <!-- &#10; is a new line character...saying, when see these 5 characters, do something with it-->
-          <xsl:with-param name="to">&amp;#10;</xsl:with-param>
-        </xsl:call-template>
+        <!-- FIXME:  What in the heck is this doing? -->
+        <xsl:value-of select="replace(
+          replace(Annotation,'&quot;','\\&quot;'), '&#10;', '&amp;#10;'
+          )"/>
 
         <xsl:text>" .&#10;</xsl:text>
       </xsl:if>
@@ -241,12 +216,14 @@
         <xsl:text>&lt;http://nlm.nih.gov#MeSH:historyNote> </xsl:text>
         <xsl:text>"</xsl:text>
 
+        <xsl:value-of select="replace(HistoryNote, '&#10;', '&amp;#10;')"/>
+      <!--
         <xsl:call-template name="replace-substring">
           <xsl:with-param name="value" select="HistoryNote"/>
           <xsl:with-param name="from" select="'&#10;'"/>
           <xsl:with-param name="to">&amp;#10;</xsl:with-param>
         </xsl:call-template>
-
+      -->
         <xsl:text>" .&#10;</xsl:text>
       </xsl:if>
 
@@ -267,11 +244,14 @@
         <xsl:text>&lt;http://nlm.nih.gov#MeSH:onlineNote> </xsl:text>
         <xsl:text>"</xsl:text>
 
-        <xsl:call-template name="replace-substring">
+        <xsl:value-of select="replace(OnlineNote, '&#10;', '&amp;#10;')"/>
+        <!--
+          <xsl:call-template name="replace-substring">
           <xsl:with-param name="value" select="OnlineNote"/>
           <xsl:with-param name="from" select="'&#10;'"/>
           <xsl:with-param name="to">&amp;#10;</xsl:with-param>
         </xsl:call-template>
+        -->
 
         <xsl:text>" .&#10;</xsl:text>
       </xsl:if>
@@ -445,12 +425,16 @@
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
         <xsl:text>"</xsl:text>
+
+        <xsl:value-of select="replace(ConceptName/String, '&quot;', '\\&quot;')"/>
+      <!--
         <xsl:call-template name="replace-substring">
-          <!-- escape any double-quote character as per the N-Triple format specification -->
+          <!- - escape any double-quote character as per the N-Triple format specification - ->
           <xsl:with-param name="value" select="ConceptName/String"/>
           <xsl:with-param name="from" select="'&quot;'"/>
           <xsl:with-param name="to">\"</xsl:with-param>
         </xsl:call-template>
+      -->
         <xsl:text>" .&#10;</xsl:text>
 
         <!--
@@ -507,12 +491,15 @@
           <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;http://www.w3.org/2004/02/skos/core#scopeNote&gt; </xsl:text>
           <xsl:text>"</xsl:text>
+          <xsl:value-of select="replace(replace(ScopeNote, '&quot;', '\\&quot;'), '&#10;', '&amp;#10;')"/>
+        <!--
           <xsl:call-template name="replace-substring">
-            <!-- escape any double-quote character as per the N-Triple format specification -->
+            <!- - escape any double-quote character as per the N-Triple format specification - ->
             <xsl:with-param name="value" select="replace(ScopeNote,'&quot;','\\&quot;')"/>
             <xsl:with-param name="from" select="'&#10;'"/>
             <xsl:with-param name="to">&amp;#10;</xsl:with-param>
           </xsl:call-template>
+        -->
           <xsl:text>" .&#10;</xsl:text>
         </xsl:if>
 

@@ -45,9 +45,9 @@ get an error about running out of heap space.  If so, try adding the command lin
 
 ```
 mkdir out
-saxon -s:data/qual2014.xml -xsl:xslt/qual.xsl > out/qual2014.n3
-saxon -s:data/desc2014.xml -xsl:xslt/desc.xsl > out/desc2014.n3
-saxon -s:data/supp2014.xml -xsl:xslt/supp.xsl > out/supp2014.n3
+saxon -s:data/qual2014.xml -xsl:xslt/qual.xsl > out/qual2014.nt
+saxon -s:data/desc2014.xml -xsl:xslt/desc.xsl > out/desc2014.nt
+saxon -s:data/supp2014.xml -xsl:xslt/supp.xsl > out/supp2014.nt
 ```
 
 

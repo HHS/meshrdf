@@ -2,110 +2,76 @@
 <!DOCTYPE xsl:stylesheet [
   <!ENTITY dcterms "http://purl.org/dc/terms/">
   <!ENTITY mesh "http://nlm.nih.gov#MeSH:">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 ]>
 
 
-<xsl:stylesheet version="2.0" 
-                xmlns:meshrdf="http://nlm.nih.gov/ns/meshrdf"
+<xsl:stylesheet version="2.0"
+                xmlns:f="http://nlm.nih.gov/ns/f"
+                xmlns:dcterms='&dcterms;'
+                xmlns:mesh="&mesh;"
+                xmlns:rdfs="&rdfs;"
+                xmlns:rdf="&rdf;"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                exclude-result-prefixes="f">
 
+  <xsl:import href="common.xsl"/>
   <xsl:output method="text"/>
 
-  <!--
-    Function name: replace-substring
-    =================================
-    Description: This function takes a string and replaces all occurences of a substring `from` with
-    that of another substring `to`.
-  -->
-
-  <xsl:template name="replace-substring">
-    <xsl:param name="value"/>
-    <xsl:param name="from"/>
-    <xsl:param name="to"/>
-    <xsl:choose>
-      <xsl:when test="contains($value,$from)">
-        <xsl:value-of select="substring-before($value,$from)"/>
-        <xsl:value-of select="$to"/>
-        <xsl:call-template name="replace-substring">
-          <xsl:with-param name="value" select="substring-after($value,$from)"/>
-          <xsl:with-param name="from" select="$from"/>
-          <xsl:with-param name="to" select="$to"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="$value"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
 
   <xsl:template match="/">
 
-    <!-- triples for Descriptors -->
-
     <xsl:for-each select="DescriptorRecordSet/DescriptorRecord">
-
 
       <!--
         Transformation rule: dcterms:identifier
         ========================================
-        Output: <desc_uri> dcterms:identifier "descUI" .
+        Output: <desc_uri> dcterms:identifier "D123456" .
         =================================================
         Additional: This relation states that a descriptor record has a unique identifier.
         ===================================================================================
         Need to address: N/A
       -->
 
-      <xsl:value-of
-        select='meshrdf:triple-literal(
+      <xsl:value-of select='f:triple-literal(
           concat("&mesh;", DescriptorUI), 
           "&dcterms;identifier", 
           DescriptorUI
         )'/>
-      <!--
-        <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text> 
-        <xsl:text>&lt;http://purl.org/dc/terms/identifier&gt; </xsl:text> 
-        <xsl:text>"</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>" .&#10;</xsl:text>
-      -->
 
       <!--
         Transformation rule: rdf:type
         =================================
-        Output: <desc_uri> rdf:type <Descriptor> .
+        Output: <desc_uri> rdf:type mesh:Descriptor .
         =============================================================
-        Additional: This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".
+        Additional: This relation states that a Subject node used to identify a Descriptor record 
+        is of type "Descriptor".
       -->
 
-      <xsl:value-of
-        select='meshrdf:triple-uri(
+      <xsl:value-of select='f:triple-uri(
           concat("&mesh;", DescriptorUI), 
-          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "&rdf;type",
           "&mesh;Descriptor"
         )'/>
-      <!--
-        <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="DescriptorUI"/><xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text> 
-        <xsl:text>&lt;&mesh;Descriptor&gt; .&#10;</xsl:text>
-      -->
 
 
       <!-- 
         Transformation rule: descriptorClass
         ======================================
-        Output: <desc_uri> descriptorClass "descriptorClass" .
+        Output: <desc_uri> mesh:descriptorClass "descriptorClass" .
         =======================================================
         Additional: This relation states that a descriptor record has a descriptor class to which it belongs to.
         =========================================================================================================
         Need to address: N/A
       -->
 
-      <xsl:text>&lt;&mesh;</xsl:text>
-      <xsl:value-of select="DescriptorUI"/>
-      <xsl:text>&gt; </xsl:text>
-      <xsl:text>&lt;&mesh;descriptorClass> </xsl:text>
-      <xsl:text>"</xsl:text>
-      <xsl:value-of select="@DescriptorClass"/>
-      <xsl:text>" .&#10;</xsl:text>
+      <xsl:value-of select='f:triple-literal(
+          concat("&mesh;", DescriptorUI), 
+          "&mesh;descriptorClass", 
+          @DescriptorClass
+        )'/>
 
       <!--
         Transformation rule: rdfs:label
@@ -117,19 +83,12 @@
         Need to address: N/A.
       -->
 
-      <xsl:text>&lt;&mesh;</xsl:text>
-      <xsl:value-of select="DescriptorUI"/>
-      <xsl:text>&gt; </xsl:text>
-      <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
-      <xsl:text>"</xsl:text>
-      <xsl:call-template name="replace-substring">
-        <!-- escape any double-quote character as per the N-Triple format specification -->
-        <xsl:with-param name="value" select="DescriptorName/String"/>
-        <xsl:with-param name="from" select="'&quot;'"/>
-        <xsl:with-param name="to">\"</xsl:with-param>
-      </xsl:call-template>
-      <xsl:text>" .&#10;</xsl:text>
-
+      <xsl:value-of select='f:triple-literal(
+          concat("&mesh;", DescriptorUI), 
+          "&rdfs;label", 
+          DescriptorName/String
+        )'/>
+      
       <xsl:for-each select="ConceptList/Concept">
 
         <!--
@@ -142,15 +101,11 @@
           Need to address: N/A.
         -->
 
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="../../DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;concept&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="ConceptUI"/>
-        <xsl:text>&gt;</xsl:text>
-        <xsl:text> .&#10;</xsl:text>
-
+        <xsl:value-of select='f:triple-uri(
+            concat("&mesh;", ../../DescriptorUI), 
+            "&mesh;concept",
+            concat("&mesh;", ConceptUI)
+          )'/>
 
         <!--
           Transformation rule/Relation: rdf:type
@@ -161,11 +116,12 @@
           ========================================================================================================
           Need to address: N/A.
         -->
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="ConceptUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;Concept&gt; .&#10;</xsl:text>
+
+        <xsl:value-of select='f:triple-uri(
+            concat("&mesh;", ConceptUI), 
+            "&rdf;type",
+            "&mesh;Concept"
+          )'/>
 
         <!--
           Transformation rule: isPreferredConcept
@@ -210,15 +166,9 @@
         <xsl:text>&lt;&mesh;</xsl:text>
         <xsl:value-of select="ConceptUI"/>
         <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:call-template name="replace-substring">
-          <!-- escape any double-quote character as per the N-Triple format specification -->
-          <xsl:with-param name="value" select="ConceptName/String"/>
-          <xsl:with-param name="from" select="'&quot;'"/>
-          <xsl:with-param name="to">\"</xsl:with-param>
-        </xsl:call-template>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
+        <xsl:value-of select="f:literal(ConceptName/String)"/>
+        <xsl:text> .&#10;</xsl:text>
 
         <!--
           Transformation rule: dcterms:identifier
@@ -312,15 +262,9 @@
           <xsl:value-of select="ConceptUI"/>
           <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;http://www.w3.org/2004/02/skos/core#scopeNote&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-
-
-          <xsl:call-template name="replace-substring">
-            <xsl:with-param name="value" select="replace(ScopeNote, '&quot;', '\\&quot;')"/>
-            <xsl:with-param name="from" select="'&#10;'"/>
-            <xsl:with-param name="to">&#10;</xsl:with-param>
-          </xsl:call-template>
-          <xsl:text>" .&#10;</xsl:text>
+          
+          <xsl:value-of select='f:literal(ScopeNote)'/>
+          <xsl:text> .&#10;</xsl:text>
         </xsl:if>
 
         <xsl:if test="SemanticTypeList">
@@ -358,7 +302,7 @@
             <xsl:text>&lt;&mesh;</xsl:text>
             <xsl:value-of select="SemanticTypeUI"/>
             <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
+            <xsl:text>&lt;&rdf;type&gt; </xsl:text>
             <xsl:text>&lt;&mesh;SemanticType&gt; .&#10;</xsl:text>
 
 
@@ -369,14 +313,15 @@
               ===============================================================
               Additional: This rule states the a semantic type unique identifier has a semantic type name.
               ==============================================================================================
-              Need to address: I'm not sure if this relation is correct. But we've created this type of relation for the concepts of a descriptor. We should check this (for e.g.,
+              Need to address: I'm not sure if this relation is correct. But we've created this 
+              type of relation for the concepts of a descriptor. We should check this (for e.g.,
               with a MeSH expert or by a literature search).
             -->
 
             <xsl:text>&lt;&mesh;</xsl:text>
             <xsl:value-of select="SemanticTypeUI"/>
             <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
+            <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
             <xsl:text>"</xsl:text>
             <xsl:value-of select="SemanticTypeName"/>
             <xsl:text>" .&#10;</xsl:text>
@@ -406,7 +351,8 @@
           ======================================================================
           Additional: This relation states that a concept has a related registry number.
           ================================================================================
-          Need to address: Maybe it would be good to reduce this value to only a number. But I'm not sure. Need to check with a MeSH epert to see how important is the text
+          Need to address: Maybe it would be good to reduce this value to only a number. But 
+          I'm not sure. Need to check with a MeSH epert to see how important is the text
           after the number.
         -->
 
@@ -432,7 +378,7 @@
             <xsl:text> .&#10;</xsl:text>
             <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"/>_<xsl:value-of
               select="position()"/>
-            <xsl:text> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
+            <xsl:text> &lt;&rdf;type&gt; </xsl:text>
             <xsl:text>&lt;&mesh;ConceptRelation&gt; .&#10;</xsl:text>
             <xsl:if test="@RelationName">
               <xsl:text>_:blank_set1_</xsl:text><xsl:value-of select="../../ConceptUI"
@@ -493,7 +439,7 @@
             Additional: A concept has at least one term associated with it.
           -->
           <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
+          <xsl:text>&lt;&rdf;type&gt; </xsl:text>
           <xsl:text>&lt;&mesh;Term&gt; .&#10;</xsl:text>
           <!--
             Transformation rule: dcterms:identifier
@@ -509,7 +455,7 @@
           <xsl:text>"</xsl:text><xsl:value-of select="TermUI"/><xsl:text>" .&#10;</xsl:text>
           <xsl:if test="@IsPermutedTermYN = 'N'">
             <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
+            <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
             <xsl:text>"</xsl:text><xsl:value-of select="String"/><xsl:text>" .&#10;</xsl:text>
           </xsl:if>
           <!--
@@ -517,8 +463,9 @@
             =================================================================
             Output: <term_uri> termData _:blankTermUI_termNumber .
             ==========================================================
-            Addtional: This relation states that a term has data associated with it. A blank node stores the term data.
-            ============================================================================================================
+            Addtional: This relation states that a term has data associated with it. A blank node 
+            stores the term data.
+            ======================================================================================
             Need to address: This relation was created in order to stick with the XML representation of MeSH.
           -->
           <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="TermUI"/><xsl:text>&gt; </xsl:text>
@@ -530,21 +477,23 @@
             =======================================
             Output: _:blankTermUI_termNumber rdf:type <TermData> .
             =======================================================
-            Description: This relation states that a Subject node used to identify term data is of type "TermData".
-            ========================================================================================================
+            Description: This relation states that a Subject node used to identify term data is 
+            of type "TermData".
+            ====================================================================================
             Need to address: N/A.
           -->
           <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
             select="position()"/><xsl:text> </xsl:text>
-          <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
+          <xsl:text>&lt;&rdf;type&gt; </xsl:text>
           <xsl:text>&lt;&mesh;TermData&gt; .&#10;</xsl:text>
           <!--
             Transformation rule: isConceptPreferredTerm
             ============================================
             Output: _:blankTermUI_termNo isConceptPreferredTerm "Y/N" .
             ============================================================
-            Additional: This relation states that a term can be a concept-preferred-term. But it does so indirectly because the isConceptPreferredTerm relation is with a blank node.
-            ===========================================================================================================================================================================
+            Additional: This relation states that a term can be a concept-preferred-term. But it
+            does so indirectly because the isConceptPreferredTerm relation is with a blank node.
+            ======================================================================================
             Need to address: N/A.
           -->
           <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
@@ -556,8 +505,9 @@
             =====================================
             Output: _:blankTermUI_termNo isPermutedTerm "Y/N" .
             =====================================================
-            Additional: This relation states that a term can be a permuted term. But it does so indirectly because the isPermutedTerm relation is with a blank node.
-            =========================================================================================================================================================
+            Additional: This relation states that a term can be a permuted term. But it does so 
+            indirectly because the isPermutedTerm relation is with a blank node.
+            ====================================================================================
             Need to address: N/A.
           -->
           <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
@@ -582,8 +532,9 @@
             ===================================
             Output: _:blankTermUI_termNo printFlag "Y/N" .
             ==================================================
-            Additional: This relation states that a term has a print flag. But it does this indirectly because the hasPrintFlag relation is with a blank node.
-            ===================================================================================================================================================
+            Additional: This relation states that a term has a print flag. But it does this 
+            indirectly because the hasPrintFlag relation is with a blank node.
+            ======================================================================================
             Need to address: N/A.
           -->
           <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
@@ -595,8 +546,9 @@
             ===========================================
             Output: _:blankTermUI_termNo isRecordPreferredTerm "Y/N" .
             ============================================================
-            Additional: This relation states that a term can be a record preferred term. But it does this indirectly because the relation is with a blank node.
-            ====================================================================================================================================================
+            Additional: This relation states that a term can be a record preferred term. But it does 
+            this indirectly because the relation is with a blank node.
+            ========================================================================================
             Need to address: N/A.
           -->
           <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
@@ -608,8 +560,9 @@
             ========================================
             Output: _:blankTermUI_termNo dcterms:identifier "termUI" .
             ===========================================================
-            Additional: This relation states that a term has a term unique identifier. However, it does so indirectly because the relation is with a blank node.
-            ======================================================================================================================================================
+            Additional: This relation states that a term has a term unique identifier. However, it 
+            does so indirectly because the relation is with a blank node.
+            ======================================================================================
             Additional: N/A.
           -->
           <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
@@ -621,13 +574,14 @@
             =================================
             Output: _:blankTermUI_termNo rdfs:label "termName" .
             ======================================================
-            Additional: This relation states that a term has a term name. But it does so indirectly because the relation is with a blank node.
-            ====================================================================================================================================
+            Additional: This relation states that a term has a term name. But it does so 
+            indirectly because the relation is with a blank node.
+            ====================================================================================
             Need to address: N/A.
           -->
           <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"/>_<xsl:value-of
             select="position()"/><xsl:text> </xsl:text>
-          <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
+          <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
           <xsl:text>"</xsl:text><xsl:value-of select="String"/><xsl:text>" .&#10;</xsl:text>
           <!--
             Transformation rule: dateCreated
@@ -706,13 +660,9 @@
               <xsl:text>_:blank</xsl:text><xsl:value-of select="../../TermUI"/>_<xsl:copy-of
                 select="$pos"/><xsl:text> </xsl:text>
               <xsl:text>&lt;&mesh;thesaurusID> </xsl:text>
-              <xsl:text>"</xsl:text>
-              <xsl:call-template name="replace-substring">
-                <xsl:with-param name="value" select="."/>
-                <xsl:with-param name="from" select="'&#10;'"/>
-                <xsl:with-param name="to">&#10;</xsl:with-param>
-              </xsl:call-template>
-              <xsl:text>" .&#10;</xsl:text>
+              
+              <xsl:value-of select='f:literal(.)'/>
+              <xsl:text> .&#10;</xsl:text>
             </xsl:for-each>
           </xsl:if>
         </xsl:for-each>
@@ -746,7 +696,7 @@
           -->
           <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of
             select="position()"/><xsl:text> </xsl:text>
-          <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
+          <xsl:text>&lt;&rdf;type&gt; </xsl:text>
           <xsl:text>&lt;&mesh;EntryCombination&gt; .&#10;</xsl:text>
           <xsl:text>_:blank</xsl:text><xsl:value-of select="../../DescriptorUI"/>_<xsl:value-of
             select="position()"/><xsl:text> </xsl:text>
@@ -812,7 +762,7 @@
           <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
           <xsl:text>&gt;</xsl:text>
           <xsl:text> </xsl:text>
-          <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
+          <xsl:text>&lt;&rdf;type&gt; </xsl:text>
           <xsl:text>&lt;&mesh;Qualifier&gt; .&#10;</xsl:text>
 
 
@@ -847,7 +797,7 @@
           <xsl:text>&lt;&mesh;</xsl:text>
           <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
           <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
+          <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
           <xsl:text>"</xsl:text>
           <xsl:value-of select="QualifierReferredTo/QualifierName/String"/>
           <xsl:text>" .&#10;</xsl:text>
@@ -924,14 +874,9 @@
         <xsl:value-of select="DescriptorUI"/>
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;&mesh;annotation> </xsl:text>
-        <xsl:text>"</xsl:text>
-
-        <xsl:call-template name="replace-substring">
-          <xsl:with-param name="value" select="replace(Annotation, '&quot;', '\\&quot;')"/>
-          <xsl:with-param name="from" select="'&#10;'"/>
-          <xsl:with-param name="to">&#10;</xsl:with-param>
-        </xsl:call-template>
-        <xsl:text>" .&#10;</xsl:text>
+        
+        <xsl:value-of select='f:literal(Annotation)'/>
+        <xsl:text> .&#10;</xsl:text>
       </xsl:if>
       <!-- /xsl:template -->
 
@@ -1011,14 +956,8 @@
         <xsl:value-of select="DescriptorUI"/>
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;&mesh;historyNote> </xsl:text>
-        <xsl:text>"</xsl:text>
-
-        <xsl:call-template name="replace-substring">
-          <xsl:with-param name="value" select="replace(HistoryNote, '&quot;', '\\&quot;')"/>
-          <xsl:with-param name="from" select="'&#10;'"/>
-          <xsl:with-param name="to">&#10;</xsl:with-param>
-        </xsl:call-template>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:value-of select='f:literal(HistoryNote)'/>
+        <xsl:text> .&#10;</xsl:text>
       </xsl:if>
 
       <!--
@@ -1036,14 +975,8 @@
         <xsl:value-of select="DescriptorUI"/>
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;&mesh;onlineNote> </xsl:text>
-        <xsl:text>"</xsl:text>
-
-        <xsl:call-template name="replace-substring">
-          <xsl:with-param name="value" select="replace(OnlineNote, '&quot;', '\\&quot;')"/>
-          <xsl:with-param name="from" select="'&#10;'"/>
-          <xsl:with-param name="to">&#10;</xsl:with-param>
-        </xsl:call-template>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:value-of select='f:literal(OnlineNote)'/>
+        <xsl:text> .&#10;</xsl:text>
       </xsl:if>
 
       <!--
@@ -1061,14 +994,8 @@
         <xsl:value-of select="DescriptorUI"/>
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;&mesh;publicMeSHNote> </xsl:text>
-        <xsl:text>"</xsl:text>
-
-        <xsl:call-template name="replace-substring">
-          <xsl:with-param name="value" select="replace(PublicMeSHNote, '&quot;', '\\&quot;')"/>
-          <xsl:with-param name="from" select="'&#10;'"/>
-          <xsl:with-param name="to">&#10;</xsl:with-param>
-        </xsl:call-template>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:value-of select='f:literal(PublicMeSHNote)'/>
+        <xsl:text> .&#10;</xsl:text>
       </xsl:if>
 
       <!--
@@ -1088,22 +1015,17 @@
           <xsl:value-of select="../../DescriptorUI"/>
           <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;&mesh;previousIndexing> </xsl:text>
-          <xsl:text>"</xsl:text>
-
-          <xsl:call-template name="replace-substring">
-            <xsl:with-param name="value" select="."/>
-            <xsl:with-param name="from" select="'&#10;'"/>
-            <xsl:with-param name="to">&#10;</xsl:with-param>
-          </xsl:call-template>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:value-of select="f:literal(.)"/>
+          <xsl:text> .&#10;</xsl:text>
         </xsl:for-each>
       </xsl:if>
 
       <!--
         Transformation rule: pharmacologicalAction>
         ===============================================
-        Output: <desc_uri> pharmacologicalAction <desc_uri> ., where the two <desc_uri> values are different.
-        =======================================================================================================
+        Output: <desc_uri> pharmacologicalAction <desc_uri> ., where the two <desc_uri> values are 
+        different.
+        ==========================================================================================
         Additional: This relation states that a descriptor hasa pharmacological action.
         ================================================================================
         Need to address: The pharmacological action is represented here as a <desc_uri>. That is, 
@@ -1143,14 +1065,8 @@
         <xsl:value-of select="DescriptorUI"/>
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;&mesh;runningHead> </xsl:text>
-        <xsl:text>"</xsl:text>
-
-        <xsl:call-template name="replace-substring">
-          <xsl:with-param name="value" select="replace(RunningHead, '&quot;', '\\&quot;')"/>
-          <xsl:with-param name="from" select="'&#10;'"/>
-          <xsl:with-param name="to">&#10;</xsl:with-param>
-        </xsl:call-template>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:value-of select="f:literal(RunningHead)"/>
+        <xsl:text> .&#10;</xsl:text>
       </xsl:if>
 
       <!--
@@ -1199,14 +1115,19 @@
         =============================================================================
         Additional:
         
-        The <desc_uri> seeAlso <desc_uri> is different from what a person would see in the MeSH browser. In the browser one would see <desc_uri> seeAlso "name".
+        The <desc_uri> seeAlso <desc_uri> is different from what a person would see in the 
+        MeSH browser. In the browser one would see <desc_uri> seeAlso "name".
         
-        The <desc_uri> hasRelatedDescriptor <desc_uri> is where I decided to deviate from what I saw in the browser b/c the descriptor UI remains unchanged even though the 
+        The <desc_uri> hasRelatedDescriptor <desc_uri> is where I decided to deviate from what 
+        I saw in the browser b/c the descriptor UI remains unchanged even though the 
         descriptor name can change.
         ============================
-        Need to address: I felt that some of the information in the SeeRelatedList element was repetative b/c it consisted of a list of descriptor unique identifiers
-        and names. Hence, I decided to use the output specified above b/c we could always access the unique identifier and name for a descriptor given its unique 
-        identifier, we extract this information from the XML already. I thought the hasRelatedDescriptor relation was more expressive and explicit in this case than the seeAlso relation.
+        Need to address: I felt that some of the information in the SeeRelatedList element was 
+        repetative b/c it consisted of a list of descriptor unique identifiers and names. Hence, 
+        I decided to use the output specified above b/c we could always access the unique 
+        identifier and name for a descriptor given its unique identifier, we extract this 
+        information from the XML already. I thought the hasRelatedDescriptor relation was more 
+        expressive and explicit in this case than the seeAlso relation.
       -->
 
       <xsl:if test="SeeRelatedList">
@@ -1215,14 +1136,13 @@
           <xsl:text>&lt;&mesh;</xsl:text>
           <xsl:value-of select="../../DescriptorUI"/>
           <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#seeAlso&gt; </xsl:text>
+          <xsl:text>&lt;&rdfs;seeAlso&gt; </xsl:text>
           <xsl:text>&lt;&mesh;</xsl:text>
           <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
           <xsl:text>&gt;</xsl:text>
           <xsl:text> .&#10;</xsl:text>
 
         </xsl:for-each>
-        <!-- SeeRelatedList/SeeRelatedDescriptor -->
       </xsl:if>
 
       <!--
@@ -1241,56 +1161,11 @@
         <xsl:value-of select="DescriptorUI"/>
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;&mesh;considerAlso> </xsl:text>
-        <xsl:text>"</xsl:text>
-
-        <xsl:call-template name="replace-substring">
-          <xsl:with-param name="value" select="replace(ConsiderAlso, '&quot;', '\\&quot;')"/>
-          <xsl:with-param name="from" select="'&#10;'"/>
-          <xsl:with-param name="to">&#10;</xsl:with-param>
-        </xsl:call-template>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:value-of select="f:literal(ConsiderAlso)"/>
+        <xsl:text> .&#10;</xsl:text>
       </xsl:if>
-      <!-- /xsl:if -->
     </xsl:for-each>
-    <!-- DescriptorRecordSet/DescriptorRecord -->
 
   </xsl:template>
-
-  <!-- 
-    Define some functions to aid in outputting triples
-    ==================================================
-  -->
-
-  <!-- 
-    Output a triple whose object is a string literal
-  -->
-  <xsl:function name="meshrdf:triple-literal">
-    <xsl:param name="subject-uri"/>
-    <xsl:param name="predicate-uri"/>
-    <xsl:param name="object-literal"/>
-    <xsl:value-of select="concat('&lt;', $subject-uri, '&gt; ')"/>
-    <xsl:value-of select="concat('&lt;', $predicate-uri, '&gt; ')"/>
-    <xsl:value-of select="concat('&quot;', meshrdf:n3-escape($object-literal), '&quot; .&#10;')"/>
-  </xsl:function>
-
-  <!-- 
-    Output a triple whose object is a uri
-  -->
-  <xsl:function name="meshrdf:triple-uri">
-    <xsl:param name="subject-uri"/>
-    <xsl:param name="predicate-uri"/>
-    <xsl:param name="object-uri"/>
-    <xsl:value-of select="concat('&lt;', $subject-uri, '&gt; ')"/>
-    <xsl:value-of select="concat('&lt;', $predicate-uri, '&gt; ')"/>
-    <xsl:value-of select="concat('&lt;', $object-uri, '&gt; .&#10;')"/>
-  </xsl:function>
-
-  <!-- 
-    Escapes literals properly for the N3 format.
-  -->
-  <xsl:function name="meshrdf:n3-escape">
-    <xsl:param name="literal"/>
-    <xsl:value-of select="replace($literal, '&quot;', '\\&quot;')"/>
-  </xsl:function>
 
 </xsl:stylesheet>
