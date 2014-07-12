@@ -135,7 +135,13 @@
 
         <!-- isPreferredConcept -->
         <!-- Y/N -->
-        <xsl:if test="@PreferredConceptYN = 'Y'">
+        <xsl:if test="@PreferredConceptYN = 'Y' or @PreferredConceptYN = 'N'">
+          <xsl:value-of select='f:triple-literal(
+              concat("&mesh;", ConceptUI), 
+              "&mesh;isPreferredConcept", 
+              @PreferredConceptYN
+            )'/>
+        <!--
           <xsl:text>&lt;&mesh;</xsl:text>
           <xsl:value-of select="ConceptUI"/>
           <xsl:text>&gt; </xsl:text>
@@ -151,6 +157,7 @@
           <xsl:text>&lt;&mesh;isPreferredConcept> </xsl:text>
           <xsl:text>"N</xsl:text>
           <xsl:text>" .&#10;</xsl:text>
+        -->
         </xsl:if>
 
         <!--
