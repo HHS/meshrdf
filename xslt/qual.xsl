@@ -472,14 +472,6 @@
           <xsl:text>&lt;http://www.w3.org/2004/02/skos/core#scopeNote&gt; </xsl:text>
           <xsl:text>"</xsl:text>
           <xsl:value-of select="replace(replace(ScopeNote, '&quot;', '\\&quot;'), '&#10;', '&amp;#10;')"/>
-        <!--
-          <xsl:call-template name="replace-substring">
-            <!- - escape any double-quote character as per the N-Triple format specification - ->
-            <xsl:with-param name="value" select="replace(ScopeNote,'&quot;','\\&quot;')"/>
-            <xsl:with-param name="from" select="'&#10;'"/>
-            <xsl:with-param name="to">&amp;#10;</xsl:with-param>
-          </xsl:call-template>
-        -->
           <xsl:text>" .&#10;</xsl:text>
         </xsl:if>
 

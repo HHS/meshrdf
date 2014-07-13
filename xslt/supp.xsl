@@ -257,6 +257,7 @@
             select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
           <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
           <xsl:text>&lt;http://nlm.nih.gov#MeSH:MappedData&gt; .&#10;</xsl:text>
+          
           <!--
             Transformation rule: isMappedToDescriptor
             ==========================================
@@ -265,11 +266,17 @@
             Additional: A supplemental record is mapped to a descriptor record. In our representation the mapping is first to a blank node and then to
             the descriptor record.
           -->
+          
           <xsl:text>_:blank_set1_</xsl:text><xsl:value-of
-            select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;http://nlm.nih.gov#MeSH:isMappedToDescriptor&gt; </xsl:text>
-          <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-            select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/><xsl:text>&gt;</xsl:text><xsl:text> .&#10;</xsl:text>
+          <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+          <xsl:value-of
+            select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/>
+          <xsl:text>&gt;</xsl:text>
+          <xsl:text> .&#10;</xsl:text>
+          
           <!--
             Descriptor is starred
             =================================
@@ -277,13 +284,18 @@
             =============================================================
             Additional:
           -->
+          
           <xsl:variable name="descui" select="DescriptorReferredTo/DescriptorUI"/>
           <xsl:if test="starts-with($descui,'*')">
-            <xsl:text>_:blank_set1_</xsl:text><xsl:value-of
-              select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            <xsl:text>_:blank_set1_</xsl:text>
+            <xsl:value-of
+              select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:isDescriptorStarred&gt; </xsl:text>
-            <xsl:text>"Y"</xsl:text><xsl:text> .&#10;</xsl:text>
+            <xsl:text>"Y"</xsl:text>
+            <xsl:text> .&#10;</xsl:text>
           </xsl:if>
+          
           <!-- added by rw
             Transformation rule: rdfs:label
             =======================================
@@ -291,8 +303,12 @@
             ================================================
             Additional: A descriptor has a name.
           -->
-          <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-            select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/><xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
+          
+          <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+          <xsl:value-of
+            select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/>
+          <xsl:text>&gt;</xsl:text>
+          <xsl:text> </xsl:text>
           <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
           <xsl:text>"</xsl:text><xsl:value-of
             select="DescriptorReferredTo/DescriptorName/String"/><xsl:text>" .&#10;</xsl:text>
@@ -350,8 +366,10 @@
               =====================================
               Output: <suppRec_uri> indexingData <blank_set2_uri> .
               =========================================================
-              Additional: To remain true to the structure of the supplemental records in XML format, we created the hasIndexingData relation.
-              A supplemental record can have indexing information that consists of at least one descriptor record or descriptor record/qualifier record combination. A
+              Additional: To remain true to the structure of the supplemental records in XML 
+              format, we created the hasIndexingData relation.
+              A supplemental record can have indexing information that consists of at least one 
+              descriptor record or descriptor record/qualifier record combination. A
               blank node makes up the indexing data entity.
             -->
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of

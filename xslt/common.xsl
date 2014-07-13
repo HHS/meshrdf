@@ -7,38 +7,75 @@
                 exclude-result-prefixes="xs f">
   
   <!-- 
-    Define some functions to aid in outputting triples
-    ==================================================
+    The main named template used for outputting triples.
+    This takes two paramters:  
+    - doc - for self-documentation, this isn't used when generating the triples.  It can contain:
+        - <output> - put a stylized summary of the triple here
+        - <desc> - short description of the rule
+        - <fixme> - (optional) any work to be done? 
+    - spec - the three element children of this parameter define what to put out for the subject,
+      predicate, and object.  The element name defines the type (see the n-triples grammar
+      specification, http://www.w3.org/2001/sw/RDFCore/ntriples/):
+        - <uri> - @prefix attribute should have the prefix, contents should hold the rest.
+        - <literal> - contents are a literal string value
+        - <named> - for blank nodes
   -->
-  
-  <!-- 
-    Output a triple whose object is a string literal
-  -->
-  <xsl:function name="f:triple-literal">
-    <xsl:param name="subject-uri"/>
-    <xsl:param name="predicate-uri"/>
-    <xsl:param name="object-literal"/>
-    <xsl:value-of select="concat('&lt;', $subject-uri, '&gt; ')"/>
-    <xsl:value-of select="concat('&lt;', $predicate-uri, '&gt; ')"/>
-    <xsl:value-of select="concat(f:literal($object-literal), ' .&#10;')"/>
-  </xsl:function>
-  
-  <!-- 
-    Output a triple whose object is a uri
-  -->
-  <xsl:function name="f:triple-uri">
-    <xsl:param name="subject-uri"/>
-    <xsl:param name="predicate-uri"/>
-    <xsl:param name="object-uri"/>
-    <xsl:value-of select="concat('&lt;', $subject-uri, '&gt; ')"/>
-    <xsl:value-of select="concat('&lt;', $predicate-uri, '&gt; ')"/>
-    <xsl:value-of select="concat('&lt;', $object-uri, '&gt; .&#10;')"/>
-  </xsl:function>
 
+  <xsl:template name='triple'>
+    <xsl:param name='doc'/>
+    <xsl:param name='spec'/>
+    <xsl:variable name='s' select='$spec/*[1]'/>
+    <xsl:variable name='p' select='$spec/*[2]'/>
+    <xsl:variable name='o' select='$spec/*[3]'/>
+    <xsl:value-of select='f:triple(
+        f:serialize($s),
+        f:serialize($p),
+        f:serialize($o)
+      )'/>
+  </xsl:template>
+  
+  <!-- 
+    This helper function serializes one of the three types of the components of the spec
+    parameter sent to the triple template.
+  -->
+  <xsl:function name='f:serialize'>
+    <xsl:param name='v'/>
+    <xsl:choose>
+      <xsl:when test='$v/self::uri'>
+        <xsl:value-of select='f:delimit-uri(concat($v/@prefix, $v))'/>
+      </xsl:when>
+      <xsl:when test='$v/self::literal'>
+        <xsl:value-of select="f:literal-str($v)"/>
+      </xsl:when>
+      <xsl:when test='$v/self::named'>
+        <xsl:value-of select='$v'/>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:function>
+  
+  
+  <!-- 
+    Put delimiters (angle brackets) around a URI during serialization to NTriples format.
+  -->
+  <xsl:function name='f:delimit-uri'>
+    <xsl:param name="uri"/>
+    <xsl:value-of select='concat("&lt;", $uri, "&gt;")'/>
+  </xsl:function>
+  
+  <!-- 
+    Output a single triple.  The arguments should be already in their serialized form
+  -->
+  <xsl:function name='f:triple'>
+    <xsl:param name="s"/>
+    <xsl:param name="p"/>
+    <xsl:param name="o"/>
+    <xsl:value-of select='concat($s, " ", $p, " ", $o, " .&#10;")'/>
+  </xsl:function>
+  
   <!-- 
     Create a literal string, wrapped in double-quotes, and properly escaped
   -->
-  <xsl:function name='f:literal'>
+  <xsl:function name='f:literal-str'>
     <xsl:param name='lit'/>
     <xsl:value-of select="concat('&quot;', f:n3-escape($lit), '&quot;')"/>
   </xsl:function>
@@ -53,6 +90,6 @@
         '&#10;', '\\n'
       )"/>
   </xsl:function>
-  
-  
+
+
 </xsl:stylesheet>

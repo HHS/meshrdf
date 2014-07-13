@@ -29,390 +29,467 @@
 
       <!--
         Transformation rule: dcterms:identifier
-        ========================================
-        Output: <desc_uri> dcterms:identifier "D123456" .
-        =================================================
-        Additional: This relation states that a descriptor record has a unique identifier.
-        ===================================================================================
-        Need to address: N/A
       -->
-
-      <xsl:value-of select='f:triple-literal(
-          concat("&mesh;", DescriptorUI), 
-          "&dcterms;identifier", 
-          DescriptorUI
-        )'/>
+      <xsl:call-template name='triple'>
+        <xsl:with-param name="doc">
+          <output>*descriptor_uri* dcterms:identifier *descriptor_id*</output>
+          <desc>This relation states that a descriptor record has a unique identifier.</desc>
+        </xsl:with-param>
+        <xsl:with-param name='spec'>
+          <uri prefix='&mesh;'>
+            <xsl:value-of select="DescriptorUI"/>
+          </uri>
+          <uri prefix='&dcterms;'>identifier</uri>
+          <literal>
+            <xsl:value-of select="DescriptorUI"/>
+          </literal>
+        </xsl:with-param>
+      </xsl:call-template>
 
       <!--
         Transformation rule: rdf:type
-        =================================
-        Output: <desc_uri> rdf:type mesh:Descriptor .
-        =============================================================
-        Additional: This relation states that a Subject node used to identify a Descriptor record 
-        is of type "Descriptor".
       -->
-
-      <xsl:value-of select='f:triple-uri(
-          concat("&mesh;", DescriptorUI), 
-          "&rdf;type",
-          "&mesh;Descriptor"
-        )'/>
-
+      <xsl:call-template name='triple'>
+        <xsl:with-param name="doc">
+          <output>*descriptor_uri* rdf:type mesh:Descriptor</output>
+          <desc>This relation states that a Subject node used to identify a Descriptor record 
+            is of type "Descriptor".</desc>
+        </xsl:with-param>
+        <xsl:with-param name='spec'>
+          <uri prefix='&mesh;'>
+            <xsl:value-of select="DescriptorUI"/>
+          </uri>
+          <uri prefix='&rdf;'>type</uri>
+          <uri prefix='&mesh;'>Descriptor</uri>
+        </xsl:with-param>
+      </xsl:call-template>
 
       <!-- 
         Transformation rule: descriptorClass
-        ======================================
-        Output: <desc_uri> mesh:descriptorClass "descriptorClass" .
-        =======================================================
-        Additional: This relation states that a descriptor record has a descriptor class to which 
-        it belongs to.
-        ==========================================================================================
-        Need to address: N/A
       -->
-
-      <xsl:value-of select='f:triple-literal(
-          concat("&mesh;", DescriptorUI), 
-          "&mesh;descriptorClass", 
-          @DescriptorClass
-        )'/>
+      <xsl:call-template name="triple">
+        <xsl:with-param name="doc">
+          <output>*descriptor_uri* mesh:descriptorClass *descriptor_class*</output>
+          <desc>This relation states that a descriptor record has a descriptor class to which 
+            it belongs to.</desc>
+        </xsl:with-param>
+        <xsl:with-param name="spec">
+          <uri prefix='&mesh;'>
+            <xsl:value-of select="DescriptorUI"/>
+          </uri>
+          <uri prefix="&mesh;">descriptorClass</uri>
+          <literal>
+            <xsl:value-of select="@DescriptorClass"/>
+          </literal>
+        </xsl:with-param>
+      </xsl:call-template>
 
       <!--
         Transformation rule: rdfs:label
-        =======================================
-        Output: <desc_uri> rdfs:label "descName" .
-        ==================================================
-        Additional: This relation states that a descriptor record has a name.
-        ======================================================================
-        Need to address: N/A.
-      -->
-
-      <xsl:value-of select='f:triple-literal(
-          concat("&mesh;", DescriptorUI), 
-          "&rdfs;label", 
-          DescriptorName/String
-        )'/>
-      
+      -->      
+      <xsl:call-template name="triple">
+        <xsl:with-param name="doc">
+          <output>*descriptor_uri* rdfs:label *descriptor_name*</output>
+          <desc>This relation states that a descriptor record has a name.</desc>
+        </xsl:with-param>
+        <xsl:with-param name="spec">
+          <uri prefix='&mesh;'>
+            <xsl:value-of select="DescriptorUI"/>
+          </uri>
+          <uri prefix='&rdfs;'>label</uri>
+          <literal>
+            <xsl:value-of select="DescriptorName/String"/>
+          </literal>
+        </xsl:with-param>
+      </xsl:call-template>
+            
       <xsl:for-each select="ConceptList/Concept">
+        <!-- $concept_uri is used in many calls to the `triple` template below -->
+        <xsl:variable name='concept_uri'>
+          <uri prefix='&mesh;'>
+            <xsl:value-of select="ConceptUI"/>
+          </uri>
+        </xsl:variable>
 
         <!--
           Transformation rule: concept
-          =======================================
-          Output: <desc_uri> concept <conc_uri> .
-          ===========================================
-          Additional: This relation states that a descriptor record has a concept.
-          ====================================================================================
-          Need to address: N/A.
         -->
-
-        <xsl:value-of select='f:triple-uri(
-            concat("&mesh;", ../../DescriptorUI), 
-            "&mesh;concept",
-            concat("&mesh;", ConceptUI)
-          )'/>
+        <xsl:call-template name="triple">
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:concept *concept_uri*</output>
+            <desc>This relation states that a descriptor record has a concept.</desc>
+          </xsl:with-param>
+          <xsl:with-param name="spec">
+            <uri prefix='&mesh;'>
+              <xsl:value-of select="../../DescriptorUI"/>
+            </uri>
+            <uri prefix='&mesh;'>concept</uri>
+            <xsl:copy-of select="$concept_uri"/>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <!--
-          Transformation rule/Relation: rdf:type
-          =======================================
-          Output: <conc_uri> rdf:type <Concept> .
-          =========================================
-          Description: This relation states that a Subject node used to identify a concept 
-          is of type "Concept".
-          ======================================================================================
-          Need to address: N/A.
+          Transformation rule: rdf:type
         -->
-
-        <xsl:value-of select='f:triple-uri(
-            concat("&mesh;", ConceptUI), 
-            "&rdf;type",
-            "&mesh;Concept"
-          )'/>
+        <xsl:call-template name="triple">
+          <xsl:with-param name="doc">
+            <output>*concept_uri* rdf:type mesh:Concept</output>
+            <desc>This relation states that a Subject node used to identify a concept 
+              is of type "Concept".</desc>
+          </xsl:with-param>
+          <xsl:with-param name="spec">
+            <xsl:copy-of select="$concept_uri"/>
+            <uri prefix='&rdf;'>type</uri>
+            <uri prefix='&mesh;'>Concept</uri>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <!--
           Transformation rule: isPreferredConcept
-          ========================================
-          Output: <conc_uri> isPreferredConcept "Y"/"N" .
-          ================================================
-          Additional: This relation states that yes, "Y", a concept is the preferred concept or 
-          no, "N", the concept is not the preferred concept.
-          ========================================================================================
-          Need to address: N/A
         -->
-
-        <xsl:value-of select='f:triple-literal(
-            concat("&mesh;", ConceptUI), 
-            "&mesh;isPreferredConcept", 
-            @PreferredConceptYN
-          )'/>
+        <xsl:call-template name="triple">
+          <xsl:with-param name="doc">
+            <output>*concept_uri* mesh:isPreferredConcept Y/N</output>
+            <desc>This relation states that yes, "Y", a concept is the preferred concept or 
+              no, "N", the concept is not the preferred concept.</desc>
+            <fixme>Wouldn't it be better to define a PreferredConcept class, and use that as
+              this concept's rdf:type, instead of have a triple with a literal "Y" or "N"
+              value?</fixme>
+          </xsl:with-param>
+          <xsl:with-param name="spec">
+            <xsl:copy-of select="$concept_uri"/>
+            <uri prefix='&mesh;'>isPreferredConcept</uri>
+            <literal>
+              <xsl:value-of select="@PreferredConceptYN"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
         
         <!--
           Transformation rule: rdfs:label
-          ====================================
-          Output: <conc_uri> rdfs:label "concName" .
-          ================================================
-          Additional: This relation states that a concept has a concept name.
-          ====================================================================
-          Need to address: N/A
         -->
-
-        <xsl:value-of select='f:triple-literal(
-            concat("&mesh;", ConceptUI), 
-            "&rdfs;label", 
-            ConceptName/String
-          )'/>
+        <xsl:call-template name="triple">
+          <xsl:with-param name="doc">
+            <output>*concept_uri* rdfs:label *concept_name*</output>
+            <desc>This relation states that a concept has a concept name.</desc>
+          </xsl:with-param>
+          <xsl:with-param name="spec">
+            <xsl:copy-of select="$concept_uri"/>
+            <uri prefix='&rdfs;'>label</uri>
+            <literal>
+              <xsl:value-of select="ConceptName/String"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <!--
           Transformation rule: dcterms:identifier
-          ========================================
-          Output: <conc_uri> dcterms:identifier "concUI" .
-          =================================================
-          Additional: This relation states that a concept has a unique identifier.
-          =========================================================================
-          Need to address: N/A.
         -->
-
-        <xsl:value-of select='f:triple-literal(
-            concat("&mesh;", ConceptUI), 
-            "&dcterms;identifier", 
-            ConceptUI
-          )'/>
-
-        <!--
-          Transformation rule: CASN1_label
-          ===================================
-          Output: <conc_uri> CASN1_label "CASN1Name" .
-          ===============================================
-          Additional: This relation states that a concept has a Chemical Abstracts Type N1 Name.
-          =======================================================================================
-          Need to address: Do we want to parse the CASN1Name (e.g. for other purposes)?
-        -->
+        <xsl:call-template name="triple">
+          <xsl:with-param name="doc">
+            <output>*concept_uri* dcterms:identifier *concept_id*</output>
+            <desc>This relation states that a concept has a unique identifier.</desc>
+          </xsl:with-param>
+          <xsl:with-param name="spec">
+            <xsl:copy-of select="$concept_uri"/>
+            <uri prefix='&dcterms;'>identifier</uri>
+            <literal>
+              <xsl:value-of select="ConceptUI"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <xsl:if test="CASN1Name">
-          <xsl:value-of select='f:triple-literal(
-              concat("&mesh;", ConceptUI), 
-              "&mesh;CASN1_label", 
-              CASN1Name
-            )'/>
+          <!--
+            Transformation rule: CASN1_label
+          -->    
+          <xsl:call-template name="triple">
+            <xsl:with-param name="doc">
+              <output>*concept_uri* mesh:CASN1_label *CASN1Name*</output>
+              <desc>This relation states that a concept has a Chemical Abstracts Type N1 Name.</desc>
+              <fixme>Do we want to parse the CASN1Name (e.g. for other purposes)?</fixme>
+            </xsl:with-param>
+            <xsl:with-param name="spec">
+              <xsl:copy-of select="$concept_uri"/>
+              <uri prefix='&mesh;'>CASN1_label</uri>
+              <literal>
+                <xsl:value-of select="CASN1Name"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:if>
-
-        <!--
-          Transformation rule: registryNumber
-          =======================================
-          Output: <conc_uri> registryNumber "registryNumber" .
-          =========================================================
-          Additional: This relation states that a concept has a registry number.
-          =======================================================================
-          Need to address: N/A
-        -->
 
         <xsl:if test="RegistryNumber">
-          <xsl:value-of select='f:triple-literal(
-              concat("&mesh;", ConceptUI), 
-              "&mesh;registryNumber", 
-              RegistryNumber
-            )'/>
+          <!--
+            Transformation rule: registryNumber
+          -->
+          <xsl:call-template name="triple">
+            <xsl:with-param name="doc">
+              <output>*concept_uri* mesh:registryNumber *registry_number*</output>
+              <desc>This relation states that a concept has a registry number.</desc>
+            </xsl:with-param>
+            <xsl:with-param name="spec">
+              <xsl:copy-of select="$concept_uri"/>
+              <uri prefix='&mesh;'>registryNumber</uri>
+              <literal>
+                <xsl:value-of select="RegistryNumber"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:if>
 
-        <!--
-          Transformation rule: skos:scopeNote
-          ===================================
-          Output: <conc_uri> skos:scopeNote "scopeNote" .
-          ===============================================
-          Additional: This relation states tht a concept has a scope note.
-          =================================================================
-          Need to address: N/A.
-        -->
         <xsl:if test="ScopeNote">
-          <xsl:value-of select='f:triple-literal(
-              concat("&mesh;", ConceptUI), 
-              "&skos;scopeNote", 
-              ScopeNote
-            )'/>
+          <!--
+            Transformation rule: skos:scopeNote
+          -->
+          <xsl:call-template name="triple">
+            <xsl:with-param name="doc">
+              <output>*concept_uri* skos:scopeNote *scope_note*</output>
+              <desc>This relation states tht a concept has a scope note.</desc>
+            </xsl:with-param>
+            <xsl:with-param name="spec">
+              <xsl:copy-of select="$concept_uri"/>
+              <uri prefix='&skos;'>scopeNote</uri>
+              <literal>
+                <xsl:value-of select="ScopeNote"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:if>
 
         <xsl:if test="SemanticTypeList">
           <xsl:for-each select="SemanticTypeList/SemanticType">
+            <xsl:variable name='semantic_type_uri'>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="SemanticTypeUI"/>
+              </uri>
+            </xsl:variable>
 
             <!--
               Transformation rule: semanticType
-              =====================================
-              Output: <conc_uri> semanticType <semType_uri> .
-              ===================================================
-              Additional: This relation states that a concept has a semantic type.
-              =====================================================================
-              Need to address: N/A.
-            -->
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="../../ConceptUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;semanticType> </xsl:text>
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="SemanticTypeUI"/>
-            <xsl:text>&gt;</xsl:text>
-            <xsl:text> .&#10;</xsl:text>
-
+            -->            
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <output>*concept_uri* mesh:semanticType *semantic_type_uri*</output>
+                <desc>This relation states that a concept has a semantic type.</desc>
+                <fixme></fixme>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$concept_uri"/>
+                <uri prefix='&mesh;'>semanticType</uri>
+                <xsl:copy-of select="$semantic_type_uri"/>
+              </xsl:with-param>
+            </xsl:call-template>
 
             <!--
               Transformation rule: rdf:type
-              ===============================
-              Output: <semType_uri> rdf:type <SemanticType> .
-              =================================================
-              Additional: This relation states that a concept has a semantic type.
-              =====================================================================
-              Need to address: N/A.
             -->
-
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="SemanticTypeUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;SemanticType&gt; .&#10;</xsl:text>
-
-
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <output>*semantic_type_uri* rdf:type mesh:SemanticType</output>
+                <desc>Specifies the class of the semantic type resource.</desc>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$semantic_type_uri"/>
+                <uri prefix='&rdf;'>type</uri>
+                <uri prefix='&mesh;'>SemanticType</uri>
+              </xsl:with-param>
+            </xsl:call-template>
+ 
             <!--
               Transformation rule: rdfs:label
-              ==========================================
-              Output: <semType_uri> rdfs:label "semanticTypeName" .
-              ===============================================================
-              Additional: This rule states the a semantic type unique identifier has a semantic type name.
-              ==============================================================================================
-              Need to address: I'm not sure if this relation is correct. But we've created this 
-              type of relation for the concepts of a descriptor. We should check this (for e.g.,
-              with a MeSH expert or by a literature search).
             -->
-
-            <xsl:value-of select='f:triple-literal(
-                concat("&mesh;", SemanticTypeUI), 
-                "&rdfs;label", 
-                SemanticTypeName
-              )'/>
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <output>*semantic_type_uri* rdfs:label *semantic_type_name*</output>
+                <desc>This rule states the a semantic type unique identifier has a semantic type name.</desc>
+                <fixme>I'm not sure if this relation is correct. But we've created this 
+                  type of relation for the concepts of a descriptor. We should check this (for e.g.,
+                  with a MeSH expert or by a literature search).</fixme>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$semantic_type_uri"/>
+                <uri prefix='&rdfs;'>label</uri>
+                <literal>
+                  <xsl:value-of select="SemanticTypeName"/>
+                </literal>
+              </xsl:with-param>
+            </xsl:call-template>
 
             <!--
               Transformation rule: dcterms:identifier
-              =========================================
-              Output: <semType_uri> dcterms:identifier "semTypeUI" .
-              =======================================================
-              Additional: This rule states that a semantic type has a unique identifier.
             -->
-
-            <xsl:value-of select='f:triple-literal(
-                concat("&mesh;", SemanticTypeUI), 
-                "&dcterms;identifier", 
-                SemanticTypeUI
-              )'/>
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <output>*semantic_type_uri* dcterms:identifier *semantic_type_id*</output>
+                <desc>This rule states that a semantic type has a unique identifier.</desc>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$semantic_type_uri"/>
+                <uri prefix='&dcterms;'>identifier</uri>
+                <literal>
+                  <xsl:value-of select="SemanticTypeUI"/>
+                </literal>
+              </xsl:with-param>
+            </xsl:call-template>
           </xsl:for-each>
         </xsl:if>
-
-        <!--
-          Transformation rule: relatedRegistryNumber
-          ===============================================
-          Output: <conc_uri> relatedRegistryNumber "relatedRegistryNumber" .
-          ======================================================================
-          Additional: This relation states that a concept has a related registry number.
-          ================================================================================
-          Need to address: Maybe it would be good to reduce this value to only a number. But 
-          I'm not sure. Need to check with a MeSH epert to see how important is the text
-          after the number.
-        -->
 
         <xsl:if test="RelatedRegistryNumberList">
           <xsl:for-each select="RelatedRegistryNumberList/RelatedRegistryNumber">
-            <xsl:value-of select='f:triple-literal(
-                concat("&mesh;", ../../ConceptUI), 
-                "&mesh;relatedRegistryNumber", 
-                .
-              )'/>
+            <!--
+              Transformation rule: relatedRegistryNumber
+            -->
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <output>*concept_uri mesh:relatedRegistryNumber *related_registry_number*</output>
+                <desc>This relation states that a concept has a related registry number.</desc>
+                <fixme>Maybe it would be good to reduce this value to only a number. But 
+                  I'm not sure. Need to check with a MeSH expert to see how important is the text
+                  after the number.</fixme>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$concept_uri"/>
+                <uri prefix='&mesh;'>relatedRegistryNumber</uri>
+                <literal>
+                  <xsl:value-of select="."/>
+                </literal>
+              </xsl:with-param>
+            </xsl:call-template>
           </xsl:for-each>
         </xsl:if>
 
-
         <xsl:if test="ConceptRelationList">
           <xsl:for-each select="ConceptRelationList/ConceptRelation">
-            <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of select="../../ConceptUI"/><xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;conceptRelation> </xsl:text>
-            <xsl:text>_:blank_set1_</xsl:text>
-            <xsl:value-of select="../../ConceptUI"/>
-            <xsl:text>_</xsl:text>
-            <xsl:value-of select="position()"/>
-            <xsl:text> .&#10;</xsl:text>
+            <xsl:variable name='blank_node'>
+              <named>
+                <xsl:text>_:blank_set1_</xsl:text>
+                <xsl:value-of select="../../ConceptUI"/>
+                <xsl:text>_</xsl:text>
+                <xsl:value-of select="position()"/>
+              </named>
+            </xsl:variable>
+
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <output></output>
+                <desc></desc>
+                <fixme></fixme>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$concept_uri"/>
+                <uri prefix='&mesh;'>conceptRelation</uri>
+                <xsl:copy-of select="$blank_node"/>
+              </xsl:with-param>
+            </xsl:call-template>
             
-            <xsl:text>_:blank_set1_</xsl:text>
-            <xsl:value-of select="../../ConceptUI"/>
-            <xsl:text>_</xsl:text>
-            <xsl:value-of select="position()"/>
-            <xsl:text> &lt;&rdf;type&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;ConceptRelation&gt; .&#10;</xsl:text>
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <output></output>
+                <desc></desc>
+                <fixme></fixme>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$blank_node"/>
+                <uri prefix='&rdf;'>type</uri>
+                <uri prefix='&mesh;'>ConceptRelation</uri>
+              </xsl:with-param>
+            </xsl:call-template>            
             
             <xsl:if test="@RelationName">
-              <xsl:text>_:blank_set1_</xsl:text>
-              <xsl:value-of select="../../ConceptUI"/>
-              <xsl:text>_</xsl:text>
-              <xsl:value-of select="position()"/>
-              <xsl:text> &lt;&mesh;relation&gt; </xsl:text>
-              <xsl:text>&lt;&skos;</xsl:text>
-              <xsl:if test="matches(@RelationName, 'BRD')">
-                <xsl:text>broader</xsl:text>
-              </xsl:if>
-              <xsl:if test="matches(@RelationName, 'NRW')">
-                <xsl:text>narrower</xsl:text>
-              </xsl:if>
-              <xsl:if test="matches(@RelationName, 'REL')">
-                <xsl:text>related</xsl:text>
-              </xsl:if>
-              <xsl:text>&gt; .&#10;</xsl:text>
+              <xsl:variable name='skos_relation'>
+                <xsl:choose>
+                  <xsl:when test="@RelationName = 'BRD'">
+                    <xsl:text>broader</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="@RelationName = 'NRW'">
+                    <xsl:text>narrower</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="@RelationName = 'REL'">
+                    <xsl:text>related</xsl:text>
+                  </xsl:when>
+                </xsl:choose>
+              </xsl:variable>
+              <xsl:call-template name="triple">
+                <xsl:with-param name="doc">
+                  <output></output>
+                  <desc></desc>
+                  <fixme></fixme>
+                </xsl:with-param>
+                <xsl:with-param name="spec">
+                  <xsl:copy-of select="$blank_node"/>
+                  <uri prefix='&mesh;'>relation</uri>
+                  <uri prefix='&skos;'>
+                    <xsl:value-of select="$skos_relation"/>
+                  </uri>
+                </xsl:with-param>
+              </xsl:call-template>
             </xsl:if>
 
-            <xsl:text>_:blank_set1_</xsl:text>
-            <xsl:value-of select="../../ConceptUI"/>
-            <xsl:text>_</xsl:text>
-            <xsl:value-of select="position()"/>
-            <xsl:text> &lt;&mesh;concept1> </xsl:text>
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="Concept1UI"/>
-            <xsl:text>&gt;</xsl:text>
-            <xsl:text> .&#10;</xsl:text>
-            <xsl:text>_:blank_set1_</xsl:text>
-            <xsl:value-of select="../../ConceptUI"/>
-            <xsl:text>_</xsl:text>
-            <xsl:value-of select="position()"/>
-            <xsl:text> &lt;&mesh;concept2> </xsl:text>
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="Concept2UI"/>
-            <xsl:text>&gt;</xsl:text>
-            <xsl:text> .&#10;</xsl:text>
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <output></output>
+                <desc></desc>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$blank_node"/>
+                <uri prefix='&mesh;'>concept1</uri>
+                <uri prefix='&mesh;'>
+                  <xsl:value-of select="Concept1UI"/>
+                </uri>
+              </xsl:with-param>
+            </xsl:call-template>
+            
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <output></output>
+                <desc></desc>
+                <fixme></fixme>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$blank_node"/>
+                <uri prefix='&mesh;'>concept2</uri>
+                <uri prefix='&mesh;'>
+                  <xsl:value-of select="Concept2UI"/>
+                </uri>
+              </xsl:with-param>
+            </xsl:call-template>
             
             <!-- added by rw -->
             <xsl:if test="RelationAttribute">
-              <xsl:text>_:blank_set1_</xsl:text>
-              <xsl:value-of select="../../ConceptUI"/>
-              <xsl:text>_</xsl:text>
-              <xsl:value-of select="position()"/>
-              <xsl:text> &lt;&mesh;relationAttribute> </xsl:text>
-              <xsl:text>"</xsl:text>
-              <xsl:value-of select="RelationAttribute"/>
-              <xsl:text>" .&#10;</xsl:text>
+              <xsl:call-template name="triple">
+                <xsl:with-param name="doc">
+                  <output></output>
+                  <desc></desc>
+                  <fixme></fixme>
+                </xsl:with-param>
+                <xsl:with-param name="spec">
+                  <xsl:copy-of select="$blank_node"/>
+                  <uri prefix='&mesh;'>relationAttribute</uri>
+                  <literal>
+                    <xsl:value-of select="RelationAttribute"/>
+                  </literal>
+                </xsl:with-param>
+              </xsl:call-template>
             </xsl:if>
           </xsl:for-each>
         </xsl:if>
 
         <xsl:for-each select="TermList/Term">
-          <!--
-            Transformation rule: term
-            =============================
-            Output: <conc_uri> term <term_uri> .
-            ========================================
-            Additional: This relation states that a concept has a term.
-            ============================================================
-            Need to addresa: N/A
-          -->
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*concept_uri* mesh:term *term_uri*</output>
+              <desc>This relation states that a concept has a term.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$concept_uri"/>
+              <uri prefix='&mesh;'>term</uri>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="TermUI"/>
+              </uri>
+            </xsl:with-param>
+          </xsl:call-template>
           
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="../../ConceptUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;term> </xsl:text>
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="TermUI"/>
-          <xsl:text>&gt;</xsl:text>
-          <xsl:text> .&#10;</xsl:text>
           
           <!--
             Transformation rule: rdf:type
@@ -748,7 +825,7 @@
               <xsl:copy-of select="$pos"/>
               <xsl:text> </xsl:text>
               <xsl:text>&lt;&mesh;thesaurusID> </xsl:text>
-              <xsl:value-of select='f:literal(.)'/>
+              <xsl:value-of select='f:literal-str(.)'/>
               <xsl:text> .&#10;</xsl:text>
             </xsl:for-each>
           </xsl:if>
@@ -986,7 +1063,7 @@
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;&mesh;annotation> </xsl:text>
         
-        <xsl:value-of select='f:literal(Annotation)'/>
+        <xsl:value-of select='f:literal-str(Annotation)'/>
         <xsl:text> .&#10;</xsl:text>
       </xsl:if>
 
@@ -1066,7 +1143,7 @@
         <xsl:value-of select="DescriptorUI"/>
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;&mesh;historyNote> </xsl:text>
-        <xsl:value-of select='f:literal(HistoryNote)'/>
+        <xsl:value-of select='f:literal-str(HistoryNote)'/>
         <xsl:text> .&#10;</xsl:text>
       </xsl:if>
 
@@ -1085,7 +1162,7 @@
         <xsl:value-of select="DescriptorUI"/>
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;&mesh;onlineNote> </xsl:text>
-        <xsl:value-of select='f:literal(OnlineNote)'/>
+        <xsl:value-of select='f:literal-str(OnlineNote)'/>
         <xsl:text> .&#10;</xsl:text>
       </xsl:if>
 
@@ -1104,7 +1181,7 @@
         <xsl:value-of select="DescriptorUI"/>
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;&mesh;publicMeSHNote> </xsl:text>
-        <xsl:value-of select='f:literal(PublicMeSHNote)'/>
+        <xsl:value-of select='f:literal-str(PublicMeSHNote)'/>
         <xsl:text> .&#10;</xsl:text>
       </xsl:if>
 
@@ -1125,7 +1202,7 @@
           <xsl:value-of select="../../DescriptorUI"/>
           <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;&mesh;previousIndexing> </xsl:text>
-          <xsl:value-of select="f:literal(.)"/>
+          <xsl:value-of select="f:literal-str(.)"/>
           <xsl:text> .&#10;</xsl:text>
         </xsl:for-each>
       </xsl:if>
@@ -1175,7 +1252,7 @@
         <xsl:value-of select="DescriptorUI"/>
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;&mesh;runningHead> </xsl:text>
-        <xsl:value-of select="f:literal(RunningHead)"/>
+        <xsl:value-of select="f:literal-str(RunningHead)"/>
         <xsl:text> .&#10;</xsl:text>
       </xsl:if>
 
@@ -1270,7 +1347,7 @@
         <xsl:value-of select="DescriptorUI"/>
         <xsl:text>&gt; </xsl:text>
         <xsl:text>&lt;&mesh;considerAlso> </xsl:text>
-        <xsl:value-of select="f:literal(ConsiderAlso)"/>
+        <xsl:value-of select="f:literal-str(ConsiderAlso)"/>
         <xsl:text> .&#10;</xsl:text>
       </xsl:if>
     </xsl:for-each>
