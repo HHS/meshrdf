@@ -30,15 +30,19 @@
       <!--
         Transformation rule: dcterms:identifier
       -->
+      <xsl:variable name='descriptor_uri'>
+        <uri prefix='&mesh;'>
+          <xsl:value-of select="DescriptorUI"/>
+        </uri>
+      </xsl:variable>
+      
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <output>*descriptor_uri* dcterms:identifier *descriptor_id*</output>
           <desc>This relation states that a descriptor record has a unique identifier.</desc>
         </xsl:with-param>
         <xsl:with-param name='spec'>
-          <uri prefix='&mesh;'>
-            <xsl:value-of select="DescriptorUI"/>
-          </uri>
+          <xsl:copy-of select="$descriptor_uri"/>
           <uri prefix='&dcterms;'>identifier</uri>
           <literal>
             <xsl:value-of select="DescriptorUI"/>
@@ -56,9 +60,7 @@
             is of type "Descriptor".</desc>
         </xsl:with-param>
         <xsl:with-param name='spec'>
-          <uri prefix='&mesh;'>
-            <xsl:value-of select="DescriptorUI"/>
-          </uri>
+          <xsl:copy-of select="$descriptor_uri"/>
           <uri prefix='&rdf;'>type</uri>
           <uri prefix='&mesh;'>Descriptor</uri>
         </xsl:with-param>
@@ -74,9 +76,7 @@
             it belongs to.</desc>
         </xsl:with-param>
         <xsl:with-param name="spec">
-          <uri prefix='&mesh;'>
-            <xsl:value-of select="DescriptorUI"/>
-          </uri>
+          <xsl:copy-of select="$descriptor_uri"/>
           <uri prefix="&mesh;">descriptorClass</uri>
           <literal>
             <xsl:value-of select="@DescriptorClass"/>
@@ -93,9 +93,7 @@
           <desc>This relation states that a descriptor record has a name.</desc>
         </xsl:with-param>
         <xsl:with-param name="spec">
-          <uri prefix='&mesh;'>
-            <xsl:value-of select="DescriptorUI"/>
-          </uri>
+          <xsl:copy-of select="$descriptor_uri"/>
           <uri prefix='&rdfs;'>label</uri>
           <literal>
             <xsl:value-of select="DescriptorName/String"/>
@@ -120,9 +118,7 @@
             <desc>This relation states that a descriptor record has a concept.</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="../../DescriptorUI"/>
-            </uri>
+            <xsl:copy-of select="$descriptor_uri"/>
             <uri prefix='&mesh;'>concept</uri>
             <xsl:copy-of select="$concept_uri"/>
           </xsl:with-param>
@@ -795,25 +791,22 @@
           
           <!--
             Transformation rule: thesaurusID
-            =====================================
-            Output: _:blankTermUI_termNo thesaurusID "thesaurusID" .
-            ===================================================
-            Additional: This relation states that a term has a thesaurus ID.
-            ===================================================================
-            Need to address: N/A.
           -->
-          
           <xsl:if test="ThesaurusIDlist">
-            <xsl:variable name="pos" select="position()"/>
             <xsl:for-each select="ThesaurusIDlist/ThesaurusID">
-              <xsl:text>_:blank</xsl:text>
-              <xsl:value-of select="../../TermUI"/>
-              <xsl:text>_</xsl:text>
-              <xsl:copy-of select="$pos"/>
-              <xsl:text> </xsl:text>
-              <xsl:text>&lt;&mesh;thesaurusID> </xsl:text>
-              <xsl:value-of select='f:literal-str(.)'/>
-              <xsl:text> .&#10;</xsl:text>
+              <xsl:call-template name='triple'>
+                <xsl:with-param name="doc">
+                  <output>*term_data_blank_node* mesh:thesaurusID **</output>
+                  <desc>This relation states that a term has a thesaurus ID.</desc>
+                </xsl:with-param>
+                <xsl:with-param name='spec'>
+                  <xsl:copy-of select='$term_data_blank'/>
+                  <uri prefix='&mesh;'>thesaurusID</uri>
+                  <literal>
+                    <xsl:value-of select="."/>
+                  </literal>
+                </xsl:with-param>
+              </xsl:call-template>
             </xsl:for-each>
           </xsl:if>
         </xsl:for-each>
@@ -822,46 +815,72 @@
 
       <xsl:if test="EntryCombinationList">
         <xsl:for-each select="EntryCombinationList/EntryCombination">
+          
           <!--
             Transformation rule: entryCombination
-            =========================================
-            Output: <desc_uri> entryCombination _:blankDescriptorUI_entryCombinationNumber .
-            ====================================================================================
-            Additional: This relation states that a descriptor record has a entry combination. The entry
-            combination has an ECIN and an ECOUT (see below). 
-            ============================================================================================
-            Need to address: N/A
           -->
+          <xsl:variable name='entry_combination_blank'>
+            <named>
+              <xsl:text>_:blank</xsl:text>
+              <xsl:value-of select="../../DescriptorUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
+            </named>
+          </xsl:variable>
           
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="../../DescriptorUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;entryCombination&gt; </xsl:text>
-          <xsl:text>_:blank</xsl:text>
-          <xsl:value-of select="../../DescriptorUI"/>
-          <xsl:text>_</xsl:text>
-          <xsl:value-of select="position()"/>
-          <xsl:text> .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*descriptor_uri* mesh:entryCombination *entry_combination_blank*</output>
+              <desc>This relation states that a descriptor record has a entry combination. The entry
+                combination has an ECIN and an ECOUT (see below). </desc>
+              <fixme>See GitHub issue #10</fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$descriptor_uri'/>
+              <uri prefix='&mesh;'>entryCombination</uri>
+              <xsl:copy-of select="$entry_combination_blank"/>
+            </xsl:with-param>
+          </xsl:call-template>
           
           <!--
             Transformation rule/Relation: rdf:type
-            ========================================
-            Output: _:blankDescriptorUI_entryCombinationNumber	 rdf:type 	<EntryCombination> .
-            =====================================================================================
-            Description: This relation states that a Subject node used to identify an entry 
-            combination is of type "EntryCombination".
-            ==================================================================================
-            Need to address: N/A.
           -->
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*entry_combination_blank* rdf:type mesh:EntryCombination</output>
+              <desc>This relation states that a Subject node used to identify an entry 
+                combination is of type "EntryCombination".</desc>
+              <fixme></fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$entry_combination_blank'/>
+              <uri prefix='&rdf;'>type</uri>
+              <uri prefix='&mesh;'>EntryCombination</uri>
+            </xsl:with-param>
+          </xsl:call-template>
           
-          <xsl:text>_:blank</xsl:text>
+          <!--<xsl:text>_:blank</xsl:text>
           <xsl:value-of select="../../DescriptorUI"/>
           <xsl:text>_</xsl:text>
           <xsl:value-of select="position()"/>
           <xsl:text> </xsl:text>
           <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;EntryCombination&gt; .&#10;</xsl:text>
-          <xsl:text>_:blank</xsl:text>
+          <xsl:text>&lt;&mesh;EntryCombination&gt; .&#10;</xsl:text>-->
+          
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*entry_combination_blank* mesh:ECINDescriptor *descriptor_uri*</output>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$entry_combination_blank'/>
+              <uri prefix='&mesh;'>ECINDescriptor</uri>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="ECIN/DescriptorReferredTo/DescriptorUI"/>
+              </uri>
+            </xsl:with-param>
+          </xsl:call-template>
+
+          <!--<xsl:text>_:blank</xsl:text>
           <xsl:value-of select="../../DescriptorUI"/>
           <xsl:text>_</xsl:text>
           <xsl:value-of select="position()"/>
@@ -870,8 +889,22 @@
           <xsl:text>&lt;&mesh;</xsl:text>
           <xsl:value-of select="ECIN/DescriptorReferredTo/DescriptorUI"/>
           <xsl:text>&gt;</xsl:text>
-          <xsl:text> .&#10;</xsl:text>
-          <xsl:text>_:blank</xsl:text>
+          <xsl:text> .&#10;</xsl:text>-->
+          
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*entry_combination_blank* mesh:ECINQualifier *qualifier_uri*</output>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$entry_combination_blank'/>
+              <uri prefix='&mesh;'>ECINQualifier</uri>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="ECIN/QualifierReferredTo/QualifierUI"/>
+              </uri>
+            </xsl:with-param>
+          </xsl:call-template>
+          
+          <!--<xsl:text>_:blank</xsl:text>
           <xsl:value-of select="../../DescriptorUI"/>
           <xsl:text>_</xsl:text>
           <xsl:value-of select="position()"/>
@@ -880,8 +913,23 @@
           <xsl:text>&lt;&mesh;</xsl:text>
           <xsl:value-of select="ECIN/QualifierReferredTo/QualifierUI"/>
           <xsl:text>&gt;</xsl:text>
-          <xsl:text> .&#10;</xsl:text>
-          <xsl:text>_:blank</xsl:text>
+          <xsl:text> .&#10;</xsl:text>-->
+          
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*entry_combination_blank* mesh:ECOUTDescriptor *descriptor_uri*</output>
+              <desc></desc>
+              <fixme></fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$entry_combination_blank'/>
+              <uri prefix='&mesh;'>ECOUTDescriptor</uri>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="ECOUT/DescriptorReferredTo/DescriptorUI"/>
+              </uri>
+            </xsl:with-param>
+          </xsl:call-template>
+          <!--<xsl:text>_:blank</xsl:text>
           <xsl:value-of select="../../DescriptorUI"/>
           <xsl:text>_</xsl:text>
           <xsl:value-of select="position()"/>
@@ -890,10 +938,22 @@
           <xsl:text>&lt;&mesh;</xsl:text>
           <xsl:value-of select="ECOUT/DescriptorReferredTo/DescriptorUI"/>
           <xsl:text>&gt;</xsl:text>
-          <xsl:text> .&#10;</xsl:text>
+          <xsl:text> .&#10;</xsl:text>-->
           
           <xsl:if test="ECOUT/QualifierReferredTo">
-            <xsl:text>_:blank</xsl:text>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <output>*entry_combination_blank* mesh:ECOUTQualifier *qualifier_uri*</output>
+              </xsl:with-param>
+              <xsl:with-param name='spec'>
+                <xsl:copy-of select='$entry_combination_blank'/>
+                <uri prefix='&mesh;'>ECOUTQualifier</uri>
+                <uri prefix='&mesh;'>
+                  <xsl:value-of select="ECOUT/QualifierReferredTo/QualifierUI"/>
+                </uri>
+              </xsl:with-param>
+            </xsl:call-template>
+            <!--<xsl:text>_:blank</xsl:text>
             <xsl:value-of select="../../DescriptorUI"/>
             <xsl:text>_</xsl:text>
             <xsl:value-of select="position()"/>
@@ -902,7 +962,7 @@
             <xsl:text>&lt;&mesh;</xsl:text>
             <xsl:value-of select="ECOUT/QualifierReferredTo/QualifierUI"/>
             <xsl:text>&gt;</xsl:text>
-            <xsl:text> .&#10;</xsl:text>
+            <xsl:text> .&#10;</xsl:text>-->
           </xsl:if>
         </xsl:for-each>
       </xsl:if>
