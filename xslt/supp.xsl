@@ -385,9 +385,13 @@
               Additional: This relation states that a Subject node used to identify a Supplementary Concept Record (SCR) is of type "SupplementaryConceptRecord".
             -->
             <xsl:text>_:blank_set2_</xsl:text><xsl:value-of
-              select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+              select="../../SupplementalRecordUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:IndexingData&gt; .&#10;</xsl:text>
+            
             <!--
               Transformation rule: indexingDescriptor
               ===========================================
@@ -395,11 +399,18 @@
               ============================================================
               Additional: A supplemental record can be indexed to more than one descriptor via a unique blank node.
             -->
-            <xsl:text>_:blank_set2_</xsl:text><xsl:value-of
-              select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            
+            <xsl:text>_:blank_set2_</xsl:text>
+            <xsl:value-of select="../../SupplementalRecordUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:indexingDescriptor&gt; </xsl:text>
-            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-              select="DescriptorReferredTo/DescriptorUI"/><xsl:text>&gt;</xsl:text><xsl:text> .&#10;</xsl:text>
+            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+            <xsl:value-of
+              select="DescriptorReferredTo/DescriptorUI"/>
+            <xsl:text>&gt; .&#10;</xsl:text>
+            
             <!--
               Transformation rule: rdf:type
               =================================
@@ -407,10 +418,14 @@
               =============================================================
               Additional: This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".
             -->
-            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-              select="DescriptorReferredTo/DescriptorUI"/><xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
+            
+            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+            <xsl:value-of
+              select="DescriptorReferredTo/DescriptorUI"/>
+            <xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
             <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:Descriptor&gt; .&#10;</xsl:text>
+            
             <!--
               Transformation rule: dcterms:identifier
               ========================================
@@ -418,11 +433,17 @@
               =================================================
               Additional: A descriptor has a unique identifier.
             -->
-            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-              select="DescriptorReferredTo/DescriptorUI"/><xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
+            
+            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+            <xsl:value-of
+              select="DescriptorReferredTo/DescriptorUI"/>
+            <xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
             <xsl:text>&lt;http://purl.org/dc/terms/identifier&gt; </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of
-              select="DescriptorReferredTo/DescriptorUI"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of
+              select="DescriptorReferredTo/DescriptorUI"/>
+            <xsl:text>" .&#10;</xsl:text>
+            
             <!--
               Transformation rule: rdfs:label
               =======================================
@@ -430,11 +451,18 @@
               ================================================
               Additional: A descriptor has a name.
             -->
-            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-              select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/><xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
+            
+            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+            <xsl:value-of
+              select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/>
+            <xsl:text>&gt;</xsl:text>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of
-              select="DescriptorReferredTo/DescriptorName/String"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of
+              select="DescriptorReferredTo/DescriptorName/String"/>
+            <xsl:text>" .&#10;</xsl:text>
+            
             <xsl:if test="QualifierReferredTo">
               <!--
                 Transformation rule: indexingQualifier
@@ -443,11 +471,17 @@
                 ===========================================================
                 Additional: A supplemental record can be indexed to more than one qualifier via a unique blank node.
               -->
-              <xsl:text>_:blank_set2_</xsl:text><xsl:value-of
-                select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+              <xsl:text>_:blank_set2_</xsl:text>
+              <xsl:value-of
+                select="../../SupplementalRecordUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
+              <xsl:text> </xsl:text>
               <xsl:text>&lt;http://nlm.nih.gov#MeSH:indexingQualifier&gt; </xsl:text>
-              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-                select="QualifierReferredTo/QualifierUI"/><xsl:text>&gt;</xsl:text><xsl:text> .&#10;</xsl:text>
+              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+              <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
+              <xsl:text>&gt; .&#10;</xsl:text>
+              
               <!--
                 Transformation rule: rdf:type
                 =================================
@@ -455,10 +489,13 @@
                 =============================================================
                 Additional: This relation states that a Subject node used to identify a Qualifier record is of type "Qualifier".
               -->
-              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-                select="QualifierReferredTo/QualifierUI"/><xsl:text>&gt; </xsl:text>
+              
+              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+              <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
+              <xsl:text>&gt; </xsl:text>
               <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
               <xsl:text>&lt;http://nlm.nih.gov#MeSH:Qualifier&gt; .&#10;</xsl:text>
+              
               <!--
                 Transformation rule: dcterms:identifier
                 ==========================================
@@ -466,11 +503,16 @@
                 ===========================================================
                 Additional: A qualifier record has a unique identifier.
               -->
-              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-                select="QualifierReferredTo/QualifierUI"/><xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
+              
+              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+              <xsl:value-of
+                select="QualifierReferredTo/QualifierUI"/>
+              <xsl:text>&gt; </xsl:text>
               <xsl:text>&lt;http://purl.org/dc/terms/identifier&gt; </xsl:text>
-              <xsl:text>"</xsl:text><xsl:value-of
-                select="QualifierReferredTo/QualifierUI"/><xsl:text>" .&#10;</xsl:text>
+              <xsl:text>"</xsl:text>
+              <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
+              <xsl:text>" .&#10;</xsl:text>
+              
               <!--
                 Transformation rule: rdfs:label
                 ======================================
@@ -478,16 +520,16 @@
                 =================================================
                 Additional: A qualifier record has a name.
               -->
-              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-                select="replace(QualifierReferredTo/QualifierUI,'\*','')"/><xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
+              
+              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+              <xsl:value-of select="replace(QualifierReferredTo/QualifierUI,'\*','')"/>
+              <xsl:text>&gt; </xsl:text>
               <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
-              <xsl:text>"</xsl:text><xsl:value-of
-                select="QualifierReferredTo/QualifierName/String"
-              /><xsl:text>" .&#10;</xsl:text>
+              <xsl:text>"</xsl:text>
+              <xsl:value-of select="QualifierReferredTo/QualifierName/String"/>
+              <xsl:text>" .&#10;</xsl:text>
             </xsl:if>
-          </xsl:for-each>
-          <!-- IndexingInformationList/IndexingInformation -->
-        </xsl:if>
+          </xsl:for-each>        </xsl:if>
 
 
 
@@ -512,7 +554,6 @@
             <xsl:text>&gt;</xsl:text>
             <xsl:text> .&#10;</xsl:text>
 
-
             <!--
               Transformation rule: rdf:type
               =================================
@@ -520,6 +561,7 @@
               =============================================================
               Additional: This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".
             -->
+            
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
             <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
             <xsl:text>&gt; </xsl:text>
@@ -573,7 +615,8 @@
               ===============================
               Output: <suppRec_uri> source "source" .
               =============================================
-              Additional: A supplemental record can have one or more sources. A source is a citation reference in which the indexing concept was first found.
+              Additional: A supplemental record can have one or more sources. A source is a 
+              citation reference in which the indexing concept was first found.
             -->
 
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
@@ -597,7 +640,8 @@
                     <supp_uri> recordMaintainer "recordMaintainer" .
                     <supp_uri> recordAuthorizer "recordAuthorizer" .
             ===========================================================
-            Additional: A supplemental record can have a record originator, record maintainer and record authorizer.
+            Additional: A supplemental record can have a record originator, record 
+            maintainer and record authorizer.
           -->
 
           <xsl:if test="RecordOriginatorsList/RecordOriginator">
@@ -652,7 +696,6 @@
           <xsl:text>&gt;</xsl:text>
           <xsl:text> .&#10;</xsl:text>
 
-
           <!--
             Transformation rule/Relation: rdf:type
             =======================================
@@ -662,12 +705,12 @@
             ========================================================================================================
             Need to address: N/A.
           -->
+          
           <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
           <xsl:value-of select="ConceptUI"/>
           <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
           <xsl:text>&lt;http://nlm.nih.gov#MeSH:Concept&gt; .&#10;</xsl:text>
-
 
           <!--
             Transformation rule: isPreferredConcept
@@ -677,8 +720,6 @@
             Additional: A supplementary record has a preferred concept.
           -->
 
-          <!-- isPreferredConcept -->
-          <!-- Y/N -->
           <xsl:if test="@PreferredConceptYN = 'Y'">
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
             <xsl:value-of select="ConceptUI"/>
@@ -869,19 +910,28 @@
 
           <xsl:if test="ConceptRelationList">
             <xsl:for-each select="ConceptRelationList/ConceptRelation">
-              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-                select="../../ConceptUI"/><xsl:text>&gt; </xsl:text>
+              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+              <xsl:value-of select="../../ConceptUI"/>
+              <xsl:text>&gt; </xsl:text>
               <xsl:text>&lt;http://nlm.nih.gov#MeSH:conceptRelation> </xsl:text>
-              <xsl:text>_:blank_set1_</xsl:text><xsl:value-of
-                select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
+              <xsl:text>_:blank_set1_</xsl:text>
+              <xsl:value-of select="../../ConceptUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
               <xsl:text> .&#10;</xsl:text>
-              <xsl:text>_:blank_set1_</xsl:text><xsl:value-of
-                select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
+              
+              <xsl:text>_:blank_set1_</xsl:text>
+              <xsl:value-of select="../../ConceptUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
               <xsl:text> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
               <xsl:text>&lt;http://nlm.nih.gov#MeSH:ConceptRelation&gt; .&#10;</xsl:text>
+              
               <xsl:if test="@RelationName">
-                <xsl:text>_:blank_set1_</xsl:text><xsl:value-of
-                  select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
+                <xsl:text>_:blank_set1_</xsl:text>
+                <xsl:value-of select="../../ConceptUI"/>
+                <xsl:text>_</xsl:text>
+                <xsl:value-of select="position()"/>
                 <xsl:text> &lt;http://nlm.nih.gov#MeSH:relation&gt; </xsl:text>
                 <xsl:text>&lt;http://www.w3.org/2004/02/skos/core#</xsl:text>
                 <xsl:if test="matches(@RelationName, 'BRD')">
@@ -895,30 +945,38 @@
                 </xsl:if>
                 <xsl:text>&gt; .&#10;</xsl:text>
               </xsl:if>
-              <xsl:text>_:blank_set1_</xsl:text><xsl:value-of
-                select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
+              
+              <xsl:text>_:blank_set1_</xsl:text>
+              <xsl:value-of select="../../ConceptUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
               <xsl:text> &lt;http://nlm.nih.gov#MeSH:concept1> </xsl:text>
-              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-                select="Concept1UI"/><xsl:text>&gt;</xsl:text><xsl:text> .&#10;</xsl:text>
-              <xsl:text>_:blank_set1_</xsl:text><xsl:value-of
-                select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
+              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+              <xsl:value-of select="Concept1UI"/>
+              <xsl:text>&gt; .&#10;</xsl:text>
+              
+              <xsl:text>_:blank_set1_</xsl:text>
+              <xsl:value-of select="../../ConceptUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
               <xsl:text> &lt;http://nlm.nih.gov#MeSH:concept2> </xsl:text>
-              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-                select="Concept2UI"/><xsl:text>&gt;</xsl:text><xsl:text> .&#10;</xsl:text>
+              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+              <xsl:value-of select="Concept2UI"/>
+              <xsl:text>&gt; .&#10;</xsl:text>
+              
               <!-- added by rw -->
               <xsl:if test="RelationAttribute">
-                <xsl:text>_:blank_set1_</xsl:text><xsl:value-of
-                  select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
+                <xsl:text>_:blank_set1_</xsl:text>
+                <xsl:value-of select="../../ConceptUI"/>  
+                <xsl:text>_</xsl:text>
+                <xsl:value-of select="position()"/>
                 <xsl:text> &lt;http://nlm.nih.gov#MeSH:relationAttribute> </xsl:text>
-                <xsl:text>"</xsl:text><xsl:value-of
-                  select="RelationAttribute"
-                /><xsl:text>" .&#10;</xsl:text>
+                <xsl:text>"</xsl:text>
+                <xsl:value-of select="RelationAttribute"/>
+                <xsl:text>" .&#10;</xsl:text>
               </xsl:if>
             </xsl:for-each>
-            <!-- ConceptRelationList/ConceptRelation -->
           </xsl:if>
-          <!-- ConceptRelationList -->
-
 
           <xsl:for-each select="TermList/Term">
             <!--
@@ -930,12 +988,14 @@
               ============================================================
               Need to addresa: N/A
             -->
-            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-              select="../../ConceptUI"/><xsl:text>&gt; </xsl:text>
+            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+            <xsl:value-of select="../../ConceptUI"/>
+            <xsl:text>&gt; </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:term> </xsl:text>
-            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-              select="TermUI"/><xsl:text>&gt;</xsl:text>
-            <xsl:text> .&#10;</xsl:text>
+            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>&gt; .&#10;</xsl:text>
+            
             <!--
               Transformation rule: rdf:type
               ==============================
@@ -943,10 +1003,13 @@
               ========================================
               Additional: A concept has at least one term associated with it.
             -->
-            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-              select="TermUI"/><xsl:text>&gt; </xsl:text>
+            
+            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>&gt; </xsl:text>
             <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:Term&gt; .&#10;</xsl:text>
+            
             <!--
               Transformation rule: dcterms:identifier
               =======================================
@@ -956,17 +1019,25 @@
               ============================================================================
               Need to address: N/A.
             -->
-            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-              select="TermUI"/><xsl:text>&gt; </xsl:text>
+            
+            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>&gt; </xsl:text>
             <xsl:text>&lt;http://purl.org/dc/terms/identifier&gt; </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of select="TermUI"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>" .&#10;</xsl:text>
+            
             <xsl:if test="@IsPermutedTermYN = 'N'">
-              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-                select="TermUI"/><xsl:text>&gt; </xsl:text>
+              <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+              <xsl:value-of select="TermUI"/>
+              <xsl:text>&gt; </xsl:text>
               <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
-              <xsl:text>"</xsl:text><xsl:value-of select="String"
-              /><xsl:text>" .&#10;</xsl:text>
+              <xsl:text>"</xsl:text>
+              <xsl:value-of select="String"/>
+              <xsl:text>" .&#10;</xsl:text>
             </xsl:if>
+            
             <!--
               Transformation rule: termData
               =================================================================
@@ -976,11 +1047,17 @@
               ============================================================================================================
               Need to address: This relation was created in order to stick with the XML representation of MeSH.
             -->
-            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text><xsl:value-of
-              select="TermUI"/><xsl:text>&gt; </xsl:text>
+            
+            <xsl:text>&lt;http://nlm.nih.gov#MeSH:</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>&gt; </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:termData&gt; </xsl:text>
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"
-              />_<xsl:value-of select="position()"/><xsl:text> .&#10;</xsl:text>
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> .&#10;</xsl:text>
+            
             <!--
               Transformation rule/Relation: rdf:type
               =======================================
@@ -990,10 +1067,15 @@
               ========================================================================================================
               Need to address: N/A.
             -->
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"
-              />_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:TermData&gt; .&#10;</xsl:text>
+            
             <!--
               Transformation rule: isConceptPreferredTerm
               ============================================
@@ -1003,11 +1085,17 @@
               ===========================================================================================================================================================================
               Need to address: N/A.
             -->
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"
-              />_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:isConceptPreferredTerm&gt; </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of
-              select="@ConceptPreferredTermYN"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="@ConceptPreferredTermYN"/>
+            <xsl:text>" .&#10;</xsl:text>
+            
             <!--
               Transformation rule: isPermutedTerm
               =====================================
@@ -1017,11 +1105,17 @@
               =========================================================================================================================================================
               Need to address: N/A.
             -->
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"
-              />_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:isPermutedTerm&gt; </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of
-              select="@IsPermutedTermYN"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="@IsPermutedTermYN"/>
+            <xsl:text>" .&#10;</xsl:text>
+            
             <!--
               Transformation rule: lexicalTag
               ===================================
@@ -1031,10 +1125,16 @@
               ====================================================================================================================================================
               Need to address: N/A.
             -->
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"
-              />_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:lexicalTag&gt; </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of select="@LexicalTag"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text><xsl:value-of select="@LexicalTag"/>
+            <xsl:text>" .&#10;</xsl:text>
+            
             <!--
               Transformation rule: printFlag
               ===================================
@@ -1044,10 +1144,17 @@
               ===================================================================================================================================================
               Need to address: N/A.
             -->
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"
-              />_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:printFlag&gt; </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of select="@PrintFlagYN"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="@PrintFlagYN"/>
+            <xsl:text>" .&#10;</xsl:text>
+            
             <!--
               Transformation rule: isRecordPreferredTerm
               ===========================================
@@ -1057,11 +1164,17 @@
               ====================================================================================================================================================
               Need to address: N/A.
             -->
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"
-              />_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;http://nlm.nih.gov#MeSH:isRecordPreferredTerm&gt; </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of
-              select="@RecordPreferredTermYN"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="@RecordPreferredTermYN"/>
+            <xsl:text>" .&#10;</xsl:text>
+            
             <!--
              Transformation rule: dcterms:identifier
              ========================================
@@ -1071,10 +1184,16 @@
              ======================================================================================================================================================
              Additional: N/A.
             -->
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"
-              />_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;http://purl.org/dc/terms/identifier&gt; </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of select="TermUI"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>" .&#10;</xsl:text>
+            
             <!--
               Transformation rule: rdfs:label
               =================================
@@ -1084,10 +1203,17 @@
               ====================================================================================================================================
               Need to address: N/A.
             -->
-            <xsl:text>_:blank</xsl:text><xsl:value-of select="TermUI"
-              />_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+            
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="TermUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+            <xsl:text> </xsl:text>
             <xsl:text>&lt;http://www.w3.org/2000/01/rdf-schema#label&gt; </xsl:text>
-            <xsl:text>"</xsl:text><xsl:value-of select="String"/><xsl:text>" .&#10;</xsl:text>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="String"/>
+            <xsl:text>" .&#10;</xsl:text>
+            
             <!--
               Transformation rule: dateCreated
               ======================================
@@ -1097,14 +1223,19 @@
               ======================================================================================
               Need to address: N/A.
             -->
+            
             <xsl:if test="DateCreated">
-              <xsl:text>_:blank</xsl:text><xsl:value-of
-                select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+              <xsl:text>_:blank</xsl:text>
+              <xsl:value-of select="TermUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
+              <xsl:text> </xsl:text>
               <xsl:text>&lt;http://nlm.nih.gov#MeSH:dateCreated&gt; </xsl:text>
-              <xsl:text>"</xsl:text><xsl:value-of
-                select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"
-              /><xsl:text>" .&#10;</xsl:text>
+              <xsl:text>"</xsl:text>
+              <xsl:value-of select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"/>
+              <xsl:text>" .&#10;</xsl:text>
             </xsl:if>
+            
             <!--
               Transformation rule: abbreviation
               =========================================
@@ -1114,13 +1245,19 @@
               =======================================================================
               Need to address: N/A.
             -->
+            
             <xsl:if test="Abbreviation">
-              <xsl:text>_:blank</xsl:text><xsl:value-of
-                select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+              <xsl:text>_:blank</xsl:text>
+              <xsl:value-of select="TermUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
+              <xsl:text> </xsl:text>
               <xsl:text>&lt;http://nlm.nih.gov#MeSH:abbreviation> </xsl:text>
-              <xsl:text>"</xsl:text><xsl:value-of
-                select="Abbreviation"/><xsl:text>" .&#10;</xsl:text>
+              <xsl:text>"</xsl:text>
+              <xsl:value-of select="Abbreviation"/>
+              <xsl:text>" .&#10;</xsl:text>
             </xsl:if>
+            
             <!--
               Transformation rule: sortVersion
               ====================================
@@ -1130,13 +1267,19 @@
               ==============================================================
               Need to address: N/A.
             -->
+            
             <xsl:if test="SortVersion">
-              <xsl:text>_:blank</xsl:text><xsl:value-of
-                select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
+              <xsl:text>_:blank</xsl:text>
+              <xsl:value-of select="TermUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
+              <xsl:text> </xsl:text>
               <xsl:text>&lt;http://nlm.nih.gov#MeSH:sortVersion> </xsl:text>
-              <xsl:text>"</xsl:text><xsl:value-of select="SortVersion"
-              /><xsl:text>" .&#10;</xsl:text>
+              <xsl:text>"</xsl:text>
+              <xsl:value-of select="SortVersion"/>
+              <xsl:text>" .&#10;</xsl:text>
             </xsl:if>
+            
             <!--
               Transformation rule: entryVersion
               =======================================
@@ -1146,13 +1289,18 @@
               =================================================================
               Need to address: N/A.
             -->
+            
             <xsl:if test="EntryVersion">
-              <xsl:text>_:blank</xsl:text><xsl:value-of
-                select="TermUI"/>_<xsl:value-of select="position()"/><xsl:text> </xsl:text>
-              <xsl:text>&lt;http://nlm.nih.gov#MeSH:entryVersion> </xsl:text>
-              <xsl:text>"</xsl:text><xsl:value-of
-                select="EntryVersion"/><xsl:text>" .&#10;</xsl:text>
+              <xsl:text>_:blank</xsl:text>
+              <xsl:value-of select="TermUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
+              <xsl:text> &lt;http://nlm.nih.gov#MeSH:entryVersion> </xsl:text>
+              <xsl:text>"</xsl:text>
+              <xsl:value-of select="EntryVersion"/>
+              <xsl:text>" .&#10;</xsl:text>
             </xsl:if>
+            
             <!--
               Transformation rule: thesaurusID
               =====================================
@@ -1162,11 +1310,15 @@
               ===================================================================
               Need to address: N/A.
             -->
+            
             <xsl:if test="ThesaurusIDlist">
               <xsl:variable name="pos" select="position()"/>
               <xsl:for-each select="ThesaurusIDlist/ThesaurusID">
-                <xsl:text>_:blank</xsl:text><xsl:value-of
-                  select="../../TermUI"/>_<xsl:copy-of select="$pos"/><xsl:text> </xsl:text>
+                <xsl:text>_:blank</xsl:text>
+                <xsl:value-of select="../../TermUI"/>
+                <xsl:text>_</xsl:text>
+                <xsl:copy-of select="$pos"/>
+                <xsl:text> </xsl:text>
                 <xsl:text>&lt;http://nlm.nih.gov#MeSH:thesaurusID> </xsl:text>
                 <xsl:text>"</xsl:text>
                 <xsl:call-template name="replace-substring">
@@ -1180,10 +1332,7 @@
           </xsl:for-each>
 
         </xsl:for-each>
-        <!-- ConceptList/Concept -->
-
       </xsl:for-each>
-      <!-- SupplementalRecordSet/SupplementalRecord -->
     </xsl:if>
 
   </xsl:template>

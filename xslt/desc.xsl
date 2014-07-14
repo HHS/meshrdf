@@ -859,14 +859,6 @@
             </xsl:with-param>
           </xsl:call-template>
           
-          <!--<xsl:text>_:blank</xsl:text>
-          <xsl:value-of select="../../DescriptorUI"/>
-          <xsl:text>_</xsl:text>
-          <xsl:value-of select="position()"/>
-          <xsl:text> </xsl:text>
-          <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;EntryCombination&gt; .&#10;</xsl:text>-->
-          
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
               <output>*entry_combination_blank* mesh:ECINDescriptor *descriptor_uri*</output>
@@ -880,17 +872,6 @@
             </xsl:with-param>
           </xsl:call-template>
 
-          <!--<xsl:text>_:blank</xsl:text>
-          <xsl:value-of select="../../DescriptorUI"/>
-          <xsl:text>_</xsl:text>
-          <xsl:value-of select="position()"/>
-          <xsl:text> </xsl:text>
-          <xsl:text>&lt;&mesh;ECINDescriptor&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ECIN/DescriptorReferredTo/DescriptorUI"/>
-          <xsl:text>&gt;</xsl:text>
-          <xsl:text> .&#10;</xsl:text>-->
-          
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
               <output>*entry_combination_blank* mesh:ECINQualifier *qualifier_uri*</output>
@@ -903,17 +884,6 @@
               </uri>
             </xsl:with-param>
           </xsl:call-template>
-          
-          <!--<xsl:text>_:blank</xsl:text>
-          <xsl:value-of select="../../DescriptorUI"/>
-          <xsl:text>_</xsl:text>
-          <xsl:value-of select="position()"/>
-          <xsl:text> </xsl:text>
-          <xsl:text>&lt;&mesh;ECINQualifier&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ECIN/QualifierReferredTo/QualifierUI"/>
-          <xsl:text>&gt;</xsl:text>
-          <xsl:text> .&#10;</xsl:text>-->
           
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
@@ -929,16 +899,6 @@
               </uri>
             </xsl:with-param>
           </xsl:call-template>
-          <!--<xsl:text>_:blank</xsl:text>
-          <xsl:value-of select="../../DescriptorUI"/>
-          <xsl:text>_</xsl:text>
-          <xsl:value-of select="position()"/>
-          <xsl:text> </xsl:text>
-          <xsl:text>&lt;&mesh;ECOUTDescriptor&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ECOUT/DescriptorReferredTo/DescriptorUI"/>
-          <xsl:text>&gt;</xsl:text>
-          <xsl:text> .&#10;</xsl:text>-->
           
           <xsl:if test="ECOUT/QualifierReferredTo">
             <xsl:call-template name='triple'>
@@ -953,16 +913,6 @@
                 </uri>
               </xsl:with-param>
             </xsl:call-template>
-            <!--<xsl:text>_:blank</xsl:text>
-            <xsl:value-of select="../../DescriptorUI"/>
-            <xsl:text>_</xsl:text>
-            <xsl:value-of select="position()"/>
-            <xsl:text> </xsl:text>
-            <xsl:text>&lt;&mesh;ECOUTQualifier&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="ECOUT/QualifierReferredTo/QualifierUI"/>
-            <xsl:text>&gt;</xsl:text>
-            <xsl:text> .&#10;</xsl:text>-->
           </xsl:if>
         </xsl:for-each>
       </xsl:if>
