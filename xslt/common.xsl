@@ -19,6 +19,23 @@
         - <uri> - @prefix attribute should have the prefix, contents should hold the rest.
         - <literal> - contents are a literal string value
         - <named> - for blank nodes
+
+    Template:
+      <xsl:call-template name='triple'>
+        <xsl:with-param name="doc">
+          <output>*descriptor_uri* prefix:property *object*</output>
+          <desc></desc>
+          <fixme></fixme>
+        </xsl:with-param>
+        <xsl:with-param name='spec'>
+          <xsl:copy-of select="$descriptor_uri"/>
+          <uri prefix='&prefix;'>property</uri>
+          <literal>
+            <xsl:value-of select="xpath"/>
+          </literal>
+        </xsl:with-param>
+      </xsl:call-template>
+
   -->
 
   <xsl:template name='triple'>
@@ -50,6 +67,12 @@
       <xsl:when test='$v/self::named'>
         <xsl:value-of select='$v'/>
       </xsl:when>
+      <xsl:otherwise>
+        <xsl:message terminate="yes">
+          <xsl:text>Bad element in triple spec: </xsl:text>
+          <xsl:value-of select="name($v)"/>
+        </xsl:message>
+      </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
   

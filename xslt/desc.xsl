@@ -920,134 +920,121 @@
       <xsl:if test="AllowableQualifiersList">
 
         <xsl:for-each select="AllowableQualifiersList/AllowableQualifier">
+          <xsl:variable name='qualifier_uri'>
+            <uri prefix='&mesh;'>
+              <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
+            </uri>
+          </xsl:variable>
 
           <!--
             Transformation rule: allowableQualifier
-            ===========================================
-            Output: <desc_uri> allowableQualifier <qual_uri> .
-            ======================================================
-            Additional: This relation states that a descriptor record has an allowable qualifier.
-            ======================================================================================
-            Need to address: N/A.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="../../DescriptorUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;allowableQualifier&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
-          <xsl:text>&gt;</xsl:text>
-          <xsl:text> .&#10;</xsl:text>
-
+          <xsl:call-template name="triple">
+            <xsl:with-param name="doc">
+              <output>*descriptor_uri* mesh:allowableQualifier *qualifier_uri*</output>
+              <desc>This relation states that a descriptor record has an allowable qualifier.</desc>
+            </xsl:with-param>
+            <xsl:with-param name="spec">
+              <xsl:copy-of select='$descriptor_uri'/>
+              <uri prefix='&mesh;'>allowableQualifier</uri>
+              <xsl:copy-of select='$qualifier_uri'/>
+            </xsl:with-param>
+          </xsl:call-template>
 
           <!--
       	    Transformation rule: rdf:type
-      	    =================================
-      	    Output: <qual_uri> rdf:type <Qualifier> .
-      	    =============================================================
-      	    Additional: This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".
      	    -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
-          <xsl:text>&gt;</xsl:text>
-          <xsl:text> </xsl:text>
-          <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;Qualifier&gt; .&#10;</xsl:text>
-
+          <xsl:call-template name="triple">
+            <xsl:with-param name="doc">
+              <output>*qualifier_uri*</output>
+              <desc>This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".</desc>
+            </xsl:with-param>
+            <xsl:with-param name="spec">
+              <xsl:copy-of select='$qualifier_uri'/>
+              <uri prefix='&rdf;'>type</uri>
+              <uri prefix='&mesh;'>Qualifier</uri>
+            </xsl:with-param>
+          </xsl:call-template>
 
           <!--
             Transformation rule: dcterms:identifier
-            =========================================
-            Output: <qual_uri> dcterms:identifier "qualUI" .
-            =================================================
-            Additional: This relation states that an allowable qualifier has a unique identifier.
-            ======================================================================================
-            Need to address: N/A.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name="triple">
+            <xsl:with-param name="doc">
+              <output>*qualifier_uri*</output>
+              <desc>This relation states that an allowable qualifier has a unique identifier.</desc>
+            </xsl:with-param>
+            <xsl:with-param name="spec">
+              <xsl:copy-of select='$qualifier_uri'/>
+              <uri prefix='&dcterms;'>identifier</uri>
+              <literal>
+                <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
 
           <!--
             Transformation rule: rdfs:label
-            ======================================
-            Output: <qual_uri> rdfs:label "qualName" .
-            ===================================================
-            Additional: This relation states that an allowable qualifier has a name.
-            =========================================================================
-            Need to address: N/A.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="QualifierReferredTo/QualifierName/String"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name="triple">
+            <xsl:with-param name="doc">
+              <output>*qualifier_uri*</output>
+              <desc>This relation states that an allowable qualifier has a name.</desc>
+            </xsl:with-param>
+            <xsl:with-param name="spec">
+              <xsl:copy-of select='$qualifier_uri'/>
+              <uri prefix='&rdfs;'>label</uri>
+              <literal>
+                <xsl:value-of select="QualifierReferredTo/QualifierName/String"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
 
           <!--
             Transformation rule: abbreviation
-            ==============================================
-            Output: <qual_uri> abbreviation "qualAbbrev" .
-            ===================================================
-            Additional: This relation states that an allowable qualifier has an abbreviation.
-            ===================================================================================
-            Need to address: N/A.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;abbreviation&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="Abbreviation"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name="triple">
+            <xsl:with-param name="doc">
+              <output>*qualifier_uri*</output>
+              <desc>This relation states that an allowable qualifier has an abbreviation.</desc>
+            </xsl:with-param>
+            <xsl:with-param name="spec">
+              <xsl:copy-of select='$qualifier_uri'/>
+              <uri prefix='&mesh;'>abbreviation</uri>
+              <literal>
+                <xsl:value-of select="Abbreviation"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
 
         </xsl:for-each>
-
       </xsl:if>
+
 
       <xsl:if test="TreeNumberList">
         <xsl:for-each select="TreeNumberList/TreeNumber">
-
           <!-- 
             Transformation rule: treeNumber
-            ===================================
-            Output: <desc_uri> treeNumber "treeNumber"
-            ==============================================
-            Additional: Every MeSH descriptor record can have some integer number of tree numbers. These are presented as characters separated by perionds in the MeSH browser under the 
-            "Tree Number" relation. I named this the hasTreeNumber relation in RDF.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="../../DescriptorUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;treeNumber&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="."/>
-          <xsl:text>" .&#10;</xsl:text>
-
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*descriptor_uri* mesh:treeNumber *tree_number*</output>
+              <desc>Every MeSH descriptor record can have some integer number of tree numbers. These are presented as characters separated by perionds in the MeSH browser under the 
+                "Tree Number" relation. I named this the hasTreeNumber relation in RDF.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$descriptor_uri"/>
+              <uri prefix='&mesh;'>treeNumber</uri>
+              <literal>
+                <xsl:value-of select="."/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:for-each>
       </xsl:if>
 
       <!--
         Transformation rule: annotation
-        ====================================
-        Output: <desc_uri> annotation "annotation" .
-        ================================================
-        Additional: This rule states that a descriptor record has an annotation.
-        =========================================================================
-        Need to address: Every MeSH descriptor can have an annotation. This rule extracts that annotation and converts it into a string. But sometimes, if not always, the annotation will
-        have a link to another descriptor. Hence, we might have to decipher a way to express this in our RDF conversion. This might require some NLP? For now however, the 
-        annotation is simply converted to a string data type.
       -->
 
       <xsl:if test="Annotation">
@@ -1055,297 +1042,332 @@
           extracted ONLY when the Annotation element exists for a descriptor record. This if 
           statements checks to see if the element Annotation exists for a descriptor record. -->
         <!-- hasAnnotation -->
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;annotation> </xsl:text>
-        
-        <xsl:value-of select='f:literal-str(Annotation)'/>
-        <xsl:text> .&#10;</xsl:text>
+
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:annotation *annotation*</output>
+            <desc>This rule states that a descriptor record has an annotation.</desc>
+            <fixme>Every MeSH descriptor can have an annotation. This rule extracts that annotation and converts it into a string. But sometimes, if not always, the annotation will
+              have a link to another descriptor. Hence, we might have to decipher a way to express this in our RDF conversion. This might require some NLP? For now however, the 
+              annotation is simply converted to a string data type.</fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>annotation</uri>
+            <literal>
+              <xsl:value-of select="Annotation"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:if>
 
       <!-- 
-        Transformation rules: dateCreated, dateRevised, dateEstablished
-        ================================================================
-        Output: <desc_uri> dateCreated "dateCreated" ., <desc_uri> dateRevised "dateRevised" ., <desc_uri> dateEstablished "dateEstablished" .
-        ========================================================================================================================================
-        Additional: This relation states that a descriptor record has a date on which it was created, revised and established.
-        ========================================================================================================================
-        Need to address: Whether this date representation will be sufficient for us to compute on? We could also change it to the date-time format as provided by the dateTime
-        XSLT 2.0 function.
+        Transformation rule: dateCreated
       -->
-
-      <xsl:text>&lt;&mesh;</xsl:text>
-      <xsl:value-of select="DescriptorUI"/>
-      <xsl:text>&gt; </xsl:text>
-      <xsl:text>&lt;&mesh;dateCreated> </xsl:text>
-      <xsl:text>"</xsl:text>
-      <xsl:value-of
-        select="xs:date(string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-'))"/>
-      <xsl:text>" .&#10;</xsl:text>
+      <xsl:call-template name='triple'>
+        <xsl:with-param name="doc">
+          <output>*descriptor_uri* mesh:dateCreated *object*</output>
+          <desc>This relation states that a descriptor record has a date on which it was created, revised and established.</desc>
+          <fixme>Whether this date representation will be sufficient for us to compute on? We could also change it to the date-time format as provided by the dateTime
+            XSLT 2.0 function.</fixme>
+        </xsl:with-param>
+        <xsl:with-param name='spec'>
+          <xsl:copy-of select="$descriptor_uri"/>
+          <uri prefix='&mesh;'>dateCreated</uri>
+          <literal>
+            <xsl:value-of select="xs:date(string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-'))"/>
+          </literal>
+        </xsl:with-param>
+      </xsl:call-template>
 
       <xsl:if test="DateRevised">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;dateRevised> </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of
-          select="xs:date(string-join((DateRevised/Year,DateRevised/Month,DateRevised/Day),'-'))"/>
-        <xsl:text>" .&#10;</xsl:text>
+        <!-- 
+          Transformation rule: dateRevised
+        -->
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:dateRevised *object*</output>
+            <desc></desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>dateRevised</uri>
+            <literal>
+              <xsl:value-of select="xs:date(string-join((DateRevised/Year,DateRevised/Month,DateRevised/Day),'-'))"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:if>
 
       <xsl:if test="DateEstablished">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;dateEstablished> </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of
-          select="xs:date(string-join((DateEstablished/Year,DateEstablished/Month,DateEstablished/Day),'-'))"/>
-        <xsl:text>" .&#10;</xsl:text>
+        <!-- 
+          Transformation rule: dateEstablished
+        -->
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:dateEstablished *object*</output>
+            <desc></desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>dateEstablished</uri>
+            <literal>
+              <xsl:value-of select="xs:date(string-join((DateEstablished/Year,DateEstablished/Month,DateEstablished/Day),'-'))"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:if>
 
       <!--
         Tranformation rule: activeMeSHYear
-        =======================================
-        Output: <desc_uri> activeMeSHYear "year" .
-        ==============================================
-        Additional: This relation states that a descriptor record has an active MeSH year.
-        ===================================================================================
-        Need to address: N/A.
       -->
       <xsl:for-each select="ActiveMeSHYearList/Year">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="../../DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;activeMeSHYear> </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="."/>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:activeMeSHYear *year*</output>
+            <desc>This relation states that a descriptor record has an active MeSH year.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>activeMeSHYear</uri>
+            <literal>
+              <xsl:value-of select="."/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:for-each>
 
       <!--
         Transformation rule: historyNote
-        ====================================
-        Output: <desc_uri> historyNote "historyNote" .
-        ==================================================
-        Additional: This relation states that a descriptor has a history note.
-        =======================================================================
-        Need to address: N/A.
       -->
-
       <xsl:if test="HistoryNote">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;historyNote> </xsl:text>
-        <xsl:value-of select='f:literal-str(HistoryNote)'/>
-        <xsl:text> .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:historyNote *history_note*</output>
+            <desc>This relation states that a descriptor has a history note.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>historyNote</uri>
+            <literal>
+              <xsl:value-of select="HistoryNote"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:if>
 
       <!--
         Transformation rule: onlineNote
-        ====================================
-        Output: <desc_uri> onlineNote "onlineote" .
-        ================================================
-        Additional: This relation states that a descriptor has a online note.
-        =======================================================================
-        Need to address: N/A.
       -->
-
       <xsl:if test="OnlineNote">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;onlineNote> </xsl:text>
-        <xsl:value-of select='f:literal-str(OnlineNote)'/>
-        <xsl:text> .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:onlineNote *object*</output>
+            <desc></desc>
+            <fixme></fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>onlineNote</uri>
+            <literal>
+              <xsl:value-of select="OnlineNote"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:if>
 
       <!--
         Transformation rule: publicMeSHNote
-        ====================================
-        Output: <desc_uri> publicMeSHNote "publicMeSHNote" .
-        ==========================================================
-        Additional: This relation states that a descriptor has a public MeSH note.
-        =======================================================================
-        Need to address: N/A
       -->
-
       <xsl:if test="PublicMeSHNote">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;publicMeSHNote> </xsl:text>
-        <xsl:value-of select='f:literal-str(PublicMeSHNote)'/>
-        <xsl:text> .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:publicMeSHNote *public_mesh_note*</output>
+            <desc>This relation states that a descriptor has a public MeSH note.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>publicMeSHNote</uri>
+            <literal>
+              <xsl:value-of select="PublicMeSHNote"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:if>
 
       <!--
         Transformation rule: previousIndexing
-        =========================================
-        Output: <desc_uri> previousIndexing "previousIndexing" .
-        ============================================================
-        Additional: This relation states that a descriptor has some previous indexing.
-        ================================================================================
-        Need to address: Whether there is any use in parsing the previous indexing text to derive 
-        other triples.
       -->
-
       <xsl:if test="PreviousIndexingList">
         <xsl:for-each select="PreviousIndexingList/PreviousIndexing">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="../../DescriptorUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;previousIndexing> </xsl:text>
-          <xsl:value-of select="f:literal-str(.)"/>
-          <xsl:text> .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*descriptor_uri* mesh:previousIndexing *previous-indexing*</output>
+              <desc>This relation states that a descriptor has some previous indexing.</desc>
+              <fixme>Whether there is any use in parsing the previous indexing text to derive 
+                other triples.</fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$descriptor_uri"/>
+              <uri prefix='&mesh;'>previousIndexing</uri>
+              <literal>
+                <xsl:value-of select="."/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:for-each>
       </xsl:if>
 
       <!--
         Transformation rule: pharmacologicalAction>
-        ===============================================
-        Output: <desc_uri> pharmacologicalAction <desc_uri> ., where the two <desc_uri> values are 
-        different.
-        ==========================================================================================
-        Additional: This relation states that a descriptor hasa pharmacological action.
-        ================================================================================
-        Need to address: The pharmacological action is represented here as a <desc_uri>. That is, 
-        as a descriptor unique identifier. I felt this was the best thing to do since the 
-        pharmacological action consists of a descriptor unique identifier and a name.
-        But this information is already obtained by the XSLT code when it extracts the relations 
-        in RDF. We can always get the name referred to by the pharmacological action by fetching 
-        the name corresponding to the descriptor unique identifier, the <desc_uri>.
       -->
-
       <xsl:if test="PharmacologicalActionList">
         <xsl:for-each select="PharmacologicalActionList/PharmacologicalAction">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="../../DescriptorUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;pharmacologicalAction> </xsl:text>
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text> .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*descriptor_uri* mesh:pharmacologicalAction *object*</output>
+              <desc>This relation states that a descriptor hasa pharmacological action.</desc>
+              <fixme>The pharmacological action is represented here as a &lt;desc_uri>. That is, 
+                as a descriptor unique identifier. I felt this was the best thing to do since the 
+                pharmacological action consists of a descriptor unique identifier and a name.
+                But this information is already obtained by the XSLT code when it extracts the relations 
+                in RDF. We can always get the name referred to by the pharmacological action by fetching 
+                the name corresponding to the descriptor unique identifier, the &lt;desc_uri>.</fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$descriptor_uri"/>
+              <uri prefix='&mesh;'>pharmacologicalAction</uri>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
+              </uri>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:for-each>
       </xsl:if>
 
       <!--
         Transformation rule: runningHead
-        =====================================
-        Output: <desc_uri> runningHead "runningHead" .
-        ====================================================
-        Additional: This relation says that a descriptor has a running head.
-        =====================================================================
-        Need to address: Whether or not there would be any value to breaking up the text of the 
-        running head.
       -->
-
       <xsl:if test="RunningHead">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;runningHead> </xsl:text>
-        <xsl:value-of select="f:literal-str(RunningHead)"/>
-        <xsl:text> .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:runningHead *object*</output>
+            <desc>This relation says that a descriptor has a running head.</desc>
+            <fixme>Whether or not there would be any value to breaking up the text of the 
+              running head.</fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>runningHead</uri>
+            <literal>
+              <xsl:value-of select="RunningHead"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:if>
-
-      <!--
-        Transformation rule: recordOriginator, recordMaintainer, recordAuthorizer
-        ===========================================================================
-        Output: <desc_uri> recordOriginator "recordOriginator" .,
-                <desc_uri> recordMaintainer "recordMaintainer" .,
-                <desc_uri> recordOriginator "recordAuthorizer" .
-        ==========================================================
-        Additional: This relation states that a descriptor has a record originator, maintainer and 
-        authorizer.
-        ========================================================================================
-        Need to address: N/A.
-      -->
 
       <xsl:if test="RecordOriginatorsList">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;recordOriginator> </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="RecordOriginatorsList/RecordOriginator"/>
-        <xsl:text>" .&#10;</xsl:text>
-
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;recordMaintainer> </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="RecordOriginatorsList/RecordMaintainer"/>
-        <xsl:text>" .&#10;</xsl:text>
-
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;recordAuthorizer> </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="RecordOriginatorsList/RecordAuthorizer"/>
-        <xsl:text>" .&#10;</xsl:text>
+        <!--
+          Transformation rule: recordOriginator
+        -->
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:recordOriginator *object*</output>
+            <desc>This relation states that a descriptor has a record originator</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>recordOriginator</uri>
+            <literal>
+              <xsl:value-of select="RecordOriginatorsList/RecordOriginator"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
+        
+        <!--
+          Transformation rule: recordMaintainer
+        -->
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:recordMaintainer *object*</output>
+            <desc>This relation states that a descriptor has a record maintainer</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>recordMaintainer</uri>
+            <literal>
+              <xsl:value-of select="RecordOriginatorsList/RecordMaintainer"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
+        
+        <!--
+          Transformation rule: recordAuthorizer
+        -->
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:recordAuthorizer *object*</output>
+            <desc>This relation states that a descriptor has a record authorizer</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>recordAuthorizer</uri>
+            <literal>
+              <xsl:value-of select="RecordOriginatorsList/RecordAuthorizer"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:if>
-
-      <!--
-        Transformation rules: seeAlso, hasRelatedDescriptor
-        =====================================================
-        Output: <desc_uri> seeAlso <desc_uri>, <desc_uri> hasRelatedDescriptor <desc_uri> .
-        =============================================================================
-        Additional:
-        
-        The <desc_uri> seeAlso <desc_uri> is different from what a person would see in the 
-        MeSH browser. In the browser one would see <desc_uri> seeAlso "name".
-        
-        The <desc_uri> hasRelatedDescriptor <desc_uri> is where I decided to deviate from what 
-        I saw in the browser b/c the descriptor UI remains unchanged even though the 
-        descriptor name can change.
-        ============================
-        Need to address: I felt that some of the information in the SeeRelatedList element was 
-        repetative b/c it consisted of a list of descriptor unique identifiers and names. Hence, 
-        I decided to use the output specified above b/c we could always access the unique 
-        identifier and name for a descriptor given its unique identifier, we extract this 
-        information from the XML already. I thought the hasRelatedDescriptor relation was more 
-        expressive and explicit in this case than the seeAlso relation.
-      -->
 
       <xsl:if test="SeeRelatedList">
         <xsl:for-each select="SeeRelatedList/SeeRelatedDescriptor">
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="../../DescriptorUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&rdfs;seeAlso&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-          <xsl:text>&gt;</xsl:text>
-          <xsl:text> .&#10;</xsl:text>
-
+          <!--
+            Transformation rules: seeAlso, hasRelatedDescriptor
+          -->
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*descriptor_uri* rdfs:seeAlso *descriptor_uri*</output>
+              <desc>This relation is different from what a person would see in the 
+                MeSH browser. In the browser one would see `&lt;desc_uri> seeAlso "name"`.
+                The `&lt;desc_uri> hasRelatedDescriptor &lt;desc_uri>` is where I decided to deviate from what 
+                I saw in the browser b/c the descriptor UI remains unchanged even though the 
+                descriptor name can change.</desc>
+              <fixme>I felt that some of the information in the SeeRelatedList element was 
+                repetative b/c it consisted of a list of descriptor unique identifiers and names. Hence, 
+                I decided to use the output specified above b/c we could always access the unique 
+                identifier and name for a descriptor given its unique identifier, we extract this 
+                information from the XML already. I thought the hasRelatedDescriptor relation was more 
+                expressive and explicit in this case than the seeAlso relation.</fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$descriptor_uri"/>
+              <uri prefix='&rdfs;'>seeAlso</uri>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
+              </uri>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:for-each>
       </xsl:if>
 
-      <!--
-        Transformation rule: considerAlso
-        ===================================
-        Output: <desc_uri> considerAlso "considerAlso" .
-        ==================================================
-        Additional: 
-        =================
-        Need to address: Maybe we can break this up into several considerTermsAt
-      -->
-
       <xsl:if test="ConsiderAlso">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="DescriptorUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;considerAlso> </xsl:text>
-        <xsl:value-of select="f:literal-str(ConsiderAlso)"/>
-        <xsl:text> .&#10;</xsl:text>
+        <!--
+          Transformation rule: considerAlso
+        -->
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*descriptor_uri* mesh:considerAlso *consider_also*</output>
+            <desc></desc>
+            <fixme>Maybe we can break this up into several considerTermsAt</fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>considerAlso</uri>
+            <literal>
+              <xsl:value-of select="ConsiderAlso"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:if>
     </xsl:for-each>
 
