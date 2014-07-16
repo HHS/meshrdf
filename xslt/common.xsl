@@ -8,28 +8,30 @@
   
   <!-- 
     The main named template used for outputting triples.
-    This takes two paramters:  
-    - doc - for self-documentation, this isn't used when generating the triples.  It can contain:
+    This takes two parameters:  
+    - doc - for self-documentation only; this isn't used when generating the triples.  It can contain:
         - <output> - put a stylized summary of the triple here
         - <desc> - short description of the rule
         - <fixme> - (optional) any work to be done? 
     - spec - the three element children of this parameter define what to put out for the subject,
-      predicate, and object.  The element name defines the type (see the n-triples grammar
-      specification, http://www.w3.org/2001/sw/RDFCore/ntriples/):
-        - <uri> - @prefix attribute should have the prefix, contents should hold the rest.
-        - <literal> - contents are a literal string value
-        - <named> - for blank nodes
+      predicate, and object, respectively.  The name of the child element defines the type thing to emit
+      (see the n-triples grammar specification, http://www.w3.org/2001/sw/RDFCore/ntriples/):
+        - <uri prefix='&pref;'>suffix</url> - generates a properly escaped and delimited URI.  The 
+          @prefix attribute should have the prefix, and the contents should hold the rest.
+        - <literal>some string</literal> - generates a properly escaped and delimited literal 
+          (string) value.
+        - <named>_:blank_123</named> - for blank nodes
 
     Template:
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
-          <output>*descriptor_uri* prefix:property *object*</output>
+          <output>*qualifier_uri* mesh:property *object*</output>
           <desc></desc>
           <fixme></fixme>
         </xsl:with-param>
         <xsl:with-param name='spec'>
-          <xsl:copy-of select="$descriptor_uri"/>
-          <uri prefix='&prefix;'>property</uri>
+          <xsl:copy-of select="$qualifier_uri"/>
+          <uri prefix='&mesh;'>property</uri>
           <literal>
             <xsl:value-of select="xpath"/>
           </literal>
