@@ -30,7 +30,6 @@
       <!--
         Transformation rule/Relation: rdf:type
       -->
-
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <output>*qualifier_uri* rdf:type mesh:Qualifier</output>
@@ -45,14 +44,7 @@
       
       <!--
         Transformation rule/Relation: dcterms:identifier
-        =================================================
-        Output: <qual_uri> dcterms:identifier "qualUI" .
-        ==================================================
-        Description: This relation states that a qualifier has a qualifier identifier.
-        ================================================================================
-        Need to address: N/A.
       -->
-
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <output>*qualifier_uri* dcterms:identifier *qualifier_id*</output>
@@ -67,24 +59,9 @@
         </xsl:with-param>
       </xsl:call-template>
 
-      <!--<xsl:text>&lt;&mesh;</xsl:text>
-      <xsl:value-of select="QualifierUI"/>
-      <xsl:text>&gt; </xsl:text>
-      <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
-      <xsl:text>"</xsl:text>
-      <xsl:value-of select="QualifierUI"/>
-      <xsl:text>" .&#10;</xsl:text>-->
-
       <!--
         Transformation rule/Relation: isQualifierType
-        ==============================================
-        Output: <qual_uri> isQualifierType "qualType" .
-        =================================================
-        Description: This relation states that a qualifier has a qualifier type.
-        =========================================================================
-        Need to address: N/A.
       -->
-
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <output>*qualifier_uri* mesh:isQualifierType *qualifier_type*</output>
@@ -99,24 +76,9 @@
         </xsl:with-param>
       </xsl:call-template>
 
-      <!--<xsl:text>&lt;&mesh;</xsl:text>
-      <xsl:value-of select="QualifierUI"/>
-      <xsl:text>&gt; </xsl:text>
-      <xsl:text>&lt;&mesh;isQualifierType> </xsl:text>
-      <xsl:text>"</xsl:text>
-      <xsl:value-of select="@QualifierType"/>
-      <xsl:text>" .&#10;</xsl:text>-->
-
       <!--
         Transformation rule/Relation: rdfs:label
-        ===============================================
-        Output: <qual_uri> rdfs:label "qualName" .
-        =================================================
-        Description: Every qualifier has a qualifier name.
-        ===================================================
-        Need to address: N/A.
       -->
-
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <output>*qualifier_uri* rdfs:label *qualifier_name*</output>
@@ -131,24 +93,9 @@
         </xsl:with-param>
       </xsl:call-template>
 
-      <!--<xsl:text>&lt;&mesh;</xsl:text>
-      <xsl:value-of select="QualifierUI"/>
-      <xsl:text>&gt; </xsl:text>
-      <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-      <xsl:text>"</xsl:text>
-      <xsl:value-of select="QualifierName/String"/>
-      <xsl:text>" .&#10;</xsl:text>-->
-
       <!--
         Transformation rule/Relation: dateCreated
-        ===============================================
-        Output: <qual_uri> dateCreated "dateCreated" .
-        =================================================
-        Description: This relation states that a qualifier has a date on which it was created.
-        =======================================================================================
-        Need to address: N/A.
       -->
-
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <output>*qualifier_uri* mesh:dateCreated *object*</output>
@@ -163,13 +110,6 @@
         </xsl:with-param>
       </xsl:call-template>
       
-      <!--<xsl:text>&lt;&mesh;</xsl:text>
-      <xsl:value-of select="QualifierUI"/>
-      <xsl:text>&gt; </xsl:text>
-      <xsl:text>&lt;&mesh;dateCreated> </xsl:text>
-      <xsl:text>"</xsl:text>
-      <xsl:value-of select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"/>
-      <xsl:text>" .&#10;</xsl:text>-->
 
       <!--
         Transformation rule/Relation: dateRevised
