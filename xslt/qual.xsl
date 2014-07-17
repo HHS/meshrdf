@@ -110,371 +110,330 @@
         </xsl:with-param>
       </xsl:call-template>
       
-
       <!--
         Transformation rule/Relation: dateRevised
-        ==============================================
-        Output: <qual_uri> dateRevised "dateRevised" .
-        ===================================================
-        Description: A qualifier can have a date on which it was revised.
-        =======================================================================================
-        Need to address: N/A.
       -->
       <xsl:if test="DateRevised">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="QualifierUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;dateRevised> </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="string-join((DateRevised/Year,DateRevised/Month,DateRevised/Day),'-')"/>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*qualifier_uri* mesh:dateRevised *date-revised*</output>
+            <desc>A qualifier can have a date on which it was revised.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$qualifier_uri"/>
+            <uri prefix='&mesh;'>dateRevised</uri>
+            <literal>
+              <xsl:value-of select="string-join((DateRevised/Year,DateRevised/Month,DateRevised/Day),'-')"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:if>
 
       <!--
         Transformation rule/Relation: dateEstablished
-        ===================================================
-        Output: <qual_uri> dateEstablished "dateEstablished" .
-        ============================================================
-        Description: A qualifier can have a date on which it was established.
-        =======================================================================
-        Need to address: N/A.
       -->
       <xsl:if test="DateEstablished">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="QualifierUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;dateEstablished> </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of
-          select="string-join((DateEstablished/Year,DateEstablished/Month,DateEstablished/Day),'-')"/>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*qualifier_uri* mesh:dateEstablished *date_established*</output>
+            <desc>A qualifier can have a date on which it was established.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$qualifier_uri"/>
+            <uri prefix='&mesh;'>dateEstablished</uri>
+            <literal>
+              <xsl:value-of select="string-join((DateEstablished/Year,DateEstablished/Month,DateEstablished/Day),'-')"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:if>
 
       <!--
         Transformation rule/Relation: activeMeSHYear
-        ================================================
-        Output: <qual_uri> activeMeSHYear "year" .
-        ===============================================
-        Description: Every qualifier has at least one year in which the record was active since it was last modified.
-        ==============================================================================================================
-        Need to address: N/A.
       -->
-
       <xsl:for-each select="ActiveMeSHYearList/Year">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="../../QualifierUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;activeMeSHYear> </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="."/>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*qualifier_uri* mesh:activeMeSHYear *active-mesh-year*</output>
+            <desc>Every qualifier has at least one year in which the record was active since it was last modified.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$qualifier_uri"/>
+            <uri prefix='&mesh;'>activeMeSHYear</uri>
+            <literal>
+              <xsl:value-of select="."/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:for-each>
 
       <!--
         Transformation rule:Relation: annotation
-        =============================================
-        Output: <qual_uri> annotation "annotation" .
-        =================================================
-        Description: A Qualifier can have an annotation.
-        ==================================================
-        Need to address: This rule extracts that annotation and converts it into a string. But sometimes, if not always, the annotation will
-        have a link to another qualifier or some manual. Hence, we might have to decipher a way to express this in our RDF conversion. 
-        This might require some NLP? For now however, the annotation is simply converted to a string data type.
       -->
-
-
       <xsl:if test="Annotation">
-        <!-- This if statement is necessary to ensure that the hasAnnotation relationship is extracted 
-          ONLY when the Annotation element exists for a descriptor record. This if statements checks to 
-          see if the element Annotation exists for a descriptor record. -->
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="QualifierUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;annotation> </xsl:text>
-        <xsl:text>"</xsl:text>
-
-        <!-- FIXME:  What in the heck is this doing? -->
-        <xsl:value-of select="replace(
-          replace(Annotation,'&quot;','\\&quot;'), '&#10;', '&amp;#10;'
-          )"/>
-
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*qualifier_uri* mesh:annotation *annotation*</output>
+            <desc>A Qualifier can have an annotation.</desc>
+            <fixme>This rule extracts that annotation and converts it into a string. But sometimes, if not always, the annotation will
+              have a link to another qualifier or some manual. Hence, we might have to decipher a way to express this in our RDF conversion. 
+              This might require some NLP? For now however, the annotation is simply converted to a string data type.</fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$qualifier_uri"/>
+            <uri prefix='&mesh;'>property</uri>
+            <literal>
+              <xsl:value-of select="Annotation"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:if>
 
       <!--
-        Transformation rule/Relation: historyNote
-        =============================================
-        Output: <qual_uri> historyNote "historyNote" .
-        ==================================================
-        Description: A qualifier can have a history note.
-        ==================================================
-        Need to address: N/A.
+        Transformation rule: historyNote
       -->
-
       <xsl:if test="HistoryNote">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="QualifierUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;historyNote> </xsl:text>
-        <xsl:text>"</xsl:text>
-
-        <xsl:value-of select="replace(HistoryNote, '&#10;', '&amp;#10;')"/>
-      <!--
-        <xsl:call-template name="replace-substring">
-          <xsl:with-param name="value" select="HistoryNote"/>
-          <xsl:with-param name="from" select="'&#10;'"/>
-          <xsl:with-param name="to">&amp;#10;</xsl:with-param>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*qualifier_uri* mesh:historyNote *history-note*</output>
+            <desc>A qualifier can have a history note.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$qualifier_uri"/>
+            <uri prefix='&mesh;'>historyNote</uri>
+            <literal>
+              <xsl:value-of select="HistoryNote"/>
+            </literal>
+          </xsl:with-param>
         </xsl:call-template>
-      -->
-        <xsl:text>" .&#10;</xsl:text>
       </xsl:if>
 
       <!--
         Transformation rule/Relation: onlineNote
-        ============================================
-        Output: <qual_uri> onlineNote "onlineNote" .
-        ================================================
-        Description: A qualifier can have an online note.
-        ==================================================
-        Need to address: N/A.
       -->
-
       <xsl:if test="OnlineNote">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="QualifierUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;onlineNote> </xsl:text>
-        <xsl:text>"</xsl:text>
-
-        <xsl:value-of select="replace(OnlineNote, '&#10;', '&amp;#10;')"/>
-        <!--
-          <xsl:call-template name="replace-substring">
-          <xsl:with-param name="value" select="OnlineNote"/>
-          <xsl:with-param name="from" select="'&#10;'"/>
-          <xsl:with-param name="to">&amp;#10;</xsl:with-param>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*qualifier_uri* mesh:onlineNote *online-note*</output>
+            <desc>A qualifier can have an online note.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$qualifier_uri"/>
+            <uri prefix='&mesh;'>onlineNote</uri>
+            <literal>
+              <xsl:value-of select="OnlineNote"/>
+            </literal>
+          </xsl:with-param>
         </xsl:call-template>
-        -->
-
-        <xsl:text>" .&#10;</xsl:text>
       </xsl:if>
 
       <!--
-        Transformation rule/Relation: treeNumber
-        =========================================
-        Output: <qual_uri> treeNumber "treeNumber" .
-        ==============================================
-        Description: A qualifier can have a tree number.
-        =================================================
-        Need to address: N/A.
+        Transformation rule: treeNumber
       -->
-
       <xsl:if test="TreeNumberList">
         <xsl:for-each select="TreeNumberList/TreeNumber">
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="../../QualifierUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;treeNumber&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="."/>
-          <xsl:text>" .&#10;</xsl:text>
-
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*qualifier_uri* mesh:treeNumber *object*</output>
+              <desc>A qualifier can have a tree number.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$qualifier_uri"/>
+              <uri prefix='&mesh;'>treeNumber</uri>
+              <literal>
+                <xsl:value-of select="."/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:for-each>
-        <!-- TreeNumberList -->
       </xsl:if>
 
       <!--
-        Transformation rule/Relation: allowedTreeNode
-        =================================================
-        Output: <qual_uri> allowedTreeNode "allowedTreeNode" .
-        ============================================================
-        Description: A qualifier can have at least one allowed tree node.
-        ==================================================================
-        Need to address: N/A.
+        Transformation rule: allowedTreeNode
       -->
-
       <xsl:if test="TreeNodeAllowedList">
         <xsl:for-each select="TreeNodeAllowedList/TreeNodeAllowed">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="../../QualifierUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;allowedTreeNode&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="."/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*qualifier_uri* mesh:allowedTreeNode *allowed-tree-node*</output>
+              <desc>A qualifier can have at least one allowed tree node.</desc>
+              <fixme></fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$qualifier_uri"/>
+              <uri prefix='&mesh;'>allowedTreeNode</uri>
+              <literal>
+                <xsl:value-of select="."/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:for-each>
       </xsl:if>
 
-      <!--
-        Transformation rule/Relation: recordOriginator, recordMaintainer, recordAuthorizer
-        ====================================================================================
-        Output: <qual_uri> recordOriginator "recordOriginator" .
-                <qual_uri> recordMaintainer "recordMaintainer" .
-                <qual_uri> recordAuthorizer "recordAuthorizer" .
-        =========================================================
-        Description: A qualifier has a record originator, record maintainer and record authorizer.
-        ============================================================================================
-        Need to address: N/A.
-      -->
-
       <xsl:if test="RecordOriginatorsList">
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="QualifierUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;recordOriginator> </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="RecordOriginatorsList/RecordOriginator"/>
-        <xsl:text>" .&#10;</xsl:text>
+        <!--
+          Transformation rule: recordOriginator
+        -->
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*qualifier_uri* mesh:recordOriginator *record-originator*</output>
+            <desc>A qualifier has a record originator</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$qualifier_uri"/>
+            <uri prefix='&mesh;'>recordOriginator</uri>
+            <literal>
+              <xsl:value-of select="RecordOriginatorsList/RecordOriginator"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
 
+        <!--
+          Transformation rule: recordMaintainer
+        -->
         <xsl:if test="RecordOriginatorsList/RecordMaintainer">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="QualifierUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;recordMaintainer> </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="RecordOriginatorsList/RecordMaintainer"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*qualifier_uri* mesh:recordMaintainer *record-maintainerject*</output>
+              <desc>A qualifier has a record maintainer</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$qualifier_uri"/>
+              <uri prefix='&mesh;'>recordMaintainer</uri>
+              <literal>
+                <xsl:value-of select="RecordOriginatorsList/RecordMaintainer"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:if>
 
+        <!--
+          Transformation rule: recordAuthorizer
+        -->
         <xsl:if test="RecordOriginatorsList/RecordAuthorizer">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="QualifierUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;recordAuthorizer> </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="RecordOriginatorsList/RecordAuthorizer"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*qualifier_uri* mesh:recordAuthorizer *authorizer*</output>
+              <desc>A qualifier has a record authorizer</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$qualifier_uri"/>
+              <uri prefix='&mesh;'>recordAuthorizer</uri>
+              <literal>
+                <xsl:value-of select="RecordOriginatorsList/RecordAuthorizer"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:if>
       </xsl:if>
 
       <xsl:for-each select="ConceptList/Concept">
+        <xsl:variable name='concept_uri'>
+          <uri prefix='&mesh;'>
+            <xsl:value-of select="ConceptUI"/>
+          </uri>
+        </xsl:variable>
 
         <!--
-          Transformation rule/Relation: concept
-          =========================================
-          Output: <qual_uri> concept <conc_uri> .
-          ============================================
-          Description: A qualifier has at least one concept.
-          ===================================================
-          Need to address: N/A.
+          Transformation rule: concept
         -->
-
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="../../QualifierUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;concept> </xsl:text>
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="ConceptUI"/>
-        <xsl:text>&gt;</xsl:text>
-        <xsl:text> .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*qualifier_uri* mesh:concept *concept_uri*</output>
+            <desc>A qualifier has at least one concept.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$qualifier_uri"/>
+            <uri prefix='&mesh;'>concept</uri>
+            <xsl:copy-of select='$concept_uri'/>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <!--
-          Transformation rule/Relation: rdf:type
-          =======================================
-          Output: <conc_uri> rdf:type <Concept> .
-          ===========================================
-          Description: This relation states that a Subject node used to identify a concept is of type "Concept".
-          ========================================================================================================
-          Need to address: N/A.
+          Transformation rule: rdf:type
         -->
-
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="ConceptUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;Concept&gt; .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*concept_uri* rdf:type mesh:Concept*</output>
+            <desc>This relation states that a Subject node used to identify a concept is of type "Concept".</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select='$concept_uri'/>
+            <uri prefix='&rdf;'>type</uri>
+            <uri prefix='&mesh;'>Concept</uri>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <!--
           Transformation rule/Relation: isPreferredConcept
-          =================================================
-          Output: <conc_uri> isPreferredConcept "Y/N" .
-          ===============================================
-          Description: A concept will or will not be the preferred concept associated with a Qualifier.
-          ==============================================================================================
-          Need to address: N/A.
         -->
-
-        <xsl:if test="@PreferredConceptYN = 'Y'">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ConceptUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;isPreferredConcept> </xsl:text>
-          <xsl:text>"Y</xsl:text>
-          <xsl:text>" .&#10;</xsl:text>
-        </xsl:if>
-
-        <xsl:if test="@PreferredConceptYN = 'N'">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ConceptUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;isPreferredConcept> </xsl:text>
-          <xsl:text>"N</xsl:text>
-          <xsl:text>" .&#10;</xsl:text>
-        </xsl:if>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*concept_uri* mesh:isPreferredConcept *object*</output>
+            <desc>A concept will or will not be the preferred concept associated with a Qualifier.</desc>
+            <fixme>As with a few cases in desc, I [cfm] think using a different class here would be better
+              than a literal Y/N value.</fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select='$concept_uri'/>
+            <uri prefix='&mesh;'>isPreferredConcept</uri>
+            <literal>
+              <xsl:value-of select="@PreferredConceptYN"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <!--
-          Transformation rule/Relation: rdfs:label
-          ===========================================
-          Output: <conc_uri> rdfs:label "conceptName" .
-          ===============================================
-          Description: A concept has a name.
-          ===================================
-          Need to address: N/A.
+          Transformation rule: rdfs:label
         -->
-
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="ConceptUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-        <xsl:text>"</xsl:text>
-
-        <xsl:value-of select="replace(ConceptName/String, '&quot;', '\\&quot;')"/>
-      <!--
-        <xsl:call-template name="replace-substring">
-          <!- - escape any double-quote character as per the N-Triple format specification - ->
-          <xsl:with-param name="value" select="ConceptName/String"/>
-          <xsl:with-param name="from" select="'&quot;'"/>
-          <xsl:with-param name="to">\"</xsl:with-param>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*concept_uri* rdfs:label *label*</output>
+            <desc>A concept has a name.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select='$concept_uri'/>
+            <uri prefix='&rdfs;'>label</uri>
+            <literal>
+              <xsl:value-of select="ConceptName/String"/>
+            </literal>
+          </xsl:with-param>
         </xsl:call-template>
-      -->
-        <xsl:text>" .&#10;</xsl:text>
 
         <!--
           Transformation rule/Relation: dcterms:identifier
-          ==================================================
-          Output: <conc_uri> dcterms:identifier "conceptUI" .
-          =====================================================
-          Description: A concept has a unique identifier.
-          ================================================
-          Need to address: N/A.
         -->
-
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="ConceptUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="ConceptUI"/>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*concept_uri* dcterms:identifier *concept-identifier*</output>
+            <desc>A concept has a unique identifier.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select='$concept_uri'/>
+            <uri prefix='&dcterms;'>identifier</uri>
+            <literal>
+              <xsl:value-of select="ConceptUI"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <!--
-          Transformation rule/Relation: skos:scopeNote
-          ===========================================
-          Output: <conc_uri> skos:scopeNote "scopeNote" .
-          ==============================================
-          Description: A concept can have a scope note.
-          ==============================================
-          Need to address: N/A.
+          Transformation rule: skos:scopeNote
         -->
-
         <xsl:if test="ScopeNote">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ConceptUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;http://www.w3.org/2004/02/skos/core#scopeNote&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="replace(replace(ScopeNote, '&quot;', '\\&quot;'), '&#10;', '&amp;#10;')"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*concept_uri* skos:scopeNote *scope-note*</output>
+              <desc>A concept can have a scope note.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$concept_uri'/>
+              <uri prefix='&skos;'>scopeNote</uri>
+              <literal>
+                <xsl:value-of select="ScopeNote"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:if>
 
         <!--
@@ -555,8 +514,7 @@
             <xsl:text>&gt; </xsl:text>
             <xsl:text>&lt;&mesh;conceptRelation> </xsl:text>
             <xsl:text>_:blank_set1_</xsl:text>
-            <xsl:value-of
-              select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
+            <xsl:value-of select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
             <xsl:text> .&#10;</xsl:text>
             <xsl:text>_:blank_set1_</xsl:text>
             <xsl:value-of
@@ -568,7 +526,7 @@
               <xsl:value-of
                 select="../../ConceptUI"/>_<xsl:value-of select="position()"/>
               <xsl:text> &lt;&mesh;relation&gt; </xsl:text>
-              <xsl:text>&lt;http://www.w3.org/2004/02/skos/core#</xsl:text>
+              <xsl:text>&lt;&skos;</xsl:text>
               <xsl:if test="matches(@RelationName, 'BRD')">
                 <xsl:text>broader</xsl:text>
               </xsl:if>
@@ -846,13 +804,8 @@
           <xsl:text>" .&#10;</xsl:text>
 
         </xsl:for-each>
-        <!-- TermList/Term -->
       </xsl:for-each>
-      <!-- ConceptList/Concept -->
-
     </xsl:for-each>
-    <!-- QualifierRecordSet/QualifierRecord -->
-
   </xsl:template>
 
 </xsl:stylesheet>
