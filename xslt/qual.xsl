@@ -629,251 +629,247 @@
 
 
         <xsl:for-each select="TermList/Term">
+          <xsl:variable name='term_uri'>
+            <uri prefix='&mesh;'>
+              <xsl:value-of select="TermUI"/>
+            </uri>
+          </xsl:variable>
 
           <!--
             Transformation rule: term
-            =============================
-            Output: <conc_uri> term <term_uri> .
-            ========================================
-            Description: This relation states that a concept has a term.
-            ============================================================
-            Need to addresa: N/A
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="../../ConceptUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;term> </xsl:text>
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="TermUI"/>
-          <xsl:text>&gt;</xsl:text>
-          <xsl:text> .&#10;</xsl:text>
-
-
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*concept_uri* mesh:term *term_uri*</output>
+              <desc>This relation states that a concept has a term.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$concept_uri"/>
+              <uri prefix='&mesh;'>term</uri>
+              <xsl:copy-of select='$term_uri'/>
+            </xsl:with-param>
+          </xsl:call-template>
+          
           <!--
             Transformation rule: rdf:type
-            ========================================
-            Output: <term_uri> rdf:type <Term> .
-            =================================================
-            Description: This relation states that a Subject node used to identify a term is of type "Term".
-            =============================================================================================================
-            Need to address: N/A.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="TermUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;Term&gt; .&#10;</xsl:text>
-
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*term_uri* rdf:type mesh:Term</output>
+              <desc>This relation states that a Subject node used to identify a term is of type "Term".</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$term_uri'/>
+              <uri prefix='&rdf;'>type</uri>
+              <uri prefix='&mesh;'>Term</uri>
+            </xsl:with-param>
+          </xsl:call-template>
 
           <!--
             Transformation rule: dcterms:identifier
-            ========================================
-            Output: <term_uri> dcterms:identifier "termUI" .
-            =================================================
-            Description: This relation states that a term has a term unique identifier.
-            ===========================================================================
-            Need to address: N/A.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="TermUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="TermUI"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*term_uri* dcterms:identifier *term_id*</output>
+              <desc>This relation states that a term has a term unique identifier.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$term_uri'/>
+              <uri prefix='&dcterms;'>identifier</uri>
+              <literal>
+                <xsl:value-of select="TermUI"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
 
           <!--
             Transformation rule: rdfs:label
-            =================================
-            Output: <term_uri> rdfs:label "termName" .
-            ============================================
-            Description: A term has a term name.
-            ======================================
-            Need to address: N/A.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="TermUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="String"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*term_uri* rdfs:label *term_id*</output>
+              <desc>A term has a term name.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$term_uri'/>
+              <uri prefix='&rdfs;'>label</uri>
+              <literal>
+                <xsl:value-of select="String"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
 
           <!--
             Transformation rule: dateCreated
-            ============================================
-            Output: <term_uri> dateCreated "dateCreated" .
-            ============================================================
-            Additional: This relation states that a term can have a date on which it was created.
-            ======================================================================================
-            Need to address: N/A.
           -->
-
           <xsl:if test="DateCreated">
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="TermUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;dateCreated&gt; </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"/>
-            <xsl:text>" .&#10;</xsl:text>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <output>*term_uri* mesh:dateCreated *term_id*</output>
+                <desc>This relation states that a term can have a date on which it was created.</desc>
+                <fixme>[cfm] We need a date-generation template in common.xsl</fixme>
+              </xsl:with-param>
+              <xsl:with-param name='spec'>
+                <xsl:copy-of select='$term_uri'/>
+                <uri prefix='&mesh;'>dateCreated</uri>
+                <literal>
+                  <xsl:value-of select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"/>
+                </literal>
+              </xsl:with-param>
+            </xsl:call-template>
           </xsl:if>
-
 
           <!--
             Transformation rule: abbreviation
-            ==========================================
-            Output: <term_uri> abbreviation "termAbbreviation" .
-            ============================================================
-            Description: A term can have a term abbreviation.
-            ====================================================
-            Need to address: N/A.
           -->
-
           <xsl:if test="Abbreviation">
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="TermUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;abbreviation> </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="Abbreviation"/>
-            <xsl:text>" .&#10;</xsl:text>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <output>*term_uri* mesh:abbreviation *term_id*</output>
+                <desc>A term can have a term abbreviation.</desc>
+              </xsl:with-param>
+              <xsl:with-param name='spec'>
+                <xsl:copy-of select='$term_uri'/>
+                <uri prefix='&mesh;'>abbreviation</uri>
+                <literal>
+                  <xsl:value-of select="Abbreviation"/>
+                </literal>
+              </xsl:with-param>
+            </xsl:call-template>
           </xsl:if>
 
           <!--
             Transformation rule: sortVersion
-            ====================================
-            Output: <term_uri> sortVersion "sortVersion" .
-            ===================================================
-            Additional: A term can have a sort version.
-            ============================================
-            Need to address: N/A.
           -->
-
           <xsl:if test="SortVersion">
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="TermUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;sortVersion> </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="SortVersion"/>
-            <xsl:text>" .&#10;</xsl:text>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <output>*term_uri* mesh:sortVersion *term_id*</output>
+                <desc>A term can have a sort version.</desc>
+              </xsl:with-param>
+              <xsl:with-param name='spec'>
+                <xsl:copy-of select='$term_uri'/>
+                <uri prefix='&mesh;'>sortVersion</uri>
+                <literal>
+                  <xsl:value-of select="SortVersion"/>
+                </literal>
+              </xsl:with-param>
+            </xsl:call-template>
           </xsl:if>
 
           <!--
             Transformation rule: entryVersion
-            =======================================
-            Output: <term_uri> entryVersion "entryVersion" .
-            =====================================================
-            Additional: A term can have an entry version.
-            ===============================================
-            Need to address: N/A.
           -->
-
           <xsl:if test="EntryVersion">
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="TermUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;entryVersion> </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="EntryVersion"/>
-            <xsl:text>" .&#10;</xsl:text>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <output>*term_uri* mesh:entryVersion *term_id*</output>
+                <desc>A term can have an entry version.</desc>
+              </xsl:with-param>
+              <xsl:with-param name='spec'>
+                <xsl:copy-of select='$term_uri'/>
+                <uri prefix='&mesh;'>entryVersion</uri>
+                <literal>
+                  <xsl:value-of select="EntryVersion"/>
+                </literal>
+              </xsl:with-param>
+            </xsl:call-template>
           </xsl:if>
 
           <!--
             Transformation rule: isConceptPreferredTerm
-            ============================================
-            Output: <term_uri> isConceptPreferredTerm "Y/N" .
-            ============================================================
-            Additional: This relation states that a term can be a concept-preferred-term. 
-            ==============================================================================
-            Need to address: N/A.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="TermUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;isConceptPreferredTerm&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="@ConceptPreferredTermYN"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*term_uri* mesh:isConceptPreferredTerm *term_id*</output>
+              <desc>This relation states that a term can be a concept-preferred-term.</desc>
+              <fixme>[cfm] As suggested in many other places, I think a better way to deal with these Y/N values is to define
+                a class that corresponds to the "Y" value, and then create an rdf:type triple iff the value is "Y".  In other
+              words, create a mesh:ConceptPreferredTerm class, and then, if the value of this attribute is "Y", create 
+              a triple `*term_uri* rdf:type mesh:ConceptPreferredTerm`.</fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$term_uri'/>
+              <uri prefix='&mesh;'>isConceptPreferredTerm</uri>
+              <literal>
+                <xsl:value-of select="@ConceptPreferredTermYN"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
 
           <!--
             Transformation rule: isPermutedTerm
-            =====================================
-            Output: <term_uri> isPermutedTerm "Y/N" .
-            ===========================================
-            Additional: A term can be a permuted term.
-            ============================================
-            Need to address: N/A.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="TermUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;isPermutedTerm&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="@IsPermutedTermYN"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*term_uri* mesh:identifier *term_id*</output>
+              <desc>A term can be a permuted term.</desc>
+              <fixme>[cfm] As suggested in many other places, I think a better way to deal with these Y/N values is to define
+                a class that corresponds to the "Y" value, and then create an rdf:type triple iff the value is "Y".</fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$term_uri'/>
+              <uri prefix='&mesh;'>isPermutedTerm</uri>
+              <literal>
+                <xsl:value-of select="@IsPermutedTermYN"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
 
           <!--
             Transformation rule: lexicalTag
-            ===================================
-            Output: <term_uri> lexicalTag "lexicalTag" .
-            ================================================
-            Additional: A term has a lexical tag.
-            ======================================
-            Need to address: N/A.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="TermUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;lexicalTag&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="@LexicalTag"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*term_uri* mesh:lexicalTag *term_id*</output>
+              <desc>A term has a lexical tag.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$term_uri'/>
+              <uri prefix='&mesh;'>lexicalTag</uri>
+              <literal>
+                <xsl:value-of select="@LexicalTag"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
 
           <!--
             Transformation rule: printFlag
-            ===================================
-            Output: <term_uri> printFlag "Y/N" .
-            ========================================
-            Additional: A term has a print flag. 
-            =====================================
-            Need to address: N/A.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="TermUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;printFlag&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="@PrintFlagYN"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*term_uri* mesh:printFlag *term_id*</output>
+              <desc>A term has a print flag.</desc>
+              <fixme>[cfm] As suggested in many other places, I think a better way to deal with these Y/N values is to define
+                a class that corresponds to the "Y" value, and then create an rdf:type triple iff the value is "Y".</fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$term_uri'/>
+              <uri prefix='&mesh;'>printFlag</uri>
+              <literal>
+                <xsl:value-of select="@PrintFlagYN"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
 
           <!--
             Transformation rule: isRecordPreferredTerm
-            ===========================================
-            Output: <term_uri> isRecordPreferredTerm "Y/N" .
-            =================================================
-            Additional: A term can be a record preferred term.
-            ===================================================
-            Need to address: N/A.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="TermUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;isRecordPreferredTerm&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="@RecordPreferredTermYN"/>
-          <xsl:text>" .&#10;</xsl:text>
-
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*term_uri* mesh:isRecordPreferredTerm *term_id*</output>
+              <desc>A term can be a record preferred term.</desc>
+              <fixme>[cfm] As suggested in many other places, I think a better way to deal with these Y/N values is to define
+                a class that corresponds to the "Y" value, and then create an rdf:type triple iff the value is "Y".</fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$term_uri'/>
+              <uri prefix='&mesh;'>isRecordPreferredTerm</uri>
+              <literal>
+                <xsl:value-of select="@RecordPreferredTermYN"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:for-each>
       </xsl:for-each>
     </xsl:for-each>
