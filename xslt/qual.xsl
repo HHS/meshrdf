@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE xsl:stylesheet [
-  <!ENTITY dcterms "http://purl.org/dc/terms/">
-  <!ENTITY mesh "http://nlm.nih.gov#MeSH:">
-  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-  <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
-]>
+
+<!-- 
+  This external subset defines all of the entities that we'll use for URI prefixes from other
+  various ontologies.
+-->
+<!DOCTYPE xsl:stylesheet SYSTEM "mesh-rdf-prefixes.ent" >
+
 
 <xsl:stylesheet version="2.0" 
-                xmlns:defaultns="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema" 
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
