@@ -13,31 +13,7 @@
   <xsl:import href="common.xsl"/>
   <xsl:output method="text"/>
 
-  <!--
-   Function name: replace-substring
-   =================================
-   Description: This function takes a string and replaces the occurence of a substring, "from", with that of another substring, "to".
-  -->
 
-  <xsl:template name="replace-substring">
-    <xsl:param name="value"/>
-    <xsl:param name="from"/>
-    <xsl:param name="to"/>
-    <xsl:choose>
-      <xsl:when test="contains($value,$from)">
-        <xsl:value-of select="substring-before($value,$from)"/>
-        <xsl:value-of select="$to"/>
-        <xsl:call-template name="replace-substring">
-          <xsl:with-param name="value" select="substring-after($value,$from)"/>
-          <xsl:with-param name="from" select="$from"/>
-          <xsl:with-param name="to" select="$to"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="$value"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
 
   <xsl:template match="/">
 
@@ -46,56 +22,61 @@
       <!-- triples for Supplementary Concept Records -->
 
       <xsl:for-each select="SupplementalRecordSet/SupplementalRecord">
+        <xsl:variable name='supprec_uri'>
+          <uri prefix='&mesh;'>
+            <xsl:value-of select="SupplementalRecordUI"/>
+          </uri>
+        </xsl:variable>
 
         <!--
           Transformation rule: dcterms:identifier
-          =========================================
-          Output: <suppRec_uri> dcterms:identifier "suppRecUI" .
-          =============================================================
-          Additional: Every supplemental record has a unique identifier.
         -->
-
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="SupplementalRecordUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="SupplementalRecordUI"/>
-        <xsl:text>" .&#10;</xsl:text>
-
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*supprec_uri* dcterms:identifier *supprec_identifier*</output>
+            <desc>Every supplemental record has a unique identifier.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$supprec_uri"/>
+            <uri prefix='&dcterms;'>identifier</uri>
+            <literal>
+              <xsl:value-of select="SupplementalRecordUI"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <!--
          Transformation rule: SCRClass
-         =========================================
-         Output: <suppRec_uri> SCRClass "suppRecUI" .
-         =============================================================
-         Additional: Every supplemental record has a unique identifier.
         -->
-
-
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="SupplementalRecordUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;SCRClass&gt; </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="@SCRClass"/>
-        <xsl:text>" .&#10;</xsl:text>
-
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*supprec_uri* mesh:SCRClass *scr_class*</output>
+            <desc></desc>
+            <fixme></fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$supprec_uri"/>
+            <uri prefix='&mesh;'>SCRClass</uri>
+            <literal>
+              <xsl:value-of select="@SCRClass"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <!--
           Transformation rule: rdf:type
-          =================================
-          Output: <suppRec_uri> rdf:type <SupplementaryConceptRecord> .
-          =============================================================
-          Additional: This relation states that a Subject node used to identify a Supplementary Concept Record (SCR) is of type "SupplementaryConceptRecord".
         -->
-
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="SupplementalRecordUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;SupplementaryConceptRecord&gt; .&#10;</xsl:text>
-
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <output>*supprec_uri* rdf:type *object*</output>
+            <desc>This relation states that a Subject node used to identify a Supplementary Concept Record (SCR) is of type "SupplementaryConceptRecord".</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$supprec_uri"/>
+            <uri prefix='&rdf;'>type</uri>
+            <uri prefix='&mesh;'>SupplementaryConceptRecord</uri>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <!--
           Transformation rule: rdfs:label
@@ -168,25 +149,23 @@
 
         <!--
           Transformation rule: note
-          ==============================
-          Output: <suppRec_uri> note "note" .
-          ===================================================
-          Additional: A supplemental record can have a note that provides information about the substance.
         -->
-
         <xsl:if test="Note">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="SupplementalRecordUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;note> </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:call-template name="replace-substring">
-            <!-- escape any double-quote character as per the N-Triple format specification -->
-            <xsl:with-param name="value" select="normalize-space(Note)"/>
-            <xsl:with-param name="from" select="'&quot;'"/>
-            <xsl:with-param name="to">\"</xsl:with-param>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*supprec_uri* mesh:note *mesh_note*</output>
+              <desc>A supplemental record can have a note that provides information about the substance.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="SupplementalRecordUI"/>
+              </uri>
+              <uri prefix='&mesh;'>note</uri>
+              <literal>
+                <xsl:value-of select="Note"/>
+              </literal>
+            </xsl:with-param>
           </xsl:call-template>
-          <xsl:text>" .&#10;</xsl:text>
         </xsl:if>
 
         <!--
@@ -740,24 +719,22 @@
 
           <!--
             Transformation rule: rdfs:label
-            =====================================
-            Output: <conc_uri> rdfs:label "concName" .
-            ================================================
-            Additional: A concept has a name.
           -->
-
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="ConceptUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:call-template name="replace-substring">
-            <!-- escape any double-quote character as per the N-Triple format specification -->
-            <xsl:with-param name="value" select="ConceptName/String"/>
-            <xsl:with-param name="from" select="'&quot;'"/>
-            <xsl:with-param name="to">\"</xsl:with-param>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <output>*concept_uri* rdfs:label *concept_name*</output>
+              <desc>A concept has a name</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="ConceptUI"/>
+              </uri>
+              <uri prefix='&rdfs;'>label</uri>
+              <literal>
+                <xsl:value-of select="ConceptName/String"/>
+              </literal>
+            </xsl:with-param>
           </xsl:call-template>
-          <xsl:text>" .&#10;</xsl:text>
 
           <!--
             Transformation rule: dcterms:identifier
@@ -814,25 +791,23 @@
 
           <!--
             Transformation rule: skos:scopeNote
-            ====================================
-            Output: <conc_uri> skos:scopeNote "scopeNote" .
-            ==============================================
-            Additional: A concept can have a scope note, a free-text narrative giving the scoe and meaning of a concept.
           -->
-
           <xsl:if test="ScopeNote">
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="ConceptUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&skos;scopeNote&gt; </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:call-template name="replace-substring">
-              <!-- escape any double-quote character as per the N-Triple format specification -->
-              <xsl:with-param name="value" select="normalize-space(ScopeNote)"/>
-              <xsl:with-param name="from" select="'&quot;'"/>
-              <xsl:with-param name="to">\"</xsl:with-param>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <output>*concept_uri* skos:scopeNote *scope_note*</output>
+                <desc>A concept can have a scope note, a free-text narrative giving the scoe and meaning of a concept.</desc>
+              </xsl:with-param>
+              <xsl:with-param name='spec'>
+                <uri prefix='&mesh;'>
+                  <xsl:value-of select="ConceptUI"/>
+                </uri>
+                <uri prefix='&skos;'>scopeNote</uri>
+                <literal>
+                  <xsl:value-of select="ScopeNote"/>
+                </literal>
+              </xsl:with-param>
             </xsl:call-template>
-            <xsl:text>" .&#10;</xsl:text>
           </xsl:if>
 
 
@@ -1303,30 +1278,28 @@
             
             <!--
               Transformation rule: thesaurusID
-              =====================================
-              Output: _:blankTermUI_termNo thesaurusID "thesaurusID" .
-              ===================================================
-              Additional: This relation states that a term has a thesaurus ID.
-              ===================================================================
-              Need to address: N/A.
             -->
-            
             <xsl:if test="ThesaurusIDlist">
               <xsl:variable name="pos" select="position()"/>
               <xsl:for-each select="ThesaurusIDlist/ThesaurusID">
-                <xsl:text>_:blank</xsl:text>
-                <xsl:value-of select="../../TermUI"/>
-                <xsl:text>_</xsl:text>
-                <xsl:copy-of select="$pos"/>
-                <xsl:text> </xsl:text>
-                <xsl:text>&lt;&mesh;thesaurusID> </xsl:text>
-                <xsl:text>"</xsl:text>
-                <xsl:call-template name="replace-substring">
-                  <xsl:with-param name="value" select="."/>
-                  <xsl:with-param name="from" select="'&#10;'"/>
-                  <xsl:with-param name="to">&#10;</xsl:with-param>
+                <xsl:call-template name='triple'>
+                  <xsl:with-param name="doc">
+                    <output>*blank_node* mesh:thesaurusID *thesaurus_id*</output>
+                    <desc>This relation states that a term has a thesaurus ID.</desc>
+                  </xsl:with-param>
+                  <xsl:with-param name='spec'>
+                    <named>
+                      <xsl:text>_:blank</xsl:text>
+                      <xsl:value-of select="../../TermUI"/>
+                      <xsl:text>_</xsl:text>
+                      <xsl:copy-of select="$pos"/>
+                    </named>
+                    <uri prefix='&mesh;'>thesaurusID</uri>
+                    <literal>
+                      <xsl:value-of select="."/>
+                    </literal>
+                  </xsl:with-param>
                 </xsl:call-template>
-                <xsl:text>" .&#10;</xsl:text>
               </xsl:for-each>
             </xsl:if>
           </xsl:for-each>
