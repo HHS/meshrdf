@@ -29,7 +29,6 @@
       
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
-          <output>*descriptor_uri* dcterms:identifier *descriptor_id*</output>
           <desc>This relation states that a descriptor record has a unique identifier.</desc>
         </xsl:with-param>
         <xsl:with-param name='spec'>
@@ -46,7 +45,6 @@
       -->
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
-          <output>*descriptor_uri* rdf:type mesh:Descriptor</output>
           <desc>This relation states that a Subject node used to identify a Descriptor record 
             is of type "Descriptor".</desc>
         </xsl:with-param>
@@ -62,7 +60,6 @@
       -->
       <xsl:call-template name="triple">
         <xsl:with-param name="doc">
-          <output>*descriptor_uri* mesh:descriptorClass *descriptor_class*</output>
           <desc>This relation states that a descriptor record has a descriptor class to which 
             it belongs to.</desc>
         </xsl:with-param>
@@ -80,7 +77,6 @@
       -->      
       <xsl:call-template name="triple">
         <xsl:with-param name="doc">
-          <output>*descriptor_uri* rdfs:label *descriptor_name*</output>
           <desc>This relation states that a descriptor record has a name.</desc>
         </xsl:with-param>
         <xsl:with-param name="spec">
@@ -105,7 +101,6 @@
         -->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:concept *concept_uri*</output>
             <desc>This relation states that a descriptor record has a concept.</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
@@ -120,7 +115,6 @@
         -->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
-            <output>*concept_uri* rdf:type mesh:Concept</output>
             <desc>This relation states that a Subject node used to identify a concept 
               is of type "Concept".</desc>
           </xsl:with-param>
@@ -136,7 +130,6 @@
         -->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
-            <output>*concept_uri* mesh:isPreferredConcept Y/N</output>
             <desc>This relation states that yes, "Y", a concept is the preferred concept or 
               no, "N", the concept is not the preferred concept.</desc>
             <fixme>Wouldn't it be better to define a PreferredConcept class, and use that as
@@ -157,7 +150,6 @@
         -->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
-            <output>*concept_uri* rdfs:label *concept_name*</output>
             <desc>This relation states that a concept has a concept name.</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
@@ -174,7 +166,6 @@
         -->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
-            <output>*concept_uri* dcterms:identifier *concept_id*</output>
             <desc>This relation states that a concept has a unique identifier.</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
@@ -192,7 +183,6 @@
           -->    
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
-              <output>*concept_uri* mesh:CASN1_label *CASN1Name*</output>
               <desc>This relation states that a concept has a Chemical Abstracts Type N1 Name.</desc>
               <fixme>Do we want to parse the CASN1Name (e.g. for other purposes)?</fixme>
             </xsl:with-param>
@@ -212,7 +202,6 @@
           -->
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
-              <output>*concept_uri* mesh:registryNumber *registry_number*</output>
               <desc>This relation states that a concept has a registry number.</desc>
             </xsl:with-param>
             <xsl:with-param name="spec">
@@ -231,7 +220,6 @@
           -->
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
-              <output>*concept_uri* skos:scopeNote *scope_note*</output>
               <desc>This relation states tht a concept has a scope note.</desc>
             </xsl:with-param>
             <xsl:with-param name="spec">
@@ -257,7 +245,6 @@
             -->            
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
-                <output>*concept_uri* mesh:semanticType *semantic_type_uri*</output>
                 <desc>This relation states that a concept has a semantic type.</desc>
                 <fixme></fixme>
               </xsl:with-param>
@@ -273,7 +260,6 @@
             -->
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
-                <output>*semantic_type_uri* rdf:type mesh:SemanticType</output>
                 <desc>Specifies the class of the semantic type resource.</desc>
               </xsl:with-param>
               <xsl:with-param name="spec">
@@ -288,7 +274,6 @@
             -->
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
-                <output>*semantic_type_uri* rdfs:label *semantic_type_name*</output>
                 <desc>This rule states the a semantic type unique identifier has a semantic type name.</desc>
                 <fixme>I'm not sure if this relation is correct. But we've created this 
                   type of relation for the concepts of a descriptor. We should check this (for e.g.,
@@ -308,7 +293,6 @@
             -->
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
-                <output>*semantic_type_uri* dcterms:identifier *semantic_type_id*</output>
                 <desc>This rule states that a semantic type has a unique identifier.</desc>
               </xsl:with-param>
               <xsl:with-param name="spec">
@@ -329,7 +313,6 @@
             -->
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
-                <output>*concept_uri mesh:relatedRegistryNumber *related_registry_number*</output>
                 <desc>This relation states that a concept has a related registry number.</desc>
                 <fixme>Maybe it would be good to reduce this value to only a number. But 
                   I'm not sure. Need to check with a MeSH expert to see how important is the text
@@ -359,7 +342,6 @@
 
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
-                <output></output>
                 <desc></desc>
                 <fixme></fixme>
               </xsl:with-param>
@@ -372,7 +354,6 @@
             
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
-                <output></output>
                 <desc></desc>
                 <fixme></fixme>
               </xsl:with-param>
@@ -399,7 +380,6 @@
               </xsl:variable>
               <xsl:call-template name="triple">
                 <xsl:with-param name="doc">
-                  <output></output>
                   <desc></desc>
                   <fixme></fixme>
                 </xsl:with-param>
@@ -415,7 +395,6 @@
 
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
-                <output></output>
                 <desc></desc>
               </xsl:with-param>
               <xsl:with-param name="spec">
@@ -429,7 +408,6 @@
             
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
-                <output></output>
                 <desc></desc>
                 <fixme></fixme>
               </xsl:with-param>
@@ -446,7 +424,6 @@
             <xsl:if test="RelationAttribute">
               <xsl:call-template name="triple">
                 <xsl:with-param name="doc">
-                  <output></output>
                   <desc></desc>
                   <fixme></fixme>
                 </xsl:with-param>
@@ -471,7 +448,6 @@
           
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*concept_uri* mesh:term *term_uri*</output>
               <desc>This relation states that a concept has a term.</desc>
             </xsl:with-param>
             <xsl:with-param name='spec'>
@@ -487,7 +463,6 @@
           -->          
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*term_uri* rdf:type mesh:Term</output>
               <desc>A concept has at least one term associated with it.</desc>
             </xsl:with-param>
             <xsl:with-param name='spec'>
@@ -502,7 +477,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*term_uri* dcterms:identifier *term_id*</output>
               <desc>This relation states that a term has a term unique identifier.</desc>
             </xsl:with-param>
             <xsl:with-param name='spec'>
@@ -517,7 +491,6 @@
           <xsl:if test="@IsPermutedTermYN = 'N'">
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
-                <output>*term_uri* rdfs:label *string*</output>
                 <desc></desc>
                 <fixme>Needs description</fixme>
               </xsl:with-param>
@@ -545,7 +518,6 @@
           
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*term_uri* mesh:termData *term_data_blank_node*</output>
               <desc>This relation states that a term has data associated with it. A blank node 
                 stores the term data.</desc>
               <fixme>This relation was created in order to stick with the XML representation of MeSH.</fixme>
@@ -562,7 +534,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*term_data_blank_node* rdf:type mesh:TermData</output>
               <desc>This relation states that a Subject node used to identify term data is 
                 of type "TermData".</desc>
             </xsl:with-param>
@@ -578,7 +549,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*term_data_blank_node* mesh:isConceptPreferredTerm Y/N</output>
               <desc></desc>
               <fixme>As with concept, wouldn't it be better to define a superclass for this, rather than
                 use a literal value?</fixme>
@@ -597,7 +567,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*term_data_blank_node* mesh:isPermutedTerm Y/N</output>
               <desc>This relation states that a term can be a permuted term. But it does so 
                 indirectly because the isPermutedTerm relation is with a blank node.</desc>
               <fixme>Can we use a class for this, rather than a literal value?</fixme>
@@ -616,7 +585,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*term_data_blank_node* mesh:lexicalTag</output>
               <desc>This relation states that a term has a lexical tag. But it does so 
                 indirectly becuase the hasLexicalTag relation is with a blank node.</desc>
             </xsl:with-param>
@@ -634,7 +602,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*term_data_blank_node* mesh:printFlag Y/N</output>
               <desc>This relation states that a term has a print flag. But it does this 
                 indirectly because the hasPrintFlag relation is with a blank node.</desc>
             </xsl:with-param>
@@ -652,7 +619,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*term_data_blank_node* mesh:isRecordPreferredTerm Y/N</output>
               <desc>This relation states that a term can be a record preferred term. But it does 
                 this indirectly because the relation is with a blank node.</desc>
             </xsl:with-param>
@@ -670,10 +636,9 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*term_data_blank_node* dcterms:identifier *term_id*</output>
               <desc>This relation states that a term has a term unique identifier. However, it 
                 does so indirectly because the relation is with a blank node.</desc>
-              <fixme>I [cfm] don't understand why the blank node, with a well defined term_id, is being 
+              <fixme reporter='klortho'>I don't understand why the blank node, with a well defined term_id, is being 
                 used here.</fixme>
             </xsl:with-param>
             <xsl:with-param name='spec'>
@@ -690,7 +655,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*term_data_blank_node* rdfs:label *term_name*</output>
               <desc>This relation states that a term has a term name. But it does so 
                 indirectly because the relation is with a blank node.</desc>
             </xsl:with-param>
@@ -709,7 +673,6 @@
           <xsl:if test="DateCreated">
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
-                <output>*term_data_blank_node* mesh:dateCreated *date_created*</output>
                 <desc>This relation states that a term can have a date on which it was created.</desc>
                 <fixme>Is this date-string creation method robust enough?</fixme>
               </xsl:with-param>
@@ -729,7 +692,6 @@
           <xsl:if test="Abbreviation">
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
-                <output>*term_data_blank_node* mesh:abbreviation *term_abbreviation*</output>
                 <desc>This relation states that a term has a term abbreviation.</desc>
               </xsl:with-param>
               <xsl:with-param name='spec'>
@@ -748,7 +710,6 @@
           <xsl:if test="SortVersion">
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
-                <output>*term_data_blank_node* mesh:sortVersion *sort_version*</output>
                 <desc>This rule states that a term has a sort version.</desc>
               </xsl:with-param>
               <xsl:with-param name='spec'>
@@ -767,7 +728,6 @@
           <xsl:if test="EntryVersion">
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
-                <output>*term_data_blank_node* mesh:entryVersion *entry_version*</output>
                 <desc>This rule states that a term has an entry version.</desc>
               </xsl:with-param>
               <xsl:with-param name='spec'>
@@ -787,7 +747,6 @@
             <xsl:for-each select="ThesaurusIDlist/ThesaurusID">
               <xsl:call-template name='triple'>
                 <xsl:with-param name="doc">
-                  <output>*term_data_blank_node* mesh:thesaurusID **</output>
                   <desc>This relation states that a term has a thesaurus ID.</desc>
                 </xsl:with-param>
                 <xsl:with-param name='spec'>
@@ -821,7 +780,6 @@
           
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*descriptor_uri* mesh:entryCombination *entry_combination_blank*</output>
               <desc>This relation states that a descriptor record has a entry combination. The entry
                 combination has an ECIN and an ECOUT (see below). </desc>
               <fixme>See GitHub issue #10</fixme>
@@ -838,7 +796,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*entry_combination_blank* rdf:type mesh:EntryCombination</output>
               <desc>This relation states that a Subject node used to identify an entry 
                 combination is of type "EntryCombination".</desc>
               <fixme></fixme>
@@ -852,7 +809,6 @@
           
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*entry_combination_blank* mesh:ECINDescriptor *descriptor_uri*</output>
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$entry_combination_blank'/>
@@ -865,7 +821,6 @@
 
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*entry_combination_blank* mesh:ECINQualifier *qualifier_uri*</output>
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$entry_combination_blank'/>
@@ -878,7 +833,6 @@
           
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*entry_combination_blank* mesh:ECOUTDescriptor *descriptor_uri*</output>
               <desc></desc>
               <fixme></fixme>
             </xsl:with-param>
@@ -894,7 +848,6 @@
           <xsl:if test="ECOUT/QualifierReferredTo">
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
-                <output>*entry_combination_blank* mesh:ECOUTQualifier *qualifier_uri*</output>
               </xsl:with-param>
               <xsl:with-param name='spec'>
                 <xsl:copy-of select='$entry_combination_blank'/>
@@ -922,7 +875,6 @@
           -->
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
-              <output>*descriptor_uri* mesh:allowableQualifier *qualifier_uri*</output>
               <desc>This relation states that a descriptor record has an allowable qualifier.</desc>
             </xsl:with-param>
             <xsl:with-param name="spec">
@@ -937,7 +889,6 @@
      	    -->
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
-              <output>*qualifier_uri*</output>
               <desc>This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".</desc>
             </xsl:with-param>
             <xsl:with-param name="spec">
@@ -952,7 +903,6 @@
           -->
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
-              <output>*qualifier_uri*</output>
               <desc>This relation states that an allowable qualifier has a unique identifier.</desc>
             </xsl:with-param>
             <xsl:with-param name="spec">
@@ -969,7 +919,6 @@
           -->
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
-              <output>*qualifier_uri*</output>
               <desc>This relation states that an allowable qualifier has a name.</desc>
             </xsl:with-param>
             <xsl:with-param name="spec">
@@ -986,7 +935,6 @@
           -->
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
-              <output>*qualifier_uri*</output>
               <desc>This relation states that an allowable qualifier has an abbreviation.</desc>
             </xsl:with-param>
             <xsl:with-param name="spec">
@@ -1009,7 +957,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*descriptor_uri* mesh:treeNumber *tree_number*</output>
               <desc>Every MeSH descriptor record can have some integer number of tree numbers. These are presented as characters separated by perionds in the MeSH browser under the 
                 "Tree Number" relation. I named this the hasTreeNumber relation in RDF.</desc>
             </xsl:with-param>
@@ -1036,7 +983,6 @@
 
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:annotation *annotation*</output>
             <desc>This rule states that a descriptor record has an annotation.</desc>
             <fixme>Every MeSH descriptor can have an annotation. This rule extracts that annotation and converts it into a string. But sometimes, if not always, the annotation will
               have a link to another descriptor. Hence, we might have to decipher a way to express this in our RDF conversion. This might require some NLP? For now however, the 
@@ -1057,7 +1003,6 @@
       -->
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
-          <output>*descriptor_uri* mesh:dateCreated *object*</output>
           <desc>This relation states that a descriptor record has a date on which it was created, revised and established.</desc>
           <fixme>Whether this date representation will be sufficient for us to compute on? We could also change it to the date-time format as provided by the dateTime
             XSLT 2.0 function.</fixme>
@@ -1077,7 +1022,6 @@
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:dateRevised *object*</output>
             <desc></desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
@@ -1096,7 +1040,6 @@
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:dateEstablished *object*</output>
             <desc></desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
@@ -1115,7 +1058,6 @@
       <xsl:for-each select="ActiveMeSHYearList/Year">
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:activeMeSHYear *year*</output>
             <desc>This relation states that a descriptor record has an active MeSH year.</desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
@@ -1134,7 +1076,6 @@
       <xsl:if test="HistoryNote">
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:historyNote *history_note*</output>
             <desc>This relation states that a descriptor has a history note.</desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
@@ -1153,7 +1094,6 @@
       <xsl:if test="OnlineNote">
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:onlineNote *object*</output>
             <desc></desc>
             <fixme></fixme>
           </xsl:with-param>
@@ -1173,7 +1113,6 @@
       <xsl:if test="PublicMeSHNote">
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:publicMeSHNote *public_mesh_note*</output>
             <desc>This relation states that a descriptor has a public MeSH note.</desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
@@ -1193,7 +1132,6 @@
         <xsl:for-each select="PreviousIndexingList/PreviousIndexing">
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*descriptor_uri* mesh:previousIndexing *previous-indexing*</output>
               <desc>This relation states that a descriptor has some previous indexing.</desc>
               <fixme>Whether there is any use in parsing the previous indexing text to derive 
                 other triples.</fixme>
@@ -1216,7 +1154,6 @@
         <xsl:for-each select="PharmacologicalActionList/PharmacologicalAction">
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*descriptor_uri* mesh:pharmacologicalAction *object*</output>
               <desc>This relation states that a descriptor hasa pharmacological action.</desc>
               <fixme>The pharmacological action is represented here as a &lt;desc_uri>. That is, 
                 as a descriptor unique identifier. I felt this was the best thing to do since the 
@@ -1242,7 +1179,6 @@
       <xsl:if test="RunningHead">
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:runningHead *object*</output>
             <desc>This relation says that a descriptor has a running head.</desc>
             <fixme>Whether or not there would be any value to breaking up the text of the 
               running head.</fixme>
@@ -1263,7 +1199,6 @@
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:recordOriginator *object*</output>
             <desc>This relation states that a descriptor has a record originator</desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
@@ -1280,7 +1215,6 @@
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:recordMaintainer *object*</output>
             <desc>This relation states that a descriptor has a record maintainer</desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
@@ -1297,7 +1231,6 @@
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:recordAuthorizer *object*</output>
             <desc>This relation states that a descriptor has a record authorizer</desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
@@ -1317,7 +1250,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*descriptor_uri* rdfs:seeAlso *descriptor_uri*</output>
               <desc>This relation is different from what a person would see in the 
                 MeSH browser. In the browser one would see `&lt;desc_uri> seeAlso "name"`.
                 The `&lt;desc_uri> hasRelatedDescriptor &lt;desc_uri>` is where I decided to deviate from what 
@@ -1347,7 +1279,6 @@
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*descriptor_uri* mesh:considerAlso *consider_also*</output>
             <desc></desc>
             <fixme>Maybe we can break this up into several considerTermsAt</fixme>
           </xsl:with-param>

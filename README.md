@@ -73,3 +73,37 @@ Once the original RDF data has been loaded to an RDF database such as Virtuoso, 
 sql/createMeSHHierarchy.sql creates skos:broader links between parent and child nodes
 of the tree hierarchy, based on the tree numbers.
 
+
+## Testing
+
+There are some files that can be used for testing in the samples directory.  In particular:
+
+* desc2014-head.xml - the first 20000 lines (or so) of desc2014.xml
+* qual2014.xml - a complete copy of this
+* supp2014-head.xml - the first 10000 lines (or so) of supp2014.xml
+
+In addition, the latest output from the XSLTs for these sample files is also included in the
+repository, to act as a baseline for testing:
+
+* desc2014-head.nt
+* qual2014.nt
+* supp2014-head.nt
+
+For now, changes to the XSLTs (see issue #13) shouldn't result in significant changes to the RDF
+output. After making changes to the XSLTs, to verify that the changes haven't done any significant
+damage, do this (example for the other two types is similar):
+
+```
+cd samples
+saxon -s:desc2014-head.xml -xsl:../xslt/desc.xsl > desc2014-head.new.nt
+diff desc2014-head.nt desc2014-head.new.nt
+```
+
+If there were minor changes, like whitespace, or other changes that you deem okay, don't forget
+to update the baseline:
+
+```
+cp desc2014-head.new.nt desc2014-head.nt
+```
+
+Also, don't forget to commit and push your changes after each sitting.
