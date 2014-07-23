@@ -23,18 +23,25 @@
         - <named>_:blank_123</named> - for blank nodes
 
     Template:
-      <xsl:call-template name='triple'>
-        <xsl:with-param name="doc">
-          <output>*qualifier_uri* mesh:property *object*</output>
-          <desc></desc>
-          <fixme></fixme>
-        </xsl:with-param>
-        <xsl:with-param name='spec'>
-          <xsl:copy-of select="$qualifier_uri"/>
+      * For fixme/@reporter, use the GitHub username
+      * Within the `spec` parameter, put three children.  Any of which could look something like this:
           <uri prefix='&mesh;'>property</uri>
+          <uri prefix='&mesh;'>
+            <xsl:value-of select='$something_uri'/>
+          </uri>
           <literal>
             <xsl:value-of select="xpath"/>
           </literal>
+          <named>
+            <xsl:value-of select='$blank_node_variable'/>
+          </named>
+      
+      <xsl:call-template name='triple'>
+        <xsl:with-param name="doc">
+          <desc></desc>
+          <fixme reporter=''></fixme>
+        </xsl:with-param>
+        <xsl:with-param name='spec'>
         </xsl:with-param>
       </xsl:call-template>
 
