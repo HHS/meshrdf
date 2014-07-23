@@ -80,19 +80,19 @@
 
         <!--
           Transformation rule: rdfs:label
-          ==============================================
-          Output: <suppRec_uri> rdfs:label "suppRecName" .
-          =================================================================
-          Additional: Every supplemental record has a name.
         -->
-
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="SupplementalRecordUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="SupplementalRecordName/String"/>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>Every supplemental record has a name.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$supprec_uri"/>
+            <uri prefix='&rdfs;'>label</uri>
+            <literal>
+              <xsl:value-of select="SupplementalRecordName/String"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <!--
           Transformation rule: dateCreated
@@ -1266,6 +1266,20 @@
             -->
             
             <xsl:if test="EntryVersion">
+              <xsl:call-template name='triple'>
+                <xsl:with-param name="doc">
+                  <output>*supprec_uri* mesh:property *object*</output>
+                  <desc></desc>
+                  <fixme></fixme>
+                </xsl:with-param>
+                <xsl:with-param name='spec'>
+                  <xsl:copy-of select="$supprec_uri"/>
+                  <uri prefix='&mesh;'>property</uri>
+                  <literal>
+                    <xsl:value-of select="xpath"/>
+                  </literal>
+                </xsl:with-param>
+              </xsl:call-template>
               <xsl:text>_:blank</xsl:text>
               <xsl:value-of select="TermUI"/>
               <xsl:text>_</xsl:text>
