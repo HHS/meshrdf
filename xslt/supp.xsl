@@ -132,36 +132,37 @@
               </literal>
             </xsl:with-param>
           </xsl:call-template>
-          
-          <!--<xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="SupplementalRecordUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;dateRevised> </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of
-            select="string-join((DateRevised/Year,DateRevised/Month,DateRevised/Day),'-')"/>
-          <xsl:text>" .&#10;</xsl:text>-->
+       
         </xsl:if>
 
         <!--
           Transformation rule: activeMeSHYear
-          =======================================
-          Output: <suppRec_uri> activeMeSHYear "activeMeSHYear" .
-          =====================================================================================
-          Additional: A supplemental record has at least one MeSH year in which it was active.
+    
         -->
 
         <xsl:for-each select="ActiveMeSHYearList/Year">
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <desc>A supplemental record has at least one MeSH year in which it was active.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="../../SupplementalRecordUI"/>
+              </uri>
+              <uri prefix='&mesh;'>activeMeSHYear</uri>
+              <literal>
+                <xsl:value-of select="."/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
           
-          
-          
-          <xsl:text>&lt;&mesh;</xsl:text>
+          <!--<xsl:text>&lt;&mesh;</xsl:text>
           <xsl:value-of select="../../SupplementalRecordUI"/>
           <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;&mesh;activeMeSHYear> </xsl:text>
           <xsl:text>"</xsl:text>
           <xsl:value-of select="."/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:text>" .&#10;</xsl:text>-->
         </xsl:for-each>
 
         <!--
@@ -206,11 +207,7 @@
 
         <!--
           Transformation rule: previousIndexing
-          =========================================
-          Output: <suppRec_uri> previousIndexing "prevIndexing" .
-          ===========================================================
-          Additional: A supplemental record can have a previous indexing. See http://www.nlm.nih.gov/mesh/xml_data_elements.html 
-          accessed on 9/9/2008 for more information.
+         
         -->
 
         <xsl:if test="PreviousIndexingList">
@@ -231,13 +228,6 @@
               </xsl:with-param>
             </xsl:call-template>
             
-            <!--<xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="../../SupplementalRecordUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;previousIndexing> </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="replace(normalize-space(), '\\', '\\\\')"/>
-            <xsl:text>" .&#10;</xsl:text>-->
           </xsl:for-each>
         </xsl:if>
 
