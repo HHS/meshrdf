@@ -152,6 +152,9 @@
         -->
 
         <xsl:for-each select="ActiveMeSHYearList/Year">
+          
+          
+          
           <xsl:text>&lt;&mesh;</xsl:text>
           <xsl:value-of select="../../SupplementalRecordUI"/>
           <xsl:text>&gt; </xsl:text>
@@ -212,13 +215,29 @@
 
         <xsl:if test="PreviousIndexingList">
           <xsl:for-each select="PreviousIndexingList/PreviousIndexing">
-            <xsl:text>&lt;&mesh;</xsl:text>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <desc>A supplemental record can have a previous indexing. See http://www.nlm.nih.gov/mesh/xml_data_elements.html 
+                  accessed on 9/9/2008 for more information.</desc>
+              </xsl:with-param>
+              <xsl:with-param name='spec'>
+                <uri prefix='&mesh;'>
+                  <xsl:value-of select="../../SupplementalRecordUI"/>
+                </uri>
+                <uri prefix='&mesh;'>previousIndexing</uri>
+                <literal>
+                  <xsl:value-of select="."/>
+                </literal>
+              </xsl:with-param>
+            </xsl:call-template>
+            
+            <!--<xsl:text>&lt;&mesh;</xsl:text>
             <xsl:value-of select="../../SupplementalRecordUI"/>
             <xsl:text>&gt; </xsl:text>
             <xsl:text>&lt;&mesh;previousIndexing> </xsl:text>
             <xsl:text>"</xsl:text>
-            <xsl:value-of select="replace(normalize-space(.), '\\', '\\\\')"/>
-            <xsl:text>" .&#10;</xsl:text>
+            <xsl:value-of select="replace(normalize-space(), '\\', '\\\\')"/>
+            <xsl:text>" .&#10;</xsl:text>-->
           </xsl:for-each>
         </xsl:if>
 
