@@ -114,21 +114,33 @@
 
         <!--
           Transformation rule: dateRevised
-          =====================================================
-          Output: <suppRec_uri> dateRevised "dateSuppRecRevised" .
-          ============================================================================
-          Additional: A supplemental record can have a date on which it was revised.
         -->
 
+  
         <xsl:if test="DateRevised">
-          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <desc>A supplemental record can have a date on which it was revised.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="SupplementalRecordUI"/>
+              </uri>
+              <uri prefix='&mesh;'>dateRevised</uri>
+              <literal>
+                <xsl:value-of select="string-join((DateRevised/Year,DateRevised/Month,DateRevised/Day),'-')"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
+          
+          <!--<xsl:text>&lt;&mesh;</xsl:text>
           <xsl:value-of select="SupplementalRecordUI"/>
           <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;&mesh;dateRevised> </xsl:text>
           <xsl:text>"</xsl:text>
           <xsl:value-of
             select="string-join((DateRevised/Year,DateRevised/Month,DateRevised/Day),'-')"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:text>" .&#10;</xsl:text>-->
         </xsl:if>
 
         <!--
