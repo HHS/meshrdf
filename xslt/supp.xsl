@@ -131,8 +131,7 @@
                 <xsl:value-of select="string-join((DateRevised/Year,DateRevised/Month,DateRevised/Day),'-')"/>
               </literal>
             </xsl:with-param>
-          </xsl:call-template>
-       
+          </xsl:call-template>    
         </xsl:if>
 
         <!--
@@ -154,15 +153,7 @@
                 <xsl:value-of select="."/>
               </literal>
             </xsl:with-param>
-          </xsl:call-template>
-          
-          <!--<xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="../../SupplementalRecordUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;activeMeSHYear> </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="."/>
-          <xsl:text>" .&#10;</xsl:text>-->
+          </xsl:call-template>       
         </xsl:for-each>
 
         <!--
@@ -188,21 +179,33 @@
 
         <!--
           Transformation rule: frequency
-          ==================================
-          Output: <suppRec_uri> frequency "frequency" .
-          ===================================================
-          Additional: A supplemental record can have a frequency associated with it. This number represents the number of citations
-          indexed with the supplemental record in PubMed.
+    
         -->
 
         <xsl:if test="Frequency">
-          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>A supplemental record can have a frequency associated with it. This number represents the number of citations
+              indexed with the supplemental record in PubMed.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <uri prefix='&mesh;'>
+              <xsl:value-of select="SupplementalRecordUI"/>
+            </uri>
+            <uri prefix='&mesh;'>frequency</uri>
+            <literal>
+              <xsl:value-of select="Frecuency"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
+          
+        <!--<xsl:text>&lt;&mesh;</xsl:text>
           <xsl:value-of select="SupplementalRecordUI"/>
           <xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;&mesh;frequency> </xsl:text>
           <xsl:text>"</xsl:text>
           <xsl:value-of select="Frequency"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:text>" .&#10;</xsl:text>-->
         </xsl:if>
 
         <!--
@@ -226,8 +229,7 @@
                   <xsl:value-of select="."/>
                 </literal>
               </xsl:with-param>
-            </xsl:call-template>
-            
+            </xsl:call-template>           
           </xsl:for-each>
         </xsl:if>
 
