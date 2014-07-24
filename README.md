@@ -1,6 +1,6 @@
 # MeSH® RDF
 
-This repository contains a set of XSLT files that transform MeSH XML into RDF.
+This repository contains a set of XSLT files and stuff that transform MeSH XML into RDF.
 
 Please read the [MeSH Memorandum of Understanding](http://www.nlm.nih.gov/mesh/2014/download/termscon.html)
 before use.
