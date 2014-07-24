@@ -194,7 +194,7 @@
             </uri>
             <uri prefix='&mesh;'>frequency</uri>
             <literal>
-              <xsl:value-of select="Frecuency"/>
+              <xsl:value-of select="Frequency"/>
             </literal>
           </xsl:with-param>
         </xsl:call-template>
@@ -238,18 +238,35 @@
         <xsl:for-each select="HeadingMappedToList/HeadingMappedTo">
           <!--
             Transformation rule: mappedData
-            =====================================
-            Output: <suppRec_uri> mappedData <blank_set1_uri> .
-            ===================================================
-            Additional: To remain true to the structure of the supplemental records in XML format, we created the hasMappedData relation.
-            A supplemental record can be mappled to at least one descriptor record or descriptor record/qualifier record combination. A
-            blank node makes up the mapped data entity.
           -->
-          <xsl:text>&lt;&mesh;</xsl:text><xsl:value-of
+          <xsl:call-template name="triple">
+            <xsl:with-param name="doc">
+              <desc>To remain true to the structure of the supplemental records in XML format, we created the hasMappedData relation.
+                A supplemental record can be mappled to at least one descriptor record or descriptor record/qualifier record combination. A
+                blank node makes up the mapped data entity.</desc>
+            </xsl:with-param>
+            <xsl:with-param name="spec">
+              <uri prefix='&mesh;'>
+                <xsl:value-of select='../../SupplementalRecordUI'/>
+              </uri>
+              <uri prefix='&mesh;'>mappedData</uri>
+              <named>
+                <xsl:text>_:blank_set1_</xsl:text>
+                <xsl:value-of select="../../SupplementalRecordUI"/>
+                <xsl:text>_</xsl:text>
+                <xsl:value-of select="position()"/>
+              </named>
+            </xsl:with-param>
+          </xsl:call-template>
+          
+          <!--<xsl:text>&lt;&mesh;</xsl:text><xsl:value-of
             select="../../SupplementalRecordUI"/><xsl:text>&gt; </xsl:text>
           <xsl:text>&lt;&mesh;mappedData&gt; </xsl:text>
           <xsl:text>_:blank_set1_</xsl:text><xsl:value-of
-            select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/><xsl:text> .&#10;</xsl:text>
+            select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/><xsl:text> .&#10;</xsl:text>-->
+
+
+
           <!--
             Transformation rule: rdf:type
             =================================
