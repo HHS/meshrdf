@@ -96,19 +96,21 @@
 
         <!--
           Transformation rule: dateCreated
-          ====================================================
-          Output: <suppRec_uri> dateCreated "dateSuppRecCreated" .
-          ===========================================================================
-          Additional: Every supplemental record has a date on which it was created.
         -->
-
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="SupplementalRecordUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;dateCreated&gt; </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"/>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>Every supplemental record has a date on which it was created.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <uri prefix='&mesh;'>
+              <xsl:value-of select="SupplementalRecordUI"/>
+            </uri>
+            <uri prefix='&mesh;'>dateCreated</uri>
+            <literal>
+              <xsl:value-of select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
 
         <!--
           Transformation rule: dateRevised
