@@ -7866,17 +7866,8 @@ _:blank_set1_C010491_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 _:blank_set2_C010491_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C010491_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D006133> .
 <http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/pharmacologicalAction> <http://id.nlm.nih.gov/mesh/D000276> .
-<http://id.nlm.nih.gov/mesh/D000276> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D000276> <http://purl.org/dc/terms/identifier> "D000276" .
-<http://id.nlm.nih.gov/mesh/D000276> <http://www.w3.org/2000/01/rdf-schema#label> "Adjuvants, Immunologic" .
 <http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/pharmacologicalAction> <http://id.nlm.nih.gov/mesh/D000700> .
-<http://id.nlm.nih.gov/mesh/D000700> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D000700> <http://purl.org/dc/terms/identifier> "D000700" .
-<http://id.nlm.nih.gov/mesh/D000700> <http://www.w3.org/2000/01/rdf-schema#label> "Analgesics" .
 <http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/pharmacologicalAction> <http://id.nlm.nih.gov/mesh/D000927> .
-<http://id.nlm.nih.gov/mesh/D000927> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D000927> <http://purl.org/dc/terms/identifier> "D000927" .
-<http://id.nlm.nih.gov/mesh/D000927> <http://www.w3.org/2000/01/rdf-schema#label> "Anticonvulsants" .
 <http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/source> "Folia Pharmacol Jpn 71(2):211;1975" .
 <http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/source> "Folia Pharmacol Jpn 72(5):573;1976" .
 <http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/source> "Folia Pharmacol Jpn 72(7):879;1976" .

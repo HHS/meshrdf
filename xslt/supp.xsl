@@ -448,75 +448,26 @@
           </xsl:for-each>        
         </xsl:if>
 
-          <xsl:for-each select="PharmacologicalActionList/PharmacologicalAction">
+        <xsl:for-each select="PharmacologicalActionList/PharmacologicalAction">
 
-            <!--
-              Transformation rule: pharmacologicalAction
-              ===============================================
-              Output: <suppRec_uri> pharmacologicalAction <desc_uri> .
-              ==========================================================
-              Additional: A supplemental record can have a pharmacological action that is a reference to a descriptor record describing observed 
-              biological activity of an exogenously administered chemical.
-            -->
+          <!--
+            Transformation rule: pharmacologicalAction
+            ===============================================
+            Output: <suppRec_uri> pharmacologicalAction <desc_uri> .
+            ==========================================================
+            Additional: A supplemental record can have a pharmacological action that is a reference to a descriptor record describing observed 
+            biological activity of an exogenously administered chemical.
+          -->
 
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="../../SupplementalRecordUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;pharmacologicalAction&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-            <xsl:text>&gt;</xsl:text>
-            <xsl:text> .&#10;</xsl:text>
-
-            <!--
-              Transformation rule: rdf:type
-              =================================
-              Output: <desc_uri> rdf:type <Descriptor> .
-              =============================================================
-              Additional: This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".
-            -->
-            
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;Descriptor&gt; .&#10;</xsl:text>
-
-
-            <!--
-              Transformation rule: dcterms:identifier
-              =======================================
-              Output: <desc_uri> dcterms:identifier "descUI" .
-              ==================================================
-              Additional: A descriptor has a name.
-            -->
-
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-            <xsl:text>&gt;</xsl:text>
-            <xsl:text> </xsl:text>
-            <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-            <xsl:text>" .&#10;</xsl:text>
-
-            <!--
-              Transformation rule: rdfs:label
-              =======================================
-              Output: <desc_uri> rdfs:label "descName" .
-              ==================================================
-              Additional: A descriptor has a name.
-            -->
-
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-            <xsl:text>&gt;</xsl:text>
-            <xsl:text> </xsl:text>
-            <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="DescriptorReferredTo/DescriptorName/String"/>
-            <xsl:text>" .&#10;</xsl:text>
-          </xsl:for-each>
+          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:value-of select="../../SupplementalRecordUI"/>
+          <xsl:text>&gt; </xsl:text>
+          <xsl:text>&lt;&mesh;pharmacologicalAction&gt; </xsl:text>
+          <xsl:text>&lt;&mesh;</xsl:text>
+          <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
+          <xsl:text>&gt;</xsl:text>
+          <xsl:text> .&#10;</xsl:text>
+        </xsl:for-each>
 
 
 
