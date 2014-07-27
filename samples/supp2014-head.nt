@@ -190,9 +190,6 @@ _:blank_set1_C008720_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 _:blank_set2_C008720_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C008720_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D006636> .
 _:blank_set2_C008720_1 <http://id.nlm.nih.gov/mesh/indexingQualifier> <http://id.nlm.nih.gov/mesh/Q000187> .
-<http://id.nlm.nih.gov/mesh/Q000187> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Qualifier> .
-<http://id.nlm.nih.gov/mesh/Q000187> <http://purl.org/dc/terms/identifier> "Q000187" .
-<http://id.nlm.nih.gov/mesh/Q000187> <http://www.w3.org/2000/01/rdf-schema#label> "drug effects" .
 <http://id.nlm.nih.gov/mesh/C008720> <http://id.nlm.nih.gov/mesh/source> "Farmakol Toksikol 36(5):614;1973" .
 <http://id.nlm.nih.gov/mesh/C008720> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/C008720> <http://id.nlm.nih.gov/mesh/recordMaintainer> "vanlenb" .
@@ -311,9 +308,6 @@ _:blank_set1_C060863_3 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http:/
 _:blank_set2_C060863_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C060863_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D001617> .
 _:blank_set2_C060863_1 <http://id.nlm.nih.gov/mesh/indexingQualifier> <http://id.nlm.nih.gov/mesh/Q000037> .
-<http://id.nlm.nih.gov/mesh/Q000037> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Qualifier> .
-<http://id.nlm.nih.gov/mesh/Q000037> <http://purl.org/dc/terms/identifier> "Q000037" .
-<http://id.nlm.nih.gov/mesh/Q000037> <http://www.w3.org/2000/01/rdf-schema#label> "antagonists & inhibitors" .
 <http://id.nlm.nih.gov/mesh/C060863> <http://id.nlm.nih.gov/mesh/source> "Biochem Biophys Res Commun 1989;163(1):495" .
 <http://id.nlm.nih.gov/mesh/C060863> <http://id.nlm.nih.gov/mesh/recordOriginator> "tpw" .
 <http://id.nlm.nih.gov/mesh/C060863> <http://id.nlm.nih.gov/mesh/recordMaintainer> "bears" .
@@ -1092,9 +1086,6 @@ _:blank_set1_C008746_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 _:blank_set2_C008746_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C008746_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D001161> .
 _:blank_set2_C008746_1 <http://id.nlm.nih.gov/mesh/indexingQualifier> <http://id.nlm.nih.gov/mesh/Q000188> .
-<http://id.nlm.nih.gov/mesh/Q000188> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Qualifier> .
-<http://id.nlm.nih.gov/mesh/Q000188> <http://purl.org/dc/terms/identifier> "Q000188" .
-<http://id.nlm.nih.gov/mesh/Q000188> <http://www.w3.org/2000/01/rdf-schema#label> "drug therapy" .
 <http://id.nlm.nih.gov/mesh/C008746> <http://id.nlm.nih.gov/mesh/source> "Exp Mol Pathol 20(2):154;1974" .
 <http://id.nlm.nih.gov/mesh/C008746> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/C008746> <http://id.nlm.nih.gov/mesh/recordMaintainer> "mlh" .

@@ -445,51 +445,6 @@
               <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
               <xsl:text>&gt; .&#10;</xsl:text>
               
-              <!--
-                Transformation rule: rdf:type
-                =================================
-                Output: <qual_uri> rdf:type <Qualifier> .
-                =============================================================
-                Additional: This relation states that a Subject node used to identify a Qualifier record is of type "Qualifier".
-              -->
-              
-              <xsl:text>&lt;&mesh;</xsl:text>
-              <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
-              <xsl:text>&gt; </xsl:text>
-              <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-              <xsl:text>&lt;&mesh;Qualifier&gt; .&#10;</xsl:text>
-              
-              <!--
-                Transformation rule: dcterms:identifier
-                ==========================================
-                Output: <qual_uri> dcterms:identifier "qualUI" .
-                ===========================================================
-                Additional: A qualifier record has a unique identifier.
-              -->
-              
-              <xsl:text>&lt;&mesh;</xsl:text>
-              <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
-              <xsl:text>&gt; </xsl:text>
-              <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
-              <xsl:text>"</xsl:text>
-              <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
-              <xsl:text>" .&#10;</xsl:text>
-              
-              <!--
-                Transformation rule: rdfs:label
-                ======================================
-                Output: <qual_uri> rdfs:label "qualName" .
-                =================================================
-                Additional: A qualifier record has a name.
-              -->
-              
-              <xsl:text>&lt;&mesh;</xsl:text>
-              <xsl:value-of select="replace(QualifierReferredTo/QualifierUI,'\*','')"/>
-              <xsl:text>&gt; </xsl:text>
-              <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-              <xsl:text>"</xsl:text>
-              <xsl:value-of select="QualifierReferredTo/QualifierName/String"/>
-              <xsl:text>" .&#10;</xsl:text>
             </xsl:if>
           </xsl:for-each>        
         </xsl:if>
