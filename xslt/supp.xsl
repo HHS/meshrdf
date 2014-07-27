@@ -411,14 +411,6 @@
               </xsl:with-param>
             </xsl:call-template>
             
-            <!--<xsl:text>_:blank_set2_</xsl:text>
-            <xsl:value-of select="../../SupplementalRecordUI"/>
-            <xsl:text>_</xsl:text>
-            <xsl:value-of select="position()"/>
-            <xsl:text> </xsl:text>
-            <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;IndexingData&gt; .&#10;</xsl:text>-->
-            
             <!--
               Transformation rule: indexingDescriptor
             -->
@@ -434,16 +426,6 @@
                 </uri>
               </xsl:with-param>
             </xsl:call-template>
-            
-            <!--<xsl:text>_:blank_set2_</xsl:text>
-            <xsl:value-of select="../../SupplementalRecordUI"/>
-            <xsl:text>_</xsl:text>
-            <xsl:value-of select="position()"/>
-            <xsl:text> </xsl:text>
-            <xsl:text>&lt;&mesh;indexingDescriptor&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-            <xsl:text>&gt; .&#10;</xsl:text>-->
             
             <!--
               Transformation rule: rdf:type
@@ -461,12 +443,6 @@
                 <uri prefix='&mesh;'>Descriptor</uri>
               </xsl:with-param>
             </xsl:call-template>
-            
-            <!--<xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-            <xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
-            <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;Descriptor&gt; .&#10;</xsl:text>-->
             
             <!--
               Transformation rule: dcterms:identifier
@@ -486,21 +462,9 @@
                 </literal>
               </xsl:with-param>
             </xsl:call-template>
-                        
-            <!--<xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-            <xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
-            <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-            <xsl:text>" .&#10;</xsl:text>-->
             
             <!--
               Transformation rule: rdfs:label
-              =======================================
-              Output: <desc_uri> rdfs:label "descName" .
-              ================================================
-              Additional: A descriptor has a name.
             -->
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
@@ -517,15 +481,6 @@
                 </literal>
               </xsl:with-param>
             </xsl:call-template>
-            
-            <!--<xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/>
-            <xsl:text>&gt;</xsl:text>
-            <xsl:text> </xsl:text>
-            <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="DescriptorReferredTo/DescriptorName/String"/>
-            <xsl:text>" .&#10;</xsl:text>-->
             
             <xsl:if test="QualifierReferredTo">
               <!--
