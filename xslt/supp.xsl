@@ -427,61 +427,6 @@
               </xsl:with-param>
             </xsl:call-template>
             
-            <!--
-              Transformation rule: rdf:type
-            -->
-            <xsl:call-template name="triple">
-              <xsl:with-param name="doc">
-                <desc>This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".</desc>
-                <fixme reporter='klortho'>This is redundant, and should be deleted.  See #14.</fixme>
-              </xsl:with-param>
-              <xsl:with-param name="spec">
-                <uri prefix='&mesh;'>
-                  <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-                </uri>
-                <uri prefix='&rdf;'>type</uri>
-                <uri prefix='&mesh;'>Descriptor</uri>
-              </xsl:with-param>
-            </xsl:call-template>
-            
-            <!--
-              Transformation rule: dcterms:identifier
-            -->
-            <xsl:call-template name="triple">
-              <xsl:with-param name="doc">
-                <desc>A descriptor has a unique identifier.</desc>
-                <fixme reporter='klortho'>This is redundant, and should be deleted.  See #14.</fixme>
-              </xsl:with-param>
-              <xsl:with-param name="spec">
-                <uri prefix='&mesh;'>
-                  <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-                </uri>
-                <uri prefix='&dcterms;'>identifier</uri>
-                <literal>
-                  <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-                </literal>
-              </xsl:with-param>
-            </xsl:call-template>
-            
-            <!--
-              Transformation rule: rdfs:label
-            -->
-            <xsl:call-template name="triple">
-              <xsl:with-param name="doc">
-                <desc>A descriptor has a name.</desc>
-                <fixme reporter='klortho'>This is redundant, and should be deleted.  See #14.</fixme>
-              </xsl:with-param>
-              <xsl:with-param name="spec">
-                <uri prefix='&mesh;'>
-                  <xsl:value-of select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/>
-                </uri>
-                <uri prefix='&rdfs;'>label</uri>
-                <literal>
-                  <xsl:value-of select="DescriptorReferredTo/DescriptorName/String"/>
-                </literal>
-              </xsl:with-param>
-            </xsl:call-template>
-            
             <xsl:if test="QualifierReferredTo">
               <!--
                 Transformation rule: indexingQualifier

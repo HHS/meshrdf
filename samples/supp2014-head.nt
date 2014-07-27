@@ -115,15 +115,9 @@ _:blank_set1_C008718_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/C008718> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C008718_1 .
 _:blank_set2_C008718_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C008718_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D001862> .
-<http://id.nlm.nih.gov/mesh/D001862> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D001862> <http://purl.org/dc/terms/identifier> "D001862" .
-<http://id.nlm.nih.gov/mesh/D001862> <http://www.w3.org/2000/01/rdf-schema#label> "Bone Resorption" .
 <http://id.nlm.nih.gov/mesh/C008718> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C008718_2 .
 _:blank_set2_C008718_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C008718_2 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D010010> .
-<http://id.nlm.nih.gov/mesh/D010010> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D010010> <http://purl.org/dc/terms/identifier> "D010010" .
-<http://id.nlm.nih.gov/mesh/D010010> <http://www.w3.org/2000/01/rdf-schema#label> "Osteoclasts" .
 <http://id.nlm.nih.gov/mesh/C008718> <http://id.nlm.nih.gov/mesh/source> "Ann N Y Acad Sci 230(0):474;1974" .
 <http://id.nlm.nih.gov/mesh/C008718> <http://id.nlm.nih.gov/mesh/source> "Ann N Y Acad Sci 256(0):133;1975" .
 <http://id.nlm.nih.gov/mesh/C008718> <http://id.nlm.nih.gov/mesh/source> "Calcif Tissue Int 1979;29(3):201" .
@@ -195,9 +189,6 @@ _:blank_set1_C008720_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/C008720> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C008720_1 .
 _:blank_set2_C008720_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C008720_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D006636> .
-<http://id.nlm.nih.gov/mesh/D006636> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D006636> <http://purl.org/dc/terms/identifier> "D006636" .
-<http://id.nlm.nih.gov/mesh/D006636> <http://www.w3.org/2000/01/rdf-schema#label> "Histamine Release" .
 _:blank_set2_C008720_1 <http://id.nlm.nih.gov/mesh/indexingQualifier> <http://id.nlm.nih.gov/mesh/Q000187> .
 <http://id.nlm.nih.gov/mesh/Q000187> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Qualifier> .
 <http://id.nlm.nih.gov/mesh/Q000187> <http://purl.org/dc/terms/identifier> "Q000187" .
@@ -319,9 +310,6 @@ _:blank_set1_C060863_3 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http:/
 <http://id.nlm.nih.gov/mesh/C060863> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C060863_1 .
 _:blank_set2_C060863_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C060863_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D001617> .
-<http://id.nlm.nih.gov/mesh/D001617> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D001617> <http://purl.org/dc/terms/identifier> "D001617" .
-<http://id.nlm.nih.gov/mesh/D001617> <http://www.w3.org/2000/01/rdf-schema#label> "beta-Glucosidase" .
 _:blank_set2_C060863_1 <http://id.nlm.nih.gov/mesh/indexingQualifier> <http://id.nlm.nih.gov/mesh/Q000037> .
 <http://id.nlm.nih.gov/mesh/Q000037> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Qualifier> .
 <http://id.nlm.nih.gov/mesh/Q000037> <http://purl.org/dc/terms/identifier> "Q000037" .
@@ -1103,9 +1091,6 @@ _:blank_set1_C008746_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/C008746> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C008746_1 .
 _:blank_set2_C008746_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C008746_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D001161> .
-<http://id.nlm.nih.gov/mesh/D001161> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D001161> <http://purl.org/dc/terms/identifier> "D001161" .
-<http://id.nlm.nih.gov/mesh/D001161> <http://www.w3.org/2000/01/rdf-schema#label> "Arteriosclerosis" .
 _:blank_set2_C008746_1 <http://id.nlm.nih.gov/mesh/indexingQualifier> <http://id.nlm.nih.gov/mesh/Q000188> .
 <http://id.nlm.nih.gov/mesh/Q000188> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Qualifier> .
 <http://id.nlm.nih.gov/mesh/Q000188> <http://purl.org/dc/terms/identifier> "Q000188" .
@@ -1874,15 +1859,9 @@ _:blank_set1_C008807_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/C008807> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C008807_1 .
 _:blank_set2_C008807_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C008807_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D001802> .
-<http://id.nlm.nih.gov/mesh/D001802> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D001802> <http://purl.org/dc/terms/identifier> "D001802" .
-<http://id.nlm.nih.gov/mesh/D001802> <http://www.w3.org/2000/01/rdf-schema#label> "Blood Substitutes" .
 <http://id.nlm.nih.gov/mesh/C008807> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C008807_2 .
 _:blank_set2_C008807_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C008807_2 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D003470> .
-<http://id.nlm.nih.gov/mesh/D003470> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D003470> <http://purl.org/dc/terms/identifier> "D003470" .
-<http://id.nlm.nih.gov/mesh/D003470> <http://www.w3.org/2000/01/rdf-schema#label> "Culture Media" .
 <http://id.nlm.nih.gov/mesh/C008807> <http://id.nlm.nih.gov/mesh/source> "Acta Physiol Scand 98(3):356;1976" .
 <http://id.nlm.nih.gov/mesh/C008807> <http://id.nlm.nih.gov/mesh/source> "Gastroenterology 74(2):210;1978" .
 <http://id.nlm.nih.gov/mesh/C008807> <http://id.nlm.nih.gov/mesh/source> "J Surg Res 20(6);595;1976" .
@@ -2409,9 +2388,6 @@ _:blank_set1_C054080_2 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/C054080> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C054080_1 .
 _:blank_set2_C054080_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C054080_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D014408> .
-<http://id.nlm.nih.gov/mesh/D014408> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D014408> <http://purl.org/dc/terms/identifier> "D014408" .
-<http://id.nlm.nih.gov/mesh/D014408> <http://www.w3.org/2000/01/rdf-schema#label> "Tumor Markers, Biological" .
 <http://id.nlm.nih.gov/mesh/C054080> <http://id.nlm.nih.gov/mesh/source> "Clin Otolaryngol 1987;12(4):303" .
 <http://id.nlm.nih.gov/mesh/C054080> <http://id.nlm.nih.gov/mesh/recordOriginator> "standardr" .
 <http://id.nlm.nih.gov/mesh/C054080> <http://id.nlm.nih.gov/mesh/recordMaintainer> "ridleyc" .
@@ -4898,9 +4874,6 @@ _:blank_set1_C081249_2 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/C081249> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C081249_1 .
 _:blank_set2_C081249_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C081249_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D011994> .
-<http://id.nlm.nih.gov/mesh/D011994> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D011994> <http://purl.org/dc/terms/identifier> "D011994" .
-<http://id.nlm.nih.gov/mesh/D011994> <http://www.w3.org/2000/01/rdf-schema#label> "Recombinant Proteins" .
 <http://id.nlm.nih.gov/mesh/C081249> <http://id.nlm.nih.gov/mesh/source> "Haemostasis 1993 Mar;23 Suppl 1:112-7" .
 <http://id.nlm.nih.gov/mesh/C081249> <http://id.nlm.nih.gov/mesh/recordOriginator> "ayerst" .
 <http://id.nlm.nih.gov/mesh/C081249> <http://id.nlm.nih.gov/mesh/recordMaintainer> "ridleyc" .
@@ -5474,9 +5447,6 @@ _:blank_set1_C113382_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/C113382> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C113382_1 .
 _:blank_set2_C113382_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C113382_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D017800> .
-<http://id.nlm.nih.gov/mesh/D017800> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D017800> <http://purl.org/dc/terms/identifier> "D017800" .
-<http://id.nlm.nih.gov/mesh/D017800> <http://www.w3.org/2000/01/rdf-schema#label> "Potyvirus" .
 <http://id.nlm.nih.gov/mesh/C113382> <http://id.nlm.nih.gov/mesh/source> "Arch Virol 1997;142(9):1919-27" .
 <http://id.nlm.nih.gov/mesh/C113382> <http://id.nlm.nih.gov/mesh/recordOriginator> "benjersb" .
 <http://id.nlm.nih.gov/mesh/C113382> <http://id.nlm.nih.gov/mesh/recordMaintainer> "chavesc" .
@@ -5613,9 +5583,6 @@ _:blank_set1_C012549_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/C012549> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C012549_1 .
 _:blank_set2_C012549_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C012549_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D005782> .
-<http://id.nlm.nih.gov/mesh/D005782> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D005782> <http://purl.org/dc/terms/identifier> "D005782" .
-<http://id.nlm.nih.gov/mesh/D005782> <http://www.w3.org/2000/01/rdf-schema#label> "Gels" .
 <http://id.nlm.nih.gov/mesh/C012549> <http://id.nlm.nih.gov/mesh/source> "Biokhimiia 44(2):368;1979" .
 <http://id.nlm.nih.gov/mesh/C012549> <http://id.nlm.nih.gov/mesh/source> "Cesk Farm 25(2):64;1976" .
 <http://id.nlm.nih.gov/mesh/C012549> <http://id.nlm.nih.gov/mesh/source> "Cesk Farm 25(6):213;1976" .
@@ -6555,9 +6522,6 @@ _:blank_set1_C071564_2 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/C071564> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C071564_1 .
 _:blank_set2_C071564_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C071564_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D003576> .
-<http://id.nlm.nih.gov/mesh/D003576> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D003576> <http://purl.org/dc/terms/identifier> "D003576" .
-<http://id.nlm.nih.gov/mesh/D003576> <http://www.w3.org/2000/01/rdf-schema#label> "Electron Transport Complex IV" .
 <http://id.nlm.nih.gov/mesh/C071564> <http://id.nlm.nih.gov/mesh/source> "Mol Gen Genet 1991;229(3):341" .
 <http://id.nlm.nih.gov/mesh/C071564> <http://id.nlm.nih.gov/mesh/recordOriginator> "standardr" .
 <http://id.nlm.nih.gov/mesh/C071564> <http://id.nlm.nih.gov/mesh/recordMaintainer> "chavesc" .
@@ -7714,15 +7678,9 @@ _:blank_set1_C113617_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/C113617> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C113617_1 .
 _:blank_set2_C113617_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C113617_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D002630> .
-<http://id.nlm.nih.gov/mesh/D002630> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D002630> <http://purl.org/dc/terms/identifier> "D002630" .
-<http://id.nlm.nih.gov/mesh/D002630> <http://www.w3.org/2000/01/rdf-schema#label> "Chemotactic Factors" .
 <http://id.nlm.nih.gov/mesh/C113617> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C113617_2 .
 _:blank_set2_C113617_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
 _:blank_set2_C113617_2 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D013237> .
-<http://id.nlm.nih.gov/mesh/D013237> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
-<http://id.nlm.nih.gov/mesh/D013237> <http://purl.org/dc/terms/identifier> "D013237" .
-<http://id.nlm.nih.gov/mesh/D013237> <http://www.w3.org/2000/01/rdf-schema#label> "Stereoisomerism" .
 <http://id.nlm.nih.gov/mesh/C113617> <http://id.nlm.nih.gov/mesh/source> "Clin Biochem 1998 Apr;31(3):137-41" .
 <http://id.nlm.nih.gov/mesh/C113617> <http://id.nlm.nih.gov/mesh/recordOriginator> "moharys" .
 <http://id.nlm.nih.gov/mesh/C113617> <http://id.nlm.nih.gov/mesh/recordMaintainer> "moharys" .
