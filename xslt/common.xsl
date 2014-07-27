@@ -12,7 +12,8 @@
     - doc - for self-documentation only; this isn't used when generating the triples.  It can contain:
         - <output> - put a stylized summary of the triple here
         - <desc> - short description of the rule
-        - <fixme> - (optional) any work to be done? 
+        - <fixme> - (optional) any work to be done? The value of the reporter attribute should be the
+          GitHub username of the user.
     - spec - the three element children of this parameter define what to put out for the subject,
       predicate, and object, respectively.  The name of the child element defines the type thing to emit
       (see the n-triples grammar specification, http://www.w3.org/2001/sw/RDFCore/ntriples/):
@@ -25,9 +26,8 @@
     Template:
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
-          <output>*qualifier_uri* mesh:property *object*</output>
           <desc></desc>
-          <fixme></fixme>
+          <fixme reporter=''></fixme>
         </xsl:with-param>
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$qualifier_uri"/>

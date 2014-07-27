@@ -335,8 +335,7 @@ _:blank_set2_C060863_1 <http://id.nlm.nih.gov/mesh/indexingQualifier> <http://id
 <http://id.nlm.nih.gov/mesh/M0168905> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
 <http://id.nlm.nih.gov/mesh/M0168905> <http://www.w3.org/2000/01/rdf-schema#label> "conduritol aziridine" .
 <http://id.nlm.nih.gov/mesh/M0168905> <http://purl.org/dc/terms/identifier> "M0168905" .
-<http://id.nlm.nih.gov/mesh/M0168905> <http://id.nlm.nih.gov/mesh/CASN1_label> "7-Azabicyclo(4.1.0)heptane-2,3,4,5-tetrol,
-          (1alpha,2alpha,3beta,4alpha,5beta,6alpha)-" .
+<http://id.nlm.nih.gov/mesh/M0168905> <http://id.nlm.nih.gov/mesh/CASN1_label> "7-Azabicyclo(4.1.0)heptane-2,3,4,5-tetrol,\n          (1alpha,2alpha,3beta,4alpha,5beta,6alpha)-" .
 <http://id.nlm.nih.gov/mesh/M0168905> <http://id.nlm.nih.gov/mesh/registryNumber> "123788-61-4" .
 <http://id.nlm.nih.gov/mesh/T118> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
 <http://id.nlm.nih.gov/mesh/M0168905> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T118> .
@@ -432,9 +431,7 @@ _:blank_set1_C008725_1 <http://id.nlm.nih.gov/mesh/isQualifierStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/M0052819> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
 <http://id.nlm.nih.gov/mesh/M0052819> <http://www.w3.org/2000/01/rdf-schema#label> "1-oxacephalothin" .
 <http://id.nlm.nih.gov/mesh/M0052819> <http://purl.org/dc/terms/identifier> "M0052819" .
-<http://id.nlm.nih.gov/mesh/M0052819> <http://id.nlm.nih.gov/mesh/CASN1_label> "5-Oxa-1-azabicyclo(4.2.0)oct-2-ene-2-carboxylic acid,
-          3-((acetyloxy)methyl)-8-oxo-7-((2-thienylacetyl)amino)-, monosodium salt,
-          trans-(+-)-" .
+<http://id.nlm.nih.gov/mesh/M0052819> <http://id.nlm.nih.gov/mesh/CASN1_label> "5-Oxa-1-azabicyclo(4.2.0)oct-2-ene-2-carboxylic acid,\n          3-((acetyloxy)methyl)-8-oxo-7-((2-thienylacetyl)amino)-, monosodium salt,\n          trans-(+-)-" .
 <http://id.nlm.nih.gov/mesh/M0052819> <http://id.nlm.nih.gov/mesh/registryNumber> "54214-84-5" .
 <http://id.nlm.nih.gov/mesh/M0052819> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T082822> .
 <http://id.nlm.nih.gov/mesh/T082822> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
@@ -1043,8 +1040,7 @@ _:blank_set1_C008722_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/M0052817> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
 <http://id.nlm.nih.gov/mesh/M0052817> <http://www.w3.org/2000/01/rdf-schema#label> "methyl 6-(1,2,2-trichloroethenyl)imidazo(1,2-a)pyridine-2-carbamate" .
 <http://id.nlm.nih.gov/mesh/M0052817> <http://purl.org/dc/terms/identifier> "M0052817" .
-<http://id.nlm.nih.gov/mesh/M0052817> <http://id.nlm.nih.gov/mesh/CASN1_label> "Carbamic acid, (6-(trichloroethenyl)imidazo(1,2-a)pyridin-2-yl)-, methyl
-          ester" .
+<http://id.nlm.nih.gov/mesh/M0052817> <http://id.nlm.nih.gov/mesh/CASN1_label> "Carbamic acid, (6-(trichloroethenyl)imidazo(1,2-a)pyridin-2-yl)-, methyl\n          ester" .
 <http://id.nlm.nih.gov/mesh/M0052817> <http://id.nlm.nih.gov/mesh/registryNumber> "71820-94-5" .
 <http://id.nlm.nih.gov/mesh/M0052817> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T082820> .
 <http://id.nlm.nih.gov/mesh/T082820> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
@@ -2290,8 +2286,7 @@ _:blank_set1_C008814_3 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/M0052994> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
 <http://id.nlm.nih.gov/mesh/M0052994> <http://www.w3.org/2000/01/rdf-schema#label> "peroben" .
 <http://id.nlm.nih.gov/mesh/M0052994> <http://purl.org/dc/terms/identifier> "M0052994" .
-<http://id.nlm.nih.gov/mesh/M0052994> <http://id.nlm.nih.gov/mesh/CASN1_label> "2,4(1H,3H)-Pyridinedione, 3,3-diethyl-, mixt. with
-          2-(diphenylmethoxy)-N,N-dimethylethanamine" .
+<http://id.nlm.nih.gov/mesh/M0052994> <http://id.nlm.nih.gov/mesh/CASN1_label> "2,4(1H,3H)-Pyridinedione, 3,3-diethyl-, mixt. with\n          2-(diphenylmethoxy)-N,N-dimethylethanamine" .
 <http://id.nlm.nih.gov/mesh/M0052994> <http://id.nlm.nih.gov/mesh/registryNumber> "78371-63-8" .
 <http://id.nlm.nih.gov/mesh/M0052994> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T082997> .
 <http://id.nlm.nih.gov/mesh/T082997> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
@@ -3579,9 +3574,7 @@ _:blank_set1_C012441_1 <http://id.nlm.nih.gov/mesh/isQualifierStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/M0059462> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
 <http://id.nlm.nih.gov/mesh/M0059462> <http://www.w3.org/2000/01/rdf-schema#label> "N-methyl-alpha-tocopheramine nitroxide" .
 <http://id.nlm.nih.gov/mesh/M0059462> <http://purl.org/dc/terms/identifier> "M0059462" .
-<http://id.nlm.nih.gov/mesh/M0059462> <http://id.nlm.nih.gov/mesh/CASN1_label> "Nitroxide,
-          3,4-dihydro-2,5,7,8-tetramethyl-2-(4,8,12-trimethyltridecyl)-2H-1-benzopyran-6-yl
-          methyl" .
+<http://id.nlm.nih.gov/mesh/M0059462> <http://id.nlm.nih.gov/mesh/CASN1_label> "Nitroxide,\n          3,4-dihydro-2,5,7,8-tetramethyl-2-(4,8,12-trimethyltridecyl)-2H-1-benzopyran-6-yl\n          methyl" .
 <http://id.nlm.nih.gov/mesh/M0059462> <http://id.nlm.nih.gov/mesh/registryNumber> "78249-60-2" .
 <http://id.nlm.nih.gov/mesh/M0059462> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T089465> .
 <http://id.nlm.nih.gov/mesh/T089465> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
@@ -4235,8 +4228,7 @@ _:blank_set1_C012489_1 <http://id.nlm.nih.gov/mesh/isQualifierStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/M0059551> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
 <http://id.nlm.nih.gov/mesh/M0059551> <http://www.w3.org/2000/01/rdf-schema#label> "phosphorpyridoxyltrifluoroethylamine" .
 <http://id.nlm.nih.gov/mesh/M0059551> <http://purl.org/dc/terms/identifier> "M0059551" .
-<http://id.nlm.nih.gov/mesh/M0059551> <http://id.nlm.nih.gov/mesh/CASN1_label> "3-Pyridinemethanol, 5-hydroxy-6-methyl-4-(((2,2,2-trifluoroethyl)amino)methyl)-,
-          alpha-(dihydrogen phosphate)" .
+<http://id.nlm.nih.gov/mesh/M0059551> <http://id.nlm.nih.gov/mesh/CASN1_label> "3-Pyridinemethanol, 5-hydroxy-6-methyl-4-(((2,2,2-trifluoroethyl)amino)methyl)-,\n          alpha-(dihydrogen phosphate)" .
 <http://id.nlm.nih.gov/mesh/M0059551> <http://id.nlm.nih.gov/mesh/registryNumber> "59087-16-0" .
 <http://id.nlm.nih.gov/mesh/M0059551> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T089554> .
 <http://id.nlm.nih.gov/mesh/T089554> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
@@ -5712,11 +5704,7 @@ _:blank_set1_C012560_5 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/M0059659> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
 <http://id.nlm.nih.gov/mesh/M0059659> <http://www.w3.org/2000/01/rdf-schema#label> "Streptotriad" .
 <http://id.nlm.nih.gov/mesh/M0059659> <http://purl.org/dc/terms/identifier> "M0059659" .
-<http://id.nlm.nih.gov/mesh/M0059659> <http://id.nlm.nih.gov/mesh/CASN1_label> "D-Streptamine, O-
-          2-deoxy-2-(methylamino)-alpha-L-glucopyranosyl-(1-2)-O-5-deoxy-3-C-formyl-alpha-L-lyxofuranosyl-(1-4)-N,N'-bis(aminoiminomethyl)-,
-          sulfate (2:3) (salt), mixt. with 4-amino-N-(4,6-dimethyl-2-pyrimidinyl)benzenesulfonamide,
-          4-amino-N-2-pyrimidinylbenzenesulfonamide and
-          4-amino-N-2-thiazolylbenzenesulfonamide" .
+<http://id.nlm.nih.gov/mesh/M0059659> <http://id.nlm.nih.gov/mesh/CASN1_label> "D-Streptamine, O-\n          2-deoxy-2-(methylamino)-alpha-L-glucopyranosyl-(1-2)-O-5-deoxy-3-C-formyl-alpha-L-lyxofuranosyl-(1-4)-N,N'-bis(aminoiminomethyl)-,\n          sulfate (2:3) (salt), mixt. with 4-amino-N-(4,6-dimethyl-2-pyrimidinyl)benzenesulfonamide,\n          4-amino-N-2-pyrimidinylbenzenesulfonamide and\n          4-amino-N-2-thiazolylbenzenesulfonamide" .
 <http://id.nlm.nih.gov/mesh/M0059659> <http://id.nlm.nih.gov/mesh/registryNumber> "79028-52-7" .
 <http://id.nlm.nih.gov/mesh/M0059659> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T089662> .
 <http://id.nlm.nih.gov/mesh/T089662> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
@@ -5773,8 +5761,7 @@ _:blank_set1_C012930_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/M0060299> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
 <http://id.nlm.nih.gov/mesh/M0060299> <http://www.w3.org/2000/01/rdf-schema#label> "dimethyl-3,3'-(dithiahexamethylenedioxy)dipropionimidate" .
 <http://id.nlm.nih.gov/mesh/M0060299> <http://purl.org/dc/terms/identifier> "M0060299" .
-<http://id.nlm.nih.gov/mesh/M0060299> <http://id.nlm.nih.gov/mesh/CASN1_label> "Propanimidic acid, 3,3'-(dithiobis(2,1-ethanediyloxy))bis-, dimethyl ester,
-          dihydrochloride" .
+<http://id.nlm.nih.gov/mesh/M0060299> <http://id.nlm.nih.gov/mesh/CASN1_label> "Propanimidic acid, 3,3'-(dithiobis(2,1-ethanediyloxy))bis-, dimethyl ester,\n          dihydrochloride" .
 <http://id.nlm.nih.gov/mesh/M0060299> <http://id.nlm.nih.gov/mesh/registryNumber> "59759-98-7" .
 <http://id.nlm.nih.gov/mesh/M0060299> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T090302> .
 <http://id.nlm.nih.gov/mesh/T090302> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
@@ -5962,8 +5949,7 @@ _:blank_set1_C012937_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/M0060310> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
 <http://id.nlm.nih.gov/mesh/M0060310> <http://www.w3.org/2000/01/rdf-schema#label> "1,2-dioleoyl-3-(alpha-1-adamantoyl)-sn-glycerol" .
 <http://id.nlm.nih.gov/mesh/M0060310> <http://purl.org/dc/terms/identifier> "M0060310" .
-<http://id.nlm.nih.gov/mesh/M0060310> <http://id.nlm.nih.gov/mesh/CASN1_label> "Tricyclo(3.3.1.13,7)decane-1-carboxylic-14C acid,
-          2,3-bis((1-oxo-9-octadecenyl)oxy)propyl ester, (R-(Z,Z))-" .
+<http://id.nlm.nih.gov/mesh/M0060310> <http://id.nlm.nih.gov/mesh/CASN1_label> "Tricyclo(3.3.1.13,7)decane-1-carboxylic-14C acid,\n          2,3-bis((1-oxo-9-octadecenyl)oxy)propyl ester, (R-(Z,Z))-" .
 <http://id.nlm.nih.gov/mesh/M0060310> <http://id.nlm.nih.gov/mesh/registryNumber> "61199-79-9" .
 <http://id.nlm.nih.gov/mesh/M0060310> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T090313> .
 <http://id.nlm.nih.gov/mesh/T090313> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
