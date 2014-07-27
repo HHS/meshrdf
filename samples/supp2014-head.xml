@@ -10092,4 +10092,123 @@
   </SupplementalRecord>
   
   <!-- ... -->
+  <!-- 
+    [klortho] I pulled this one out also, because it has PharmacologicalActionList
+  -->
+  <SupplementalRecord SCRClass="1">
+    <SupplementalRecordUI>C010491</SupplementalRecordUI>
+    <SupplementalRecordName>
+      <String>neurotropin</String>
+    </SupplementalRecordName>
+    <DateCreated>
+      <Year>1975</Year>
+      <Month>01</Month>
+      <Day>01</Day>
+    </DateCreated>
+    <DateRevised>
+      <Year>1996</Year>
+      <Month>01</Month>
+      <Day>29</Day>
+    </DateRevised>
+    <ActiveMeSHYearList>
+      <Year>1996</Year>
+      <Year>1997</Year>
+      <Year>1998</Year>
+      <Year>1999</Year>
+      <Year>2000</Year>
+      <Year>2001</Year>
+      <Year>2002</Year>
+      <Year>2003</Year>
+      <Year>2004</Year>
+      <Year>2005</Year>
+      <Year>2006</Year>
+      <Year>2007</Year>
+      <Year>2008</Year>
+      <Year>2009</Year>
+      <Year>2010</Year>
+      <Year>2011</Year>
+      <Year>2012</Year>
+      <Year>2013</Year>
+      <Year>2014</Year>
+    </ActiveMeSHYearList>
+    <Note>polysaccharide extracted from the inflammatory skin of rabbits treated with vaccinia virus </Note>
+    <Frequency>161</Frequency>
+    <HeadingMappedToList>
+      <HeadingMappedTo>
+        <DescriptorReferredTo>
+          <DescriptorUI>*D011134</DescriptorUI>
+          <DescriptorName>
+            <String>Polysaccharides</String>
+          </DescriptorName>
+        </DescriptorReferredTo>
+      </HeadingMappedTo>
+    </HeadingMappedToList>
+    <IndexingInformationList>
+      <IndexingInformation>
+        <DescriptorReferredTo>
+          <DescriptorUI>D006133</DescriptorUI>
+          <DescriptorName>
+            <String>Growth Substances</String>
+          </DescriptorName>
+        </DescriptorReferredTo>
+      </IndexingInformation>
+    </IndexingInformationList>
+    <PharmacologicalActionList>
+      <PharmacologicalAction>
+        <DescriptorReferredTo>
+          <DescriptorUI>D000276</DescriptorUI>
+          <DescriptorName>
+            <String>Adjuvants, Immunologic</String>
+          </DescriptorName>
+        </DescriptorReferredTo>
+      </PharmacologicalAction>
+      <PharmacologicalAction>
+        <DescriptorReferredTo>
+          <DescriptorUI>D000700</DescriptorUI>
+          <DescriptorName>
+            <String>Analgesics</String>
+          </DescriptorName>
+        </DescriptorReferredTo>
+      </PharmacologicalAction>
+      <PharmacologicalAction>
+        <DescriptorReferredTo>
+          <DescriptorUI>D000927</DescriptorUI>
+          <DescriptorName>
+            <String>Anticonvulsants</String>
+          </DescriptorName>
+        </DescriptorReferredTo>
+      </PharmacologicalAction>
+    </PharmacologicalActionList>
+    <SourceList>
+      <Source>Folia Pharmacol Jpn 71(2):211;1975</Source>
+      <Source>Folia Pharmacol Jpn 72(5):573;1976</Source>
+      <Source>Folia Pharmacol Jpn 72(7):879;1976</Source>
+    </SourceList>
+    <RecordOriginatorsList>
+      <RecordOriginator>nlm</RecordOriginator>
+      <RecordMaintainer>mlh</RecordMaintainer>
+      <RecordAuthorizer>nlm</RecordAuthorizer>
+    </RecordOriginatorsList>
+    <ConceptList>
+      <Concept PreferredConceptYN="Y">
+        <ConceptUI>M0056018</ConceptUI>
+        <ConceptName>
+          <String>neurotropin</String>
+        </ConceptName>
+        <RegistryNumber>57657-35-9</RegistryNumber>
+        <TermList>
+          <Term ConceptPreferredTermYN="Y" IsPermutedTermYN="N" LexicalTag="NON" PrintFlagYN="Y"
+            RecordPreferredTermYN="Y">
+            <TermUI>T086021</TermUI>
+            <String>neurotropin</String>
+            <ThesaurusIDlist>
+              <ThesaurusID>NLM (1975)</ThesaurusID>
+            </ThesaurusIDlist>
+          </Term>
+        </TermList>
+      </Concept>
+    </ConceptList>
+  </SupplementalRecord>
+  
+  <!-- ... -->
 </SupplementalRecordSet>

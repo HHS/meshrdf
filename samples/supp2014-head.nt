@@ -7830,3 +7830,76 @@ _:blankT537202_1 <http://purl.org/dc/terms/identifier> "T537202" .
 _:blankT537202_1 <http://www.w3.org/2000/01/rdf-schema#label> "MAPEP1 protein, Microcystis aeruginosa" .
 _:blankT537202_1 <http://id.nlm.nih.gov/mesh/dateCreated> "2003-04-02" .
 _:blankT537202_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2003)" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://purl.org/dc/terms/identifier> "C010491" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/SCRClass> "1" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
+<http://id.nlm.nih.gov/mesh/C010491> <http://www.w3.org/2000/01/rdf-schema#label> "neurotropin" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/dateCreated> "1975-01-01" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/dateRevised> "1996-01-29" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1996" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1997" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1998" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1999" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2001" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2002" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2003" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2004" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2005" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2006" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2008" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2009" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2010" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2011" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2012" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2014" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/note> "polysaccharide extracted from the inflammatory skin of rabbits treated with vaccinia virus " .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/frequency> "161" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C010491_1 .
+_:blank_set1_C010491_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C010491_1 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D011134> .
+_:blank_set1_C010491_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/D011134> <http://www.w3.org/2000/01/rdf-schema#label> "Polysaccharides" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C010491_1 .
+_:blank_set2_C010491_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
+_:blank_set2_C010491_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D006133> .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/pharmacologicalAction> <http://id.nlm.nih.gov/mesh/D000276> .
+<http://id.nlm.nih.gov/mesh/D000276> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
+<http://id.nlm.nih.gov/mesh/D000276> <http://purl.org/dc/terms/identifier> "D000276" .
+<http://id.nlm.nih.gov/mesh/D000276> <http://www.w3.org/2000/01/rdf-schema#label> "Adjuvants, Immunologic" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/pharmacologicalAction> <http://id.nlm.nih.gov/mesh/D000700> .
+<http://id.nlm.nih.gov/mesh/D000700> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
+<http://id.nlm.nih.gov/mesh/D000700> <http://purl.org/dc/terms/identifier> "D000700" .
+<http://id.nlm.nih.gov/mesh/D000700> <http://www.w3.org/2000/01/rdf-schema#label> "Analgesics" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/pharmacologicalAction> <http://id.nlm.nih.gov/mesh/D000927> .
+<http://id.nlm.nih.gov/mesh/D000927> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
+<http://id.nlm.nih.gov/mesh/D000927> <http://purl.org/dc/terms/identifier> "D000927" .
+<http://id.nlm.nih.gov/mesh/D000927> <http://www.w3.org/2000/01/rdf-schema#label> "Anticonvulsants" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/source> "Folia Pharmacol Jpn 71(2):211;1975" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/source> "Folia Pharmacol Jpn 72(5):573;1976" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/source> "Folia Pharmacol Jpn 72(7):879;1976" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/recordMaintainer> "mlh" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/recordAuthorizer> "nlm" .
+<http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0056018> .
+<http://id.nlm.nih.gov/mesh/M0056018> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0056018> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
+<http://id.nlm.nih.gov/mesh/M0056018> <http://www.w3.org/2000/01/rdf-schema#label> "neurotropin" .
+<http://id.nlm.nih.gov/mesh/M0056018> <http://purl.org/dc/terms/identifier> "M0056018" .
+<http://id.nlm.nih.gov/mesh/M0056018> <http://id.nlm.nih.gov/mesh/registryNumber> "57657-35-9" .
+<http://id.nlm.nih.gov/mesh/M0056018> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T086021> .
+<http://id.nlm.nih.gov/mesh/T086021> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T086021> <http://purl.org/dc/terms/identifier> "T086021" .
+<http://id.nlm.nih.gov/mesh/T086021> <http://www.w3.org/2000/01/rdf-schema#label> "neurotropin" .
+<http://id.nlm.nih.gov/mesh/T086021> <http://id.nlm.nih.gov/mesh/termData> _:blankT086021_1 .
+_:blankT086021_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT086021_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT086021_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT086021_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT086021_1 <http://id.nlm.nih.gov/mesh/printFlag> "Y" .
+_:blankT086021_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
+_:blankT086021_1 <http://purl.org/dc/terms/identifier> "T086021" .
+_:blankT086021_1 <http://www.w3.org/2000/01/rdf-schema#label> "neurotropin" .
+_:blankT086021_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1975)" .

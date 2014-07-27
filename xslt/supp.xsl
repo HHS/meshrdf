@@ -427,31 +427,27 @@
               </xsl:with-param>
             </xsl:call-template>
             
+            <!--
+              Transformation rule: indexingQualifier
+            -->
             <xsl:if test="QualifierReferredTo">
-              <!--
-                Transformation rule: indexingQualifier
-                ==========================================
-                Output: <blank_set2_uri> indexingQualifier <qual_uri> .
-                ===========================================================
-                Additional: A supplemental record can be indexed to more than one qualifier via a unique blank node.
-              -->
-              <xsl:text>_:blank_set2_</xsl:text>
-              <xsl:value-of select="../../SupplementalRecordUI"/>
-              <xsl:text>_</xsl:text>
-              <xsl:value-of select="position()"/>
-              <xsl:text> </xsl:text>
-              <xsl:text>&lt;&mesh;indexingQualifier&gt; </xsl:text>
-              <xsl:text>&lt;&mesh;</xsl:text>
-              <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
-              <xsl:text>&gt; .&#10;</xsl:text>
-              
+              <xsl:call-template name='triple'>
+                <xsl:with-param name="doc">
+                  <desc>A supplemental record can be indexed to more than one qualifier via a unique blank node.</desc>
+                  <fixme reporter=''></fixme>
+                </xsl:with-param>
+                <xsl:with-param name='spec'>
+                  <xsl:copy-of select="$indexing_data_blank"/>
+                  <uri prefix='&mesh;'>indexingQualifier</uri>
+                  <uri prefix='&mesh;'>
+                    <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
+                  </uri>
+                </xsl:with-param>
+              </xsl:call-template>
             </xsl:if>
           </xsl:for-each>        
         </xsl:if>
 
-
-
-        <xsl:if test="PharmacologicalActionList">
           <xsl:for-each select="PharmacologicalActionList/PharmacologicalAction">
 
             <!--
@@ -521,7 +517,6 @@
             <xsl:value-of select="DescriptorReferredTo/DescriptorName/String"/>
             <xsl:text>" .&#10;</xsl:text>
           </xsl:for-each>
-        </xsl:if>
 
 
 
