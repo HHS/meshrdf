@@ -33,7 +33,6 @@
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*supprec_uri* dcterms:identifier *supprec_identifier*</output>
             <desc>Every supplemental record has a unique identifier.</desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
@@ -50,7 +49,6 @@
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*supprec_uri* mesh:SCRClass *scr_class*</output>
             <desc></desc>
             <fixme></fixme>
           </xsl:with-param>
@@ -68,7 +66,6 @@
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <output>*supprec_uri* rdf:type *object*</output>
             <desc>This relation states that a Subject node used to identify a Supplementary Concept Record (SCR) is of type "SupplementaryConceptRecord".</desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
@@ -278,8 +275,8 @@
           <!--
             Descriptor is starred
           -->
-          <xsl:variable name="descui" select="DescriptorReferredTo/DescriptorUI"/>
-          <xsl:if test="starts-with($descui, '*')">
+          <!--<xsl:variable name="descui" select="DescriptorReferredTo/DescriptorUI"/>-->
+          <xsl:if test="starts-with(DescriptorReferredTo/DescriptorUI, '*')">
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
                 <desc></desc>
@@ -295,162 +292,208 @@
             </xsl:call-template>
           </xsl:if>
           
-          <!-- added by rw
+          <!--
             Transformation rule: rdfs:label
-            =======================================
-            Output: <desc_uri> rdfs:label "descName" .
-            ================================================
-            Additional: A descriptor has a name.
           -->
-          
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="replace(DescriptorReferredTo/DescriptorUI, '\*', '')"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="DescriptorReferredTo/DescriptorName/String"/>
-          <xsl:text>" .&#10;</xsl:text>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <desc>A descriptor has a name.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="replace(DescriptorReferredTo/DescriptorUI, '\*', '')"/>
+              </uri>
+              <uri prefix='&rdfs;'>label</uri>
+              <literal>
+                <xsl:value-of select="DescriptorReferredTo/DescriptorName/String"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
           
           <xsl:if test="QualifierReferredTo">
+            <xsl:variable name='qualifier_referred_to_uri'>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="replace(QualifierReferredTo/QualifierUI, '\*', '')"/>
+              </uri>
+            </xsl:variable>
+            
             <!--
               Transformation rule: isMappedToQualifier
-              =========================================
-              Output: <blank_uri> isMappedToQualifier <qual_uri> .
-              ======================================================
-              Additional: A supplemental record can be mapped to a qualifier record. In our representation the mapping is first to a blank node and then to
-              the qualifier record.
             -->
-            <xsl:text>_:blank_set1_</xsl:text>
-            <xsl:value-of select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/>
-            <xsl:text> </xsl:text>
-            <xsl:text>&lt;&mesh;isMappedToQualifier&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="replace(QualifierReferredTo/QualifierUI,'\*','')"/>
-            <xsl:text>&gt;</xsl:text>
-            <xsl:text> .&#10;</xsl:text>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <desc>A supplemental record can be mapped to a qualifier record. In our representation
+                  the mapping is first to a blank node and then to
+                  the qualifier record.</desc>
+              </xsl:with-param>
+              <xsl:with-param name='spec'>
+                <xsl:copy-of select="$supp_rec_blank"/>
+                <uri prefix='&mesh;'>isMappedToQualifier</uri>
+                <xsl:copy-of select="$qualifier_referred_to_uri"/>
+              </xsl:with-param>
+            </xsl:call-template>
 
             <!--
               Qualifier is starred
-              =================================
-              Output: <_blank_uri> isQualifierStarred "Y/N" .
-              =============================================================
-              Additional:
             -->
-            <xsl:variable name="qualui" select="QualifierReferredTo/QualifierUI"/>
-            <xsl:if test="starts-with($qualui,'*')">
-              <xsl:text>_:blank_set1_</xsl:text>
-              <xsl:value-of select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/>
-              <xsl:text> </xsl:text>
-              <xsl:text>&lt;&mesh;isQualifierStarred&gt; </xsl:text>
-              <xsl:text>"Y"</xsl:text>
-              <xsl:text> .&#10;</xsl:text>
+            <xsl:if test="starts-with(QualifierReferredTo/QualifierUI, '*')">
+              <xsl:call-template name='triple'>
+                <xsl:with-param name="doc">
+                  <fixme reporter='klortho'>As usual, I don't like this predicate with a literal "Y" value</fixme>
+                </xsl:with-param>
+                <xsl:with-param name='spec'>
+                  <xsl:copy-of select="$supp_rec_blank"/>
+                  <uri prefix='&mesh;'>isQualifierStarred</uri>
+                  <literal>Y</literal>
+                </xsl:with-param>
+              </xsl:call-template>
             </xsl:if>
 
-            <!-- added by rw
+            <!-- 
               Transformation rule: rdfs:label
-              =======================================
-              Output: <qual_uri> rdfs:label "descName" .
-              ================================================
-              Additional: A qualifier has a name.
             -->
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="replace(QualifierReferredTo/QualifierUI,'\*','')"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="QualifierReferredTo/QualifierName/String"/>
-            <xsl:text>" .&#10;</xsl:text>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <desc>A qualifier has a name.</desc>
+              </xsl:with-param>
+              <xsl:with-param name='spec'>
+                <xsl:copy-of select="$qualifier_referred_to_uri"/>
+                <uri prefix='&rdfs;'>label</uri>
+                <literal>
+                  <xsl:value-of select="QualifierReferredTo/QualifierName/String"/>
+                </literal>
+              </xsl:with-param>
+            </xsl:call-template>
           </xsl:if>
         </xsl:for-each>
 
 
         <xsl:if test="IndexingInformationList">
           <xsl:for-each select="IndexingInformationList/IndexingInformation">
+            <xsl:variable name='indexing_data_blank'>
+              <named>
+                <xsl:text>_:blank_set2_</xsl:text>
+                <xsl:value-of select="../../SupplementalRecordUI"/>
+                <xsl:text>_</xsl:text>
+                <xsl:value-of select="position()"/>
+              </named>
+            </xsl:variable>
+            
             <!--
               Transformation rule: indexingData
-              =====================================
-              Output: <suppRec_uri> indexingData <blank_set2_uri> .
-              =========================================================
-              Additional: To remain true to the structure of the supplemental records in XML 
-              format, we created the hasIndexingData relation.
-              A supplemental record can have indexing information that consists of at least one 
-              descriptor record or descriptor record/qualifier record combination. A
-              blank node makes up the indexing data entity.
             -->
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of select="../../SupplementalRecordUI"/>
-            <xsl:text>&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;indexingData&gt; </xsl:text>
-            <xsl:text>_:blank_set2_</xsl:text>
-            <xsl:value-of select="../../SupplementalRecordUI"/>_<xsl:value-of select="position()"/>
-            <xsl:text> .&#10;</xsl:text>
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <desc>To remain true to the structure of the supplemental records in XML 
+                  format, we created the hasIndexingData relation.
+                  A supplemental record can have indexing information that consists of at least one 
+                  descriptor record or descriptor record/qualifier record combination. A
+                  blank node makes up the indexing data entity.</desc>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$supprec_uri"/>
+                <uri prefix='&mesh;'>indexingData</uri>
+                <xsl:copy-of select="$indexing_data_blank"/>
+              </xsl:with-param>
+            </xsl:call-template>
             
             <!--
               Transformation rule: rdf:type
-              =================================
-              Output: <blank_uri> rdf:type <IndexingData> .
-              =============================================================
-              Additional: This relation states that a Subject node used to identify a Supplementary Concept Record (SCR) is of type "SupplementaryConceptRecord".
             -->
-            <xsl:text>_:blank_set2_</xsl:text><xsl:value-of
-              select="../../SupplementalRecordUI"/>
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <desc>This relation states that a Subject node used to identify a Supplementary Concept Record (SCR) is of type "SupplementaryConceptRecord".</desc>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$indexing_data_blank"/>
+                <uri prefix='&rdf;'>type</uri>
+                <uri prefix='&mesh;'>IndexingData</uri>
+              </xsl:with-param>
+            </xsl:call-template>
+            
+            <!--<xsl:text>_:blank_set2_</xsl:text>
+            <xsl:value-of select="../../SupplementalRecordUI"/>
             <xsl:text>_</xsl:text>
             <xsl:value-of select="position()"/>
             <xsl:text> </xsl:text>
             <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;IndexingData&gt; .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;IndexingData&gt; .&#10;</xsl:text>-->
             
             <!--
               Transformation rule: indexingDescriptor
-              ===========================================
-              Output: <blank_set2_uri> indexingDescriptor <desc_uri> .
-              ============================================================
-              Additional: A supplemental record can be indexed to more than one descriptor via a unique blank node.
             -->
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <desc>A supplemental record can be indexed to more than one descriptor via a unique blank node.</desc>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$indexing_data_blank"/>
+                <uri prefix='&mesh;'>indexingDescriptor</uri>
+                <uri prefix='&mesh;'>
+                  <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
+                </uri>
+              </xsl:with-param>
+            </xsl:call-template>
             
-            <xsl:text>_:blank_set2_</xsl:text>
+            <!--<xsl:text>_:blank_set2_</xsl:text>
             <xsl:value-of select="../../SupplementalRecordUI"/>
             <xsl:text>_</xsl:text>
             <xsl:value-of select="position()"/>
             <xsl:text> </xsl:text>
             <xsl:text>&lt;&mesh;indexingDescriptor&gt; </xsl:text>
             <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of
-              select="DescriptorReferredTo/DescriptorUI"/>
-            <xsl:text>&gt; .&#10;</xsl:text>
+            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
+            <xsl:text>&gt; .&#10;</xsl:text>-->
             
             <!--
               Transformation rule: rdf:type
-              =================================
-              Output: <desc_uri> rdf:type <Descriptor> .
-              =============================================================
-              Additional: This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".
             -->
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <desc>This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".</desc>
+                <fixme reporter='klortho'>This is redundant, and should be deleted.  See #14.</fixme>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <uri prefix='&mesh;'>
+                  <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
+                </uri>
+                <uri prefix='&rdf;'>type</uri>
+                <uri prefix='&mesh;'>Descriptor</uri>
+              </xsl:with-param>
+            </xsl:call-template>
             
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of
-              select="DescriptorReferredTo/DescriptorUI"/>
+            <!--<xsl:text>&lt;&mesh;</xsl:text>
+            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
             <xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
             <xsl:text>&lt;&rdf;type&gt; </xsl:text>
-            <xsl:text>&lt;&mesh;Descriptor&gt; .&#10;</xsl:text>
+            <xsl:text>&lt;&mesh;Descriptor&gt; .&#10;</xsl:text>-->
             
             <!--
               Transformation rule: dcterms:identifier
-              ========================================
-              Output: <desc_uri> dcterms:identifier "descUI" .
-              =================================================
-              Additional: A descriptor has a unique identifier.
             -->
-            
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of
-              select="DescriptorReferredTo/DescriptorUI"/>
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <desc>A descriptor has a unique identifier.</desc>
+                <fixme reporter='klortho'>This is redundant, and should be deleted.  See #14.</fixme>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <uri prefix='&mesh;'>
+                  <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
+                </uri>
+                <uri prefix='&dcterms;'>identifier</uri>
+                <literal>
+                  <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
+                </literal>
+              </xsl:with-param>
+            </xsl:call-template>
+                        
+            <!--<xsl:text>&lt;&mesh;</xsl:text>
+            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
             <xsl:text>&gt;</xsl:text><xsl:text> </xsl:text>
             <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
             <xsl:text>"</xsl:text>
-            <xsl:value-of
-              select="DescriptorReferredTo/DescriptorUI"/>
-            <xsl:text>" .&#10;</xsl:text>
+            <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
+            <xsl:text>" .&#10;</xsl:text>-->
             
             <!--
               Transformation rule: rdfs:label
@@ -459,17 +502,30 @@
               ================================================
               Additional: A descriptor has a name.
             -->
+            <xsl:call-template name="triple">
+              <xsl:with-param name="doc">
+                <desc>A descriptor has a name.</desc>
+                <fixme reporter='klortho'>This is redundant, and should be deleted.  See #14.</fixme>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <uri prefix='&mesh;'>
+                  <xsl:value-of select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/>
+                </uri>
+                <uri prefix='&rdfs;'>label</uri>
+                <literal>
+                  <xsl:value-of select="DescriptorReferredTo/DescriptorName/String"/>
+                </literal>
+              </xsl:with-param>
+            </xsl:call-template>
             
-            <xsl:text>&lt;&mesh;</xsl:text>
-            <xsl:value-of
-              select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/>
+            <!--<xsl:text>&lt;&mesh;</xsl:text>
+            <xsl:value-of select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/>
             <xsl:text>&gt;</xsl:text>
             <xsl:text> </xsl:text>
             <xsl:text>&lt;&rdfs;label&gt; </xsl:text>
             <xsl:text>"</xsl:text>
-            <xsl:value-of
-              select="DescriptorReferredTo/DescriptorName/String"/>
-            <xsl:text>" .&#10;</xsl:text>
+            <xsl:value-of select="DescriptorReferredTo/DescriptorName/String"/>
+            <xsl:text>" .&#10;</xsl:text>-->
             
             <xsl:if test="QualifierReferredTo">
               <!--
@@ -480,8 +536,7 @@
                 Additional: A supplemental record can be indexed to more than one qualifier via a unique blank node.
               -->
               <xsl:text>_:blank_set2_</xsl:text>
-              <xsl:value-of
-                select="../../SupplementalRecordUI"/>
+              <xsl:value-of select="../../SupplementalRecordUI"/>
               <xsl:text>_</xsl:text>
               <xsl:value-of select="position()"/>
               <xsl:text> </xsl:text>
@@ -513,8 +568,7 @@
               -->
               
               <xsl:text>&lt;&mesh;</xsl:text>
-              <xsl:value-of
-                select="QualifierReferredTo/QualifierUI"/>
+              <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
               <xsl:text>&gt; </xsl:text>
               <xsl:text>&lt;&dcterms;identifier&gt; </xsl:text>
               <xsl:text>"</xsl:text>
@@ -537,7 +591,8 @@
               <xsl:value-of select="QualifierReferredTo/QualifierName/String"/>
               <xsl:text>" .&#10;</xsl:text>
             </xsl:if>
-          </xsl:for-each>        </xsl:if>
+          </xsl:for-each>        
+        </xsl:if>
 
 
 
@@ -747,7 +802,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <output>*concept_uri* rdfs:label *concept_name*</output>
               <desc>A concept has a name</desc>
             </xsl:with-param>
             <xsl:with-param name='spec'>
@@ -1288,7 +1342,6 @@
             <xsl:if test="EntryVersion">
               <xsl:call-template name='triple'>
                 <xsl:with-param name="doc">
-                  <output>*supprec_uri* mesh:property *object*</output>
                   <desc></desc>
                   <fixme></fixme>
                 </xsl:with-param>
@@ -1318,7 +1371,6 @@
               <xsl:for-each select="ThesaurusIDlist/ThesaurusID">
                 <xsl:call-template name='triple'>
                   <xsl:with-param name="doc">
-                    <output>*blank_node* mesh:thesaurusID *thesaurus_id*</output>
                     <desc>This relation states that a term has a thesaurus ID.</desc>
                   </xsl:with-param>
                   <xsl:with-param name='spec'>
