@@ -8,6 +8,7 @@
 
 
 <xsl:stylesheet version="2.0" 
+                xmlns:f="http://nlm.nih.gov/ns/f"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema" 
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -542,19 +543,7 @@
                 <xsl:with-param name='spec'>
                   <xsl:copy-of select="$blank_concept_relation"/>
                   <uri prefix='&mesh;'>relation</uri>
-                  <uri prefix='&skos;'>
-                    <xsl:choose>
-                      <xsl:when test="matches(@RelationName, 'BRD')">
-                        <xsl:text>broader</xsl:text>
-                      </xsl:when>
-                      <xsl:when test="matches(@RelationName, 'NRW')">
-                        <xsl:text>narrower</xsl:text>
-                      </xsl:when>
-                      <xsl:when test="matches(@RelationName, 'REL')">
-                        <xsl:text>related</xsl:text>
-                      </xsl:when>
-                    </xsl:choose>
-                  </uri>
+                  <xsl:copy-of select="f:skos_relation_uri(@RelationName)"/>
                 </xsl:with-param>
               </xsl:call-template>
             </xsl:if>

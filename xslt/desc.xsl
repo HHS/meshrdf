@@ -7,6 +7,7 @@
 <!DOCTYPE xsl:stylesheet SYSTEM "mesh-rdf-prefixes.ent" >
 
 <xsl:stylesheet version="2.0"
+                xmlns:f="http://nlm.nih.gov/ns/f"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -365,30 +366,11 @@
             </xsl:call-template>            
             
             <xsl:if test="@RelationName">
-              <xsl:variable name='skos_relation'>
-                <xsl:choose>
-                  <xsl:when test="@RelationName = 'BRD'">
-                    <xsl:text>broader</xsl:text>
-                  </xsl:when>
-                  <xsl:when test="@RelationName = 'NRW'">
-                    <xsl:text>narrower</xsl:text>
-                  </xsl:when>
-                  <xsl:when test="@RelationName = 'REL'">
-                    <xsl:text>related</xsl:text>
-                  </xsl:when>
-                </xsl:choose>
-              </xsl:variable>
               <xsl:call-template name="triple">
-                <xsl:with-param name="doc">
-                  <desc></desc>
-                  <fixme></fixme>
-                </xsl:with-param>
                 <xsl:with-param name="spec">
                   <xsl:copy-of select="$blank_node"/>
                   <uri prefix='&mesh;'>relation</uri>
-                  <uri prefix='&skos;'>
-                    <xsl:value-of select="$skos_relation"/>
-                  </uri>
+                  <xsl:copy-of select="f:skos_relation_uri(@RelationName)"/>
                 </xsl:with-param>
               </xsl:call-template>
             </xsl:if>

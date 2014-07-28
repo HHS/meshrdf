@@ -7259,8 +7259,7 @@ _:blank_set1_C013051_1 <http://id.nlm.nih.gov/mesh/isQualifierStarred> "Y" .
 <http://id.nlm.nih.gov/mesh/M0060496> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T110> .
 <http://id.nlm.nih.gov/mesh/T110> <http://purl.org/dc/terms/identifier> "T110" .
 <http://id.nlm.nih.gov/mesh/T110> <http://www.w3.org/2000/01/rdf-schema#label> "Steroid" .
-<http://id.nlm.nih.gov/mesh/M0060496> <http://id.nlm.nih.gov/mesh/relatedRegistryNumber> "570-51-4
-            ((3beta,5alpha,14beta,17alpha)-isomer)" .
+<http://id.nlm.nih.gov/mesh/M0060496> <http://id.nlm.nih.gov/mesh/relatedRegistryNumber> "570-51-4\n            ((3beta,5alpha,14beta,17alpha)-isomer)" .
 <http://id.nlm.nih.gov/mesh/M0060496> <http://id.nlm.nih.gov/mesh/relatedRegistryNumber> "570-52-5 ((3alpha,5beta)-isomer)" .
 <http://id.nlm.nih.gov/mesh/M0060496> <http://id.nlm.nih.gov/mesh/relatedRegistryNumber> "570-53-6 ((3beta,5beta)-isomer)" .
 <http://id.nlm.nih.gov/mesh/M0060496> <http://id.nlm.nih.gov/mesh/relatedRegistryNumber> "570-54-7 ((3beta,5alpha,17alpha)-isomer)" .
@@ -7894,3 +7893,143 @@ _:blankT086021_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
 _:blankT086021_1 <http://purl.org/dc/terms/identifier> "T086021" .
 _:blankT086021_1 <http://www.w3.org/2000/01/rdf-schema#label> "neurotropin" .
 _:blankT086021_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1975)" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://purl.org/dc/terms/identifier> "C564417" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/SCRClass> "3" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
+<http://id.nlm.nih.gov/mesh/C564417> <http://www.w3.org/2000/01/rdf-schema#label> "Granulomatous Disease, Chronic, X-Linked" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/dateCreated> "2012-11-05" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/dateRevised> "2012-11-16" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013A" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2014" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/frequency> "3" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C564417_1 .
+_:blank_set1_C564417_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C564417_1 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D006105> .
+_:blank_set1_C564417_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/D006105> <http://www.w3.org/2000/01/rdf-schema#label> "Granulomatous Disease, Chronic" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/recordOriginator> "jarnotm" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/recordMaintainer> "chodan" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/recordAuthorizer> "chodan" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0564717> .
+<http://id.nlm.nih.gov/mesh/M0564717> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0564717> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
+<http://id.nlm.nih.gov/mesh/M0564717> <http://www.w3.org/2000/01/rdf-schema#label> "Granulomatous Disease, Chronic, X-Linked" .
+<http://id.nlm.nih.gov/mesh/M0564717> <http://purl.org/dc/terms/identifier> "M0564717" .
+<http://id.nlm.nih.gov/mesh/M0564717> <http://id.nlm.nih.gov/mesh/registryNumber> "0" .
+<http://id.nlm.nih.gov/mesh/T047> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0564717> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T047> .
+<http://id.nlm.nih.gov/mesh/T047> <http://purl.org/dc/terms/identifier> "T047" .
+<http://id.nlm.nih.gov/mesh/T047> <http://www.w3.org/2000/01/rdf-schema#label> "Disease or Syndrome" .
+<http://id.nlm.nih.gov/mesh/M0564717> <http://id.nlm.nih.gov/mesh/conceptRelation> _:blank_set1_M0564717_1 .
+_:blank_set1_M0564717_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/ConceptRelation> .
+_:blank_set1_M0564717_1 <http://id.nlm.nih.gov/mesh/relation> <http://www.w3.org/2004/02/skos/core#related> .
+_:blank_set1_M0564717_1 <http://id.nlm.nih.gov/mesh/concept1> <http://id.nlm.nih.gov/mesh/M0564717> .
+_:blank_set1_M0564717_1 <http://id.nlm.nih.gov/mesh/concept2> <http://id.nlm.nih.gov/mesh/M0564718> .
+_:blank_set1_M0564717_1 <http://id.nlm.nih.gov/mesh/relationAttribute> "306400" .
+<http://id.nlm.nih.gov/mesh/M0564717> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T804835> .
+<http://id.nlm.nih.gov/mesh/T804835> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T804835> <http://purl.org/dc/terms/identifier> "T804835" .
+<http://id.nlm.nih.gov/mesh/T804835> <http://www.w3.org/2000/01/rdf-schema#label> "Granulomatous Disease, Chronic, X-Linked" .
+<http://id.nlm.nih.gov/mesh/T804835> <http://id.nlm.nih.gov/mesh/termData> _:blankT804835_1 .
+_:blankT804835_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT804835_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT804835_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT804835_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT804835_1 <http://id.nlm.nih.gov/mesh/printFlag> "Y" .
+_:blankT804835_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
+_:blankT804835_1 <http://purl.org/dc/terms/identifier> "T804835" .
+_:blankT804835_1 <http://www.w3.org/2000/01/rdf-schema#label> "Granulomatous Disease, Chronic, X-Linked" .
+_:blankT804835_1 <http://id.nlm.nih.gov/mesh/dateCreated> "2011-11-15" .
+_:blankT804835_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "OMIM (2013)" .
+<http://id.nlm.nih.gov/mesh/M0564717> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T804836> .
+<http://id.nlm.nih.gov/mesh/T804836> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T804836> <http://purl.org/dc/terms/identifier> "T804836" .
+<http://id.nlm.nih.gov/mesh/T804836> <http://www.w3.org/2000/01/rdf-schema#label> "Chronic Granulomatous Disease, X-Linked" .
+<http://id.nlm.nih.gov/mesh/T804836> <http://id.nlm.nih.gov/mesh/termData> _:blankT804836_2 .
+_:blankT804836_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT804836_2 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "N" .
+_:blankT804836_2 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT804836_2 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT804836_2 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT804836_2 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT804836_2 <http://purl.org/dc/terms/identifier> "T804836" .
+_:blankT804836_2 <http://www.w3.org/2000/01/rdf-schema#label> "Chronic Granulomatous Disease, X-Linked" .
+_:blankT804836_2 <http://id.nlm.nih.gov/mesh/dateCreated> "2011-11-15" .
+_:blankT804836_2 <http://id.nlm.nih.gov/mesh/thesaurusID> "OMIM (2013)" .
+<http://id.nlm.nih.gov/mesh/M0564717> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T804837> .
+<http://id.nlm.nih.gov/mesh/T804837> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T804837> <http://purl.org/dc/terms/identifier> "T804837" .
+<http://id.nlm.nih.gov/mesh/T804837> <http://www.w3.org/2000/01/rdf-schema#label> "Cytochrome B-Negative Granulomatous Disease, Chronic, X-Linked" .
+<http://id.nlm.nih.gov/mesh/T804837> <http://id.nlm.nih.gov/mesh/termData> _:blankT804837_3 .
+_:blankT804837_3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT804837_3 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "N" .
+_:blankT804837_3 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT804837_3 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT804837_3 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT804837_3 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT804837_3 <http://purl.org/dc/terms/identifier> "T804837" .
+_:blankT804837_3 <http://www.w3.org/2000/01/rdf-schema#label> "Cytochrome B-Negative Granulomatous Disease, Chronic, X-Linked" .
+_:blankT804837_3 <http://id.nlm.nih.gov/mesh/dateCreated> "2011-11-15" .
+_:blankT804837_3 <http://id.nlm.nih.gov/mesh/thesaurusID> "OMIM (2013)" .
+<http://id.nlm.nih.gov/mesh/C564417> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0564718> .
+<http://id.nlm.nih.gov/mesh/M0564718> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0564718> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "N" .
+<http://id.nlm.nih.gov/mesh/M0564718> <http://www.w3.org/2000/01/rdf-schema#label> "Cytochrome B-Positive Granulomatous Disease, Chronic, X-Linked" .
+<http://id.nlm.nih.gov/mesh/M0564718> <http://purl.org/dc/terms/identifier> "M0564718" .
+<http://id.nlm.nih.gov/mesh/M0564718> <http://id.nlm.nih.gov/mesh/registryNumber> "0" .
+<http://id.nlm.nih.gov/mesh/T047> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0564718> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T047> .
+<http://id.nlm.nih.gov/mesh/T047> <http://purl.org/dc/terms/identifier> "T047" .
+<http://id.nlm.nih.gov/mesh/T047> <http://www.w3.org/2000/01/rdf-schema#label> "Disease or Syndrome" .
+<http://id.nlm.nih.gov/mesh/M0564718> <http://id.nlm.nih.gov/mesh/conceptRelation> _:blank_set1_M0564718_1 .
+_:blank_set1_M0564718_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/ConceptRelation> .
+_:blank_set1_M0564718_1 <http://id.nlm.nih.gov/mesh/relation> <http://www.w3.org/2004/02/skos/core#related> .
+_:blank_set1_M0564718_1 <http://id.nlm.nih.gov/mesh/concept1> <http://id.nlm.nih.gov/mesh/M0564717> .
+_:blank_set1_M0564718_1 <http://id.nlm.nih.gov/mesh/concept2> <http://id.nlm.nih.gov/mesh/M0564718> .
+_:blank_set1_M0564718_1 <http://id.nlm.nih.gov/mesh/relationAttribute> "306400" .
+<http://id.nlm.nih.gov/mesh/M0564718> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T804838> .
+<http://id.nlm.nih.gov/mesh/T804838> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T804838> <http://purl.org/dc/terms/identifier> "T804838" .
+<http://id.nlm.nih.gov/mesh/T804838> <http://www.w3.org/2000/01/rdf-schema#label> "Cytochrome B-Positive Granulomatous Disease, Chronic, X-Linked" .
+<http://id.nlm.nih.gov/mesh/T804838> <http://id.nlm.nih.gov/mesh/termData> _:blankT804838_1 .
+_:blankT804838_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT804838_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT804838_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT804838_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT804838_1 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT804838_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT804838_1 <http://purl.org/dc/terms/identifier> "T804838" .
+_:blankT804838_1 <http://www.w3.org/2000/01/rdf-schema#label> "Cytochrome B-Positive Granulomatous Disease, Chronic, X-Linked" .
+_:blankT804838_1 <http://id.nlm.nih.gov/mesh/dateCreated> "2011-11-15" .
+_:blankT804838_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "OMIM (2013)" .
+<http://id.nlm.nih.gov/mesh/M0564718> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T804839> .
+<http://id.nlm.nih.gov/mesh/T804839> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T804839> <http://purl.org/dc/terms/identifier> "T804839" .
+<http://id.nlm.nih.gov/mesh/T804839> <http://www.w3.org/2000/01/rdf-schema#label> "Granulomatous Disease, Chronic, X-Linked, Variant" .
+<http://id.nlm.nih.gov/mesh/T804839> <http://id.nlm.nih.gov/mesh/termData> _:blankT804839_2 .
+_:blankT804839_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT804839_2 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "N" .
+_:blankT804839_2 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT804839_2 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT804839_2 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT804839_2 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT804839_2 <http://purl.org/dc/terms/identifier> "T804839" .
+_:blankT804839_2 <http://www.w3.org/2000/01/rdf-schema#label> "Granulomatous Disease, Chronic, X-Linked, Variant" .
+_:blankT804839_2 <http://id.nlm.nih.gov/mesh/dateCreated> "2011-11-15" .
+_:blankT804839_2 <http://id.nlm.nih.gov/mesh/thesaurusID> "OMIM (2013)" .
+<http://id.nlm.nih.gov/mesh/M0564718> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T804840> .
+<http://id.nlm.nih.gov/mesh/T804840> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T804840> <http://purl.org/dc/terms/identifier> "T804840" .
+<http://id.nlm.nih.gov/mesh/T804840> <http://www.w3.org/2000/01/rdf-schema#label> "Chronic Granulomatous Disease, Atypical" .
+<http://id.nlm.nih.gov/mesh/T804840> <http://id.nlm.nih.gov/mesh/termData> _:blankT804840_3 .
+_:blankT804840_3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT804840_3 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "N" .
+_:blankT804840_3 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT804840_3 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT804840_3 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT804840_3 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT804840_3 <http://purl.org/dc/terms/identifier> "T804840" .
+_:blankT804840_3 <http://www.w3.org/2000/01/rdf-schema#label> "Chronic Granulomatous Disease, Atypical" .
+_:blankT804840_3 <http://id.nlm.nih.gov/mesh/dateCreated> "2011-11-15" .
+_:blankT804840_3 <http://id.nlm.nih.gov/mesh/thesaurusID> "OMIM (2013)" .

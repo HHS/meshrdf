@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- 
+  This external subset defines all of the entities that we'll use for URI prefixes from other
+  various ontologies.
+-->
+<!DOCTYPE xsl:stylesheet SYSTEM "mesh-rdf-prefixes.ent" >
+
 <xsl:stylesheet version="2.0"
                 xmlns:f="http://nlm.nih.gov/ns/f"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -116,5 +122,25 @@
       )"/>
   </xsl:function>
 
-
+  <!--
+    This function turns an enum value that is used throughout MeSH XML ('BRD', 'NRW', 'REL')
+    into the related skos URI.
+  -->
+  <xsl:function name='f:skos_relation_uri'>
+    <xsl:param name='rel'/>
+    <uri prefix='&skos;'>
+      <xsl:choose>
+        <xsl:when test="matches($rel, 'BRD')">
+          <xsl:text>broader</xsl:text>
+        </xsl:when>
+        <xsl:when test="matches($rel, 'NRW')">
+          <xsl:text>narrower</xsl:text>
+        </xsl:when>
+        <xsl:when test="matches($rel, 'REL')">
+          <xsl:text>related</xsl:text>
+        </xsl:when>
+      </xsl:choose>
+    </uri>
+  </xsl:function>
+  
 </xsl:stylesheet>
