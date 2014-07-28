@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-
 <!-- 
   This external subset defines all of the entities that we'll use for URI prefixes from other
   various ontologies.
 -->
 <!DOCTYPE xsl:stylesheet SYSTEM "mesh-rdf-prefixes.ent" >
-
 
 <xsl:stylesheet version="2.0" 
                 xmlns:f="http://nlm.nih.gov/ns/f"
@@ -244,7 +242,6 @@
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
               <desc>A qualifier can have at least one allowed tree node.</desc>
-              <fixme></fixme>
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$qualifier_uri"/>
@@ -443,9 +440,6 @@
               Transformation rule: semanticType
             -->
             <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc></desc>
-              </xsl:with-param>
               <xsl:with-param name='spec'>
                 <xsl:copy-of select="$concept_uri"/>
                 <uri prefix='&mesh;'>semanticType</uri>
@@ -457,9 +451,6 @@
               Transformation rule: dcterms:identifier
             -->
             <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc></desc>
-              </xsl:with-param>
               <xsl:with-param name='spec'>
                 <xsl:copy-of select="$semantic_type_uri"/>
                 <uri prefix='&dcterms;'>identifier</uri>
@@ -473,9 +464,6 @@
               Transformation rule: rdfs:label
             -->
             <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc></desc>
-              </xsl:with-param>
               <xsl:with-param name='spec'>
                 <xsl:copy-of select="$semantic_type_uri"/>
                 <uri prefix='&rdfs;'>label</uri>
@@ -522,9 +510,6 @@
               Transformation rule: rdf:type
             -->
             <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc></desc>
-              </xsl:with-param>
               <xsl:with-param name='spec'>
                 <xsl:copy-of select="$blank_concept_relation"/>
                 <uri prefix='&rdf;'>type</uri>
@@ -537,9 +522,6 @@
             -->
             <xsl:if test="@RelationName">
               <xsl:call-template name='triple'>
-                <xsl:with-param name="doc">
-                  <desc></desc>
-                </xsl:with-param>
                 <xsl:with-param name='spec'>
                   <xsl:copy-of select="$blank_concept_relation"/>
                   <uri prefix='&mesh;'>relation</uri>
@@ -552,9 +534,6 @@
               Transformation rule: mesh:concept1
             -->
             <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc></desc>
-              </xsl:with-param>
               <xsl:with-param name='spec'>
                 <xsl:copy-of select="$blank_concept_relation"/>
                 <uri prefix='&mesh;'>concept1</uri>
@@ -569,7 +548,6 @@
             -->
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
-                <desc></desc>
                 <fixme>Do we really want two predicates for these, mesh:concept1 and mesh:concept2?  Are they the same
                   relationship?  Does order matter?</fixme>
               </xsl:with-param>

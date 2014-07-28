@@ -7058,8 +7058,7 @@ _:blank_set1_M0324103_1 <http://id.nlm.nih.gov/mesh/concept2> <http://id.nlm.nih
 <http://id.nlm.nih.gov/mesh/M0324103> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T354103> .
 <http://id.nlm.nih.gov/mesh/T354103> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
 <http://id.nlm.nih.gov/mesh/T354103> <http://purl.org/dc/terms/identifier> "T354103" .
-<http://id.nlm.nih.gov/mesh/T354103> <http://www.w3.org/2000/01/rdf-schema#label> "N-isopropyl-3-amino-2-(3,4-dihydroxyphenyl)-2-hydroxybicyclo(2.2.1)heptane
-              hydrochloride" .
+<http://id.nlm.nih.gov/mesh/T354103> <http://www.w3.org/2000/01/rdf-schema#label> "N-isopropyl-3-amino-2-(3,4-dihydroxyphenyl)-2-hydroxybicyclo(2.2.1)heptane\n              hydrochloride" .
 <http://id.nlm.nih.gov/mesh/T354103> <http://id.nlm.nih.gov/mesh/termData> _:blankT354103_1 .
 _:blankT354103_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
 _:blankT354103_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
@@ -7068,8 +7067,7 @@ _:blankT354103_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
 _:blankT354103_1 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
 _:blankT354103_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT354103_1 <http://purl.org/dc/terms/identifier> "T354103" .
-_:blankT354103_1 <http://www.w3.org/2000/01/rdf-schema#label> "N-isopropyl-3-amino-2-(3,4-dihydroxyphenyl)-2-hydroxybicyclo(2.2.1)heptane
-              hydrochloride" .
+_:blankT354103_1 <http://www.w3.org/2000/01/rdf-schema#label> "N-isopropyl-3-amino-2-(3,4-dihydroxyphenyl)-2-hydroxybicyclo(2.2.1)heptane\n              hydrochloride" .
 _:blankT354103_1 <http://id.nlm.nih.gov/mesh/dateCreated> "1999-08-18" .
 _:blankT354103_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1989)" .
 <http://id.nlm.nih.gov/mesh/C013004> <http://purl.org/dc/terms/identifier> "C013004" .

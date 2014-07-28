@@ -49,6 +49,11 @@
   <xsl:template name='triple'>
     <xsl:param name='doc'/>
     <xsl:param name='spec'/>
+    <xsl:if test='count($spec/*) != 3'>
+      <xsl:message terminate="yes">
+        <xsl:text>Wrong number of element children of spec param of triple template</xsl:text>
+      </xsl:message>
+    </xsl:if>
     <xsl:variable name='s' select='$spec/*[1]'/>
     <xsl:variable name='p' select='$spec/*[2]'/>
     <xsl:variable name='o' select='$spec/*[3]'/>

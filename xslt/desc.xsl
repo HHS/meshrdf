@@ -342,10 +342,6 @@
             </xsl:variable>
 
             <xsl:call-template name="triple">
-              <xsl:with-param name="doc">
-                <desc></desc>
-                <fixme></fixme>
-              </xsl:with-param>
               <xsl:with-param name="spec">
                 <xsl:copy-of select="$concept_uri"/>
                 <uri prefix='&mesh;'>conceptRelation</uri>
@@ -354,10 +350,6 @@
             </xsl:call-template>
             
             <xsl:call-template name="triple">
-              <xsl:with-param name="doc">
-                <desc></desc>
-                <fixme></fixme>
-              </xsl:with-param>
               <xsl:with-param name="spec">
                 <xsl:copy-of select="$blank_node"/>
                 <uri prefix='&rdf;'>type</uri>
@@ -376,9 +368,6 @@
             </xsl:if>
 
             <xsl:call-template name="triple">
-              <xsl:with-param name="doc">
-                <desc></desc>
-              </xsl:with-param>
               <xsl:with-param name="spec">
                 <xsl:copy-of select="$blank_node"/>
                 <uri prefix='&mesh;'>concept1</uri>
@@ -389,10 +378,6 @@
             </xsl:call-template>
             
             <xsl:call-template name="triple">
-              <xsl:with-param name="doc">
-                <desc></desc>
-                <fixme></fixme>
-              </xsl:with-param>
               <xsl:with-param name="spec">
                 <xsl:copy-of select="$blank_node"/>
                 <uri prefix='&mesh;'>concept2</uri>
@@ -405,10 +390,6 @@
             <!-- added by rw -->
             <xsl:if test="RelationAttribute">
               <xsl:call-template name="triple">
-                <xsl:with-param name="doc">
-                  <desc></desc>
-                  <fixme></fixme>
-                </xsl:with-param>
                 <xsl:with-param name="spec">
                   <xsl:copy-of select="$blank_node"/>
                   <uri prefix='&mesh;'>relationAttribute</uri>
@@ -472,10 +453,6 @@
           
           <xsl:if test="@IsPermutedTermYN = 'N'">
             <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc></desc>
-                <fixme>Needs description</fixme>
-              </xsl:with-param>
               <xsl:with-param name='spec'>
                 <xsl:copy-of select='$term_uri'/>
                 <uri prefix='&rdfs;'>label</uri>
@@ -531,7 +508,6 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <desc></desc>
               <fixme>As with concept, wouldn't it be better to define a superclass for this, rather than
                 use a literal value?</fixme>
             </xsl:with-param>
@@ -814,10 +790,6 @@
           </xsl:call-template>
           
           <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc></desc>
-              <fixme></fixme>
-            </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$entry_combination_blank'/>
               <uri prefix='&mesh;'>ECOUTDescriptor</uri>
@@ -1003,9 +975,6 @@
           Transformation rule: dateRevised
         -->
         <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc></desc>
-          </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
             <uri prefix='&mesh;'>dateRevised</uri>
@@ -1021,9 +990,6 @@
           Transformation rule: dateEstablished
         -->
         <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc></desc>
-          </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
             <uri prefix='&mesh;'>dateEstablished</uri>
@@ -1075,10 +1041,6 @@
       -->
       <xsl:if test="OnlineNote">
         <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc></desc>
-            <fixme></fixme>
-          </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
             <uri prefix='&mesh;'>onlineNote</uri>
@@ -1255,13 +1217,12 @@
         </xsl:for-each>
       </xsl:if>
 
+      <!--
+        Transformation rule: considerAlso
+      -->
       <xsl:if test="ConsiderAlso">
-        <!--
-          Transformation rule: considerAlso
-        -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc></desc>
             <fixme>Maybe we can break this up into several considerTermsAt</fixme>
           </xsl:with-param>
           <xsl:with-param name='spec'>
@@ -1274,7 +1235,5 @@
         </xsl:call-template>
       </xsl:if>
     </xsl:for-each>
-
   </xsl:template>
-
 </xsl:stylesheet>
