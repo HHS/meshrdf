@@ -148,4 +148,70 @@
     </uri>
   </xsl:function>
   
+  
+  <!--============================================================================
+   The following are named templates that handle chunks of XML that are shared among
+   more than one of the main XML files.
+  -->
+
+  <xsl:template name="RecordOriginatorsList">
+    <xsl:param name='parent'/>
+    
+    <!--
+      Transformation rule: recordOriginator
+    -->
+    <xsl:if test="RecordOriginatorsList">
+      <xsl:call-template name='triple'>
+        <xsl:with-param name="doc">
+          <desc>This relation states that a descriptor has a record originator</desc>
+        </xsl:with-param>
+        <xsl:with-param name='spec'>
+          <xsl:copy-of select="$parent"/>
+          <uri prefix='&mesh;'>recordOriginator</uri>
+          <literal>
+            <xsl:value-of select="RecordOriginatorsList/RecordOriginator"/>
+          </literal>
+        </xsl:with-param>
+      </xsl:call-template>
+      
+      <!--
+        Transformation rule: recordMaintainer
+      -->
+      <xsl:if test='RecordOriginatorsList/RecordMaintainer'>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>This relation states that a descriptor has a record maintainer</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$parent"/>
+            <uri prefix='&mesh;'>recordMaintainer</uri>
+            <literal>
+              <xsl:value-of select="RecordOriginatorsList/RecordMaintainer"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:if>
+      
+      <!--
+        Transformation rule: recordAuthorizer
+      -->
+      <xsl:if test='RecordOriginatorsList/RecordAuthorizer'>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>This relation states that a descriptor has a record authorizer</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$parent"/>
+            <uri prefix='&mesh;'>recordAuthorizer</uri>
+            <literal>
+              <xsl:value-of select="RecordOriginatorsList/RecordAuthorizer"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:if>
+    </xsl:if>
+    
+  </xsl:template>
+  
+    
 </xsl:stylesheet>

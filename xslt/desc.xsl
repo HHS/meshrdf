@@ -515,56 +515,10 @@
         </xsl:call-template>
       </xsl:for-each>
       
-      <!--
-        Transformation rule: recordOriginator
-      -->
-      <xsl:if test="RecordOriginatorsList">
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc>This relation states that a descriptor has a record originator</desc>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select="$descriptor_uri"/>
-            <uri prefix='&mesh;'>recordOriginator</uri>
-            <literal>
-              <xsl:value-of select="RecordOriginatorsList/RecordOriginator"/>
-            </literal>
-          </xsl:with-param>
-        </xsl:call-template>
-        
-        <!--
-          Transformation rule: recordMaintainer
-        -->
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc>This relation states that a descriptor has a record maintainer</desc>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select="$descriptor_uri"/>
-            <uri prefix='&mesh;'>recordMaintainer</uri>
-            <literal>
-              <xsl:value-of select="RecordOriginatorsList/RecordMaintainer"/>
-            </literal>
-          </xsl:with-param>
-        </xsl:call-template>
-        
-        <!--
-          Transformation rule: recordAuthorizer
-        -->
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc>This relation states that a descriptor has a record authorizer</desc>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select="$descriptor_uri"/>
-            <uri prefix='&mesh;'>recordAuthorizer</uri>
-            <literal>
-              <xsl:value-of select="RecordOriginatorsList/RecordAuthorizer"/>
-            </literal>
-          </xsl:with-param>
-        </xsl:call-template>
-      </xsl:if>
-      
+      <xsl:call-template name='RecordOriginatorsList'>
+        <xsl:with-param name="parent" select="$descriptor_uri"/>
+      </xsl:call-template>
+
       <xsl:for-each select="ConceptList/Concept">
         <!-- $concept_uri is used in many calls to the `triple` template below -->
         <xsl:variable name='concept_uri'>

@@ -44,6 +44,11 @@
        Transformation rule: SCRClass
       -->
       <xsl:call-template name='triple'>
+        <xsl:with-param name="doc">
+          <fixme reporter='klortho'>As usual, I don't like these predicates with literal values.
+            I think this should be done with rdf:type relations to particular classes, each of
+            which would be a subclass of SupplementaryConceptRecord.</fixme>
+        </xsl:with-param>
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$supprec_uri"/>
           <uri prefix='&mesh;'>SCRClass</uri>
@@ -356,7 +361,6 @@
         </xsl:if>
       </xsl:for-each>
 
-
       <xsl:for-each select="IndexingInformationList/IndexingInformation">
         <xsl:variable name='indexing_data_blank'>
           <named>
@@ -453,74 +457,30 @@
         </xsl:call-template>
       </xsl:for-each>
 
-
-
-
+      <!--
+        Transformation rule: source
+      -->
       <xsl:for-each select="SourceList/Source">
-
-        <!--
-          Transformation rule: source
-          ===============================
-          Output: <suppRec_uri> source "source" .
-          =============================================
-          Additional: A supplemental record can have one or more sources. A source is a 
-          citation reference in which the indexing concept was first found.
-        -->
-
-        <xsl:text>&lt;&mesh;</xsl:text>
-        <xsl:value-of select="../../SupplementalRecordUI"/>
-        <xsl:text>&gt; </xsl:text>
-        <xsl:text>&lt;&mesh;source&gt; </xsl:text>
-        <xsl:text>"</xsl:text>
-        <xsl:value-of select="normalize-space(.)"/>
-        <xsl:text>" .&#10;</xsl:text>
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>A supplemental record can have one or more sources. A source is a 
+              citation reference in which the indexing concept was first found.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$supprec_uri"/>
+            <uri prefix='&mesh;'>source</uri>
+            <literal>
+              <xsl:value-of select="."/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:for-each>
 
 
-
-      <xsl:if test="RecordOriginatorsList">
-
-        <!--
-          Transformation rule: recordOriginator, recordMaintainer, recordAuthorizer
-          ===========================================================================
-          Output: <supp_uri> recordOriginator "recordOriginator" .
-                  <supp_uri> recordMaintainer "recordMaintainer" .
-                  <supp_uri> recordAuthorizer "recordAuthorizer" .
-          ===========================================================
-          Additional: A supplemental record can have a record originator, record 
-          maintainer and record authorizer.
-        -->
-
-        <xsl:if test="RecordOriginatorsList/RecordOriginator">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="SupplementalRecordUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;recordOriginator> </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="RecordOriginatorsList/RecordOriginator"/>
-          <xsl:text>" .&#10;</xsl:text>
-        </xsl:if>
-
-        <xsl:if test="RecordOriginatorsList/RecordMaintainer">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="SupplementalRecordUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;recordMaintainer> </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="RecordOriginatorsList/RecordMaintainer"/>
-          <xsl:text>" .&#10;</xsl:text>
-        </xsl:if>
-
-        <xsl:if test="RecordOriginatorsList/RecordAuthorizer">
-          <xsl:text>&lt;&mesh;</xsl:text>
-          <xsl:value-of select="SupplementalRecordUI"/>
-          <xsl:text>&gt; </xsl:text>
-          <xsl:text>&lt;&mesh;recordAuthorizer> </xsl:text>
-          <xsl:text>"</xsl:text>
-          <xsl:value-of select="RecordOriginatorsList/RecordAuthorizer"/>
-          <xsl:text>" .&#10;</xsl:text>
-        </xsl:if>
-      </xsl:if>
+      <xsl:call-template name='RecordOriginatorsList'>
+        <xsl:with-param name="parent" select="$supprec_uri"/>
+      </xsl:call-template>
+      
 
       <xsl:for-each select="ConceptList/Concept">
         <xsl:variable name='concept_uri'>
@@ -534,9 +494,7 @@
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name='spec'>
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="../../SupplementalRecordUI"/>
-            </uri>
+            <xsl:copy-of select='$supprec_uri'/>
             <uri prefix='&mesh;'>concept</uri>
             <xsl:copy-of select="$concept_uri"/>
           </xsl:with-param>

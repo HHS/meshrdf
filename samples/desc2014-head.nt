@@ -863,6 +863,16 @@ _:blankT701041_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2008)" .
 <http://id.nlm.nih.gov/mesh/Q000531> <http://purl.org/dc/terms/identifier> "Q000531" .
 <http://id.nlm.nih.gov/mesh/Q000531> <http://www.w3.org/2000/01/rdf-schema#label> "radionuclide imaging" .
 <http://id.nlm.nih.gov/mesh/Q000531> <http://id.nlm.nih.gov/mesh/abbreviation> "RI" .
+<http://id.nlm.nih.gov/mesh/D000005> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000005_1 .
+_:blankD000005_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
+_:blankD000005_1 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000005> .
+_:blankD000005_1 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000293> .
+_:blankD000005_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D000007> .
+<http://id.nlm.nih.gov/mesh/D000005> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000005_2 .
+_:blankD000005_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
+_:blankD000005_2 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000005> .
+_:blankD000005_2 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000530> .
+_:blankD000005_2 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D011860> .
 <http://id.nlm.nih.gov/mesh/D000005> <http://id.nlm.nih.gov/mesh/treeNumber> "A01.923.047" .
 <http://id.nlm.nih.gov/mesh/D000005> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000005> <http://id.nlm.nih.gov/mesh/recordMaintainer> "savagea" .
@@ -904,16 +914,6 @@ _:blankT000012_2 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
 _:blankT000012_2 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000012_2 <http://purl.org/dc/terms/identifier> "T000012" .
 _:blankT000012_2 <http://www.w3.org/2000/01/rdf-schema#label> "Abdomens" .
-<http://id.nlm.nih.gov/mesh/D000005> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000005_1 .
-_:blankD000005_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
-_:blankD000005_1 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000005> .
-_:blankD000005_1 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000293> .
-_:blankD000005_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D000007> .
-<http://id.nlm.nih.gov/mesh/D000005> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000005_2 .
-_:blankD000005_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
-_:blankD000005_2 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000005> .
-_:blankD000005_2 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000530> .
-_:blankD000005_2 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D011860> .
 <http://id.nlm.nih.gov/mesh/D000005> <http://id.nlm.nih.gov/mesh/annotation> "GEN: prefer specifics; abdom muscles = ABDOMINAL MUSCLES but RECTUS ABDOMINIS is\n      available; abdominal pain = ABDOMINAL PAIN; abrupt dis requiring emerg surg = ABDOMEN, ACUTE " .
 <http://id.nlm.nih.gov/mesh/D000006> <http://purl.org/dc/terms/identifier> "D000006" .
 <http://id.nlm.nih.gov/mesh/D000006> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
@@ -1906,6 +1906,7 @@ _:blankT000016_4 <http://www.w3.org/2000/01/rdf-schema#label> "Neoplasms, Abdomi
 <http://id.nlm.nih.gov/mesh/D000009> <http://id.nlm.nih.gov/mesh/historyNote> "93; was ABDOMINAL WALL 1966-92 " .
 <http://id.nlm.nih.gov/mesh/D000009> <http://id.nlm.nih.gov/mesh/onlineNote> "use ABDOMINAL MUSCLES to search ABDOMINAL WALL 1966-92 " .
 <http://id.nlm.nih.gov/mesh/D000009> <http://id.nlm.nih.gov/mesh/publicMeSHNote> "93; was ABDOMINAL WALL 1963-92 " .
+<http://id.nlm.nih.gov/mesh/D000009> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D034861> .
 <http://id.nlm.nih.gov/mesh/D000009> <http://id.nlm.nih.gov/mesh/treeNumber> "A02.633.567.050" .
 <http://id.nlm.nih.gov/mesh/D000009> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000009> <http://id.nlm.nih.gov/mesh/recordMaintainer> "savagea" .
@@ -1972,7 +1973,6 @@ _:blankT000018_4 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000018_4 <http://purl.org/dc/terms/identifier> "T000018" .
 _:blankT000018_4 <http://www.w3.org/2000/01/rdf-schema#label> "Muscles, Abdominal" .
 <http://id.nlm.nih.gov/mesh/D000009> <http://id.nlm.nih.gov/mesh/annotation> "RECTUS ABDOMINIS is available; hernia = HERNIA, VENTRAL; /growth: coord with MUSCLE\n      DEVELOPMENT; /embryol: coord with MUSCLE DEVELOPMENT if pertinent " .
-<http://id.nlm.nih.gov/mesh/D000009> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D034861> .
 <http://id.nlm.nih.gov/mesh/D000010> <http://purl.org/dc/terms/identifier> "D000010" .
 <http://id.nlm.nih.gov/mesh/D000010> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000010> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -2122,6 +2122,11 @@ _:blankT000018_4 <http://www.w3.org/2000/01/rdf-schema#label> "Muscles, Abdomina
 <http://id.nlm.nih.gov/mesh/D000010> <http://id.nlm.nih.gov/mesh/historyNote> "77; was ABDUCENT NERVE 1963-76 " .
 <http://id.nlm.nih.gov/mesh/D000010> <http://id.nlm.nih.gov/mesh/onlineNote> "use ABDUCENS NERVE to search ABDUCENT NERVE 1966-76 " .
 <http://id.nlm.nih.gov/mesh/D000010> <http://id.nlm.nih.gov/mesh/publicMeSHNote> "77; was ABDUCENT NERVE 1963-76 " .
+<http://id.nlm.nih.gov/mesh/D000010> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000010_1 .
+_:blankD000010_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
+_:blankD000010_1 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000010> .
+_:blankD000010_1 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000293> .
+_:blankD000010_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D020222> .
 <http://id.nlm.nih.gov/mesh/D000010> <http://id.nlm.nih.gov/mesh/treeNumber> "A08.800.800.120.030" .
 <http://id.nlm.nih.gov/mesh/D000010> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000010> <http://id.nlm.nih.gov/mesh/recordMaintainer> "keveric" .
@@ -2388,11 +2393,6 @@ _:blankT000021_20 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
 _:blankT000021_20 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000021_20 <http://purl.org/dc/terms/identifier> "T000021" .
 _:blankT000021_20 <http://www.w3.org/2000/01/rdf-schema#label> "Nerves, Abducent" .
-<http://id.nlm.nih.gov/mesh/D000010> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000010_1 .
-_:blankD000010_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
-_:blankD000010_1 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000010> .
-_:blankD000010_1 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000293> .
-_:blankD000010_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D020222> .
 <http://id.nlm.nih.gov/mesh/D000010> <http://id.nlm.nih.gov/mesh/annotation> "neopl = ABDUCENS NERVE DISEASES (IM) + CRANIAL NERVE NEOPLASMS (IM) + histol type of\n      neopl (IM) " .
 <http://id.nlm.nih.gov/mesh/D000011> <http://purl.org/dc/terms/identifier> "D000011" .
 <http://id.nlm.nih.gov/mesh/D000011> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
@@ -3161,6 +3161,11 @@ _:blankT000025_15 <http://www.w3.org/2000/01/rdf-schema#label> "Bassen Kornzweig
 <http://id.nlm.nih.gov/mesh/Q000821> <http://id.nlm.nih.gov/mesh/abbreviation> "VI" .
 <http://id.nlm.nih.gov/mesh/D000013> <http://id.nlm.nih.gov/mesh/historyNote> "2008 (1963) " .
 <http://id.nlm.nih.gov/mesh/D000013> <http://id.nlm.nih.gov/mesh/publicMeSHNote> "2008; see ABNORMALITIES 1963-2007 " .
+<http://id.nlm.nih.gov/mesh/D000013> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000013_1 .
+_:blankD000013_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
+_:blankD000013_1 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000013> .
+_:blankD000013_1 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000139> .
+_:blankD000013_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D000014> .
 <http://id.nlm.nih.gov/mesh/D000013> <http://id.nlm.nih.gov/mesh/treeNumber> "C16.131" .
 <http://id.nlm.nih.gov/mesh/D000013> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000013> <http://id.nlm.nih.gov/mesh/recordMaintainer> "tangl" .
@@ -3365,11 +3370,6 @@ _:blankT000027_14 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
 _:blankT000027_14 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000027_14 <http://purl.org/dc/terms/identifier> "T000027" .
 _:blankT000027_14 <http://www.w3.org/2000/01/rdf-schema#label> "Defects, Birth" .
-<http://id.nlm.nih.gov/mesh/D000013> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000013_1 .
-_:blankD000013_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
-_:blankD000013_1 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000013> .
-_:blankD000013_1 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000139> .
-_:blankD000013_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D000014> .
 <http://id.nlm.nih.gov/mesh/D000013> <http://id.nlm.nih.gov/mesh/annotation> "general only: prefer /abnorm with specific anatomical term or specific animal:\n      Manual 19.7+, 19.8.1; policy: Manual 23.20+ " .
 <http://id.nlm.nih.gov/mesh/D000014> <http://purl.org/dc/terms/identifier> "D000014" .
 <http://id.nlm.nih.gov/mesh/D000014> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
@@ -3551,6 +3551,8 @@ _:blankD000013_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih
 <http://id.nlm.nih.gov/mesh/Q000821> <http://id.nlm.nih.gov/mesh/abbreviation> "VI" .
 <http://id.nlm.nih.gov/mesh/D000014> <http://id.nlm.nih.gov/mesh/historyNote> "64 " .
 <http://id.nlm.nih.gov/mesh/D000014> <http://id.nlm.nih.gov/mesh/publicMeSHNote> "64 " .
+<http://id.nlm.nih.gov/mesh/D000014> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D013723> .
+<http://id.nlm.nih.gov/mesh/D000014> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D064793> .
 <http://id.nlm.nih.gov/mesh/D000014> <http://id.nlm.nih.gov/mesh/treeNumber> "C16.131.042" .
 <http://id.nlm.nih.gov/mesh/D000014> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000014> <http://id.nlm.nih.gov/mesh/recordMaintainer> "schulmaj" .
@@ -3646,8 +3648,6 @@ _:blankT000033_6 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000033_6 <http://purl.org/dc/terms/identifier> "T000033" .
 _:blankT000033_6 <http://www.w3.org/2000/01/rdf-schema#label> "Drug-Induced Abnormality" .
 <http://id.nlm.nih.gov/mesh/D000014> <http://id.nlm.nih.gov/mesh/annotation> "IM; do not use /chem ind /compl /congen & do not coord with INFANT, NEWBORN,\n      DISEASES; coord IM with specific chem /adv eff-pois-tox (IM) + specific organ /abnorm or\n      specific abnorm /chem ind (IM); Manual 23.20.3 " .
-<http://id.nlm.nih.gov/mesh/D000014> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D013723> .
-<http://id.nlm.nih.gov/mesh/D000014> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D064793> .
 <http://id.nlm.nih.gov/mesh/D000015> <http://purl.org/dc/terms/identifier> "D000015" .
 <http://id.nlm.nih.gov/mesh/D000015> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000015> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -3836,6 +3836,7 @@ _:blankT000033_6 <http://www.w3.org/2000/01/rdf-schema#label> "Drug-Induced Abno
 <http://id.nlm.nih.gov/mesh/D000015> <http://id.nlm.nih.gov/mesh/historyNote> "68 " .
 <http://id.nlm.nih.gov/mesh/D000015> <http://id.nlm.nih.gov/mesh/publicMeSHNote> "68 " .
 <http://id.nlm.nih.gov/mesh/D000015> <http://id.nlm.nih.gov/mesh/previousIndexing> "Abnormalities (1966-1967)" .
+<http://id.nlm.nih.gov/mesh/D000015> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D008607> .
 <http://id.nlm.nih.gov/mesh/D000015> <http://id.nlm.nih.gov/mesh/treeNumber> "C16.131.077" .
 <http://id.nlm.nih.gov/mesh/D000015> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000015> <http://id.nlm.nih.gov/mesh/recordMaintainer> "nlm" .
@@ -3882,7 +3883,6 @@ _:blankT000035_2 <http://id.nlm.nih.gov/mesh/dateCreated> "1986-01-01" .
 _:blankT000035_2 <http://id.nlm.nih.gov/mesh/entryVersion> "MULTIPLE ABNORM" .
 _:blankT000035_2 <http://id.nlm.nih.gov/mesh/thesaurusID> "UNK (19XX)" .
 <http://id.nlm.nih.gov/mesh/D000015> <http://id.nlm.nih.gov/mesh/annotation> "IM; do not use /compl /congen & do not coord with INFANT, NEWBORN, DISEASES;\n      coord IM with specific abnorm (IM); Manual 23.20.2 " .
-<http://id.nlm.nih.gov/mesh/D000015> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D008607> .
 <http://id.nlm.nih.gov/mesh/D000016> <http://purl.org/dc/terms/identifier> "D000016" .
 <http://id.nlm.nih.gov/mesh/D000016> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000016> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -4065,6 +4065,7 @@ _:blankT000035_2 <http://id.nlm.nih.gov/mesh/thesaurusID> "UNK (19XX)" .
 <http://id.nlm.nih.gov/mesh/D000016> <http://id.nlm.nih.gov/mesh/publicMeSHNote> "79 " .
 <http://id.nlm.nih.gov/mesh/D000016> <http://id.nlm.nih.gov/mesh/previousIndexing> "Abnormalities (1966-1978)" .
 <http://id.nlm.nih.gov/mesh/D000016> <http://id.nlm.nih.gov/mesh/previousIndexing> "Radiation Injuries (1966-1978)" .
+<http://id.nlm.nih.gov/mesh/D000016> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D064793> .
 <http://id.nlm.nih.gov/mesh/D000016> <http://id.nlm.nih.gov/mesh/treeNumber> "C16.131.080" .
 <http://id.nlm.nih.gov/mesh/D000016> <http://id.nlm.nih.gov/mesh/treeNumber> "C26.733.031" .
 <http://id.nlm.nih.gov/mesh/D000016> <http://id.nlm.nih.gov/mesh/treeNumber> "N06.850.810.300.360.031" .
@@ -4162,7 +4163,6 @@ _:blankT000037_6 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000037_6 <http://purl.org/dc/terms/identifier> "T000037" .
 _:blankT000037_6 <http://www.w3.org/2000/01/rdf-schema#label> "Radiation-Induced Abnormality" .
 <http://id.nlm.nih.gov/mesh/D000016> <http://id.nlm.nih.gov/mesh/annotation> "IM; do not use /compl /congen & do not coord with INFANT, NEWBORN, DISEASES;\n      coord IM with specific abnorm (IM) " .
-<http://id.nlm.nih.gov/mesh/D000016> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D064793> .
 <http://id.nlm.nih.gov/mesh/D000017> <http://purl.org/dc/terms/identifier> "D000017" .
 <http://id.nlm.nih.gov/mesh/D000017> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000017> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -4973,6 +4973,7 @@ _:blankT000045_2 <http://www.w3.org/2000/01/rdf-schema#label> "Abomasums" .
 <http://id.nlm.nih.gov/mesh/D000019> <http://id.nlm.nih.gov/mesh/historyNote> "75 " .
 <http://id.nlm.nih.gov/mesh/D000019> <http://id.nlm.nih.gov/mesh/publicMeSHNote> "75 " .
 <http://id.nlm.nih.gov/mesh/D000019> <http://id.nlm.nih.gov/mesh/previousIndexing> "Abortion, Induced (1970-1974)" .
+<http://id.nlm.nih.gov/mesh/D000019> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D010120> .
 <http://id.nlm.nih.gov/mesh/D000019> <http://id.nlm.nih.gov/mesh/treeNumber> "D27.505.696.875.131" .
 <http://id.nlm.nih.gov/mesh/D000019> <http://id.nlm.nih.gov/mesh/treeNumber> "D27.505.954.705.131" .
 <http://id.nlm.nih.gov/mesh/D000019> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
@@ -5145,7 +5146,6 @@ _:blankT788180_4 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT788180_4 <http://purl.org/dc/terms/identifier> "T788180" .
 _:blankT788180_4 <http://www.w3.org/2000/01/rdf-schema#label> "Effects, Abortifacient" .
 <http://id.nlm.nih.gov/mesh/D000019> <http://id.nlm.nih.gov/mesh/annotation> "use no qualifiers for abortifacients when used to interrupt pregnancy; note entry\n      term ABORTIFACIENT EFFECT: use only for the abortifacient effect of a chemical substance " .
-<http://id.nlm.nih.gov/mesh/D000019> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D010120> .
 <http://id.nlm.nih.gov/mesh/D000020> <http://purl.org/dc/terms/identifier> "D000020" .
 <http://id.nlm.nih.gov/mesh/D000020> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000020> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -5822,6 +5822,13 @@ _:blankT000052_5 <http://www.w3.org/2000/01/rdf-schema#label> "Abortifacients, S
 <http://id.nlm.nih.gov/mesh/Q000821> <http://id.nlm.nih.gov/mesh/abbreviation> "VI" .
 <http://id.nlm.nih.gov/mesh/D000022> <http://id.nlm.nih.gov/mesh/historyNote> "99(63) " .
 <http://id.nlm.nih.gov/mesh/D000022> <http://id.nlm.nih.gov/mesh/publicMeSHNote> "99; see ABORTION 1966-98; for ABORTION, SPONTANEOUS see ABORTION 1992-98 " .
+<http://id.nlm.nih.gov/mesh/D000022> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000022_1 .
+_:blankD000022_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
+_:blankD000022_1 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000022> .
+_:blankD000022_1 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000662> .
+_:blankD000022_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D000034> .
+<http://id.nlm.nih.gov/mesh/D000022> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D000019> .
+<http://id.nlm.nih.gov/mesh/D000022> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D037881> .
 <http://id.nlm.nih.gov/mesh/D000022> <http://id.nlm.nih.gov/mesh/treeNumber> "C13.703.039" .
 <http://id.nlm.nih.gov/mesh/D000022> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000022> <http://id.nlm.nih.gov/mesh/recordMaintainer> "tangl" .
@@ -5987,14 +5994,7 @@ _:blankT000055_4 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
 _:blankT000055_4 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000055_4 <http://purl.org/dc/terms/identifier> "T000055" .
 _:blankT000055_4 <http://www.w3.org/2000/01/rdf-schema#label> "Tubal Abortions" .
-<http://id.nlm.nih.gov/mesh/D000022> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000022_1 .
-_:blankD000022_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
-_:blankD000022_1 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000022> .
-_:blankD000022_1 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000662> .
-_:blankD000022_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D000034> .
 <http://id.nlm.nih.gov/mesh/D000022> <http://id.nlm.nih.gov/mesh/annotation> "/chem ind permitted but do not confuse with ABORTION, INDUCED; check the tags HUMANS\n      & FEMALE & PREGNANCY " .
-<http://id.nlm.nih.gov/mesh/D000022> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D000019> .
-<http://id.nlm.nih.gov/mesh/D000022> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D037881> .
 <http://id.nlm.nih.gov/mesh/D000023> <http://purl.org/dc/terms/identifier> "D000023" .
 <http://id.nlm.nih.gov/mesh/D000023> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000023> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -6961,6 +6961,8 @@ _:blankT000066_4 <http://id.nlm.nih.gov/mesh/thesaurusID> "BIOETHICS (1974)" .
 <http://id.nlm.nih.gov/mesh/Q000821> <http://purl.org/dc/terms/identifier> "Q000821" .
 <http://id.nlm.nih.gov/mesh/Q000821> <http://www.w3.org/2000/01/rdf-schema#label> "virology" .
 <http://id.nlm.nih.gov/mesh/Q000821> <http://id.nlm.nih.gov/mesh/abbreviation> "VI" .
+<http://id.nlm.nih.gov/mesh/D000026> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D005313> .
+<http://id.nlm.nih.gov/mesh/D000026> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D020964> .
 <http://id.nlm.nih.gov/mesh/D000026> <http://id.nlm.nih.gov/mesh/treeNumber> "C13.703.039.089" .
 <http://id.nlm.nih.gov/mesh/D000026> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000026> <http://id.nlm.nih.gov/mesh/recordMaintainer> "tangl" .
@@ -7128,8 +7130,6 @@ _:blankT000068_12 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
 _:blankT000068_12 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000068_12 <http://purl.org/dc/terms/identifier> "T000068" .
 _:blankT000068_12 <http://www.w3.org/2000/01/rdf-schema#label> "Recurrent Abortions" .
-<http://id.nlm.nih.gov/mesh/D000026> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D005313> .
-<http://id.nlm.nih.gov/mesh/D000026> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D020964> .
 <http://id.nlm.nih.gov/mesh/D000027> <http://purl.org/dc/terms/identifier> "D000027" .
 <http://id.nlm.nih.gov/mesh/D000027> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000027> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -7500,6 +7500,7 @@ _:blankT000070_4 <http://www.w3.org/2000/01/rdf-schema#label> "Incomplete Aborti
 <http://id.nlm.nih.gov/mesh/D000028> <http://id.nlm.nih.gov/mesh/previousIndexing> "Abortion, Criminal (1966-1970)" .
 <http://id.nlm.nih.gov/mesh/D000028> <http://id.nlm.nih.gov/mesh/previousIndexing> "Abortion, Legal (1966-1970)" .
 <http://id.nlm.nih.gov/mesh/D000028> <http://id.nlm.nih.gov/mesh/previousIndexing> "Abortion, Therapeutic (1966-1970)" .
+<http://id.nlm.nih.gov/mesh/D000028> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D037881> .
 <http://id.nlm.nih.gov/mesh/D000028> <http://id.nlm.nih.gov/mesh/treeNumber> "E04.520.050" .
 <http://id.nlm.nih.gov/mesh/D000028> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000028> <http://id.nlm.nih.gov/mesh/recordMaintainer> "hjn" .
@@ -8479,7 +8480,6 @@ _:blankT000077_4 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000077_4 <http://purl.org/dc/terms/identifier> "T000077" .
 _:blankT000077_4 <http://www.w3.org/2000/01/rdf-schema#label> "Rivanol Abortions" .
 <http://id.nlm.nih.gov/mesh/D000028> <http://id.nlm.nih.gov/mesh/annotation> "do not use /util except by MeSH definition; for use of an abortifacient here or in\n      ABORTION, CRIMINAL, coord IM with abortifacient agent (IM with no qualif, not /adv eff unless\n      text specifically discusses adverse eff); don't forget also check tags FEMALE & PREGNANCY " .
-<http://id.nlm.nih.gov/mesh/D000028> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D037881> .
 <http://id.nlm.nih.gov/mesh/D000029> <http://purl.org/dc/terms/identifier> "D000029" .
 <http://id.nlm.nih.gov/mesh/D000029> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000029> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -10722,6 +10722,7 @@ _:blankT632336_5 <http://www.w3.org/2000/01/rdf-schema#label> "Placental Abrupti
 <http://id.nlm.nih.gov/mesh/Q000821> <http://purl.org/dc/terms/identifier> "Q000821" .
 <http://id.nlm.nih.gov/mesh/Q000821> <http://www.w3.org/2000/01/rdf-schema#label> "virology" .
 <http://id.nlm.nih.gov/mesh/Q000821> <http://id.nlm.nih.gov/mesh/abbreviation> "VI" .
+<http://id.nlm.nih.gov/mesh/D000038> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D004653> .
 <http://id.nlm.nih.gov/mesh/D000038> <http://id.nlm.nih.gov/mesh/treeNumber> "C01.539.830.025" .
 <http://id.nlm.nih.gov/mesh/D000038> <http://id.nlm.nih.gov/mesh/treeNumber> "C23.550.470.756.100" .
 <http://id.nlm.nih.gov/mesh/D000038> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
@@ -10765,7 +10766,6 @@ _:blankT000101_2 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000101_2 <http://purl.org/dc/terms/identifier> "T000101" .
 _:blankT000101_2 <http://www.w3.org/2000/01/rdf-schema#label> "Abscesses" .
 <http://id.nlm.nih.gov/mesh/D000038> <http://id.nlm.nih.gov/mesh/annotation> "IM; coord IM with site (organ/dis term) (IM) + precoord organism/infect term (IM);\n      if unspecified bacterial abscess do not coord with BACTERIAL INFECTIONS (since most abscesses\n      are bact) but coord with specific bact infect term if given (as ABSCESS + STAPHYLOCOCCAL\n      INFECTIONS) " .
-<http://id.nlm.nih.gov/mesh/D000038> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D004653> .
 <http://id.nlm.nih.gov/mesh/D000039> <http://purl.org/dc/terms/identifier> "D000039" .
 <http://id.nlm.nih.gov/mesh/D000039> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000039> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -11612,6 +11612,8 @@ _:blankT000107_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1966)" .
 <http://id.nlm.nih.gov/mesh/Q000528> <http://purl.org/dc/terms/identifier> "Q000528" .
 <http://id.nlm.nih.gov/mesh/Q000528> <http://www.w3.org/2000/01/rdf-schema#label> "radiation effects" .
 <http://id.nlm.nih.gov/mesh/Q000528> <http://id.nlm.nih.gov/mesh/abbreviation> "RE" .
+<http://id.nlm.nih.gov/mesh/D000042> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D007408> .
+<http://id.nlm.nih.gov/mesh/D000042> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D012869> .
 <http://id.nlm.nih.gov/mesh/D000042> <http://id.nlm.nih.gov/mesh/treeNumber> "G02.149.023" .
 <http://id.nlm.nih.gov/mesh/D000042> <http://id.nlm.nih.gov/mesh/treeNumber> "G02.149.767.019" .
 <http://id.nlm.nih.gov/mesh/D000042> <http://id.nlm.nih.gov/mesh/treeNumber> "G02.842.750.019" .
@@ -11657,8 +11659,6 @@ _:blankT000108_2 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000108_2 <http://purl.org/dc/terms/identifier> "T000108" .
 _:blankT000108_2 <http://www.w3.org/2000/01/rdf-schema#label> "Absorptions" .
 <http://id.nlm.nih.gov/mesh/D000042> <http://id.nlm.nih.gov/mesh/annotation> "almost never IM; coordinate NIM with substance /pharmacokin (IM) or /metab (IM) or\n      organ /metab (IM) " .
-<http://id.nlm.nih.gov/mesh/D000042> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D007408> .
-<http://id.nlm.nih.gov/mesh/D000042> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D012869> .
 <http://id.nlm.nih.gov/mesh/D000043> <http://purl.org/dc/terms/identifier> "D000043" .
 <http://id.nlm.nih.gov/mesh/D000043> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000043> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -12530,6 +12530,7 @@ _:blankT459714_4 <http://www.w3.org/2000/01/rdf-schema#label> "catechus, Acacia"
 <http://id.nlm.nih.gov/mesh/D000046> <http://id.nlm.nih.gov/mesh/publicMeSHNote> "80; was see HOSPITALS, UNIVERSITY 1979 " .
 <http://id.nlm.nih.gov/mesh/D000046> <http://id.nlm.nih.gov/mesh/previousIndexing> "Hospitals, Teaching (1968-1974)" .
 <http://id.nlm.nih.gov/mesh/D000046> <http://id.nlm.nih.gov/mesh/previousIndexing> "Hospitals, University (1975-1979)" .
+<http://id.nlm.nih.gov/mesh/D000046> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D062606> .
 <http://id.nlm.nih.gov/mesh/D000046> <http://id.nlm.nih.gov/mesh/treeNumber> "N02.278.020" .
 <http://id.nlm.nih.gov/mesh/D000046> <http://id.nlm.nih.gov/mesh/recordOriginator> "ec" .
 <http://id.nlm.nih.gov/mesh/D000046> <http://id.nlm.nih.gov/mesh/recordMaintainer> "koromabm" .
@@ -12741,7 +12742,6 @@ _:blankT000126_12 <http://id.nlm.nih.gov/mesh/dateCreated> "1979-06-15" .
 _:blankT000126_12 <http://id.nlm.nih.gov/mesh/entryVersion> "MED CENTERS ACAD" .
 _:blankT000126_12 <http://id.nlm.nih.gov/mesh/thesaurusID> "UNK (19XX)" .
 <http://id.nlm.nih.gov/mesh/D000046> <http://id.nlm.nih.gov/mesh/annotation> "specify geog; DF: ACAD MED CENTERS " .
-<http://id.nlm.nih.gov/mesh/D000046> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D062606> .
 <http://id.nlm.nih.gov/mesh/D000047> <http://purl.org/dc/terms/identifier> "D000047" .
 <http://id.nlm.nih.gov/mesh/D000047> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000047> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -14387,6 +14387,11 @@ _:blankT000147_2 <http://www.w3.org/2000/01/rdf-schema#label> "Accelerations" .
 <http://id.nlm.nih.gov/mesh/Q000821> <http://purl.org/dc/terms/identifier> "Q000821" .
 <http://id.nlm.nih.gov/mesh/Q000821> <http://www.w3.org/2000/01/rdf-schema#label> "virology" .
 <http://id.nlm.nih.gov/mesh/Q000821> <http://id.nlm.nih.gov/mesh/abbreviation> "VI" .
+<http://id.nlm.nih.gov/mesh/D000055> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000055_1 .
+_:blankD000055_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
+_:blankD000055_1 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000055> .
+_:blankD000055_1 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000293> .
+_:blankD000055_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D061227> .
 <http://id.nlm.nih.gov/mesh/D000055> <http://id.nlm.nih.gov/mesh/treeNumber> "A08.800.800.120.060" .
 <http://id.nlm.nih.gov/mesh/D000055> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000055> <http://id.nlm.nih.gov/mesh/recordMaintainer> "chodan" .
@@ -14617,11 +14622,6 @@ _:blankT000150_17 <http://purl.org/dc/terms/identifier> "T000150" .
 _:blankT000150_17 <http://www.w3.org/2000/01/rdf-schema#label> "Cranial Nerve XI" .
 _:blankT000150_17 <http://id.nlm.nih.gov/mesh/dateCreated> "1996-07-31" .
 _:blankT000150_17 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1998)" .
-<http://id.nlm.nih.gov/mesh/D000055> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000055_1 .
-_:blankD000055_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
-_:blankD000055_1 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000055> .
-_:blankD000055_1 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000293> .
-_:blankD000055_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D061227> .
 <http://id.nlm.nih.gov/mesh/D000055> <http://id.nlm.nih.gov/mesh/annotation> "neoplasm = ACCESSORY NERVE DISEASES (IM) + CRANIAL NERVE NEOPLASMS (IM) +\n      histological type of neoplasm (IM) " .
 <http://id.nlm.nih.gov/mesh/D000056> <http://purl.org/dc/terms/identifier> "D000056" .
 <http://id.nlm.nih.gov/mesh/D000056> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
@@ -14675,6 +14675,7 @@ _:blankD000055_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih
 <http://id.nlm.nih.gov/mesh/Q000639> <http://purl.org/dc/terms/identifier> "Q000639" .
 <http://id.nlm.nih.gov/mesh/Q000639> <http://www.w3.org/2000/01/rdf-schema#label> "trends" .
 <http://id.nlm.nih.gov/mesh/Q000639> <http://id.nlm.nih.gov/mesh/abbreviation> "TD" .
+<http://id.nlm.nih.gov/mesh/D000056> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D011482> .
 <http://id.nlm.nih.gov/mesh/D000056> <http://id.nlm.nih.gov/mesh/treeNumber> "N06.850.135.060" .
 <http://id.nlm.nih.gov/mesh/D000056> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000056> <http://id.nlm.nih.gov/mesh/recordMaintainer> "sordenn" .
@@ -14749,7 +14750,6 @@ _:blankT000152_4 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
 _:blankT000152_4 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000152_4 <http://purl.org/dc/terms/identifier> "T000152" .
 _:blankT000152_4 <http://www.w3.org/2000/01/rdf-schema#label> "Preventions, Accident" .
-<http://id.nlm.nih.gov/mesh/D000056> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D011482> .
 <http://id.nlm.nih.gov/mesh/D000057> <http://purl.org/dc/terms/identifier> "D000057" .
 <http://id.nlm.nih.gov/mesh/D000057> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000057> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -15002,6 +15002,11 @@ _:blankT000155_4 <http://www.w3.org/2000/01/rdf-schema#label> "Fall, Accidental"
 <http://id.nlm.nih.gov/mesh/Q000639> <http://purl.org/dc/terms/identifier> "Q000639" .
 <http://id.nlm.nih.gov/mesh/Q000639> <http://www.w3.org/2000/01/rdf-schema#label> "trends" .
 <http://id.nlm.nih.gov/mesh/Q000639> <http://id.nlm.nih.gov/mesh/abbreviation> "TD" .
+<http://id.nlm.nih.gov/mesh/D000059> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000059_1 .
+_:blankD000059_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
+_:blankD000059_1 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000059> .
+_:blankD000059_1 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000517> .
+_:blankD000059_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D000056> .
 <http://id.nlm.nih.gov/mesh/D000059> <http://id.nlm.nih.gov/mesh/treeNumber> "N06.850.135" .
 <http://id.nlm.nih.gov/mesh/D000059> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000059> <http://id.nlm.nih.gov/mesh/recordMaintainer> "savagea" .
@@ -15042,11 +15047,6 @@ _:blankT000157_2 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
 _:blankT000157_2 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000157_2 <http://purl.org/dc/terms/identifier> "T000157" .
 _:blankT000157_2 <http://www.w3.org/2000/01/rdf-schema#label> "Accident" .
-<http://id.nlm.nih.gov/mesh/D000059> <http://id.nlm.nih.gov/mesh/entryCombination> _:blankD000059_1 .
-_:blankD000059_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/EntryCombination> .
-_:blankD000059_1 <http://id.nlm.nih.gov/mesh/ECINDescriptor> <http://id.nlm.nih.gov/mesh/D000059> .
-_:blankD000059_1 <http://id.nlm.nih.gov/mesh/ECINQualifier> <http://id.nlm.nih.gov/mesh/Q000517> .
-_:blankD000059_1 <http://id.nlm.nih.gov/mesh/ECOUTDescriptor> <http://id.nlm.nih.gov/mesh/D000056> .
 <http://id.nlm.nih.gov/mesh/D000059> <http://id.nlm.nih.gov/mesh/annotation> "GEN or unspecified; prefer specifics " .
 <http://id.nlm.nih.gov/mesh/D000060> <http://purl.org/dc/terms/identifier> "D000060" .
 <http://id.nlm.nih.gov/mesh/D000060> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
@@ -15362,6 +15362,8 @@ _:blankT000159_4 <http://www.w3.org/2000/01/rdf-schema#label> "Home Accident" .
 <http://id.nlm.nih.gov/mesh/D000062> <http://id.nlm.nih.gov/mesh/historyNote> "79; was in Cat G & J 1979-82, was ACCIDENTS, INDUSTRIAL in Cat G & J\n      1967-78 & Cat G & I 1963-66 " .
 <http://id.nlm.nih.gov/mesh/D000062> <http://id.nlm.nih.gov/mesh/onlineNote> "use ACCIDENTS, OCCUPATIONAL to search ACCIDENTS, INDUSTRIAL 1966-78 " .
 <http://id.nlm.nih.gov/mesh/D000062> <http://id.nlm.nih.gov/mesh/publicMeSHNote> "79; was ACCIDENTS, INDUSTRIAL 1963-78 " .
+<http://id.nlm.nih.gov/mesh/D000062> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D009784> .
+<http://id.nlm.nih.gov/mesh/D000062> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D060051> .
 <http://id.nlm.nih.gov/mesh/D000062> <http://id.nlm.nih.gov/mesh/treeNumber> "N06.850.135.240" .
 <http://id.nlm.nih.gov/mesh/D000062> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000062> <http://id.nlm.nih.gov/mesh/recordMaintainer> "chodan" .
@@ -15508,8 +15510,6 @@ _:blankT000161_4 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000161_4 <http://purl.org/dc/terms/identifier> "T000161" .
 _:blankT000161_4 <http://www.w3.org/2000/01/rdf-schema#label> "Industrial Accident" .
 <http://id.nlm.nih.gov/mesh/D000062> <http://id.nlm.nih.gov/mesh/annotation> "coordinate IM with specific occupation (IM) " .
-<http://id.nlm.nih.gov/mesh/D000062> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D009784> .
-<http://id.nlm.nih.gov/mesh/D000062> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D060051> .
 <http://id.nlm.nih.gov/mesh/D000063> <http://purl.org/dc/terms/identifier> "D000063" .
 <http://id.nlm.nih.gov/mesh/D000063> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Descriptor> .
 <http://id.nlm.nih.gov/mesh/D000063> <http://id.nlm.nih.gov/mesh/descriptorClass> "1" .
@@ -15568,6 +15568,8 @@ _:blankT000161_4 <http://www.w3.org/2000/01/rdf-schema#label> "Industrial Accide
 <http://id.nlm.nih.gov/mesh/Q000523> <http://purl.org/dc/terms/identifier> "Q000523" .
 <http://id.nlm.nih.gov/mesh/Q000523> <http://www.w3.org/2000/01/rdf-schema#label> "psychology" .
 <http://id.nlm.nih.gov/mesh/Q000523> <http://id.nlm.nih.gov/mesh/abbreviation> "PX" .
+<http://id.nlm.nih.gov/mesh/D000063> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D012622> .
+<http://id.nlm.nih.gov/mesh/D000063> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D017278> .
 <http://id.nlm.nih.gov/mesh/D000063> <http://id.nlm.nih.gov/mesh/treeNumber> "N06.850.135.392" .
 <http://id.nlm.nih.gov/mesh/D000063> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
 <http://id.nlm.nih.gov/mesh/D000063> <http://id.nlm.nih.gov/mesh/recordMaintainer> "savagea" .
@@ -15637,5 +15639,3 @@ _:blankT000165_4 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
 _:blankT000165_4 <http://purl.org/dc/terms/identifier> "T000165" .
 _:blankT000165_4 <http://www.w3.org/2000/01/rdf-schema#label> "Traffic Accident" .
 <http://id.nlm.nih.gov/mesh/D000063> <http://id.nlm.nih.gov/mesh/annotation> "implies automobile accid so do not coord with AUTOMOBILES unless the auto is\n      especially discussed; coord IM with BICYCLING (IM) or MOTORCYCLES (IM) if pertinent; not for\n      railroad accidents ( = RAILROADS + ACCIDENTS) or all-terrain vehicles, motorbikes or\n      snowmobiles ( = OFF-ROAD MOTOR VEHICLES + ACCIDENTS) " .
-<http://id.nlm.nih.gov/mesh/D000063> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D012622> .
-<http://id.nlm.nih.gov/mesh/D000063> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://id.nlm.nih.gov/mesh/D017278> .
