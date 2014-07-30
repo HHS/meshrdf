@@ -313,6 +313,144 @@
           </xsl:with-param>
         </xsl:call-template>
       </xsl:for-each>
+
+      <xsl:for-each select="EntryCombinationList/EntryCombination">
+        
+        <!--
+          Transformation rule: entryCombination
+        -->
+        <xsl:variable name='entry_combination_blank'>
+          <named>
+            <xsl:text>_:blank</xsl:text>
+            <xsl:value-of select="../../DescriptorUI"/>
+            <xsl:text>_</xsl:text>
+            <xsl:value-of select="position()"/>
+          </named>
+        </xsl:variable>
+        
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>This relation states that a descriptor record has a entry combination. The entry
+              combination has an ECIN and an ECOUT (see below). </desc>
+            <fixme>See GitHub issue #10</fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select='$descriptor_uri'/>
+            <uri prefix='&mesh;'>entryCombination</uri>
+            <xsl:copy-of select="$entry_combination_blank"/>
+          </xsl:with-param>
+        </xsl:call-template>
+        
+        <!--
+          Transformation rule/Relation: rdf:type
+        -->
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>This relation states that a Subject node used to identify an entry 
+              combination is of type "EntryCombination".</desc>
+            <fixme></fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select='$entry_combination_blank'/>
+            <uri prefix='&rdf;'>type</uri>
+            <uri prefix='&mesh;'>EntryCombination</uri>
+          </xsl:with-param>
+        </xsl:call-template>
+        
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select='$entry_combination_blank'/>
+            <uri prefix='&mesh;'>ECINDescriptor</uri>
+            <uri prefix='&mesh;'>
+              <xsl:value-of select="ECIN/DescriptorReferredTo/DescriptorUI"/>
+            </uri>
+          </xsl:with-param>
+        </xsl:call-template>
+        
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select='$entry_combination_blank'/>
+            <uri prefix='&mesh;'>ECINQualifier</uri>
+            <uri prefix='&mesh;'>
+              <xsl:value-of select="ECIN/QualifierReferredTo/QualifierUI"/>
+            </uri>
+          </xsl:with-param>
+        </xsl:call-template>
+        
+        <xsl:call-template name='triple'>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select='$entry_combination_blank'/>
+            <uri prefix='&mesh;'>ECOUTDescriptor</uri>
+            <uri prefix='&mesh;'>
+              <xsl:value-of select="ECOUT/DescriptorReferredTo/DescriptorUI"/>
+            </uri>
+          </xsl:with-param>
+        </xsl:call-template>
+        
+        <xsl:if test="ECOUT/QualifierReferredTo">
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$entry_combination_blank'/>
+              <uri prefix='&mesh;'>ECOUTQualifier</uri>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="ECOUT/QualifierReferredTo/QualifierUI"/>
+              </uri>
+            </xsl:with-param>
+          </xsl:call-template>
+        </xsl:if>
+      </xsl:for-each>
+
+      <!--
+        Transformation rules: seeAlso, hasRelatedDescriptor
+      -->
+      <xsl:for-each select="SeeRelatedList/SeeRelatedDescriptor">
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>This relation is different from what a person would see in the 
+              MeSH browser. In the browser one would see `&lt;desc_uri> seeAlso "name"`.
+              The `&lt;desc_uri> hasRelatedDescriptor &lt;desc_uri>` is where I decided to deviate from what 
+              I saw in the browser b/c the descriptor UI remains unchanged even though the 
+              descriptor name can change.</desc>
+            <fixme>I felt that some of the information in the SeeRelatedList element was 
+              repetative b/c it consisted of a list of descriptor unique identifiers and names. Hence, 
+              I decided to use the output specified above b/c we could always access the unique 
+              identifier and name for a descriptor given its unique identifier, we extract this 
+              information from the XML already. I thought the hasRelatedDescriptor relation was more 
+              expressive and explicit in this case than the seeAlso relation.</fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&rdfs;'>seeAlso</uri>
+            <uri prefix='&mesh;'>
+              <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
+            </uri>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:for-each>
+      
+      <!--
+        Transformation rule: considerAlso
+      -->
+      <xsl:if test="ConsiderAlso">
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <fixme>Maybe we can break this up into several considerTermsAt</fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>considerAlso</uri>
+            <literal>
+              <xsl:value-of select="ConsiderAlso"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:if>
       
       <!--
         Transformation rule: pharmacologicalAction>
@@ -337,7 +475,27 @@
           </xsl:with-param>
         </xsl:call-template>
       </xsl:for-each>
-      
+
+      <!--
+        Transformation rule: runningHead
+      -->
+      <xsl:if test="RunningHead">
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>This relation says that a descriptor has a running head.</desc>
+            <fixme>Whether or not there would be any value to breaking up the text of the 
+              running head.</fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>runningHead</uri>
+            <literal>
+              <xsl:value-of select="RunningHead"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:if>
+
       <!-- 
         Transformation rule: treeNumber
       -->
@@ -1038,98 +1196,6 @@
         </xsl:for-each>
       </xsl:for-each>
 
-      <xsl:for-each select="EntryCombinationList/EntryCombination">
-        
-        <!--
-          Transformation rule: entryCombination
-        -->
-        <xsl:variable name='entry_combination_blank'>
-          <named>
-            <xsl:text>_:blank</xsl:text>
-            <xsl:value-of select="../../DescriptorUI"/>
-            <xsl:text>_</xsl:text>
-            <xsl:value-of select="position()"/>
-          </named>
-        </xsl:variable>
-        
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc>This relation states that a descriptor record has a entry combination. The entry
-              combination has an ECIN and an ECOUT (see below). </desc>
-            <fixme>See GitHub issue #10</fixme>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select='$descriptor_uri'/>
-            <uri prefix='&mesh;'>entryCombination</uri>
-            <xsl:copy-of select="$entry_combination_blank"/>
-          </xsl:with-param>
-        </xsl:call-template>
-        
-        <!--
-          Transformation rule/Relation: rdf:type
-        -->
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc>This relation states that a Subject node used to identify an entry 
-              combination is of type "EntryCombination".</desc>
-            <fixme></fixme>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select='$entry_combination_blank'/>
-            <uri prefix='&rdf;'>type</uri>
-            <uri prefix='&mesh;'>EntryCombination</uri>
-          </xsl:with-param>
-        </xsl:call-template>
-        
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select='$entry_combination_blank'/>
-            <uri prefix='&mesh;'>ECINDescriptor</uri>
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="ECIN/DescriptorReferredTo/DescriptorUI"/>
-            </uri>
-          </xsl:with-param>
-        </xsl:call-template>
-
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select='$entry_combination_blank'/>
-            <uri prefix='&mesh;'>ECINQualifier</uri>
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="ECIN/QualifierReferredTo/QualifierUI"/>
-            </uri>
-          </xsl:with-param>
-        </xsl:call-template>
-        
-        <xsl:call-template name='triple'>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select='$entry_combination_blank'/>
-            <uri prefix='&mesh;'>ECOUTDescriptor</uri>
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="ECOUT/DescriptorReferredTo/DescriptorUI"/>
-            </uri>
-          </xsl:with-param>
-        </xsl:call-template>
-        
-        <xsl:if test="ECOUT/QualifierReferredTo">
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select='$entry_combination_blank'/>
-              <uri prefix='&mesh;'>ECOUTQualifier</uri>
-              <uri prefix='&mesh;'>
-                <xsl:value-of select="ECOUT/QualifierReferredTo/QualifierUI"/>
-              </uri>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:if>
-      </xsl:for-each>
-
       <!--
         Transformation rule: annotation
       -->
@@ -1156,71 +1222,6 @@
         </xsl:call-template>
       </xsl:if>
 
-      <!--
-        Transformation rule: runningHead
-      -->
-      <xsl:if test="RunningHead">
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc>This relation says that a descriptor has a running head.</desc>
-            <fixme>Whether or not there would be any value to breaking up the text of the 
-              running head.</fixme>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select="$descriptor_uri"/>
-            <uri prefix='&mesh;'>runningHead</uri>
-            <literal>
-              <xsl:value-of select="RunningHead"/>
-            </literal>
-          </xsl:with-param>
-        </xsl:call-template>
-      </xsl:if>
-
-      <!--
-        Transformation rules: seeAlso, hasRelatedDescriptor
-      -->
-      <xsl:for-each select="SeeRelatedList/SeeRelatedDescriptor">
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc>This relation is different from what a person would see in the 
-              MeSH browser. In the browser one would see `&lt;desc_uri> seeAlso "name"`.
-              The `&lt;desc_uri> hasRelatedDescriptor &lt;desc_uri>` is where I decided to deviate from what 
-              I saw in the browser b/c the descriptor UI remains unchanged even though the 
-              descriptor name can change.</desc>
-            <fixme>I felt that some of the information in the SeeRelatedList element was 
-              repetative b/c it consisted of a list of descriptor unique identifiers and names. Hence, 
-              I decided to use the output specified above b/c we could always access the unique 
-              identifier and name for a descriptor given its unique identifier, we extract this 
-              information from the XML already. I thought the hasRelatedDescriptor relation was more 
-              expressive and explicit in this case than the seeAlso relation.</fixme>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select="$descriptor_uri"/>
-            <uri prefix='&rdfs;'>seeAlso</uri>
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-            </uri>
-          </xsl:with-param>
-        </xsl:call-template>
-      </xsl:for-each>
-
-      <!--
-        Transformation rule: considerAlso
-      -->
-      <xsl:if test="ConsiderAlso">
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <fixme>Maybe we can break this up into several considerTermsAt</fixme>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select="$descriptor_uri"/>
-            <uri prefix='&mesh;'>considerAlso</uri>
-            <literal>
-              <xsl:value-of select="ConsiderAlso"/>
-            </literal>
-          </xsl:with-param>
-        </xsl:call-template>
-      </xsl:if>
     </xsl:for-each>
   </xsl:template>
 </xsl:stylesheet>

@@ -7827,6 +7827,883 @@ _:blankT537202_1 <http://purl.org/dc/terms/identifier> "T537202" .
 _:blankT537202_1 <http://www.w3.org/2000/01/rdf-schema#label> "MAPEP1 protein, Microcystis aeruginosa" .
 _:blankT537202_1 <http://id.nlm.nih.gov/mesh/dateCreated> "2003-04-02" .
 _:blankT537202_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2003)" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://purl.org/dc/terms/identifier> "C411848" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/SCRClass> "1" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
+<http://id.nlm.nih.gov/mesh/C411848> <http://www.w3.org/2000/01/rdf-schema#label> "Nik related kinase" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/dateCreated> "2000-08-11" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/dateRevised> "2007-09-27" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000A" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2001" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2002" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2003" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2004" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2005" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2006" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007A" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007B" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007C" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007D" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007E" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2008" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2009" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2010" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2011" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2012" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2014" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/note> "RefSeq NM_198465 " .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/frequency> "7" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C411848_1 .
+_:blank_set1_C411848_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C411848_1 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D017346> .
+_:blank_set1_C411848_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/D017346> <http://www.w3.org/2000/01/rdf-schema#label> "Protein-Serine-Threonine Kinases" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C411848_2 .
+_:blank_set1_C411848_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C411848_2 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D047908> .
+_:blank_set1_C411848_2 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/D047908> <http://www.w3.org/2000/01/rdf-schema#label> "Intracellular Signaling Peptides and Proteins" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/source> "J Biol Chem 2000 Jul 7;275(27):20533-9" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/recordOriginator> "benjersb" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/recordMaintainer> "pashj" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/recordAuthorizer> "pashj" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0367661> .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://www.w3.org/2000/01/rdf-schema#label> "Nik related kinase" .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://purl.org/dc/terms/identifier> "M0367661" .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://id.nlm.nih.gov/mesh/registryNumber> "EC 2.7.1.11" .
+<http://id.nlm.nih.gov/mesh/T116> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T116> .
+<http://id.nlm.nih.gov/mesh/T116> <http://purl.org/dc/terms/identifier> "T116" .
+<http://id.nlm.nih.gov/mesh/T116> <http://www.w3.org/2000/01/rdf-schema#label> "Amino Acid, Peptide, or Protein" .
+<http://id.nlm.nih.gov/mesh/T126> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T126> .
+<http://id.nlm.nih.gov/mesh/T126> <http://purl.org/dc/terms/identifier> "T126" .
+<http://id.nlm.nih.gov/mesh/T126> <http://www.w3.org/2000/01/rdf-schema#label> "Enzyme" .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://id.nlm.nih.gov/mesh/relatedRegistryNumber> "EC 2.7.1.11" .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://id.nlm.nih.gov/mesh/conceptRelation> _:blank_set1_M0367661_1 .
+_:blank_set1_M0367661_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/ConceptRelation> .
+_:blank_set1_M0367661_1 <http://id.nlm.nih.gov/mesh/relation> <http://www.w3.org/2004/02/skos/core#narrower> .
+_:blank_set1_M0367661_1 <http://id.nlm.nih.gov/mesh/concept1> <http://id.nlm.nih.gov/mesh/M0367661> .
+_:blank_set1_M0367661_1 <http://id.nlm.nih.gov/mesh/concept2> <http://id.nlm.nih.gov/mesh/M0456563> .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://id.nlm.nih.gov/mesh/conceptRelation> _:blank_set1_M0367661_2 .
+_:blank_set1_M0367661_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/ConceptRelation> .
+_:blank_set1_M0367661_2 <http://id.nlm.nih.gov/mesh/relation> <http://www.w3.org/2004/02/skos/core#narrower> .
+_:blank_set1_M0367661_2 <http://id.nlm.nih.gov/mesh/concept1> <http://id.nlm.nih.gov/mesh/M0367661> .
+_:blank_set1_M0367661_2 <http://id.nlm.nih.gov/mesh/concept2> <http://id.nlm.nih.gov/mesh/M0513901> .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://id.nlm.nih.gov/mesh/conceptRelation> _:blank_set1_M0367661_3 .
+_:blank_set1_M0367661_3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/ConceptRelation> .
+_:blank_set1_M0367661_3 <http://id.nlm.nih.gov/mesh/relation> <http://www.w3.org/2004/02/skos/core#narrower> .
+_:blank_set1_M0367661_3 <http://id.nlm.nih.gov/mesh/concept1> <http://id.nlm.nih.gov/mesh/M0367661> .
+_:blank_set1_M0367661_3 <http://id.nlm.nih.gov/mesh/concept2> <http://id.nlm.nih.gov/mesh/M0513900> .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T706627> .
+<http://id.nlm.nih.gov/mesh/T706627> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T706627> <http://purl.org/dc/terms/identifier> "T706627" .
+<http://id.nlm.nih.gov/mesh/T706627> <http://www.w3.org/2000/01/rdf-schema#label> "Nik related kinase" .
+<http://id.nlm.nih.gov/mesh/T706627> <http://id.nlm.nih.gov/mesh/termData> _:blankT706627_1 .
+_:blankT706627_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT706627_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT706627_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT706627_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT706627_1 <http://id.nlm.nih.gov/mesh/printFlag> "Y" .
+_:blankT706627_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
+_:blankT706627_1 <http://purl.org/dc/terms/identifier> "T706627" .
+_:blankT706627_1 <http://www.w3.org/2000/01/rdf-schema#label> "Nik related kinase" .
+_:blankT706627_1 <http://id.nlm.nih.gov/mesh/dateCreated> "2007-09-27" .
+_:blankT706627_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2007)" .
+<http://id.nlm.nih.gov/mesh/M0367661> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T421449> .
+<http://id.nlm.nih.gov/mesh/T421449> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T421449> <http://purl.org/dc/terms/identifier> "T421449" .
+<http://id.nlm.nih.gov/mesh/T421449> <http://www.w3.org/2000/01/rdf-schema#label> "NESK kinase" .
+<http://id.nlm.nih.gov/mesh/T421449> <http://id.nlm.nih.gov/mesh/termData> _:blankT421449_2 .
+_:blankT421449_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT421449_2 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "N" .
+_:blankT421449_2 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT421449_2 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT421449_2 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT421449_2 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT421449_2 <http://purl.org/dc/terms/identifier> "T421449" .
+_:blankT421449_2 <http://www.w3.org/2000/01/rdf-schema#label> "NESK kinase" .
+_:blankT421449_2 <http://id.nlm.nih.gov/mesh/dateCreated> "2000-08-11" .
+_:blankT421449_2 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2000)" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0456563> .
+<http://id.nlm.nih.gov/mesh/M0456563> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0456563> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "N" .
+<http://id.nlm.nih.gov/mesh/M0456563> <http://www.w3.org/2000/01/rdf-schema#label> "Nrk protein, mouse" .
+<http://id.nlm.nih.gov/mesh/M0456563> <http://purl.org/dc/terms/identifier> "M0456563" .
+<http://id.nlm.nih.gov/mesh/M0456563> <http://id.nlm.nih.gov/mesh/registryNumber> "EC 2.7.1.11" .
+<http://id.nlm.nih.gov/mesh/T116> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0456563> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T116> .
+<http://id.nlm.nih.gov/mesh/T116> <http://purl.org/dc/terms/identifier> "T116" .
+<http://id.nlm.nih.gov/mesh/T116> <http://www.w3.org/2000/01/rdf-schema#label> "Amino Acid, Peptide, or Protein" .
+<http://id.nlm.nih.gov/mesh/T126> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0456563> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T126> .
+<http://id.nlm.nih.gov/mesh/T126> <http://purl.org/dc/terms/identifier> "T126" .
+<http://id.nlm.nih.gov/mesh/T126> <http://www.w3.org/2000/01/rdf-schema#label> "Enzyme" .
+<http://id.nlm.nih.gov/mesh/M0456563> <http://id.nlm.nih.gov/mesh/conceptRelation> _:blank_set1_M0456563_1 .
+_:blank_set1_M0456563_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/ConceptRelation> .
+_:blank_set1_M0456563_1 <http://id.nlm.nih.gov/mesh/relation> <http://www.w3.org/2004/02/skos/core#narrower> .
+_:blank_set1_M0456563_1 <http://id.nlm.nih.gov/mesh/concept1> <http://id.nlm.nih.gov/mesh/M0367661> .
+_:blank_set1_M0456563_1 <http://id.nlm.nih.gov/mesh/concept2> <http://id.nlm.nih.gov/mesh/M0456563> .
+<http://id.nlm.nih.gov/mesh/M0456563> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T560099> .
+<http://id.nlm.nih.gov/mesh/T560099> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T560099> <http://purl.org/dc/terms/identifier> "T560099" .
+<http://id.nlm.nih.gov/mesh/T560099> <http://www.w3.org/2000/01/rdf-schema#label> "Nrk protein, mouse" .
+<http://id.nlm.nih.gov/mesh/T560099> <http://id.nlm.nih.gov/mesh/termData> _:blankT560099_1 .
+_:blankT560099_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT560099_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT560099_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT560099_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT560099_1 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT560099_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT560099_1 <http://purl.org/dc/terms/identifier> "T560099" .
+_:blankT560099_1 <http://www.w3.org/2000/01/rdf-schema#label> "Nrk protein, mouse" .
+_:blankT560099_1 <http://id.nlm.nih.gov/mesh/dateCreated> "2003-11-25" .
+_:blankT560099_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2003)" .
+<http://id.nlm.nih.gov/mesh/M0456563> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T560102> .
+<http://id.nlm.nih.gov/mesh/T560102> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T560102> <http://purl.org/dc/terms/identifier> "T560102" .
+<http://id.nlm.nih.gov/mesh/T560102> <http://www.w3.org/2000/01/rdf-schema#label> "NIK related kinase, mouse" .
+<http://id.nlm.nih.gov/mesh/T560102> <http://id.nlm.nih.gov/mesh/termData> _:blankT560102_2 .
+_:blankT560102_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT560102_2 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "N" .
+_:blankT560102_2 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT560102_2 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT560102_2 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT560102_2 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT560102_2 <http://purl.org/dc/terms/identifier> "T560102" .
+_:blankT560102_2 <http://www.w3.org/2000/01/rdf-schema#label> "NIK related kinase, mouse" .
+_:blankT560102_2 <http://id.nlm.nih.gov/mesh/dateCreated> "2003-11-25" .
+_:blankT560102_2 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2003)" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0513901> .
+<http://id.nlm.nih.gov/mesh/M0513901> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0513901> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "N" .
+<http://id.nlm.nih.gov/mesh/M0513901> <http://www.w3.org/2000/01/rdf-schema#label> "Nrk protein, rat" .
+<http://id.nlm.nih.gov/mesh/M0513901> <http://purl.org/dc/terms/identifier> "M0513901" .
+<http://id.nlm.nih.gov/mesh/M0513901> <http://id.nlm.nih.gov/mesh/registryNumber> "EC 2.7.1.11" .
+<http://id.nlm.nih.gov/mesh/T116> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0513901> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T116> .
+<http://id.nlm.nih.gov/mesh/T116> <http://purl.org/dc/terms/identifier> "T116" .
+<http://id.nlm.nih.gov/mesh/T116> <http://www.w3.org/2000/01/rdf-schema#label> "Amino Acid, Peptide, or Protein" .
+<http://id.nlm.nih.gov/mesh/T126> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0513901> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T126> .
+<http://id.nlm.nih.gov/mesh/T126> <http://purl.org/dc/terms/identifier> "T126" .
+<http://id.nlm.nih.gov/mesh/T126> <http://www.w3.org/2000/01/rdf-schema#label> "Enzyme" .
+<http://id.nlm.nih.gov/mesh/M0513901> <http://id.nlm.nih.gov/mesh/conceptRelation> _:blank_set1_M0513901_1 .
+_:blank_set1_M0513901_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/ConceptRelation> .
+_:blank_set1_M0513901_1 <http://id.nlm.nih.gov/mesh/relation> <http://www.w3.org/2004/02/skos/core#narrower> .
+_:blank_set1_M0513901_1 <http://id.nlm.nih.gov/mesh/concept1> <http://id.nlm.nih.gov/mesh/M0367661> .
+_:blank_set1_M0513901_1 <http://id.nlm.nih.gov/mesh/concept2> <http://id.nlm.nih.gov/mesh/M0513901> .
+<http://id.nlm.nih.gov/mesh/M0513901> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T706628> .
+<http://id.nlm.nih.gov/mesh/T706628> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T706628> <http://purl.org/dc/terms/identifier> "T706628" .
+<http://id.nlm.nih.gov/mesh/T706628> <http://www.w3.org/2000/01/rdf-schema#label> "Nrk protein, rat" .
+<http://id.nlm.nih.gov/mesh/T706628> <http://id.nlm.nih.gov/mesh/termData> _:blankT706628_1 .
+_:blankT706628_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT706628_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT706628_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT706628_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT706628_1 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT706628_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT706628_1 <http://purl.org/dc/terms/identifier> "T706628" .
+_:blankT706628_1 <http://www.w3.org/2000/01/rdf-schema#label> "Nrk protein, rat" .
+_:blankT706628_1 <http://id.nlm.nih.gov/mesh/dateCreated> "2007-09-27" .
+_:blankT706628_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2007)" .
+<http://id.nlm.nih.gov/mesh/M0513901> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T706629> .
+<http://id.nlm.nih.gov/mesh/T706629> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T706629> <http://purl.org/dc/terms/identifier> "T706629" .
+<http://id.nlm.nih.gov/mesh/T706629> <http://www.w3.org/2000/01/rdf-schema#label> "Nik related kinase, rat" .
+<http://id.nlm.nih.gov/mesh/T706629> <http://id.nlm.nih.gov/mesh/termData> _:blankT706629_2 .
+_:blankT706629_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT706629_2 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "N" .
+_:blankT706629_2 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT706629_2 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT706629_2 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT706629_2 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT706629_2 <http://purl.org/dc/terms/identifier> "T706629" .
+_:blankT706629_2 <http://www.w3.org/2000/01/rdf-schema#label> "Nik related kinase, rat" .
+_:blankT706629_2 <http://id.nlm.nih.gov/mesh/dateCreated> "2007-09-27" .
+_:blankT706629_2 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2007)" .
+<http://id.nlm.nih.gov/mesh/C411848> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0513900> .
+<http://id.nlm.nih.gov/mesh/M0513900> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0513900> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "N" .
+<http://id.nlm.nih.gov/mesh/M0513900> <http://www.w3.org/2000/01/rdf-schema#label> "NRK protein, human" .
+<http://id.nlm.nih.gov/mesh/M0513900> <http://purl.org/dc/terms/identifier> "M0513900" .
+<http://id.nlm.nih.gov/mesh/M0513900> <http://id.nlm.nih.gov/mesh/registryNumber> "EC 2.7.1.11" .
+<http://id.nlm.nih.gov/mesh/T116> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0513900> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T116> .
+<http://id.nlm.nih.gov/mesh/T116> <http://purl.org/dc/terms/identifier> "T116" .
+<http://id.nlm.nih.gov/mesh/T116> <http://www.w3.org/2000/01/rdf-schema#label> "Amino Acid, Peptide, or Protein" .
+<http://id.nlm.nih.gov/mesh/T126> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0513900> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T126> .
+<http://id.nlm.nih.gov/mesh/T126> <http://purl.org/dc/terms/identifier> "T126" .
+<http://id.nlm.nih.gov/mesh/T126> <http://www.w3.org/2000/01/rdf-schema#label> "Enzyme" .
+<http://id.nlm.nih.gov/mesh/M0513900> <http://id.nlm.nih.gov/mesh/conceptRelation> _:blank_set1_M0513900_1 .
+_:blank_set1_M0513900_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/ConceptRelation> .
+_:blank_set1_M0513900_1 <http://id.nlm.nih.gov/mesh/relation> <http://www.w3.org/2004/02/skos/core#narrower> .
+_:blank_set1_M0513900_1 <http://id.nlm.nih.gov/mesh/concept1> <http://id.nlm.nih.gov/mesh/M0367661> .
+_:blank_set1_M0513900_1 <http://id.nlm.nih.gov/mesh/concept2> <http://id.nlm.nih.gov/mesh/M0513900> .
+<http://id.nlm.nih.gov/mesh/M0513900> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T706624> .
+<http://id.nlm.nih.gov/mesh/T706624> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T706624> <http://purl.org/dc/terms/identifier> "T706624" .
+<http://id.nlm.nih.gov/mesh/T706624> <http://www.w3.org/2000/01/rdf-schema#label> "NRK protein, human" .
+<http://id.nlm.nih.gov/mesh/T706624> <http://id.nlm.nih.gov/mesh/termData> _:blankT706624_1 .
+_:blankT706624_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT706624_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT706624_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT706624_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT706624_1 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT706624_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT706624_1 <http://purl.org/dc/terms/identifier> "T706624" .
+_:blankT706624_1 <http://www.w3.org/2000/01/rdf-schema#label> "NRK protein, human" .
+_:blankT706624_1 <http://id.nlm.nih.gov/mesh/dateCreated> "2007-09-27" .
+_:blankT706624_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2007)" .
+<http://id.nlm.nih.gov/mesh/M0513900> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T706625> .
+<http://id.nlm.nih.gov/mesh/T706625> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T706625> <http://purl.org/dc/terms/identifier> "T706625" .
+<http://id.nlm.nih.gov/mesh/T706625> <http://www.w3.org/2000/01/rdf-schema#label> "Nik related kinase, human" .
+<http://id.nlm.nih.gov/mesh/T706625> <http://id.nlm.nih.gov/mesh/termData> _:blankT706625_2 .
+_:blankT706625_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT706625_2 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "N" .
+_:blankT706625_2 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT706625_2 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT706625_2 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT706625_2 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT706625_2 <http://purl.org/dc/terms/identifier> "T706625" .
+_:blankT706625_2 <http://www.w3.org/2000/01/rdf-schema#label> "Nik related kinase, human" .
+_:blankT706625_2 <http://id.nlm.nih.gov/mesh/dateCreated> "2007-09-27" .
+_:blankT706625_2 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2007)" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://purl.org/dc/terms/identifier> "C063478" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/SCRClass> "1" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
+<http://id.nlm.nih.gov/mesh/C063478> <http://www.w3.org/2000/01/rdf-schema#label> "2-chloroacetal" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/dateCreated> "1990-04-27" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/dateRevised> "2000-08-04" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1990" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1991" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1992" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1993" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1994" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1995" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1996" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1997" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1998" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1999" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000A" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2001" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2002" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2003" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2004" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2005" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2006" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2008" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2009" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2010" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2011" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2012" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2014" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/frequency> "1" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C063478_1 .
+_:blank_set1_C063478_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C063478_1 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D000080> .
+_:blank_set1_C063478_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/D000080> <http://www.w3.org/2000/01/rdf-schema#label> "Acetals" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/source> "Biochem Biophys Res Commun 1990;167(2):457" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/recordOriginator> "tpw" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/recordMaintainer> "twd" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/recordAuthorizer> "twd" .
+<http://id.nlm.nih.gov/mesh/C063478> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0175198> .
+<http://id.nlm.nih.gov/mesh/M0175198> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0175198> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
+<http://id.nlm.nih.gov/mesh/M0175198> <http://www.w3.org/2000/01/rdf-schema#label> "2-chloroacetal" .
+<http://id.nlm.nih.gov/mesh/M0175198> <http://purl.org/dc/terms/identifier> "M0175198" .
+<http://id.nlm.nih.gov/mesh/M0175198> <http://id.nlm.nih.gov/mesh/registryNumber> "621-62-5" .
+<http://id.nlm.nih.gov/mesh/T109> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0175198> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T109> .
+<http://id.nlm.nih.gov/mesh/T109> <http://purl.org/dc/terms/identifier> "T109" .
+<http://id.nlm.nih.gov/mesh/T109> <http://www.w3.org/2000/01/rdf-schema#label> "Organic Chemical" .
+<http://id.nlm.nih.gov/mesh/T121> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0175198> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T121> .
+<http://id.nlm.nih.gov/mesh/T121> <http://purl.org/dc/terms/identifier> "T121" .
+<http://id.nlm.nih.gov/mesh/T121> <http://www.w3.org/2000/01/rdf-schema#label> "Pharmacologic Substance" .
+<http://id.nlm.nih.gov/mesh/M0175198> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T205203> .
+<http://id.nlm.nih.gov/mesh/T205203> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T205203> <http://purl.org/dc/terms/identifier> "T205203" .
+<http://id.nlm.nih.gov/mesh/T205203> <http://www.w3.org/2000/01/rdf-schema#label> "2-chloroacetal" .
+<http://id.nlm.nih.gov/mesh/T205203> <http://id.nlm.nih.gov/mesh/termData> _:blankT205203_1 .
+_:blankT205203_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT205203_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT205203_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT205203_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT205203_1 <http://id.nlm.nih.gov/mesh/printFlag> "Y" .
+_:blankT205203_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
+_:blankT205203_1 <http://purl.org/dc/terms/identifier> "T205203" .
+_:blankT205203_1 <http://www.w3.org/2000/01/rdf-schema#label> "2-chloroacetal" .
+_:blankT205203_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1990)" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://purl.org/dc/terms/identifier> "C013743" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/SCRClass> "1" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
+<http://id.nlm.nih.gov/mesh/C013743> <http://www.w3.org/2000/01/rdf-schema#label> "TB 68" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/dateCreated> "1977-01-01" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/dateRevised> "2001-02-09" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1989" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1990" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1991" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1992" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1993" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1994" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1995" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1996" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1997" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1998" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1999" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000A" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2001" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2001A" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2002" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2003" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2004" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2005" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2006" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2008" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2009" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2010" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2011" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2012" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2014" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/frequency> "1" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C013743_1 .
+_:blank_set1_C013743_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C013743_1 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D010936> .
+_:blank_set1_C013743_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/D010936> <http://www.w3.org/2000/01/rdf-schema#label> "Plant Extracts" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/source> "Eksp Med Morphol 15(4):228;1976" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/recordMaintainer> "twd" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/recordAuthorizer> "twd" .
+<http://id.nlm.nih.gov/mesh/C013743> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0061751> .
+<http://id.nlm.nih.gov/mesh/M0061751> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0061751> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
+<http://id.nlm.nih.gov/mesh/M0061751> <http://www.w3.org/2000/01/rdf-schema#label> "TB 68" .
+<http://id.nlm.nih.gov/mesh/M0061751> <http://purl.org/dc/terms/identifier> "M0061751" .
+<http://id.nlm.nih.gov/mesh/M0061751> <http://id.nlm.nih.gov/mesh/CASN1_label> "TV 68" .
+<http://id.nlm.nih.gov/mesh/M0061751> <http://id.nlm.nih.gov/mesh/registryNumber> "62683-44-7" .
+<http://id.nlm.nih.gov/mesh/M0061751> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T091754> .
+<http://id.nlm.nih.gov/mesh/T091754> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T091754> <http://purl.org/dc/terms/identifier> "T091754" .
+<http://id.nlm.nih.gov/mesh/T091754> <http://www.w3.org/2000/01/rdf-schema#label> "TB 68" .
+<http://id.nlm.nih.gov/mesh/T091754> <http://id.nlm.nih.gov/mesh/termData> _:blankT091754_1 .
+_:blankT091754_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT091754_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT091754_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT091754_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "LAB" .
+_:blankT091754_1 <http://id.nlm.nih.gov/mesh/printFlag> "Y" .
+_:blankT091754_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
+_:blankT091754_1 <http://purl.org/dc/terms/identifier> "T091754" .
+_:blankT091754_1 <http://www.w3.org/2000/01/rdf-schema#label> "TB 68" .
+_:blankT091754_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1977)" .
+<http://id.nlm.nih.gov/mesh/M0061751> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T091753> .
+<http://id.nlm.nih.gov/mesh/T091753> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T091753> <http://purl.org/dc/terms/identifier> "T091753" .
+<http://id.nlm.nih.gov/mesh/T091753> <http://www.w3.org/2000/01/rdf-schema#label> "TB-68" .
+<http://id.nlm.nih.gov/mesh/T091753> <http://id.nlm.nih.gov/mesh/termData> _:blankT091753_2 .
+_:blankT091753_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT091753_2 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "N" .
+_:blankT091753_2 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT091753_2 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT091753_2 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT091753_2 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT091753_2 <http://purl.org/dc/terms/identifier> "T091753" .
+_:blankT091753_2 <http://www.w3.org/2000/01/rdf-schema#label> "TB-68" .
+_:blankT091753_2 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1977)" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://purl.org/dc/terms/identifier> "C065895" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/SCRClass> "1" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
+<http://id.nlm.nih.gov/mesh/C065895> <http://www.w3.org/2000/01/rdf-schema#label> "methyl 2,3-4,5-di-O-isopropylidine-glucoseptanoside" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/dateCreated> "1990-11-01" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/dateRevised> "2000-08-04" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1992" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1993" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1994" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1995" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1996" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1997" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1998" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1999" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000A" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2001" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2002" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2003" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2004" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2005" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2006" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2008" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2009" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2010" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2011" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2012" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2014" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/note> "structure given in first source " .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/frequency> "1" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C065895_1 .
+_:blank_set1_C065895_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C065895_1 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D000080> .
+_:blank_set1_C065895_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/D000080> <http://www.w3.org/2000/01/rdf-schema#label> "Acetals" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C065895_2 .
+_:blank_set1_C065895_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C065895_2 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D005960> .
+_:blank_set1_C065895_2 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/D005960> <http://www.w3.org/2000/01/rdf-schema#label> "Glucosides" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/source> "Carbohydr Res 1990;201(1):150" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/recordOriginator> "wmm" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/recordMaintainer> "twd" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/recordAuthorizer> "twd" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0180999> .
+<http://id.nlm.nih.gov/mesh/M0180999> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0180999> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
+<http://id.nlm.nih.gov/mesh/M0180999> <http://www.w3.org/2000/01/rdf-schema#label> "methyl 2,3-4,5-di-O-isopropylidine-glucoseptanoside" .
+<http://id.nlm.nih.gov/mesh/M0180999> <http://purl.org/dc/terms/identifier> "M0180999" .
+<http://id.nlm.nih.gov/mesh/M0180999> <http://id.nlm.nih.gov/mesh/registryNumber> "26784-78-1" .
+<http://id.nlm.nih.gov/mesh/T109> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0180999> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T109> .
+<http://id.nlm.nih.gov/mesh/T109> <http://purl.org/dc/terms/identifier> "T109" .
+<http://id.nlm.nih.gov/mesh/T109> <http://www.w3.org/2000/01/rdf-schema#label> "Organic Chemical" .
+<http://id.nlm.nih.gov/mesh/M0180999> <http://id.nlm.nih.gov/mesh/conceptRelation> _:blank_set1_M0180999_1 .
+_:blank_set1_M0180999_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/ConceptRelation> .
+_:blank_set1_M0180999_1 <http://id.nlm.nih.gov/mesh/relation> <http://www.w3.org/2004/02/skos/core#narrower> .
+_:blank_set1_M0180999_1 <http://id.nlm.nih.gov/mesh/concept1> <http://id.nlm.nih.gov/mesh/M0180999> .
+_:blank_set1_M0180999_1 <http://id.nlm.nih.gov/mesh/concept2> <http://id.nlm.nih.gov/mesh/M0180998> .
+<http://id.nlm.nih.gov/mesh/M0180999> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T211004> .
+<http://id.nlm.nih.gov/mesh/T211004> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T211004> <http://purl.org/dc/terms/identifier> "T211004" .
+<http://id.nlm.nih.gov/mesh/T211004> <http://www.w3.org/2000/01/rdf-schema#label> "methyl 2,3-4,5-di-O-isopropylidine-glucoseptanoside" .
+<http://id.nlm.nih.gov/mesh/T211004> <http://id.nlm.nih.gov/mesh/termData> _:blankT211004_1 .
+_:blankT211004_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT211004_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT211004_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT211004_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT211004_1 <http://id.nlm.nih.gov/mesh/printFlag> "Y" .
+_:blankT211004_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
+_:blankT211004_1 <http://purl.org/dc/terms/identifier> "T211004" .
+_:blankT211004_1 <http://www.w3.org/2000/01/rdf-schema#label> "methyl 2,3-4,5-di-O-isopropylidine-glucoseptanoside" .
+_:blankT211004_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1990)" .
+<http://id.nlm.nih.gov/mesh/M0180999> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T211002> .
+<http://id.nlm.nih.gov/mesh/T211002> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T211002> <http://purl.org/dc/terms/identifier> "T211002" .
+<http://id.nlm.nih.gov/mesh/T211002> <http://www.w3.org/2000/01/rdf-schema#label> "methyl 2,3-4,5-di-O-isopropylidine-alpha-glucoseptanoside" .
+<http://id.nlm.nih.gov/mesh/T211002> <http://id.nlm.nih.gov/mesh/termData> _:blankT211002_2 .
+_:blankT211002_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT211002_2 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "N" .
+_:blankT211002_2 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT211002_2 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT211002_2 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT211002_2 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT211002_2 <http://purl.org/dc/terms/identifier> "T211002" .
+_:blankT211002_2 <http://www.w3.org/2000/01/rdf-schema#label> "methyl 2,3-4,5-di-O-isopropylidine-alpha-glucoseptanoside" .
+_:blankT211002_2 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1990)" .
+<http://id.nlm.nih.gov/mesh/M0180999> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T211001> .
+<http://id.nlm.nih.gov/mesh/T211001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T211001> <http://purl.org/dc/terms/identifier> "T211001" .
+<http://id.nlm.nih.gov/mesh/T211001> <http://www.w3.org/2000/01/rdf-schema#label> "2,3-DIGSP" .
+<http://id.nlm.nih.gov/mesh/T211001> <http://id.nlm.nih.gov/mesh/termData> _:blankT211001_3 .
+_:blankT211001_3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT211001_3 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "N" .
+_:blankT211001_3 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT211001_3 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT211001_3 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT211001_3 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT211001_3 <http://purl.org/dc/terms/identifier> "T211001" .
+_:blankT211001_3 <http://www.w3.org/2000/01/rdf-schema#label> "2,3-DIGSP" .
+_:blankT211001_3 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1990)" .
+<http://id.nlm.nih.gov/mesh/C065895> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0180998> .
+<http://id.nlm.nih.gov/mesh/M0180998> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0180998> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "N" .
+<http://id.nlm.nih.gov/mesh/M0180998> <http://www.w3.org/2000/01/rdf-schema#label> "methyl 2,3-4,5-di-O-isopropylidine-beta-glucoseptanoside" .
+<http://id.nlm.nih.gov/mesh/M0180998> <http://purl.org/dc/terms/identifier> "M0180998" .
+<http://id.nlm.nih.gov/mesh/T109> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0180998> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T109> .
+<http://id.nlm.nih.gov/mesh/T109> <http://purl.org/dc/terms/identifier> "T109" .
+<http://id.nlm.nih.gov/mesh/T109> <http://www.w3.org/2000/01/rdf-schema#label> "Organic Chemical" .
+<http://id.nlm.nih.gov/mesh/M0180998> <http://id.nlm.nih.gov/mesh/conceptRelation> _:blank_set1_M0180998_1 .
+_:blank_set1_M0180998_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/ConceptRelation> .
+_:blank_set1_M0180998_1 <http://id.nlm.nih.gov/mesh/relation> <http://www.w3.org/2004/02/skos/core#narrower> .
+_:blank_set1_M0180998_1 <http://id.nlm.nih.gov/mesh/concept1> <http://id.nlm.nih.gov/mesh/M0180999> .
+_:blank_set1_M0180998_1 <http://id.nlm.nih.gov/mesh/concept2> <http://id.nlm.nih.gov/mesh/M0180998> .
+<http://id.nlm.nih.gov/mesh/M0180998> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T211003> .
+<http://id.nlm.nih.gov/mesh/T211003> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T211003> <http://purl.org/dc/terms/identifier> "T211003" .
+<http://id.nlm.nih.gov/mesh/T211003> <http://www.w3.org/2000/01/rdf-schema#label> "methyl 2,3-4,5-di-O-isopropylidine-beta-glucoseptanoside" .
+<http://id.nlm.nih.gov/mesh/T211003> <http://id.nlm.nih.gov/mesh/termData> _:blankT211003_1 .
+_:blankT211003_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT211003_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT211003_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT211003_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT211003_1 <http://id.nlm.nih.gov/mesh/printFlag> "N" .
+_:blankT211003_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "N" .
+_:blankT211003_1 <http://purl.org/dc/terms/identifier> "T211003" .
+_:blankT211003_1 <http://www.w3.org/2000/01/rdf-schema#label> "methyl 2,3-4,5-di-O-isopropylidine-beta-glucoseptanoside" .
+_:blankT211003_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1990)" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://purl.org/dc/terms/identifier> "C013027" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/SCRClass> "1" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
+<http://id.nlm.nih.gov/mesh/C013027> <http://www.w3.org/2000/01/rdf-schema#label> "hydroperoxidobutyloleate" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/dateCreated> "1976-01-01" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/dateRevised> "1982-08-04" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1989" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1990" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1991" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1992" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1993" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1994" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1995" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1996" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1997" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1998" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1999" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2001" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2002" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2003" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2004" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2005" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2006" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2008" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2009" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2010" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2011" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2012" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2014" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/frequency> "0" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/previousIndexing> "*OLEIC ACIDS (76-82)" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/previousIndexing> "*PEROXIDES (76-80)" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C013027_1 .
+_:blank_set1_C013027_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C013027_1 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D008054> .
+_:blank_set1_C013027_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/D008054> <http://www.w3.org/2000/01/rdf-schema#label> "Lipid Peroxides" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/source> "Nahrung 20(1):1;1976" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/recordMaintainer> "cha" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/recordAuthorizer> "nlm" .
+<http://id.nlm.nih.gov/mesh/C013027> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0060458> .
+<http://id.nlm.nih.gov/mesh/M0060458> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0060458> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
+<http://id.nlm.nih.gov/mesh/M0060458> <http://www.w3.org/2000/01/rdf-schema#label> "hydroperoxidobutyloleate" .
+<http://id.nlm.nih.gov/mesh/M0060458> <http://purl.org/dc/terms/identifier> "M0060458" .
+<http://id.nlm.nih.gov/mesh/M0060458> <http://id.nlm.nih.gov/mesh/registryNumber> "0" .
+<http://id.nlm.nih.gov/mesh/M0060458> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T090461> .
+<http://id.nlm.nih.gov/mesh/T090461> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T090461> <http://purl.org/dc/terms/identifier> "T090461" .
+<http://id.nlm.nih.gov/mesh/T090461> <http://www.w3.org/2000/01/rdf-schema#label> "hydroperoxidobutyloleate" .
+<http://id.nlm.nih.gov/mesh/T090461> <http://id.nlm.nih.gov/mesh/termData> _:blankT090461_1 .
+_:blankT090461_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT090461_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT090461_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT090461_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT090461_1 <http://id.nlm.nih.gov/mesh/printFlag> "Y" .
+_:blankT090461_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
+_:blankT090461_1 <http://purl.org/dc/terms/identifier> "T090461" .
+_:blankT090461_1 <http://www.w3.org/2000/01/rdf-schema#label> "hydroperoxidobutyloleate" .
+_:blankT090461_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1976)" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://purl.org/dc/terms/identifier> "C582005" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/SCRClass> "1" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
+<http://id.nlm.nih.gov/mesh/C582005> <http://www.w3.org/2000/01/rdf-schema#label> "JBIR-130" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/dateCreated> "2013-07-01" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/dateRevised> "2013-07-01" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013A" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2014" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/note> "from Isaria sp. NBRC 104353; structure in first source " .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/frequency> "1" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C582005_1 .
+_:blank_set1_C582005_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C582005_1 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D011728> .
+_:blank_set1_C582005_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/D011728> <http://www.w3.org/2000/01/rdf-schema#label> "Pyridones" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C582005_1 .
+_:blank_set2_C582005_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
+_:blank_set2_C582005_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D000470> .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/source> "J Antibiot (Tokyo). 2013 Apr;66(4):235-8" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/recordOriginator> "moharys" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/recordMaintainer> "moharys" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/recordAuthorizer> "moharys" .
+<http://id.nlm.nih.gov/mesh/C582005> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0585965> .
+<http://id.nlm.nih.gov/mesh/M0585965> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0585965> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
+<http://id.nlm.nih.gov/mesh/M0585965> <http://www.w3.org/2000/01/rdf-schema#label> "JBIR-130" .
+<http://id.nlm.nih.gov/mesh/M0585965> <http://purl.org/dc/terms/identifier> "M0585965" .
+<http://id.nlm.nih.gov/mesh/M0585965> <http://id.nlm.nih.gov/mesh/registryNumber> "0" .
+<http://id.nlm.nih.gov/mesh/T109> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0585965> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T109> .
+<http://id.nlm.nih.gov/mesh/T109> <http://purl.org/dc/terms/identifier> "T109" .
+<http://id.nlm.nih.gov/mesh/T109> <http://www.w3.org/2000/01/rdf-schema#label> "Organic Chemical" .
+<http://id.nlm.nih.gov/mesh/M0585965> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T846403> .
+<http://id.nlm.nih.gov/mesh/T846403> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T846403> <http://purl.org/dc/terms/identifier> "T846403" .
+<http://id.nlm.nih.gov/mesh/T846403> <http://www.w3.org/2000/01/rdf-schema#label> "JBIR-130" .
+<http://id.nlm.nih.gov/mesh/T846403> <http://id.nlm.nih.gov/mesh/termData> _:blankT846403_1 .
+_:blankT846403_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT846403_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT846403_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT846403_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT846403_1 <http://id.nlm.nih.gov/mesh/printFlag> "Y" .
+_:blankT846403_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
+_:blankT846403_1 <http://purl.org/dc/terms/identifier> "T846403" .
+_:blankT846403_1 <http://www.w3.org/2000/01/rdf-schema#label> "JBIR-130" .
+_:blankT846403_1 <http://id.nlm.nih.gov/mesh/dateCreated> "2013-07-01" .
+_:blankT846403_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2013)" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://purl.org/dc/terms/identifier> "C013034" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/SCRClass> "1" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
+<http://id.nlm.nih.gov/mesh/C013034> <http://www.w3.org/2000/01/rdf-schema#label> "4-hydroxy-diaminopimelic acid" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/dateCreated> "1976-01-01" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/dateRevised> "1990-09-28" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1991" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1992" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1993" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1994" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1995" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1996" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1997" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1998" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1999" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2001" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2002" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2003" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2004" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2005" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2006" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2008" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2009" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2010" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2011" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2012" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2014" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/note> "analog of diaminopimelic acid only partially replacing it during synthesis of murein " .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/frequency> "0" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C013034_1 .
+_:blank_set1_C013034_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C013034_1 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D003960> .
+<http://id.nlm.nih.gov/mesh/D003960> <http://www.w3.org/2000/01/rdf-schema#label> "Diaminopimelic Acid" .
+_:blank_set1_C013034_1 <http://id.nlm.nih.gov/mesh/isMappedToQualifier> <http://id.nlm.nih.gov/mesh/Q000031> .
+_:blank_set1_C013034_1 <http://id.nlm.nih.gov/mesh/isQualifierStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/Q000031> <http://www.w3.org/2000/01/rdf-schema#label> "analogs & derivatives" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/source> "Folia Microbiol 21(3):161;1976" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/recordMaintainer> "standardr" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/recordAuthorizer> "nlm" .
+<http://id.nlm.nih.gov/mesh/C013034> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0060465> .
+<http://id.nlm.nih.gov/mesh/M0060465> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0060465> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
+<http://id.nlm.nih.gov/mesh/M0060465> <http://www.w3.org/2000/01/rdf-schema#label> "4-hydroxy-diaminopimelic acid" .
+<http://id.nlm.nih.gov/mesh/M0060465> <http://purl.org/dc/terms/identifier> "M0060465" .
+<http://id.nlm.nih.gov/mesh/M0060465> <http://id.nlm.nih.gov/mesh/registryNumber> "0" .
+<http://id.nlm.nih.gov/mesh/M0060465> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T090468> .
+<http://id.nlm.nih.gov/mesh/T090468> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T090468> <http://purl.org/dc/terms/identifier> "T090468" .
+<http://id.nlm.nih.gov/mesh/T090468> <http://www.w3.org/2000/01/rdf-schema#label> "4-hydroxy-diaminopimelic acid" .
+<http://id.nlm.nih.gov/mesh/T090468> <http://id.nlm.nih.gov/mesh/termData> _:blankT090468_1 .
+_:blankT090468_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT090468_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT090468_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT090468_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT090468_1 <http://id.nlm.nih.gov/mesh/printFlag> "Y" .
+_:blankT090468_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
+_:blankT090468_1 <http://purl.org/dc/terms/identifier> "T090468" .
+_:blankT090468_1 <http://www.w3.org/2000/01/rdf-schema#label> "4-hydroxy-diaminopimelic acid" .
+_:blankT090468_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1976)" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://purl.org/dc/terms/identifier> "C013036" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/SCRClass> "1" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
+<http://id.nlm.nih.gov/mesh/C013036> <http://www.w3.org/2000/01/rdf-schema#label> "15 alpha-hydroxyestradiol 3-sulfate" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/dateCreated> "1976-01-01" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1989" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1990" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1991" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1992" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1993" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1994" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1995" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1996" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1997" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1998" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1999" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2001" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2002" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2003" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2004" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2005" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2006" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2008" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2009" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2010" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2011" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2012" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2014" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/frequency> "0" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C013036_1 .
+_:blank_set1_C013036_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C013036_1 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D004958> .
+<http://id.nlm.nih.gov/mesh/D004958> <http://www.w3.org/2000/01/rdf-schema#label> "Estradiol" .
+_:blank_set1_C013036_1 <http://id.nlm.nih.gov/mesh/isMappedToQualifier> <http://id.nlm.nih.gov/mesh/Q000031> .
+_:blank_set1_C013036_1 <http://id.nlm.nih.gov/mesh/isQualifierStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/Q000031> <http://www.w3.org/2000/01/rdf-schema#label> "analogs & derivatives" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/source> "J Clin Endocrinol Metab 43(1):144;1976" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/recordAuthorizer> "nlm" .
+<http://id.nlm.nih.gov/mesh/C013036> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0060468> .
+<http://id.nlm.nih.gov/mesh/M0060468> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0060468> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
+<http://id.nlm.nih.gov/mesh/M0060468> <http://www.w3.org/2000/01/rdf-schema#label> "15 alpha-hydroxyestradiol 3-sulfate" .
+<http://id.nlm.nih.gov/mesh/M0060468> <http://purl.org/dc/terms/identifier> "M0060468" .
+<http://id.nlm.nih.gov/mesh/M0060468> <http://id.nlm.nih.gov/mesh/CASN1_label> "Estra-1,3,5(10)-triene-3,15,17-triol, 3-(hydrogen sulfate),\n          (15alpha,17beta)-" .
+<http://id.nlm.nih.gov/mesh/M0060468> <http://id.nlm.nih.gov/mesh/registryNumber> "2524-23-4" .
+<http://id.nlm.nih.gov/mesh/M0060468> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T090471> .
+<http://id.nlm.nih.gov/mesh/T090471> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T090471> <http://purl.org/dc/terms/identifier> "T090471" .
+<http://id.nlm.nih.gov/mesh/T090471> <http://www.w3.org/2000/01/rdf-schema#label> "15 alpha-hydroxyestradiol 3-sulfate" .
+<http://id.nlm.nih.gov/mesh/T090471> <http://id.nlm.nih.gov/mesh/termData> _:blankT090471_1 .
+_:blankT090471_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT090471_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT090471_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT090471_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT090471_1 <http://id.nlm.nih.gov/mesh/printFlag> "Y" .
+_:blankT090471_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
+_:blankT090471_1 <http://purl.org/dc/terms/identifier> "T090471" .
+_:blankT090471_1 <http://www.w3.org/2000/01/rdf-schema#label> "15 alpha-hydroxyestradiol 3-sulfate" .
+_:blankT090471_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1976)" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://purl.org/dc/terms/identifier> "C013037" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/SCRClass> "1" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
+<http://id.nlm.nih.gov/mesh/C013037> <http://www.w3.org/2000/01/rdf-schema#label> "1-hydroxy-1,3,5(10)-estratriene" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/dateCreated> "1977-01-01" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/dateRevised> "1982-07-29" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1989" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1990" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1991" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1992" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1993" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1994" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1995" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1996" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1997" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1998" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "1999" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2000" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2001" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2002" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2003" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2004" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2005" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2006" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2007" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2008" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2009" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2010" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2011" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2012" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2014" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/note> "structure " .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/frequency> "0" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/previousIndexing> "HYDROXYSTEROIDS (77-82)" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C013037_1 .
+_:blank_set1_C013037_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C013037_1 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D004963> .
+_:blank_set1_C013037_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/D004963> <http://www.w3.org/2000/01/rdf-schema#label> "Estrenes" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/source> "Steroids 28(3):325;1976" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/recordOriginator> "nlm" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/recordMaintainer> "cha" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/recordAuthorizer> "nlm" .
+<http://id.nlm.nih.gov/mesh/C013037> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0060469> .
+<http://id.nlm.nih.gov/mesh/M0060469> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0060469> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
+<http://id.nlm.nih.gov/mesh/M0060469> <http://www.w3.org/2000/01/rdf-schema#label> "1-hydroxy-1,3,5(10)-estratriene" .
+<http://id.nlm.nih.gov/mesh/M0060469> <http://purl.org/dc/terms/identifier> "M0060469" .
+<http://id.nlm.nih.gov/mesh/M0060469> <http://id.nlm.nih.gov/mesh/registryNumber> "0" .
+<http://id.nlm.nih.gov/mesh/M0060469> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T090472> .
+<http://id.nlm.nih.gov/mesh/T090472> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T090472> <http://purl.org/dc/terms/identifier> "T090472" .
+<http://id.nlm.nih.gov/mesh/T090472> <http://www.w3.org/2000/01/rdf-schema#label> "1-hydroxy-1,3,5(10)-estratriene" .
+<http://id.nlm.nih.gov/mesh/T090472> <http://id.nlm.nih.gov/mesh/termData> _:blankT090472_1 .
+_:blankT090472_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT090472_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT090472_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT090472_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT090472_1 <http://id.nlm.nih.gov/mesh/printFlag> "Y" .
+_:blankT090472_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
+_:blankT090472_1 <http://purl.org/dc/terms/identifier> "T090472" .
+_:blankT090472_1 <http://www.w3.org/2000/01/rdf-schema#label> "1-hydroxy-1,3,5(10)-estratriene" .
+_:blankT090472_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (1977)" .
+<http://id.nlm.nih.gov/mesh/C582007> <http://purl.org/dc/terms/identifier> "C582007" .
+<http://id.nlm.nih.gov/mesh/C582007> <http://id.nlm.nih.gov/mesh/SCRClass> "1" .
+<http://id.nlm.nih.gov/mesh/C582007> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
+<http://id.nlm.nih.gov/mesh/C582007> <http://www.w3.org/2000/01/rdf-schema#label> "JBIR-131" .
+<http://id.nlm.nih.gov/mesh/C582007> <http://id.nlm.nih.gov/mesh/dateCreated> "2013-07-01" .
+<http://id.nlm.nih.gov/mesh/C582007> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2013" .
+<http://id.nlm.nih.gov/mesh/C582007> <http://id.nlm.nih.gov/mesh/activeMeSHYear> "2014" .
+<http://id.nlm.nih.gov/mesh/C582007> <http://id.nlm.nih.gov/mesh/note> "from Isaria sp. NBRC 104353; structure in first sourc " .
+<http://id.nlm.nih.gov/mesh/C582007> <http://id.nlm.nih.gov/mesh/frequency> "1" .
+<http://id.nlm.nih.gov/mesh/C582007> <http://id.nlm.nih.gov/mesh/mappedData> _:blank_set1_C582007_1 .
+_:blank_set1_C582007_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/MappedData> .
+_:blank_set1_C582007_1 <http://id.nlm.nih.gov/mesh/isMappedToDescriptor> <http://id.nlm.nih.gov/mesh/D011728> .
+_:blank_set1_C582007_1 <http://id.nlm.nih.gov/mesh/isDescriptorStarred> "Y" .
+<http://id.nlm.nih.gov/mesh/D011728> <http://www.w3.org/2000/01/rdf-schema#label> "Pyridones" .
+<http://id.nlm.nih.gov/mesh/C582007> <http://id.nlm.nih.gov/mesh/indexingData> _:blank_set2_C582007_1 .
+_:blank_set2_C582007_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/IndexingData> .
+_:blank_set2_C582007_1 <http://id.nlm.nih.gov/mesh/indexingDescriptor> <http://id.nlm.nih.gov/mesh/D000470> .
+<http://id.nlm.nih.gov/mesh/C582007> <http://id.nlm.nih.gov/mesh/source> "J Antibiot (Tokyo). 2013 Apr;66(4):235-8" .
+<http://id.nlm.nih.gov/mesh/C582007> <http://id.nlm.nih.gov/mesh/recordOriginator> "moharys" .
+<http://id.nlm.nih.gov/mesh/C582007> <http://id.nlm.nih.gov/mesh/recordAuthorizer> "moharys" .
+<http://id.nlm.nih.gov/mesh/C582007> <http://id.nlm.nih.gov/mesh/concept> <http://id.nlm.nih.gov/mesh/M0585967> .
+<http://id.nlm.nih.gov/mesh/M0585967> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Concept> .
+<http://id.nlm.nih.gov/mesh/M0585967> <http://id.nlm.nih.gov/mesh/isPreferredConcept> "Y" .
+<http://id.nlm.nih.gov/mesh/M0585967> <http://www.w3.org/2000/01/rdf-schema#label> "JBIR-131" .
+<http://id.nlm.nih.gov/mesh/M0585967> <http://purl.org/dc/terms/identifier> "M0585967" .
+<http://id.nlm.nih.gov/mesh/M0585967> <http://id.nlm.nih.gov/mesh/registryNumber> "0" .
+<http://id.nlm.nih.gov/mesh/T109> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SemanticType> .
+<http://id.nlm.nih.gov/mesh/M0585967> <http://id.nlm.nih.gov/mesh/semanticType> <http://id.nlm.nih.gov/mesh/T109> .
+<http://id.nlm.nih.gov/mesh/T109> <http://purl.org/dc/terms/identifier> "T109" .
+<http://id.nlm.nih.gov/mesh/T109> <http://www.w3.org/2000/01/rdf-schema#label> "Organic Chemical" .
+<http://id.nlm.nih.gov/mesh/M0585967> <http://id.nlm.nih.gov/mesh/term> <http://id.nlm.nih.gov/mesh/T846405> .
+<http://id.nlm.nih.gov/mesh/T846405> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/Term> .
+<http://id.nlm.nih.gov/mesh/T846405> <http://purl.org/dc/terms/identifier> "T846405" .
+<http://id.nlm.nih.gov/mesh/T846405> <http://www.w3.org/2000/01/rdf-schema#label> "JBIR-131" .
+<http://id.nlm.nih.gov/mesh/T846405> <http://id.nlm.nih.gov/mesh/termData> _:blankT846405_1 .
+_:blankT846405_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/TermData> .
+_:blankT846405_1 <http://id.nlm.nih.gov/mesh/isConceptPreferredTerm> "Y" .
+_:blankT846405_1 <http://id.nlm.nih.gov/mesh/isPermutedTerm> "N" .
+_:blankT846405_1 <http://id.nlm.nih.gov/mesh/lexicalTag> "NON" .
+_:blankT846405_1 <http://id.nlm.nih.gov/mesh/printFlag> "Y" .
+_:blankT846405_1 <http://id.nlm.nih.gov/mesh/isRecordPreferredTerm> "Y" .
+_:blankT846405_1 <http://purl.org/dc/terms/identifier> "T846405" .
+_:blankT846405_1 <http://www.w3.org/2000/01/rdf-schema#label> "JBIR-131" .
+_:blankT846405_1 <http://id.nlm.nih.gov/mesh/dateCreated> "2013-07-01" .
+_:blankT846405_1 <http://id.nlm.nih.gov/mesh/thesaurusID> "NLM (2013)" .
 <http://id.nlm.nih.gov/mesh/C010491> <http://purl.org/dc/terms/identifier> "C010491" .
 <http://id.nlm.nih.gov/mesh/C010491> <http://id.nlm.nih.gov/mesh/SCRClass> "1" .
 <http://id.nlm.nih.gov/mesh/C010491> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.nlm.nih.gov/mesh/SupplementaryConceptRecord> .
