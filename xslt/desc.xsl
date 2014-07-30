@@ -297,24 +297,22 @@
       <!--
         Transformation rule: previousIndexing
       -->
-      <xsl:if test="PreviousIndexingList">
-        <xsl:for-each select="PreviousIndexingList/PreviousIndexing">
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>This relation states that a descriptor has some previous indexing.</desc>
-              <fixme>Whether there is any use in parsing the previous indexing text to derive 
-                other triples.</fixme>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$descriptor_uri"/>
-              <uri prefix='&mesh;'>previousIndexing</uri>
-              <literal>
-                <xsl:value-of select="."/>
-              </literal>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:for-each>
-      </xsl:if>
+      <xsl:for-each select="PreviousIndexingList/PreviousIndexing">
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>This relation states that a descriptor has some previous indexing.</desc>
+            <fixme>Whether there is any use in parsing the previous indexing text to derive 
+              other triples.</fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&mesh;'>previousIndexing</uri>
+            <literal>
+              <xsl:value-of select="."/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:for-each>
       
       <!--
         Transformation rule: pharmacologicalAction>
@@ -1181,32 +1179,30 @@
       <!--
         Transformation rules: seeAlso, hasRelatedDescriptor
       -->
-      <xsl:if test="SeeRelatedList">
-        <xsl:for-each select="SeeRelatedList/SeeRelatedDescriptor">
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>This relation is different from what a person would see in the 
-                MeSH browser. In the browser one would see `&lt;desc_uri> seeAlso "name"`.
-                The `&lt;desc_uri> hasRelatedDescriptor &lt;desc_uri>` is where I decided to deviate from what 
-                I saw in the browser b/c the descriptor UI remains unchanged even though the 
-                descriptor name can change.</desc>
-              <fixme>I felt that some of the information in the SeeRelatedList element was 
-                repetative b/c it consisted of a list of descriptor unique identifiers and names. Hence, 
-                I decided to use the output specified above b/c we could always access the unique 
-                identifier and name for a descriptor given its unique identifier, we extract this 
-                information from the XML already. I thought the hasRelatedDescriptor relation was more 
-                expressive and explicit in this case than the seeAlso relation.</fixme>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$descriptor_uri"/>
-              <uri prefix='&rdfs;'>seeAlso</uri>
-              <uri prefix='&mesh;'>
-                <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
-              </uri>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:for-each>
-      </xsl:if>
+      <xsl:for-each select="SeeRelatedList/SeeRelatedDescriptor">
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>This relation is different from what a person would see in the 
+              MeSH browser. In the browser one would see `&lt;desc_uri> seeAlso "name"`.
+              The `&lt;desc_uri> hasRelatedDescriptor &lt;desc_uri>` is where I decided to deviate from what 
+              I saw in the browser b/c the descriptor UI remains unchanged even though the 
+              descriptor name can change.</desc>
+            <fixme>I felt that some of the information in the SeeRelatedList element was 
+              repetative b/c it consisted of a list of descriptor unique identifiers and names. Hence, 
+              I decided to use the output specified above b/c we could always access the unique 
+              identifier and name for a descriptor given its unique identifier, we extract this 
+              information from the XML already. I thought the hasRelatedDescriptor relation was more 
+              expressive and explicit in this case than the seeAlso relation.</fixme>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&rdfs;'>seeAlso</uri>
+            <uri prefix='&mesh;'>
+              <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
+            </uri>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:for-each>
 
       <!--
         Transformation rule: considerAlso
