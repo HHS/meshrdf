@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-
 <!-- 
   This external subset defines all of the entities that we'll use for URI prefixes from other
   various ontologies.
 -->
 <!DOCTYPE xsl:stylesheet SYSTEM "mesh-rdf-prefixes.ent" >
 
-
 <xsl:stylesheet version="2.0" 
+                xmlns:f="http://nlm.nih.gov/ns/f"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema" 
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -27,7 +26,7 @@
       </xsl:variable>
 
       <!--
-        Transformation rule/Relation: rdf:type
+        Transformation rule: rdf:type
       -->
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
@@ -41,7 +40,7 @@
       </xsl:call-template>
       
       <!--
-        Transformation rule/Relation: dcterms:identifier
+        Transformation rule: dcterms:identifier
       -->
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
@@ -57,11 +56,14 @@
       </xsl:call-template>
 
       <!--
-        Transformation rule/Relation: isQualifierType
+        Transformation rule: isQualifierType
       -->
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <desc>This relation states that a qualifier has a qualifier type.</desc>
+          <fixme report='klortho'>Rather than a predicate with a literal value, couldn't we use an rdf:type relation for
+            this, and assign a class to each qualifier type?  Currently (see http://www.nlm.nih.gov/mesh/xml_data_elements.html)
+            the only defined type is "1".</fixme>
         </xsl:with-param>
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$qualifier_uri"/>
@@ -73,7 +75,7 @@
       </xsl:call-template>
 
       <!--
-        Transformation rule/Relation: rdfs:label
+        Transformation rule: rdfs:label
       -->
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
@@ -89,7 +91,7 @@
       </xsl:call-template>
 
       <!--
-        Transformation rule/Relation: dateCreated
+        Transformation rule: dateCreated
       -->
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
@@ -218,43 +220,38 @@
       <!--
         Transformation rule: treeNumber
       -->
-      <xsl:if test="TreeNumberList">
-        <xsl:for-each select="TreeNumberList/TreeNumber">
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>A qualifier can have a tree number.</desc>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$qualifier_uri"/>
-              <uri prefix='&mesh;'>treeNumber</uri>
-              <literal>
-                <xsl:value-of select="."/>
-              </literal>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:for-each>
-      </xsl:if>
+      <xsl:for-each select="TreeNumberList/TreeNumber">
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>A qualifier can have a tree number.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$qualifier_uri"/>
+            <uri prefix='&mesh;'>treeNumber</uri>
+            <literal>
+              <xsl:value-of select="."/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:for-each>
 
       <!--
         Transformation rule: allowedTreeNode
       -->
-      <xsl:if test="TreeNodeAllowedList">
-        <xsl:for-each select="TreeNodeAllowedList/TreeNodeAllowed">
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>A qualifier can have at least one allowed tree node.</desc>
-              <fixme></fixme>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$qualifier_uri"/>
-              <uri prefix='&mesh;'>allowedTreeNode</uri>
-              <literal>
-                <xsl:value-of select="."/>
-              </literal>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:for-each>
-      </xsl:if>
+      <xsl:for-each select="TreeNodeAllowedList/TreeNodeAllowed">
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>A qualifier can have at least one allowed tree node.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$qualifier_uri"/>
+            <uri prefix='&mesh;'>allowedTreeNode</uri>
+            <literal>
+              <xsl:value-of select="."/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:for-each>
 
       <xsl:if test="RecordOriginatorsList">
         <!--
@@ -414,186 +411,151 @@
         </xsl:if>
 
 
-        <xsl:if test="SemanticTypeList">
-          <xsl:for-each select="SemanticTypeList/SemanticType">
-            <xsl:variable name='semantic_type_uri'>
-              <uri prefix='&mesh;'>
+        <xsl:for-each select="SemanticTypeList/SemanticType">
+          <xsl:variable name='semantic_type_uri'>
+            <uri prefix='&mesh;'>
+              <xsl:value-of select="SemanticTypeUI"/>
+            </uri>
+          </xsl:variable>
+
+          <!--
+            Transformation rule: SemanticType
+          -->
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <desc>A concept can have a semantic type UI and semantic type name. However, I abstracted 
+                this relation into the formulation stated in the output above. In this formulation, the concept 
+                has a semantic type which in turn has a UI and name.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$semantic_type_uri"/>
+              <uri prefix='&rdf;'>type</uri>
+              <uri prefix='&mesh;'>SemanticType</uri>
+            </xsl:with-param>
+          </xsl:call-template>
+
+          <!--
+            Transformation rule: semanticType
+          -->
+          <xsl:call-template name='triple'>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$concept_uri"/>
+              <uri prefix='&mesh;'>semanticType</uri>
+              <xsl:copy-of select="$semantic_type_uri"/>
+            </xsl:with-param>
+          </xsl:call-template>
+
+          <!--
+            Transformation rule: dcterms:identifier
+          -->
+          <xsl:call-template name='triple'>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$semantic_type_uri"/>
+              <uri prefix='&dcterms;'>identifier</uri>
+              <literal>
                 <xsl:value-of select="SemanticTypeUI"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
+
+          <!--
+            Transformation rule: rdfs:label
+          -->
+          <xsl:call-template name='triple'>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$semantic_type_uri"/>
+              <uri prefix='&rdfs;'>label</uri>
+              <literal>
+                <xsl:value-of select="SemanticTypeName"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
+        </xsl:for-each>
+
+        <xsl:for-each select="ConceptRelationList/ConceptRelation">
+          <xsl:variable name='blank_concept_relation'>
+            <named>
+              <xsl:text>_:blank_set1_</xsl:text>
+              <xsl:value-of select="../../ConceptUI"/>
+              <xsl:text>_</xsl:text>
+              <xsl:value-of select="position()"/>
+            </named>
+          </xsl:variable>
+
+          <!-- 
+            Transformation rule: conceptRelation
+          -->
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <desc>There are several predicates mentioned here. The conceptRelation states that a concept has a relation to another concept.
+                That relation is identified with a blank node. This blank node stores the information that describes how the current concept (concept1) is 
+                related to a second concept (concept2). The first concept is either broader, narrower, or related, in relation to the second concept. We
+                use the skos:broader, skos:narrower, and skos:related predicates in this case.
+                This rule applies when a qualifier has a concept in its concept list that possesses a concept relation list. If this is the case,
+                then there will be at least one concept relation in the concept relation list.</desc>
+              <fixme>Do we need to use a blank node here?</fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$concept_uri"/>
+              <uri prefix='&mesh;'>conceptRelation</uri>
+              <xsl:copy-of select="$blank_concept_relation"/>
+            </xsl:with-param>
+          </xsl:call-template>
+          
+          <!-- 
+            Transformation rule: rdf:type
+          -->
+          <xsl:call-template name='triple'>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$blank_concept_relation"/>
+              <uri prefix='&rdf;'>type</uri>
+              <uri prefix='&mesh;'>ConceptRelation</uri>
+            </xsl:with-param>
+          </xsl:call-template>
+          
+          <!-- 
+            Transformation rule: mesh:relation
+          -->
+          <xsl:if test="@RelationName">
+            <xsl:call-template name='triple'>
+              <xsl:with-param name='spec'>
+                <xsl:copy-of select="$blank_concept_relation"/>
+                <uri prefix='&mesh;'>relation</uri>
+                <xsl:copy-of select="f:skos_relation_uri(@RelationName)"/>
+              </xsl:with-param>
+            </xsl:call-template>
+          </xsl:if>
+          
+          <!-- 
+            Transformation rule: mesh:concept1
+          -->
+          <xsl:call-template name='triple'>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$blank_concept_relation"/>
+              <uri prefix='&mesh;'>concept1</uri>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="Concept1UI"/>
               </uri>
-            </xsl:variable>
-
-            <!--
-              Transformation rule: SemanticType
-            -->
-            <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc>A concept can have a semantic type UI and semantic type name. However, I abstracted 
-                  this relation into the formulation stated in the output above. In this formulation, the concept 
-                  has a semantic type which in turn has a UI and name.</desc>
-              </xsl:with-param>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select="$semantic_type_uri"/>
-                <uri prefix='&rdf;'>type</uri>
-                <uri prefix='&mesh;'>SemanticType</uri>
-              </xsl:with-param>
-            </xsl:call-template>
-
-            <!--
-              Transformation rule: semanticType
-            -->
-            <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc></desc>
-              </xsl:with-param>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select="$concept_uri"/>
-                <uri prefix='&mesh;'>semanticType</uri>
-                <xsl:copy-of select="$semantic_type_uri"/>
-              </xsl:with-param>
-            </xsl:call-template>
-
-            <!--
-              Transformation rule: dcterms:identifier
-            -->
-            <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc></desc>
-              </xsl:with-param>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select="$semantic_type_uri"/>
-                <uri prefix='&dcterms;'>identifier</uri>
-                <literal>
-                  <xsl:value-of select="SemanticTypeUI"/>
-                </literal>
-              </xsl:with-param>
-            </xsl:call-template>
-
-            <!--
-              Transformation rule: rdfs:label
-            -->
-            <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc></desc>
-              </xsl:with-param>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select="$semantic_type_uri"/>
-                <uri prefix='&rdfs;'>label</uri>
-                <literal>
-                  <xsl:value-of select="SemanticTypeName"/>
-                </literal>
-              </xsl:with-param>
-            </xsl:call-template>
-          </xsl:for-each>
-        </xsl:if>
-
-        <xsl:if test="ConceptRelationList">
-          <xsl:for-each select="ConceptRelationList/ConceptRelation">
-            <xsl:variable name='blank_concept_relation'>
-              <named>
-                <xsl:text>_:blank_set1_</xsl:text>
-                <xsl:value-of select="../../ConceptUI"/>
-                <xsl:text>_</xsl:text>
-                <xsl:value-of select="position()"/>
-              </named>
-            </xsl:variable>
-
-            <!-- 
-              Transformation rule: conceptRelation
-            -->
-            <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc>There are several predicates mentioned here. The conceptRelation states that a concept has a relation to another concept.
-                  That relation is identified with a blank node. This blank node stores the information that describes how the current concept (concept1) is 
-                  related to a second concept (concept2). The first concept is either broader, narrower, or related, in relation to the second concept. We
-                  use the skos:broader, skos:narrower, and skos:related predicates in this case.
-                  This rule applies when a qualifier has a concept in its concept list that possesses a concept relation list. If this is the case,
-                  then there will be at least one concept relation in the concept relation list.</desc>
-                <fixme>Do we need to use a blank node here?</fixme>
-              </xsl:with-param>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select="$concept_uri"/>
-                <uri prefix='&mesh;'>conceptRelation</uri>
-                <xsl:copy-of select="$blank_concept_relation"/>
-              </xsl:with-param>
-            </xsl:call-template>
-            
-            <!-- 
-              Transformation rule: rdf:type
-            -->
-            <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc></desc>
-              </xsl:with-param>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select="$blank_concept_relation"/>
-                <uri prefix='&rdf;'>type</uri>
-                <uri prefix='&mesh;'>ConceptRelation</uri>
-              </xsl:with-param>
-            </xsl:call-template>
-            
-            <!-- 
-              Transformation rule: mesh:relation
-            -->
-            <xsl:if test="@RelationName">
-              <xsl:call-template name='triple'>
-                <xsl:with-param name="doc">
-                  <desc></desc>
-                </xsl:with-param>
-                <xsl:with-param name='spec'>
-                  <xsl:copy-of select="$blank_concept_relation"/>
-                  <uri prefix='&mesh;'>relation</uri>
-                  <uri prefix='&skos;'>
-                    <xsl:choose>
-                      <xsl:when test="matches(@RelationName, 'BRD')">
-                        <xsl:text>broader</xsl:text>
-                      </xsl:when>
-                      <xsl:when test="matches(@RelationName, 'NRW')">
-                        <xsl:text>narrower</xsl:text>
-                      </xsl:when>
-                      <xsl:when test="matches(@RelationName, 'REL')">
-                        <xsl:text>related</xsl:text>
-                      </xsl:when>
-                    </xsl:choose>
-                  </uri>
-                </xsl:with-param>
-              </xsl:call-template>
-            </xsl:if>
-            
-            <!-- 
-              Transformation rule: mesh:concept1
-            -->
-            <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc></desc>
-              </xsl:with-param>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select="$blank_concept_relation"/>
-                <uri prefix='&mesh;'>concept1</uri>
-                <uri prefix='&mesh;'>
-                  <xsl:value-of select="Concept1UI"/>
-                </uri>
-              </xsl:with-param>
-            </xsl:call-template>
-            
-            <!-- 
-              Transformation rule: mesh:concept2
-            -->
-            <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <desc></desc>
-                <fixme>Do we really want two predicates for these, mesh:concept1 and mesh:concept2?  Are they the same
-                  relationship?  Does order matter?</fixme>
-              </xsl:with-param>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select="$blank_concept_relation"/>
-                <uri prefix='&mesh;'>concept2</uri>
-                <uri prefix='&mesh;'>
-                  <xsl:value-of select="Concept2UI"/>
-                </uri>
-              </xsl:with-param>
-            </xsl:call-template>
-          </xsl:for-each>
-        </xsl:if>
+            </xsl:with-param>
+          </xsl:call-template>
+          
+          <!-- 
+            Transformation rule: mesh:concept2
+          -->
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <fixme>Do we really want two predicates for these, mesh:concept1 and mesh:concept2?  Are they the same
+                relationship?  Does order matter?</fixme>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select="$blank_concept_relation"/>
+              <uri prefix='&mesh;'>concept2</uri>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="Concept2UI"/>
+              </uri>
+            </xsl:with-param>
+          </xsl:call-template>
+        </xsl:for-each>
 
 
         <xsl:for-each select="TermList/Term">

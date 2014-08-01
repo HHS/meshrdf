@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!-- 
-  Copy of the qual2014.xml downloaded from NLM, with indentation and annotations added.
--->
 
 <QualifierRecordSet LanguageCode="eng">
   <QualifierRecord QualifierType="1">
@@ -74,7 +71,6 @@
         <ConceptName>
           <String>abnormalities</String>
         </ConceptName>
-        <ConceptUMLSUI>C0000769</ConceptUMLSUI>
         <ScopeNote>Used with organs for congenital defects producing changes in the morphology of
           the organ. It is used also for abnormalities in animals. </ScopeNote>
         <SemanticTypeList>
@@ -142,7 +138,6 @@
         <ConceptName>
           <String>aplasia</String>
         </ConceptName>
-        <ConceptUMLSUI>C0334079</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -168,7 +163,6 @@
         <ConceptName>
           <String>atresia</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243066</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -194,7 +188,6 @@
         <ConceptName>
           <String>malformations</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243070</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -220,7 +213,6 @@
         <ConceptName>
           <String>defects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243067</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -246,7 +238,6 @@
         <ConceptName>
           <String>deformities</String>
         </ConceptName>
-        <ConceptUMLSUI>C1527361</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -272,7 +263,6 @@
         <ConceptName>
           <String>hypoplasia</String>
         </ConceptName>
-        <ConceptUMLSUI>C0543481</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -298,7 +288,6 @@
         <ConceptName>
           <String>agenesis</String>
         </ConceptName>
-        <ConceptUMLSUI>C0000846</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -324,7 +313,6 @@
         <ConceptName>
           <String>congenital defects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220810</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -423,7 +411,6 @@
         <ConceptName>
           <String>administration &amp; dosage</String>
         </ConceptName>
-        <ConceptUMLSUI>C0001555</ConceptUMLSUI>
         <ScopeNote>Used with drugs for dosage forms, routes of administration, frequency and
           duration of administration, quantity of medication, and the effects of these factors. </ScopeNote>
         <SemanticTypeList>
@@ -527,7 +514,6 @@
         <ConceptName>
           <String>adverse effects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0001688</ConceptUMLSUI>
         <ScopeNote>Used with drugs, chemicals, or biological agents in accepted dosage - or with
           physical agents or manufactured products in normal usage - when intended for diagnostic,
           therapeutic, prophylactic, or anesthetic purposes. It is used also for adverse effects or
@@ -626,7 +612,6 @@
         <ConceptName>
           <String>analogs &amp; derivatives</String>
         </ConceptName>
-        <ConceptUMLSUI>C0002776</ConceptUMLSUI>
         <ScopeNote>Used with drugs and chemicals for substances that share the same parent molecule
           or have similar electronic structure but differ by the addition or substitution of other
           atoms or molecules. It is used when the specific chemical heading is not available and no
@@ -662,7 +647,6 @@
         <ConceptName>
           <String>related compounds</String>
         </ConceptName>
-        <ConceptUMLSUI>C0600686</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T104</SemanticTypeUI>
@@ -688,7 +672,6 @@
         <ConceptName>
           <String>derivatives</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243072</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T104</SemanticTypeUI>
@@ -787,7 +770,6 @@
         <ConceptName>
           <String>analysis</String>
         </ConceptName>
-        <ConceptUMLSUI>C1524024</ConceptUMLSUI>
         <ScopeNote>Used for the identification or quantitative determination of a substance or its
           constituents and metabolites; includes the analysis of air, water, or other environmental
           carrier. It excludes the chemical analysis of tissues, tumors, body fluids, organisms, and
@@ -829,7 +811,6 @@
         <ConceptName>
           <String>chemical analysis</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243074</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T059</SemanticTypeUI>
@@ -855,7 +836,6 @@
         <ConceptName>
           <String>determination</String>
         </ConceptName>
-        <ConceptUMLSUI>C1148554</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T059</SemanticTypeUI>
@@ -881,7 +861,6 @@
         <ConceptName>
           <String>assay</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243073</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T059</SemanticTypeUI>
@@ -975,7 +954,6 @@
         <ConceptName>
           <String>anatomy &amp; histology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0002809</ConceptUMLSUI>
         <ScopeNote>Used with organs, regions, and tissues for normal descriptive anatomy and
           histology, and for the normal anatomy and structure of animals and plants. </ScopeNote>
         <SemanticTypeList>
@@ -1014,7 +992,6 @@
         <ConceptName>
           <String>histology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0205462</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -1040,7 +1017,6 @@
         <ConceptName>
           <String>morphology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0543482</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T082</SemanticTypeUI>
@@ -1066,7 +1042,6 @@
         <ConceptName>
           <String>anatomy</String>
         </ConceptName>
-        <ConceptUMLSUI>C1384516</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T017</SemanticTypeUI>
@@ -1155,7 +1130,6 @@
         <ConceptName>
           <String>antagonists &amp; inhibitors</String>
         </ConceptName>
-        <ConceptUMLSUI>C0003139</ConceptUMLSUI>
         <ScopeNote>Used with chemicals, drugs, and endogenous substances to indicate substances or
           agents which counteract their biological effects by any mechanism. </ScopeNote>
         <SemanticTypeList>
@@ -1189,7 +1163,6 @@
         <ConceptName>
           <String>inhibitors</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243077</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T120</SemanticTypeUI>
@@ -1215,7 +1188,6 @@
         <ConceptName>
           <String>antagonists</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243076</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T120</SemanticTypeUI>
@@ -1298,7 +1270,6 @@
         <ConceptName>
           <String>biosynthesis</String>
         </ConceptName>
-        <ConceptUMLSUI>C0005572</ConceptUMLSUI>
         <ScopeNote>Used for the anabolic formation of chemical substances in organisms, in living
           cells, or by subcellular fractions. </ScopeNote>
         <SemanticTypeList>
@@ -1431,7 +1402,6 @@
         <ConceptName>
           <String>blood</String>
         </ConceptName>
-        <ConceptUMLSUI>C0005768</ConceptUMLSUI>
         <ScopeNote>Used for the presence or analysis of substances in the blood; also for
           examination of, or changes in, the blood in disease states. It excludes serodiagnosis, for
           which the subheading "diagnosis" is used, and serology, for which "immunology" is used. </ScopeNote>
@@ -1520,7 +1490,6 @@
         <ConceptName>
           <String>blood supply</String>
         </ConceptName>
-        <ConceptUMLSUI>C0005839</ConceptUMLSUI>
         <ScopeNote>Used for arterial, capillary, and venous systems of an organ or region whenever
           the specific heading for the vessel does not exist. It includes blood flow through the
           organ. </ScopeNote>
@@ -1556,7 +1525,6 @@
         <ConceptName>
           <String>microvasculature</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243079</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T042</SemanticTypeUI>
@@ -1679,7 +1647,6 @@
         <ConceptName>
           <String>cerebrospinal fluid</String>
         </ConceptName>
-        <ConceptUMLSUI>C0007807</ConceptUMLSUI>
         <ScopeNote>Used for the presence or analysis of substances in the cerebrospinal fluid; also
           for examination of or changes in cerebrospinal fluid in disease states. </ScopeNote>
         <SemanticTypeList>
@@ -1768,7 +1735,6 @@
         <ConceptName>
           <String>chemical synthesis</String>
         </ConceptName>
-        <ConceptUMLSUI>C0007987</ConceptUMLSUI>
         <ScopeNote>Used for the chemical preparation of molecules in vitro. For the formation of
           chemical substances in organisms, living cells, or subcellular fractions, "biosynthesis"
           is used. </ScopeNote>
@@ -1868,7 +1834,6 @@
         <ConceptName>
           <String>chemically induced</String>
         </ConceptName>
-        <ConceptUMLSUI>C0007994</ConceptUMLSUI>
         <ScopeNote>Used for biological phenomena, diseases, syndromes, congenital abnormalities, or
           symptoms caused by endogenous or exogenous substances. </ScopeNote>
         <SemanticTypeList>
@@ -2014,7 +1979,6 @@
         <ConceptName>
           <String>classification</String>
         </ConceptName>
-        <ConceptUMLSUI>C0008903</ConceptUMLSUI>
         <ScopeNote>Used for taxonomic or other systematic or hierarchical classification systems. </ScopeNote>
         <SemanticTypeList>
           <SemanticType>
@@ -2056,7 +2020,6 @@
         <ConceptName>
           <String>systematics</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220922</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -2082,7 +2045,6 @@
         <ConceptName>
           <String>hierarchies</String>
         </ConceptName>
-        <ConceptUMLSUI>C0699032</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -2190,7 +2152,6 @@
         <ConceptName>
           <String>complications</String>
         </ConceptName>
-        <ConceptUMLSUI>C1171258</ConceptUMLSUI>
         <ScopeNote>Used with diseases to indicate conditions that co-exist or follow, i.e.,
           co-existing diseases, complications, or sequelae. </ScopeNote>
         <SemanticTypeList>
@@ -2248,7 +2209,6 @@
         <ConceptName>
           <String>associated disease</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243083</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T046</SemanticTypeUI>
@@ -2274,7 +2234,6 @@
         <ConceptName>
           <String>coexistent conditions</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243084</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T046</SemanticTypeUI>
@@ -2300,7 +2259,6 @@
         <ConceptName>
           <String>sequels</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243089</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T046</SemanticTypeUI>
@@ -2326,7 +2284,6 @@
         <ConceptName>
           <String>concomitant conditions</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243086</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T046</SemanticTypeUI>
@@ -2352,7 +2309,6 @@
         <ConceptName>
           <String>concomitant disease</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243087</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T046</SemanticTypeUI>
@@ -2378,7 +2334,6 @@
         <ConceptName>
           <String>sequelae</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243088</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T046</SemanticTypeUI>
@@ -2404,7 +2359,6 @@
         <ConceptName>
           <String>associated conditions</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243082</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T046</SemanticTypeUI>
@@ -2430,7 +2384,6 @@
         <ConceptName>
           <String>coexistent disease</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243085</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T046</SemanticTypeUI>
@@ -2530,7 +2483,6 @@
         <ConceptName>
           <String>congenital</String>
         </ConceptName>
-        <ConceptUMLSUI>C0009678</ConceptUMLSUI>
         <ScopeNote>Used with disease headings to indicate those conditions existing at, and usually
           before, birth. It excludes morphologic abnormalities and birth injuries, for which
           "abnormalities" and "injuries" are used. </ScopeNote>
@@ -2638,7 +2590,6 @@
         <ConceptName>
           <String>cytology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0010820</ConceptUMLSUI>
         <ScopeNote>Used for cellular appearance of unicellular and multicellular organisms. </ScopeNote>
         <SemanticTypeList>
           <SemanticType>
@@ -2680,7 +2631,6 @@
         <ConceptName>
           <String>cellular morphology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243091</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T017</SemanticTypeUI>
@@ -2711,7 +2661,6 @@
         <ConceptName>
           <String>cell structure</String>
         </ConceptName>
-        <ConceptUMLSUI>C0935919</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T017</SemanticTypeUI>
@@ -2796,7 +2745,6 @@
         <ConceptName>
           <String>deficiency</String>
         </ConceptName>
-        <ConceptUMLSUI>C1623416</ConceptUMLSUI>
         <ScopeNote>Used with endogenous and exogenous substances which are absent or in diminished
           amount relative to the normal requirement of an organism or a biologic system. </ScopeNote>
         <SemanticTypeList>
@@ -2899,7 +2847,6 @@
         <ConceptName>
           <String>diagnosis</String>
         </ConceptName>
-        <ConceptUMLSUI>C1704338</ConceptUMLSUI>
         <ScopeNote>Used with diseases for all aspects of diagnosis, including examination,
           differential diagnosis and prognosis; excludes mass screening for which "prevention &amp;
           control" is used. Excludes radiographic diagnosis for which "radiography" is used;
@@ -2948,7 +2895,6 @@
         <ConceptName>
           <String>symptoms</String>
         </ConceptName>
-        <ConceptUMLSUI>C0683368</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -2974,7 +2920,6 @@
         <ConceptName>
           <String>screening</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220909</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -3000,7 +2945,6 @@
         <ConceptName>
           <String>signs</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220912</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -3026,7 +2970,6 @@
         <ConceptName>
           <String>differential diagnosis</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220820</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -3052,7 +2995,6 @@
         <ConceptName>
           <String>findings</String>
         </ConceptName>
-        <ConceptUMLSUI>C2607943</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -3144,7 +3086,6 @@
         <ConceptName>
           <String>diagnostic use</String>
         </ConceptName>
-        <ConceptUMLSUI>C0011933</ConceptUMLSUI>
         <ScopeNote>Used with chemical compounds, drugs, and physical agents when these substances
           are used for studies of clinical function of an organ, or for the diagnosis of human or
           animal diseases. </ScopeNote>
@@ -3247,7 +3188,6 @@
         <ConceptName>
           <String>diet therapy</String>
         </ConceptName>
-        <ConceptUMLSUI>C0012160</ConceptUMLSUI>
         <ScopeNote>Used with disease headings for dietary and nutritional management of the disease.
           The concept does not include vitamin or mineral supplements, for which "drug therapy" may
           be used. </ScopeNote>
@@ -3378,7 +3318,6 @@
         <ConceptName>
           <String>drug effects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0728866</ConceptUMLSUI>
         <ScopeNote>Used with organs, regions, tissues, or organisms and physiological and
           psychological processes for the effects of drugs and chemicals. </ScopeNote>
         <SemanticTypeList>
@@ -3491,7 +3430,6 @@
         <ConceptName>
           <String>drug therapy</String>
         </ConceptName>
-        <ConceptUMLSUI>C0013217</ConceptUMLSUI>
         <ScopeNote>Used with disease headings for the treatment of disease by the administration of
           drugs, chemicals, and antibiotics. For diet therapy and radiotherapy, use specific
           subheadings. Excludes immunotherapy for which "therapy" is used. </ScopeNote>
@@ -3644,7 +3582,6 @@
         <ConceptName>
           <String>economics</String>
         </ConceptName>
-        <ConceptUMLSUI>C0013557</ConceptUMLSUI>
         <ScopeNote>Used for the economic aspects of any subject, as well as for all aspects of
           financial management. It includes the raising or providing of funds. </ScopeNote>
         <SemanticTypeList>
@@ -3702,7 +3639,6 @@
         <ConceptName>
           <String>fees</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220828</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -3728,7 +3664,6 @@
         <ConceptName>
           <String>salaries</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220907</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -3754,7 +3689,6 @@
         <ConceptName>
           <String>financial management</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220830</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -3780,7 +3714,6 @@
         <ConceptName>
           <String>financing</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243097</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -3806,7 +3739,6 @@
         <ConceptName>
           <String>funding</String>
         </ConceptName>
-        <ConceptUMLSUI>C0376244</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -3832,7 +3764,6 @@
         <ConceptName>
           <String>cost</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220812</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -3858,7 +3789,6 @@
         <ConceptName>
           <String>finances</String>
         </ConceptName>
-        <ConceptUMLSUI>C0376243</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -3940,7 +3870,6 @@
         <ConceptName>
           <String>education</String>
         </ConceptName>
-        <ConceptUMLSUI>C0013622</ConceptUMLSUI>
         <ScopeNote>Used for education, training programs, and courses in various fields and
           disciplines, and for training groups of persons. </ScopeNote>
         <SemanticTypeList>
@@ -3978,7 +3907,6 @@
         <ConceptName>
           <String>teaching</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220924</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T065</SemanticTypeUI>
@@ -4004,7 +3932,6 @@
         <ConceptName>
           <String>training</String>
         </ConceptName>
-        <ConceptUMLSUI>C2673163</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T065</SemanticTypeUI>
@@ -4030,7 +3957,6 @@
         <ConceptName>
           <String>curriculum</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220815</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T065</SemanticTypeUI>
@@ -4150,7 +4076,6 @@
         <ConceptName>
           <String>embryology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0013943</ConceptUMLSUI>
         <ScopeNote>Used with organs, regions, and animal headings for embryologic and fetal
           development. It is used also with diseases for embryologic factors contributing to
           postnatal disorders. </ScopeNote>
@@ -4193,7 +4118,6 @@
         <ConceptName>
           <String>prenatal development</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243101</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -4219,7 +4143,6 @@
         <ConceptName>
           <String>fetal development</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220829</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -4245,7 +4168,6 @@
         <ConceptName>
           <String>embryonic aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243099</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -4271,7 +4193,6 @@
         <ConceptName>
           <String>embryonic development</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243100</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -4397,7 +4318,6 @@
         <ConceptName>
           <String>enzymology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0014445</ConceptUMLSUI>
         <ScopeNote>Used with organisms, except vertebrates, and with organs and tissues. It is also
           used with diseases for enzymes during the course of the disease, but excludes diagnostic
           enzyme tests, for which "diagnosis" is used. </ScopeNote>
@@ -4437,7 +4357,6 @@
         <ConceptName>
           <String>enzyme activity</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243102</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -4545,7 +4464,6 @@
         <ConceptName>
           <String>ethnology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0015033</ConceptUMLSUI>
         <ScopeNote>Used with diseases for ethnic, cultural, or anthropological aspects, and with
           geographic headings to indicate the place of origin of a group of people. </ScopeNote>
         <SemanticTypeList>
@@ -4583,7 +4501,6 @@
         <ConceptName>
           <String>culture</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220814</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -4609,7 +4526,6 @@
         <ConceptName>
           <String>ethnicity</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243103</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T080</SemanticTypeUI>
@@ -4635,7 +4551,6 @@
         <ConceptName>
           <String>anthropology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220785</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -4738,7 +4653,6 @@
         <ConceptName>
           <String>etiology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0015127</ConceptUMLSUI>
         <ScopeNote>Used with diseases for causative agents including microorganisms and includes
           environmental and social factors and personal habits as contributing factors. It includes
           pathogenesis. </ScopeNote>
@@ -4779,7 +4693,6 @@
         <ConceptName>
           <String>pathogenesis</String>
         </ConceptName>
-        <ConceptUMLSUI>C0543483</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -4917,7 +4830,6 @@
         <ConceptName>
           <String>genetics</String>
         </ConceptName>
-        <ConceptUMLSUI>C0017399</ConceptUMLSUI>
         <ScopeNote>Used for mechanisms of heredity and the genetics of organisms, for the genetic
           basis of normal and pathologic states, and for the genetic aspects of endogenous
           chemicals. It includes biochemical and molecular influence on genetic material. </ScopeNote>
@@ -4948,7 +4860,6 @@
         <ConceptName>
           <String>heredity</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220848</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T038</SemanticTypeUI>
@@ -5046,7 +4957,6 @@
         <ConceptName>
           <String>growth &amp; development</String>
         </ConceptName>
-        <ConceptUMLSUI>C1457898</ConceptUMLSUI>
         <ScopeNote>Used with microorganisms, plants, and the postnatal period of animals for growth
           and development. It includes also the postnatal growth or development of organs or
           anatomical parts. </ScopeNote>
@@ -5094,7 +5004,6 @@
         <ConceptName>
           <String>postnatal growth</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243109</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T040</SemanticTypeUI>
@@ -5120,7 +5029,6 @@
         <ConceptName>
           <String>postnatal development</String>
         </ConceptName>
-        <ConceptUMLSUI>C1135598</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T040</SemanticTypeUI>
@@ -5146,7 +5054,6 @@
         <ConceptName>
           <String>development</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243107</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T039</SemanticTypeUI>
@@ -5172,7 +5079,6 @@
         <ConceptName>
           <String>growth</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220844</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T039</SemanticTypeUI>
@@ -5312,7 +5218,6 @@
         <ConceptName>
           <String>history</String>
         </ConceptName>
-        <ConceptUMLSUI>C0019665</ConceptUMLSUI>
         <ScopeNote>Used for the historical aspects of any subject. It includes brief historical
           notes but excludes case histories. </ScopeNote>
         <SemanticTypeList>
@@ -5347,7 +5252,6 @@
         <ConceptName>
           <String>historical notes</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243110</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T170</SemanticTypeUI>
@@ -5512,7 +5416,6 @@
         <ConceptName>
           <String>immunology</String>
         </ConceptName>
-        <ConceptUMLSUI>C1522005</ConceptUMLSUI>
         <ScopeNote>Used for immunologic studies of tissues, organs, microorganisms, fungi, viruses,
           and animals. It includes immunologic aspects of diseases but not immunologic procedures
           used for diagnostic, preventive, or therapeutic purposes, for which "diagnosis",
@@ -5545,7 +5448,6 @@
         <ConceptName>
           <String>serology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220911</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -5635,7 +5537,6 @@
         <ConceptName>
           <String>injuries</String>
         </ConceptName>
-        <ConceptUMLSUI>C1510467</ConceptUMLSUI>
         <ScopeNote>Used with anatomic headings, animals, and sports for wounds and injuries.
           Excludes cell damage, for which "pathology" is used. </ScopeNote>
         <SemanticTypeList>
@@ -5670,7 +5571,6 @@
         <ConceptName>
           <String>wounds</String>
         </ConceptName>
-        <ConceptUMLSUI>C0021501</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T037</SemanticTypeUI>
@@ -5759,7 +5659,6 @@
         <ConceptName>
           <String>innervation</String>
         </ConceptName>
-        <ConceptUMLSUI>C1619351</ConceptUMLSUI>
         <ScopeNote>Used with organs, regions, or tissues for their nerve supply. </ScopeNote>
         <SemanticTypeList>
           <SemanticType>
@@ -5846,7 +5745,6 @@
         <ConceptName>
           <String>instrumentation</String>
         </ConceptName>
-        <ConceptUMLSUI>C0021632</ConceptUMLSUI>
         <ScopeNote>Used with diagnostic or therapeutic procedures, analytic techniques, and
           specialties or disciplines, for the development or modification of apparatus, instruments,
           or equipment. </ScopeNote>
@@ -5893,7 +5791,6 @@
         <ConceptName>
           <String>instruments</String>
         </ConceptName>
-        <ConceptUMLSUI>C0348000</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T073</SemanticTypeUI>
@@ -5919,7 +5816,6 @@
         <ConceptName>
           <String>devices</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220819</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T073</SemanticTypeUI>
@@ -5945,7 +5841,6 @@
         <ConceptName>
           <String>equipment</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220824</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T073</SemanticTypeUI>
@@ -5971,7 +5866,6 @@
         <ConceptName>
           <String>apparatus</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243111</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T073</SemanticTypeUI>
@@ -5997,7 +5891,6 @@
         <ConceptName>
           <String>appliances</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243112</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T073</SemanticTypeUI>
@@ -6095,7 +5988,6 @@
         <ConceptName>
           <String>isolation &amp; purification</String>
         </ConceptName>
-        <ConceptUMLSUI>C0022189</ConceptUMLSUI>
         <ScopeNote>Used with bacteria, viruses, fungi, protozoa, and helminths for the obtaining of
           pure strains or for the demonstration of the presence of or identification of organisms by
           DNA analyses, immunologic, or other methods, including culture techniques. It is used also
@@ -6137,7 +6029,6 @@
         <ConceptName>
           <String>purification</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243114</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T059</SemanticTypeUI>
@@ -6167,7 +6058,6 @@
         <ConceptName>
           <String>isolation</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220862</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T059</SemanticTypeUI>
@@ -6258,7 +6148,6 @@
         <ConceptName>
           <String>legislation &amp; jurisprudence</String>
         </ConceptName>
-        <ConceptUMLSUI>C0023242</ConceptUMLSUI>
         <ScopeNote>Used for laws, statutes, ordinances, or government regulations, as well as for
           legal controversy and court decisions. </ScopeNote>
         <SemanticTypeList>
@@ -6337,7 +6226,6 @@
         <ConceptName>
           <String>court decisions</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220813</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6363,7 +6251,6 @@
         <ConceptName>
           <String>government regulations</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220842</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6389,7 +6276,6 @@
         <ConceptName>
           <String>judicial aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243116</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6415,7 +6301,6 @@
         <ConceptName>
           <String>juridical aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243117</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6441,7 +6326,6 @@
         <ConceptName>
           <String>statutes</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243121</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6467,7 +6351,6 @@
         <ConceptName>
           <String>lawsuits</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243118</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6493,7 +6376,6 @@
         <ConceptName>
           <String>legal aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220868</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6524,7 +6406,6 @@
         <ConceptName>
           <String>litigation</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220872</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6550,7 +6431,6 @@
         <ConceptName>
           <String>medicolegal aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243119</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6576,7 +6456,6 @@
         <ConceptName>
           <String>ordinances</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243120</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6602,7 +6481,6 @@
         <ConceptName>
           <String>regulations</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220905</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6628,7 +6506,6 @@
         <ConceptName>
           <String>civil suits</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243115</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6654,7 +6531,6 @@
         <ConceptName>
           <String>laws</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220866</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T089</SemanticTypeUI>
@@ -6735,7 +6611,6 @@
         <ConceptName>
           <String>manpower</String>
         </ConceptName>
-        <ConceptUMLSUI>C0024752</ConceptUMLSUI>
         <ScopeNote>Used with disciplines and programs for the demand, supply, distribution,
           recruitment, and use of personnel. </ScopeNote>
         <SemanticTypeList>
@@ -6914,7 +6789,6 @@
         <ConceptName>
           <String>metabolism</String>
         </ConceptName>
-        <ConceptUMLSUI>C0025520</ConceptUMLSUI>
         <ScopeNote>Used with organs, cells and subcellular fractions, organisms, and diseases for
           biochemical changes and metabolism. It is used also with drugs and chemicals for catabolic
           changes (breakdown of complex molecules into simpler ones). For anabolic processes
@@ -6975,7 +6849,6 @@
         <ConceptName>
           <String>biodegradation</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220796</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -7001,7 +6874,6 @@
         <ConceptName>
           <String>biotransformation</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220798</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -7027,7 +6899,6 @@
         <ConceptName>
           <String>turnover</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243127</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -7053,7 +6924,6 @@
         <ConceptName>
           <String>degradation</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243125</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -7079,7 +6949,6 @@
         <ConceptName>
           <String>incorporation</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243126</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -7105,7 +6974,6 @@
         <ConceptName>
           <String>mobilization</String>
         </ConceptName>
-        <ConceptUMLSUI>C0300926</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -7131,7 +6999,6 @@
         <ConceptName>
           <String>biochemical pathways</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243123</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -7157,7 +7024,6 @@
         <ConceptName>
           <String>catabolism</String>
         </ConceptName>
-        <ConceptUMLSUI>C0543484</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -7241,7 +7107,6 @@
         <ConceptName>
           <String>methods</String>
         </ConceptName>
-        <ConceptUMLSUI>C0025664</ConceptUMLSUI>
         <ScopeNote>Used with techniques, procedures, and programs for methods. </ScopeNote>
         <SemanticTypeList>
           <SemanticType>
@@ -7280,7 +7145,6 @@
         <ConceptName>
           <String>methodology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0969625</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T170</SemanticTypeUI>
@@ -7407,7 +7271,6 @@
         <ConceptName>
           <String>microbiology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0025953</ConceptUMLSUI>
         <ScopeNote>Used with organs, animals, and higher plants and with diseases for microbiologic
           studies. For parasites, "parasitology" is used; for viruses, "virology" is used. </ScopeNote>
         <SemanticTypeList>
@@ -7453,7 +7316,6 @@
         <ConceptName>
           <String>rickettsia</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220906</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -7479,7 +7341,6 @@
         <ConceptName>
           <String>fungi</String>
         </ConceptName>
-        <ConceptUMLSUI>C0521033</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -7505,7 +7366,6 @@
         <ConceptName>
           <String>mycology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0205467</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T170</SemanticTypeUI>
@@ -7531,7 +7391,6 @@
         <ConceptName>
           <String>bacteria</String>
         </ConceptName>
-        <ConceptUMLSUI>C1510439</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -7557,7 +7416,6 @@
         <ConceptName>
           <String>bacteriology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220790</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T170</SemanticTypeUI>
@@ -7663,7 +7521,6 @@
         <ConceptName>
           <String>mortality</String>
         </ConceptName>
-        <ConceptUMLSUI>C0026566</ConceptUMLSUI>
         <ScopeNote>Used with human and veterinary diseases for mortality statistics. For deaths
           resulting from various procedures statistically but for a death resulting in a specific
           case, use FATAL OUTCOME, not /mortality. </ScopeNote>
@@ -7702,7 +7559,6 @@
         <ConceptName>
           <String>survival</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220921</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -7728,7 +7584,6 @@
         <ConceptName>
           <String>death rate</String>
         </ConceptName>
-        <ConceptUMLSUI>C1108678</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -7836,7 +7691,6 @@
         <ConceptName>
           <String>nursing</String>
         </ConceptName>
-        <ConceptUMLSUI>C0028678</ConceptUMLSUI>
         <ScopeNote>Used with diseases for nursing care and techniques in their management. It
           includes the nursing role in diagnostic, therapeutic, and preventive procedures. </ScopeNote>
         <SemanticTypeList>
@@ -7871,7 +7725,6 @@
         <ConceptName>
           <String>home care</String>
         </ConceptName>
-        <ConceptUMLSUI>C0994454</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T058</SemanticTypeUI>
@@ -7979,7 +7832,6 @@
         <ConceptName>
           <String>epidemiology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0014508</ConceptUMLSUI>
         <ScopeNote>Used with human and veterinary diseases for the distribution of disease, factors
           which cause disease, and the attributes of disease in defined populations; includes
           incidence, frequency, prevalence, endemic and epidemic outbreaks; also surveys and
@@ -8045,7 +7897,6 @@
         <ConceptName>
           <String>epidemics</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220823</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -8071,7 +7922,6 @@
         <ConceptName>
           <String>frequency</String>
         </ConceptName>
-        <ConceptUMLSUI>C0376249</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -8097,7 +7947,6 @@
         <ConceptName>
           <String>surveillance</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220920</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -8123,7 +7972,6 @@
         <ConceptName>
           <String>morbidity</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220880</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T170</SemanticTypeUI>
@@ -8149,7 +7997,6 @@
         <ConceptName>
           <String>occurrence</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243132</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -8175,7 +8022,6 @@
         <ConceptName>
           <String>outbreaks</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220888</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -8201,7 +8047,6 @@
         <ConceptName>
           <String>prevalence</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220900</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -8227,7 +8072,6 @@
         <ConceptName>
           <String>endemics</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243130</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -8253,7 +8097,6 @@
         <ConceptName>
           <String>incidence</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220856</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -8335,7 +8178,6 @@
         <ConceptName>
           <String>organization &amp; administration</String>
         </ConceptName>
-        <ConceptUMLSUI>C0029236</ConceptUMLSUI>
         <ScopeNote>Used for administrative structure and management. </ScopeNote>
         <SemanticTypeList>
           <SemanticType>
@@ -8381,7 +8223,6 @@
         <ConceptName>
           <String>organizational management</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243135</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T057</SemanticTypeUI>
@@ -8407,7 +8248,6 @@
         <ConceptName>
           <String>administrative structure</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243134</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T057</SemanticTypeUI>
@@ -8433,7 +8273,6 @@
         <ConceptName>
           <String>organization</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220885</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T080</SemanticTypeUI>
@@ -8459,7 +8298,6 @@
         <ConceptName>
           <String>organizational structure</String>
         </ConceptName>
-        <ConceptUMLSUI>C1510440</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T057</SemanticTypeUI>
@@ -8485,7 +8323,6 @@
         <ConceptName>
           <String>administrative management</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243133</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T057</SemanticTypeUI>
@@ -8612,7 +8449,6 @@
         <ConceptName>
           <String>parasitology</String>
         </ConceptName>
-        <ConceptUMLSUI>C2239174</ConceptUMLSUI>
         <ScopeNote>Used with animals, higher plants, organs, and diseases for parasitic factors. In
           diseases, it is not used if the parasitic involvement is implicit in the diagnosis. </ScopeNote>
         <SemanticTypeList>
@@ -8658,7 +8494,6 @@
         <ConceptName>
           <String>protozoology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243138</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -8684,7 +8519,6 @@
         <ConceptName>
           <String>parasites</String>
         </ConceptName>
-        <ConceptUMLSUI>C0521066</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -8710,7 +8544,6 @@
         <ConceptName>
           <String>protozoa</String>
         </ConceptName>
-        <ConceptUMLSUI>C1562573</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -8736,7 +8569,6 @@
         <ConceptName>
           <String>helminthology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243137</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -8762,7 +8594,6 @@
         <ConceptName>
           <String>helminths</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220846</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -8843,7 +8674,6 @@
         <ConceptName>
           <String>pathogenicity</String>
         </ConceptName>
-        <ConceptUMLSUI>C0030657</ConceptUMLSUI>
         <ScopeNote>Used with microorganisms, viruses, and parasites for studies of their ability to
           cause disease in man, animals, or plants. </ScopeNote>
         <SemanticTypeList>
@@ -8878,7 +8708,6 @@
         <ConceptName>
           <String>virulence</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220936</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T080</SemanticTypeUI>
@@ -9003,7 +8832,6 @@
         <ConceptName>
           <String>pathology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0205469</ConceptUMLSUI>
         <ScopeNote>Used for organ, tissue, or cell structure in disease states. </ScopeNote>
         <SemanticTypeList>
           <SemanticType>
@@ -9040,7 +8868,6 @@
         <ConceptName>
           <String>cytopathology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243139</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -9066,7 +8893,6 @@
         <ConceptName>
           <String>histopathology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243140</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -9092,7 +8918,6 @@
         <ConceptName>
           <String>biopsy</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220797</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -9188,7 +9013,6 @@
         <ConceptName>
           <String>pharmacokinetics</String>
         </ConceptName>
-        <ConceptUMLSUI>C0031328</ConceptUMLSUI>
         <ScopeNote>Used for the mechanism, dynamics and kinetics of exogenous chemical and drug
           absorption, biotransformation, distribution, release, transport, uptake and elimination as
           a function of dosage, extent and rate of metabolic processes. </ScopeNote>
@@ -9239,7 +9063,6 @@
         <ConceptName>
           <String>binding</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243122</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -9265,7 +9088,6 @@
         <ConceptName>
           <String>toxicokinetics</String>
         </ConceptName>
-        <ConceptUMLSUI>C0282690</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -9291,7 +9113,6 @@
         <ConceptName>
           <String>kinetics</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220865</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -9317,7 +9138,6 @@
         <ConceptName>
           <String>tissue distribution</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220927</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -9343,7 +9163,6 @@
         <ConceptName>
           <String>absorption</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220777</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -9369,7 +9188,6 @@
         <ConceptName>
           <String>biochemical transport</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243143</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -9464,7 +9282,6 @@
         <ConceptName>
           <String>pharmacology</String>
         </ConceptName>
-        <ConceptUMLSUI>C1524059</ConceptUMLSUI>
         <ScopeNote>Used with drugs and exogenously administered chemical substances for their
           effects on living tissues and organisms. It includes acceleration and inhibition of
           physiological and biochemical processes and other pharmacologic mechanisms of action. </ScopeNote>
@@ -9509,7 +9326,6 @@
         <ConceptName>
           <String>pharmacologic action</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243146</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -9535,7 +9351,6 @@
         <ConceptName>
           <String>pharmacodynamics</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243145</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -9660,7 +9475,6 @@
         <ConceptName>
           <String>physiology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0031843</ConceptUMLSUI>
         <ScopeNote>Used with organs, tissues, and cells of unicellular and multicellular organisms
           for normal function. It is used also with biochemical substances, endogenously produced,
           for their physiologic role. </ScopeNote>
@@ -9781,7 +9595,6 @@
         <ConceptName>
           <String>physiopathology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0031847</ConceptUMLSUI>
         <ScopeNote>Used with organs and diseases for disordered function in disease states. </ScopeNote>
         <SemanticTypeList>
           <SemanticType>
@@ -9883,7 +9696,6 @@
         <ConceptName>
           <String>poisoning</String>
         </ConceptName>
-        <ConceptUMLSUI>C0032344</ConceptUMLSUI>
         <ScopeNote>Used with drugs, chemicals, and industrial materials for human or animal
           poisoning, acute or chronic, whether the poisoning is accidental, occupational, suicidal,
           by medication error, or by environmental exposure. </ScopeNote>
@@ -9914,7 +9726,6 @@
         <ConceptName>
           <String>poisonous effects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243147</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -10018,7 +9829,6 @@
         <ConceptName>
           <String>prevention &amp; control</String>
         </ConceptName>
-        <ConceptUMLSUI>C0033107</ConceptUMLSUI>
         <ScopeNote>Used with disease headings for increasing human or animal resistance against
           disease (e.g., immunization), for control of transmission agents, for prevention and
           control of environmental hazards, or for prevention and control of social factors leading
@@ -10070,7 +9880,6 @@
         <ConceptName>
           <String>prevention</String>
         </ConceptName>
-        <ConceptUMLSUI>C2700409</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T061</SemanticTypeUI>
@@ -10096,7 +9905,6 @@
         <ConceptName>
           <String>control</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243148</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -10210,7 +10018,6 @@
         <ConceptName>
           <String>psychology</String>
         </ConceptName>
-        <ConceptUMLSUI>C1524060</ConceptUMLSUI>
         <ScopeNote>Used with non-psychiatric diseases, techniques, and named groups for psychologic,
           psychiatric, psychosomatic, psychosocial, behavioral, and emotional aspects, and with
           psychiatric disease for psychologic aspects; used also with animal terms for animal
@@ -10270,7 +10077,6 @@
         <ConceptName>
           <String>cognitive aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243151</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T078</SemanticTypeUI>
@@ -10296,7 +10102,6 @@
         <ConceptName>
           <String>emotional aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243152</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T078</SemanticTypeUI>
@@ -10322,7 +10127,6 @@
         <ConceptName>
           <String>psychosomatic aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243157</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T078</SemanticTypeUI>
@@ -10348,7 +10152,6 @@
         <ConceptName>
           <String>psychiatric aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243154</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T078</SemanticTypeUI>
@@ -10374,7 +10177,6 @@
         <ConceptName>
           <String>psychogenic aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243155</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T078</SemanticTypeUI>
@@ -10400,7 +10202,6 @@
         <ConceptName>
           <String>psychosocial aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243156</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T078</SemanticTypeUI>
@@ -10426,7 +10227,6 @@
         <ConceptName>
           <String>affective aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243150</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T078</SemanticTypeUI>
@@ -10452,7 +10252,6 @@
         <ConceptName>
           <String>mental aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C1135599</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T078</SemanticTypeUI>
@@ -10587,7 +10386,6 @@
         <ConceptName>
           <String>radiation effects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0034526</ConceptUMLSUI>
         <ScopeNote>Used for effects of ionizing and nonionizing radiation upon living organisms,
           organs and tissues, and their constituents, and upon physiologic processes. It includes
           the effect of irradiation on drugs and chemicals. </ScopeNote>
@@ -10708,7 +10506,6 @@
         <ConceptName>
           <String>radiography</String>
         </ConceptName>
-        <ConceptUMLSUI>C0034571</ConceptUMLSUI>
         <ScopeNote>Used with organs, regions, and diseases for x-ray examinations. It does not
           include radionuclide imaging for which "radionuclide imaging" is used. </ScopeNote>
         <SemanticTypeList>
@@ -10848,7 +10645,6 @@
         <ConceptName>
           <String>radionuclide imaging</String>
         </ConceptName>
-        <ConceptUMLSUI>C0034607</ConceptUMLSUI>
         <ScopeNote>Used for radionuclide imaging of any anatomical structure, or for the diagnosis
           of disease. </ScopeNote>
         <SemanticTypeList>
@@ -10953,7 +10749,6 @@
         <ConceptName>
           <String>radiotherapy</String>
         </ConceptName>
-        <ConceptUMLSUI>C0034619</ConceptUMLSUI>
         <ScopeNote>Used with disease headings for the therapeutic use of ionizing and nonionizing
           radiation. It includes the use of radioisotope therapy. </ScopeNote>
         <SemanticTypeList>
@@ -10992,7 +10787,6 @@
         <ConceptName>
           <String>X-ray therapy</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220941</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T170</SemanticTypeUI>
@@ -11018,7 +10812,6 @@
         <ConceptName>
           <String>radioisotope therapy</String>
         </ConceptName>
-        <ConceptUMLSUI>C0543487</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T170</SemanticTypeUI>
@@ -11122,7 +10915,6 @@
         <ConceptName>
           <String>rehabilitation</String>
         </ConceptName>
-        <ConceptUMLSUI>C0034992</ConceptUMLSUI>
         <ScopeNote>Used with diseases and surgical procedures for restoration of function of the
           individual. </ScopeNote>
         <SemanticTypeList>
@@ -11196,7 +10988,6 @@
         <ConceptName>
           <String>secondary</String>
         </ConceptName>
-        <ConceptUMLSUI>C1522484</ConceptUMLSUI>
         <ScopeNote>Used with neoplasms to indicate the secondary location to which the neoplastic
           process has metastasized. </ScopeNote>
         <SemanticTypeList>
@@ -11294,7 +11085,6 @@
         <ConceptName>
           <String>secretion</String>
         </ConceptName>
-        <ConceptUMLSUI>C0036536</ConceptUMLSUI>
         <ScopeNote>Used for the discharge across the cell membrane, into the extracellular space or
           ducts, of endogenous substances resulting from the activity of intact cells of glands,
           tissues, or organs. </ScopeNote>
@@ -11403,7 +11193,6 @@
         <ConceptName>
           <String>standards</String>
         </ConceptName>
-        <ConceptUMLSUI>C0038137</ConceptUMLSUI>
         <ScopeNote>Used with facilities, personnel, and program headings for the development,
           testing, and application of standards of adequacy or acceptable performance and with
           chemicals and drugs for standards of identification, quality, and potency. It includes
@@ -11439,7 +11228,6 @@
         <ConceptName>
           <String>guidelines</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220845</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T170</SemanticTypeUI>
@@ -11465,7 +11253,6 @@
         <ConceptName>
           <String>criteria</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243161</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T170</SemanticTypeUI>
@@ -11563,7 +11350,6 @@
         <ConceptName>
           <String>supply &amp; distribution</String>
         </ConceptName>
-        <ConceptUMLSUI>C0038849</ConceptUMLSUI>
         <ScopeNote>Used for the quantitative availability and distribution of material, equipment,
           health services, personnel, and facilities. It excludes food supply and water supply in
           industries and occupations. </ScopeNote>
@@ -11598,7 +11384,6 @@
         <ConceptName>
           <String>supply</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243163</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T078</SemanticTypeUI>
@@ -11624,7 +11409,6 @@
         <ConceptName>
           <String>distribution</String>
         </ConceptName>
-        <ConceptUMLSUI>C0520511</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T078</SemanticTypeUI>
@@ -11741,7 +11525,6 @@
         <ConceptName>
           <String>surgery</String>
         </ConceptName>
-        <ConceptUMLSUI>C0038895</ConceptUMLSUI>
         <ScopeNote>Used for operative procedures on organs, regions, or tissues in the treatment of
           diseases, including tissue section by lasers. It excludes transplantation, for which
           "transplantation" is used. </ScopeNote>
@@ -11804,7 +11587,6 @@
         <ConceptName>
           <String>peroperative procedures</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243167</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -11830,7 +11612,6 @@
         <ConceptName>
           <String>perioperative procedures</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243166</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -11856,7 +11637,6 @@
         <ConceptName>
           <String>preoperative procedures</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220899</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -11882,7 +11662,6 @@
         <ConceptName>
           <String>intraoperative procedures</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243164</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -11974,7 +11753,6 @@
         <ConceptName>
           <String>therapeutic use</String>
         </ConceptName>
-        <ConceptUMLSUI>C0039795</ConceptUMLSUI>
         <ScopeNote>Used with drugs, biological preparations, and physical agents for their use in
           the prophylaxis and treatment of disease. It includes veterinary use. </ScopeNote>
         <SemanticTypeList>
@@ -12079,7 +11857,6 @@
         <ConceptName>
           <String>therapy</String>
         </ConceptName>
-        <ConceptUMLSUI>C0039798</ConceptUMLSUI>
         <ScopeNote>Used with diseases for therapeutic interventions except drug therapy, diet
           therapy, radiotherapy, and surgery, for which specific subheadings exist. The concept is
           also used for articles and books dealing with multiple therapies. </ScopeNote>
@@ -12183,7 +11960,6 @@
         <ConceptName>
           <String>toxicity</String>
         </ConceptName>
-        <ConceptUMLSUI>C0040539</ConceptUMLSUI>
         <ScopeNote>Used with drugs and chemicals for experimental human and animal studies of their
           ill effects. It includes studies to determine the margin of safety or the reactions
           accompanying administration at various dose levels. It is used also for exposure to
@@ -12220,7 +11996,6 @@
         <ConceptName>
           <String>toxic potential</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243169</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -12246,7 +12021,6 @@
         <ConceptName>
           <String>margin of safety</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243168</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -12327,7 +12101,6 @@
         <ConceptName>
           <String>transmission</String>
         </ConceptName>
-        <ConceptUMLSUI>C0040722</ConceptUMLSUI>
         <ScopeNote>Used with diseases for studies of the modes of transmission. </ScopeNote>
         <SemanticTypeList>
           <SemanticType>
@@ -12416,7 +12189,6 @@
         <ConceptName>
           <String>transplantation</String>
         </ConceptName>
-        <ConceptUMLSUI>C0040733</ConceptUMLSUI>
         <ScopeNote>Used with organs, tissues, or cells for transplantation from one site to another
           within the same subject, or from one subject to another of the same species or different
           species. </ScopeNote>
@@ -12447,7 +12219,6 @@
         <ConceptName>
           <String>grafting</String>
         </ConceptName>
-        <ConceptUMLSUI>C1527362</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -12545,7 +12316,6 @@
         <ConceptName>
           <String>trends</String>
         </ConceptName>
-        <ConceptUMLSUI>C0040833</ConceptUMLSUI>
         <ScopeNote>Used for the manner in which a subject changes, qualitatively or quantitatively,
           with time, whether past, present, or future. It excludes discussions of the course of
           disease in particular patients. </ScopeNote>
@@ -12580,7 +12350,6 @@
         <ConceptName>
           <String>futurology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220835</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T079</SemanticTypeUI>
@@ -12606,7 +12375,6 @@
         <ConceptName>
           <String>forecasting</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220831</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T079</SemanticTypeUI>
@@ -12712,7 +12480,6 @@
         <ConceptName>
           <String>ultrastructure</String>
         </ConceptName>
-        <ConceptUMLSUI>C0041623</ConceptUMLSUI>
         <ScopeNote>Used with tissues and cells (including neoplasms) and microorganisms for
           microanatomic structures, generally below the size visible by light microscopy. </ScopeNote>
         <SemanticTypeList>
@@ -12844,7 +12611,6 @@
         <ConceptName>
           <String>urine</String>
         </ConceptName>
-        <ConceptUMLSUI>C0042037</ConceptUMLSUI>
         <ScopeNote>Used for the presence or analysis of substances in the urine, and also for the
           examination of, or changes in, the urine in disease. </ScopeNote>
         <SemanticTypeList>
@@ -12878,7 +12644,6 @@
         <ConceptName>
           <String>urinary levels</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243173</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -12904,7 +12669,6 @@
         <ConceptName>
           <String>urinary aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243172</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -12992,7 +12756,6 @@
         <ConceptName>
           <String>utilization</String>
         </ConceptName>
-        <ConceptUMLSUI>C0042153</ConceptUMLSUI>
         <ScopeNote>Used with equipment, facilities, programs, services, and health personnel for
           discussions, usually with data, of how much they are used. It includes discussions of
           overuse and underuse. </ScopeNote>
@@ -13106,7 +12869,6 @@
         <ConceptName>
           <String>veterinary</String>
         </ConceptName>
-        <ConceptUMLSUI>C0042614</ConceptUMLSUI>
         <ScopeNote>Used for naturally occurring diseases in animals, or for diagnostic, preventive,
           or therapeutic procedures used in veterinary medicine. </ScopeNote>
         <SemanticTypeList>
@@ -13199,7 +12961,6 @@
         <ConceptName>
           <String>statistics &amp; numerical data</String>
         </ConceptName>
-        <ConceptUMLSUI>C0038209</ConceptUMLSUI>
         <ScopeNote>Used with non-disease headings for the expression of numerical values which
           describe particular sets or groups of data. It excludes manpower distribution for which
           "manpower" is used and excludes supply or demand for which "supply &amp; distribution" is
@@ -13231,7 +12992,6 @@
         <ConceptName>
           <String>numerical data</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243174</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T081</SemanticTypeUI>
@@ -13353,7 +13113,6 @@
         <ConceptName>
           <String>ultrasonography</String>
         </ConceptName>
-        <ConceptUMLSUI>C0175676</ConceptUMLSUI>
         <ScopeNote>Used with organs and regions for ultrasonic imaging and with diseases for
           ultrasonic diagnosis. Does not include ultrasonic therapy. </ScopeNote>
         <SemanticTypeList>
@@ -13398,7 +13157,6 @@
         <ConceptName>
           <String>ultrasound</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220934</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -13521,7 +13279,6 @@
         <ConceptName>
           <String>chemistry</String>
         </ConceptName>
-        <ConceptUMLSUI>C0079107</ConceptUMLSUI>
         <ScopeNote>Used with chemicals, biological, and non-biological substances for their
           composition, structure, characterization, and properties; also used for the chemical
           composition or content of organs, tissue, tumors, body fluids, organisms, and plants.
@@ -13571,7 +13328,6 @@
         <ConceptName>
           <String>chemical structure</String>
         </ConceptName>
-        <ConceptUMLSUI>C0220807</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T170</SemanticTypeUI>
@@ -13597,7 +13353,6 @@
         <ConceptName>
           <String>chemical content</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243177</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T070</SemanticTypeUI>
@@ -13623,7 +13378,6 @@
         <ConceptName>
           <String>chemical properties</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243178</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T070</SemanticTypeUI>
@@ -13649,7 +13403,6 @@
         <ConceptName>
           <String>chemical characterization</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243175</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T185</SemanticTypeUI>
@@ -13675,7 +13428,6 @@
         <ConceptName>
           <String>chemical composition</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243176</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T070</SemanticTypeUI>
@@ -13775,7 +13527,6 @@
         <ConceptName>
           <String>contraindications</String>
         </ConceptName>
-        <ConceptUMLSUI>C0079164</ConceptUMLSUI>
         <ScopeNote>Used with drugs, chemicals, and biological and physical agents in any disease or
           physical state that might render their use improper, undesirable, or inadvisable. Used
           also with contraindicated diagnostic, therapeutic, prophylactic, anesthetic, surgical or
@@ -13868,7 +13619,6 @@
         <ConceptName>
           <String>agonists</String>
         </ConceptName>
-        <ConceptUMLSUI>C0243192</ConceptUMLSUI>
         <ScopeNote>Used with chemicals, drugs, and endogenous substances to indicate substances or
           agents that have affinity for a receptor and intrinsic activity at that receptor. (From
           Textbook of Pharmacology, 1991, p.16) </ScopeNote>
@@ -13997,7 +13747,6 @@
         <ConceptName>
           <String>virology</String>
         </ConceptName>
-        <ConceptUMLSUI>C0205466</ConceptUMLSUI>
         <ScopeNote>Used with organs, animals, and higher plants and with diseases for virologic
           studies. For bacteria, rickettsia, and fungi, "microbiology" is used; for parasites,
           "parasitology" is used. </ScopeNote>
@@ -14032,7 +13781,6 @@
         <ConceptName>
           <String>viruses</String>
         </ConceptName>
-        <ConceptUMLSUI>C0521026</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T169</SemanticTypeUI>
@@ -14120,7 +13868,6 @@
         <ConceptName>
           <String>ethics</String>
         </ConceptName>
-        <ConceptUMLSUI>C1527243</ConceptUMLSUI>
         <ScopeNote>Used with techniques and activities for discussion and analysis with respect to
           human and social values. </ScopeNote>
         <SemanticTypeList>
@@ -14155,7 +13902,6 @@
         <ConceptName>
           <String>ethical aspects</String>
         </ConceptName>
-        <ConceptUMLSUI>C1136353</ConceptUMLSUI>
         <SemanticTypeList>
           <SemanticType>
             <SemanticTypeUI>T078</SemanticTypeUI>
