@@ -1,11 +1,7 @@
-# Sample MeSH queries
-
 Wrap any of the following in `SPARQL ... ;` if you are entering them through the isql
 interface.
 
-## Basic examples
-
-### Which triples have “Ofloxacin” as object?
+## Which triples have “Ofloxacin” as object?
 
 ```sparql
 select *
@@ -15,7 +11,7 @@ where {
 }
 ```
 
-### All you ever wanted to know about the resource “Ofloxacin” (mesh:D015242)
+## All you ever wanted to know about the resource “Ofloxacin” (mesh:D015242)
 
 ```sparql
 select *
@@ -39,7 +35,7 @@ where {
 ```
 
 
-### The pharmacological actions of Ofloxacin (mesh:D015242)
+## The pharmacological actions of Ofloxacin (mesh:D015242)
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -51,7 +47,7 @@ where {
 }
 ```
 
-### The pharmacological actions of Ofloxacin, and their triples
+## The pharmacological actions of Ofloxacin, and their triples
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -65,7 +61,7 @@ where {
 ```
 
 
-### The pharmacological actions of Ofloxacin, only the labels
+## The pharmacological actions of Ofloxacin, only the labels
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -78,8 +74,7 @@ where {
 }
 ```
 
-
-### What are the descriptors/SCRs that have the PA Anti-Bacterial Agents? (direct)
+## What are the descriptors/SCRs that have the PA Anti-Bacterial Agents? (direct)
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -93,7 +88,7 @@ where {
 }
 ```
 
-### What are the descriptors/SCRs that have the PA Anti-Bacterial Agents? (filter)
+## What are the descriptors/SCRs that have the PA Anti-Bacterial Agents? (filter)
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -107,8 +102,7 @@ where {
 }
 ```
 
-
-### What are the descriptors/SCRs and their names that have the PA Anti-Bacterial Agents?
+## What are the descriptors/SCRs and their names that have the PA Anti-Bacterial Agents?
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -123,8 +117,7 @@ where {
 ORDER BY ASC(?descriptorname)
 ```
 
-
-### Supplementary Concept Records and their links to descriptors (1)
+## Supplementary Concept Records and their links to descriptors (1)
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -140,8 +133,7 @@ where {
 ORDER BY ASC(?descriptorname)
 ```
 
-
-### Supplementary Concept Records and their links to descriptors (2)
+## Supplementary Concept Records and their links to descriptors (2)
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -159,7 +151,7 @@ where {
 ORDER BY ASC(?descriptorname)
 ```
 
-### Count the number of SCRs that have the PA Anti-Bacterial Agents
+## Count the number of SCRs that have the PA Anti-Bacterial Agents
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -176,7 +168,7 @@ where {
 }
 ```
 
-### Count the number of SCRs per Descriptor
+## Count the number of SCRs per Descriptor
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -194,8 +186,7 @@ where {
 ORDER BY DESC(?count)
 ```
 
-
-### Transitive Closure: All upper descriptors for “Levofloxacin”
+## Transitive Closure: All upper descriptors for “Levofloxacin”
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -211,8 +202,7 @@ where {
 }
 ```
 
-
-### Transitive Closure: All upper descriptors for “Levofloxacin”, with hierarchy
+## Transitive Closure: All upper descriptors for “Levofloxacin”, with hierarchy
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -230,8 +220,7 @@ where {
 ORDER BY ASC(?tn)
 ```
 
-
-### All Quinolones (including indirect descendants) using the TC (fast)
+## All Quinolones (including indirect descendants) using the TC (fast)
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -249,7 +238,7 @@ where {
 ORDER BY ASC(?tn)
 ```
 
-### All Quinolones (including indirect descendants) not using the TC (slow)
+## All Quinolones (including indirect descendants) not using the TC (slow)
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -267,5 +256,3 @@ where {
 }
 ORDER BY ASC(?tn)
 ```
-
-
