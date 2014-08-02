@@ -201,7 +201,7 @@
             <uri prefix='&mesh;'>DescriptorQualifierPair</uri>
           </xsl:with-param>
         </xsl:call-template>
-        
+
         <!-- 
           Link it back to the descriptor
         -->
@@ -225,7 +225,7 @@
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select='$dqpair_uri'/>
-            <uri prefix='&mesh;'>hasDescriptor</uri>
+            <uri prefix='&mesh;'>hasQualifier</uri>
             <xsl:copy-of select='$qualifier_uri'/>
           </xsl:with-param>
         </xsl:call-template>        
@@ -303,95 +303,78 @@
       </xsl:for-each>
 
       <xsl:for-each select="EntryCombinationList/EntryCombination">
-        
-        <!--
-          Transformation rule: entryCombination
-        -->
-        <xsl:variable name='entry_combination_blank'>
-          <named>
-            <xsl:text>_:blank</xsl:text>
-            <xsl:value-of select="../../DescriptorUI"/>
-            <xsl:text>_</xsl:text>
-            <xsl:value-of select="position()"/>
-          </named>
+
+        <xsl:variable name='ecin_uri'>
+          <uri prefix='&mesh;'>
+            <xsl:value-of select="concat(ECIN/DescriptorReferredTo/DescriptorUI,
+                                         ECIN/QualifierReferredTo/QualifierUI)"/>
+          </uri>
         </xsl:variable>
-        
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc>This relation states that a descriptor record has a entry combination. The entry
-              combination has an ECIN and an ECOUT (see below). </desc>
-            <fixme>See GitHub issue #10</fixme>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select='$descriptor_uri'/>
-            <uri prefix='&mesh;'>entryCombination</uri>
-            <xsl:copy-of select="$entry_combination_blank"/>
-          </xsl:with-param>
-        </xsl:call-template>
-        
-        <!--
-          Transformation rule/Relation: rdf:type
+
+        <!-- 
+          ECIN is a DescriptorQualifierPair
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc>This relation states that a Subject node used to identify an entry 
-              combination is of type "EntryCombination".</desc>
-            <fixme></fixme>
+            <desc>The ECIN is a DescriptorQualifierPair, albeit an invalid one</desc>
           </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select='$entry_combination_blank'/>
+          <xsl:with-param name="spec">
+            <xsl:copy-of select='$ecin_uri'/>
             <uri prefix='&rdf;'>type</uri>
-            <uri prefix='&mesh;'>EntryCombination</uri>
+            <uri prefix='&mesh;'>DescriptorQualifierPair</uri>
           </xsl:with-param>
         </xsl:call-template>
         
+        <!-- 
+          Link it back to the descriptor
+        -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
+            <desc>Link the ECIN to its descriptor</desc>
           </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select='$entry_combination_blank'/>
-            <uri prefix='&mesh;'>ECINDescriptor</uri>
+          <xsl:with-param name="spec">
+            <xsl:copy-of select='$ecin_uri'/>
+            <uri prefix='&mesh;'>hasDescriptor</uri>
             <uri prefix='&mesh;'>
               <xsl:value-of select="ECIN/DescriptorReferredTo/DescriptorUI"/>
             </uri>
           </xsl:with-param>
         </xsl:call-template>
         
+        <!-- 
+          Link it back to the qualifier
+        -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
+            <desc>Link the ECIN to its qualifier</desc>
           </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select='$entry_combination_blank'/>
-            <uri prefix='&mesh;'>ECINQualifier</uri>
+          <xsl:with-param name="spec">
+            <xsl:copy-of select='$ecin_uri'/>
+            <uri prefix='&mesh;'>hasQualifier</uri>
             <uri prefix='&mesh;'>
               <xsl:value-of select="ECIN/QualifierReferredTo/QualifierUI"/>
             </uri>
           </xsl:with-param>
-        </xsl:call-template>
+        </xsl:call-template>        
         
+        <!--
+          Relation to ECOUT
+        -->
         <xsl:call-template name='triple'>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select='$entry_combination_blank'/>
-            <uri prefix='&mesh;'>ECOUTDescriptor</uri>
+          <xsl:with-param name="doc">
+            <desc>Link the ECIN to the ECOUT</desc>
+          </xsl:with-param>
+          <xsl:with-param name="spec">
+            <xsl:copy-of select='$ecin_uri'/>
+            <uri prefix='&mesh;'>useInstead</uri>
             <uri prefix='&mesh;'>
               <xsl:value-of select="ECOUT/DescriptorReferredTo/DescriptorUI"/>
+              <xsl:if test='ECOUT/QualifierReferredTo'>
+                <xsl:value-of select="ECOUT/QualifierReferredTo/QualifierUI"/>
+              </xsl:if>
             </uri>
           </xsl:with-param>
-        </xsl:call-template>
-        
-        <xsl:if test="ECOUT/QualifierReferredTo">
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select='$entry_combination_blank'/>
-              <uri prefix='&mesh;'>ECOUTQualifier</uri>
-              <uri prefix='&mesh;'>
-                <xsl:value-of select="ECOUT/QualifierReferredTo/QualifierUI"/>
-              </uri>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:if>
+        </xsl:call-template>        
       </xsl:for-each>
 
       <!--
