@@ -65,13 +65,13 @@ where {
 
 This BN could be avoided by using 2 DQPairs:
 
-1) one for ECINDescriptor + ECINQualifier
-2) one for ECOUTDescriptor + ECOUTQualifier
+1. one for ECINDescriptor + ECINQualifier
+2. one for ECOUTDescriptor + ECOUTQualifier
 
 The DQPairs would be attached directly to the descriptor, with 2 different predicates
 
-1) desc mesh:ECIN DQPairs
-2) desc mesh:ECOUT DQPairs
+1. desc mesh:ECIN DQPairs
+2. desc mesh:ECOUT DQPairs
 
 NB:
 - not all DQPairs are complete (the qualifier may be missing)
