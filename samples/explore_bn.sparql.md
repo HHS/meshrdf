@@ -1,11 +1,11 @@
-/*
-  This file contains sample queries to explore the current use of blank nodes
-  in the MeSH RDF.
-*/
+# Blank-node sample queries
 
-/*
- * BN type 1: EntryCombination
- */
+This file contains sample queries to explore the current use of blank nodes
+in the MeSH RDF.
+
+## BN type 1: EntryCombination
+
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?desc
@@ -15,9 +15,9 @@ where {
     ?desc mesh:entryCombination ?bn_ec .
 }
 limit 10
+```
 
-
-
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 select
@@ -61,28 +61,27 @@ where {
 
     FILTER(?mh_id = 'D000005')
 }
+```
 
+This BN could be avoided by using 2 DQPairs:
 
-This BN could be avoided by using 2 DQPairs
-    1) one for ECINDescriptor + ECINQualifier
-    2) one for ECOUTDescriptor + ECOUTQualifier
-the DQPairs would be attached directly to the descriptor, with 2 different predicates
-    1) desc mesh:ECIN DQPairs
-    2) desc mesh:ECOUT DQPairs
+1) one for ECINDescriptor + ECINQualifier
+2) one for ECOUTDescriptor + ECOUTQualifier
+
+The DQPairs would be attached directly to the descriptor, with 2 different predicates
+
+1) desc mesh:ECIN DQPairs
+2) desc mesh:ECOUT DQPairs
 
 NB:
 - not all DQPairs are complete (the qualifier may be missing)
-    e.g., ECOUT for D000005
-=> an unqualified DQPairs should be created for each descriptor
+  e.g., ECOUT for D000005
+- an unqualified DQPairs should be created for each descriptor
 
 
-/*
- * ********************************************************************************
- */
+## BN type 2: ConceptRelation
 
-/*
- * BN type 2: ConceptRelation
- */
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?desc
@@ -93,9 +92,9 @@ where {
     ?concept mesh:conceptRelation ?bn_cr .
 }
 limit 10
+```
 
-
-
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     distinct
@@ -131,14 +130,16 @@ where {
 
     FILTER(?mh_id = 'D015242')
 }
+```
 
+This BN could be avoided by using a direct relation between the concepts. Transform
 
-This BN could be avoided by using a direct relation between the concepts
-Transform
     ?bn_cr mesh:concept1 ?concept1 .
     ?bn_cr mesh:concept2 ?concept2 .
     ?bn_cr mesh:relation ?relation .
+
 into
+
     concept1 ?relation concept2
 
 NB:
@@ -149,14 +150,9 @@ NB:
   in the conceptRelation BN means C2 is narrower than C1, i.e. C1 skos:narrower C2
 
 
-/*
- * ********************************************************************************
- */
+## BN type 3: indexingData
 
-/*
- * BN type 3: indexingData
- */
-
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr
@@ -167,10 +163,9 @@ where {
     ?scr mesh:indexingData ?bn_indexingData .
 }
 limit 10
+```
 
-
-
-
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr_id
@@ -208,10 +203,9 @@ where {
 #   FILTER(?scr = mesh:C002199)
 }
 limit 50
+```
 
-
-
-
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr_id
@@ -249,26 +243,22 @@ where {
     FILTER(!bound(?indexingQualifier))
 }
 limit 50
+```
 
 
-
-This BN could be avoided by using  DQPairs
-    for indexingDescriptor + indexingQualifier
-the DQPair would be attached directly to the SCR, through the predicate indexingInformation (or something equivalent)
+This BN could be avoided by using DQPairs for indexingDescriptor + indexingQualifier.
+The DQPair would be attached directly to the SCR, through the predicate indexingInformation
+(or something equivalent).
 
 NB:
 - not all DQPairs are complete (the qualifier may be missing)
     e.g., indexingQualifier for C006900
-=> an unqualified DQPairs should be created for each descriptor
+- an unqualified DQPairs should be created for each descriptor
 
 
-/*
- * ********************************************************************************
- */
+## BN type 4: mappedData
 
-/*
- * BN type 4: mappedData
- */
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr
@@ -279,9 +269,9 @@ where {
     ?scr mesh:mappedData ?bn_mappedData .
 }
 limit 10
+```
 
-
-
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr_id
@@ -319,10 +309,9 @@ where {
 #   FILTER(?scr = mesh:C002199)
 }
 limit 50
+```
 
-
-
-
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr_id
@@ -360,10 +349,9 @@ where {
     FILTER(!bound(?isMappedToQualifier))
 }
 limit 50
+```
 
-
-
-
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr
@@ -377,11 +365,9 @@ where {
     ?bn_mappedData ?p ?o .
 }
 limit 10
+```
 
-
-
-
-
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr_id
@@ -429,35 +415,29 @@ where {
     FILTER(?scr = mesh:C002199)
 }
 limit 50
+```
 
+[Similar to indexingData]
 
-
-[similar to indexingData]
-This BN could be avoided by using  DQPairs
-    for isMappedToDescriptor + isMappedToQualifier
-the DQPair would be attached directly to the SCR, through the predicate isMappedToInformation (or something equivalent)
+This BN could be avoided by using  DQPairs  for isMappedToDescriptor + isMappedToQualifier.
+The DQPair would be attached directly to the SCR, through the predicate isMappedToInformation
+(or something equivalent).
 
 NB:
 - not all DQPairs are complete (the qualifier may be missing)
-    e.g., isMappedToQualifier for C001107
-=> an unqualified DQPairs should be created for each descriptor
+  e.g., isMappedToQualifier for C001107
+- an unqualified DQPairs should be created for each descriptor
 - one main difference with indexingData is the presence of isDescriptorStarred/isQualifierStarred
-    e.g., isQualifierStarred for C002199
-    The issue here is that this is not a property of the DQPair or the SCR, but this particular SCR-DQPair
-    Possible solutions:
+  e.g., isQualifierStarred for C002199
+  The issue here is that this is not a property of the DQPair or the SCR, but this particular SCR-DQPair
+  Possible solutions:
     * singleton property for the association between the SCR and the DQPair, to which the star informatino would be attached
     * materialize the SCR-DQPair association with a URI (equivalent to the original BN)
 
 
-/*
- * ********************************************************************************
- */
+## BN type 5: termData
 
-/*
- * BN type 5: termData
- */
-
-
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?concept
@@ -469,10 +449,9 @@ where {
     ?term mesh:termData ?bn_termData .
 }
 limit 10
+```
 
-
-
-
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?concept
@@ -488,11 +467,9 @@ where {
 }
 order by ?bn_termData ?p
 limit 50
+```
 
-
-
-
-
+```sqarql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?term
@@ -503,15 +480,19 @@ where {
 }
 order by desc(?nb_concepts)
 limit 50
+```
 
 
 This BN seems unnecessary.
-Assuming the term properties are independent of the concept to which the term is attached, they could be directly attached to the term entity.
-It looks like terms are not attached to more than one concept.
-Therefore, term properties could be directly attached to the term entity.
+
+Assuming the term properties are independent of the concept to which the term is attached,
+they could be directly attached to the term entity. It looks like terms are not attached
+to more than one concept. Therefore, term properties could be directly attached to the term entity.
 
 Unclear why it was modeled this way.
+
 From the XSLT comments (line 463):
-          Need to address: This relation was created in order to stick with the XML representation of MeSH.
+
+> Need to address: This relation was created in order to stick with the XML representation of MeSH.
 
 

@@ -1,37 +1,34 @@
-/*
-  Wrap any of the following in `SPARQL ... ;` if you are entering them through the isql
-  interface.
-*/
+# Sample MeSH queries
 
-/*
-  **************************************************
-    MeSH queries
-  **************************************************
-*/
+Wrap any of the following in `SPARQL ... ;` if you are entering them through the isql
+interface.
 
-/*
-  Which triples have “Ofloxacin” as object?
-*/
+## Basic examples
+
+### Which triples have “Ofloxacin” as object?
+
+```sparql
 select *
 from <http://mor.nlm.nih.gov/mesh2014>
 where {
      ?s ?p "Ofloxacin" .
 }
+```
 
+### All you ever wanted to know about the resource “Ofloxacin” (mesh:D015242)
 
-/*
-  All you ever wanted to know about the resource “Ofloxacin” (mesh:D015242)
-*/
+```sparql
 select *
 from <http://mor.nlm.nih.gov/mesh2014>
 where {
      <http://id.nlm.nih.gov/mesh/D015242> ?p ?c .
 }
+```
 
 
-/*
-  Making use of PREFIX avoids typing long URIs
-*/
+### Making use of PREFIX avoids typing long URIs
+
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select *
@@ -39,11 +36,12 @@ from <http://mor.nlm.nih.gov/mesh2014>
 where {
      mesh:D015242 ?p ?c .
 }
+```
 
 
-/*
-  The pharmacological actions of Ofloxacin (mesh:D015242)
-*/
+### The pharmacological actions of Ofloxacin (mesh:D015242)
+
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select *
@@ -51,11 +49,11 @@ from <http://mor.nlm.nih.gov/mesh2014>
 where {
      mesh:D015242 mesh:pharmacologicalAction ?c .
 }
+```
 
+### The pharmacological actions of Ofloxacin, and their triples
 
-/*
-  The pharmacological actions of Ofloxacin, and their triples
-*/
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select *
@@ -64,11 +62,12 @@ where {
      mesh:D015242 mesh:pharmacologicalAction ?pa .
      ?pa ?p ?o .
 }
+```
 
 
-/*
-  The pharmacological actions of Ofloxacin, only the labels
-*/
+### The pharmacological actions of Ofloxacin, only the labels
+
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select *
@@ -77,11 +76,12 @@ where {
      mesh:D015242 mesh:pharmacologicalAction ?pa .
      ?pa <http://www.w3.org/2000/01/rdf-schema#label> ?label .
 }
+```
 
 
-/*
-  What are the descriptors/SCRs that have the PA Anti-Bacterial Agents? (direct)
-*/
+### What are the descriptors/SCRs that have the PA Anti-Bacterial Agents? (direct)
+
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select ?descriptor
@@ -91,11 +91,11 @@ where {
      ?pa <http://www.w3.org/2000/01/rdf-schema#label> ?label
    FILTER (?label = "Anti-Bacterial Agents") .
 }
+```
 
+### What are the descriptors/SCRs that have the PA Anti-Bacterial Agents? (filter)
 
-/*
-  What are the descriptors/SCRs that have the PA Anti-Bacterial Agents? (filter)
-*/
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select ?descriptor
@@ -105,11 +105,12 @@ where {
      ?pa rdfs:label ?label
      FILTER (?label = "Anti-Bacterial Agents") .
 }
+```
 
 
-/*
-  What are the descriptors/SCRs and their names that have the PA Anti-Bacterial Agents?
-*/
+### What are the descriptors/SCRs and their names that have the PA Anti-Bacterial Agents?
+
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select ?descriptor ?descriptorname
@@ -120,11 +121,12 @@ where {
      ?descriptor rdfs:label ?descriptorname .
 }
 ORDER BY ASC(?descriptorname)
+```
 
 
-/*
-  Supplementary Concept Records and their links to descriptors (1)
-*/
+### Supplementary Concept Records and their links to descriptors (1)
+
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select ?descriptor ?descriptorname ?SCR
@@ -136,11 +138,12 @@ where {
      ?SCR mesh:isMappedToDescriptor ?descriptor .
 }
 ORDER BY ASC(?descriptorname)
+```
 
 
-/*
-  Supplementary Concept Records and their links to descriptors (2)
-*/
+### Supplementary Concept Records and their links to descriptors (2)
+
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select ?descriptor ?descriptorname ?SCR ?SCRname
@@ -154,11 +157,11 @@ where {
      ?SCR rdfs:label ?SCRname .
 }
 ORDER BY ASC(?descriptorname)
+```
 
+### Count the number of SCRs that have the PA Anti-Bacterial Agents
 
-/*
-  Count the number of SCRs that have the PA Anti-Bacterial Agents
-*/
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select count(distinct ?SCR)
@@ -171,10 +174,11 @@ where {
      ?SCR mesh:mappedData _:b .
      ?SCR rdfs:label ?SCRname .
 }
+```
 
-/*
-  Count the number of SCRs per Descriptor
-*/
+### Count the number of SCRs per Descriptor
+
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select ?descriptorname count(distinct ?SCR) as ?count
@@ -188,11 +192,12 @@ where {
      ?SCR rdfs:label ?SCRname .
 }
 ORDER BY DESC(?count)
+```
 
 
-/*
-  Transitive Closure: All upper descriptors for “Levofloxacin”
-*/
+### Transitive Closure: All upper descriptors for “Levofloxacin”
+
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
@@ -204,11 +209,12 @@ where {
      ?descriptor skos:broader ?upperDescriptor .
      ?upperDescriptor rdfs:label ?descriptorname .
 }
+```
 
 
-/*
-  Transitive Closure: All upper descriptors for “Levofloxacin”, with hierarchy
-*/
+### Transitive Closure: All upper descriptors for “Levofloxacin”, with hierarchy
+
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
@@ -222,11 +228,12 @@ where {
      ?upperDescriptor mesh:treeNumber ?tn .
 }
 ORDER BY ASC(?tn)
+```
 
 
-/*
-  All Quinolones (including indirect descendants) using the TC (fast)
-*/
+### All Quinolones (including indirect descendants) using the TC (fast)
+
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
@@ -240,11 +247,11 @@ where {
      ?lowerDescriptor mesh:treeNumber ?tn .
 }
 ORDER BY ASC(?tn)
+```
 
+### All Quinolones (including indirect descendants) not using the TC (slow)
 
-/*
-  All Quinolones (including indirect descendants) not using the TC (slow)
-*/
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
@@ -259,17 +266,15 @@ where {
      FILTER (contains(?tn, ?quinolonesTn)).
 }
 ORDER BY ASC(?tn)
+```
 
 
-/*
-  **************************************************
-    MeSH+MEDLINE queries
-  **************************************************
-*/
+## MeSH+MEDLINE queries
 
-/*
-  Find citations indexed with “Quinolones” (or any descendant)
-*/
+
+### Find citations indexed with “Quinolones” (or any descendant)
+
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX ml: <http://mor.nlm.nih.gov/ml/>
 
@@ -287,11 +292,11 @@ where {
      ?citation ml:MeshHeadingList ?mhl .
      ?citation ml:PMID ?pmid .
 }
+```
 
+### Count citations indexed with “Quinolones” (or any descendant)
 
-/*
-  Count citations indexed with “Quinolones” (or any descendant)
-*/
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX ml: <http://mor.nlm.nih.gov/ml/>
 
@@ -310,11 +315,11 @@ where {
      ?citation ml:PMID ?pmid .
 }
 ORDER BY ?count
+```
 
+### Find citations and their titles indexed with “Quinolones” (or any descendant)
 
-/*
-  Find citations and their titles indexed with “Quinolones” (or any descendant)
-*/
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX ml: <http://mor.nlm.nih.gov/ml/>
 
@@ -339,11 +344,11 @@ where {
      ?article ml:ArticleTitle ?title .
 }
 ORDER by ?descriptorname
+```
 
+### Find citations indexed with “Quinolones” that have the word “child” in their title
 
-/*
-  Find citations indexed with “Quinolones” that have the word “child” in their title
-*/
+```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX ml: <http://mor.nlm.nih.gov/ml/>
 
@@ -368,4 +373,4 @@ where {
      ?article ml:ArticleTitle ?title FILTER (contains(?title, "child")).
 }
 ORDER by ?descriptorname
-
+```
