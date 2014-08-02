@@ -472,92 +472,10 @@
           </xsl:call-template>
         </xsl:for-each>
 
-        <xsl:for-each select="ConceptRelationList/ConceptRelation">
-          <xsl:variable name='blank_concept_relation'>
-            <named>
-              <xsl:text>_:blank_set1_</xsl:text>
-              <xsl:value-of select="../../ConceptUI"/>
-              <xsl:text>_</xsl:text>
-              <xsl:value-of select="position()"/>
-            </named>
-          </xsl:variable>
-
-          <!-- 
-            Transformation rule: conceptRelation
-          -->
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>There are several predicates mentioned here. The conceptRelation states that a concept has a relation to another concept.
-                That relation is identified with a blank node. This blank node stores the information that describes how the current concept (concept1) is 
-                related to a second concept (concept2). The first concept is either broader, narrower, or related, in relation to the second concept. We
-                use the skos:broader, skos:narrower, and skos:related predicates in this case.
-                This rule applies when a qualifier has a concept in its concept list that possesses a concept relation list. If this is the case,
-                then there will be at least one concept relation in the concept relation list.</desc>
-              <fixme>Do we need to use a blank node here?</fixme>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$concept_uri"/>
-              <uri prefix='&mesh;'>conceptRelation</uri>
-              <xsl:copy-of select="$blank_concept_relation"/>
-            </xsl:with-param>
-          </xsl:call-template>
-          
-          <!-- 
-            Transformation rule: rdf:type
-          -->
-          <xsl:call-template name='triple'>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$blank_concept_relation"/>
-              <uri prefix='&rdf;'>type</uri>
-              <uri prefix='&mesh;'>ConceptRelation</uri>
-            </xsl:with-param>
-          </xsl:call-template>
-          
-          <!-- 
-            Transformation rule: mesh:relation
-          -->
-          <xsl:if test="@RelationName">
-            <xsl:call-template name='triple'>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select="$blank_concept_relation"/>
-                <uri prefix='&mesh;'>relation</uri>
-                <xsl:copy-of select="f:skos_relation_uri(@RelationName)"/>
-              </xsl:with-param>
-            </xsl:call-template>
-          </xsl:if>
-          
-          <!-- 
-            Transformation rule: mesh:concept1
-          -->
-          <xsl:call-template name='triple'>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$blank_concept_relation"/>
-              <uri prefix='&mesh;'>concept1</uri>
-              <uri prefix='&mesh;'>
-                <xsl:value-of select="Concept1UI"/>
-              </uri>
-            </xsl:with-param>
-          </xsl:call-template>
-          
-          <!-- 
-            Transformation rule: mesh:concept2
-          -->
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <fixme>Do we really want two predicates for these, mesh:concept1 and mesh:concept2?  Are they the same
-                relationship?  Does order matter?</fixme>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$blank_concept_relation"/>
-              <uri prefix='&mesh;'>concept2</uri>
-              <uri prefix='&mesh;'>
-                <xsl:value-of select="Concept2UI"/>
-              </uri>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:for-each>
-
-
+        <xsl:call-template name="ConceptRelationList">
+          <xsl:with-param name="concept_uri" select='$concept_uri'/>
+        </xsl:call-template>
+        
         <xsl:for-each select="TermList/Term">
           <xsl:variable name='term_uri'>
             <uri prefix='&mesh;'>

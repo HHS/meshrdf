@@ -693,74 +693,11 @@
           </xsl:call-template>
         </xsl:for-each>
 
-        <xsl:for-each select="ConceptRelationList/ConceptRelation">
-          <xsl:variable name='concept_relation_blank'>
-            <named>
-              <xsl:text>_:blank_set1_</xsl:text>
-              <xsl:value-of select="../../ConceptUI"/>
-              <xsl:text>_</xsl:text>
-              <xsl:value-of select="position()"/>
-            </named>
-          </xsl:variable>
-
-          <xsl:call-template name='triple'>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$concept_uri"/>
-              <uri prefix='&mesh;'>conceptRelation</uri>
-              <xsl:copy-of select="$concept_relation_blank"/>
-            </xsl:with-param>
-          </xsl:call-template>
-
-          <xsl:call-template name='triple'>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$concept_relation_blank"/>
-              <uri prefix='&rdf;'>type</uri>
-              <uri prefix='&mesh;'>ConceptRelation</uri>
-            </xsl:with-param>
-          </xsl:call-template>
-          
-          <xsl:if test="@RelationName">
-            <xsl:call-template name='triple'>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select="$concept_relation_blank"/>
-                <uri prefix='&mesh;'>relation</uri>
-                <xsl:copy-of select="f:skos_relation_uri(@RelationName)"/>
-              </xsl:with-param>
-            </xsl:call-template>
-          </xsl:if>
-          
-          <xsl:call-template name='triple'>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$concept_relation_blank"/>
-              <uri prefix='&mesh;'>concept1</uri>
-              <uri prefix='&mesh;'>
-                <xsl:value-of select="Concept1UI"/>
-              </uri>
-            </xsl:with-param>
-          </xsl:call-template>
-          
-          <xsl:call-template name='triple'>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$concept_relation_blank"/>
-              <uri prefix='&mesh;'>concept2</uri>
-              <uri prefix='&mesh;'>
-                <xsl:value-of select="Concept2UI"/>
-              </uri>
-            </xsl:with-param>
-          </xsl:call-template>
-
-          <xsl:if test="RelationAttribute">
-            <xsl:call-template name='triple'>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select="$concept_relation_blank"/>
-                <uri prefix='&mesh;'>relationAttribute</uri>
-                <literal>
-                  <xsl:value-of select="RelationAttribute"/>
-                </literal>
-              </xsl:with-param>
-            </xsl:call-template>
-          </xsl:if>
-        </xsl:for-each>
+        
+        <xsl:call-template name="ConceptRelationList">
+          <xsl:with-param name="concept_uri" select='$concept_uri'/>
+        </xsl:call-template>
+        
 
         <xsl:for-each select="TermList/Term">
           <xsl:variable name='term_uri'>
