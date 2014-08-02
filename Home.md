@@ -1,1 +1,4 @@
-Welcome to the mesh-rdf wiki!
+# Contents
+
+* [Blank node sample queries](Blank-node-sample-queries)
+
