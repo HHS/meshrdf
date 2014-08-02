@@ -19,12 +19,14 @@
 
     <xsl:for-each select="DescriptorRecordSet/DescriptorRecord">
 
+      <xsl:variable name='descriptor_id' select='DescriptorUI'/>
+      
       <!--
         Transformation rule: dcterms:identifier
       -->
       <xsl:variable name='descriptor_uri'>
         <uri prefix='&mesh;'>
-          <xsl:value-of select="DescriptorUI"/>
+          <xsl:value-of select="$descriptor_id"/>
         </uri>
       </xsl:variable>
       
@@ -159,9 +161,10 @@
       </xsl:for-each>
 
       <xsl:for-each select="AllowableQualifiersList/AllowableQualifier">
+        <xsl:variable name='qualifier_id' select='QualifierReferredTo/QualifierUI'/>
         <xsl:variable name='qualifier_uri'>
           <uri prefix='&mesh;'>
-            <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
+            <xsl:value-of select="$qualifier_id"/>
           </uri>
         </xsl:variable>
         
@@ -179,68 +182,53 @@
           </xsl:with-param>
         </xsl:call-template>
         
-        <!--
-          Transformation rule: rdf:type
-         -->
-        <xsl:call-template name="triple">
+        <!-- 
+          Create a DescriptorQualifierPair resource
+        -->
+        <xsl:variable name='dqpair_uri'>
+          <uri prefix='&mesh;'>
+            <xsl:value-of select="concat($descriptor_id, $qualifier_id)"/>
+          </uri>
+        </xsl:variable>
+        
+        <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc>This relation states that a Subject node used to identify a Descriptor record is of type "Descritpor".</desc>
+            <desc>Define a DescriptorQualifierPair resource for this valid pair</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
-            <xsl:copy-of select='$qualifier_uri'/>
+            <xsl:copy-of select='$dqpair_uri'/>
             <uri prefix='&rdf;'>type</uri>
-            <uri prefix='&mesh;'>Qualifier</uri>
+            <uri prefix='&mesh;'>DescriptorQualifierPair</uri>
           </xsl:with-param>
         </xsl:call-template>
         
-        <!--
-          Transformation rule: dcterms:identifier
+        <!-- 
+          Link it back to the descriptor
         -->
-        <xsl:call-template name="triple">
+        <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc>This relation states that an allowable qualifier has a unique identifier.</desc>
+            <desc>Link the DescriptorQualifierPair to its descriptor</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
-            <xsl:copy-of select='$qualifier_uri'/>
-            <uri prefix='&dcterms;'>identifier</uri>
-            <literal>
-              <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
-            </literal>
+            <xsl:copy-of select='$dqpair_uri'/>
+            <uri prefix='&mesh;'>hasDescriptor</uri>
+            <xsl:copy-of select='$descriptor_uri'/>
           </xsl:with-param>
         </xsl:call-template>
         
-        <!--
-          Transformation rule: rdfs:label
+        <!-- 
+          Link it back to the qualifier
         -->
-        <xsl:call-template name="triple">
+        <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc>This relation states that an allowable qualifier has a name.</desc>
+            <desc>Link the DescriptorQualifierPair to its qualifier</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
+            <xsl:copy-of select='$dqpair_uri'/>
+            <uri prefix='&mesh;'>hasDescriptor</uri>
             <xsl:copy-of select='$qualifier_uri'/>
-            <uri prefix='&rdfs;'>label</uri>
-            <literal>
-              <xsl:value-of select="QualifierReferredTo/QualifierName/String"/>
-            </literal>
           </xsl:with-param>
-        </xsl:call-template>
-        
-        <!--
-          Transformation rule: abbreviation
-        -->
-        <xsl:call-template name="triple">
-          <xsl:with-param name="doc">
-            <desc>This relation states that an allowable qualifier has an abbreviation.</desc>
-          </xsl:with-param>
-          <xsl:with-param name="spec">
-            <xsl:copy-of select='$qualifier_uri'/>
-            <uri prefix='&mesh;'>abbreviation</uri>
-            <literal>
-              <xsl:value-of select="Abbreviation"/>
-            </literal>
-          </xsl:with-param>
-        </xsl:call-template>
-        
+        </xsl:call-template>        
       </xsl:for-each>
       
       <!--
