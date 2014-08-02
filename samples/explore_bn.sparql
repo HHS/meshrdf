@@ -1,8 +1,12 @@
 /*
+  This file contains sample queries to explore the current use of blank nodes
+  in the MeSH RDF.
+*/
+
+/*
  * BN type 1: EntryCombination
  */
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?desc
     ?bn_ec
@@ -11,10 +15,10 @@ where {
     ?desc mesh:entryCombination ?bn_ec .
 }
 limit 10
-;
 
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 select
     ?mh_id
@@ -57,7 +61,7 @@ where {
 
     FILTER(?mh_id = 'D000005')
 }
-;
+
 
 This BN could be avoided by using 2 DQPairs
     1) one for ECINDescriptor + ECINQualifier
@@ -70,7 +74,7 @@ NB:
 - not all DQPairs are complete (the qualifier may be missing)
     e.g., ECOUT for D000005
 => an unqualified DQPairs should be created for each descriptor
-;
+
 
 /*
  * ********************************************************************************
@@ -79,8 +83,7 @@ NB:
 /*
  * BN type 2: ConceptRelation
  */
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?desc
     ?bn_cr
@@ -90,10 +93,10 @@ where {
     ?concept mesh:conceptRelation ?bn_cr .
 }
 limit 10
-;
 
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     distinct
     ?mh_id
@@ -128,14 +131,14 @@ where {
 
     FILTER(?mh_id = 'D015242')
 }
-;
+
 
 This BN could be avoided by using a direct relation between the concepts
 Transform
     ?bn_cr mesh:concept1 ?concept1 .
     ?bn_cr mesh:concept2 ?concept2 .
     ?bn_cr mesh:relation ?relation .
-into    
+into
     concept1 ?relation concept2
 
 NB:
@@ -144,7 +147,7 @@ NB:
   *** skos:narrower means "has narrower concept", i.e., points to narrower concepts ***
 - in the original implementation, the use of skos:narrower between C1 and C2
   in the conceptRelation BN means C2 is narrower than C1, i.e. C1 skos:narrower C2
-;
+
 
 /*
  * ********************************************************************************
@@ -153,8 +156,8 @@ NB:
 /*
  * BN type 3: indexingData
  */
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr
     ?bn_indexingData
@@ -164,11 +167,11 @@ where {
     ?scr mesh:indexingData ?bn_indexingData .
 }
 limit 10
-;
 
 
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr_id
     ?scr_label
@@ -205,11 +208,11 @@ where {
 #   FILTER(?scr = mesh:C002199)
 }
 limit 50
-;
 
 
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr_id
     ?scr_label
@@ -246,7 +249,7 @@ where {
     FILTER(!bound(?indexingQualifier))
 }
 limit 50
-;
+
 
 
 This BN could be avoided by using  DQPairs
@@ -257,7 +260,7 @@ NB:
 - not all DQPairs are complete (the qualifier may be missing)
     e.g., indexingQualifier for C006900
 => an unqualified DQPairs should be created for each descriptor
-;
+
 
 /*
  * ********************************************************************************
@@ -266,8 +269,7 @@ NB:
 /*
  * BN type 4: mappedData
  */
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr
     ?bn_mappedData
@@ -277,11 +279,10 @@ where {
     ?scr mesh:mappedData ?bn_mappedData .
 }
 limit 10
-;
 
 
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr_id
     ?scr_label
@@ -318,11 +319,11 @@ where {
 #   FILTER(?scr = mesh:C002199)
 }
 limit 50
-;
 
 
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr_id
     ?scr_label
@@ -359,11 +360,11 @@ where {
     FILTER(!bound(?isMappedToQualifier))
 }
 limit 50
-;
 
 
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr
     ?bn_mappedData
@@ -376,12 +377,12 @@ where {
     ?bn_mappedData ?p ?o .
 }
 limit 10
-;
 
 
 
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?scr_id
     ?scr_label
@@ -428,7 +429,7 @@ where {
     FILTER(?scr = mesh:C002199)
 }
 limit 50
-;
+
 
 
 [similar to indexingData]
@@ -446,7 +447,7 @@ NB:
     Possible solutions:
     * singleton property for the association between the SCR and the DQPair, to which the star informatino would be attached
     * materialize the SCR-DQPair association with a URI (equivalent to the original BN)
-;
+
 
 /*
  * ********************************************************************************
@@ -456,8 +457,8 @@ NB:
  * BN type 5: termData
  */
 
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?concept
     ?term
@@ -468,11 +469,11 @@ where {
     ?term mesh:termData ?bn_termData .
 }
 limit 10
-;
 
 
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?concept
     ?term
@@ -487,12 +488,12 @@ where {
 }
 order by ?bn_termData ?p
 limit 50
-;
 
 
 
-SPARQL
-PREFIX mesh: <http://nlm.nih.gov#MeSH:>
+
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select
     ?term
     count(distinct ?concept) as ?nb_concepts
@@ -502,7 +503,7 @@ where {
 }
 order by desc(?nb_concepts)
 limit 50
-;
+
 
 This BN seems unnecessary.
 Assuming the term properties are independent of the concept to which the term is attached, they could be directly attached to the term entity.
@@ -512,13 +513,5 @@ Therefore, term properties could be directly attached to the term entity.
 Unclear why it was modeled this way.
 From the XSLT comments (line 463):
           Need to address: This relation was created in order to stick with the XML representation of MeSH.
-;
-
-
-
-
-
-
-
 
 
