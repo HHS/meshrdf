@@ -51,7 +51,7 @@
         </xsl:with-param>
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$supprec_uri"/>
-          <uri prefix='&mesh;'>SCRClass</uri>
+          <uri prefix='&meshv;'>SCRClass</uri>
           <literal>
             <xsl:value-of select="@SCRClass"/>
           </literal>
@@ -68,7 +68,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$supprec_uri"/>
           <uri prefix='&rdf;'>type</uri>
-          <uri prefix='&mesh;'>SupplementaryConceptRecord</uri>
+          <uri prefix='&meshv;'>SupplementaryConceptRecord</uri>
         </xsl:with-param>
       </xsl:call-template>
 
@@ -99,7 +99,7 @@
           <uri prefix='&mesh;'>
             <xsl:value-of select="SupplementalRecordUI"/>
           </uri>
-          <uri prefix='&mesh;'>dateCreated</uri>
+          <uri prefix='&meshv;'>dateCreated</uri>
           <literal>
             <xsl:value-of select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"/>
           </literal>
@@ -118,7 +118,7 @@
             <uri prefix='&mesh;'>
               <xsl:value-of select="SupplementalRecordUI"/>
             </uri>
-            <uri prefix='&mesh;'>dateRevised</uri>
+            <uri prefix='&meshv;'>dateRevised</uri>
             <literal>
               <xsl:value-of select="string-join((DateRevised/Year,DateRevised/Month,DateRevised/Day),'-')"/>
             </literal>
@@ -138,7 +138,7 @@
             <uri prefix='&mesh;'>
               <xsl:value-of select="../../SupplementalRecordUI"/>
             </uri>
-            <uri prefix='&mesh;'>activeMeSHYear</uri>
+            <uri prefix='&meshv;'>activeMeSHYear</uri>
             <literal>
               <xsl:value-of select="."/>
             </literal>
@@ -158,7 +158,7 @@
             <uri prefix='&mesh;'>
               <xsl:value-of select="SupplementalRecordUI"/>
             </uri>
-            <uri prefix='&mesh;'>note</uri>
+            <uri prefix='&meshv;'>note</uri>
             <literal>
               <xsl:value-of select="Note"/>
             </literal>
@@ -179,7 +179,7 @@
           <uri prefix='&mesh;'>
             <xsl:value-of select="SupplementalRecordUI"/>
           </uri>
-          <uri prefix='&mesh;'>frequency</uri>
+          <uri prefix='&meshv;'>frequency</uri>
           <literal>
             <xsl:value-of select="Frequency"/>
           </literal>
@@ -200,7 +200,7 @@
             <uri prefix='&mesh;'>
               <xsl:value-of select="../../SupplementalRecordUI"/>
             </uri>
-            <uri prefix='&mesh;'>previousIndexing</uri>
+            <uri prefix='&meshv;'>previousIndexing</uri>
             <literal>
               <xsl:value-of select="."/>
             </literal>
@@ -231,7 +231,7 @@
             <uri prefix='&mesh;'>
               <xsl:value-of select='../../SupplementalRecordUI'/>
             </uri>
-            <uri prefix='&mesh;'>mappedData</uri>
+            <uri prefix='&meshv;'>mappedData</uri>
             <xsl:copy-of select='$supp_rec_blank'/>
           </xsl:with-param>
         </xsl:call-template>
@@ -246,7 +246,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$supp_rec_blank"/>
             <uri prefix='&rdf;'>type</uri>
-            <uri prefix='&mesh;'>MappedData</uri>
+            <uri prefix='&meshv;'>MappedData</uri>
           </xsl:with-param>
         </xsl:call-template>
 
@@ -260,7 +260,7 @@
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$supp_rec_blank"/>
-            <uri prefix='&mesh;'>isMappedToDescriptor</uri>
+            <uri prefix='&meshv;'>isMappedToDescriptor</uri>
             <uri prefix='&mesh;'>
               <xsl:value-of select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/>
             </uri>
@@ -280,7 +280,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$supp_rec_blank"/>
-              <uri prefix='&mesh;'>isDescriptorStarred</uri>
+              <uri prefix='&meshv;'>isDescriptorStarred</uri>
               <literal>Y</literal>
             </xsl:with-param>
           </xsl:call-template>
@@ -322,7 +322,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$supp_rec_blank"/>
-              <uri prefix='&mesh;'>isMappedToQualifier</uri>
+              <uri prefix='&meshv;'>isMappedToQualifier</uri>
               <xsl:copy-of select="$qualifier_referred_to_uri"/>
             </xsl:with-param>
           </xsl:call-template>
@@ -337,7 +337,7 @@
               </xsl:with-param>
               <xsl:with-param name='spec'>
                 <xsl:copy-of select="$supp_rec_blank"/>
-                <uri prefix='&mesh;'>isQualifierStarred</uri>
+                <uri prefix='&meshv;'>isQualifierStarred</uri>
                 <literal>Y</literal>
               </xsl:with-param>
             </xsl:call-template>
@@ -384,7 +384,7 @@
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select="$supprec_uri"/>
-            <uri prefix='&mesh;'>indexingData</uri>
+            <uri prefix='&meshv;'>indexingData</uri>
             <xsl:copy-of select="$indexing_data_blank"/>
           </xsl:with-param>
         </xsl:call-template>
@@ -399,7 +399,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select="$indexing_data_blank"/>
             <uri prefix='&rdf;'>type</uri>
-            <uri prefix='&mesh;'>IndexingData</uri>
+            <uri prefix='&meshv;'>IndexingData</uri>
           </xsl:with-param>
         </xsl:call-template>
         
@@ -412,7 +412,7 @@
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select="$indexing_data_blank"/>
-            <uri prefix='&mesh;'>indexingDescriptor</uri>
+            <uri prefix='&meshv;'>indexingDescriptor</uri>
             <uri prefix='&mesh;'>
               <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
             </uri>
@@ -429,7 +429,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$indexing_data_blank"/>
-              <uri prefix='&mesh;'>indexingQualifier</uri>
+              <uri prefix='&meshv;'>indexingQualifier</uri>
               <uri prefix='&mesh;'>
                 <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
               </uri>
@@ -449,7 +449,7 @@
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$supprec_uri"/>
-            <uri prefix='&mesh;'>pharmacologicalAction</uri>
+            <uri prefix='&meshv;'>pharmacologicalAction</uri>
             <uri prefix='&mesh;'>
               <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
             </uri>
@@ -468,7 +468,7 @@
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$supprec_uri"/>
-            <uri prefix='&mesh;'>source</uri>
+            <uri prefix='&meshv;'>source</uri>
             <literal>
               <xsl:value-of select="."/>
             </literal>
@@ -495,7 +495,7 @@
         <xsl:call-template name='triple'>
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$supprec_uri'/>
-            <uri prefix='&mesh;'>concept</uri>
+            <uri prefix='&meshv;'>concept</uri>
             <xsl:copy-of select="$concept_uri"/>
           </xsl:with-param>
         </xsl:call-template>
@@ -507,7 +507,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$concept_uri"/>
             <uri prefix='&rdf;'>type</uri>
-            <uri prefix='&mesh;'>Concept</uri>
+            <uri prefix='&meshv;'>Concept</uri>
           </xsl:with-param>
         </xsl:call-template>
 
@@ -522,7 +522,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$concept_uri"/>
-              <uri prefix='&mesh;'>isPreferredConcept</uri>
+              <uri prefix='&meshv;'>isPreferredConcept</uri>
               <literal>
                 <xsl:value-of select="@PreferredConceptYN"/>
               </literal>
@@ -572,7 +572,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$concept_uri'/>
-              <uri prefix='&mesh;'>CASN1_label</uri>
+              <uri prefix='&meshv;'>CASN1_label</uri>
               <literal>
                 <xsl:value-of select="CASN1Name"/>
               </literal>
@@ -591,7 +591,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$concept_uri'/>
-              <uri prefix='&mesh;'>registryNumber</uri>
+              <uri prefix='&meshv;'>registryNumber</uri>
               <literal>
                 <xsl:value-of select="RegistryNumber"/>
               </literal>
@@ -637,7 +637,7 @@
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$semantic_type_uri"/>
               <uri prefix='&rdf;'>type</uri>
-              <uri prefix='&mesh;'>SemanticType</uri>
+              <uri prefix='&meshv;'>SemanticType</uri>
             </xsl:with-param>
           </xsl:call-template>
 
@@ -646,7 +646,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$concept_uri"/>
-              <uri prefix='&mesh;'>semanticType</uri>
+              <uri prefix='&meshv;'>semanticType</uri>
               <xsl:copy-of select="$semantic_type_uri"/>
             </xsl:with-param>
           </xsl:call-template>
@@ -685,7 +685,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$concept_uri"/>
-              <uri prefix='&mesh;'>relatedRegistryNumber</uri>
+              <uri prefix='&meshv;'>relatedRegistryNumber</uri>
               <literal>
                 <xsl:value-of select="."/>
               </literal>
@@ -715,7 +715,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$concept_uri"/>
-              <uri prefix='&mesh;'>term</uri>
+              <uri prefix='&meshv;'>term</uri>
               <xsl:copy-of select="$term_uri"/>
             </xsl:with-param>
           </xsl:call-template>
@@ -730,7 +730,7 @@
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$term_uri"/>
               <uri prefix='&rdf;'>type</uri>
-              <uri prefix='&mesh;'>Term</uri>
+              <uri prefix='&meshv;'>Term</uri>
             </xsl:with-param>
           </xsl:call-template>
           
@@ -785,7 +785,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$term_uri"/>
-              <uri prefix='&mesh;'>termData</uri>
+              <uri prefix='&meshv;'>termData</uri>
               <xsl:copy-of select="$term_data_blank"/>
             </xsl:with-param>
           </xsl:call-template>
@@ -800,7 +800,7 @@
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$term_data_blank"/>
               <uri prefix='&rdf;'>type</uri>
-              <uri prefix='&mesh;'>TermData</uri>
+              <uri prefix='&meshv;'>TermData</uri>
             </xsl:with-param>
           </xsl:call-template>
           
@@ -816,7 +816,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$term_data_blank"/>
-              <uri prefix='&mesh;'>isConceptPreferredTerm</uri>
+              <uri prefix='&meshv;'>isConceptPreferredTerm</uri>
               <literal>
                 <xsl:value-of select="@ConceptPreferredTermYN"/>
               </literal>
@@ -833,7 +833,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$term_data_blank"/>
-              <uri prefix='&mesh;'>isPermutedTerm</uri>
+              <uri prefix='&meshv;'>isPermutedTerm</uri>
               <literal>
                 <xsl:value-of select="@IsPermutedTermYN"/>
               </literal>
@@ -849,7 +849,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$term_data_blank"/>
-              <uri prefix='&mesh;'>lexicalTag</uri>
+              <uri prefix='&meshv;'>lexicalTag</uri>
               <literal>
                 <xsl:value-of select="@LexicalTag"/>
               </literal>
@@ -867,7 +867,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$term_data_blank"/>
-              <uri prefix='&mesh;'>printFlag</uri>
+              <uri prefix='&meshv;'>printFlag</uri>
               <literal>
                 <xsl:value-of select="@PrintFlagYN"/>
               </literal>
@@ -884,7 +884,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$term_data_blank"/>
-              <uri prefix='&mesh;'>isRecordPreferredTerm</uri>              
+              <uri prefix='&meshv;'>isRecordPreferredTerm</uri>              
               <literal>
                 <xsl:value-of select="@RecordPreferredTermYN"/>
               </literal>
@@ -934,7 +934,7 @@
               </xsl:with-param>
               <xsl:with-param name='spec'>
                 <xsl:copy-of select="$term_data_blank"/>
-                <uri prefix='&mesh;'>dateCreated</uri>
+                <uri prefix='&meshv;'>dateCreated</uri>
                 <literal>
                   <xsl:value-of select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"/>
                 </literal>
@@ -952,7 +952,7 @@
               </xsl:with-param>
               <xsl:with-param name='spec'>
                 <xsl:copy-of select="$term_data_blank"/>
-                <uri prefix='&mesh;'>abbreviation</uri>
+                <uri prefix='&meshv;'>abbreviation</uri>
                 <literal>
                   <xsl:value-of select="Abbreviation"/>
                 </literal>
@@ -970,7 +970,7 @@
               </xsl:with-param>
               <xsl:with-param name='spec'>
                 <xsl:copy-of select="$term_data_blank"/>
-                <uri prefix='&mesh;'>sortVersion</uri>
+                <uri prefix='&meshv;'>sortVersion</uri>
                 <literal>
                   <xsl:value-of select="SortVersion"/>
                 </literal>
@@ -988,7 +988,7 @@
               </xsl:with-param>
               <xsl:with-param name='spec'>
                 <xsl:copy-of select="$term_data_blank"/>
-                <uri prefix='&mesh;'>entryVersion</uri>
+                <uri prefix='&meshv;'>entryVersion</uri>
                 <literal>
                   <xsl:value-of select="EntryVersion"/>
                 </literal>
@@ -1014,7 +1014,7 @@
                     <xsl:text>_</xsl:text>
                     <xsl:copy-of select="$pos"/>
                   </named>
-                  <uri prefix='&mesh;'>thesaurusID</uri>
+                  <uri prefix='&meshv;'>thesaurusID</uri>
                   <literal>
                     <xsl:value-of select="."/>
                   </literal>

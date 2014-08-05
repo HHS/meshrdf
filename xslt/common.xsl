@@ -32,7 +32,7 @@
     Template:
       * For fixme/@reporter, use the GitHub username
       * Within the `spec` parameter, put three children.  Any of which could look something like this:
-          <uri prefix='&mesh;'>property</uri>
+          <uri prefix='&meshv;'>property</uri>
           <uri prefix='&mesh;'>
             <xsl:value-of select='$something_uri'/>
           </uri>
@@ -175,7 +175,7 @@
         </xsl:with-param>
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
-          <uri prefix='&mesh;'>recordOriginator</uri>
+          <uri prefix='&meshv;'>recordOriginator</uri>
           <literal>
             <xsl:value-of select="RecordOriginatorsList/RecordOriginator"/>
           </literal>
@@ -192,7 +192,7 @@
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$parent"/>
-            <uri prefix='&mesh;'>recordMaintainer</uri>
+            <uri prefix='&meshv;'>recordMaintainer</uri>
             <literal>
               <xsl:value-of select="RecordOriginatorsList/RecordMaintainer"/>
             </literal>
@@ -210,7 +210,7 @@
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$parent"/>
-            <uri prefix='&mesh;'>recordAuthorizer</uri>
+            <uri prefix='&meshv;'>recordAuthorizer</uri>
             <literal>
               <xsl:value-of select="RecordOriginatorsList/RecordAuthorizer"/>
             </literal>
@@ -237,7 +237,7 @@
       <xsl:call-template name="triple">
         <xsl:with-param name="spec">
           <xsl:copy-of select="$concept_uri"/>
-          <uri prefix='&mesh;'>conceptRelation</uri>
+          <uri prefix='&meshv;'>conceptRelation</uri>
           <xsl:copy-of select="$blank_node"/>
         </xsl:with-param>
       </xsl:call-template>
@@ -246,7 +246,7 @@
         <xsl:with-param name="spec">
           <xsl:copy-of select="$blank_node"/>
           <uri prefix='&rdf;'>type</uri>
-          <uri prefix='&mesh;'>ConceptRelation</uri>
+          <uri prefix='&meshv;'>ConceptRelation</uri>
         </xsl:with-param>
       </xsl:call-template>            
       
@@ -254,7 +254,7 @@
         <xsl:call-template name="triple">
           <xsl:with-param name="spec">
             <xsl:copy-of select="$blank_node"/>
-            <uri prefix='&mesh;'>relation</uri>
+            <uri prefix='&meshv;'>relation</uri>
             <xsl:copy-of select="f:skos_relation_uri(@RelationName)"/>
           </xsl:with-param>
         </xsl:call-template>
@@ -263,7 +263,7 @@
       <xsl:call-template name="triple">
         <xsl:with-param name="spec">
           <xsl:copy-of select="$blank_node"/>
-          <uri prefix='&mesh;'>concept1</uri>
+          <uri prefix='&meshv;'>concept1</uri>
           <uri prefix='&mesh;'>
             <xsl:value-of select="Concept1UI"/>
           </uri>
@@ -273,7 +273,7 @@
       <xsl:call-template name="triple">
         <xsl:with-param name="spec">
           <xsl:copy-of select="$blank_node"/>
-          <uri prefix='&mesh;'>concept2</uri>
+          <uri prefix='&meshv;'>concept2</uri>
           <uri prefix='&mesh;'>
             <xsl:value-of select="Concept2UI"/>
           </uri>
@@ -285,7 +285,7 @@
         <xsl:call-template name="triple">
           <xsl:with-param name="spec">
             <xsl:copy-of select="$blank_node"/>
-            <uri prefix='&mesh;'>relationAttribute</uri>
+            <uri prefix='&meshv;'>relationAttribute</uri>
             <literal>
               <xsl:value-of select="RelationAttribute"/>
             </literal>
