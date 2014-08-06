@@ -1,4 +1,4 @@
-# Create a new graph
+## Create a new graph
 
 ***Note that these require administrator privileges, so can only be executed through the
 interactive SQL interface (see the link in the upper left of the Virtuoso Conductor screen).***
