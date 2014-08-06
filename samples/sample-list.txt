@@ -1,0 +1,59 @@
+# Samples 2014 MeSH records that span the three record types (Descriptor, Qualifier, SCR) and classes, 
+# such as Geographic, Publication Type, and Check tag for Descriptors; and Chemical, Protocol, and 
+# Disease for SCRs
+
+C000588751 penicillitone
+C003820 Z 4000
+C005195 methampicillin
+C012211 ubenimex
+C012734 ampevit
+C014792 reproterol
+C017472 lonazolac
+C025735 Aeron
+C029014 diacetamate
+C038409 ABC protocol
+C110820 acetaminophen, aspirin, caffeine drug combination
+C111106 7-methylguanosine 5'-diphosphate
+C535927 Chitayat Moore Del Bigio syndrome
+C537647 Chromosome 5, monosomy 5q35
+C563013 Membranous Obstruction of Inferior Vena Cava
+C564178 Horner Syndrome, Congenital
+C566928 Tyrosine Kinase 2 Deficiency
+
+D000082 Acetaminophen
+D000667 Ampicillin
+D000818 Animals
+D000900 Anti-Bacterial Agents
+D002322 Career Mobility
+D003920 Diabetes Mellitus
+D004358 Drug Therapy
+D005260 Female
+D005290 Ferric Compounds
+D005858 Germany
+D006321 Heart
+D006732 Horner Syndrome
+D006801 Humans
+D007501 Iron
+D009273 Age Groups
+D012441 Saccharomyces cerevisiae
+D012877 Skin Manifestations
+D014473 Unconscious (Psychology)
+D015242 Ofloxacin
+D016032 Randomized Controlled Trials as Topic
+D016239 MEDLINE
+D016421 Editorial
+D016449 Randomized Controlled Trial
+D016454 Review
+D017516 Historical Geographic Locations
+D018675 Toxicity Tests
+D019987 Visually Impaired Persons
+D020313 Specialty Uses of Chemicals
+D020500 Statistics
+D048909 Diabetes Complications
+D052061 Research Support, N.I.H., Extramural
+D058537 Electronic Supplementary Materials
+D060329 Education of Visually Disabled
+
+Q000188 drug therapy
+Q000331 legislation & jurisprudence
+Q000453 epidemiology
