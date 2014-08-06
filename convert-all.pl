@@ -7,6 +7,8 @@
 #   * (maybe) concatenate those n-triples together.
 # The last step is "maybe", because it might turn out to be easier to load the triples into a triple
 # store if they remain in manageable chunk sizes.
+#
+# This depends on SAXON_JAR being set to point to the saxon jar file.
 
 
 use strict;
@@ -18,7 +20,7 @@ my @sets = qw( qual desc supp );
 # First, chunk up the XML
 foreach my $set (@sets) {
     my $xml_file = "data/$set" . "2014.xml";
-    my $xml_chunk_base = "data/$set-";
+    my $xml_chunk_base = "out/$set-";
 
     my $state = 0;   # init
     open( my $XML_FILE, '<' , $xml_file ) or die( "Can't open $xml_file for reading ($!)" );
@@ -92,7 +94,7 @@ foreach my $set (@sets) {
 
 # Next, run the transforms
 foreach my $set (@sets) {
-    foreach my $xml_chunk_file (<data/$set-*.xml>) {
+    foreach my $xml_chunk_file (<out/$set-*.xml>) {
         $xml_chunk_file =~ /-(\d+)/;
         my $num_str = $1;
         my $nt_chunk_file = "out/$set-$num_str.nt";
