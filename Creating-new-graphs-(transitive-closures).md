@@ -19,7 +19,7 @@ INSERT INTO <http://mor.nlm.nih.gov/mesh2014-tc>
 WHERE
 {
   {
-    select distinct ?child ?upper
+    select distinct ?child ?parent
     from <http://mor.nlm.nih.gov/mesh2014>
     {
       ?parent meshv:treeNumber ?upper .
