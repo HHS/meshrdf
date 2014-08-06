@@ -8,5 +8,5 @@ Welcome to the MeSH-RDF wiki!
     * [[Basic sample MeSH queries]]
     * [[MeSH MEDLINE sample queries]]
     * [[Blank node sample queries]]
-    * [[Create a new graph]] (transitive closure)
+    * [[Creating new graphs (transitive closures)]]
 
