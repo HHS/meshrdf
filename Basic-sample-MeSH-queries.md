@@ -11,18 +11,9 @@ where {
 }
 ```
 
-## All you ever wanted to know about the resource “Ofloxacin” (mesh:D015242)
+## All triples with “Ofloxacin” as the subject
 
-```sparql
-select *
-from <http://mor.nlm.nih.gov/mesh2014>
-where {
-     <http://id.nlm.nih.gov/mesh/D015242> ?p ?c .
-}
-```
-
-
-### Making use of PREFIX avoids typing long URIs
+See [[Basic descriptor conversion]] for a description of these results.
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
@@ -30,10 +21,9 @@ PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 select *
 from <http://mor.nlm.nih.gov/mesh2014>
 where {
-     mesh:D015242 ?p ?c .
+     mesh:D015242 ?p ?o .
 }
 ```
-
 
 ## The pharmacological actions of Ofloxacin (mesh:D015242)
 
