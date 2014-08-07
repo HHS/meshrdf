@@ -1,5 +1,5 @@
-# Samples 2014 MeSH records that span the three record types (Descriptor, Qualifier, SCR) and classes, 
-# such as Geographic, Publication Type, and Check tag for Descriptors; and Chemical, Protocol, and 
+# Samples 2014 MeSH records that span the three record types (Descriptor, Qualifier, SCR) and classes,
+# such as Geographic, Publication Type, and Check tag for Descriptors; and Chemical, Protocol, and
 # Disease for SCRs
 
 C000588751 penicillitone
@@ -20,6 +20,7 @@ C563013 Membranous Obstruction of Inferior Vena Cava
 C564178 Horner Syndrome, Congenital
 C566928 Tyrosine Kinase 2 Deficiency
 
+D000005 Abdomen
 D000082 Acetaminophen
 D000667 Ampicillin
 D000818 Animals
@@ -27,15 +28,20 @@ D000900 Anti-Bacterial Agents
 D002322 Career Mobility
 D003920 Diabetes Mellitus
 D004358 Drug Therapy
+D005123 Eye
+D005138 Eyebrows
 D005260 Female
 D005290 Ferric Compounds
+D005145 Face
 D005858 Germany
 D006321 Heart
 D006732 Horner Syndrome
 D006801 Humans
 D007501 Iron
 D009273 Age Groups
+D009801 Oculomotor Muscles
 D012441 Saccharomyces cerevisiae
+D012679 Sense Organs
 D012877 Skin Manifestations
 D014473 Unconscious (Psychology)
 D015242 Ofloxacin
@@ -55,5 +61,6 @@ D058537 Electronic Supplementary Materials
 D060329 Education of Visually Disabled
 
 Q000188 drug therapy
+Q000293 injuries
 Q000331 legislation & jurisprudence
 Q000453 epidemiology

@@ -113,6 +113,126 @@
   </ConceptList>
  </QualifierRecord>
 <QualifierRecord QualifierType = "1">
+  <QualifierUI>Q000293</QualifierUI>
+  <QualifierName>
+   <String>injuries</String>
+  </QualifierName>
+  <DateCreated>
+   <Year>1973</Year>
+   <Month>12</Month>
+   <Day>27</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2003</Year>
+   <Month>07</Month>
+   <Day>24</Day>
+  </DateRevised>
+  <DateEstablished>
+   <Year>1966</Year>
+   <Month>01</Month>
+   <Day>01</Day>
+  </DateEstablished>
+  <ActiveMeSHYearList>
+   <Year>2004</Year>
+   <Year>2005</Year>
+   <Year>2006</Year>
+   <Year>2007</Year>
+   <Year>2008</Year>
+   <Year>2009</Year>
+   <Year>2010</Year>
+   <Year>2011</Year>
+   <Year>2012</Year>
+   <Year>2013</Year>
+   <Year>2014</Year>
+  </ActiveMeSHYearList>
+  <Annotation>subhead only; by physical trauma only; includes "wounds", "trauma"; for "lesion" in Romance languages; not for cell damage ( = /pathology); indexing policy: Manual 19.8.38; DF: /inj or /IN
+  </Annotation>
+  <HistoryNote>66; used with Category C 1966; Category A 1967-74; A1-9 &amp; A13-15 1975-88; A1-9, A13-15 &amp; B2 1989; A1-10, A13-14, B2 &amp; I3 1990 forward
+  </HistoryNote>
+  <OnlineNote>search policy: Online Manual; use: main heading/IN or IN (SH) or SUBS APPLY IN
+  </OnlineNote>
+  <TreeNumberList>
+   <TreeNumber>Y29</TreeNumber>
+  </TreeNumberList>
+  <TreeNodeAllowedList>
+   <TreeNodeAllowed>A01</TreeNodeAllowed>
+   <TreeNodeAllowed>A02</TreeNodeAllowed>
+   <TreeNodeAllowed>A03</TreeNodeAllowed>
+   <TreeNodeAllowed>A04</TreeNodeAllowed>
+   <TreeNodeAllowed>A05</TreeNodeAllowed>
+   <TreeNodeAllowed>A07</TreeNodeAllowed>
+   <TreeNodeAllowed>A09</TreeNodeAllowed>
+   <TreeNodeAllowed>A10</TreeNodeAllowed>
+   <TreeNodeAllowed>A13</TreeNodeAllowed>
+   <TreeNodeAllowed>A14</TreeNodeAllowed>
+   <TreeNodeAllowed>A16</TreeNodeAllowed>
+   <TreeNodeAllowed>A17</TreeNodeAllowed>
+  </TreeNodeAllowedList>
+  <RecordOriginatorsList>
+   <RecordOriginator>nlm</RecordOriginator>
+   <RecordMaintainer>schulmaj</RecordMaintainer>
+   <RecordAuthorizer>nelsons</RecordAuthorizer>
+  </RecordOriginatorsList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M0030486</ConceptUI>
+    <ConceptName>
+     <String>injuries</String>
+    </ConceptName>
+    <ScopeNote>Used with anatomic headings, animals, and sports for wounds and injuries. Excludes cell damage, for which "pathology" is used.
+    </ScopeNote>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T037</SemanticTypeUI>
+      <SemanticTypeName>Injury or Poisoning</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0030486</Concept1UI>
+     <Concept2UI>M0030487</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+      <TermUI>T060876</TermUI>
+      <String>injuries</String>
+      <Abbreviation>IN</Abbreviation>
+      <EntryVersion>INJ</EntryVersion>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T060877</TermUI>
+      <String>trauma</String>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0030487</ConceptUI>
+    <ConceptName>
+     <String>wounds</String>
+    </ConceptName>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T037</SemanticTypeUI>
+      <SemanticTypeName>Injury or Poisoning</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0030486</Concept1UI>
+     <Concept2UI>M0030487</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T060878</TermUI>
+      <String>wounds</String>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </QualifierRecord>
+<QualifierRecord QualifierType = "1">
   <QualifierUI>Q000331</QualifierUI>
   <QualifierName>
    <String>legislation &amp; jurisprudence</String>
