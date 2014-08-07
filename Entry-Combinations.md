@@ -1,4 +1,4 @@
-Discussion on issue #10.
+Discussion on issue [#10](https://github.com/HHS/mesh-rdf/issues/22).
 
 See this image:
 
