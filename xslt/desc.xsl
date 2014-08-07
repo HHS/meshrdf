@@ -65,7 +65,7 @@
         <xsl:with-param name="doc">
           <desc>This relation states that a descriptor record has a descriptor class to which 
             it belongs.</desc>
-          <fixme reporter='klortho'>Wouldn't this be done better by using a class hierarchy? For
+          <fixme reporter='klortho' issue='28'>Wouldn't this be done better by using a class hierarchy? For
             example, each of topical descriptor, publication type, check tag, and 
             geographical descriptor could be defined as a class in the ontology?</fixme>
         </xsl:with-param>
@@ -238,7 +238,7 @@
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
             <desc>This relation states that a descriptor has a history note.</desc>
-            <fixme>#27 - Should have (leading and) trailing whitespace removed</fixme>
+            <fixme report='klortho' issue='27'>Should have (leading and) trailing whitespace removed</fixme>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
@@ -272,7 +272,7 @@
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
             <desc>This relation states that a descriptor has a public MeSH note.</desc>
-            <fixme>#27 - Should have (leading and) trailing whitespace removed</fixme>
+            <fixme report='klortho' issue='27'>Should have (leading and) trailing whitespace removed</fixme>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
