@@ -1,4 +1,4 @@
-Below is an example of how the XML record for D015242, Ofloxacin, is converted into XML.  Both the XML and the RDF are elided in the same way.
+Below is an example of how the XML record for D015242, Ofloxacin, is converted into XML.  Both the XML and the RDF are elided in the same way.  Viewing these side-by-side is useful to see how the XML maps to the RDF.
 
 ## XML
 
@@ -89,6 +89,7 @@ Below is an example of how the XML record for D015242, Ofloxacin, is converted i
 
 ## RDF (turtle format)
 
+```
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mesh:    <http://id.nlm.nih.gov/mesh/> .
 @prefix meshv:   <http://id.nlm.nih.gov/mesh/vocab#> .
@@ -121,6 +122,7 @@ mesh:D015242 a  meshv:Descriptor .
   meshv:concept mesh:M0023430 ,
     ...
     mesh:M0329515 ;
+```
 
 ## Generating the RDF
 
