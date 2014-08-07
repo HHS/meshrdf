@@ -238,6 +238,7 @@
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
             <desc>This relation states that a descriptor has a history note.</desc>
+            <fixme>#27 - Should have (leading and) trailing whitespace removed</fixme>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
@@ -271,6 +272,7 @@
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
             <desc>This relation states that a descriptor has a public MeSH note.</desc>
+            <fixme>#27 - Should have (leading and) trailing whitespace removed</fixme>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
