@@ -1,5 +1,8 @@
 Discussion on [#22](https://github.com/HHS/mesh-rdf/issues/22).
 
+Currently, the tree numbers in MeSH are modelled with skos:broader relationships that are inserted into a
+separate graph, using the SPARQL query given in [[Creating new graphs (transitive closures)]].  This creates skos:broader links between parent and child nodes of the tree hierarchy, based on the tree numbers.
+
 See this diagram, which illustrates the problem of tree numbers, that impose multiple overlapping trees
 
 ![](https://cloud.githubusercontent.com/assets/77226/3799017/0cfd2b52-1bea-11e4-8786-01e144579e85.png)
