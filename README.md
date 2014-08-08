@@ -95,17 +95,8 @@ The conversion scripts are:
   input XML files into manageable sized chunks, and then runs each chunk through the
   XSLTs separately.  It should run on any machine that has Perl installed.
 
-FIXME:  Need to test the Perl script on a Windows platform.
-
 
 ### Generating and converting the sample files
-
-
-
-
-
-
-## Samples / testing
 
 In the *samples* subdirectory are a number of sample files that can be used for testing.
 The XML files here are generated from the full MeSH XML files, but are included in the

@@ -13,7 +13,7 @@
 use strict;
 
 my $LINES_PER_CHUNK = 500000;
-my $saxon_jar = $ENV{SAXON_JdAR};
+my $saxon_jar = $ENV{SAXON_JAR};
 die "You must first define the environment variable SAXON_JAR." if !$saxon_jar;
 
 my @sets = qw( qual desc supp );
