@@ -1,4 +1,4 @@
-Below is an example of how the XML record for D015242, Ofloxacin, is converted into XML.  Both the XML and the RDF are elided in the same way.  Viewing these side-by-side is useful to see how the XML maps to the RDF.
+Below is an example of how a fairly typical XML record for a descriptor (D015242, Ofloxacin) is converted into XML. For the most part, this page just shows the portions of the XML and RDF that correspond to the literal values that are attached to the descriptor object. Both the XML and the RDF are elided in the same way.  Viewing these side-by-side is useful to see how the XML maps to the RDF.
 
 ## XML
 
@@ -26,23 +26,7 @@ Below is an example of how the XML record for D015242, Ofloxacin, is converted i
   <ActiveMeSHYearList>
    <Year>2014</Year>
   </ActiveMeSHYearList>
-  <AllowableQualifiersList>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000008</QualifierUI>
-      ...
-    </QualifierReferredTo>
-    <Abbreviation>AD</Abbreviation>
-   </AllowableQualifier>
-    ...
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000819</QualifierUI>
-      ...
-    </QualifierReferredTo>
-    <Abbreviation>AG</Abbreviation>
-   </AllowableQualifier>
-  </AllowableQualifiersList>
+  ...
   <HistoryNote>89
   </HistoryNote>
   <PublicMeSHNote>89
@@ -52,20 +36,6 @@ Below is an example of how the XML record for D015242, Ofloxacin, is converted i
    <PreviousIndexing>Anti-Infective Agents, Urinary (1981-1988)</PreviousIndexing>
    <PreviousIndexing>Oxazines (1981-1988)</PreviousIndexing>
   </PreviousIndexingList>
-    <PharmacologicalActionList>
-     <PharmacologicalAction>
-      <DescriptorReferredTo>
-       <DescriptorUI>D000892</DescriptorUI>
-        ...
-      </DescriptorReferredTo>
-     </PharmacologicalAction>
-     <PharmacologicalAction>
-      <DescriptorReferredTo>
-       <DescriptorUI>D059005</DescriptorUI>
-        ...
-      </DescriptorReferredTo>
-     </PharmacologicalAction>
-    </PharmacologicalActionList>
   <TreeNumberList>
    <TreeNumber>D03.438.810.835.322.500</TreeNumber>
   </TreeNumberList>
@@ -74,16 +44,7 @@ Below is an example of how the XML record for D015242, Ofloxacin, is converted i
    <RecordMaintainer>pashj</RecordMaintainer>
    <RecordAuthorizer>chodan</RecordAuthorizer>
   </RecordOriginatorsList>
-  <ConceptList>
-   <Concept PreferredConceptYN="Y">
-    <ConceptUI>M0023430</ConceptUI>
-     ...
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0329515</ConceptUI>
-     ...
-   </Concept>
-  </ConceptList>
+  ...
  </DescriptorRecord>
 ```
 
@@ -96,32 +57,25 @@ Below is an example of how the XML record for D015242, Ofloxacin, is converted i
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-mesh:D015242 a  meshv:Descriptor .
+mesh:D015242 a  meshv:TopicalDescriptor .
   rdfs:label  "Ofloxacin" .
   dcterms:identifier  "D015242" ;
-  meshv:descriptorClass "1" ;
   meshv:dateCreated "2014-06-26" ;
   meshv:dateRevised "2013-07-08" ;
   meshv:dateEstablished "1989-01-01" ;
   meshv:activeMeSHYear  "2014" ;
-  meshv:allowableQualifier  mesh:Q000008 ,
-    ...
-    mesh:Q000819 ;
+  ...
   meshv:historyNote "89\n  " ;
   meshv:publicMeSHNote  "89\n  " ;
   meshv:previousIndexing  "Anti-Infective Agents, Urinary (1981-1988)" ,
     ...
     "Oxazines (1981-1988)" .
-  meshv:pharmacologicalAction mesh:D000892 ,
-    ...
-    mesh:D059005 ;
+  ...
   meshv:treeNumber  "D03.438.810.835.322.500" ;
   meshv:recordOriginator  "standardr" ;
   meshv:recordMaintainer  "pashj" ;
   meshv:recordAuthorizer  "chodan" ;
-  meshv:concept mesh:M0023430 ,
-    ...
-    mesh:M0329515 ;
+  ...
 ```
 
 ## Generating the RDF
