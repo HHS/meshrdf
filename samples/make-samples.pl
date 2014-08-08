@@ -7,6 +7,16 @@
 use strict;
 
 
+my @sets = qw( qual desc supp );
+
+if (@ARGV) {
+    my $set = $ARGV[0];
+    if (!grep {/$set/} @sets) {
+        die "Invalid set; should be one of " . join(", ", @sets);
+    }
+    @sets = ( $set );
+}
+
 my %set_info = (
     'qual' => {
         'id_type_char' => 'Q',
@@ -49,8 +59,6 @@ while (my $line = <$SAMPLE_LIST>) {
 close $SAMPLE_LIST;
 
 
-my @sets = qw( qual desc supp );
-
 foreach my $set (@sets) {
     my $set_data = $set_info{$set};
     my $sample_list = $set_data->{sample_list};
@@ -76,6 +84,8 @@ foreach my $set (@sets) {
                 my $wrapper_line = $line;
                 open($SAMPLE_FILE, ">", $sample_file)
                     or die("Can't open $sample_file for writing ($!)");
+                # Make sure that on Windows, it only outputs Unix style line-endings
+                binmode $SAMPLE_FILE;
                 print $SAMPLE_FILE $wrapper_line . "\n";
                 $state = 1;    # Ready to start reading items
             }
