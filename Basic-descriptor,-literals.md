@@ -51,31 +51,32 @@ Below is an example of how a fairly typical XML record for a descriptor (D015242
 ## RDF (turtle format)
 
 ```
-@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix mesh:    <http://id.nlm.nih.gov/mesh/> .
-@prefix meshv:   <http://id.nlm.nih.gov/mesh/vocab#> .
-@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
+@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 
-mesh:D015242 a  meshv:TopicalDescriptor .
-  rdfs:label  "Ofloxacin" .
+mesh:D015242  rdf:type  meshv:TopicalDescriptor ;
+  rdfs:label  "Ofloxacin" ;
   dcterms:identifier  "D015242" ;
-  meshv:dateCreated "2014-06-26" ;
-  meshv:dateRevised "2013-07-08" ;
-  meshv:dateEstablished "1989-01-01" ;
-  meshv:activeMeSHYear  "2014" ;
+  meshv:dateCreated "2014-06-26"^^xsd:date ;
+  meshv:dateRevised "2013-07-08"^^xsd:date ;
+  meshv:dateEstablished "1989-01-01"^^xsd:date ;
+  meshv:activeMeSHYear  "2014-01-01"^^xsd:date ;
   ...
   meshv:historyNote "89\n  " ;
   meshv:publicMeSHNote  "89\n  " ;
-  meshv:previousIndexing  "Anti-Infective Agents, Urinary (1981-1988)" ,
-    ...
-    "Oxazines (1981-1988)" .
   ...
   meshv:treeNumber  "D03.438.810.835.322.500" ;
   meshv:recordOriginator  "standardr" ;
   meshv:recordMaintainer  "pashj" ;
   meshv:recordAuthorizer  "chodan" ;
   ...
+  meshv:previousIndexing  "Anti-Infective Agents (1981-1988)" ,
+    "Anti-Infective Agents, Urinary (1981-1988)" ,
+    "Oxazines (1981-1988)" .
 ```
 
 This RDF is depicted in the following graph:
