@@ -3,7 +3,9 @@ Welcome to the MeSH-RDF wiki!
 ## Contents
 
 * [[Introduction]]
-* [[Basic descriptor conversion]]
+* [[Basic descriptor, literals]]
+* [[Entry Combinations]]
+* [[Tree number model]]
 
 * Sample SPARQL queries
     * [[Basic sample MeSH queries]]
