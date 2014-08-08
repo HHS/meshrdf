@@ -100,9 +100,6 @@
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <desc>This relation states that a descriptor record has a date on which it was created, revised and established.</desc>
-          <fixme>Whether this date representation will be sufficient for us to compute on? We could also change it to
-            the date-time format as provided by the dateTime
-            XSLT 2.0 function.</fixme>
         </xsl:with-param>
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$descriptor_uri"/>
@@ -319,7 +316,7 @@
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc>The ECIN is a DescriptorQualifierPair, albeit an invalid one</desc>
+            <desc>The ECIN is a DescriptorQualifierPair, albeit (presumably) an invalid one</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select='$ecin_uri'/>
@@ -380,23 +377,14 @@
         </xsl:call-template>        
       </xsl:for-each>
 
+
       <!--
         Transformation rules: seeAlso, hasRelatedDescriptor
       -->
       <xsl:for-each select="SeeRelatedList/SeeRelatedDescriptor">
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc>This relation is different from what a person would see in the 
-              MeSH browser. In the browser one would see `&lt;desc_uri> seeAlso "name"`.
-              The `&lt;desc_uri> hasRelatedDescriptor &lt;desc_uri>` is where I decided to deviate from what 
-              I saw in the browser b/c the descriptor UI remains unchanged even though the 
-              descriptor name can change.</desc>
-            <fixme>I felt that some of the information in the SeeRelatedList element was 
-              repetative b/c it consisted of a list of descriptor unique identifiers and names. Hence, 
-              I decided to use the output specified above b/c we could always access the unique 
-              identifier and name for a descriptor given its unique identifier, we extract this 
-              information from the XML already. I thought the hasRelatedDescriptor relation was more 
-              expressive and explicit in this case than the seeAlso relation.</fixme>
+            <desc>This descriptor gets a seeAlso relation to another descriptor.</desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
@@ -407,14 +395,14 @@
           </xsl:with-param>
         </xsl:call-template>
       </xsl:for-each>
-      
+
       <!--
         Transformation rule: considerAlso
       -->
       <xsl:if test="ConsiderAlso">
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <fixme>Maybe we can break this up into several considerTermsAt</fixme>
+            <fixme>Maybe we can break this up into several considerTermsAt.</fixme>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
@@ -425,14 +413,22 @@
           </xsl:with-param>
         </xsl:call-template>
       </xsl:if>
-      
+
+      <!-- 
+        Documenting and diagramming all of these sub-graphs on the wiki.
+        (FIXME:  need github issue.)
+        Done up to here.
+      -->   
+
+
+
       <!--
         Transformation rule: pharmacologicalAction>
       -->
       <xsl:for-each select="PharmacologicalActionList/PharmacologicalAction">
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc>This relation states that a descriptor hasa pharmacological action.</desc>
+            <desc>This relation states that a descriptor has a pharmacological action.</desc>
             <fixme>The pharmacological action is represented here as a &lt;desc_uri>. That is, 
               as a descriptor unique identifier. I felt this was the best thing to do since the 
               pharmacological action consists of a descriptor unique identifier and a name.

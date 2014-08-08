@@ -18,8 +18,9 @@
     - doc - for self-documentation only; this isn't used when generating the triples.  It can contain:
         - <output> - put a stylized summary of the triple here
         - <desc> - short description of the rule
-        - <fixme> - (optional) any work to be done? The value of the reporter attribute should be the
-          GitHub username of the user.
+        - <fixme reporter='github-user' issue='github-issue-num'> - (optional) any work to be done? The 
+          value of the reporter attribute (if present) should be the GitHub username of the user.  The
+          issue attribute can be used to point to a specific GitHub issue number.
     - spec - the three element children of this parameter define what to put out for the subject,
       predicate, and object, respectively.  The name of the child element defines the type thing to emit
       (see the n-triples grammar specification, http://www.w3.org/2001/sw/RDFCore/ntriples/):
