@@ -4,3 +4,23 @@ See this image:
 
 ![](https://cloud.githubusercontent.com/assets/77226/3680662/e31e0f50-12b0-11e4-96e9-a77d8142bfa1.png)
 
+
+## Generating the RDF
+
+```sparql
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+
+CONSTRUCT { 
+  ?ecin ?p ?o .
+}
+from <http://chrismaloney.org/mesh>
+where {
+  ?ecin meshv:hasDescriptor mesh:D000005 .
+  ?ecin meshv:hasQualifier ?ecinq .
+  ?ecin meshv:useInstead ?ecout .
+  ?ecin ?p ?o .
+}
+```
+
+At the time of this writing, you can see the results dynamically from [this url](http://jatspan.org:8890/sparql?query=PREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0A%0ACONSTRUCT%20%7B%20%0A%20%20%3Fecin%20%3Fp%20%3Fo%20.%0A%7D%0Afrom%20%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0Awhere%20%7B%0A%20%20%3Fecin%20meshv%3AhasDescriptor%20mesh%3AD000005%20.%0A%20%20%3Fecin%20meshv%3AhasQualifier%20%3Fecinq%20.%0A%20%20%3Fecin%20meshv%3AuseInstead%20%3Fecout%20.%0A%20%20%3Fecin%20%3Fp%20%3Fo%20.%0A%7D%0A&format=TURTLE)
