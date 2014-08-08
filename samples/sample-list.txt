@@ -20,6 +20,7 @@ C563013 Membranous Obstruction of Inferior Vena Cava
 C564178 Horner Syndrome, Congenital
 C566928 Tyrosine Kinase 2 Deficiency
 
+D000001 Calcimycin
 D000005 Abdomen
 D000082 Acetaminophen
 D000667 Ampicillin

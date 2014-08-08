@@ -10,10 +10,11 @@
 #
 # This depends on SAXON_JAR being set to point to the saxon jar file.
 
-
 use strict;
 
 my $LINES_PER_CHUNK = 500000;
+my $saxon_jar = $ENV{SAXON_JdAR};
+die "You must first define the environment variable SAXON_JAR." if !$saxon_jar;
 
 my @sets = qw( qual desc supp );
 
@@ -99,7 +100,7 @@ foreach my $set (@sets) {
         my $num_str = $1;
         my $nt_chunk_file = "out/$set-$num_str.nt";
         print "Converting $xml_chunk_file -> $nt_chunk_file\n";
-        my $cmd = "java -Xmx2G -jar \$SAXON_JAR -s:$xml_chunk_file -xsl:xslt/$set.xsl > $nt_chunk_file";
+        my $cmd = "java -Xmx2G -jar $saxon_jar -s:$xml_chunk_file -xsl:xslt/$set.xsl > $nt_chunk_file";
         print "Executing '$cmd'\n";
         system $cmd;
     }
