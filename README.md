@@ -79,8 +79,7 @@ set SAXON_JAR=*repository-dir*\saxon\saxon9he.jar
 Where "repository-dir" is the base directory of this repository.
 
 
-
-### Running conversion scripts
+### Converting the complete MeSH data set
 
 There are a few conversion scripts in the repository which you can use to run the
 XSLT conversions.
@@ -96,64 +95,55 @@ The conversion scripts are:
   input XML files into manageable sized chunks, and then runs each chunk through the
   XSLTs separately.  It should run on any machine that has Perl installed.
 
+FIXME:  Need to test the Perl script on a Windows platform.
+
+
+### Generating and converting the sample files
+
+
+
+
+
+
+## Samples / testing
+
+In the *samples* subdirectory are a number of sample files that can be used for testing.
+The XML files here are generated from the full MeSH XML files, but are included in the
+repository so that anyone can get up and running, and try things out, very easily.
+
+The *sample-list.txt* file has the list of items from each of the three main XML
+files that provide a fairly good coverage of the variation of data found within MeSH.
+
+These three sample files, corresponding to that list and the three main XML files,
+are included in the repository:
+
+* desc-samples.xml
+* qual-samples.xml
+* supp-samples.xml
+
+The Perl script *make-samples.pl* can be used to regenerate these sample files from the
+the master XML files, extracting just those items that are listed in the *sample-list.txt*
+file, if any of those changes.  So, keep in mind that these samples in the repository are
+used for testing/demo purposes, and are not necessarily up to date with the latest MeSH
+release.
+
+Finally, either of the scripts *convert-samples.sh* (for Unix) or *convert-samples.bat*
+(for Windows) can be used to convert the sample XML files into RDF, the final output
+being *samples.nt*.
+
+
 
 ## Project directory structure
 
 These are the subdirectories of this project -- either part of the repository, or created:
 
-* *data* - Source MeSH XML, DTD, and other ancillary files. The main data XML files are not part of the
-  repository, but should be downloaded separately.
+* *data* - Source MeSH XML, DTD, and other ancillary files. This directory and its files are not part of the
+  repository, but should be downloaded separately, as described above.
 * *doc* - Schema for the RDF, and other documentation
-* *rnc* - Relax NG Compact version of the MeSH XML file schema
-* *samples* - Contrived and stripped-down version of some XML data files, for testing, as well as sample
-  SPARQL queries
-* *saxon* - Not part of the repository, this is where the Saxon XSLT processor should be extracted to.
-* *sql* - Some queries that are used to enhance the RDF graphs, in particular, by creating the links
-  that encode the tree hierarchies
+* *rnc* - Relax NG Compact version of the MeSH XML file schema (experimental)
+* *samples* - XML data files for testing and demo purposes, which each contain a small subset of the items
+  from the real XML data files
+* *saxon* - Not part of the repository, this is where the Saxon XSLT processor should be extracted.
 * *xslt* - The main XSLT processor files that convert the XML into RDF.
 
 
-## Generation of the tree hierarchy
-
-Once the original RDF data has been loaded to an RDF database such as Virtuoso, the script
-sql/createMeSHHierarchy.sql creates skos:broader links between parent and child nodes
-of the tree hierarchy, based on the tree numbers.
-
-## Samples / testing
-
-In the *samples* subdirectory are a number of sample files that can be used for testing
-
-The *sample-list.txt* file includes a compilation of items from each of the three main XML
-files that provide a fairly good
-
-There are some files that can be used for testing in the samples directory.  In particular:
-
-* desc2014-head.xml - the first 20000 lines (or so) of desc2014.xml
-* qual2014.xml - a complete copy of this
-* supp2014-head.xml - the first 10000 lines (or so) of supp2014.xml
-
-In addition, the latest output from the XSLTs for these sample files is also included in the
-repository, to act as a baseline for testing:
-
-* desc2014-head.nt
-* qual2014.nt
-* supp2014-head.nt
-
-For now, changes to the XSLTs (see issue #13) shouldn't result in significant changes to the RDF
-output. After making changes to the XSLTs, to verify that the changes haven't done any significant
-damage, do this (example for the other two types is similar):
-
-```
-cd samples
-saxon -s:desc2014-head.xml -xsl:../xslt/desc.xsl > desc2014-head.new.nt
-diff desc2014-head.nt desc2014-head.new.nt
-```
-
-If there were minor changes, like whitespace, or other changes that you deem okay, don't forget
-to update the baseline:
-
-```
-cp desc2014-head.new.nt desc2014-head.nt
-```
-
-Also, don't forget to commit and push your changes after each sitting.
