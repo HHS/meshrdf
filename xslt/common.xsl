@@ -9,7 +9,7 @@
 <xsl:stylesheet version="2.0"
                 xmlns:f="http://nlm.nih.gov/ns/f"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:xs="&xs;"
                 exclude-result-prefixes="xs f">
   
   <!-- 
@@ -76,14 +76,19 @@
     This helper function serializes one of the three types of the components of the spec
     parameter sent to the triple template.
   -->
-  <xsl:function name='f:serialize'>
+  <xsl:function name='f:serialize' as="text()">
     <xsl:param name='v'/>
     <xsl:choose>
       <xsl:when test='$v/self::uri'>
         <xsl:value-of select='f:delimit-uri(concat($v/@prefix, $v))'/>
       </xsl:when>
       <xsl:when test='$v/self::literal'>
-        <xsl:value-of select="f:literal-str($v)"/>
+        <xsl:variable name='type-string'>
+          <xsl:if test='$v/@type'>
+            <xsl:value-of select='concat("^^&lt;", $v/@type, ">")'/>
+          </xsl:if>
+        </xsl:variable>
+        <xsl:value-of select="concat(f:literal-str($v), $type-string)"/>
       </xsl:when>
       <xsl:when test='$v/self::named'>
         <xsl:value-of select='$v'/>
@@ -295,4 +300,10 @@
     </xsl:for-each>
   </xsl:template>
 
+  <xsl:template name='DateLiteral'>
+    <xsl:param name='context'/>
+    <literal type='&xs;#date'>
+      <xsl:value-of select="xs:date(string-join(($context/Year, $context/Month, $context/Day), '-'))"/>
+    </literal>
+  </xsl:template>
 </xsl:stylesheet>

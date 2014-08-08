@@ -100,15 +100,16 @@
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <desc>This relation states that a descriptor record has a date on which it was created, revised and established.</desc>
-          <fixme>Whether this date representation will be sufficient for us to compute on? We could also change it to the date-time format as provided by the dateTime
+          <fixme>Whether this date representation will be sufficient for us to compute on? We could also change it to
+            the date-time format as provided by the dateTime
             XSLT 2.0 function.</fixme>
         </xsl:with-param>
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$descriptor_uri"/>
           <uri prefix='&meshv;'>dateCreated</uri>
-          <literal>
-            <xsl:value-of select="xs:date(string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-'))"/>
-          </literal>
+          <xsl:call-template name="DateLiteral">
+            <xsl:with-param name="context" select="DateCreated"/>
+          </xsl:call-template>
         </xsl:with-param>
       </xsl:call-template>
       
@@ -120,9 +121,9 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
             <uri prefix='&meshv;'>dateRevised</uri>
-            <literal>
-              <xsl:value-of select="xs:date(string-join((DateRevised/Year,DateRevised/Month,DateRevised/Day),'-'))"/>
-            </literal>
+            <xsl:call-template name="DateLiteral">
+              <xsl:with-param name="context" select="DateRevised"/>
+            </xsl:call-template>
           </xsl:with-param>
         </xsl:call-template>
       </xsl:if>
@@ -135,9 +136,9 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
             <uri prefix='&meshv;'>dateEstablished</uri>
-            <literal>
-              <xsl:value-of select="xs:date(string-join((DateEstablished/Year,DateEstablished/Month,DateEstablished/Day),'-'))"/>
-            </literal>
+            <xsl:call-template name="DateLiteral">
+              <xsl:with-param name="context" select="DateEstablished"/>
+            </xsl:call-template>
           </xsl:with-param>
         </xsl:call-template>
       </xsl:if>
@@ -153,7 +154,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
             <uri prefix='&meshv;'>activeMeSHYear</uri>
-            <literal>
+            <literal type="&xs;#date">
               <xsl:value-of select="."/>
             </literal>
           </xsl:with-param>
@@ -972,9 +973,9 @@
               <xsl:with-param name='spec'>
                 <xsl:copy-of select='$term_data_blank'/>
                 <uri prefix='&meshv;'>dateCreated</uri>
-                <literal>
-                  <xsl:value-of select="string-join((DateCreated/Year,DateCreated/Month,DateCreated/Day),'-')"/>
-                </literal>
+                <xsl:call-template name="DateLiteral">
+                  <xsl:with-param name="context" select="DateCreated"/>
+                </xsl:call-template>
               </xsl:with-param>
             </xsl:call-template>
           </xsl:if>

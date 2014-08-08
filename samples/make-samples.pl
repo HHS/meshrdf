@@ -2,7 +2,7 @@
 # This script will create subsets of the main MeSH XML files, with just a discrete set of
 # sample records.
 #
-# This should be run from the samples directory.
+# This should be run from the base directory of the repository.
 
 use strict;
 
@@ -47,7 +47,6 @@ while (my $line = <$SAMPLE_LIST>) {
     }
 }
 close $SAMPLE_LIST;
-
 
 
 my @sets = qw( qual desc supp );

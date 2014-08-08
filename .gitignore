@@ -1,7 +1,4 @@
-SaxonHE9*.zip
+Saxon*.zip
 saxon
-data/get-latest-xml.sh
-data/desc2014.xml
-data/pa2014.xml
-data/supp2014.xml
+data
 out
