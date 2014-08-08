@@ -78,6 +78,10 @@ mesh:D015242 a  meshv:TopicalDescriptor .
   ...
 ```
 
+This RDF is depicted in the following graph:
+
+![](https://github.com/HHS/mesh-rdf/blob/master/doc/BasicConversionLiterals.png)
+
 ## Generating the RDF
 
 The RDF output above can be generated with the following SPARQL query, after substituting the current values for the name of the graph and so forth:
