@@ -4,6 +4,7 @@ Welcome to the MeSH-RDF wiki!
 
 * [[Introduction]]
 * [[Basic descriptor, literals]]
+* [[Allowable descriptor qualifier pairs]]
 * [[Entry Combinations]]
 * [[Tree number model]]
 
