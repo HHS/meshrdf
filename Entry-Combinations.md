@@ -39,6 +39,11 @@ Discussion on issue [#10](https://github.com/HHS/mesh-rdf/issues/22).
 </DescriptorRecord>
 ```
 
+Note that for *most* entry combinations, the ECOUT is just a stand-alone descriptor, but sometimes,
+it could be a DescriptorQualifierPair resource.  At the time of this writing (see [this GitHub
+issue comment](https://github.com/HHS/mesh-rdf/issues/12#issuecomment-51688049). there are a total of 946 
+entryCombination DQpairs, and 50 have allowableDQpairs as ECOUT.
+
 ## RDF
 
 Depicted in this graph:
