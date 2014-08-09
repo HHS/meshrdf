@@ -196,7 +196,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select='$dqpair_uri'/>
             <uri prefix='&rdf;'>type</uri>
-            <uri prefix='&meshv;'>DescriptorQualifierPair</uri>
+            <uri prefix='&meshv;'>AllowedDescriptorQualifierPair</uri>
           </xsl:with-param>
         </xsl:call-template>
 
@@ -316,12 +316,12 @@
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc>The ECIN is a DescriptorQualifierPair, albeit (presumably) an invalid one</desc>
+            <desc>The ECIN is a DisallowedDescriptorQualifierPair.</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select='$ecin_uri'/>
             <uri prefix='&rdf;'>type</uri>
-            <uri prefix='&meshv;'>DescriptorQualifierPair</uri>
+            <uri prefix='&meshv;'>DisallowedDescriptorQualifierPair</uri>
           </xsl:with-param>
         </xsl:call-template>
         
