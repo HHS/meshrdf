@@ -429,12 +429,6 @@
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
             <desc>This relation states that a descriptor has a pharmacological action.</desc>
-            <fixme>The pharmacological action is represented here as a &lt;desc_uri>. That is, 
-              as a descriptor unique identifier. I felt this was the best thing to do since the 
-              pharmacological action consists of a descriptor unique identifier and a name.
-              But this information is already obtained by the XSLT code when it extracts the relations 
-              in RDF. We can always get the name referred to by the pharmacological action by fetching 
-              the name corresponding to the descriptor unique identifier, the &lt;desc_uri>.</fixme>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
