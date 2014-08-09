@@ -14,3 +14,5 @@ Welcome to the MeSH-RDF wiki!
     * [[Blank node sample queries]]
     * [[Creating new graphs (transitive closures)]]
 
+* Project / development
+    * [[Validation criteria]] - collect ideas for future automated testing criteria here
