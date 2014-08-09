@@ -1,9 +1,5 @@
 Discussion on issue [#10](https://github.com/HHS/mesh-rdf/issues/22).
 
-See this image:
-
-![](https://github.com/HHS/mesh-rdf/blob/master/doc/EntryCombinations.png)
-
 ## XML
 
 ```xml
@@ -44,6 +40,11 @@ See this image:
 ```
 
 ## RDF
+
+Depicted in this graph:
+
+![](https://github.com/HHS/mesh-rdf/blob/master/doc/EntryCombinations.png)
+
 
 ```
 @prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
