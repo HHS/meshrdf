@@ -4,6 +4,45 @@ See this image:
 
 ![](https://github.com/HHS/mesh-rdf/blob/master/doc/EntryCombinations.png)
 
+## XML
+
+```xml
+<DescriptorRecord DescriptorClass="1">
+  <DescriptorUI>D000005</DescriptorUI>
+  <DescriptorName>
+    <String>Abdomen</String>
+  </DescriptorName>
+  ...
+  <EntryCombinationList>
+    <EntryCombination>
+      <ECIN>
+        <DescriptorReferredTo>
+          <DescriptorUI>D000005</DescriptorUI>
+          <DescriptorName>
+            <String>Abdomen</String>
+          </DescriptorName>
+        </DescriptorReferredTo>
+        <QualifierReferredTo>
+          <QualifierUI>Q000293</QualifierUI>
+          <QualifierName>
+            <String>injuries</String>
+          </QualifierName>
+        </QualifierReferredTo>
+      </ECIN>
+      <ECOUT>
+        <DescriptorReferredTo>
+          <DescriptorUI>D000007</DescriptorUI>
+          <DescriptorName>
+            <String>Abdominal Injuries</String>
+          </DescriptorName>
+        </DescriptorReferredTo>
+      </ECOUT>
+    </EntryCombination>
+  </EntryCombinationList>
+  ...
+</DescriptorRecord>
+```
+
 ## RDF
 
 ```
