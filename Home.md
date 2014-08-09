@@ -6,6 +6,8 @@ Welcome to the MeSH-RDF wiki!
 * [[Basic descriptor, literals]]
 * [[Allowable descriptor qualifier pairs]]
 * [[Entry Combinations]]
+* [[Descriptor references]]
+
 * [[Tree number model]]
 
 * Sample SPARQL queries
