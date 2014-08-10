@@ -55,3 +55,8 @@ See issue #15 before this can be fully implemented.
 ## RDF
 
 ![](https://github.com/HHS/mesh-rdf/blob/master/doc/Concepts.png)
+
+
+
+At the time of this writing, you can see the results dynamically from [this
+url](http://jatspan.org:8890/sparql?query=prefix%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0Aprefix%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0A%0Aconstruct%20%7B%0A%20%20%20%20mesh%3AD000001%20meshv%3Aconcept%20%3Fprefcon%20.%0A%20%20%20%20%3Fprefcon%20meshv%3AisPreferredConcept%20%22Y%22%20.%0A%20%20%20%20%3Fprefcon%20%3Fp%20%3Fo%20.%0A%20%20%20%20%24semtype%20%3Fstp%20%24sto%20.%0A%7D%0Afrom%20%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0Awhere%20%7B%0A%20%20%20%20mesh%3AD000001%20meshv%3Aconcept%20%3Fprefcon%20.%0A%20%20%20%20%3Fprefcon%20meshv%3AisPreferredConcept%20%22Y%22%20.%0A%20%20%20%20%3Fprefcon%20%3Fp%20%3Fo%20.%0A%20%20%20%20%3Fprefcon%20meshv%3AsemanticType%20%24semtype%20.%0A%20%20%20%20%24semtype%20%3Fstp%20%24sto%20.%0A%0A%7D&format=TURTLE)
