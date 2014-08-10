@@ -2,7 +2,6 @@
 # such as Geographic, Publication Type, and Check tag for Descriptors; and Chemical, Protocol, and
 # Disease for SCRs
 
-C000588751 penicillitone
 C003820 Z 4000
 C005195 methampicillin
 C012211 ubenimex
@@ -19,6 +18,7 @@ C537647 Chromosome 5, monosomy 5q35
 C563013 Membranous Obstruction of Inferior Vena Cava
 C564178 Horner Syndrome, Congenital
 C566928 Tyrosine Kinase 2 Deficiency
+C000588751 penicillitone
 
 D000001 Calcimycin
 D000005 Abdomen

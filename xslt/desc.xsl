@@ -512,6 +512,8 @@
           <xsl:with-param name="doc">
             <desc>This relation states that a Subject node used to identify a concept 
               is of type "Concept".</desc>
+            <fixme reporter='klortho' issue='31'>If we're going to use a `preferredConcept`
+              property, then this will change.</fixme>
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select="$concept_uri"/>
@@ -527,9 +529,9 @@
           <xsl:with-param name="doc">
             <desc>This relation states that yes, "Y", a concept is the preferred concept or 
               no, "N", the concept is not the preferred concept.</desc>
-            <fixme>Wouldn't it be better to define a PreferredConcept class, and use that as
-              this concept's rdf:type, instead of have a triple with a literal "Y" or "N"
-              value?</fixme>
+            <fixme reporter="klortho" issue='31'>In this case, I would like to do way with this literal-valued
+              triple, and instead define a predicae called "preferredConcept", which would be 
+              a subproperty of `concept`.</fixme>
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select="$concept_uri"/>
@@ -580,6 +582,8 @@
             <xsl:with-param name="doc">
               <desc>This relation states that a concept has a Chemical Abstracts Type N1 Name.</desc>
               <fixme>Do we want to parse the CASN1Name (e.g. for other purposes)?</fixme>
+              <fixme reporter='klortho'>The name of this property does not match the convention that
+                they start with lower-case letters.</fixme>
             </xsl:with-param>
             <xsl:with-param name="spec">
               <xsl:copy-of select="$concept_uri"/>
@@ -598,6 +602,11 @@
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
               <desc>This relation states that a concept has a registry number.</desc>
+              <fixme reporter='klortho' issue='32'>According to the 
+                [documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#RegistryNumber),
+                currently, this can be one of four types.  It would help the "linked data" cause if
+                we could parse out excactly what the type was and point to the canonical linked-data
+                URI, if one exists, whenever possible.</fixme>
             </xsl:with-param>
             <xsl:with-param name="spec">
               <xsl:copy-of select="$concept_uri"/>
@@ -641,7 +650,6 @@
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
                 <desc>This relation states that a concept has a semantic type.</desc>
-                <fixme></fixme>
               </xsl:with-param>
               <xsl:with-param name="spec">
                 <xsl:copy-of select="$concept_uri"/>
@@ -670,9 +678,10 @@
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
                 <desc>This rule states the a semantic type unique identifier has a semantic type name.</desc>
-                <fixme>I'm not sure if this relation is correct. But we've created this 
-                  type of relation for the concepts of a descriptor. We should check this (for e.g.,
-                  with a MeSH expert or by a literature search).</fixme>
+                <fixme report='klortho'>Since SemanticTypes are not centrally defined, this will result in some
+                  duplicate triples being created, if the same SemanticType occurs in multiple
+                  places.
+                </fixme>
               </xsl:with-param>
               <xsl:with-param name="spec">
                 <xsl:copy-of select="$semantic_type_uri"/>
@@ -689,6 +698,7 @@
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
                 <desc>This rule states that a semantic type has a unique identifier.</desc>
+                <fixme report='klortho'>Same concern as above.</fixme>
               </xsl:with-param>
               <xsl:with-param name="spec">
                 <xsl:copy-of select="$semantic_type_uri"/>
@@ -709,9 +719,10 @@
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
                 <desc>This relation states that a concept has a related registry number.</desc>
-                <fixme>Maybe it would be good to reduce this value to only a number. But 
+                <fixme issue='32'>Maybe it would be good to reduce this value to only a number. But 
                   I'm not sure. Need to check with a MeSH expert to see how important is the text
-                  after the number.</fixme>
+                  after the number.  Also, according to the documentation, this takes the same
+                  format as RegistryNumber above.  See the fixme item there.</fixme>
               </xsl:with-param>
               <xsl:with-param name="spec">
                 <xsl:copy-of select="$concept_uri"/>
@@ -1050,17 +1061,9 @@
         Transformation rule: annotation
       -->
       <xsl:if test="Annotation">
-        <!-- This if statement is necessary to ensure that the hasAnnotation relationship is 
-          extracted ONLY when the Annotation element exists for a descriptor record. This if 
-          statements checks to see if the element Annotation exists for a descriptor record. -->
-        <!-- hasAnnotation -->
-
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
             <desc>This rule states that a descriptor record has an annotation.</desc>
-            <fixme>Every MeSH descriptor can have an annotation. This rule extracts that annotation and converts it into a string. But sometimes, if not always, the annotation will
-              have a link to another descriptor. Hence, we might have to decipher a way to express this in our RDF conversion. This might require some NLP? For now however, the 
-              annotation is simply converted to a string data type.</fixme>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
