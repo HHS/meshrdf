@@ -7,7 +7,7 @@ Welcome to the MeSH-RDF wiki!
 * [[Allowable descriptor qualifier pairs]]
 * [[Entry Combinations]]
 * [[Descriptor references]]
-
+* [[Concept model]]
 * [[Tree number model]]
 
 * Sample SPARQL queries
