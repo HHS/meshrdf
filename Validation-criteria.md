@@ -9,7 +9,7 @@ Here is a list of things that should be checked in the resultant RDF.  Most of t
     * Are there any SeeRelatedDescriptor/DescriptorReferredTo/DescriptorUI that are not defined in desc.xml?
 * For entry combinations, make sure the ECIN: A, has a descriptor that matches the parent descriptor, and 
   B, has a qualifier.  Also, make sure that it includes an ECOUT descriptor. (ECOUT qualifier is optional).
-
-(Likewise for every place that links from one resource to another resource that is defined/generated 
+* Likewise for every place that links from one resource to another resource that is defined/generated 
 somewhere else, it would be a good idea to make sure that target resource is, in fact, defined.
 
+* Verify that for descriptors, that their names match the preferred concept names, and that prefcon's preferred term's name.
