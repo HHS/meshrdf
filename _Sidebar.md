@@ -14,3 +14,6 @@
 
 * Project / development
     * [[Validation criteria]] - collect ideas for future automated testing criteria here
+    * [[Suggestions for XML]] - record any suggestions, that come out of this effort, for how the *XML*
+      might be improved.
+    * [[Virtuoso]]
