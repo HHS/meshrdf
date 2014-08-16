@@ -14,9 +14,9 @@
   <xsl:import href="common.xsl"/>
   <xsl:output method="text"/>
 
+  <xsl:key name='tree-numbers' match="//TreeNumber" use='.'/>
 
   <xsl:template match="/">
-
     <xsl:for-each select="DescriptorRecordSet/DescriptorRecord">
 
       <xsl:variable name='descriptor_id' select='DescriptorUI'/>
@@ -464,19 +464,82 @@
         Transformation rule: treeNumber
       -->
       <xsl:for-each select="TreeNumberList/TreeNumber">
+        <xsl:variable name='tree-number-str' select='string(.)'/>
+        <xsl:variable name='tree-number-uri'>
+          <uri prefix='&mesh;'><xsl:value-of select="$tree-number-str"/></uri>
+        </xsl:variable>
+          
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc>Every MeSH descriptor record can have some integer number of tree numbers. These are presented as characters separated by perionds in the MeSH browser under the 
-              "Tree Number" relation. I named this the hasTreeNumber relation in RDF.</desc>
+            <desc>Every MeSH descriptor record can zero-to-many tree numbers.
+              A tree number is a dot-delimited string of alphanumeric segments, that 
+              loosely encode "broader" relationships.</desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
             <uri prefix='&meshv;'>treeNumber</uri>
-            <literal>
-              <xsl:value-of select="."/>
-            </literal>
+            <xsl:copy-of select='$tree-number-uri'/>
           </xsl:with-param>
         </xsl:call-template>
+        
+        <xsl:call-template name="triple">
+          <xsl:with-param name="doc">
+            <desc>The tree number resource is of type meshv:TreeNumber</desc>
+          </xsl:with-param>
+          <xsl:with-param name="spec">
+            <xsl:copy-of select='$tree-number-uri'/>
+            <uri prefix='&rdf;'>type</uri>
+            <uri prefix='&meshv;'>TreeNumber</uri>
+          </xsl:with-param>
+        </xsl:call-template>
+
+        <xsl:call-template name="triple">
+          <xsl:with-param name="doc">
+            <desc>The human-readable label for the tree number is the identifier string itself.</desc>
+          </xsl:with-param>
+          <xsl:with-param name="spec">
+            <xsl:copy-of select='$tree-number-uri'/>
+            <uri prefix='&rdfs;'>label</uri>
+            <literal><xsl:value-of select="$tree-number-str"/></literal>
+          </xsl:with-param>
+        </xsl:call-template>
+        
+        <!-- If this tree number has a parent, then we'll create some more links -->
+        <xsl:if test='contains($tree-number-str, ".")'>
+          <xsl:variable name="parent-tree-number" select="replace($tree-number-str, '^(.*)\..*', '$1')"/>
+          
+          <xsl:call-template name="triple">
+            <xsl:with-param name="doc">
+              <desc>Every time we reify a TreeNumber that has a dot in it, we'll create a triple
+                to link it to its parent with skos:broaderTransitive.</desc>
+            </xsl:with-param>
+            <xsl:with-param name="spec">
+              <xsl:copy-of select='$tree-number-uri'/>
+              <uri prefix='&skos;'>broaderTransitive</uri>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="$parent-tree-number"/>
+              </uri>
+            </xsl:with-param>
+          </xsl:call-template>
+          
+          <xsl:variable name='parent-tree-number-element' 
+                        select='key("tree-numbers", $parent-tree-number)'/>
+          <xsl:if test='$parent-tree-number-element'>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <desc>Also create a simple skos:broader relationship between this descriptor and
+                  the descriptor that has the parent tree number</desc>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$descriptor_uri"/>
+                <uri prefix='&skos;'>broader</uri>
+                <uri prefix='&mesh;'>
+                  <xsl:value-of select="$parent-tree-number-element/ancestor::DescriptorRecord/DescriptorUI"/>
+                </uri>
+              </xsl:with-param>
+            </xsl:call-template>
+          </xsl:if>
+        </xsl:if>
       </xsl:for-each>
       
       <xsl:call-template name='RecordOriginatorsList'>
@@ -1076,5 +1139,6 @@
       </xsl:if>
 
     </xsl:for-each>
+    
   </xsl:template>
 </xsl:stylesheet>
