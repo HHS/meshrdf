@@ -12,6 +12,8 @@ According to the purple tree, "Oculomotor Muscles" has broader concept "Eye", wh
 
 ![](https://cloud.githubusercontent.com/assets/77226/3799017/0cfd2b52-1bea-11e4-8786-01e144579e85.png)
 
+(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmbGVxQzJtQmFhSFU/edit?usp=sharing).)
+
 Leaving aside the question of whether or not these particular relationships make sense, this is the
 way the tree numbers currently exist in MeSH.
 
@@ -25,6 +27,8 @@ between the `Descriptor`s, and `skos:broaderTransitive` relations (which, obviou
 between the `TreeNumber`s.
 
 ![](https://cloud.githubusercontent.com/assets/77226/3817027/e4b8db10-1cd3-11e4-9065-d980c79b9e1d.png)
+
+(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmbWx1by1USlRsWDQ/edit?usp=sharing).)
 
 With this model, if a user wanted to find all the "broader" ancestors of Eyebrows (D005138) then he or
 she could do so, using the SPARQL transitivity operator ("+"), with the following query:
