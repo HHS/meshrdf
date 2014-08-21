@@ -58,6 +58,7 @@ See issue #15 before this can be fully implemented.
 
 (This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmNXE2b2VTX0Vjb0E/edit?usp=sharing).)
 
+In turtle format:
 
 ```
 @prefix mesh: <http://id.nlm.nih.gov/mesh/> .
@@ -89,6 +90,31 @@ mesh:T109 rdf:type  meshv:SemanticType ;
 mesh:T195 rdf:type  meshv:SemanticType ;
   rdfs:label  "Antibiotic" ;
   dcterms:identifier  "T195" .
+```
+
+## Generating the RDF
+
+The RDF output above can be generated with the following SPARQL query, after substituting the current values for the name of the graph and so forth:
+
+```sparql
+prefix mesh: <http://id.nlm.nih.gov/mesh/>
+prefix meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+
+construct {
+    mesh:D000001 meshv:concept ?prefcon .
+    ?prefcon meshv:isPreferredConcept "Y" .
+    ?prefcon ?p ?o .
+    $semtype ?stp $sto .
+}
+from <http://chrismaloney.org/mesh>
+where {
+    mesh:D000001 meshv:concept ?prefcon .
+    ?prefcon meshv:isPreferredConcept "Y" .
+    ?prefcon ?p ?o .
+    ?prefcon meshv:semanticType $semtype .
+    $semtype ?stp $sto .
+
+}
 ```
 
 At the time of this writing, you can see the results dynamically from [this
