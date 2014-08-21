@@ -1,9 +1,7 @@
-Here are how Concepts, which are defined in the desc2014.xml file, are modelled in RDF
+Here are how Concepts are modelled in RDF
 
 Note that this page does not describe Terms, which are subordinate to Concepts, but most other things 
 directly related to Concepts are here.
-
-See issue #15 before this can be fully implemented.
 
 ## XML
 
