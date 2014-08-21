@@ -61,35 +61,33 @@ See issue #15 before this can be fully implemented.
 In turtle format:
 
 ```
-@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
 @prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
+@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms:  <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-mesh:D000001  meshv:concept mesh:M0000001 .
-
+mesh:D000001  meshv:preferredConcept  mesh:M0000001 .
 mesh:M0000001 rdf:type  meshv:Concept ;
-    rdfs:label "Calcimycin" ;
-    dcterms:identifier "M0000001" ;
-    skos:scopeNote "An ionophorous, ... systems.\n    " ;
-    meshv:isPreferredConcept  "Y" ;
-    meshv:CASN1_label "4-Benzoxazolecarboxylic ...eta,11alpha))-" ;
-    meshv:registryNumber  "37H9VM9WZL" ;
-    meshv:relatedRegistryNumber "52665-69-7 (Calcimycin)" ;
-    meshv:conceptRelation _:vb347946 ;
-    meshv:term  mesh:T000002 .
-    meshv:semanticType  mesh:T109 ,
-        mesh:T195 ;
+              rdfs:label  "Calcimycin" ;
+              dcterms:identifier  "M0000001" ;
+              meshv:CASN1_label "4-Benzoxazolecarboxylic acid, ..." ;
+              meshv:registryNumber  "37H9VM9WZL" ;
+              meshv:relatedRegistryNumber "52665-69-7 (Calcimycin)" ;
+              skos:scopeNote  "An ionophorous, polyether ... " ;
+              meshv:term  mesh:T000002 .
+              meshv:semanticType  mesh:T109 ,
+                                  mesh:T195 ;
+              skos:narrower mesh:M0353609 ;
 
 mesh:T109 rdf:type  meshv:SemanticType ;
-  rdfs:label  "Organic Chemical" ;
-  dcterms:identifier  "T109" .
+          rdfs:label  "Organic Chemical" ;
+          dcterms:identifier  "T109" .
 
 mesh:T195 rdf:type  meshv:SemanticType ;
-  rdfs:label  "Antibiotic" ;
-  dcterms:identifier  "T195" .
+          rdfs:label  "Antibiotic" ;
+          dcterms:identifier  "T195" .
 ```
 
 ## Generating the RDF
@@ -101,15 +99,14 @@ prefix mesh: <http://id.nlm.nih.gov/mesh/>
 prefix meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 
 construct {
-    mesh:D000001 meshv:concept ?prefcon .
-    ?prefcon meshv:isPreferredConcept "Y" .
+    mesh:D000001 meshv:preferredConcept ?prefcon .
     ?prefcon ?p ?o .
+    ?prefcon meshv:semanticType $semtype .
     $semtype ?stp $sto .
 }
 from <http://chrismaloney.org/mesh>
 where {
-    mesh:D000001 meshv:concept ?prefcon .
-    ?prefcon meshv:isPreferredConcept "Y" .
+    mesh:D000001 meshv:preferredConcept ?prefcon .
     ?prefcon ?p ?o .
     ?prefcon meshv:semanticType $semtype .
     $semtype ?stp $sto .
@@ -118,4 +115,4 @@ where {
 ```
 
 At the time of this writing, you can see the results dynamically from [this
-url](http://jatspan.org:8890/sparql?query=prefix%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0Aprefix%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0A%0Aconstruct%20%7B%0A%20%20%20%20mesh%3AD000001%20meshv%3Aconcept%20%3Fprefcon%20.%0A%20%20%20%20%3Fprefcon%20meshv%3AisPreferredConcept%20%22Y%22%20.%0A%20%20%20%20%3Fprefcon%20%3Fp%20%3Fo%20.%0A%20%20%20%20%24semtype%20%3Fstp%20%24sto%20.%0A%7D%0Afrom%20%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0Awhere%20%7B%0A%20%20%20%20mesh%3AD000001%20meshv%3Aconcept%20%3Fprefcon%20.%0A%20%20%20%20%3Fprefcon%20meshv%3AisPreferredConcept%20%22Y%22%20.%0A%20%20%20%20%3Fprefcon%20%3Fp%20%3Fo%20.%0A%20%20%20%20%3Fprefcon%20meshv%3AsemanticType%20%24semtype%20.%0A%20%20%20%20%24semtype%20%3Fstp%20%24sto%20.%0A%0A%7D&format=TURTLE)
+url](http://jatspan.org:8890/sparql?query=prefix+mesh%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0Aprefix+meshv%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%7D%0D%0Afrom+%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0D%0Awhere+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%0D%0A%7D&format=TURTLE)
