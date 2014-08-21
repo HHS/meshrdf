@@ -401,7 +401,7 @@
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
-            <uri prefix='&rdfs;'>seeAlso</uri>
+            <uri prefix='&meshv;'>seeAlso</uri>
             <uri prefix='&mesh;'>
               <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
             </uri>
@@ -576,7 +576,16 @@
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select="$descriptor_uri"/>
-            <uri prefix='&meshv;'>concept</uri>
+            <uri prefix='&meshv;'>
+              <xsl:choose>
+                <xsl:when test="@PreferredConceptYN = 'Y'">
+                  <xsl:text>preferredConcept</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:text>concept</xsl:text>
+                </xsl:otherwise>
+              </xsl:choose>
+            </uri>
             <xsl:copy-of select="$concept_uri"/>
           </xsl:with-param>
         </xsl:call-template>
@@ -588,33 +597,11 @@
           <xsl:with-param name="doc">
             <desc>This relation states that a Subject node used to identify a concept 
               is of type "Concept".</desc>
-            <fixme reporter='klortho' issue='31'>If we're going to use a `preferredConcept`
-              property, then this will change.</fixme>
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select="$concept_uri"/>
             <uri prefix='&rdf;'>type</uri>
             <uri prefix='&meshv;'>Concept</uri>
-          </xsl:with-param>
-        </xsl:call-template>
-
-        <!--
-          Transformation rule: isPreferredConcept
-        -->
-        <xsl:call-template name="triple">
-          <xsl:with-param name="doc">
-            <desc>This relation states that yes, "Y", a concept is the preferred concept or 
-              no, "N", the concept is not the preferred concept.</desc>
-            <fixme reporter="klortho" issue='31'>In this case, I would like to do way with this literal-valued
-              triple, and instead define a predicae called "preferredConcept", which would be 
-              a subproperty of `concept`.</fixme>
-          </xsl:with-param>
-          <xsl:with-param name="spec">
-            <xsl:copy-of select="$concept_uri"/>
-            <uri prefix='&meshv;'>isPreferredConcept</uri>
-            <literal>
-              <xsl:value-of select="@PreferredConceptYN"/>
-            </literal>
           </xsl:with-param>
         </xsl:call-template>
         
