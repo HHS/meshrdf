@@ -1,7 +1,7 @@
 The following is an example of how a fairly typical XML record for a descriptor (D015242, Ofloxacin) is converted from XML into RDF. For reference, see [Oxaflaxin in the MeSH 
 browser](https://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?term=ofloxacin).
 
-For the most part, this page just shows the portions of the XML and RDF that correspond to the literal values that are attached to the descriptor object. Both the XML and the RDF are elided in the same way.  Viewing these side-by-side is useful to see how the XML maps to the RDF.
+For the most part, this page just shows the portions of the XML and RDF that correspond to the literal values that are attached to the descriptor object. Both the XML and the RDF are elided in the same way. 
 
 ## XML
 
@@ -51,7 +51,13 @@ For the most part, this page just shows the portions of the XML and RDF that cor
  </DescriptorRecord>
 ```
 
-## RDF (turtle format)
+## RDF
+
+This RDF is depicted in the following graph:
+
+![](https://github.com/HHS/mesh-rdf/blob/master/doc/BasicConversionLiterals.png)
+
+In turtle format:
 
 ```
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -82,9 +88,13 @@ mesh:D015242  rdf:type  meshv:TopicalDescriptor ;
     "Oxazines (1981-1988)" .
 ```
 
-This RDF is depicted in the following graph:
+Note:
 
-![](https://github.com/HHS/mesh-rdf/blob/master/doc/BasicConversionLiterals.png)
+* The [DescriptorClass attribute](http://www.nlm.nih.gov/mesh/xml_data_elements.html#DC) value (in this case, "1") is represented in the RDF as a real rdf class (meshv:TopicalDescriptor) (see GitHub issue #28).  Possible values are:
+    * 1 - meshv:TopicalDescriptor
+    * 2 - meshv:PublicationType
+    * 3 - meshv:CheckTag
+    * 4 - meshv:GeographicalDescriptor
 
 ## Generating the RDF
 
