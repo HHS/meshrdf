@@ -1478,6 +1478,531 @@
   </ConceptList>
  </DescriptorRecord>
 <DescriptorRecord DescriptorClass = "1">
+  <DescriptorUI>D000130</DescriptorUI>
+  <DescriptorName>
+   <String>Achondroplasia</String>
+  </DescriptorName>
+  <DateCreated>
+   <Year>1999</Year>
+   <Month>01</Month>
+   <Day>01</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2013</Year>
+   <Month>07</Month>
+   <Day>08</Day>
+  </DateRevised>
+  <ActiveMeSHYearList>
+   <Year>2014</Year>
+  </ActiveMeSHYearList>
+  <AllowableQualifiersList>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000097</QualifierUI>
+      <QualifierName>
+      <String>blood</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>BL</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000134</QualifierUI>
+      <QualifierName>
+      <String>cerebrospinal fluid</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>CF</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000139</QualifierUI>
+      <QualifierName>
+      <String>chemically induced</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>CI</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000145</QualifierUI>
+      <QualifierName>
+      <String>classification</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>CL</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000150</QualifierUI>
+      <QualifierName>
+      <String>complications</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>CO</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000175</QualifierUI>
+      <QualifierName>
+      <String>diagnosis</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>DI</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000178</QualifierUI>
+      <QualifierName>
+      <String>diet therapy</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>DH</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000188</QualifierUI>
+      <QualifierName>
+      <String>drug therapy</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>DT</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000191</QualifierUI>
+      <QualifierName>
+      <String>economics</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>EC</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000196</QualifierUI>
+      <QualifierName>
+      <String>embryology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>EM</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000201</QualifierUI>
+      <QualifierName>
+      <String>enzymology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>EN</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000208</QualifierUI>
+      <QualifierName>
+      <String>ethnology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>EH</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000209</QualifierUI>
+      <QualifierName>
+      <String>etiology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>ET</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000235</QualifierUI>
+      <QualifierName>
+      <String>genetics</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>GE</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000266</QualifierUI>
+      <QualifierName>
+      <String>history</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>HI</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000276</QualifierUI>
+      <QualifierName>
+      <String>immunology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>IM</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000378</QualifierUI>
+      <QualifierName>
+      <String>metabolism</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>ME</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000382</QualifierUI>
+      <QualifierName>
+      <String>microbiology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>MI</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000401</QualifierUI>
+      <QualifierName>
+      <String>mortality</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>MO</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000451</QualifierUI>
+      <QualifierName>
+      <String>nursing</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>NU</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000453</QualifierUI>
+      <QualifierName>
+      <String>epidemiology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>EP</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000469</QualifierUI>
+      <QualifierName>
+      <String>parasitology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>PS</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000473</QualifierUI>
+      <QualifierName>
+      <String>pathology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>PA</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000503</QualifierUI>
+      <QualifierName>
+      <String>physiopathology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>PP</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000517</QualifierUI>
+      <QualifierName>
+      <String>prevention &amp; control</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>PC</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000523</QualifierUI>
+      <QualifierName>
+      <String>psychology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>PX</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000530</QualifierUI>
+      <QualifierName>
+      <String>radiography</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>RA</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000531</QualifierUI>
+      <QualifierName>
+      <String>radionuclide imaging</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>RI</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000532</QualifierUI>
+      <QualifierName>
+      <String>radiotherapy</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>RT</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000534</QualifierUI>
+      <QualifierName>
+      <String>rehabilitation</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>RH</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000601</QualifierUI>
+      <QualifierName>
+      <String>surgery</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>SU</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000628</QualifierUI>
+      <QualifierName>
+      <String>therapy</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>TH</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000652</QualifierUI>
+      <QualifierName>
+      <String>urine</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>UR</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000662</QualifierUI>
+      <QualifierName>
+      <String>veterinary</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>VE</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000736</QualifierUI>
+      <QualifierName>
+      <String>ultrasonography</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>US</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000821</QualifierUI>
+      <QualifierName>
+      <String>virology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>VI</Abbreviation>
+   </AllowableQualifier>
+  </AllowableQualifiersList>
+  <SeeRelatedList>
+   <SeeRelatedDescriptor>
+    <DescriptorReferredTo>
+     <DescriptorUI>D051498</DescriptorUI>
+     <DescriptorName>
+      <String>Receptor, Fibroblast Growth Factor, Type 3</String>
+     </DescriptorName>
+    </DescriptorReferredTo>
+   </SeeRelatedDescriptor>
+  </SeeRelatedList>
+  <TreeNumberList>
+   <TreeNumber>C05.116.099.343.110</TreeNumber>
+   <TreeNumber>C05.116.099.708.017</TreeNumber>
+   <TreeNumber>C16.320.240.500</TreeNumber>
+  </TreeNumberList>
+  <RecordOriginatorsList>
+   <RecordOriginator>nlm</RecordOriginator>
+   <RecordMaintainer>schulmaj</RecordMaintainer>
+   <RecordAuthorizer>kilbourj</RecordAuthorizer>
+  </RecordOriginatorsList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M0000205</ConceptUI>
+    <ConceptName>
+     <String>Achondroplasia</String>
+    </ConceptName>
+    <ScopeNote>An autosomal dominant disorder that is the most frequent form of short-limb dwarfism. Affected individuals exhibit short stature caused by rhizomelic shortening of the limbs, characteristic facies with frontal bossing and mid-face hypoplasia, exaggerated lumbar lordosis, limitation of elbow extension, GENU VARUM, and trident hand. (Online Mendelian Inheritance in Man, http://www.ncbi.nlm.nih.gov/Omim, MIM#100800, April 20, 2001)
+    </ScopeNote>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T019</SemanticTypeUI>
+      <SemanticTypeName>Congenital Abnormality</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="REL">
+     <Concept1UI>M0000205</Concept1UI>
+     <Concept2UI>M0567458</Concept2UI>
+     <RelationAttribute>187600</RelationAttribute>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+      <TermUI>T000387</TermUI>
+      <String>Achondroplasia</String>
+      <DateCreated>
+       <Year>1999</Year>
+       <Month>01</Month>
+       <Day>01</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>GHR (2014)</ThesaurusID>
+       <ThesaurusID>NLM (1966)</ThesaurusID>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+       <ThesaurusID>ORD (2010)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="Y"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T000387</TermUI>
+      <String>Achondroplasias</String>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0567458</ConceptUI>
+    <ConceptName>
+     <String>Achondroplasia, Severe, With Developmental Delay And Acanthosis Nigricans</String>
+    </ConceptName>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T047</SemanticTypeUI>
+      <SemanticTypeName>Disease or Syndrome</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="REL">
+     <Concept1UI>M0000205</Concept1UI>
+     <Concept2UI>M0567458</Concept2UI>
+     <RelationAttribute>187600</RelationAttribute>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T809866</TermUI>
+      <String>Achondroplasia, Severe, With Developmental Delay And Acanthosis Nigricans</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T842409</TermUI>
+      <String>Skeleton-Skin-Brain Syndrome</String>
+      <DateCreated>
+       <Year>2013</Year>
+       <Month>04</Month>
+       <Day>18</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>GHR (2014)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="Y"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T842409</TermUI>
+      <String>Skeleton Skin Brain Syndrome</String>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="Y"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T842409</TermUI>
+      <String>Skeleton-Skin-Brain Syndromes</String>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="Y"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T842409</TermUI>
+      <String>Syndrome, Skeleton-Skin-Brain</String>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="Y"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T842409</TermUI>
+      <String>Syndromes, Skeleton-Skin-Brain</String>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="N">
+      <TermUI>T774186</TermUI>
+      <String>Severe Achondroplasia with Developmental Delay and Acanthosis Nigricans</String>
+      <DateCreated>
+       <Year>2010</Year>
+       <Month>07</Month>
+       <Day>12</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>GHR (2014)</ThesaurusID>
+       <ThesaurusID>NLM (2012)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T823974</TermUI>
+      <String>SADDAN</String>
+      <DateCreated>
+       <Year>2012</Year>
+       <Month>06</Month>
+       <Day>18</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>GHR (2014)</ThesaurusID>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="Y"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T823974</TermUI>
+      <String>SADDANs</String>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="ACX"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T774184</TermUI>
+      <String>SADDAN Dysplasia</String>
+      <DateCreated>
+       <Year>2010</Year>
+       <Month>07</Month>
+       <Day>12</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>GHR (2014)</ThesaurusID>
+       <ThesaurusID>NLM (2012)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="Y"  LexicalTag="ACX"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T774184</TermUI>
+      <String>Dysplasia, SADDAN</String>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="Y"  LexicalTag="ACX"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T774184</TermUI>
+      <String>Dysplasias, SADDAN</String>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="Y"  LexicalTag="ACX"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T774184</TermUI>
+      <String>SADDAN Dysplasias</String>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </DescriptorRecord>
+<DescriptorRecord DescriptorClass = "1">
   <DescriptorUI>D000667</DescriptorUI>
   <DescriptorName>
    <String>Ampicillin</String>

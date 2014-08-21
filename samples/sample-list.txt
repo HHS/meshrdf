@@ -17,12 +17,14 @@ C535927 Chitayat Moore Del Bigio syndrome
 C537647 Chromosome 5, monosomy 5q35
 C563013 Membranous Obstruction of Inferior Vena Cava
 C564178 Horner Syndrome, Congenital
+C564417   # Has RelationAttribute
 C566928 Tyrosine Kinase 2 Deficiency
 C000588751 penicillitone
 
 D000001 Calcimycin
 D000005 Abdomen
 D000082 Acetaminophen
+D000130   # Has RelationAttribute
 D000667 Ampicillin
 D000818 Animals
 D000900 Anti-Bacterial Agents

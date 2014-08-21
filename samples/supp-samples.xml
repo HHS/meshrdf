@@ -1,4 +1,159 @@
 <SupplementalRecordSet LanguageCode = "eng">
+<SupplementalRecord SCRClass = "3">
+  <SupplementalRecordUI>C564417</SupplementalRecordUI>
+  <SupplementalRecordName>
+   <String>Granulomatous Disease, Chronic, X-Linked</String>
+  </SupplementalRecordName>
+  <DateCreated>
+   <Year>2012</Year>
+   <Month>11</Month>
+   <Day>05</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2012</Year>
+   <Month>11</Month>
+   <Day>16</Day>
+  </DateRevised>
+  <ActiveMeSHYearList>
+   <Year>2013</Year>
+   <Year>2013A</Year>
+   <Year>2014</Year>
+  </ActiveMeSHYearList>
+  <Frequency>3</Frequency>
+  <HeadingMappedToList>
+   <HeadingMappedTo>
+    <DescriptorReferredTo>
+     <DescriptorUI>*D006105</DescriptorUI>
+     <DescriptorName>
+      <String>Granulomatous Disease, Chronic</String>
+     </DescriptorName>
+    </DescriptorReferredTo>
+   </HeadingMappedTo>
+  </HeadingMappedToList>
+  <RecordOriginatorsList>
+   <RecordOriginator>jarnotm</RecordOriginator>
+   <RecordMaintainer>chodan</RecordMaintainer>
+   <RecordAuthorizer>chodan</RecordAuthorizer>
+  </RecordOriginatorsList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M0564717</ConceptUI>
+    <ConceptName>
+     <String>Granulomatous Disease, Chronic, X-Linked</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T047</SemanticTypeUI>
+      <SemanticTypeName>Disease or Syndrome</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="REL">
+     <Concept1UI>M0564717</Concept1UI>
+     <Concept2UI>M0564718</Concept2UI>
+     <RelationAttribute>306400</RelationAttribute>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+      <TermUI>T804835</TermUI>
+      <String>Granulomatous Disease, Chronic, X-Linked</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T804836</TermUI>
+      <String>Chronic Granulomatous Disease, X-Linked</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T804837</TermUI>
+      <String>Cytochrome B-Negative Granulomatous Disease, Chronic, X-Linked</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0564718</ConceptUI>
+    <ConceptName>
+     <String>Cytochrome B-Positive Granulomatous Disease, Chronic, X-Linked</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T047</SemanticTypeUI>
+      <SemanticTypeName>Disease or Syndrome</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="REL">
+     <Concept1UI>M0564717</Concept1UI>
+     <Concept2UI>M0564718</Concept2UI>
+     <RelationAttribute>306400</RelationAttribute>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T804838</TermUI>
+      <String>Cytochrome B-Positive Granulomatous Disease, Chronic, X-Linked</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T804839</TermUI>
+      <String>Granulomatous Disease, Chronic, X-Linked, Variant</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T804840</TermUI>
+      <String>Chronic Granulomatous Disease, Atypical</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </SupplementalRecord>
 <SupplementalRecord SCRClass = "1">
   <SupplementalRecordUI>C025735</SupplementalRecordUI>
   <SupplementalRecordName>

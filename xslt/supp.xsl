@@ -694,9 +694,7 @@
         </xsl:for-each>
 
         
-        <xsl:call-template name="ConceptRelationList">
-          <xsl:with-param name="concept_uri" select='$concept_uri'/>
-        </xsl:call-template>
+        <xsl:call-template name="ConceptRelationList"/>
         
 
         <xsl:for-each select="TermList/Term">
