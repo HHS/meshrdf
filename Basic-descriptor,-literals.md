@@ -1,4 +1,7 @@
-Below is an example of how a fairly typical XML record for a descriptor (D015242, Ofloxacin) is converted into XML. For the most part, this page just shows the portions of the XML and RDF that correspond to the literal values that are attached to the descriptor object. Both the XML and the RDF are elided in the same way.  Viewing these side-by-side is useful to see how the XML maps to the RDF.
+The following is an example of how a fairly typical XML record for a descriptor (D015242, Ofloxacin) is converted from XML into RDF. For reference, see [Oxaflaxin in the MeSH 
+browser](https://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?term=ofloxacin).
+
+For the most part, this page just shows the portions of the XML and RDF that correspond to the literal values that are attached to the descriptor object. Both the XML and the RDF are elided in the same way.  Viewing these side-by-side is useful to see how the XML maps to the RDF.
 
 ## XML
 
