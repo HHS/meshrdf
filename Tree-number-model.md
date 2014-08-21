@@ -38,7 +38,7 @@ where {
 }
 ```
 
-# XML
+## XML
 
 ```xml
 <DescriptorRecordSet LanguageCode="eng">
@@ -109,7 +109,7 @@ where {
 </DescriptorRecordSet>
 ```
 
-# RDF
+## RDF
 
 ```
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -142,7 +142,7 @@ mesh:A01.456.505.420.338  skos:broaderTransitive  mesh:A01.456.505.420 .
 mesh:A09.371.613  skos:broaderTransitive  mesh:A09.371 .
 ```
 
-# Generating the RDF
+## Generating the RDF
 
 The following SPARQL query creates a table that shows the relationships between "Eye"
 and each of the immediate broader and narrower concepts for each of its tree numbers:
