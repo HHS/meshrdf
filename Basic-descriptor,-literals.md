@@ -57,7 +57,7 @@ This RDF is depicted in the following graph:
 
 ![](https://github.com/HHS/mesh-rdf/blob/master/doc/BasicConversionLiterals.png)
 
-(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmZEVjMmhzaDhKOGc/edit?usp=sharing).
+(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmZEVjMmhzaDhKOGc/edit?usp=sharing).)
 
 In turtle format:
 
