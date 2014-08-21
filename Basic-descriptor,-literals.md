@@ -90,7 +90,7 @@ mesh:D015242  rdf:type  meshv:TopicalDescriptor ;
 
 Note:
 
-* The [DescriptorClass attribute](http://www.nlm.nih.gov/mesh/xml_data_elements.html#DC) value (in this case, "1") is represented in the RDF as a real rdf class (meshv:TopicalDescriptor) (see GitHub issue #28).  Possible values are:
+* The [DescriptorClass attribute](http://www.nlm.nih.gov/mesh/xml_data_elements.html#DC) value (in this case, "1") is represented in RDF as an rdfs:class (meshv:TopicalDescriptor) (see GitHub issue #28).  Possible values are:
     * 1 - meshv:TopicalDescriptor
     * 2 - meshv:PublicationType
     * 3 - meshv:CheckTag
