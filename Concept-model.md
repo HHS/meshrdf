@@ -56,6 +56,9 @@ See issue #15 before this can be fully implemented.
 
 ![](https://github.com/HHS/mesh-rdf/blob/master/doc/Concepts.png)
 
+(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmNXE2b2VTX0Vjb0E/edit?usp=sharing).)
+
+
 ```
 @prefix mesh: <http://id.nlm.nih.gov/mesh/> .
 @prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
