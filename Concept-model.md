@@ -90,6 +90,27 @@ mesh:T195 rdf:type  meshv:SemanticType ;
           dcterms:identifier  "T195" .
 ```
 
+Note:
+
+* RelationAttributes (not depicted in this example; see the [MeSH documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#RelationAttribute) and [GitHub issue #15](https://github.com/HHS/mesh-rdf/issues/15#issuecomment-50952078)) are currently modeled with their own property URIs.  So, for example, the XML
+
+    ```
+    <ConceptRelation RelationName="REL">
+      <Concept1UI>M0000205</Concept1UI>
+      <Concept2UI>M0567458</Concept2UI>
+      <RelationAttribute>187600</RelationAttribute>
+    </ConceptRelation>
+    ```
+
+  would produce two triples:
+
+    ```
+    mesh:M0000205 skos:related mesh:M0567458 .
+    mesh:M0000205 mesh:rela/187600 mesh:M0567458 .
+    ```
+
+
+
 ## Generating the RDF
 
 The RDF output above can be generated with the following SPARQL query, after substituting the current values for the name of the graph and so forth:
