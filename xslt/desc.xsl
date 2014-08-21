@@ -71,10 +71,23 @@
         </xsl:with-param>
         <xsl:with-param name="spec">
           <xsl:copy-of select="$descriptor_uri"/>
-          <uri prefix="&meshv;">descriptorClass</uri>
-          <literal>
-            <xsl:value-of select="@DescriptorClass"/>
-          </literal>
+          <uri prefix="&rdf;">type</uri>
+          <uri prefix='&meshv;'>
+            <xsl:choose>
+              <xsl:when test="@DescriptorClass = '1'">
+                <xsl:text>TopicalDescriptor</xsl:text>
+              </xsl:when>
+              <xsl:when test="@DescriptorClass = '2'">
+                <xsl:text>PublicationType</xsl:text>
+              </xsl:when>
+              <xsl:when test="@DescriptorClass = '3'">
+                <xsl:text>CheckTag</xsl:text>
+              </xsl:when>
+              <xsl:when test="@DescriptorClass = '4'">
+                <xsl:text>GeographicalDescriptor</xsl:text>
+              </xsl:when>
+            </xsl:choose>
+          </uri>
         </xsl:with-param>
       </xsl:call-template>
 

@@ -4,25 +4,38 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-meshv:DescriptorQualifierPair a rdf:Class .
-meshv:AllowedDescriptorQualifierPair a rdf:Class ;
+meshv:Descriptor a rdfs:Class .
+
+meshv:TopicalDescriptor a rdfs:Class ;
+    rdfs:subClassOf meshv:Descriptor .
+meshv:PublicationType a rdfs:Class ;
+    rdfs:subClassOf meshv:Descriptor .
+meshv:CheckTag a rdfs:Class ;
+    rdfs:subClassOf meshv:Descriptor .
+meshv:GeographicalDescriptor a rdfs:Class ;
+    rdfs:subClassOf meshv:Descriptor .
+
+meshv:Qualifier a rdfs:Class .
+
+meshv:DescriptorQualifierPair a rdfs:Class .
+meshv:AllowedDescriptorQualifierPair a rdfs:Class ;
     rdfs:subClassOf meshv:DescriptorQualifierPair .
-meshv:DisallowedDescriptorQualifierPair a rdf:Class ;
+meshv:DisallowedDescriptorQualifierPair a rdfs:Class ;
     rdfs:subClassOf meshv:DescriptorQualifierPair .
 
 
 
-# meshv::Concept                        rdf:type    rdf:Class .
-# meshv::ConceptRelation                rdf:type    rdf:Class .
-# meshv::Descriptor                     rdf:type    rdf:Class .
-# meshv::EntryCombination               rdf:type    rdf:Class .
-# meshv::IndexingData                   rdf:type    rdf:Class .
-# meshv::MappedData                     rdf:type    rdf:Class .
-# meshv::Qualifier                      rdf:type    rdf:Class .
-# meshv::SemanticType                   rdf:type    rdf:Class .
-# meshv::SupplementaryConceptRecord     rdf:type    rdf:Class .
-# meshv::Term                           rdf:type    rdf:Class .
-# meshv::TermData                       rdf:type    rdf:Class .
+# meshv::Concept                        rdf:type    rdfs:Class .
+# meshv::ConceptRelation                rdf:type    rdfs:Class .
+# meshv::Descriptor                     rdf:type    rdfs:Class .
+# meshv::EntryCombination               rdf:type    rdfs:Class .
+# meshv::IndexingData                   rdf:type    rdfs:Class .
+# meshv::MappedData                     rdf:type    rdfs:Class .
+# meshv::Qualifier                      rdf:type    rdfs:Class .
+# meshv::SemanticType                   rdf:type    rdfs:Class .
+# meshv::SupplementaryConceptRecord     rdf:type    rdfs:Class .
+# meshv::Term                           rdf:type    rdfs:Class .
+# meshv::TermData                       rdf:type    rdfs:Class .
 #
 # meshv::abbreviation                   rdfs:domain meshv::Qualifier .
 # meshv::abbreviation                   rdfs:domain meshv::Term .
@@ -444,7 +457,7 @@ meshv:DisallowedDescriptorQualifierPair a rdf:Class ;
 #
 #
 #
-# meshv::DescriptorQualifierPair    rdf:type    rdf:Class .
+# meshv::DescriptorQualifierPair    rdf:type    rdfs:Class .
 #
 # meshv::has_descriptor rdfs:domain meshv::DescriptorQualifierPair    .
 # meshv::has_descriptor rdfs:range  meshv::Descriptor .
