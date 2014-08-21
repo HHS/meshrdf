@@ -50,7 +50,7 @@ For the most part, this page just shows the portions of the XML and RDF that cor
 
 ## RDF
 
-This RDF is depicted in the following graph:
+The RDF is depicted in the following graph:
 
 ![](https://github.com/HHS/mesh-rdf/blob/master/doc/BasicConversionLiterals.png)
 
