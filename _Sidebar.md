@@ -1,4 +1,4 @@
-# RDF data model
+## RDF data model
 
 * [[Basic descriptor, literals]]
 * [[Allowable descriptor qualifier pairs]]
@@ -7,14 +7,14 @@
 * [[Concept model]]
 * [[Tree number model]]
 
-# Sample SPARQL queries
+## Sample SPARQL queries
 
 * [[Basic sample MeSH queries]]
 * [[MeSH MEDLINE sample queries]]
 * [[Blank node sample queries]]
 * [[Creating new graphs (transitive closures)]]
 
-# Project / development
+## Project / development
 
 * [[Virtuoso]] - for setup/configuration notes for the OpenLink Virtuoso server
 * [[Lodestar]] - setup/configuration notes for Lodestar, which provides the frontend
