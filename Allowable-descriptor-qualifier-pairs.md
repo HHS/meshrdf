@@ -27,7 +27,7 @@ This example shows the graph derived from one descriptor (D015242, Ofloxacin) an
 
 ## RDF
 
-This RDF is depicted in the following graph:
+The RDF is depicted in the following graph:
 
 ![](https://github.com/HHS/mesh-rdf/blob/master/doc/DQPair.png)
 
