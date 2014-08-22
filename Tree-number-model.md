@@ -12,6 +12,8 @@ According to the purple tree, "Oculomotor Muscles" has broader concept "Eye", wh
 
 ![](https://cloud.githubusercontent.com/assets/77226/3799017/0cfd2b52-1bea-11e4-8786-01e144579e85.png)
 
+(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmbGVxQzJtQmFhSFU/edit?usp=sharing).)
+
 Leaving aside the question of whether or not these particular relationships make sense, this is the
 way the tree numbers currently exist in MeSH.
 
@@ -26,6 +28,8 @@ between the `TreeNumber`s.
 
 ![](https://cloud.githubusercontent.com/assets/77226/3817027/e4b8db10-1cd3-11e4-9065-d980c79b9e1d.png)
 
+(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmbWx1by1USlRsWDQ/edit?usp=sharing).)
+
 With this model, if a user wanted to find all the "broader" ancestors of Eyebrows (D005138) then he or
 she could do so, using the SPARQL transitivity operator ("+"), with the following query:
 
@@ -38,7 +42,7 @@ where {
 }
 ```
 
-# XML
+## XML
 
 ```xml
 <DescriptorRecordSet LanguageCode="eng">
@@ -109,7 +113,7 @@ where {
 </DescriptorRecordSet>
 ```
 
-# RDF
+## RDF
 
 ```
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -142,7 +146,7 @@ mesh:A01.456.505.420.338  skos:broaderTransitive  mesh:A01.456.505.420 .
 mesh:A09.371.613  skos:broaderTransitive  mesh:A09.371 .
 ```
 
-# Generating the RDF
+## Generating the RDF
 
 The following SPARQL query creates a table that shows the relationships between "Eye"
 and each of the immediate broader and narrower concepts for each of its tree numbers:

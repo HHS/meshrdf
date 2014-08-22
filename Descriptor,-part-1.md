@@ -1,7 +1,7 @@
 The following is an example of how a fairly typical XML record for a descriptor (D015242, Ofloxacin) is converted from XML into RDF. For reference, see [Oxaflaxin in the MeSH 
 browser](https://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?term=ofloxacin).
 
-For the most part, this page just shows the portions of the XML and RDF that correspond to the literal values that are attached to the descriptor object. Both the XML and the RDF are elided in the same way.  Viewing these side-by-side is useful to see how the XML maps to the RDF.
+For the most part, this page just shows the portions of the XML and RDF that correspond to the literal values that are attached to the descriptor object. Both the XML and the RDF are elided in the same way. 
 
 ## XML
 
@@ -39,9 +39,6 @@ For the most part, this page just shows the portions of the XML and RDF that cor
    <PreviousIndexing>Anti-Infective Agents, Urinary (1981-1988)</PreviousIndexing>
    <PreviousIndexing>Oxazines (1981-1988)</PreviousIndexing>
   </PreviousIndexingList>
-  <TreeNumberList>
-   <TreeNumber>D03.438.810.835.322.500</TreeNumber>
-  </TreeNumberList>
   <RecordOriginatorsList>
    <RecordOriginator>standardr</RecordOriginator>
    <RecordMaintainer>pashj</RecordMaintainer>
@@ -51,7 +48,15 @@ For the most part, this page just shows the portions of the XML and RDF that cor
  </DescriptorRecord>
 ```
 
-## RDF (turtle format)
+## RDF
+
+The RDF is depicted in the following graph:
+
+![](https://github.com/HHS/mesh-rdf/blob/master/doc/BasicConversionLiterals.png)
+
+(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmZEVjMmhzaDhKOGc/edit?usp=sharing).)
+
+In turtle format:
 
 ```
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -72,7 +77,6 @@ mesh:D015242  rdf:type  meshv:TopicalDescriptor ;
   meshv:historyNote "89\n  " ;
   meshv:publicMeSHNote  "89\n  " ;
   ...
-  meshv:treeNumber  "D03.438.810.835.322.500" ;
   meshv:recordOriginator  "standardr" ;
   meshv:recordMaintainer  "pashj" ;
   meshv:recordAuthorizer  "chodan" ;
@@ -82,9 +86,13 @@ mesh:D015242  rdf:type  meshv:TopicalDescriptor ;
     "Oxazines (1981-1988)" .
 ```
 
-This RDF is depicted in the following graph:
+Note:
 
-![](https://github.com/HHS/mesh-rdf/blob/master/doc/BasicConversionLiterals.png)
+* The [DescriptorClass attribute](http://www.nlm.nih.gov/mesh/xml_data_elements.html#DC) value (in this case, "1") is represented in RDF as an rdfs:class (meshv:TopicalDescriptor) (see GitHub issue #28).  Possible values are:
+    * 1 - meshv:TopicalDescriptor
+    * 2 - meshv:PublicationType
+    * 3 - meshv:CheckTag
+    * 4 - meshv:GeographicalDescriptor
 
 ## Generating the RDF
 
@@ -101,4 +109,4 @@ where {
 ```
 
 At the time of this writing, you can see the results dynamically from [this
-url](http://jatspan.org:8890/sparql?query=PREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0A%0ACONSTRUCT%20%7B%20mesh%3AD015242%20%3Fp%20%3Fo%20.%20%7D%0Afrom%20%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0Awhere%20%7B%0A%20%20%20%20%20mesh%3AD015242%20%3Fp%20%3Fo%20.%0A%7D%0A&format=TURTLE)
+url](http://jatspan.org:8890/sparql?query=PREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0A%0ACONSTRUCT%20%7B%20mesh%3AD015242%20%3Fp%20%3Fo%20.%20%7D%0Afrom%20%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0Awhere%20%7B%0A%20%20%20%20%20mesh%3AD015242%20%3Fp%20%3Fo%20.%0A%7D%0A&format=TURTLE).
