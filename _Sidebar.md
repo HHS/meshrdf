@@ -1,9 +1,9 @@
 ## RDF data model
 
-* [[Basic descriptor, literals]]
+* [[Descriptor, part 1]]
+* [[Descriptor, part 2]]
 * [[Allowable descriptor qualifier pairs]]
 * [[Entry Combinations]]
-* [[Descriptor references]]
 * [[Concept model]]
 * [[Tree number model]]
 
