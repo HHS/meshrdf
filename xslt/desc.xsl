@@ -808,22 +808,31 @@
           
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <desc>This relation states that a concept has a term.</desc>
+              <desc>This relation states that a concept has a term. The property used will either be
+                meshv:term or mesh:preferredTerm</desc>
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$concept_uri"/>
-              <uri prefix='&meshv;'>term</uri>
+              <uri prefix='&meshv;'>
+                <xsl:choose>
+                  <xsl:when test="@ConceptPreferredTermYN = 'Y'">
+                    <xsl:text>preferredTerm</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>term</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </uri>
               <xsl:copy-of select='$term_uri'/>
             </xsl:with-param>
           </xsl:call-template>
-          
-          
+
           <!--
             Transformation rule: rdf:type
           -->          
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <desc>A concept has at least one term associated with it.</desc>
+              <desc>A term is of type Term.</desc>
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
@@ -831,7 +840,7 @@
               <uri prefix='&meshv;'>Term</uri>
             </xsl:with-param>
           </xsl:call-template>
-          
+
           <!--
             Transformation rule: dcterms:identifier
           -->
@@ -847,104 +856,66 @@
               </literal>
             </xsl:with-param>
           </xsl:call-template>
-          
-          <xsl:if test="@IsPermutedTermYN = 'N'">
-            <xsl:call-template name='triple'>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select='$term_uri'/>
-                <uri prefix='&rdfs;'>label</uri>
-                <literal>
-                  <xsl:value-of select="String"/>
-                </literal>
-              </xsl:with-param>
-            </xsl:call-template>
-          </xsl:if>
-          
-          <!--
-            Transformation rule: termData
+
+          <!-- 
+            Transformation rule: rdfs:label, skos:prefLabel, and/or skos:altLabel.
+            If IsPermutedTerm is "N", then this is the
+            preferred label: record that with both skos:prefLabel and rdfs:label.  Otherwise,
+            just add it as a skos:altLabel.
           -->
-          <xsl:variable name='term_data_blank'>
-            <named>
-              <xsl:text>_:blank</xsl:text>
-              <xsl:value-of select="TermUI"/>
-              <xsl:text>_</xsl:text>
-              <xsl:value-of select="position()"/>
-            </named>
-          </xsl:variable>
-          
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>This relation states that a term has data associated with it. A blank node 
-                stores the term data.</desc>
-              <fixme>This relation was created in order to stick with the XML representation of MeSH.</fixme>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select='$term_uri'/>
-              <uri prefix='&meshv;'>termData</uri>
-              <xsl:copy-of select='$term_data_blank'/>
-            </xsl:with-param>
-          </xsl:call-template>
-          
-          <!--
-            Transformation rule/Relation: rdf:type
-          -->
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>This relation states that a Subject node used to identify term data is 
-                of type "TermData".</desc>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select='$term_data_blank'/>
-              <uri prefix='&rdf;'>type</uri>
-              <uri prefix='&meshv;'>TermData</uri>
-            </xsl:with-param>
-          </xsl:call-template>
-          
-          <!--
-            Transformation rule: isConceptPreferredTerm
-          -->
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <fixme>As with concept, wouldn't it be better to define a superclass for this, rather than
-                use a literal value?</fixme>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select='$term_data_blank'/>
-              <uri prefix='&meshv;'>isConceptPreferredTerm</uri>
-              <literal>
-                <xsl:value-of select="@ConceptPreferredTermYN"/>
-              </literal>
-            </xsl:with-param>
-          </xsl:call-template>
-          
-          <!--
-            Transformation rule: isPermutedTerm
-          -->
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>This relation states that a term can be a permuted term. But it does so 
-                indirectly because the isPermutedTerm relation is with a blank node.</desc>
-              <fixme>Can we use a class for this, rather than a literal value?</fixme>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select='$term_data_blank'/>
-              <uri prefix='&meshv;'>isPermutedTerm</uri>
-              <literal>
-                <xsl:value-of select="@IsPermutedTermYN"/>
-              </literal>
-            </xsl:with-param>
-          </xsl:call-template>
+          <xsl:choose>
+            <xsl:when test="@IsPermutedTermYN = 'N'">
+              <xsl:call-template name='triple'>
+                <xsl:with-param name="doc">
+                  <desc>The label for this term.</desc>
+                </xsl:with-param>
+                <xsl:with-param name='spec'>
+                  <xsl:copy-of select='$term_uri'/>
+                  <uri prefix='&rdfs;'>label</uri>
+                  <literal>
+                    <xsl:value-of select="String"/>
+                  </literal>
+                </xsl:with-param>
+              </xsl:call-template>
+              
+              <xsl:call-template name='triple'>
+                <xsl:with-param name="doc">
+                  <desc>Record the same thing with skos:prefLabel.</desc>
+                </xsl:with-param>
+                <xsl:with-param name='spec'>
+                  <xsl:copy-of select='$term_uri'/>
+                  <uri prefix='&skos;'>prefLabel</uri>
+                  <literal>
+                    <xsl:value-of select="String"/>
+                  </literal>
+                </xsl:with-param>
+              </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:call-template name='triple'>
+                <xsl:with-param name="doc">
+                  <desc>Alternate label.</desc>
+                </xsl:with-param>
+                <xsl:with-param name='spec'>
+                  <xsl:copy-of select='$term_uri'/>
+                  <uri prefix='&skos;'>altLabel</uri>
+                  <literal>
+                    <xsl:value-of select="String"/>
+                  </literal>
+                </xsl:with-param>
+              </xsl:call-template>
+            </xsl:otherwise>
+          </xsl:choose>
           
           <!--
             Transformation rule: lexicalTag
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <desc>This relation states that a term has a lexical tag. But it does so 
-                indirectly becuase the hasLexicalTag relation is with a blank node.</desc>
+              <desc>This relation states that a term has a lexical tag. </desc>
             </xsl:with-param>
             <xsl:with-param name='spec'>
-              <xsl:copy-of select='$term_data_blank'/>
+              <xsl:copy-of select='$term_uri'/>
               <uri prefix='&meshv;'>lexicalTag</uri>
               <literal>
                 <xsl:value-of select="@LexicalTag"/>
@@ -957,11 +928,10 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <desc>This relation states that a term has a print flag. But it does this 
-                indirectly because the hasPrintFlag relation is with a blank node.</desc>
+              <desc>This relation states that a term has a print flag.</desc>
             </xsl:with-param>
             <xsl:with-param name='spec'>
-              <xsl:copy-of select='$term_data_blank'/>
+              <xsl:copy-of select='$term_uri'/>
               <uri prefix='&meshv;'>printFlag</uri>
               <literal>
                 <xsl:value-of select="@PrintFlagYN"/>
@@ -974,50 +944,13 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <desc>This relation states that a term can be a record preferred term. But it does 
-                this indirectly because the relation is with a blank node.</desc>
+              <desc>This relation states that a term can be a record preferred term.</desc>
             </xsl:with-param>
             <xsl:with-param name='spec'>
-              <xsl:copy-of select='$term_data_blank'/>
+              <xsl:copy-of select='$term_uri'/>
               <uri prefix='&meshv;'>isRecordPreferredTerm</uri>
               <literal>
                 <xsl:value-of select="@RecordPreferredTermYN"/>
-              </literal>
-            </xsl:with-param>
-          </xsl:call-template>
-          
-          <!--
-            Transformation rule: dcterms:identifier
-          -->
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>This relation states that a term has a term unique identifier. However, it 
-                does so indirectly because the relation is with a blank node.</desc>
-              <fixme reporter='klortho'>I don't understand why the blank node, with a well defined term_id, is being 
-                used here.</fixme>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select='$term_data_blank'/>
-              <uri prefix='&dcterms;'>identifier</uri>
-              <literal>
-                <xsl:value-of select="TermUI"/>
-              </literal>
-            </xsl:with-param>
-          </xsl:call-template>
-          
-          <!--
-            Transformation rule: rdfs:label
-          -->
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>This relation states that a term has a term name. But it does so 
-                indirectly because the relation is with a blank node.</desc>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select='$term_data_blank'/>
-              <uri prefix='&rdfs;'>label</uri>
-              <literal>
-                <xsl:value-of select="String"/>
               </literal>
             </xsl:with-param>
           </xsl:call-template>
@@ -1032,7 +965,7 @@
                 <fixme>Is this date-string creation method robust enough?</fixme>
               </xsl:with-param>
               <xsl:with-param name='spec'>
-                <xsl:copy-of select='$term_data_blank'/>
+                <xsl:copy-of select='$term_uri'/>
                 <uri prefix='&meshv;'>dateCreated</uri>
                 <xsl:call-template name="DateLiteral">
                   <xsl:with-param name="context" select="DateCreated"/>
@@ -1050,7 +983,7 @@
                 <desc>This relation states that a term has a term abbreviation.</desc>
               </xsl:with-param>
               <xsl:with-param name='spec'>
-                <xsl:copy-of select='$term_data_blank'/>
+                <xsl:copy-of select='$term_uri'/>
                 <uri prefix='&meshv;'>abbreviation</uri>
                 <literal>
                   <xsl:value-of select="Abbreviation"/>
@@ -1068,7 +1001,7 @@
                 <desc>This rule states that a term has a sort version.</desc>
               </xsl:with-param>
               <xsl:with-param name='spec'>
-                <xsl:copy-of select='$term_data_blank'/>
+                <xsl:copy-of select='$term_uri'/>
                 <uri prefix='&meshv;'>sortVersion</uri>
                 <literal>
                   <xsl:value-of select="SortVersion"/>
@@ -1086,7 +1019,7 @@
                 <desc>This rule states that a term has an entry version.</desc>
               </xsl:with-param>
               <xsl:with-param name='spec'>
-                <xsl:copy-of select='$term_data_blank'/>
+                <xsl:copy-of select='$term_uri'/>
                 <uri prefix='&meshv;'>entryVersion</uri>
                 <literal>
                   <xsl:value-of select="EntryVersion"/>
@@ -1105,7 +1038,7 @@
                   <desc>This relation states that a term has a thesaurus ID.</desc>
                 </xsl:with-param>
                 <xsl:with-param name='spec'>
-                  <xsl:copy-of select='$term_data_blank'/>
+                  <xsl:copy-of select='$term_uri'/>
                   <uri prefix='&meshv;'>thesaurusID</uri>
                   <literal>
                     <xsl:value-of select="."/>
