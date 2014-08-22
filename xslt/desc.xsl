@@ -427,16 +427,9 @@
         </xsl:call-template>
       </xsl:if>
 
-      <!-- 
-        Documenting and diagramming all of these sub-graphs on the wiki.
-        (FIXME:  need github issue.)
-        Done up to here.
-      -->   
-
-
-
       <!--
-        Transformation rule: pharmacologicalAction>
+        Transformation rule: pharmacologicalAction.
+        Documented in Descriptor-references
       -->
       <xsl:for-each select="PharmacologicalActionList/PharmacologicalAction">
         <xsl:call-template name='triple'>
@@ -554,13 +547,12 @@
           </xsl:if>
         </xsl:if>
       </xsl:for-each>
-      
+
       <xsl:call-template name='RecordOriginatorsList'>
         <xsl:with-param name="parent" select="$descriptor_uri"/>
       </xsl:call-template>
 
       <xsl:for-each select="ConceptList/Concept">
-        <!-- $concept_uri is used in many calls to the `triple` template below -->
         <xsl:variable name='concept_uri'>
           <uri prefix='&mesh;'>
             <xsl:value-of select="ConceptUI"/>
@@ -572,7 +564,8 @@
         -->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
-            <desc>This relation states that a descriptor record has a concept.</desc>
+            <desc>This relation states that a descriptor record has a concept,
+              using either the meshv:concept or meshv:preferredConcept property</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select="$descriptor_uri"/>
@@ -637,10 +630,10 @@
           </xsl:with-param>
         </xsl:call-template>
 
+        <!--
+          Transformation rule: CASN1_label
+        -->    
         <xsl:if test="CASN1Name">
-          <!--
-            Transformation rule: CASN1_label
-          -->    
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
               <desc>This relation states that a concept has a Chemical Abstracts Type N1 Name.</desc>
@@ -658,10 +651,10 @@
           </xsl:call-template>
         </xsl:if>
 
+        <!--
+          Transformation rule: registryNumber
+        -->
         <xsl:if test="RegistryNumber">
-          <!--
-            Transformation rule: registryNumber
-          -->
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
               <desc>This relation states that a concept has a registry number.</desc>
@@ -681,10 +674,10 @@
           </xsl:call-template>
         </xsl:if>
 
+        <!--
+          Transformation rule: skos:scopeNote
+        -->
         <xsl:if test="ScopeNote">
-          <!--
-            Transformation rule: skos:scopeNote
-          -->
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
               <desc>This relation states tht a concept has a scope note.</desc>
@@ -774,11 +767,11 @@
           </xsl:for-each>
         </xsl:if>
 
+        <!--
+          Transformation rule: relatedRegistryNumber
+        -->
         <xsl:if test="RelatedRegistryNumberList">
           <xsl:for-each select="RelatedRegistryNumberList/RelatedRegistryNumber">
-            <!--
-              Transformation rule: relatedRegistryNumber
-            -->
             <xsl:call-template name="triple">
               <xsl:with-param name="doc">
                 <desc>This relation states that a concept has a related registry number.</desc>
@@ -800,6 +793,12 @@
 
         <xsl:call-template name="ConceptRelationList"/>
 
+        <!-- 
+          Documenting and diagramming all of these sub-graphs on the wiki. See issue #30.
+          Done up to here.
+        -->   
+        
+        
         <xsl:for-each select="TermList/Term">
           <xsl:variable name='term_uri'>
             <uri prefix='&mesh;'>
