@@ -913,6 +913,14 @@
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
               <desc>This relation states that a term has a lexical tag. </desc>
+              <fixme reporter='klortho' issue='36'>
+                Wouldn't it be better to represent this LexicalTag attribute
+                (http://www.nlm.nih.gov/mesh/xml_data_elements.html#LexicalTag) as a set of
+                subclasses of `Term`?  So, for example, T000001 (A-23187) would be an 
+                instance of type meshv:LabNumber, which is a subclass of meshv:Term.
+                We could keep the triple with the literal value, too, for convenience of users
+                who might be more familiar with it.
+              </fixme>
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
@@ -929,6 +937,7 @@
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
               <desc>This relation states that a term has a print flag.</desc>
+              <fixme reporter='klortho'>Turn this into a typed boolean value.</fixme>
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
@@ -945,6 +954,12 @@
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
               <desc>This relation states that a term can be a record preferred term.</desc>
+              <fixme reporter='klortho' issue='36'>
+                Is is true that record preferred term is always the boolean combination of the
+                parent preferred-concept and the concept-preferred-term?  I think this particular
+                attribute would be better modeled as a preferredTerm triple from the record 
+                directly to the term.
+              </fixme>
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
@@ -1031,22 +1046,20 @@
           <!--
             Transformation rule: thesaurusID
           -->
-          <xsl:if test="ThesaurusIDlist">
-            <xsl:for-each select="ThesaurusIDlist/ThesaurusID">
-              <xsl:call-template name='triple'>
-                <xsl:with-param name="doc">
-                  <desc>This relation states that a term has a thesaurus ID.</desc>
-                </xsl:with-param>
-                <xsl:with-param name='spec'>
-                  <xsl:copy-of select='$term_uri'/>
-                  <uri prefix='&meshv;'>thesaurusID</uri>
-                  <literal>
-                    <xsl:value-of select="."/>
-                  </literal>
-                </xsl:with-param>
-              </xsl:call-template>
-            </xsl:for-each>
-          </xsl:if>
+          <xsl:for-each select="ThesaurusIDlist/ThesaurusID">
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <desc>This relation states that a term has a thesaurus ID.</desc>
+              </xsl:with-param>
+              <xsl:with-param name='spec'>
+                <xsl:copy-of select='$term_uri'/>
+                <uri prefix='&meshv;'>thesaurusID</uri>
+                <literal>
+                  <xsl:value-of select="."/>
+                </literal>
+              </xsl:with-param>
+            </xsl:call-template>
+          </xsl:for-each>
         </xsl:for-each>
       </xsl:for-each>
 

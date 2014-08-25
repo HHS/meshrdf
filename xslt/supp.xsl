@@ -843,7 +843,8 @@
           -->
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <desc>This relation states that a term has a lexical tag. But it does so indirectly becuase the hasLexicalTag relation is with a blank node.</desc>
+              <desc>This relation states that a term has a lexical tag. But it does so indirectly 
+                becuase the hasLexicalTag relation is with a blank node.</desc>
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select="$term_data_blank"/>
