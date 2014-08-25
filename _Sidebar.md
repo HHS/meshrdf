@@ -6,6 +6,7 @@
 * [[Entry Combinations]]
 * [[Concept model]]
 * [[Tree number model]]
+* [[Term model]]
 
 ## Sample SPARQL queries
 
