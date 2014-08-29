@@ -20,11 +20,16 @@ MeSH XML files from the NLM server.  The latter option is described first.
 
 ### Getting the MeSH XML files
 
-When you download the MeSH XML files, save them to the *data* subdirectory.
-Some files (such as the DTDs) are already included with this repository, but the XML data files are not.
+Since the complete MeSH data files are quite large, we assume that they are kept in a separate
+location on the filesystem than this GitHub repository.  Set the environment variable
+$MESHRDF_HOME to point to that location.  For example,
+
+    export MESHRDF_HOME=/var/data/mesh-rdf
+
+When you download the MeSH XML files, save them to the *data* subdirectory of $MESHRDF_HOME.
 You can get them from [the download page](http://www.nlm.nih.gov/mesh/filelist.html);
 you will have to agree to the terms of use, and fill out a short form.
-In particular, you should download at least the following:
+Download the following:
 
 * desc2014.dtd
 * desc2014.xml
@@ -38,45 +43,36 @@ In particular, you should download at least the following:
 
 ### Getting Saxon
 
-If you already have the Saxon XSLT processor on your system, you can skip this step.
-
 There are a number of different ways to run the XSLT stylesheets to convert the XML data
-into RDF.  The XSLTs are written in XSLT 2.0, though, so the very xsltproc command, which
+into RDF.  The XSLTs are written in XSLT 2.0, though, so the `xsltproc` command, which
 comes on most Unix systems, will not work.
 
-Probably the easiest way is to download and extract the open-source Saxon Home Edition, which
+One easy way is to download and extract the open-source Saxon Home Edition, which
 is written in Java, and will work on most platforms. You can download
 it from [here](http://sourceforge.net/projects/saxon/files/Saxon-HE/).  Navigate to the latest version,
-and follow the instructions (which appear after the list of files).  You can
-just download the Java zip file, for example,
-[SaxonHE9-5-1-5J.zip](http://sourceforge.net/projects/saxon/files/Saxon-HE/9.5/SaxonHE9-5-1-5J.zip/download).
+and follow the instructions (which appear after the list of files). As a shortcut, you can
+download from the command line directly:
 
-Download and unzip that into the *saxon* subdirectory.  For example:
+    wget http://sourceforge.net/projects/saxon/files/Saxon-HE/9.5/SaxonHE9-5-1-5J.zip
 
-```
-unzip -d saxon SaxonHE9-5-1-5J.zip
-```
+Unzip that into the *saxon9he* subdirectory.  For example:
 
-Next, all of the instructions below, and some of the scripts in the repository, assume that you
-have set an environment variable SAXON_JAR to point to the executable Jar file that comes with the
-Saxon download.
+    unzip -d saxon9he SaxonHE9-5-1-5J.zip
+
+Set an environment variable SAXON_JAR to point to the executable Jar file.
 
 If you are on a Unix system:
 
-```
-export SAXON_JAR=`pwd`/saxon/saxon9he.jar
-```
+    export SAXON_JAR=*repository-dir*/saxon9he/saxon9he.jar
 
+Where "repository-dir" is the base directory of this repository.
 If your version of Saxon is in a different location, then, of course, set this environment variable
 appropriately.
 
 On Windows:
 
-```
-set SAXON_JAR=*repository-dir*\saxon\saxon9he.jar
-```
+    set SAXON_JAR=*repository-dir*\saxon\saxon9he.jar
 
-Where "repository-dir" is the base directory of this repository.
 
 
 ### Converting the complete MeSH data set
@@ -90,7 +86,8 @@ The conversion scripts are:
 * convert-all.sh - For unix, this shell script will brute-force convert each of the three
   main MeSH XML files into RDF N-Triples format, and put the results into the *out* directory
 * convert-all.bat - This does the same thing, but can be run from Windows.
-* convert-all.pl - This Perl script takes a completely different approach, that is useful
+* convert-all.pl - [To do: fix this to work with the MESHRDF_HOME env. var.]
+  This Perl script takes a completely different approach, that is useful
   for doing the conversions on less-powerful machines.  It first chops up each of the
   input XML files into manageable sized chunks, and then runs each chunk through the
   XSLTs separately.  It should run on any machine that has Perl installed.
