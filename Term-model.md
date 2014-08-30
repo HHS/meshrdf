@@ -3,6 +3,72 @@
 
 ## XML
 
+```xml
+<DescriptorRecord DescriptorClass="1">
+  <DescriptorUI>D000001</DescriptorUI>
+  <DescriptorName>
+    <String>Calcimycin</String>
+  </DescriptorName>
+  ...
+  <ConceptList>
+    <Concept PreferredConceptYN="Y">
+      <ConceptUI>M0000001</ConceptUI>
+      <ConceptName>
+        <String>Calcimycin</String>
+      </ConceptName>
+      ...
+      <TermList>
+        <Term ConceptPreferredTermYN="Y" IsPermutedTermYN="N" LexicalTag="NON" PrintFlagYN="Y"
+          RecordPreferredTermYN="Y">
+          <TermUI>T000002</TermUI>
+          <String>Calcimycin</String>
+          ...
+        </Term>
+      </TermList>
+    </Concept>
+    <Concept PreferredConceptYN="N">
+      <ConceptUI>M0353609</ConceptUI>
+      <ConceptName>
+        <String>A-23187</String>
+      </ConceptName>
+      ...
+      <TermList>
+        <Term ConceptPreferredTermYN="Y" IsPermutedTermYN="N" LexicalTag="LAB" PrintFlagYN="N"
+          RecordPreferredTermYN="N">
+          <TermUI>T000001</TermUI>
+          <String>A-23187</String>
+          <DateCreated>
+            <Year>1990</Year>
+            <Month>03</Month>
+            <Day>08</Day>
+          </DateCreated>
+          <ThesaurusIDlist>
+            <ThesaurusID>NLM (1991)</ThesaurusID>
+          </ThesaurusIDlist>
+        </Term>
+        <Term ConceptPreferredTermYN="N" IsPermutedTermYN="Y" LexicalTag="LAB" PrintFlagYN="N"
+          RecordPreferredTermYN="N">
+          <TermUI>T000001</TermUI>
+          <String>A 23187</String>
+        </Term>
+        <Term ConceptPreferredTermYN="N" IsPermutedTermYN="N" LexicalTag="NON" PrintFlagYN="N"
+          RecordPreferredTermYN="N">
+          <TermUI>T000003</TermUI>
+          <String>Antibiotic A23187</String>
+          ...
+        </Term>
+        <Term ConceptPreferredTermYN="N" IsPermutedTermYN="Y" LexicalTag="NON" PrintFlagYN="N"
+          RecordPreferredTermYN="N">
+          <TermUI>T000003</TermUI>
+          <String>A23187, Antibiotic</String>
+        </Term>
+        ...
+      </TermList>
+    </Concept>
+  </ConceptList>
+</DescriptorRecord>
+```
+
 ## RDF
 
 Depicted in these graphs:
