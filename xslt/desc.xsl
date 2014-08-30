@@ -43,21 +43,6 @@
         </xsl:with-param>
       </xsl:call-template>
 
-      <!--
-        Transformation rule: rdf:type
-      -->
-      <xsl:call-template name='triple'>
-        <xsl:with-param name="doc">
-          <desc>This relation states that a Subject node used to identify a Descriptor record 
-            is of type "Descriptor".</desc>
-        </xsl:with-param>
-        <xsl:with-param name='spec'>
-          <xsl:copy-of select="$descriptor_uri"/>
-          <uri prefix='&rdf;'>type</uri>
-          <uri prefix='&meshv;'>Descriptor</uri>
-        </xsl:with-param>
-      </xsl:call-template>
-
       <!-- 
         Transformation rule: descriptorClass
       -->
@@ -65,9 +50,6 @@
         <xsl:with-param name="doc">
           <desc>This relation states that a descriptor record has a descriptor class to which 
             it belongs.</desc>
-          <fixme reporter='klortho' issue='28'>Wouldn't this be done better by using a class hierarchy? For
-            example, each of topical descriptor, publication type, check tag, and 
-            geographical descriptor could be defined as a class in the ontology?</fixme>
         </xsl:with-param>
         <xsl:with-param name="spec">
           <xsl:copy-of select="$descriptor_uri"/>
@@ -1003,9 +985,9 @@
           </xsl:if>
           
           <!--
-          Documenting and diagramming all of these sub-graphs on the wiki. See issue #30.
-          Done up to here.
-        -->
+            Documenting and diagramming all of these sub-graphs on the wiki. See issue #30.
+            Done up to here.
+          -->
           
           
           <!--
