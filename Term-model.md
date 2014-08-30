@@ -88,6 +88,52 @@ Depicted in these graphs:
 In turtle format:
 
 ```
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
+@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+mesh:D000001    rdf:type  meshv:TopicalDescriptor ;
+                meshv:preferredConcept  mesh:M0000001 ;
+                meshv:concept mesh:M0353609 ;
+                meshv:preferredTerm mesh:T000002 .
+
+mesh:M0000001   rdf:type  meshv:Concept ;
+                meshv:preferredTerm mesh:T000002 .
+
+mesh:M0353609   rdf:type  meshv:Concept ;
+                meshv:term  mesh:T000003 ,
+                            mesh:T000004 ;
+                meshv:preferredTerm mesh:T000001 .
+              
+mesh:T000002    rdf:type  meshv:Term .
+
+mesh:T000001    rdf:type  meshv:LabNumber ;
+                meshv:lexicalTag  "LAB" ;
+                rdfs:label  "A-23187" ;
+                skos:prefLabel  "A-23187" ;
+                skos:altLabel "A 23187" .
+                dcterms:identifier  "T000001" ;
+                meshv:dateCreated "1990-03-08"^^xsd:date ;
+                meshv:thesaurusID "NLM (1991)" ;
+                meshv:printFlag "N" ;
+
+mesh:T000003    rdf:type  meshv:Term ;
+                rdfs:label  "Antibiotic A23187" ;
+                dcterms:identifier  "T000003" ;
+                meshv:dateCreated "1990-03-08"^^xsd:date ;
+                meshv:lexicalTag  "NON" ;
+                meshv:printFlag "N" ;
+                meshv:thesaurusID "NLM (1991)" ;
+                skos:prefLabel  "Antibiotic A23187" ;
+                skos:altLabel "A23187, Antibiotic" .
+                
+...
+
+meshv:LabNumber rdfs:subClassOf meshv:Term .
 ```
 
 Notes:
@@ -97,9 +143,61 @@ Notes:
 
 ## Generating the RDF
 
-```sparql
+[Note that the following should be possible using the short `CONSTRUCT WHERE` form,
+as described in [the SPARQL specification](http://www.w3.org/TR/2013/REC-sparql11-query-20130321/#constructWhere), 
+but it seems that Virtuoso doesn't support it.]
 
+```sparql
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+
+construct {
+    mesh:D000001 a ?descClass .
+
+    mesh:D000001 meshv:preferredConcept ?prefCon .
+    ?prefCon a ?prefConClass .
+    mesh:D000001 meshv:preferredTerm ?prefTerm .
+    ?prefTerm a ?prefTermClass .
+    ?prefCon meshv:preferredTerm ?prefTerm .
+
+    mesh:D000001 meshv:concept ?con .
+    ?con a ?conClass .
+    ?con meshv:preferredTerm ?conPrefTerm .
+    ?conPrefTerm a ?conPrefTermClass .
+    ?conPrefTermClass rdfs:subClassOf ?conPrefTermSuperclass .
+
+    ?con meshv:term ?conTerm .
+    ?conTerm a ?conTermClass .
+
+    ?conPrefTerm ?cptp ?cpto .
+ 
+    ?conTerm ?ctp ?cto .
+}
+from <http://chrismaloney.org/mesh>
+from <http://chrismaloney.org/meshv>
+where {
+    mesh:D000001 a ?descClass .
+
+    mesh:D000001 meshv:preferredConcept ?prefCon .
+    ?prefCon a ?prefConClass .
+    mesh:D000001 meshv:preferredTerm ?prefTerm .
+    ?prefTerm a ?prefTermClass .
+    ?prefCon meshv:preferredTerm ?prefTerm .
+
+    mesh:D000001 meshv:concept ?con .
+    ?con a ?conClass .
+    ?con meshv:preferredTerm ?conPrefTerm .
+    ?conPrefTerm a ?conPrefTermClass .
+    ?conPrefTermClass rdfs:subClassOf ?conPrefTermSuperclass .
+
+    ?con meshv:term ?conTerm .
+    ?conTerm a ?conTermClass .
+
+    ?conPrefTerm ?cptp ?cpto .
+ 
+    ?conTerm ?ctp ?cto .
+}
 ```
 
-At the time of this writing, you can see the results dynamically from [this url](http://jatspan.org:8890/sparql?query= ... &format=TURTLE)
+At the time of this writing, you can see the results dynamically from [this url](http://jatspan.org:8890/sparql?query=PREFIX+mesh%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0APREFIX+meshv%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct+%7B%0D%0A++++mesh%3AD000001+a+%3FdescClass+.%0D%0A%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3FprefCon+.%0D%0A++++%3FprefCon+a+%3FprefConClass+.%0D%0A++++mesh%3AD000001+meshv%3ApreferredTerm+%3FprefTerm+.%0D%0A++++%3FprefTerm+a+%3FprefTermClass+.%0D%0A++++%3FprefCon+meshv%3ApreferredTerm+%3FprefTerm+.%0D%0A%0D%0A++++mesh%3AD000001+meshv%3Aconcept+%3Fcon+.%0D%0A++++%3Fcon+a+%3FconClass+.%0D%0A++++%3Fcon+meshv%3ApreferredTerm+%3FconPrefTerm+.%0D%0A++++%3FconPrefTerm+a+%3FconPrefTermClass+.%0D%0A++++%3FconPrefTermClass+rdfs%3AsubClassOf+%3FconPrefTermSuperclass+.%0D%0A%0D%0A++++%3Fcon+meshv%3Aterm+%3FconTerm+.%0D%0A++++%3FconTerm+a+%3FconTermClass+.%0D%0A%0D%0A++++%3FconPrefTerm+%3Fcptp+%3Fcpto+.%0D%0A+%0D%0A++++%3FconTerm+%3Fctp+%3Fcto+.%0D%0A%7D%0D%0Afrom+%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0D%0Afrom+%3Chttp%3A%2F%2Fchrismaloney.org%2Fmeshv%3E%0D%0Awhere+%7B%0D%0A++++mesh%3AD000001+a+%3FdescClass+.%0D%0A%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3FprefCon+.%0D%0A++++%3FprefCon+a+%3FprefConClass+.%0D%0A++++mesh%3AD000001+meshv%3ApreferredTerm+%3FprefTerm+.%0D%0A++++%3FprefTerm+a+%3FprefTermClass+.%0D%0A++++%3FprefCon+meshv%3ApreferredTerm+%3FprefTerm+.%0D%0A%0D%0A++++mesh%3AD000001+meshv%3Aconcept+%3Fcon+.%0D%0A++++%3Fcon+a+%3FconClass+.%0D%0A++++%3Fcon+meshv%3ApreferredTerm+%3FconPrefTerm+.%0D%0A++++%3FconPrefTerm+a+%3FconPrefTermClass+.%0D%0A++++%3FconPrefTermClass+rdfs%3AsubClassOf+%3FconPrefTermSuperclass+.%0D%0A%0D%0A++++%3Fcon+meshv%3Aterm+%3FconTerm+.%0D%0A++++%3FconTerm+a+%3FconTermClass+.%0D%0A%0D%0A++++%3FconPrefTerm+%3Fcptp+%3Fcpto+.%0D%0A+%0D%0A++++%3FconTerm+%3Fctp+%3Fcto+.%0D%0A%7D&format=TURTLE)
 
