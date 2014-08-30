@@ -83,8 +83,6 @@ Depicted in these graphs:
 (This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmSHlXejVJeDBCWWc/edit?usp=sharing).)
 
 
-
-
 In turtle format:
 
 ```
@@ -122,15 +120,10 @@ mesh:T000001    rdf:type  meshv:LabNumber ;
                 meshv:printFlag "N" ;
 
 mesh:T000003    rdf:type  meshv:Term ;
-                rdfs:label  "Antibiotic A23187" ;
-                dcterms:identifier  "T000003" ;
-                meshv:dateCreated "1990-03-08"^^xsd:date ;
                 meshv:lexicalTag  "NON" ;
-                meshv:printFlag "N" ;
-                meshv:thesaurusID "NLM (1991)" ;
+                rdfs:label  "Antibiotic A23187" ;
                 skos:prefLabel  "Antibiotic A23187" ;
                 skos:altLabel "A23187, Antibiotic" .
-                
 ...
 
 meshv:LabNumber rdfs:subClassOf meshv:Term .
@@ -138,8 +131,32 @@ meshv:LabNumber rdfs:subClassOf meshv:Term .
 
 Notes:
 
-* Blah, blah, blah
+* The [LexicalTag` attribute](http://www.nlm.nih.gov/mesh/xml_data_elements.html#LexicalTag)
+  in the XML representation of a Term is used to determine its class (see [issue #36](https://github.com/HHS/mesh-rdf/issues/36).
+  Each of these (except the first) is a subclass of meshv:Term:
 
+    ```
+    NON   meshv:Term
+    ABB   meshv:Abbreviation
+    ABX   meshv:EmbeddedAbbreviation
+    ACR   meshv:Acronym
+    ACX   meshv:EmbeddedAcronym
+    EPO   meshv:Eponym
+    LAB   meshv:LabNumber
+    NAM   meshv:ProperName
+    TRD   meshv:TradeName
+    ```
+
+* The [RecordPreferredTermYN attribute](http://www.nlm.nih.gov/mesh/xml_data_elements.html#RecordPreferredTermYN) 
+  in the XML is used to directly connect a record (in this
+  case, a Descriptor) to its preferred term, using the `meshv:preferredTerm` property, which is an
+  `rdfs:subPropertyOf` `meshv:term`.
+
+* The [IsPermutedTermYN
+  attribute](http://www.nlm.nih.gov/mesh/xml_data_elements.html#IsPermutedTermYN) is used to determine the
+  properties to use for a given label.  If IsPermutedTermYN is "N", then `skos:prefLabel` is used.
+  If it is "Y", then `skos:altLabel` is used.  For convenience, the preferred label is also indicated with
+  the `rdfs:label` property.
 
 ## Generating the RDF
 
