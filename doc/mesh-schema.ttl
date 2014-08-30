@@ -23,19 +23,34 @@ meshv:AllowedDescriptorQualifierPair a rdfs:Class ;
 meshv:DisallowedDescriptorQualifierPair a rdfs:Class ;
     rdfs:subClassOf meshv:DescriptorQualifierPair .
 
+meshv:Concept a rdfs:Class .
+
+meshv:Term a rdfs:Class .
+
+meshv:Abbreviation a rdfs:Class ;
+    rdfs:subClassOf meshv:Term .
+meshv:EmbeddedAbbreviation a rdfs:Class ;
+    rdfs:subClassOf meshv:Term .
+meshv:Acronym a rdfs:Class ;
+    rdfs:subClassOf meshv:Term .
+meshv:EmbeddedAcronym a rdfs:Class ;
+    rdfs:subClassOf meshv:Term .
+meshv:Eponym a rdfs:Class ;
+    rdfs:subClassOf meshv:Term .
+meshv:LabNumber a rdfs:Class ;
+    rdfs:subClassOf meshv:Term .
+meshv:ProperName a rdfs:Class ;
+    rdfs:subClassOf meshv:Term .
+meshv:TradeName a rdfs:Class ;
+    rdfs:subClassOf meshv:Term .
 
 
-# meshv::Concept                        rdf:type    rdfs:Class .
-# meshv::ConceptRelation                rdf:type    rdfs:Class .
-# meshv::Descriptor                     rdf:type    rdfs:Class .
 # meshv::EntryCombination               rdf:type    rdfs:Class .
 # meshv::IndexingData                   rdf:type    rdfs:Class .
 # meshv::MappedData                     rdf:type    rdfs:Class .
 # meshv::Qualifier                      rdf:type    rdfs:Class .
 # meshv::SemanticType                   rdf:type    rdfs:Class .
 # meshv::SupplementaryConceptRecord     rdf:type    rdfs:Class .
-# meshv::Term                           rdf:type    rdfs:Class .
-# meshv::TermData                       rdf:type    rdfs:Class .
 #
 # meshv::abbreviation                   rdfs:domain meshv::Qualifier .
 # meshv::abbreviation                   rdfs:domain meshv::Term .

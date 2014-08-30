@@ -793,13 +793,11 @@
 
         <xsl:call-template name="ConceptRelationList"/>
 
-        <!-- 
-          Documenting and diagramming all of these sub-graphs on the wiki. See issue #30.
-          Done up to here.
-        -->   
+        <!--
+          Two separate `for-each` sections, one for non-permuted terms, and one for permuted.
+        -->
         
-        
-        <xsl:for-each select="TermList/Term">
+        <xsl:for-each select="TermList/Term[@IsPermutedTermYN='N']">
           <xsl:variable name='term_uri'>
             <uri prefix='&mesh;'>
               <xsl:value-of select="TermUI"/>
@@ -833,11 +831,50 @@
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
               <desc>A term is of type Term.</desc>
+              <fixme reporter='klortho' issue='36'>
+                Need official approval that this model is okay.
+              </fixme>
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
               <uri prefix='&rdf;'>type</uri>
-              <uri prefix='&meshv;'>Term</uri>
+              <xsl:choose>
+                <xsl:when test="@LexicalTag = 'ABB'">
+                  <uri prefix='&meshv;'>Abbreviation</uri>
+                </xsl:when>
+                <xsl:when test="@LexicalTag = 'ABX'">
+                  <uri prefix='&meshv;'>EmbeddedAbbreviation</uri>
+                </xsl:when>
+                <xsl:when test="@LexicalTag = 'ACR'">
+                  <uri prefix='&meshv;'>Acronym</uri>
+                </xsl:when>
+                <xsl:when test="@LexicalTag = 'ACX'">
+                  <uri prefix='&meshv;'>EmbeddedAcronym</uri>
+                </xsl:when>
+                <xsl:when test="@LexicalTag = 'EPO'">
+                  <uri prefix='&meshv;'>Eponym</uri>
+                </xsl:when>
+                <xsl:when test="@LexicalTag = 'LAB'">
+                  <uri prefix='&meshv;'>LabNumber</uri>
+                </xsl:when>
+                <xsl:when test="@LexicalTag = 'NAM'">
+                  <uri prefix='&meshv;'>ProperName</uri>
+                </xsl:when>
+                <xsl:when test="@LexicalTag = 'NON'">
+                  <!-- Generic term - use the superclass -->
+                  <uri prefix='&meshv;'>Term</uri>
+                </xsl:when>
+                <xsl:when test="@LexicalTag = 'TRD'">
+                  <uri prefix='&meshv;'>TradeName</uri>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:message terminate="yes">
+                    <xsl:text>Term </xsl:text>
+                    <xsl:value-of select="TermUI"/>
+                    <xsl:text> missing LexicalTag attribute.</xsl:text>
+                  </xsl:message>
+                </xsl:otherwise>
+              </xsl:choose>
             </xsl:with-param>
           </xsl:call-template>
 
@@ -858,54 +895,35 @@
           </xsl:call-template>
 
           <!-- 
-            Transformation rule: rdfs:label, skos:prefLabel, and/or skos:altLabel.
-            If IsPermutedTerm is "N", then this is the
-            preferred label: record that with both skos:prefLabel and rdfs:label.  Otherwise,
-            just add it as a skos:altLabel.
+            Transformation rule: rdfs:label, skos:prefLabel
+            Since IsPermutedTermYN is "N", we know this is the
+            preferred label: record that with both skos:prefLabel and rdfs:label. 
           -->
-          <xsl:choose>
-            <xsl:when test="@IsPermutedTermYN = 'N'">
-              <xsl:call-template name='triple'>
-                <xsl:with-param name="doc">
-                  <desc>The label for this term.</desc>
-                </xsl:with-param>
-                <xsl:with-param name='spec'>
-                  <xsl:copy-of select='$term_uri'/>
-                  <uri prefix='&rdfs;'>label</uri>
-                  <literal>
-                    <xsl:value-of select="String"/>
-                  </literal>
-                </xsl:with-param>
-              </xsl:call-template>
-              
-              <xsl:call-template name='triple'>
-                <xsl:with-param name="doc">
-                  <desc>Record the same thing with skos:prefLabel.</desc>
-                </xsl:with-param>
-                <xsl:with-param name='spec'>
-                  <xsl:copy-of select='$term_uri'/>
-                  <uri prefix='&skos;'>prefLabel</uri>
-                  <literal>
-                    <xsl:value-of select="String"/>
-                  </literal>
-                </xsl:with-param>
-              </xsl:call-template>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:call-template name='triple'>
-                <xsl:with-param name="doc">
-                  <desc>Alternate label.</desc>
-                </xsl:with-param>
-                <xsl:with-param name='spec'>
-                  <xsl:copy-of select='$term_uri'/>
-                  <uri prefix='&skos;'>altLabel</uri>
-                  <literal>
-                    <xsl:value-of select="String"/>
-                  </literal>
-                </xsl:with-param>
-              </xsl:call-template>
-            </xsl:otherwise>
-          </xsl:choose>
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <desc>The label for this term.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$term_uri'/>
+              <uri prefix='&rdfs;'>label</uri>
+              <literal>
+                <xsl:value-of select="String"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
+          
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <desc>Record the same thing with skos:prefLabel.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$term_uri'/>
+              <uri prefix='&skos;'>prefLabel</uri>
+              <literal>
+                <xsl:value-of select="String"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
           
           <!--
             Transformation rule: lexicalTag
@@ -914,12 +932,10 @@
             <xsl:with-param name="doc">
               <desc>This relation states that a term has a lexical tag. </desc>
               <fixme reporter='klortho' issue='36'>
-                Wouldn't it be better to represent this LexicalTag attribute
-                (http://www.nlm.nih.gov/mesh/xml_data_elements.html#LexicalTag) as a set of
-                subclasses of `Term`?  So, for example, T000001 (A-23187) would be an 
-                instance of type meshv:LabNumber, which is a subclass of meshv:Term.
-                We could keep the triple with the literal value, too, for convenience of users
-                who might be more familiar with it.
+                See also above, where the @LexicalTag attribute is used to determine the class
+                of this object as one of meshv:LabNumber, meshv:Eponym, etc., each of which is
+                a subclass of meshv:Term.  The triple with the literal value is provided too,
+                for convenience.
               </fixme>
             </xsl:with-param>
             <xsl:with-param name='spec'>
@@ -949,26 +965,23 @@
           </xsl:call-template>
           
           <!--
-            Transformation rule: isRecordPreferredTerm
+            Transformation rule: record preferred term
           -->
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>This relation states that a term can be a record preferred term.</desc>
-              <fixme reporter='klortho' issue='36'>
-                Is is true that record preferred term is always the boolean combination of the
-                parent preferred-concept and the concept-preferred-term?  I think this particular
-                attribute would be better modeled as a preferredTerm triple from the record 
-                directly to the term.
-              </fixme>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select='$term_uri'/>
-              <uri prefix='&meshv;'>isRecordPreferredTerm</uri>
-              <literal>
-                <xsl:value-of select="@RecordPreferredTermYN"/>
-              </literal>
-            </xsl:with-param>
-          </xsl:call-template>
+          <xsl:if test='@RecordPreferredTermYN = "Y"'>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <desc>This triple specifies that this is the preferred term of the entire record</desc>
+                <fixme reporter='klortho' issue='36'>
+                  Need confirmation that this model is okay.
+                </fixme>
+              </xsl:with-param>
+              <xsl:with-param name='spec'>
+                <xsl:copy-of select='$descriptor_uri'/>
+                <uri prefix='&meshv;'>preferredTerm</uri>
+                <xsl:copy-of select='$term_uri'/>
+              </xsl:with-param>
+            </xsl:call-template>
+          </xsl:if>
           
           <!--
             Transformation rule: dateCreated
@@ -988,6 +1001,12 @@
               </xsl:with-param>
             </xsl:call-template>
           </xsl:if>
+          
+          <!--
+          Documenting and diagramming all of these sub-graphs on the wiki. See issue #30.
+          Done up to here.
+        -->
+          
           
           <!--
             Transformation rule: abbreviation
@@ -1060,6 +1079,30 @@
               </xsl:with-param>
             </xsl:call-template>
           </xsl:for-each>
+        </xsl:for-each>
+
+        <!-- 
+          Now permuted Terms.  This just produces a skos:altLabel
+        -->
+        <xsl:for-each select="TermList/Term[@IsPermutedTermYN='Y']">
+          <xsl:variable name='term_uri'>
+            <uri prefix='&mesh;'>
+              <xsl:value-of select="TermUI"/>
+            </uri>
+          </xsl:variable>
+
+          <xsl:call-template name='triple'>
+            <xsl:with-param name="doc">
+              <desc>Alternate label.</desc>
+            </xsl:with-param>
+            <xsl:with-param name='spec'>
+              <xsl:copy-of select='$term_uri'/>
+              <uri prefix='&skos;'>altLabel</uri>
+              <literal>
+                <xsl:value-of select="String"/>
+              </literal>
+            </xsl:with-param>
+          </xsl:call-template>
         </xsl:for-each>
       </xsl:for-each>
 
