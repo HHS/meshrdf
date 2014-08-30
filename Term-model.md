@@ -7,13 +7,17 @@
 
 Depicted in these graphs:
 
+![](https://github.com/HHS/mesh-rdf/blob/master/doc/TermModel-2.png)
+
+(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmYUUydDFNS2d1OU0/edit?usp=sharing).)
+
+
 ![](https://github.com/HHS/mesh-rdf/blob/master/doc/TermModel.png)
 
 (This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmSHlXejVJeDBCWWc/edit?usp=sharing).)
 
-![](https://github.com/HHS/mesh-rdf/blob/master/doc/TermModel-2.png)
 
-(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmYUUydDFNS2d1OU0/edit?usp=sharing).)
+
 
 In turtle format:
 
