@@ -63,7 +63,11 @@
       -->
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
-          <desc>This relation states that a Subject node used to identify a Supplementary Concept Record (SCR) is of type "SupplementaryConceptRecord".</desc>
+          <desc>This relation states that a Subject node used to identify a Supplementary Concept 
+            Record (SCR) is of type "SupplementaryConceptRecord".</desc>
+          <fixme report='klortho'>
+            How about naming this, simply, SupplementaryConcept?
+          </fixme>
         </xsl:with-param>
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$supprec_uri"/>

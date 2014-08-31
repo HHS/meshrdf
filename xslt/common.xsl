@@ -136,8 +136,11 @@
   <xsl:function name="f:n3-escape">
     <xsl:param name="literal"/>
     <xsl:value-of select="replace(
-        replace($literal, '&quot;', '\\&quot;'),
-        '&#10;', '\\n'
+        replace(
+          replace(
+            $literal, '\\' , '\\\\'
+          ), '&quot;', '\\&quot;'
+        ), '&#10;', '\\n'
       )"/>
   </xsl:function>
 

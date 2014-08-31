@@ -19,6 +19,7 @@ C563013 Membranous Obstruction of Inferior Vena Cava
 C564178 Horner Syndrome, Congenital
 C564417   # Has RelationAttribute
 C566928 Tyrosine Kinase 2 Deficiency
+C000588495 suchengbeisine  # has a backslash in the Source field
 C000588751 penicillitone
 
 D000001 Calcimycin
