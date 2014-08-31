@@ -19,7 +19,7 @@
    <Year>2013A</Year>
    <Year>2014</Year>
   </ActiveMeSHYearList>
-  <Frequency>3</Frequency>
+  <Frequency>4</Frequency>
   <HeadingMappedToList>
    <HeadingMappedTo>
     <DescriptorReferredTo>
@@ -2866,6 +2866,75 @@
       </DateCreated>
       <ThesaurusIDlist>
        <ThesaurusID>ORD (2010)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </SupplementalRecord>
+<SupplementalRecord SCRClass = "1">
+  <SupplementalRecordUI>C000588495</SupplementalRecordUI>
+  <SupplementalRecordName>
+   <String>suchengbeisine</String>
+  </SupplementalRecordName>
+  <DateCreated>
+   <Year>2014</Year>
+   <Month>05</Month>
+   <Day>21</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2014</Year>
+   <Month>05</Month>
+   <Day>21</Day>
+  </DateRevised>
+  <ActiveMeSHYearList>
+   <Year>2014</Year>
+  </ActiveMeSHYearList>
+  <Note>alkaloid from Fritillaria shuchengensis; structure in first source
+  </Note>
+  <Frequency>1</Frequency>
+  <HeadingMappedToList>
+   <HeadingMappedTo>
+    <DescriptorReferredTo>
+     <DescriptorUI>*D013256</DescriptorUI>
+     <DescriptorName>
+      <String>Steroids</String>
+     </DescriptorName>
+    </DescriptorReferredTo>
+   </HeadingMappedTo>
+  </HeadingMappedToList>
+  <SourceList>
+   <Source>J\J Nat Med. 2013 Jul;67(3):647-51</Source>
+  </SourceList>
+  <RecordOriginatorsList>
+   <RecordOriginator>benjersb</RecordOriginator>
+   <RecordMaintainer>benjersb</RecordMaintainer>
+   <RecordAuthorizer>benjersb</RecordAuthorizer>
+  </RecordOriginatorsList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M000594430</ConceptUI>
+    <ConceptName>
+     <String>suchengbeisine</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T110</SemanticTypeUI>
+      <SemanticTypeName>Steroid</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+      <TermUI>T000859942</TermUI>
+      <String>suchengbeisine</String>
+      <DateCreated>
+       <Year>2014</Year>
+       <Month>05</Month>
+       <Day>21</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (2014)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
     </TermList>
