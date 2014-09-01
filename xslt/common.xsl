@@ -709,8 +709,38 @@
         </xsl:for-each>
       </xsl:if>
 
-      <xsl:call-template name="ConceptRelationList"/>
-
+      <xsl:for-each select="ConceptRelationList/ConceptRelation">
+        <xsl:if test="@RelationName">
+          <xsl:call-template name="triple">
+            <xsl:with-param name="spec">
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="Concept1UI"/>
+              </uri>
+              <xsl:copy-of select="f:skos_relation_uri(@RelationName)"/>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="Concept2UI"/>
+              </uri>
+            </xsl:with-param>
+          </xsl:call-template>
+        </xsl:if>
+        
+        <xsl:if test="RelationAttribute">
+          <xsl:call-template name="triple">
+            <xsl:with-param name="spec">
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="Concept1UI"/>
+              </uri>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="concat('rela/', RelationAttribute)"/>
+              </uri>
+              <uri prefix='&mesh;'>
+                <xsl:value-of select="Concept2UI"/>
+              </uri>
+            </xsl:with-param>
+          </xsl:call-template>
+        </xsl:if>
+      </xsl:for-each>
+      
       <!--
         Two separate `for-each` sections, one for non-permuted terms, and one for permuted.
       -->
@@ -1022,50 +1052,6 @@
           </xsl:with-param>
         </xsl:call-template>
       </xsl:for-each>
-    </xsl:for-each>
-
-
-  </xsl:template>
-
-
-
-
-
-
-
-
-
-  <xsl:template name='ConceptRelationList'>
-    <xsl:for-each select="ConceptRelationList/ConceptRelation">
-      <xsl:if test="@RelationName">
-        <xsl:call-template name="triple">
-          <xsl:with-param name="spec">
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="Concept1UI"/>
-            </uri>
-            <xsl:copy-of select="f:skos_relation_uri(@RelationName)"/>
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="Concept2UI"/>
-            </uri>
-          </xsl:with-param>
-        </xsl:call-template>
-      </xsl:if>
-      
-      <xsl:if test="RelationAttribute">
-        <xsl:call-template name="triple">
-          <xsl:with-param name="spec">
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="Concept1UI"/>
-            </uri>
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="concat('rela/', RelationAttribute)"/>
-            </uri>
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="Concept2UI"/>
-            </uri>
-          </xsl:with-param>
-        </xsl:call-template>
-      </xsl:if>
     </xsl:for-each>
   </xsl:template>
 

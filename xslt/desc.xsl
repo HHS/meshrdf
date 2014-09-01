@@ -252,7 +252,6 @@
         </xsl:call-template>        
       </xsl:for-each>
 
-
       <!--
         Transformation rules: seeAlso, hasRelatedDescriptor
       -->
