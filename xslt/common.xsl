@@ -67,7 +67,27 @@
     </xsl:if>
     <xsl:variable name='s' select='$spec/*[1]'/>
     <xsl:variable name='p' select='$spec/*[2]'/>
-    <xsl:variable name='o' select='$spec/*[3]'/>
+    
+    <!-- Strip leading and/or trailing whitespace from all literal values.  See issue #27.  We will issue a warning when these are
+      encountered, and strip them out. -->
+    <xsl:variable name='o' as="element()">
+      <xsl:variable name='oo' select='$spec/*[3]'/>
+      <xsl:choose>
+        <xsl:when test="$oo/self::literal and matches($oo, '(^\s+)|(\s+$)')">
+          <xsl:message>
+            <xsl:text>&#xA;------------------------------------------------------------&#xA;</xsl:text>
+            <xsl:text>Warning: literal value that has leading or trailing whitespace: '</xsl:text>
+            <xsl:value-of select='$oo'/>
+            <xsl:text>'</xsl:text>
+          </xsl:message>
+          <literal><xsl:value-of select="replace($oo, '^\s+|\s+$', '')"/></literal>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:copy-of select='$oo'/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
     <xsl:value-of select='f:triple(
         f:serialize($s),
         f:serialize($p),
@@ -125,7 +145,7 @@
   </xsl:function>
   
   <!-- 
-    Create a literal string, wrapped in double-quotes, and properly escaped
+    Create a literal string, wrapped in double-quotes, and properly escaped.
   -->
   <xsl:function name='f:literal-str'>
     <xsl:param name='lit'/>
