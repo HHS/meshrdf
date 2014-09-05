@@ -799,13 +799,13 @@
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
             <desc>A term is of type Term.</desc>
-            <fixme reporter='klortho' issue='36'>
-              Need official approval that this model is okay.
-            </fixme>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
             <uri prefix='&rdf;'>type</uri>
+
+            <!-- In issue #36, we discussed this, and decided not to create individual subclasses of meshv:Term.
+              Leaving the code here, just in case they ever change their minds.
             <xsl:choose>
               <xsl:when test="@LexicalTag = 'ABB'">
                 <uri prefix='&meshv;'>Abbreviation</uri>
@@ -829,7 +829,6 @@
                 <uri prefix='&meshv;'>ProperName</uri>
               </xsl:when>
               <xsl:when test="@LexicalTag = 'NON'">
-                <!-- Generic term - use the superclass -->
                 <uri prefix='&meshv;'>Term</uri>
               </xsl:when>
               <xsl:when test="@LexicalTag = 'TRD'">
@@ -843,6 +842,9 @@
                 </xsl:message>
               </xsl:otherwise>
             </xsl:choose>
+            -->
+            <uri prefix='&meshv;'>Term</uri>
+            
           </xsl:with-param>
         </xsl:call-template>
 
@@ -945,7 +947,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$parent'/>
-              <uri prefix='&meshv;'>preferredTerm</uri>
+              <uri prefix='&meshv;'>recordPreferredTerm</uri>
               <xsl:copy-of select='$term_uri'/>
             </xsl:with-param>
           </xsl:call-template>

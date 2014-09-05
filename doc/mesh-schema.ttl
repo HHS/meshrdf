@@ -27,22 +27,24 @@ meshv:Concept a rdfs:Class .
 
 meshv:Term a rdfs:Class .
 
-meshv:Abbreviation a rdfs:Class ;
-    rdfs:subClassOf meshv:Term .
-meshv:EmbeddedAbbreviation a rdfs:Class ;
-    rdfs:subClassOf meshv:Term .
-meshv:Acronym a rdfs:Class ;
-    rdfs:subClassOf meshv:Term .
-meshv:EmbeddedAcronym a rdfs:Class ;
-    rdfs:subClassOf meshv:Term .
-meshv:Eponym a rdfs:Class ;
-    rdfs:subClassOf meshv:Term .
-meshv:LabNumber a rdfs:Class ;
-    rdfs:subClassOf meshv:Term .
-meshv:ProperName a rdfs:Class ;
-    rdfs:subClassOf meshv:Term .
-meshv:TradeName a rdfs:Class ;
-    rdfs:subClassOf meshv:Term .
+# In issue #36, we discussed this, and decided not to create individual subclasses of meshv:Term.
+# Leaving the code here, just in case they ever change their minds.
+#meshv:Abbreviation a rdfs:Class ;
+#    rdfs:subClassOf meshv:Term .
+#meshv:EmbeddedAbbreviation a rdfs:Class ;
+#    rdfs:subClassOf meshv:Term .
+#meshv:Acronym a rdfs:Class ;
+#    rdfs:subClassOf meshv:Term .
+#meshv:EmbeddedAcronym a rdfs:Class ;
+#    rdfs:subClassOf meshv:Term .
+#meshv:Eponym a rdfs:Class ;
+#    rdfs:subClassOf meshv:Term .
+#meshv:LabNumber a rdfs:Class ;
+#    rdfs:subClassOf meshv:Term .
+#meshv:ProperName a rdfs:Class ;
+#    rdfs:subClassOf meshv:Term .
+#meshv:TradeName a rdfs:Class ;
+#    rdfs:subClassOf meshv:Term .
 
 
 # meshv::EntryCombination               rdf:type    rdfs:Class .
