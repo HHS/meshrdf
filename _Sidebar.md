@@ -17,7 +17,6 @@
 
 ## Project / development
 
-* [[Virtuoso]] - for setup/configuration notes for the OpenLink Virtuoso server
 * [[Lodestar]] - setup/configuration notes for Lodestar, which provides the frontend
 * [[Validation criteria]] - collect ideas for future automated testing criteria here
 * [[Suggestions for XML]] - record any suggestions, that come out of this effort, for how the *XML*
