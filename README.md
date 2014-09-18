@@ -136,29 +136,33 @@ These are the subdirectories of this project -- either part of the repository, o
 
 ## Virtuoso setup
 
-Dependencies:
-	gcc, gmake, autoconf, automake, libtool, flex, bison, gperf, gawk, m4, make, openssl-devel, readline-devel, wget
+Dependencies: gcc, gmake, autoconf, automake, libtool, flex, bison, gperf, gawk, m4, make, openssl-devel, readline-devel, wget.
+
+Decide on a directory where you will install virtuoso, and set the $VIRTUOSO_HOME environment variable to point to that.
 
 Checkout source from github:
-	sudo su - rxnorm
-	cd /usr/nlm/rxnorm/opt
-	git clone git://github.com/openlink/virtuoso-opensource.git
-	cd virtuoso-opensource   
-	git fetch
-	git checkout develop/7   (should say already at develop/7)
-	./autogen.sh
-	CFLAGS="-O2 -m64"
-	export CFLAGS
-	./configure --prefix=/usr/nlm/rxnorm/opt/virtuoso
-	make
-	make install
+
+    git clone git://github.com/openlink/virtuoso-opensource.git
+    cd virtuoso-opensource   
+    git checkout develop/7   # should say already on develop/7
+
+Build:
+
+    ./autogen.sh
+    CFLAGS="-O2 -m64"
+    export CFLAGS
+    ./configure --prefix=$VIRTUOSO_HOME
+    make
+    make install
 	
 Start up of server:
-	cd /usr/nlm/rxnorm/opt/virtuoso/var/lib/virtuoso/db
-	/usr/nlm/rxnorm/opt/virtuoso/bin/virtuoso-t
-	
-Shutdown of server:
-Reference:  http://data-gov.tw.rpi.edu/wiki/How_to_install_virtuoso_sparql_endpoint#Manual_Shutdown
-	
-	/usr/nlm/rxnorm/opt/virtuoso/bin/isql 1111 dba <password>
-	SQL> shutdown();
+
+    cd $VIRTUOSO_HOME/virtuoso/var/lib/virtuoso/db
+    $VIRTUOSO_HOME/bin/virtuoso-t
+
+Shutdown of server (see [the Virtuoso 
+documentation](http://data-gov.tw.rpi.edu/wiki/How_to_install_virtuoso_sparql_endpoint#Manual_Shutdown)):
+
+    $VIRTUOSO_HOME/bin/isql 1111 dba <password>
+    SQL> shutdown();
+
