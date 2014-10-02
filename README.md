@@ -134,4 +134,35 @@ These are the subdirectories of this project -- either part of the repository, o
 * *saxon* - Not part of the repository, this is where the Saxon XSLT processor should be extracted.
 * *xslt* - The main XSLT processor files that convert the XML into RDF.
 
+## Virtuoso setup
+
+Dependencies: gcc, gmake, autoconf, automake, libtool, flex, bison, gperf, gawk, m4, make, openssl-devel, readline-devel, wget.
+
+Decide on a directory where you will install virtuoso, and set the $VIRTUOSO_HOME environment variable to point to that.
+
+Checkout source from github:
+
+    git clone git://github.com/openlink/virtuoso-opensource.git
+    cd virtuoso-opensource   
+    git checkout develop/7   # should say already on develop/7
+
+Build:
+
+    ./autogen.sh
+    CFLAGS="-O2 -m64"
+    export CFLAGS
+    ./configure --prefix=$VIRTUOSO_HOME
+    make
+    make install
+	
+Start up of server:
+
+    cd $VIRTUOSO_HOME/virtuoso/var/lib/virtuoso/db
+    $VIRTUOSO_HOME/bin/virtuoso-t
+
+Shutdown of server (see [the Virtuoso 
+documentation](http://data-gov.tw.rpi.edu/wiki/How_to_install_virtuoso_sparql_endpoint#Manual_Shutdown)):
+
+    $VIRTUOSO_HOME/bin/isql 1111 dba <password>
+    SQL> shutdown();
 
