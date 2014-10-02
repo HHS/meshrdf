@@ -40,6 +40,8 @@ Download the following:
 * supp2014.dtd
 * supp2014.xml
 
+A script is provided, fetch-mesh-xml.sh, that will fetch the "big three" automatically from the 
+NLM FTP site.
 
 ### Getting Saxon
 
@@ -83,10 +85,10 @@ XSLT conversions.
 
 The conversion scripts are:
 
-* convert-all.sh - For unix, this shell script will brute-force convert each of the three
+* mesh-xml2rdf.sh - For unix, this shell script will brute-force convert each of the three
   main MeSH XML files into RDF N-Triples format, and put the results into the *out* directory
-* convert-all.bat - This does the same thing, but can be run from Windows.
-* convert-all.pl - [To do: fix this to work with the MESHRDF_HOME env. var.]
+* mesh-xml2rdf.bat - This does the same thing, but can be run from Windows.
+* mesh-xml2rdf.pl - [To do: fix this to work with the MESHRDF_HOME env. var.]
   This Perl script takes a completely different approach, that is useful
   for doing the conversions on less-powerful machines.  It first chops up each of the
   input XML files into manageable sized chunks, and then runs each chunk through the
