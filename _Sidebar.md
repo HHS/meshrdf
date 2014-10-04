@@ -1,3 +1,7 @@
+## Web site / presentation
+
+[[URL patterns]]
+
 ## RDF data model
 
 * [[Descriptor, part 1]]
