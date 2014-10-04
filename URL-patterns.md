@@ -6,4 +6,7 @@ This page will be a survey of all of the URLs that will be handled by our deploy
 | http://id.nlm.nih.gov/mesh           |  *any*        | Metadata about our schema (ontology/vocabulary) |
 | http://id.nlm.nih.gov/mesh/{id}      | text/html     | 303 Redirect to {$1}.html                |
 | http://id.nlm.nih.gov/mesh/{id}.html |  *any*        | HTML page with info about the resource {id} |
+| http://id.nlm.nih.gov/mesh/{id}.json |  *any*        | json format output                        |
+| http://id.nlm.nih.gov/mesh/{id}.ntriples | *any*     | ntriples format output                      |
+| http://id.nlm.nih.gov/mesh/{id}.ttl   |    *any*      | turtle format output                      |
 
