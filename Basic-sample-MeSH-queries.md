@@ -1,6 +1,32 @@
 Wrap any of the following in `SPARQL ... ;` if you are entering them through the isql
 interface.
 
+## Break down the id types created in a given year ('C', 'D', 'T')
+
+```sparql
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select substr(?purl,1,1) AS ?idType,count(?idType) AS ?numberOfIdType
+from <http://mor.nlm.nih.gov/mesh2014>
+where {
+     ?id vocab:dateCreated ?dateCreated;
+     <http://purl.org/dc/terms/identifier> ?purl;
+     rdfs:label ?label
+     FILTER(?dateCreated > "2014-01-01"^^xsd:date)
+     
+
+
+}
+GROUP BY substr(?purl,1,1)
+ORDER BY ?idType
+
+```
+
+
 ## What are all the new MeSH Descriptors in a given year (2014)?
 
 ```sparql
