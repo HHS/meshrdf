@@ -1,6 +1,28 @@
 Wrap any of the following in `SPARQL ... ;` if you are entering them through the isql
 interface.
 
+## Any MeSH term ('D' or 'M') that has 'infection' as part of its name
+
+```sparql
+
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select *
+from <http://mor.nlm.nih.gov/mesh2014>
+where {
+     ?id rdfs:label ?label;
+     <http://purl.org/dc/terms/identifier> ?purl
+     FILTER regex(?label, "infection","i")
+     FILTER(SUBSTR(?purl,1,1) IN("D") || SUBSTR(?purl,1,1) IN("M"))
+     
+}
+
+
+```
+
 ## Break down the id types created in a given year ('C', 'D', 'T')
 
 ```sparql
