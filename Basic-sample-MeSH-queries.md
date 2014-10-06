@@ -7,7 +7,6 @@ interface.
 
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 select *
