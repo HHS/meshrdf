@@ -1,4 +1,9 @@
-Welcome to the MeSH-RDF wiki!
+---
+title: MeSH-RDF wiki home page
+layout: post
+---
+
+Entry page for our wiki
 
 See the table of contents in the sidebar on the right.
 
