@@ -73,7 +73,7 @@ where {
 
 ```sparql
 select *
-from <http://mor.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
      ?s ?p "Ofloxacin" .
 }
@@ -87,7 +87,7 @@ See [[Basic descriptor conversion]] for a description of these results.
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select *
-from <http://mor.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
      mesh:D015242 ?p ?o .
 }
@@ -99,7 +99,7 @@ where {
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select *
-from <http://mor.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
      mesh:D015242 mesh:pharmacologicalAction ?c .
 }
@@ -111,7 +111,7 @@ where {
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select *
-from <http://mor.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
      mesh:D015242 mesh:pharmacologicalAction ?pa .
      ?pa ?p ?o .
@@ -125,7 +125,7 @@ where {
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select *
-from <http://mor.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
      mesh:D015242 mesh:pharmacologicalAction ?pa .
      ?pa <http://www.w3.org/2000/01/rdf-schema#label> ?label .
@@ -138,7 +138,7 @@ where {
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select ?descriptor
-from <http://mor.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
      ?descriptor mesh:pharmacologicalAction ?pa .
      ?pa <http://www.w3.org/2000/01/rdf-schema#label> ?label
@@ -152,7 +152,7 @@ where {
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select ?descriptor
-from <http://mor.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
      ?descriptor mesh:pharmacologicalAction ?pa .
      ?pa rdfs:label ?label
@@ -166,7 +166,7 @@ where {
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select ?descriptor ?descriptorname
-from <http://mor.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
      ?descriptor mesh:pharmacologicalAction ?pa .
      ?pa rdfs:label "Anti-Bacterial Agents" .
@@ -181,7 +181,7 @@ ORDER BY ASC(?descriptorname)
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select ?descriptor ?descriptorname ?SCR
-from <http://mor.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
      ?descriptor mesh:pharmacologicalAction ?pa .
      ?pa rdfs:label "Anti-Bacterial Agents" .
@@ -197,7 +197,7 @@ ORDER BY ASC(?descriptorname)
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select ?descriptor ?descriptorname ?SCR ?SCRname
-from <http://mor.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
      ?descriptor mesh:pharmacologicalAction ?pa .
      ?pa rdfs:label "Anti-Bacterial Agents" .
@@ -215,7 +215,7 @@ ORDER BY ASC(?descriptorname)
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
 select count(distinct ?SCR)
-from <http://mor.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
      ?descriptor mesh:pharmacologicalAction ?pa .
      ?pa rdfs:label "Anti-Bacterial Agents" .
