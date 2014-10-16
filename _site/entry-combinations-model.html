@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Entry Combinations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <link href="/styles/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+<!--header to hold banner + top navigation area -->
+  <div id = "logo-container">   
+<img width="430" class="logo" alt="National Library of Medicine" src="/images/nih_nlmlogo_webheader.png " /></a>
+</div>
+
+
+
+<!-- // end header -->
+ 
+    <div class="main-container">
+      <div class = "left-nav">
+
+<h4>Data Model</h4>
+<ul>
+
+  
+
+  
+
+
+
+
+<li><a href="/concept-model.html">&raquo;&nbsp;Concepts</a></li>
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+
+<li><a href="/descriptor-model.html">&raquo;&nbsp;Descriptors</a></li>
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+
+<li><a href="/entry-combinations-model.html">&raquo;&nbsp;Entry Combinations</a></li>
+  
+  
+  
+
+  
+
+
+
+  
+  
+  
+
+
+
+  
+  
+  
+
+
+
+
+<li><a href="/term-model.html">&raquo;&nbsp;Terms</a></li>
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+
+<li><a href="/tree-number-model.html">&raquo;&nbsp;Tree Numbers</a></li>
+  
+  
+  
+<br/>
+</ul>
+
+<h4>REST Interface</h4>
+<ul>
+
+  
+
+  
+
+
+
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+  
+  
+  
+
+  
+
+
+
+
+<li><a href="/rest-interface.html">&raquo;&nbsp;REST Interface Documentation</a></li>
+  
+  
+  
+
+
+
+  
+  
+  
+
+
+
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+  
+  
+  
+<br/>
+</ul>
+
+<h4>Sample Queries</h4>
+<ul>
+
+  
+
+  
+
+
+
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+  
+  
+  
+
+  
+
+
+
+  
+  
+  
+
+
+
+
+<li><a href="/sample-queries.html">&raquo;&nbsp;Sample Queries</a></li>
+  
+  
+  
+
+
+
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+  
+  
+  
+<br/>
+</ul>
+
+</div>
+    <div class = "content">
+      <p>The following shows how EntryCombinations (see the <a href="http://www.nlm.nih.gov/mesh/xml_data_elements.html#EntryCombination">MeSH documentation</a>) are modeled.</p>
+
+<p>Discussion of this model was on issue <a href="https://github.com/HHS/mesh-rdf/issues/10">#10</a>.</p>
+
+<h2 id="xml">XML</h2>
+
+<p>Here is a typical example of and EntryCombination represented in XML.</p>
+
+<p>```xml
+<descriptorrecord descriptorclass="1"></descriptorrecord></p>
+<descriptorui>D000005</descriptorui>
+<descriptorname>
+    <string>Abdomen</string>
+  </descriptorname>
+<p>…</p>
+<entrycombinationlist>
+    <entrycombination>
+      <ecin>
+        <descriptorreferredto>
+          <descriptorui>D000005</descriptorui>
+          <descriptorname>
+            <string>Abdomen</string>
+          </descriptorname>
+        </descriptorreferredto>
+        <qualifierreferredto>
+          <qualifierui>Q000293</qualifierui>
+          <qualifiername>
+            <string>injuries</string>
+          </qualifiername>
+        </qualifierreferredto>
+      </ecin>
+      <ecout>
+        <descriptorreferredto>
+          <descriptorui>D000007</descriptorui>
+          <descriptorname>
+            <string>Abdominal Injuries</string>
+          </descriptorname>
+        </descriptorreferredto>
+      </ecout>
+    </entrycombination>
+  </entrycombinationlist>
+<p>…
+&lt;/DescriptorRecord&gt;
+```</p>
+
+<h2 id="rdf">RDF</h2>
+
+<p>Depicted in this graph:</p>
+
+<p><img src="https://github.com/HHS/mesh-rdf/blob/master/doc/EntryCombinations.png" alt="" /></p>
+
+<p>(This drawing was done in <a href="https://www.lucidchart.com">LucidChart</a>, and is on Google drive <a href="https://drive.google.com/file/d/0B8n-nWqCI5WmOGNVcmo3VkNKeEE/edit?usp=sharing">here</a>.)</p>
+
+<p>In turtle format:</p>
+
+<p>```
+@prefix rdf:	<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a> .
+@prefix mesh:	<a href="http://id.nlm.nih.gov/mesh/">http://id.nlm.nih.gov/mesh/</a> .
+@prefix meshv:	<a href="http://id.nlm.nih.gov/mesh/vocab#">http://id.nlm.nih.gov/mesh/vocab#</a> .
+@prefix rdfs:	<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a> .</p>
+
+<p>mesh:D000005Q000293  rdf:type  meshv:DisallowedDescriptorQualifierPair ;
+	meshv:hasDescriptor  mesh:D000005 ;
+	meshv:hasQualifier   mesh:Q000293 ;
+	meshv:useInstead     mesh:D000007 .
+mesh:D000005Q000530  rdf:type  meshv:DisallowedDescriptorQualifierPair ;
+	meshv:hasDescriptor  mesh:D000005 ;
+	meshv:hasQualifier   mesh:Q000530 ;
+	meshv:useInstead     mesh:D011860 .
+meshv:DisallowedDescriptorQualifierPair	rdfs:subClassOf	meshv:DescriptorQualifierPair .
+```</p>
+
+<p>Notes:</p>
+
+<ul>
+  <li>
+    <p>For <em>most</em> entry combinations, the ECOUT is just a stand-alone Descriptor, but occasionally
+it is a DescriptorQualifierPair (see <a href="https://github.com/HHS/mesh-rdf/issues/12#issuecomment-51688049">this comment</a>).  That doesn’t change much:  the <em>object</em> of the <code>meshv:useInstead</code> property would simply be a DescriptorQualifierPair instance, rather than, as is depicted in the drawing above, a Descriptor.</p>
+  </li>
+  <li>
+    <p>This model <em>assumes</em> that the DQ pair formed by the ECIN of the entry combination is
+not one of the “allowed” ones. This should be the case, but hasn’t been confirmed. This suggests validation step, after the conversion to RDF, but before official release, as described by Gang <a href="https://github.com/HHS/mesh-rdf/issues/12#issuecomment-51687881">here</a>.</p>
+  </li>
+</ul>
+
+<h2 id="generating-the-rdf">Generating the RDF</h2>
+
+<p>```sparql
+PREFIX mesh: <a href="http://id.nlm.nih.gov/mesh/">http://id.nlm.nih.gov/mesh/</a>
+PREFIX meshv: <a href="http://id.nlm.nih.gov/mesh/vocab#">http://id.nlm.nih.gov/mesh/vocab#</a></p>
+
+<p>CONSTRUCT { 
+  ?ecin ?p ?o .
+  ?ecin rdf:type ?eclass .
+  ?eclass rdfs:subClassOf $superclass .
+}
+from <a href="http://chrismaloney.org/mesh">http://chrismaloney.org/mesh</a>
+from <a href="http://chrismaloney.org/meshv">http://chrismaloney.org/meshv</a>
+where {
+  ?ecin meshv:hasDescriptor mesh:D000005 .
+  ?ecin meshv:hasQualifier ?ecinq .
+  ?ecin meshv:useInstead ?ecout .
+  ?ecin ?p ?o .
+  ?ecin rdf:type ?eclass .
+  ?eclass rdfs:subClassOf $superclass .
+}
+```</p>
+
+<p>At the time of this writing, you can see the results dynamically from <a href="http://jatspan.org:8890/sparql?query=PREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0A%0ACONSTRUCT%20%7B%20%0A%20%20%3Fecin%20%3Fp%20%3Fo%20.%0A%20%20%3Fecin%20rdf%3Atype%20%3Feclass%20.%0A%20%20%3Feclass%20rdfs%3AsubClassOf%20%24superclass%20.%0A%7D%0Afrom%20%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0Afrom%20%3Chttp%3A%2F%2Fchrismaloney.org%2Fmeshv%3E%0Awhere%20%7B%0A%20%20%3Fecin%20meshv%3AhasDescriptor%20mesh%3AD000005%20.%0A%20%20%3Fecin%20meshv%3AhasQualifier%20%3Fecinq%20.%0A%20%20%3Fecin%20meshv%3AuseInstead%20%3Fecout%20.%0A%20%20%3Fecin%20%3Fp%20%3Fo%20.%0A%20%20%3Fecin%20rdf%3Atype%20%3Feclass%20.%0A%20%20%3Feclass%20rdfs%3AsubClassOf%20%24superclass%20.%0A%7D&amp;format=TURTLE">this url</a></p>
+
+
+    </div>
+      
+    </div>
+
+<!-- footer area   -->
+ <div id = "footer">
+  Page first published: 01 Nov 2014<br/>
+  Page last updated: 16 Oct 2014
+</div>
+ <!-- //end footer -->
+  </body>
+</html>

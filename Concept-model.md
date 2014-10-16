@@ -1,3 +1,11 @@
+---
+title: Concepts
+layout: page
+resource: true
+categories:
+- Data Model
+---
+
 Here are how Concepts are modelled in RDF
 
 Note that this page does not describe Terms, which are subordinate to Concepts, but most other things 

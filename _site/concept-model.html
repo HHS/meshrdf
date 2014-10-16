@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Concepts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <link href="/styles/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+<!--header to hold banner + top navigation area -->
+  <div id = "logo-container">   
+<img width="430" class="logo" alt="National Library of Medicine" src="/images/nih_nlmlogo_webheader.png " /></a>
+</div>
+
+
+
+<!-- // end header -->
+ 
+    <div class="main-container">
+      <div class = "left-nav">
+
+<h4>Data Model</h4>
+<ul>
+
+  
+
+  
+
+
+
+
+<li><a href="/concept-model.html">&raquo;&nbsp;Concepts</a></li>
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+
+<li><a href="/descriptor-model.html">&raquo;&nbsp;Descriptors</a></li>
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+
+<li><a href="/entry-combinations-model.html">&raquo;&nbsp;Entry Combinations</a></li>
+  
+  
+  
+
+  
+
+
+
+  
+  
+  
+
+
+
+  
+  
+  
+
+
+
+
+<li><a href="/term-model.html">&raquo;&nbsp;Terms</a></li>
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+
+<li><a href="/tree-number-model.html">&raquo;&nbsp;Tree Numbers</a></li>
+  
+  
+  
+<br/>
+</ul>
+
+<h4>REST Interface</h4>
+<ul>
+
+  
+
+  
+
+
+
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+  
+  
+  
+
+  
+
+
+
+
+<li><a href="/rest-interface.html">&raquo;&nbsp;REST Interface Documentation</a></li>
+  
+  
+  
+
+
+
+  
+  
+  
+
+
+
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+  
+  
+  
+<br/>
+</ul>
+
+<h4>Sample Queries</h4>
+<ul>
+
+  
+
+  
+
+
+
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+  
+  
+  
+
+  
+
+
+
+  
+  
+  
+
+
+
+
+<li><a href="/sample-queries.html">&raquo;&nbsp;Sample Queries</a></li>
+  
+  
+  
+
+
+
+  
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+
+
+  
+  
+  
+<br/>
+</ul>
+
+</div>
+    <div class = "content">
+      <p>Here are how Concepts are modelled in RDF</p>
+
+<p>Note that this page does not describe Terms, which are subordinate to Concepts, but most other things 
+directly related to Concepts are here.</p>
+
+<h2 id="xml">XML</h2>
+
+<p>```xml
+<descriptorrecord descriptorclass="1"></descriptorrecord></p>
+<descriptorui>D000001</descriptorui>
+<descriptorname>
+    <string>Calcimycin</string>
+  </descriptorname>
+<p>…</p>
+<conceptlist>
+    <concept preferredconceptyn="Y">
+      <conceptui>M0000001</conceptui>
+      <conceptname>
+        <string>Calcimycin</string>
+      </conceptname>
+      <casn1name>4-Benzoxazolecarboxylic acid,  ...</casn1name>
+      <registrynumber>37H9VM9WZL</registrynumber>
+      <scopenote>An ionophorous, ... </scopenote>
+      <semantictypelist>
+        <semantictype>
+          <semantictypeui>T109</semantictypeui>
+          <semantictypename>Organic Chemical</semantictypename>
+        </semantictype>
+        <semantictype>
+          <semantictypeui>T195</semantictypeui>
+          <semantictypename>Antibiotic</semantictypename>
+        </semantictype>
+      </semantictypelist>
+      <relatedregistrynumberlist>
+        <relatedregistrynumber>52665-69-7 (Calcimycin)</relatedregistrynumber>
+      </relatedregistrynumberlist>
+      <conceptrelationlist>
+        <conceptrelation relationname="NRW">
+          <concept1ui>M0000001</concept1ui>
+          <concept2ui>M0353609</concept2ui>
+        </conceptrelation>
+      </conceptrelationlist>
+      ...
+    </concept>
+    <concept preferredconceptyn="N">
+      <conceptui>M0353609</conceptui>
+      ...
+    </concept>
+  </conceptlist>
+<p>&lt;/DescriptorRecord&gt;
+```</p>
+
+<h2 id="rdf">RDF</h2>
+
+<p><img src="https://github.com/HHS/mesh-rdf/blob/master/doc/Concepts.png" alt="" /></p>
+
+<p>(This drawing was done in <a href="https://www.lucidchart.com">LucidChart</a>, and is on Google drive <a href="https://drive.google.com/file/d/0B8n-nWqCI5WmNXE2b2VTX0Vjb0E/edit?usp=sharing">here</a>.)</p>
+
+<p>In turtle format:</p>
+
+<p>```
+@prefix meshv:  <a href="http://id.nlm.nih.gov/mesh/vocab#">http://id.nlm.nih.gov/mesh/vocab#</a> .
+@prefix mesh: <a href="http://id.nlm.nih.gov/mesh/">http://id.nlm.nih.gov/mesh/</a> .
+@prefix rdf:  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a> .
+@prefix rdfs: <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a> .
+@prefix dcterms:  <a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a> .
+@prefix skos: <a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a> .</p>
+
+<p>mesh:D000001  meshv:preferredConcept  mesh:M0000001 .
+mesh:M0000001 rdf:type  meshv:Concept ;
+              rdfs:label  “Calcimycin” ;
+              dcterms:identifier  “M0000001” ;
+              meshv:CASN1_label “4-Benzoxazolecarboxylic acid, …” ;
+              meshv:registryNumber  “37H9VM9WZL” ;
+              meshv:relatedRegistryNumber “52665-69-7 (Calcimycin)” ;
+              skos:scopeNote  “An ionophorous, polyether … “ ;
+              meshv:term  mesh:T000002 .
+              meshv:semanticType  mesh:T109 ,
+                                  mesh:T195 ;
+              skos:narrower mesh:M0353609 ;</p>
+
+<p>mesh:T109 rdf:type  meshv:SemanticType ;
+          rdfs:label  “Organic Chemical” ;
+          dcterms:identifier  “T109” .</p>
+
+<p>mesh:T195 rdf:type  meshv:SemanticType ;
+          rdfs:label  “Antibiotic” ;
+          dcterms:identifier  “T195” .
+```</p>
+
+<p>Note:</p>
+
+<ul>
+  <li>
+    <p>RelationAttributes (not depicted in this example; see the <a href="http://www.nlm.nih.gov/mesh/xml_data_elements.html#RelationAttribute">MeSH documentation</a> and <a href="https://github.com/HHS/mesh-rdf/issues/15#issuecomment-50952078">GitHub issue #15</a>) are currently modeled with their own property URIs.  So, for example, the XML</p>
+
+    <p><code>
+  &lt;ConceptRelation RelationName="REL"&gt;
+    &lt;Concept1UI&gt;M0000205&lt;/Concept1UI&gt;
+    &lt;Concept2UI&gt;M0567458&lt;/Concept2UI&gt;
+    &lt;RelationAttribute&gt;187600&lt;/RelationAttribute&gt;
+  &lt;/ConceptRelation&gt;
+ </code></p>
+
+    <p>would produce two triples:</p>
+
+    <p><code>
+  mesh:M0000205 skos:related mesh:M0567458 .
+  mesh:M0000205 mesh:rela/187600 mesh:M0567458 .
+ </code></p>
+  </li>
+</ul>
+
+<h2 id="generating-the-rdf">Generating the RDF</h2>
+
+<p>The RDF output above can be generated with the following SPARQL query, after substituting the current values for the name of the graph and so forth:</p>
+
+<p>```sparql
+prefix mesh: <a href="http://id.nlm.nih.gov/mesh/">http://id.nlm.nih.gov/mesh/</a>
+prefix meshv: <a href="http://id.nlm.nih.gov/mesh/vocab#">http://id.nlm.nih.gov/mesh/vocab#</a></p>
+
+<p>construct {
+    mesh:D000001 meshv:preferredConcept ?prefcon .
+    ?prefcon ?p ?o .
+    ?prefcon meshv:semanticType $semtype .
+    $semtype ?stp $sto .
+}
+from <a href="http://chrismaloney.org/mesh">http://chrismaloney.org/mesh</a>
+where {
+    mesh:D000001 meshv:preferredConcept ?prefcon .
+    ?prefcon ?p ?o .
+    ?prefcon meshv:semanticType $semtype .
+    $semtype ?stp $sto .</p>
+
+<p>}
+```</p>
+
+<p>At the time of this writing, you can see the results dynamically from <a href="http://jatspan.org:8890/sparql?query=prefix+mesh%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0Aprefix+meshv%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%7D%0D%0Afrom+%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0D%0Awhere+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%0D%0A%7D&amp;format=TURTLE">this
+url</a></p>
+
+    </div>
+      
+    </div>
+
+<!-- footer area   -->
+ <div id = "footer">
+  Page first published: 01 Nov 2014<br/>
+  Page last updated: 16 Oct 2014
+</div>
+ <!-- //end footer -->
+  </body>
+</html>

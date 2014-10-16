@@ -1,4 +1,10 @@
-See the discussion on issue [#22](https://github.com/HHS/mesh-rdf/issues/22).
+---
+title: Tree Numbers
+layout: page
+resource: true
+categories:
+- Data Model
+---
 
 The following diagram illustrates the problem of tree numbers, that impose multiple overlapping hierarchical
 relationships between descriptors. In the diagram, every arrow indicates a skos:broader relationship.

@@ -1,6 +1,8 @@
 ---
-title: MeSH RDF Descriptor Model Technical Documentation
-layout: post
+title: Descriptors
+layout: page
+resource: true
+categories:
+- Data Model
 ---
-
-Place content in here, David
+Content related to the descriptor model

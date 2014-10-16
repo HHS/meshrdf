@@ -1,9 +1,11 @@
 ---
-title: MeSH-RDF wiki home page
-layout: default
+title: MeSH-RDF Linked Data Technical Documentation
+layout: page
 ---
 
 Entry page for our wiki
+
+Why is this so hard?
 
 See the table of contents in the sidebar on the right.
 
