@@ -6,34 +6,48 @@
 
 body {
    
-    font: normal 12px Arial, Helvetica, Verdana, sans-serif;
+    font: normal .75em Arial, Helvetica, sans-serif;
     padding-bottom:20px;
     background-color:#f2f2f2;
 }
 
-h4 {
+h2,h3,h4 {
 	
-  color: #cc4228 !important;
+  color: #105981 !important;
 }
 
+h2 {
+text-align:center;
+margin-top:1em;
+
+}
 
 #logo-container{
 width:100%;
 float:left;
 background-color:#254062;
-
+border-bottom:2px double #9CC4E4;
 
 }
 
 .left-nav {
 
-width:20%;
-
-background:white;
+width:15%;
 color:#9b0000;
 float:left;
-background:url(/images/nav-bg.gif) repeat;
-padding:2em 1em 1em .5em;
+padding:2em 1em 1em 1em;
+}
+
+.meta-nav{
+	
+float:right;
+padding:3em 5em 0em 0em;
+}
+
+.meta-nav a {
+	
+color:white;
+text-decoration: none;
 }
 
 .left-nav ul{
@@ -44,26 +58,37 @@ list-style-type: none;
 
 .left-nav ul li{
 	
-	line-height: 1.5em;
+line-height: 1.5em;
+}
+
+.left-nav ul li a:hover{
+	
+	color: #F26C4F;
 }
 
 .left-nav ul li a{
 	
-	color:#ccc;
+	color: #082735;
+	font-weight: bolder;
+	font-size:90%;
 }
 
 .main-container{
     
     float:left;
     width:100%;
+    background:url(/images/husk.png) repeat;
 }
 
 
 .content {
 
+box-shadow: -2px 0px 10px 1px #777;
 float:left;
-width:70%;
-padding:2em 1em 1em 2em;
+width:75%;
+margin-top:1em;
+padding:2em 0em 0em 2em;
+background-color:white;
 	
 }
 
@@ -71,6 +96,10 @@ padding:2em 1em 1em 2em;
 #footer{
 
     float:left;
-    margin-left:2%;
+    background-color:#254062;
+    color:white;
+    width:100%;
+    padding: 1em 0em 1em 1em;
+    border-top:2px double #9CC4E4;
 
 }

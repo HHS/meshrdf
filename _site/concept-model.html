@@ -17,7 +17,10 @@
   <body>
 <!--header to hold banner + top navigation area -->
   <div id = "logo-container">   
-<img width="430" class="logo" alt="National Library of Medicine" src="/images/nih_nlmlogo_webheader.png " /></a>
+<img width="430" class="logo" alt="National Library of Medicine" src="/images/nih_nlmlogo_webheader.png ">
+<div class = "meta-nav">
+    <a href = "http://id.nlm.nih.gov/mesh/sparql">MeSH SPARQL Endpoint&nbsp;|&nbsp;</a><a href = "about.html">About&nbsp;|&nbsp;</a><a href = "support.html">Support</a>
+</div>
 </div>
 
 
@@ -27,7 +30,7 @@
     <div class="main-container">
       <div class = "left-nav">
 
-<h4>Data Model</h4>
+<h3>Data Model</h3>
 <ul>
 
   
@@ -114,7 +117,7 @@
 <br/>
 </ul>
 
-<h4>REST Interface</h4>
+<h3>REST Interface</h3>
 <ul>
 
   
@@ -160,7 +163,7 @@
 
 
 
-<li><a href="/rest-interface.html">&raquo;&nbsp;REST Interface Documentation</a></li>
+<li><a href="/rest-interface.html">&raquo;&nbsp;URL Patterns</a></li>
   
   
   
@@ -193,7 +196,7 @@
 <br/>
 </ul>
 
-<h4>Sample Queries</h4>
+<h3>Sample Queries</h3>
 <ul>
 
   
@@ -273,58 +276,61 @@
 </ul>
 
 </div>
+    <h2>MeSH RDF Technical Documentation</h2>
     <div class = "content">
+    <img width="35" class="logo" alt="Medical Subject Headings" src="/images/meshhead.gif" style = "float:right;margin-right:2px;margin-top:1px;position:relative;top:-2em;"/></a>
+    <h3>Concepts</h3>
+    <br/>
       <p>Here are how Concepts are modelled in RDF</p>
 
-<p>Note that this page does not describe Terms, which are subordinate to Concepts, but most other things 
+<p>Note that this page does not describe Terms, which are subordinate to Concepts, but most other things <br />
 directly related to Concepts are here.</p>
 
 <h2 id="xml">XML</h2>
 
-<p>```xml
-<descriptorrecord descriptorclass="1"></descriptorrecord></p>
-<descriptorui>D000001</descriptorui>
-<descriptorname>
-    <string>Calcimycin</string>
-  </descriptorname>
-<p>…</p>
-<conceptlist>
-    <concept preferredconceptyn="Y">
-      <conceptui>M0000001</conceptui>
-      <conceptname>
-        <string>Calcimycin</string>
-      </conceptname>
-      <casn1name>4-Benzoxazolecarboxylic acid,  ...</casn1name>
-      <registrynumber>37H9VM9WZL</registrynumber>
-      <scopenote>An ionophorous, ... </scopenote>
-      <semantictypelist>
-        <semantictype>
-          <semantictypeui>T109</semantictypeui>
-          <semantictypename>Organic Chemical</semantictypename>
-        </semantictype>
-        <semantictype>
-          <semantictypeui>T195</semantictypeui>
-          <semantictypename>Antibiotic</semantictypename>
-        </semantictype>
-      </semantictypelist>
-      <relatedregistrynumberlist>
-        <relatedregistrynumber>52665-69-7 (Calcimycin)</relatedregistrynumber>
-      </relatedregistrynumberlist>
-      <conceptrelationlist>
-        <conceptrelation relationname="NRW">
-          <concept1ui>M0000001</concept1ui>
-          <concept2ui>M0353609</concept2ui>
-        </conceptrelation>
-      </conceptrelationlist>
+<pre><code class="language-xml">&lt;DescriptorRecord DescriptorClass="1"&gt;
+  &lt;DescriptorUI&gt;D000001&lt;/DescriptorUI&gt;
+  &lt;DescriptorName&gt;
+    &lt;String&gt;Calcimycin&lt;/String&gt;
+  &lt;/DescriptorName&gt;
+  ...
+  &lt;ConceptList&gt;
+    &lt;Concept PreferredConceptYN="Y"&gt;
+      &lt;ConceptUI&gt;M0000001&lt;/ConceptUI&gt;
+      &lt;ConceptName&gt;
+        &lt;String&gt;Calcimycin&lt;/String&gt;
+      &lt;/ConceptName&gt;
+      &lt;CASN1Name&gt;4-Benzoxazolecarboxylic acid,  ...&lt;/CASN1Name&gt;
+      &lt;RegistryNumber&gt;37H9VM9WZL&lt;/RegistryNumber&gt;
+      &lt;ScopeNote&gt;An ionophorous, ... &lt;/ScopeNote&gt;
+      &lt;SemanticTypeList&gt;
+        &lt;SemanticType&gt;
+          &lt;SemanticTypeUI&gt;T109&lt;/SemanticTypeUI&gt;
+          &lt;SemanticTypeName&gt;Organic Chemical&lt;/SemanticTypeName&gt;
+        &lt;/SemanticType&gt;
+        &lt;SemanticType&gt;
+          &lt;SemanticTypeUI&gt;T195&lt;/SemanticTypeUI&gt;
+          &lt;SemanticTypeName&gt;Antibiotic&lt;/SemanticTypeName&gt;
+        &lt;/SemanticType&gt;
+      &lt;/SemanticTypeList&gt;
+      &lt;RelatedRegistryNumberList&gt;
+        &lt;RelatedRegistryNumber&gt;52665-69-7 (Calcimycin)&lt;/RelatedRegistryNumber&gt;
+      &lt;/RelatedRegistryNumberList&gt;
+      &lt;ConceptRelationList&gt;
+        &lt;ConceptRelation RelationName="NRW"&gt;
+          &lt;Concept1UI&gt;M0000001&lt;/Concept1UI&gt;
+          &lt;Concept2UI&gt;M0353609&lt;/Concept2UI&gt;
+        &lt;/ConceptRelation&gt;
+      &lt;/ConceptRelationList&gt;
       ...
-    </concept>
-    <concept preferredconceptyn="N">
-      <conceptui>M0353609</conceptui>
+    &lt;/Concept&gt;
+    &lt;Concept PreferredConceptYN="N"&gt;
+      &lt;ConceptUI&gt;M0353609&lt;/ConceptUI&gt;
       ...
-    </concept>
-  </conceptlist>
-<p>&lt;/DescriptorRecord&gt;
-```</p>
+    &lt;/Concept&gt;
+  &lt;/ConceptList&gt;
+&lt;/DescriptorRecord&gt;
+</code></pre>
 
 <h2 id="rdf">RDF</h2>
 
@@ -334,35 +340,34 @@ directly related to Concepts are here.</p>
 
 <p>In turtle format:</p>
 
-<p>```
-@prefix meshv:  <a href="http://id.nlm.nih.gov/mesh/vocab#">http://id.nlm.nih.gov/mesh/vocab#</a> .
-@prefix mesh: <a href="http://id.nlm.nih.gov/mesh/">http://id.nlm.nih.gov/mesh/</a> .
-@prefix rdf:  <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a> .
-@prefix rdfs: <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a> .
-@prefix dcterms:  <a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a> .
-@prefix skos: <a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a> .</p>
+<pre><code>@prefix meshv:  &lt;http://id.nlm.nih.gov/mesh/vocab#&gt; .
+@prefix mesh: &lt;http://id.nlm.nih.gov/mesh/&gt; .
+@prefix rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix dcterms:  &lt;http://purl.org/dc/terms/&gt; .
+@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
 
-<p>mesh:D000001  meshv:preferredConcept  mesh:M0000001 .
+mesh:D000001  meshv:preferredConcept  mesh:M0000001 .
 mesh:M0000001 rdf:type  meshv:Concept ;
-              rdfs:label  “Calcimycin” ;
-              dcterms:identifier  “M0000001” ;
-              meshv:CASN1_label “4-Benzoxazolecarboxylic acid, …” ;
-              meshv:registryNumber  “37H9VM9WZL” ;
-              meshv:relatedRegistryNumber “52665-69-7 (Calcimycin)” ;
-              skos:scopeNote  “An ionophorous, polyether … “ ;
+              rdfs:label  "Calcimycin" ;
+              dcterms:identifier  "M0000001" ;
+              meshv:CASN1_label "4-Benzoxazolecarboxylic acid, ..." ;
+              meshv:registryNumber  "37H9VM9WZL" ;
+              meshv:relatedRegistryNumber "52665-69-7 (Calcimycin)" ;
+              skos:scopeNote  "An ionophorous, polyether ... " ;
               meshv:term  mesh:T000002 .
               meshv:semanticType  mesh:T109 ,
                                   mesh:T195 ;
-              skos:narrower mesh:M0353609 ;</p>
+              skos:narrower mesh:M0353609 ;
 
-<p>mesh:T109 rdf:type  meshv:SemanticType ;
-          rdfs:label  “Organic Chemical” ;
-          dcterms:identifier  “T109” .</p>
+mesh:T109 rdf:type  meshv:SemanticType ;
+          rdfs:label  "Organic Chemical" ;
+          dcterms:identifier  "T109" .
 
-<p>mesh:T195 rdf:type  meshv:SemanticType ;
-          rdfs:label  “Antibiotic” ;
-          dcterms:identifier  “T195” .
-```</p>
+mesh:T195 rdf:type  meshv:SemanticType ;
+          rdfs:label  "Antibiotic" ;
+          dcterms:identifier  "T195" .
+</code></pre>
 
 <p>Note:</p>
 
@@ -391,27 +396,26 @@ mesh:M0000001 rdf:type  meshv:Concept ;
 
 <p>The RDF output above can be generated with the following SPARQL query, after substituting the current values for the name of the graph and so forth:</p>
 
-<p>```sparql
-prefix mesh: <a href="http://id.nlm.nih.gov/mesh/">http://id.nlm.nih.gov/mesh/</a>
-prefix meshv: <a href="http://id.nlm.nih.gov/mesh/vocab#">http://id.nlm.nih.gov/mesh/vocab#</a></p>
+<pre><code class="language-sparql">prefix mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;
+prefix meshv: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;
 
-<p>construct {
+construct {
     mesh:D000001 meshv:preferredConcept ?prefcon .
     ?prefcon ?p ?o .
     ?prefcon meshv:semanticType $semtype .
     $semtype ?stp $sto .
 }
-from <a href="http://chrismaloney.org/mesh">http://chrismaloney.org/mesh</a>
+from &lt;http://chrismaloney.org/mesh&gt;
 where {
     mesh:D000001 meshv:preferredConcept ?prefcon .
     ?prefcon ?p ?o .
     ?prefcon meshv:semanticType $semtype .
-    $semtype ?stp $sto .</p>
+    $semtype ?stp $sto .
 
-<p>}
-```</p>
+}
+</code></pre>
 
-<p>At the time of this writing, you can see the results dynamically from <a href="http://jatspan.org:8890/sparql?query=prefix+mesh%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0Aprefix+meshv%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%7D%0D%0Afrom+%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0D%0Awhere+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%0D%0A%7D&amp;format=TURTLE">this
+<p>At the time of this writing, you can see the results dynamically from <a href="http://jatspan.org:8890/sparql?query=prefix+mesh%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0Aprefix+meshv%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%7D%0D%0Afrom+%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0D%0Awhere+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%0D%0A%7D&amp;format=TURTLE">this<br />
 url</a></p>
 
     </div>
@@ -421,7 +425,7 @@ url</a></p>
 <!-- footer area   -->
  <div id = "footer">
   Page first published: 01 Nov 2014<br/>
-  Page last updated: 16 Oct 2014
+  Page last updated: 17 Oct 2014
 </div>
  <!-- //end footer -->
   </body>

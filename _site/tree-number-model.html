@@ -17,7 +17,10 @@
   <body>
 <!--header to hold banner + top navigation area -->
   <div id = "logo-container">   
-<img width="430" class="logo" alt="National Library of Medicine" src="/images/nih_nlmlogo_webheader.png " /></a>
+<img width="430" class="logo" alt="National Library of Medicine" src="/images/nih_nlmlogo_webheader.png ">
+<div class = "meta-nav">
+    <a href = "http://id.nlm.nih.gov/mesh/sparql">MeSH SPARQL Endpoint&nbsp;|&nbsp;</a><a href = "about.html">About&nbsp;|&nbsp;</a><a href = "support.html">Support</a>
+</div>
 </div>
 
 
@@ -27,7 +30,7 @@
     <div class="main-container">
       <div class = "left-nav">
 
-<h4>Data Model</h4>
+<h3>Data Model</h3>
 <ul>
 
   
@@ -114,7 +117,7 @@
 <br/>
 </ul>
 
-<h4>REST Interface</h4>
+<h3>REST Interface</h3>
 <ul>
 
   
@@ -160,7 +163,7 @@
 
 
 
-<li><a href="/rest-interface.html">&raquo;&nbsp;REST Interface Documentation</a></li>
+<li><a href="/rest-interface.html">&raquo;&nbsp;URL Patterns</a></li>
   
   
   
@@ -193,7 +196,7 @@
 <br/>
 </ul>
 
-<h4>Sample Queries</h4>
+<h3>Sample Queries</h3>
 <ul>
 
   
@@ -273,14 +276,18 @@
 </ul>
 
 </div>
+    <h2>MeSH RDF Technical Documentation</h2>
     <div class = "content">
-      <p>The following diagram illustrates the problem of tree numbers, that impose multiple overlapping hierarchical
+    <img width="35" class="logo" alt="Medical Subject Headings" src="/images/meshhead.gif" style = "float:right;margin-right:2px;margin-top:1px;position:relative;top:-2em;"/></a>
+    <h3>Tree Numbers</h3>
+    <br/>
+      <p>The following diagram illustrates the problem of tree numbers, that impose multiple overlapping hierarchical<br />
 relationships between descriptors. In the diagram, every arrow indicates a skos:broader relationship.</p>
 
-<p>In this particular example, “Eye” belongs to two overlapping trees – one that is depicted in green and 
+<p>In this particular example, “Eye” belongs to two overlapping trees – one that is depicted in green and <br />
 one in purple.</p>
 
-<p>According to the green tree, “Eyebrow” has broader concept “Eye”, which has broader concept “Face”.
+<p>According to the green tree, “Eyebrow” has broader concept “Eye”, which has broader concept “Face”.<br />
 According to the purple tree, “Oculomotor Muscles” has broader concept “Eye”, which has broader concept
 “Sense Organ”.</p>
 
@@ -288,203 +295,202 @@ According to the purple tree, “Oculomotor Muscles” has broader concept “Ey
 
 <p>(This drawing was done in <a href="https://www.lucidchart.com">LucidChart</a>, and is on Google drive <a href="https://drive.google.com/file/d/0B8n-nWqCI5WmbGVxQzJtQmFhSFU/edit?usp=sharing">here</a>.)</p>
 
-<p>Leaving aside the question of whether or not these particular relationships make sense, this is the
+<p>Leaving aside the question of whether or not these particular relationships make sense, this is the<br />
 way the tree numbers currently exist in MeSH.</p>
 
-<p>The problem comes when you try to use these relations to “walk up the tree”.  If these properties
+<p>The problem comes when you try to use these relations to “walk up the tree”.  If these properties<br />
 were transitive, then one could conclude that “Eyebrows” has broader concept “Sense Organ”, or that 
 “Oculomotor Muscles” has broader concept “Face”, but neither of those is true according to the MeSH trees.</p>
 
-<p>The way that this is modeled in MeSH RDF is illustrated in the following graph.  Each tree number
-is reified as a first-class resource.  <code>skos:broader</code> relations (which are not transitive) are asserted
-between the <code>Descriptor</code>s, and <code>skos:broaderTransitive</code> relations (which, obviously, are) are asserted
+<p>The way that this is modeled in MeSH RDF is illustrated in the following graph.  Each tree number<br />
+is reified as a first-class resource.  <code>skos:broader</code> relations (which are not transitive) are asserted<br />
+between the <code>Descriptor</code>s, and <code>skos:broaderTransitive</code> relations (which, obviously, are) are asserted<br />
 between the <code>TreeNumber</code>s.</p>
 
 <p><img src="https://cloud.githubusercontent.com/assets/77226/3817027/e4b8db10-1cd3-11e4-9065-d980c79b9e1d.png" alt="" /></p>
 
 <p>(This drawing was done in <a href="https://www.lucidchart.com">LucidChart</a>, and is on Google drive <a href="https://drive.google.com/file/d/0B8n-nWqCI5WmbWx1by1USlRsWDQ/edit?usp=sharing">here</a>.)</p>
 
-<p>With this model, if a user wanted to find all the “broader” ancestors of Eyebrows (D005138) then he or
+<p>With this model, if a user wanted to find all the “broader” ancestors of Eyebrows (D005138) then he or<br />
 she could do so, using the SPARQL transitivity operator (“+”), with the following query:</p>
 
-<p><code>sparql
-select ?ancestor
+<pre><code class="language-sparql">select ?ancestor
 where {
     mesh:D005138 mesh:hasTreeNode ?treeNode .
     ?treeNode skos:broaderTransitive+ ?ancestorTreeNode .
     ?ancestor mesh:hasTreeNode ?ancestorTreeNode
 }
-</code></p>
+</code></pre>
 
 <h2 id="xml">XML</h2>
 
-<p>```xml
-<descriptorrecordset languagecode="eng"></descriptorrecordset></p>
+<pre><code class="language-xml">&lt;DescriptorRecordSet LanguageCode="eng"&gt;
+  
+  &lt;DescriptorRecord DescriptorClass="1"&gt;
+    &lt;DescriptorUI&gt;D005123&lt;/DescriptorUI&gt;
+    &lt;DescriptorName&gt;
+      &lt;String&gt;Eye&lt;/String&gt;
+    &lt;/DescriptorName&gt;
+    ...
+    &lt;TreeNumberList&gt;
+      &lt;TreeNumber&gt;A01.456.505.420&lt;/TreeNumber&gt;
+      &lt;TreeNumber&gt;A09.371&lt;/TreeNumber&gt;
+    &lt;/TreeNumberList&gt;
+    ...
+  &lt;/DescriptorRecord&gt;
 
-<descriptorrecord descriptorclass="1">
-    <descriptorui>D005123</descriptorui>
-    <descriptorname>
-      <string>Eye</string>
-    </descriptorname>
+  &lt;DescriptorRecord DescriptorClass="1"&gt;
+    &lt;DescriptorUI&gt;D005145&lt;/DescriptorUI&gt;
+    &lt;DescriptorName&gt;
+      &lt;String&gt;Face&lt;/String&gt;
+    &lt;/DescriptorName&gt;
     ...
-    <treenumberlist>
-      <treenumber>A01.456.505.420</treenumber>
-      <treenumber>A09.371</treenumber>
-    </treenumberlist>
+    &lt;TreeNumberList&gt;
+      &lt;TreeNumber&gt;A01.456.505&lt;/TreeNumber&gt;
+    &lt;/TreeNumberList&gt;
     ...
-  </descriptorrecord>
+  &lt;/DescriptorRecord&gt;
+  
+  &lt;DescriptorRecord DescriptorClass="1"&gt;
+    &lt;DescriptorUI&gt;D005138&lt;/DescriptorUI&gt;
+    &lt;DescriptorName&gt;
+      &lt;String&gt;Eyebrows&lt;/String&gt;
+    &lt;/DescriptorName&gt;
+    ...
+    &lt;TreeNumberList&gt;
+      &lt;TreeNumber&gt;A01.456.505.420.338&lt;/TreeNumber&gt;
+      &lt;TreeNumber&gt;A17.360.296&lt;/TreeNumber&gt;
+    &lt;/TreeNumberList&gt;
+    ...
+  &lt;/DescriptorRecord&gt;
+  
+  &lt;DescriptorRecord DescriptorClass="1"&gt;
+    &lt;DescriptorUI&gt;D009801&lt;/DescriptorUI&gt;
+    &lt;DescriptorName&gt;
+      &lt;String&gt;Oculomotor Muscles&lt;/String&gt;
+    &lt;/DescriptorName&gt;
+    ...
+    &lt;TreeNumberList&gt;
+      &lt;TreeNumber&gt;A02.633.567.700&lt;/TreeNumber&gt;
+      &lt;TreeNumber&gt;A09.371.613&lt;/TreeNumber&gt;
+    &lt;/TreeNumberList&gt;
+    ...
+  &lt;/DescriptorRecord&gt;
+  
+  &lt;DescriptorRecord DescriptorClass="1"&gt;
+    &lt;DescriptorUI&gt;D012679&lt;/DescriptorUI&gt;
+    &lt;DescriptorName&gt;
+      &lt;String&gt;Sense Organs&lt;/String&gt;
+    &lt;/DescriptorName&gt;
+    ...
+    &lt;TreeNumberList&gt;
+      &lt;TreeNumber&gt;A09&lt;/TreeNumber&gt;
+    &lt;/TreeNumberList&gt;
+    ...
+  &lt;/DescriptorRecord&gt;
 
-<descriptorrecord descriptorclass="1">
-    <descriptorui>D005145</descriptorui>
-    <descriptorname>
-      <string>Face</string>
-    </descriptorname>
-    ...
-    <treenumberlist>
-      <treenumber>A01.456.505</treenumber>
-    </treenumberlist>
-    ...
-  </descriptorrecord>
-
-<descriptorrecord descriptorclass="1">
-    <descriptorui>D005138</descriptorui>
-    <descriptorname>
-      <string>Eyebrows</string>
-    </descriptorname>
-    ...
-    <treenumberlist>
-      <treenumber>A01.456.505.420.338</treenumber>
-      <treenumber>A17.360.296</treenumber>
-    </treenumberlist>
-    ...
-  </descriptorrecord>
-
-<descriptorrecord descriptorclass="1">
-    <descriptorui>D009801</descriptorui>
-    <descriptorname>
-      <string>Oculomotor Muscles</string>
-    </descriptorname>
-    ...
-    <treenumberlist>
-      <treenumber>A02.633.567.700</treenumber>
-      <treenumber>A09.371.613</treenumber>
-    </treenumberlist>
-    ...
-  </descriptorrecord>
-
-<descriptorrecord descriptorclass="1">
-    <descriptorui>D012679</descriptorui>
-    <descriptorname>
-      <string>Sense Organs</string>
-    </descriptorname>
-    ...
-    <treenumberlist>
-      <treenumber>A09</treenumber>
-    </treenumberlist>
-    ...
-  </descriptorrecord>
-
-<p>&lt;/DescriptorRecordSet&gt;
-```</p>
+&lt;/DescriptorRecordSet&gt;
+</code></pre>
 
 <h2 id="rdf">RDF</h2>
 
-<p>```
-@prefix skos: <a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a> .
-@prefix mesh: <a href="http://id.nlm.nih.gov/mesh/">http://id.nlm.nih.gov/mesh/</a> .
-@prefix meshv:  <a href="http://id.nlm.nih.gov/mesh/vocab#">http://id.nlm.nih.gov/mesh/vocab#</a> .</p>
+<pre><code>@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
+@prefix mesh: &lt;http://id.nlm.nih.gov/mesh/&gt; .
+@prefix meshv:  &lt;http://id.nlm.nih.gov/mesh/vocab#&gt; .
 
-<h1 id="eye">Eye</h1>
-<p>mesh:D005123 skos:broader mesh:D005145, mesh:D012679 ;
+# Eye
+mesh:D005123 skos:broader mesh:D005145, mesh:D012679 ;
              meshv:treeNumber mesh:A09.371 ,
-                              mesh:A01.456.505.420 .</p>
+                              mesh:A01.456.505.420 .
 
-<h1 id="eyebrows">Eyebrows</h1>
-<p>mesh:D005138 skos:broader mesh:D005123 ;
-             meshv:treeNumber mesh:A01.456.505.420.338 .</p>
+# Eyebrows
+mesh:D005138 skos:broader mesh:D005123 ;
+             meshv:treeNumber mesh:A01.456.505.420.338 .
 
-<h1 id="face">Face</h1>
-<p>mesh:D005145 meshv:treeNumber mesh:A01.456.505 .</p>
+# Face
+mesh:D005145 meshv:treeNumber mesh:A01.456.505 .
 
-<h1 id="oculomotor-muscles">Oculomotor Muscles</h1>
-<p>mesh:D009801 skos:broader mesh:D005123 ;
-             meshv:treeNumber mesh:A09.371.613 .</p>
+# Oculomotor Muscles
+mesh:D009801 skos:broader mesh:D005123 ;
+             meshv:treeNumber mesh:A09.371.613 .
 
-<h1 id="sense-organs">Sense Organs</h1>
-<p>mesh:D012679 meshv:treeNumber  mesh:A09 .</p>
+# Sense Organs
+mesh:D012679 meshv:treeNumber  mesh:A09 .
 
-<h1 id="relations-among-treenumbers">Relations among TreeNumbers</h1>
-<p>mesh:A01.456.505.420  skos:broaderTransitive  mesh:A01.456.505 .
+# Relations among TreeNumbers
+mesh:A01.456.505.420  skos:broaderTransitive  mesh:A01.456.505 .
 mesh:A09.371  skos:broaderTransitive  mesh:A09 .
 mesh:A01.456.505.420.338  skos:broaderTransitive  mesh:A01.456.505.420 .
 mesh:A09.371.613  skos:broaderTransitive  mesh:A09.371 .
-```</p>
+</code></pre>
 
 <h2 id="generating-the-rdf">Generating the RDF</h2>
 
-<p>The following SPARQL query creates a table that shows the relationships between “Eye”
+<p>The following SPARQL query creates a table that shows the relationships between “Eye”<br />
 and each of the immediate broader and narrower concepts for each of its tree numbers:</p>
 
-<p>```sparql
-PREFIX mesh: <a href="http://id.nlm.nih.gov/mesh/">http://id.nlm.nih.gov/mesh/</a>
-PREFIX meshv: <a href="http://id.nlm.nih.gov/mesh/vocab#">http://id.nlm.nih.gov/mesh/vocab#</a></p>
+<pre><code class="language-sparql">PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;
+PREFIX meshv: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;
 
-<p>SELECT *
-from <a href="http://chrismaloney.org/mesh">http://chrismaloney.org/mesh</a>
+SELECT *
+from &lt;http://chrismaloney.org/mesh&gt;
 where {
-  mesh:D005123 meshv:treeNumber ?tree_number .</p>
+  mesh:D005123 meshv:treeNumber ?tree_number .
 
-<p>{
+  {
     select ?tree_number 
            ?broader_tree_number ?broader_descriptor 
            ?narrower_tree_number ?narrower_descriptor
     where {
       ?tree_number skos:broaderTransitive ?broader_tree_number .
       ?broader_descriptor meshv:treeNumber ?broader_tree_number .
-      mesh:D005123 skos:broader ?broader_descriptor .</p>
+      mesh:D005123 skos:broader ?broader_descriptor .
 
-<pre><code>  ?narrower_tree_number skos:broaderTransitive ?tree_number .
-  ?narrower_descriptor meshv:treeNumber ?narrower_tree_number .
-  ?narrower_descriptor skos:broader mesh:D005123 .
-}   } } ```
+      ?narrower_tree_number skos:broaderTransitive ?tree_number .
+      ?narrower_descriptor meshv:treeNumber ?narrower_tree_number .
+      ?narrower_descriptor skos:broader mesh:D005123 .
+    }
+  }
+}
 </code></pre>
 
-<p>The next SPARQL query is very similar, but outputs RDF (using the CONSTRUCT clause) and
-reconstructs the graph that is shown in the figure above.  To execute this on the current
+<p>The next SPARQL query is very similar, but outputs RDF (using the CONSTRUCT clause) and<br />
+reconstructs the graph that is shown in the figure above.  To execute this on the current<br />
 Virtuoso test bed, click 
 <a href="http://jatspan.org:8890/sparql?query=PREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0A%0ACONSTRUCT%20%7B%0A%20%20mesh%3AD005123%20meshv%3AtreeNumber%20%3Ftree_number%20.%0A%20%20%3Ftree_number%20skos%3AbroaderTransitive%20%3Fbroader_tree_number%20.%0A%20%20%3Fbroader_descriptor%20meshv%3AtreeNumber%20%3Fbroader_tree_number%20.%0A%20%20mesh%3AD005123%20skos%3Abroader%20%3Fbroader_descriptor%20.%0A%0A%20%20%3Fnarrower_tree_number%20skos%3AbroaderTransitive%20%3Ftree_number%20.%0A%20%20%3Fnarrower_descriptor%20meshv%3AtreeNumber%20%3Fnarrower_tree_number%20.%0A%20%20%3Fnarrower_descriptor%20skos%3Abroader%20mesh%3AD005123%20.%0A%7D%0Afrom%20%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0Awhere%20%7B%0A%20%20mesh%3AD005123%20meshv%3AtreeNumber%20%3Ftree_number%20.%0A%0A%20%20%7B%0A%20%20%20%20select%20%3Ftree_number%20%0A%20%20%20%20%20%20%20%20%20%20%20%3Fbroader_tree_number%20%3Fbroader_descriptor%20%0A%20%20%20%20%20%20%20%20%20%20%20%3Fnarrower_tree_number%20%3Fnarrower_descriptor%0A%20%20%20%20where%20%7B%0A%20%20%20%20%20%20%3Ftree_number%20skos%3AbroaderTransitive%20%3Fbroader_tree_number%20.%0A%20%20%20%20%20%20%3Fbroader_descriptor%20meshv%3AtreeNumber%20%3Fbroader_tree_number%20.%0A%20%20%20%20%20%20mesh%3AD005123%20skos%3Abroader%20%3Fbroader_descriptor%20.%0A%0A%20%20%20%20%20%20%3Fnarrower_tree_number%20skos%3AbroaderTransitive%20%3Ftree_number%20.%0A%20%20%20%20%20%20%3Fnarrower_descriptor%20meshv%3AtreeNumber%20%3Fnarrower_tree_number%20.%0A%20%20%20%20%20%20%3Fnarrower_descriptor%20skos%3Abroader%20mesh%3AD005123%20.%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D&amp;format=TURTLE">here</a></p>
 
-<p>```sparql
-PREFIX mesh: <a href="http://id.nlm.nih.gov/mesh/">http://id.nlm.nih.gov/mesh/</a>
-PREFIX meshv: <a href="http://id.nlm.nih.gov/mesh/vocab#">http://id.nlm.nih.gov/mesh/vocab#</a></p>
+<pre><code class="language-sparql">PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;
+PREFIX meshv: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;
 
-<p>CONSTRUCT {
+CONSTRUCT {
   mesh:D005123 meshv:treeNumber ?tree_number .
   ?tree_number skos:broaderTransitive ?broader_tree_number .
   ?broader_descriptor meshv:treeNumber ?broader_tree_number .
-  mesh:D005123 skos:broader ?broader_descriptor .</p>
+  mesh:D005123 skos:broader ?broader_descriptor .
 
-<p>?narrower_tree_number skos:broaderTransitive ?tree_number .
+  ?narrower_tree_number skos:broaderTransitive ?tree_number .
   ?narrower_descriptor meshv:treeNumber ?narrower_tree_number .
   ?narrower_descriptor skos:broader mesh:D005123 .
 }
-from <a href="http://chrismaloney.org/mesh">http://chrismaloney.org/mesh</a>
+from &lt;http://chrismaloney.org/mesh&gt;
 where {
-  mesh:D005123 meshv:treeNumber ?tree_number .</p>
+  mesh:D005123 meshv:treeNumber ?tree_number .
 
-<p>{
+  {
     select ?tree_number 
            ?broader_tree_number ?broader_descriptor 
            ?narrower_tree_number ?narrower_descriptor
     where {
       ?tree_number skos:broaderTransitive ?broader_tree_number .
       ?broader_descriptor meshv:treeNumber ?broader_tree_number .
-      mesh:D005123 skos:broader ?broader_descriptor .</p>
+      mesh:D005123 skos:broader ?broader_descriptor .
 
-<pre><code>  ?narrower_tree_number skos:broaderTransitive ?tree_number .
-  ?narrower_descriptor meshv:treeNumber ?narrower_tree_number .
-  ?narrower_descriptor skos:broader mesh:D005123 .
-}   } } ```
+      ?narrower_tree_number skos:broaderTransitive ?tree_number .
+      ?narrower_descriptor meshv:treeNumber ?narrower_tree_number .
+      ?narrower_descriptor skos:broader mesh:D005123 .
+    }
+  }
+}
 </code></pre>
 
     </div>
@@ -494,7 +500,7 @@ where {
 <!-- footer area   -->
  <div id = "footer">
   Page first published: 01 Nov 2014<br/>
-  Page last updated: 16 Oct 2014
+  Page last updated: 17 Oct 2014
 </div>
  <!-- //end footer -->
   </body>

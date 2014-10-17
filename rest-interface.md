@@ -1,5 +1,5 @@
 ---
-title: REST Interface Documentation
+title: URL Patterns
 layout: page
 resource: true
 categories:

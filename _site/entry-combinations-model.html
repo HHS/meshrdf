@@ -17,7 +17,10 @@
   <body>
 <!--header to hold banner + top navigation area -->
   <div id = "logo-container">   
-<img width="430" class="logo" alt="National Library of Medicine" src="/images/nih_nlmlogo_webheader.png " /></a>
+<img width="430" class="logo" alt="National Library of Medicine" src="/images/nih_nlmlogo_webheader.png ">
+<div class = "meta-nav">
+    <a href = "http://id.nlm.nih.gov/mesh/sparql">MeSH SPARQL Endpoint&nbsp;|&nbsp;</a><a href = "about.html">About&nbsp;|&nbsp;</a><a href = "support.html">Support</a>
+</div>
 </div>
 
 
@@ -27,7 +30,7 @@
     <div class="main-container">
       <div class = "left-nav">
 
-<h4>Data Model</h4>
+<h3>Data Model</h3>
 <ul>
 
   
@@ -114,7 +117,7 @@
 <br/>
 </ul>
 
-<h4>REST Interface</h4>
+<h3>REST Interface</h3>
 <ul>
 
   
@@ -160,7 +163,7 @@
 
 
 
-<li><a href="/rest-interface.html">&raquo;&nbsp;REST Interface Documentation</a></li>
+<li><a href="/rest-interface.html">&raquo;&nbsp;URL Patterns</a></li>
   
   
   
@@ -193,7 +196,7 @@
 <br/>
 </ul>
 
-<h4>Sample Queries</h4>
+<h3>Sample Queries</h3>
 <ul>
 
   
@@ -273,7 +276,11 @@
 </ul>
 
 </div>
+    <h2>MeSH RDF Technical Documentation</h2>
     <div class = "content">
+    <img width="35" class="logo" alt="Medical Subject Headings" src="/images/meshhead.gif" style = "float:right;margin-right:2px;margin-top:1px;position:relative;top:-2em;"/></a>
+    <h3>Entry Combinations</h3>
+    <br/>
       <p>The following shows how EntryCombinations (see the <a href="http://www.nlm.nih.gov/mesh/xml_data_elements.html#EntryCombination">MeSH documentation</a>) are modeled.</p>
 
 <p>Discussion of this model was on issue <a href="https://github.com/HHS/mesh-rdf/issues/10">#10</a>.</p>
@@ -282,42 +289,41 @@
 
 <p>Here is a typical example of and EntryCombination represented in XML.</p>
 
-<p>```xml
-<descriptorrecord descriptorclass="1"></descriptorrecord></p>
-<descriptorui>D000005</descriptorui>
-<descriptorname>
-    <string>Abdomen</string>
-  </descriptorname>
-<p>…</p>
-<entrycombinationlist>
-    <entrycombination>
-      <ecin>
-        <descriptorreferredto>
-          <descriptorui>D000005</descriptorui>
-          <descriptorname>
-            <string>Abdomen</string>
-          </descriptorname>
-        </descriptorreferredto>
-        <qualifierreferredto>
-          <qualifierui>Q000293</qualifierui>
-          <qualifiername>
-            <string>injuries</string>
-          </qualifiername>
-        </qualifierreferredto>
-      </ecin>
-      <ecout>
-        <descriptorreferredto>
-          <descriptorui>D000007</descriptorui>
-          <descriptorname>
-            <string>Abdominal Injuries</string>
-          </descriptorname>
-        </descriptorreferredto>
-      </ecout>
-    </entrycombination>
-  </entrycombinationlist>
-<p>…
+<pre><code class="language-xml">&lt;DescriptorRecord DescriptorClass="1"&gt;
+  &lt;DescriptorUI&gt;D000005&lt;/DescriptorUI&gt;
+  &lt;DescriptorName&gt;
+    &lt;String&gt;Abdomen&lt;/String&gt;
+  &lt;/DescriptorName&gt;
+  ...
+  &lt;EntryCombinationList&gt;
+    &lt;EntryCombination&gt;
+      &lt;ECIN&gt;
+        &lt;DescriptorReferredTo&gt;
+          &lt;DescriptorUI&gt;D000005&lt;/DescriptorUI&gt;
+          &lt;DescriptorName&gt;
+            &lt;String&gt;Abdomen&lt;/String&gt;
+          &lt;/DescriptorName&gt;
+        &lt;/DescriptorReferredTo&gt;
+        &lt;QualifierReferredTo&gt;
+          &lt;QualifierUI&gt;Q000293&lt;/QualifierUI&gt;
+          &lt;QualifierName&gt;
+            &lt;String&gt;injuries&lt;/String&gt;
+          &lt;/QualifierName&gt;
+        &lt;/QualifierReferredTo&gt;
+      &lt;/ECIN&gt;
+      &lt;ECOUT&gt;
+        &lt;DescriptorReferredTo&gt;
+          &lt;DescriptorUI&gt;D000007&lt;/DescriptorUI&gt;
+          &lt;DescriptorName&gt;
+            &lt;String&gt;Abdominal Injuries&lt;/String&gt;
+          &lt;/DescriptorName&gt;
+        &lt;/DescriptorReferredTo&gt;
+      &lt;/ECOUT&gt;
+    &lt;/EntryCombination&gt;
+  &lt;/EntryCombinationList&gt;
+  ...
 &lt;/DescriptorRecord&gt;
-```</p>
+</code></pre>
 
 <h2 id="rdf">RDF</h2>
 
@@ -329,13 +335,12 @@
 
 <p>In turtle format:</p>
 
-<p>```
-@prefix rdf:	<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a> .
-@prefix mesh:	<a href="http://id.nlm.nih.gov/mesh/">http://id.nlm.nih.gov/mesh/</a> .
-@prefix meshv:	<a href="http://id.nlm.nih.gov/mesh/vocab#">http://id.nlm.nih.gov/mesh/vocab#</a> .
-@prefix rdfs:	<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a> .</p>
+<pre><code>@prefix rdf:	&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix mesh:	&lt;http://id.nlm.nih.gov/mesh/&gt; .
+@prefix meshv:	&lt;http://id.nlm.nih.gov/mesh/vocab#&gt; .
+@prefix rdfs:	&lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 
-<p>mesh:D000005Q000293  rdf:type  meshv:DisallowedDescriptorQualifierPair ;
+mesh:D000005Q000293  rdf:type  meshv:DisallowedDescriptorQualifierPair ;
 	meshv:hasDescriptor  mesh:D000005 ;
 	meshv:hasQualifier   mesh:Q000293 ;
 	meshv:useInstead     mesh:D000007 .
@@ -344,34 +349,33 @@ mesh:D000005Q000530  rdf:type  meshv:DisallowedDescriptorQualifierPair ;
 	meshv:hasQualifier   mesh:Q000530 ;
 	meshv:useInstead     mesh:D011860 .
 meshv:DisallowedDescriptorQualifierPair	rdfs:subClassOf	meshv:DescriptorQualifierPair .
-```</p>
+</code></pre>
 
 <p>Notes:</p>
 
 <ul>
   <li>
-    <p>For <em>most</em> entry combinations, the ECOUT is just a stand-alone Descriptor, but occasionally
+    <p>For <em>most</em> entry combinations, the ECOUT is just a stand-alone Descriptor, but occasionally<br />
 it is a DescriptorQualifierPair (see <a href="https://github.com/HHS/mesh-rdf/issues/12#issuecomment-51688049">this comment</a>).  That doesn’t change much:  the <em>object</em> of the <code>meshv:useInstead</code> property would simply be a DescriptorQualifierPair instance, rather than, as is depicted in the drawing above, a Descriptor.</p>
   </li>
   <li>
-    <p>This model <em>assumes</em> that the DQ pair formed by the ECIN of the entry combination is
+    <p>This model <em>assumes</em> that the DQ pair formed by the ECIN of the entry combination is<br />
 not one of the “allowed” ones. This should be the case, but hasn’t been confirmed. This suggests validation step, after the conversion to RDF, but before official release, as described by Gang <a href="https://github.com/HHS/mesh-rdf/issues/12#issuecomment-51687881">here</a>.</p>
   </li>
 </ul>
 
 <h2 id="generating-the-rdf">Generating the RDF</h2>
 
-<p>```sparql
-PREFIX mesh: <a href="http://id.nlm.nih.gov/mesh/">http://id.nlm.nih.gov/mesh/</a>
-PREFIX meshv: <a href="http://id.nlm.nih.gov/mesh/vocab#">http://id.nlm.nih.gov/mesh/vocab#</a></p>
+<pre><code class="language-sparql">PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;
+PREFIX meshv: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;
 
-<p>CONSTRUCT { 
+CONSTRUCT { 
   ?ecin ?p ?o .
   ?ecin rdf:type ?eclass .
   ?eclass rdfs:subClassOf $superclass .
 }
-from <a href="http://chrismaloney.org/mesh">http://chrismaloney.org/mesh</a>
-from <a href="http://chrismaloney.org/meshv">http://chrismaloney.org/meshv</a>
+from &lt;http://chrismaloney.org/mesh&gt;
+from &lt;http://chrismaloney.org/meshv&gt;
 where {
   ?ecin meshv:hasDescriptor mesh:D000005 .
   ?ecin meshv:hasQualifier ?ecinq .
@@ -380,7 +384,7 @@ where {
   ?ecin rdf:type ?eclass .
   ?eclass rdfs:subClassOf $superclass .
 }
-```</p>
+</code></pre>
 
 <p>At the time of this writing, you can see the results dynamically from <a href="http://jatspan.org:8890/sparql?query=PREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0A%0ACONSTRUCT%20%7B%20%0A%20%20%3Fecin%20%3Fp%20%3Fo%20.%0A%20%20%3Fecin%20rdf%3Atype%20%3Feclass%20.%0A%20%20%3Feclass%20rdfs%3AsubClassOf%20%24superclass%20.%0A%7D%0Afrom%20%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0Afrom%20%3Chttp%3A%2F%2Fchrismaloney.org%2Fmeshv%3E%0Awhere%20%7B%0A%20%20%3Fecin%20meshv%3AhasDescriptor%20mesh%3AD000005%20.%0A%20%20%3Fecin%20meshv%3AhasQualifier%20%3Fecinq%20.%0A%20%20%3Fecin%20meshv%3AuseInstead%20%3Fecout%20.%0A%20%20%3Fecin%20%3Fp%20%3Fo%20.%0A%20%20%3Fecin%20rdf%3Atype%20%3Feclass%20.%0A%20%20%3Feclass%20rdfs%3AsubClassOf%20%24superclass%20.%0A%7D&amp;format=TURTLE">this url</a></p>
 
@@ -392,7 +396,7 @@ where {
 <!-- footer area   -->
  <div id = "footer">
   Page first published: 01 Nov 2014<br/>
-  Page last updated: 16 Oct 2014
+  Page last updated: 17 Oct 2014
 </div>
  <!-- //end footer -->
   </body>
