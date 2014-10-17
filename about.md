@@ -1,6 +1,7 @@
 ---
 title: About MeSH-RDF Linked Data
 layout: page
+resource: true
 ---
 The National Library of Medicine is now offering Medical Subject Headings (MeSH) data in RDF for the first time. This beta release will help NLM and its stakeholders to explore and discuss the publishing of NLM data on the web. We hope that the conversation will help NLM better understand uses of MeSH in the broader community.  
 

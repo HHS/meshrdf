@@ -43,6 +43,14 @@ border-bottom:2px double #9CC4E4;
 
 }
 
+.breadcrumbs{
+
+width:auto;
+font-size:75%;
+margin-bottom:1em;
+color:#254062;	
+}
+
 .left-nav {
 
 width:15%;

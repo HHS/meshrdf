@@ -18,13 +18,17 @@
 <!--header to hold banner + top navigation area -->
   {% include header.html %}
 <!-- // end header -->
- 
     <div class="main-container">
       {% include menu.html %}
     <h1>MeSH RDF Technical Documentation</h1>
     <div class = "content">
     <img width="35" class="logo" alt="Medical Subject Headings" src="images/meshhead.gif" style = "float:right;margin-right:2px;margin-top:1px;position:relative;top:-2em;"/></a>
-    <h3>{{page.title}}</h3>
+    <div class = "breadcrumbs">
+    {% if page.resource == true %}
+    <a href = "index.html">Documentation Home</a>&nbsp;&nbsp;&raquo;&nbsp;{{ page.title }}
+    {% endif %}
+    </div>
+    <h2>{{page.title}}</h2>
     <br/>
       {{content}}
     </div>
