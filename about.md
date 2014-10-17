@@ -4,6 +4,7 @@ layout: page
 ---
 The National Library of Medicine is now offering Medical Subject Headings (MeSH) data in RDF for the first time. This beta release will help NLM and its stakeholders to explore and discuss the publishing of NLM data on the web. We hope that the conversation will help NLM better understand uses of MeSH in the broader community. 
 
+
 MeSH RDF grew from research efforts at the Lister Hill National Center for Biomedical Communications, a division of NLM. In early 2014, NLM chartered a working group to begin exploring the publishing NLM linked data. Medical Subject Headings (MeSH) was chosen for a pilot release. The working group adapted an XSLT to transform MeSH XML to MeSH RDF. The group also developed a [SPARQL endpoint](http://iddev.nlm.nih.gov/mesh/sparql) and an interface for querying and viewing MeSH RDF data. 
 
 Our Goals
