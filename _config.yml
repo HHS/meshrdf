@@ -1,7 +1,7 @@
 name: ""
 description: ""
 
-url: "http://hhs.github.io/mesh-rdf"
+baseurl: /
 
 markdown: kramdown
 permalink: /:title.html

@@ -3,10 +3,6 @@ title: MeSH-RDF Linked Data Technical Documentation
 layout: page
 ---
 
-Entry page for our wiki
-
-Why is this so hard?
-
 See the table of contents in the sidebar on the right.
 
 This is a work-in-progress, and if you find errors or problems, go ahead and fix them!
