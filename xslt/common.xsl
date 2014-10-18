@@ -67,7 +67,27 @@
     </xsl:if>
     <xsl:variable name='s' select='$spec/*[1]'/>
     <xsl:variable name='p' select='$spec/*[2]'/>
-    <xsl:variable name='o' select='$spec/*[3]'/>
+    
+    <!-- Strip leading and/or trailing whitespace from all literal values.  See issue #27.  We will issue a warning when these are
+      encountered, and strip them out. -->
+    <xsl:variable name='o' as="element()">
+      <xsl:variable name='oo' select='$spec/*[3]'/>
+      <xsl:choose>
+        <xsl:when test="$oo/self::literal and matches($oo, '(^\s+)|(\s+$)')">
+          <xsl:message>
+            <xsl:text>&#xA;------------------------------------------------------------&#xA;</xsl:text>
+            <xsl:text>Warning: literal value that has leading or trailing whitespace: '</xsl:text>
+            <xsl:value-of select='$oo'/>
+            <xsl:text>'</xsl:text>
+          </xsl:message>
+          <literal><xsl:value-of select="replace($oo, '^\s+|\s+$', '')"/></literal>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:copy-of select='$oo'/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
     <xsl:value-of select='f:triple(
         f:serialize($s),
         f:serialize($p),
@@ -125,7 +145,7 @@
   </xsl:function>
   
   <!-- 
-    Create a literal string, wrapped in double-quotes, and properly escaped
+    Create a literal string, wrapped in double-quotes, and properly escaped.
   -->
   <xsl:function name='f:literal-str'>
     <xsl:param name='lit'/>
@@ -779,13 +799,13 @@
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
             <desc>A term is of type Term.</desc>
-            <fixme reporter='klortho' issue='36'>
-              Need official approval that this model is okay.
-            </fixme>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
             <uri prefix='&rdf;'>type</uri>
+
+            <!-- In issue #36, we discussed this, and decided not to create individual subclasses of meshv:Term.
+              Leaving the code here, just in case they ever change their minds.
             <xsl:choose>
               <xsl:when test="@LexicalTag = 'ABB'">
                 <uri prefix='&meshv;'>Abbreviation</uri>
@@ -809,7 +829,6 @@
                 <uri prefix='&meshv;'>ProperName</uri>
               </xsl:when>
               <xsl:when test="@LexicalTag = 'NON'">
-                <!-- Generic term - use the superclass -->
                 <uri prefix='&meshv;'>Term</uri>
               </xsl:when>
               <xsl:when test="@LexicalTag = 'TRD'">
@@ -823,6 +842,9 @@
                 </xsl:message>
               </xsl:otherwise>
             </xsl:choose>
+            -->
+            <uri prefix='&meshv;'>Term</uri>
+            
           </xsl:with-param>
         </xsl:call-template>
 
@@ -925,7 +947,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$parent'/>
-              <uri prefix='&meshv;'>preferredTerm</uri>
+              <uri prefix='&meshv;'>recordPreferredTerm</uri>
               <xsl:copy-of select='$term_uri'/>
             </xsl:with-param>
           </xsl:call-template>
