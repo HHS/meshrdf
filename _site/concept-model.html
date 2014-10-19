@@ -32,17 +32,17 @@
 <h3>Data Model</h3>
 <ul>
 
+
+
+
+<li><a href="/Concept-model.html">&raquo;&nbsp;Concepts</a></li>
+  
+  
+  
+
   
 
 
-  
-  
-
-
-
-
-<li><a href="/concept-model.html">&raquo;&nbsp;Concepts</a></li>
-  
   
   
 
@@ -121,15 +121,15 @@
 <h3>REST Interface</h3>
 <ul>
 
-  
 
 
   
   
-
-
+  
 
   
+
+
   
   
 
@@ -202,15 +202,15 @@
 <h3>Sample Queries</h3>
 <ul>
 
-  
 
 
   
   
-
-
+  
 
   
+
+
   
   
 
@@ -291,10 +291,9 @@
     </div>
     <h2>Concepts</h2>
     <br/>
-      <p>Here are how Concepts are modelled in RDF</p>
+      <p>Here are how Concepts are modelled in RDF. </p>
 
-<p>Note that this page does not describe Terms, which are subordinate to Concepts, but most other things <br />
-directly related to Concepts are here.</p>
+<p>Note that this page does not describe Terms, which are subordinate to Concepts, but most other things directly related to Concepts are here.</p>
 
 <h2 id="xml">XML</h2>
 
@@ -425,8 +424,7 @@ where {
 }
 </code></pre>
 
-<p>At the time of this writing, you can see the results dynamically from <a href="http://jatspan.org:8890/sparql?query=prefix+mesh%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0Aprefix+meshv%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%7D%0D%0Afrom+%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0D%0Awhere+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%0D%0A%7D&amp;format=TURTLE">this<br />
-url</a></p>
+<p>At the time of this writing, you can see the results dynamically from <a href="http://jatspan.org:8890/sparql?query=prefix+mesh%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0Aprefix+meshv%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%7D%0D%0Afrom+%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0D%0Awhere+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%0D%0A%7D&amp;format=TURTLE">this url</a></p>
 
     </div>
       
