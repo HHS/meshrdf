@@ -24,7 +24,7 @@ Please note that this is a beta release. We reserve the right to change the MeSH
 
 ### Why Linked Data?  
 {: class="inline-header"}
-NLM wants to provide users with well-defined, web-friendly, easily consumable data. Linked Data and RDF provide a useful framework for publishing, reusing and linking data on the web. Providing MeSH RDF data will allow users to query data directly, extract data at any level of granularity, and link to NLM data. See 
+NLM wants to provide users with well-defined, web-friendly, easily consumable data. Linked Data and RDF provide a useful framework for publishing, reusing and linking data on the web. Providing MeSH RDF data will allow users to query data directly, extract data at any level of granularity, and link to NLM data.
 
 ### Why MeSH?
 {: class="inline-header"}
