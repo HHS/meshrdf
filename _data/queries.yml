@@ -1,0 +1,39 @@
+- name: Any MeSH descriptor that has an allowable qualifier of adverse effects
+  notes: MeSH has rules that govern which qualifiers can be used with which MeSH Headings.
+  type: {class: Descriptors and Qualifiers, selector: descriptors-and-qualifiers}
+  string: |
+     <pre>
+     PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;
+     PREFIX vocab:  &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;
+     PREFIX rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt;  
+     PREFIX xsd:  &lt;http://www.w3.org/2001/XMLSchema&gt;
+     
+     select distinct ?d ?name  
+     FROM  &lt;http://id.nlm.nih.gov/mesh2014&gt;  
+     WHERE {  
+        ?d vocab:allowableQualifier ?q .  
+        ?q rdfs:label "adverse effects" .  
+        ?d rdfs:label ?name  
+     }
+     </pre>
+- name: Any MeSH descriptor that is an ancestor of D005138 'Eyebrow'
+  notes: The MeSH heading for 'Eybrow' can be retrieved through various paths in the MeSH tree.  This query demonstrates how to 'explode up' the MeSH tree to find all ancestors.
+  type: {class: Transitive, selector: transitive}
+  string: |
+   <pre>
+   PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;
+   PREFIX vocab: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt; 
+   PREFIX rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; 
+   PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; 
+   
+   SELECT ?treeNode ?ancestorTreeNode ?ancestor ?alabel
+   FROM &lt;http://id.nlm.nih.gov/mesh2014&gt; 
+   WHERE {
+      mesh:D005138 vocab:treeNumber ?treeNode .
+      ?treeNode skos:broaderTransitive+ ?ancestorTreeNode .
+      ?ancestor vocab:treeNumber ?ancestorTreeNode .
+      ?ancestor rdfs:label ?alabel
+   }
+   
+   ORDER BY ?treeNode ?ancestorTreeNode
+   </pre>
