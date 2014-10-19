@@ -1,6 +1,6 @@
 ---
 title: Sample Queries
-layout: page
+layout: queries
 resource: true
 categories:
 - Sample Queries

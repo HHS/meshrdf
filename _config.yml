@@ -1,7 +1,8 @@
 name: ""
 description: ""
 
-baseurl: /mesh-rdf
+## un comment baseurl variable before committing to hhs.github.io/mesh-rdf each time!
+#baseurl: /mesh-rdf
 
 markdown: kramdown
 permalink: /:title.html

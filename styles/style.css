@@ -100,7 +100,8 @@ line-height: 1.5em;
     
     float:left;
     width:100%;
-    background:url(images/husk.png) repeat;
+    background:url(images/paper.png) repeat;
+    
 }
 
 
@@ -115,6 +116,14 @@ background-color:white;
 	
 }
 
+.sample-queries{
+
+margin-top:1em;	
+padding: .5em;
+width:90%;
+background:url(images/seamless_paper_texture.png) repeat;
+box-shadow: -2px 0px 2px 2px #082735;
+}
 
 #footer{
 
