@@ -25,7 +25,7 @@
    FROM <http://id.nlm.nih.gov/mesh2014>
    
    WHERE {
-   mesh:D015242 meshv:pharmacologicalAction ?pa .
+   mesh:D015242 vocab:pharmacologicalAction ?pa .
    ?pa rdfs:label ?paLabel
    }
 - name: Descriptors/SCRs that have the Pharmacologic Action 'Anti-Bacterial Agents'?
@@ -40,7 +40,7 @@
    FROM <http://id.nlm.nih.gov/mesh2014>
    
    WHERE {
-   ?d meshv:pharmacologicalAction ?pa.
+   ?d vocab:pharmacologicalAction ?pa.
    ?d rdfs:label ?dLabel .
    ?pa rdfs:label "Anti-Bacterial Agents"
    }
@@ -131,7 +131,7 @@
    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    PREFIX xsd: <http://www.w3.org/2001/XMLSchema>
    
-   SELECT distinct ?id ?label
+   SELECT DISTINCT ?id ?label
    FROM <http://id.nlm.nih.gov/mesh2014>
    
    WHERE {
