@@ -3,7 +3,7 @@ title: Terms
 layout: page
 resource: true
 categories:
-- Data Models
+- Data Model
 ---
 
 
