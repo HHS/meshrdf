@@ -115,7 +115,7 @@ mesh:M0353609   rdf:type  meshv:Concept ;
                 meshv:term  mesh:T000003 ,
                             mesh:T000004 ;
                 meshv:preferredTerm mesh:T000001 .
-              
+
 mesh:T000002    rdf:type  meshv:Term .
 
 mesh:T000001    rdf:type  meshv:LabNumber ;
@@ -156,7 +156,7 @@ Notes:
     TRD   meshv:TradeName
     ```
 
-* The [RecordPreferredTermYN attribute](http://www.nlm.nih.gov/mesh/xml_data_elements.html#RecordPreferredTermYN) 
+* The [RecordPreferredTermYN attribute](http://www.nlm.nih.gov/mesh/xml_data_elements.html#RecordPreferredTermYN)
   in the XML is used to directly connect a record (in this
   case, a Descriptor) to its preferred term, using the `meshv:preferredTerm` property, which is an
   `rdfs:subPropertyOf` `meshv:term`.
@@ -170,7 +170,7 @@ Notes:
 ## Generating the RDF
 
 [Note that the following should be possible using the short `CONSTRUCT WHERE` form,
-as described in [the SPARQL specification](http://www.w3.org/TR/2013/REC-sparql11-query-20130321/#constructWhere), 
+as described in [the SPARQL specification](http://www.w3.org/TR/2013/REC-sparql11-query-20130321/#constructWhere),
 but it seems that Virtuoso doesn't support it.]
 
 ```sparql
@@ -196,7 +196,7 @@ construct {
     ?conTerm a ?conTermClass .
 
     ?conPrefTerm ?cptp ?cpto .
- 
+
     ?conTerm ?ctp ?cto .
 }
 from <http://chrismaloney.org/mesh>
@@ -220,7 +220,7 @@ where {
     ?conTerm a ?conTermClass .
 
     ?conPrefTerm ?cptp ?cpto .
- 
+
     ?conTerm ?ctp ?cto .
 }
 ```

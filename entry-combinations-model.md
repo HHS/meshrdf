@@ -63,20 +63,20 @@ Depicted in this graph:
 In turtle format:
 
 ```
-@prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix mesh:	<http://id.nlm.nih.gov/mesh/> .
-@prefix meshv:	<http://id.nlm.nih.gov/mesh/vocab#> .
-@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
+@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 mesh:D000005Q000293  rdf:type  meshv:DisallowedDescriptorQualifierPair ;
-	meshv:hasDescriptor  mesh:D000005 ;
-	meshv:hasQualifier   mesh:Q000293 ;
-	meshv:useInstead     mesh:D000007 .
+  meshv:hasDescriptor  mesh:D000005 ;
+  meshv:hasQualifier   mesh:Q000293 ;
+  meshv:useInstead     mesh:D000007 .
 mesh:D000005Q000530  rdf:type  meshv:DisallowedDescriptorQualifierPair ;
-	meshv:hasDescriptor  mesh:D000005 ;
-	meshv:hasQualifier   mesh:Q000530 ;
-	meshv:useInstead     mesh:D011860 .
-meshv:DisallowedDescriptorQualifierPair	rdfs:subClassOf	meshv:DescriptorQualifierPair .
+  meshv:hasDescriptor  mesh:D000005 ;
+  meshv:hasQualifier   mesh:Q000530 ;
+  meshv:useInstead     mesh:D011860 .
+meshv:DisallowedDescriptorQualifierPair rdfs:subClassOf meshv:DescriptorQualifierPair .
 ```
 
 Notes:
@@ -93,7 +93,7 @@ not one of the "allowed" ones. This should be the case, but hasn't been confirme
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 
-CONSTRUCT { 
+CONSTRUCT {
   ?ecin ?p ?o .
   ?ecin rdf:type ?eclass .
   ?eclass rdfs:subClassOf $superclass .
