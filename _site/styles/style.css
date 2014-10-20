@@ -8,7 +8,8 @@ body {
    
     font: normal .75em Arial, Helvetica, sans-serif;
     padding-bottom:20px;
-    background-color:#f2f2f2;
+    /*background-color:#f2f2f2;*/
+    background:url(../images/NLM_main_background.png)
 }
 
 hr{

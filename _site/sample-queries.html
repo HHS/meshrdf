@@ -345,7 +345,7 @@ SELECT *<br />
 FROM &lt;http://id.nlm.nih.gov/mesh2014&gt;<br />
 <br />
 WHERE {<br />
-mesh:D015242 ?p ?pa .<br />
+mesh:D015242 vocab:pharmacologicalAction ?pa .<br />
 ?pa rdfs:label ?paLabel<br />
 }<br />
 
@@ -362,7 +362,7 @@ SELECT ?d ?dLabel<br />
 FROM &lt;http://id.nlm.nih.gov/mesh2014&gt;<br />
 <br />
 WHERE {<br />
-?d meshv:pharmacologicalAction ?pa.<br />
+?d vocab:pharmacologicalAction ?pa.<br />
 ?d rdfs:label ?dLabel .<br />
 ?pa rdfs:label &quot;Anti-Bacterial Agents&quot;<br />
 }<br />
@@ -463,7 +463,7 @@ PREFIX vocab: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;<br />
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;<br />
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema&gt;<br />
 <br />
-SELECT distinct ?id ?label<br />
+SELECT DISTINCT ?id ?label<br />
 FROM &lt;http://id.nlm.nih.gov/mesh2014&gt;<br />
 <br />
 WHERE {<br />
@@ -477,14 +477,14 @@ WHERE {<br />
   ORDER BY ?label
       </div>
       
-    </div>
+      </div>
       
     </div>
 
 <!-- footer area   -->
  <div id = "footer">
   Page first published: 01 Nov 2014<br/>
-  Page last updated: 19 Oct 2014
+  Page last updated: 20 Oct 2014
 </div>
  <!-- //end footer -->
   </body>
