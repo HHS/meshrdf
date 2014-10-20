@@ -25,7 +25,7 @@
    FROM <http://id.nlm.nih.gov/mesh2014>
    
    WHERE {
-   mesh:D015242 ?p ?pa .
+   mesh:D015242 meshv:pharmacologicalAction ?pa .
    ?pa rdfs:label ?paLabel
    }
 - name: Descriptors/SCRs that have the Pharmacologic Action 'Anti-Bacterial Agents'?
