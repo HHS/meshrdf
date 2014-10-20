@@ -29,13 +29,23 @@
     {% endif %}
     </div>
     <h2>{{page.title}}</h2>
+    <!--&nbsp;&nbsp;Query Filter
+
+    <select>
+    <option selected = "All">All</option>
+    
+    {% for query in site.data.queries %}
+    <option value = "{{ query.type.class }}">{{ query.type.class }}</option>
+    {% endfor %}
+    </select>
+   -->
     <br/>
 
       {% for query in site.data.queries %}
       <h4 class = "inline-header">{{ query.name }}</h4>
       <p>{{ query.notes }}</p>
-      <div class = "sample-queries" id = "{{query.type.selector}}">
-       {{query.string}}
+      <div class = "sample-queries {{query.type.selector}}">
+       {{query.string | xml_escape | newline_to_br }}
       </div>
       {% endfor %}
     </div>

@@ -1,33 +1,79 @@
-- name: Any MeSH descriptor that has an allowable qualifier of adverse effects
+- name: Which triples have 'Ofloxacin' as the object?
+  notes: A basic subject, predicate, object triple in MeSH RDF.
+  type: {class: Getting Started, selector: getting-started}
+  string: |+
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   
+   SELECT *
+   FROM <http://id.nlm.nih.gov/mesh2014>
+   
+   WHERE {
+   ?s ?p mesh:D015242 .
+   }
+
+- name: The Pharmacologic Actions of Oflaxacin and their labels.
+  notes: Show the MeSH headings and labels of Pharmacologic Actions for Oflaxacin.
+  type: {class: Getting Started, selector: getting-started}
+  string: |+
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   
+   SELECT *
+   FROM <http://id.nlm.nih.gov/mesh2014>
+   
+   WHERE {
+   mesh:D015242 ?p ?pa .
+   ?pa rdfs:label ?paLabel
+   }
+- name: Descriptors/SCRs that have the Pharmacologic Action 'Anti-Bacterial Agents'?
+  notes: A filter query of MeSH predicates based on a certain type of Pharmacologic Action
+  type: {class: Predicate, selector: predicate}
+  string: |+
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   
+   SELECT ?d ?dLabel
+   FROM <http://id.nlm.nih.gov/mesh2014>
+   
+   WHERE {
+   ?d meshv:pharmacologicalAction ?pa.
+   ?d rdfs:label ?dLabel .
+   ?pa rdfs:label "Anti-Bacterial Agents"
+   }
+   
+   ORDER BY ASC (?dLabel)
+- name: Any MeSH descriptor that has an allowable qualifier of adverse effects.
   notes: MeSH has rules that govern which qualifiers can be used with which MeSH Headings.
   type: {class: Descriptors and Qualifiers, selector: descriptors-and-qualifiers}
-  string: |
-     <pre>
-     PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;
-     PREFIX vocab:  &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;
-     PREFIX rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt;  
-     PREFIX xsd:  &lt;http://www.w3.org/2001/XMLSchema&gt;
+  string: |+
+     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+     PREFIX vocab:  <http://id.nlm.nih.gov/mesh/vocab#>
+     PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>  
      
-     select distinct ?d ?name  
-     FROM  &lt;http://id.nlm.nih.gov/mesh2014&gt;  
+     SELECT distinct ?d ?dLabel  
+     FROM  <http://id.nlm.nih.gov/mesh2014>
+     
      WHERE {  
         ?d vocab:allowableQualifier ?q .  
         ?q rdfs:label "adverse effects" .  
-        ?d rdfs:label ?name  
+        ?d rdfs:label ?dLabel  
      }
-     </pre>
-- name: Any MeSH descriptor that is an ancestor of D005138 'Eyebrow'
+- name: Any MeSH descriptor that is an ancestor of D005138 'Eyebrow',
   notes: The MeSH heading for 'Eybrow' can be retrieved through various paths in the MeSH tree.  This query demonstrates how to 'explode up' the MeSH tree to find all ancestors.
   type: {class: Transitive, selector: transitive}
-  string: |
-   <pre>
-   PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;
-   PREFIX vocab: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt; 
-   PREFIX rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; 
-   PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; 
+  string: |+
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#> 
+   PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> 
+   PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
    
    SELECT ?treeNode ?ancestorTreeNode ?ancestor ?alabel
-   FROM &lt;http://id.nlm.nih.gov/mesh2014&gt; 
+   FROM <http://id.nlm.nih.gov/mesh2014>
+   
    WHERE {
       mesh:D005138 vocab:treeNumber ?treeNode .
       ?treeNode skos:broaderTransitive+ ?ancestorTreeNode .
@@ -36,4 +82,64 @@
    }
    
    ORDER BY ?treeNode ?ancestorTreeNode
-   </pre>
+- name: Any MeSH descriptor that is a descendant of D009369 'Neoplasm'
+  notes: Find all descendants (not just immediate children) of 'Neoplasm'.  This query 'explodes down' the MeSH tree.
+  type: {class: Transitive, selector: transitive}
+  string: |+
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#> 
+   PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> 
+   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+   
+   SELECT DISTINCT ?desc ?desc_label
+   FROM <http://id.nlm.nih.gov/mesh2014>
+   
+   WHERE {
+    mesh:D009369 vocab:treeNumber ?tn .
+    ?desctn skos:broaderTransitive+ ?tn .
+    ?desc vocab:treeNumber ?desctn .
+    ?desc rdfs:label ?desc_label .
+    }
+    
+    ORDER BY ?desc_label
+
+- name: Any MeSH term ('D' or 'M') that has 'infection' as part of its name.
+  notes: Find MeSH descriptors or sub-concepts based on string.
+  type: {class: String, selector: string}
+  string: |+
+    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+    PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    
+    SELECT *
+    FROM <http://id.nlm.nih.gov/mesh2014>
+    
+    WHERE {
+    ?id rdfs:label ?label .
+    FILTER regex(?label, "infection","i")
+    FILTER regex(?id,"[MD]")
+    }
+    
+    ORDER BY (?label)
+  
+- name: What are all the new MeSH Descriptor in the 'Diseases' tree for a given year (2014).
+  notes: This query leverages the MeSH 'C' tree to find new diseases in MeSH.
+  type: {class: Statistical, selector: statistical}
+  string: |+
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema>
+   
+   SELECT distinct ?id ?label
+   FROM <http://id.nlm.nih.gov/mesh2014>
+   
+   WHERE {
+     ?id vocab:dateEstablished ?dateEstablished .
+     ?id rdfs:label ?label .
+     ?id vocab:treeNumber ?tn
+     FILTER(?dateEstablished = xsd::date("2014-01-01"))
+     FILTER(REGEX(?tn,"C"))
+     }
+     
+     ORDER BY ?label

@@ -290,50 +290,191 @@
     
     </div>
     <h2>Sample Queries</h2>
+    <!--&nbsp;&nbsp;Query Filter
+
+    <select>
+    <option selected = "All">All</option>
+    
+    
+    <option value = "Getting Started">Getting Started</option>
+    
+    <option value = "Getting Started">Getting Started</option>
+    
+    <option value = "Predicate">Predicate</option>
+    
+    <option value = "Descriptors and Qualifiers">Descriptors and Qualifiers</option>
+    
+    <option value = "Transitive">Transitive</option>
+    
+    <option value = "Transitive">Transitive</option>
+    
+    <option value = "String">String</option>
+    
+    <option value = "Statistical">Statistical</option>
+    
+    </select>
+   -->
     <br/>
 
       
-      <h4 class = "inline-header">Any MeSH descriptor that has an allowable qualifier of adverse effects</h4>
-      <p>MeSH has rules that govern which qualifiers can be used with which MeSH Headings.</p>
-      <div class = "sample-queries" id = "descriptors-and-qualifiers">
-       <pre>
-PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;
-PREFIX vocab:  &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;
-PREFIX rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt;  
-PREFIX xsd:  &lt;http://www.w3.org/2001/XMLSchema&gt;
-
-select distinct ?d ?name  
-FROM  &lt;http://id.nlm.nih.gov/mesh2014&gt;  
-WHERE {  
-   ?d vocab:allowableQualifier ?q .  
-   ?q rdfs:label "adverse effects" .  
-   ?d rdfs:label ?name  
-}
-</pre>
+      <h4 class = "inline-header">Which triples have 'Ofloxacin' as the object?</h4>
+      <p>A basic subject, predicate, object triple in MeSH RDF.</p>
+      <div class = "sample-queries getting-started">
+       PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;<br />
+PREFIX vocab: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;<br />
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;<br />
+<br />
+SELECT *<br />
+FROM &lt;http://id.nlm.nih.gov/mesh2014&gt;<br />
+<br />
+WHERE {<br />
+?s ?p mesh:D015242 .<br />
+}<br />
+<br />
 
       </div>
       
-      <h4 class = "inline-header">Any MeSH descriptor that is an ancestor of D005138 'Eyebrow'</h4>
+      <h4 class = "inline-header">The Pharmacologic Actions of Oflaxacin and their labels.</h4>
+      <p>Show the MeSH headings and labels of Pharmacologic Actions for Oflaxacin.</p>
+      <div class = "sample-queries getting-started">
+       PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;<br />
+PREFIX vocab: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;<br />
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;<br />
+<br />
+SELECT *<br />
+FROM &lt;http://id.nlm.nih.gov/mesh2014&gt;<br />
+<br />
+WHERE {<br />
+mesh:D015242 ?p ?pa .<br />
+?pa rdfs:label ?paLabel<br />
+}<br />
+
+      </div>
+      
+      <h4 class = "inline-header">Descriptors/SCRs that have the Pharmacologic Action 'Anti-Bacterial Agents'?</h4>
+      <p>A filter query of MeSH predicates based on a certain type of Pharmacologic Action</p>
+      <div class = "sample-queries predicate">
+       PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;<br />
+PREFIX vocab: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;<br />
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;<br />
+<br />
+SELECT ?d ?dLabel<br />
+FROM &lt;http://id.nlm.nih.gov/mesh2014&gt;<br />
+<br />
+WHERE {<br />
+?d meshv:pharmacologicalAction ?pa.<br />
+?d rdfs:label ?dLabel .<br />
+?pa rdfs:label &quot;Anti-Bacterial Agents&quot;<br />
+}<br />
+<br />
+ORDER BY ASC (?dLabel)<br />
+
+      </div>
+      
+      <h4 class = "inline-header">Any MeSH descriptor that has an allowable qualifier of adverse effects.</h4>
+      <p>MeSH has rules that govern which qualifiers can be used with which MeSH Headings.</p>
+      <div class = "sample-queries descriptors-and-qualifiers">
+       PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;<br />
+PREFIX vocab:  &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;<br />
+PREFIX rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt;  <br />
+<br />
+SELECT distinct ?d ?dLabel  <br />
+FROM  &lt;http://id.nlm.nih.gov/mesh2014&gt;<br />
+<br />
+WHERE {  <br />
+   ?d vocab:allowableQualifier ?q .  <br />
+   ?q rdfs:label &quot;adverse effects&quot; .  <br />
+   ?d rdfs:label ?dLabel  <br />
+}<br />
+
+      </div>
+      
+      <h4 class = "inline-header">Any MeSH descriptor that is an ancestor of D005138 'Eyebrow',</h4>
       <p>The MeSH heading for 'Eybrow' can be retrieved through various paths in the MeSH tree.  This query demonstrates how to 'explode up' the MeSH tree to find all ancestors.</p>
-      <div class = "sample-queries" id = "transitive">
-       <pre>
-PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;
-PREFIX vocab: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt; 
-PREFIX rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; 
-PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; 
+      <div class = "sample-queries transitive">
+       PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;<br />
+PREFIX vocab: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt; <br />
+PREFIX rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; <br />
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; <br />
+<br />
+SELECT ?treeNode ?ancestorTreeNode ?ancestor ?alabel<br />
+FROM &lt;http://id.nlm.nih.gov/mesh2014&gt;<br />
+<br />
+WHERE {<br />
+   mesh:D005138 vocab:treeNumber ?treeNode .<br />
+   ?treeNode skos:broaderTransitive+ ?ancestorTreeNode .<br />
+   ?ancestor vocab:treeNumber ?ancestorTreeNode .<br />
+   ?ancestor rdfs:label ?alabel<br />
+}<br />
+<br />
+ORDER BY ?treeNode ?ancestorTreeNode<br />
 
-SELECT ?treeNode ?ancestorTreeNode ?ancestor ?alabel
-FROM &lt;http://id.nlm.nih.gov/mesh2014&gt; 
-WHERE {
-   mesh:D005138 vocab:treeNumber ?treeNode .
-   ?treeNode skos:broaderTransitive+ ?ancestorTreeNode .
-   ?ancestor vocab:treeNumber ?ancestorTreeNode .
-   ?ancestor rdfs:label ?alabel
-}
+      </div>
+      
+      <h4 class = "inline-header">Any MeSH descriptor that is a descendant of D009369 'Neoplasm'</h4>
+      <p>Find all descendants (not just immediate children) of 'Neoplasm'.  This query 'explodes down' the MeSH tree.</p>
+      <div class = "sample-queries transitive">
+       PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;<br />
+PREFIX vocab: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt; <br />
+PREFIX rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; <br />
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;<br />
+<br />
+SELECT DISTINCT ?desc ?desc_label<br />
+FROM &lt;http://id.nlm.nih.gov/mesh2014&gt;<br />
+<br />
+WHERE {<br />
+ mesh:D009369 vocab:treeNumber ?tn .<br />
+ ?desctn skos:broaderTransitive+ ?tn .<br />
+ ?desc vocab:treeNumber ?desctn .<br />
+ ?desc rdfs:label ?desc_label .<br />
+ }<br />
+ <br />
+ ORDER BY ?desc_label<br />
+<br />
 
-ORDER BY ?treeNode ?ancestorTreeNode
-</pre>
+      </div>
+      
+      <h4 class = "inline-header">Any MeSH term ('D' or 'M') that has 'infection' as part of its name.</h4>
+      <p>Find MeSH descriptors or sub-concepts based on string.</p>
+      <div class = "sample-queries string">
+       PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;<br />
+PREFIX vocab: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;<br />
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;<br />
+<br />
+SELECT *<br />
+FROM &lt;http://id.nlm.nih.gov/mesh2014&gt;<br />
+<br />
+WHERE {<br />
+?id rdfs:label ?label .<br />
+FILTER regex(?label, &quot;infection&quot;,&quot;i&quot;)<br />
+FILTER regex(?id,&quot;[MD]&quot;)<br />
+}<br />
+<br />
+ORDER BY (?label)<br />
+<br />
 
+      </div>
+      
+      <h4 class = "inline-header">What are all the new MeSH Descriptor in the 'Diseases' tree for a given year (2014).</h4>
+      <p>This query leverages the MeSH 'C' tree to find new diseases in MeSH.</p>
+      <div class = "sample-queries statistical">
+       PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;<br />
+PREFIX vocab: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;<br />
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;<br />
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema&gt;<br />
+<br />
+SELECT distinct ?id ?label<br />
+FROM &lt;http://id.nlm.nih.gov/mesh2014&gt;<br />
+<br />
+WHERE {<br />
+  ?id vocab:dateEstablished ?dateEstablished .<br />
+  ?id rdfs:label ?label .<br />
+  ?id vocab:treeNumber ?tn<br />
+  FILTER(?dateEstablished = xsd::date(&quot;2014-01-01&quot;))<br />
+  FILTER(REGEX(?tn,&quot;C&quot;))<br />
+  }<br />
+  <br />
+  ORDER BY ?label
       </div>
       
     </div>
