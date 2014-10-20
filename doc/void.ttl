@@ -1,0 +1,60 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix freq: <http://purl.org/cld/freq/> .
+@prefix pav: <http://purl.org/pav/2.0/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix voag: <http://voag.linkedmodel.org/schema/voag#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://id.nlm.nih.gov/mesh/void.ttl#> .
+
+# Metadata about this VoID description 
+<> rdf:type void:DatasetDescription ;
+     dcterms:title "MeSHRDF Dataset Description"^^xsd:string ;
+     dcterms:description """This is the VoID description for MeSHRDF datasets."""^^xsd:string ;
+     pav:createdBy <http://id.nlm.nih.gov/mesh/> ;
+     pav:createdOn "2014-11-01"^^xsd:date ;
+     foaf:primaryTopic <http://id.nlm.nih.gov/mesh/void.ttl#MeSHRDF> .
+
+
+:MeSHRDF
+# General metadata 
+	 rdf:type void:Dataset ;
+     foaf:homepage <http://id.nlm.nih.gov/mesh/> ;
+     dcterms:title "MeSHRDF"^^xsd:string ;
+     dcterms:description """The MeSH vocabulary in RDF format."""^^xsd:string ;
+     dcterms:license <> ;	##### see <http://www.w3.org/TR/void/#license>
+     void:uriSpace "http://id.nlm.nih.gov/mesh/"^^xsd:string ;
+	 void:uriLookupEndpoint <http://id.nlm.nih.gov/mesh/> ;
+# Provenance
+     dcterms:publisher <http:/id.nlm.nih.gov/mesh/> ;
+     dcterms:created "2014-11-01"^^xsd:date ;
+     dcterms:modified "&date&"^^xsd:date ;
+# Vocabularies, topics, resources
+	void:vocabulary <http://www.w3.org/2000/01/rdf-schema#> ,
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#> ,
+			<http://www.w3.org/2001/XMLSchema#> ,
+			<http://purl.org/dc/terms/> ,
+			<http://www.w3.org/2004/02/skos/core#> ,
+			<http://id.nlm.nih.gov/mesh/shema#> ;
+# Database Access
+	 void:sparqlEndpoint <http://id.nlm.nih.gov/mesh/sparql> ;
+# Major Topic in DBpedia
+	 dcterms:subject <http://dbpedia.org/page/Medical_Subject_Headings> ;
+# Update Frequency
+	 voag:frequencyOfChange freq:monthly ;
+# other metadata
+	 void:feature <http://www.w3.org/ns/formats/N3> ;
+# Example URI
+	 void:exampleResource <http://id.nlm.nih.gov/mesh/D000001> ;
+# FTP dump file
+	 void:dataDump &dump_file& ;
+# triple count
+	 void:triples "19133159"^^xsd:long ;
+# entity count
+	 void:entities "2417704"^^xsd:long ;
+# distinct subject
+	 void:distinctSubjects "2417704"^^xsd:long ;
+	.
+	
