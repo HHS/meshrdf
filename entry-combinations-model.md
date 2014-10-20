@@ -3,7 +3,7 @@ title: Entry Combinations
 layout: page
 resource: true
 categories:
-- Data Modelssssssssssss
+- Data Model
 ---
 
 The following shows how EntryCombinations (see the [MeSH documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#EntryCombination)) are modeled.
