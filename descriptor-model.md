@@ -12,7 +12,7 @@ A Descriptor is a class in MeSH RDF. Also known as Main Headings, Descriptors ar
 {: class="inline-header"}
 The following RDF graph diagram shows a fairly typical topical descriptor (D015242, Ofloxacin) and its relationships. For reference, see [Ofloxacin in the MeSH browser](https://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?term=ofloxacin). 
 
-![Descriptor RDF Graph Diagram](/images/BasicConversionLiterals.png){: style="width: 500px"}
+![Descriptor RDF Graph Diagram](images/BasicConversionLiterals.png){: style="width: 500px"}
   
 ###Classes
 {: class="inline-header"}
