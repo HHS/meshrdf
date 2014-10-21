@@ -8,7 +8,7 @@ categories:
 
 A Descriptor is a class in MeSH RDF. Also known as Main Headings, Descriptors are used to index citations in NLM's MEDLINE database, for cataloging of publications, and other databases, and are searchable in PubMed as [MH]. Most Descriptors indicate the subject of a resource. Some indicate publication types or geographic subdivisions. For more information about Descriptors, visit NLM's [MeSH Record Types page](http://www.nlm.nih.gov/mesh/intro_record_types.html). 
   
-###RDF Graph Diagrams
+###RDF Graph Diagram
 {: class="inline-header"}
 The following RDF graph diagram shows a fairly typical topical descriptor (D015242, Ofloxacin) and its literals. For reference, see [Ofloxacin in the MeSH browser](https://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?term=ofloxacin). The data elements featured here have literal strings as objects, not identifiers. 
 
