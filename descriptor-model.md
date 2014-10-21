@@ -1,5 +1,5 @@
 ---
-title: Descriptors
+title: Descriptor Literals
 layout: page
 resource: true
 categories:
@@ -8,9 +8,9 @@ categories:
 
 A Descriptor is a class in MeSH RDF. Also known as Main Headings, Descriptors are used to index citations in NLM's MEDLINE database, for cataloging of publications, and other databases, and are searchable in PubMed as [MH]. Most Descriptors indicate the subject of a resource. Some indicate publication types or geographic subdivisions. For more information about Descriptors, visit NLM's [MeSH Record Types page](http://www.nlm.nih.gov/mesh/intro_record_types.html). 
   
-###RDF Graph Diagram
+###RDF Graph Diagrams
 {: class="inline-header"}
-The following RDF graph diagram shows a fairly typical topical descriptor (D015242, Ofloxacin) and its relationships. For reference, see [Ofloxacin in the MeSH browser](https://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?term=ofloxacin). 
+The following RDF graph diagram shows a fairly typical topical descriptor (D015242, Ofloxacin) and its literals. For reference, see [Ofloxacin in the MeSH browser](https://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?term=ofloxacin). The data elements featured here have literal strings as objects, not identifiers. 
 
 ![Descriptor RDF Graph Diagram](images/BasicConversionLiterals.png){: style="width: 500px"}
   
@@ -39,7 +39,7 @@ WHERE {
 
 ###MeSH RDF Data
 {: class="inline-header"}
-Here is the truncated output of the above query in [N3 format](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX%20owl%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX%20dc%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX%20dcterms%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX%20dbpedia2%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX%20dbpedia%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0APREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0A%0D%0ACONSTRUCT%20%7B%20mesh%3AD015242%20%3Fp%20%3Fo%20.%20%7D%0D%0AFROM%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0AWHERE%20%7B%0D%0A%20%20mesh%3AD015242%20%3Fp%20%3Fo%20.%0D%0A%7D&format=N3):
+Here is the truncated output of the above query in [N3 format](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX%20owl%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX%20dc%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX%20dcterms%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX%20dbpedia2%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX%20dbpedia%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0APREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0A%0D%0ACONSTRUCT%20%7B%20mesh%3AD015242%20%3Fp%20%3Fo%20.%20%7D%0D%0AFROM%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0AWHERE%20%7B%0D%0A%20%20mesh%3AD015242%20%3Fp%20%3Fo%20.%0D%0A%7D&format=N3). The same data is illustrated in the RDF graph diagram above.
 
 {: class="sample-queries"}
 ```
@@ -49,15 +49,6 @@ Here is the truncated output of the above query in [N3 format](http://iddev.nlm.
                 "Ofloxacin" ;
         <http://id.nlm.nih.gov/mesh/vocab#activeMeSHYear>
                 "2014-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://id.nlm.nih.gov/mesh/vocab#allowableQualifier>
-                <http://id.nlm.nih.gov/mesh/Q000008> , 
-                <http://id.nlm.nih.gov/mesh/Q000009> , 
-                <http://id.nlm.nih.gov/mesh/Q000031> , 
-                ...
-        <http://id.nlm.nih.gov/mesh/vocab#concept>
-                <http://id.nlm.nih.gov/mesh/M0023430> , 
-                <http://id.nlm.nih.gov/mesh/M0333651> , 
-                <http://id.nlm.nih.gov/mesh/M0023432> ,
                 ...
         <http://id.nlm.nih.gov/mesh/vocab#dateCreated>
                 "2014-06-26"^^<http://www.w3.org/2001/XMLSchema#date> ;
@@ -67,15 +58,10 @@ Here is the truncated output of the above query in [N3 format](http://iddev.nlm.
                 "2013-07-08"^^<http://www.w3.org/2001/XMLSchema#date> ;
         <http://id.nlm.nih.gov/mesh/vocab#historyNote>
                 "89" ;
-        <http://id.nlm.nih.gov/mesh/vocab#pharmacologicalAction>
-                <http://id.nlm.nih.gov/mesh/D000900> , 
-                <http://id.nlm.nih.gov/mesh/D000892> , 
-                <http://id.nlm.nih.gov/mesh/D059005> ;
-        <http://id.nlm.nih.gov/mesh/vocab#preferredConcept>
-                <http://id.nlm.nih.gov/mesh/M0023430> ;
+                ...
         <http://id.nlm.nih.gov/mesh/vocab#previousIndexing>
                 "Anti-Infective Agents, Urinary (1981-1988)" , 
-                "Anti-Infective Agents (1981-1988)" , 
+                ...
                 "Oxazines (1981-1988)" ;
         <http://id.nlm.nih.gov/mesh/vocab#publicMeSHNote>
                 "89" ;
@@ -87,17 +73,15 @@ Here is the truncated output of the above query in [N3 format](http://iddev.nlm.
                 "standardr" ;
         <http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm>
                 <http://id.nlm.nih.gov/mesh/T044624> ;
-        <http://id.nlm.nih.gov/mesh/vocab#treeNumber>
-                <http://id.nlm.nih.gov/mesh/D03.438.810.835.322.500> ;
+                ...
         <http://purl.org/dc/terms/identifier>
                 "D015242" ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <http://id.nlm.nih.gov/mesh/D024841> .
+                ...
 ```
 
 ###MeSH XML
 {: class="inline-header"}
-The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF data above to the truncated MeSH XML below. 
+The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the N3 data above to the truncated MeSH XML for Ofloxacin below. 
 
 {: class="sample-queries"}
 ```xml
@@ -124,102 +108,23 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF data above to th
   <ActiveMeSHYearList>
    <Year>2014</Year>
   </ActiveMeSHYearList>
-  <AllowableQualifiersList>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000008</QualifierUI>
-      <QualifierName>
-      <String>administration &amp; dosage</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>AD</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000009</QualifierUI>
-      <QualifierName>
-      <String>adverse effects</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>AE</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000031</QualifierUI>
-      <QualifierName>
-      <String>analogs &amp; derivatives</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>AA</Abbreviation>
-   </AllowableQualifier>
-   ...
-  </AllowableQualifiersList>
+  ...
   <HistoryNote>89
   </HistoryNote>
   <PublicMeSHNote>89
   </PublicMeSHNote>
   <PreviousIndexingList>
-   <PreviousIndexing>Anti-Infective Agents (1981-1988)</PreviousIndexing>
+   ...
    <PreviousIndexing>Anti-Infective Agents, Urinary (1981-1988)</PreviousIndexing>
    <PreviousIndexing>Oxazines (1981-1988)</PreviousIndexing>
   </PreviousIndexingList>
-    <PharmacologicalActionList>
-     <PharmacologicalAction>
-      <DescriptorReferredTo>
-       <DescriptorUI>D000892</DescriptorUI>
-        <DescriptorName>
-         <String>Anti-Infective Agents, Urinary</String>
-        </DescriptorName>
-      </DescriptorReferredTo>
-     </PharmacologicalAction>
-     <PharmacologicalAction>
-      <DescriptorReferredTo>
-       <DescriptorUI>D000900</DescriptorUI>
-        <DescriptorName>
-         <String>Anti-Bacterial Agents</String>
-        </DescriptorName>
-      </DescriptorReferredTo>
-     </PharmacologicalAction>
-     <PharmacologicalAction>
-      <DescriptorReferredTo>
-       <DescriptorUI>D059005</DescriptorUI>
-        <DescriptorName>
-         <String>Topoisomerase II Inhibitors</String>
-        </DescriptorName>
-      </DescriptorReferredTo>
-     </PharmacologicalAction>
-    </PharmacologicalActionList>
-  <TreeNumberList>
-   <TreeNumber>D03.438.810.835.322.500</TreeNumber>
-  </TreeNumberList>
+  ...
   <RecordOriginatorsList>
    <RecordOriginator>standardr</RecordOriginator>
    <RecordMaintainer>pashj</RecordMaintainer>
    <RecordAuthorizer>chodan</RecordAuthorizer>
   </RecordOriginatorsList>
-  <ConceptList>
-   <Concept PreferredConceptYN="Y">
-    <ConceptUI>M0023430</ConceptUI>
-    <ConceptName>
-     <String>Ofloxacin</String>
-    </ConceptName>
-   </Concept>
-   ...
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0333651</ConceptUI>
-    <ConceptName>
-     <String>Hoe-280</String>
-    </ConceptName>
-   </Concept>
-   ...
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0023432</ConceptUI>
-    <ConceptName>
-     <String>Tarivid</String>
-    </ConceptName>
-   </Concept>
-   ...
-  </ConceptList>
+  ...
  </DescriptorRecord>
 
 ```
