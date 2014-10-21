@@ -8,11 +8,20 @@ markdown: kramdown
 permalink: /:title.html
 category-list:
 - Data Model
-- REST Interface
-- Sample Queries
+- Cheat Sheets
 
 
 kramdown:
  smart_quotes:  lsquo,rsquo,ldquo,rdquo
  input: GFM
+
+##allowable list of query types are here.  Liquid filters are used to create css selectors out of this list
+
+query-types:
+- Getting Started
+- Aggregation
+- Descriptors and Qualifiers
+- Predicate
+- String
+- Transitive
 

@@ -5,13 +5,13 @@
     <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ site.description }}">
-
     <link href="styles/style.css" rel="stylesheet">
-    <script type="text/javascript" src="http://iddev.nlm.nih.gov/mesh/scripts/queries.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+        
   </head>
 
   <body>
@@ -28,28 +28,28 @@
     <a href = "index.html">Documentation Home</a>&nbsp;&nbsp;&raquo;&nbsp;{{ page.title }}
     {% endif %}
     </div>
-    <h2>{{page.title}}</h2>
-    <!--&nbsp;&nbsp;Query Filter
-
-    <select>
-    <option selected = "All">All</option>
+    <h2>{{page.title}}</h2><br/>
     
-    {% for query in site.data.queries %}
-    <option value = "{{ query.type.class }}">{{ query.type.class }}</option>
+    <p>Query types:
+    <select class = "query-types" onchange="location = this.options[this.selectedIndex].value;">
+    {% for type in site.query-types | sort!  %}
+    <option value = "#{{ type | downcase | replace: ' ','-' }} ">{{ type }}</option>
     {% endfor %}
     </select>
-   -->
+    </p>
     <br/>
-
+      {% for type in site.query-types %}
+      <a name = "{{type | downcase | replace: ' ','-' }}"></a><p><b>{{ type }}</b></p><br/>
       {% for query in site.data.queries %}
+      {% if query.type == type %}
       <h4 class = "inline-header">{{ query.name }}</h4>
-      <p>{{ query.notes }}</p>
-      <div class = "sample-queries {{query.type.selector}}">
+      <div class = "sample-queries {{query.type | downcase | replace: ' ','-' }}">
        {{query.string | xml_escape | newline_to_br }}
       </div>
+      {% endif %}
+      {% endfor %}
       {% endfor %}
       </div>
-      
     </div>
 
 <!-- footer area   -->

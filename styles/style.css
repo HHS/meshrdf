@@ -112,18 +112,31 @@ box-shadow: -2px 0px 10px 1px #777;
 float:left;
 width:75%;
 margin-top:1em;
-padding:2em 0em 2em 2em;
+padding:2em 2em 2em 2em;
 background-color:white;
 	
 }
 
 .sample-queries{
 
-margin-top:1em;	
+margin-top:1em;
+margin-bottom:1em;
 padding: .5em;
 width:90%;
 border:dashed 1px #ccc;
  background:url(../images/paper_fibers.png) repeat-x;
+}
+
+.predicate-table td {
+	
+  border:solid 1px black;
+}
+
+.predicate-table th{
+	
+text-align:left;
+
+	
 }
 
 #footer{
