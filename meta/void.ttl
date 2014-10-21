@@ -32,12 +32,12 @@
      dcterms:created "2014-11-01"^^xsd:date ;
      dcterms:modified "&date&"^^xsd:date ;
 # Vocabularies, topics, resources
-	 void:vocabulary <http://www.w3.org/2000/01/rdf-schema#> ,
-					 <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ,
-					 <http://www.w3.org/2001/XMLSchema#> ,
-					 <http://purl.org/dc/terms/> ,
-					 <http://www.w3.org/2004/02/skos/core#> ,
-					 <http://id.nlm.nih.gov/mesh/shema#> ;
+	void:vocabulary <http://www.w3.org/2000/01/rdf-schema#> ,
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#> ,
+			<http://www.w3.org/2001/XMLSchema#> ,
+			<http://purl.org/dc/terms/> ,
+			<http://www.w3.org/2004/02/skos/core#> ,
+			<http://id.nlm.nih.gov/mesh/shema#> ;
 # Database Access
 	 void:sparqlEndpoint <http://id.nlm.nih.gov/mesh/sparql> ;
 # Major Topic in DBpedia
@@ -51,10 +51,10 @@
 # FTP dump file
 	 void:dataDump &dump_file& ;
 # triple count
-	 void:triples "&total&"^^xsd:long ;
+	 void:triples "19133159"^^xsd:long ;
 # entity count
-	 void:entities "&entity&"^^xsd:long ;
+	 void:entities "2417704"^^xsd:long ;
 # distinct subject
-	 void:distinctSubjects "&subject&"^^xsd:long ;
+	 void:distinctSubjects "2417704"^^xsd:long ;
 	.
 	
