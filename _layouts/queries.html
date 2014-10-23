@@ -43,6 +43,7 @@
       {% for query in site.data.queries %}
       {% if query.type == type %}
       <h4 class = "inline-header">{{ query.name }}</h4>
+      <p>{{ query.notes }}</p>
       <div class = "sample-queries {{query.type | downcase | replace: ' ','-' }}">
        {{query.string | xml_escape | newline_to_br }}
       </div>
