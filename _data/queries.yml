@@ -144,3 +144,31 @@
      }
      
      ORDER BY ?label
+    
+- name: All the MeSH concepts (prefCon and subCon) and semantic types associated with D000647 'Amnesia'
+  notes: MeSH Descriptors are collections of MeSH concepts.  The name of the preferred concept (prefCon) always contributes the name of the Descriptor.
+  type: Descriptors and Concepts
+  string: |+
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+    CONSTRUCT {
+    mesh:D000647 meshv:preferredConcept ?prefcon .
+    ?prefcon ?p ?o .
+    ?prefcon meshv:semanticType $semtype .
+    ?prefcon skos:narrower $subcon .
+    $subcon rdfs:label $subconLabel .
+    $semtype ?stp $sto .
+    }
+    FROM <http://id.nlm.nih.gov/mesh2014>
+    WHERE {
+    mesh:D000647 meshv:preferredConcept ?prefcon .
+    ?prefcon ?p ?o .
+    ?prefcon meshv:semanticType $semtype .
+    ?prefcon skos:narrower $subcon .
+    $subcon rdfs:label $subconLabel .
+    $semtype ?stp $sto .
+    }
