@@ -111,7 +111,7 @@ are included in the repository:
 * supp-samples.xml
 
 The Perl script *make-samples.pl* can be used to regenerate these sample files from the
-the master XML files, extracting just those items that are listed in the *sample-list.txt*
+master XML files, extracting just those items that are listed in the *sample-list.txt*
 file, if any of those changes.  So, keep in mind that these samples in the repository are
 used for testing/demo purposes, and are not necessarily up-to-date with the latest MeSH
 release.
