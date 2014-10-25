@@ -180,6 +180,6 @@ documentation](http://data-gov.tw.rpi.edu/wiki/How_to_install_virtuoso_sparql_en
 ## Technical documentation on GitHub pages
 
 The gh-pages branch of this repository is used to generate the technical documentation
-viewable from [http://hhs.github.io/meshrdf]().  Please see the
+viewable from [http://hhs.github.io/meshrdf](http://hhs.github.io/meshrdf).  Please see the
 [README file in that branch](../gh-pages/README.md) for more information.
 
