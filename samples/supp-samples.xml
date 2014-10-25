@@ -19,7 +19,7 @@
    <Year>2013A</Year>
    <Year>2014</Year>
   </ActiveMeSHYearList>
-  <Frequency>4</Frequency>
+  <Frequency>9</Frequency>
   <HeadingMappedToList>
    <HeadingMappedTo>
     <DescriptorReferredTo>
@@ -2284,436 +2284,6 @@
    </Concept>
   </ConceptList>
  </SupplementalRecord>
-<SupplementalRecord SCRClass = "1">
-  <SupplementalRecordUI>C005195</SupplementalRecordUI>
-  <SupplementalRecordName>
-   <String>methampicillin</String>
-  </SupplementalRecordName>
-  <DateCreated>
-   <Year>1970</Year>
-   <Month>01</Month>
-   <Day>01</Day>
-  </DateCreated>
-  <DateRevised>
-   <Year>2012</Year>
-   <Month>11</Month>
-   <Day>05</Day>
-  </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2013</Year>
-   <Year>2014</Year>
-  </ActiveMeSHYearList>
-  <Note>RN given refers to parent cpd(2S-(2alpha,5alpha,6beta(S*)))-isomer
-  </Note>
-  <Frequency>4</Frequency>
-  <PreviousIndexingList>
-   <PreviousIndexing>*PENICILLIN (70-75)</PreviousIndexing>
-   <PreviousIndexing>IMINES (72-76)</PreviousIndexing>
-  </PreviousIndexingList>
-  <HeadingMappedToList>
-   <HeadingMappedTo>
-    <DescriptorReferredTo>
-     <DescriptorUI>D000667</DescriptorUI>
-     <DescriptorName>
-      <String>Ampicillin</String>
-     </DescriptorName>
-    </DescriptorReferredTo>
-    <QualifierReferredTo>
-     <QualifierUI>*Q000031</QualifierUI>
-     <QualifierName>
-      <String>analogs &amp; derivatives</String>
-     </QualifierName>
-    </QualifierReferredTo>
-   </HeadingMappedTo>
-  </HeadingMappedToList>
-    <PharmacologicalActionList>
-     <PharmacologicalAction>
-      <DescriptorReferredTo>
-       <DescriptorUI>D000900</DescriptorUI>
-        <DescriptorName>
-         <String>Anti-Bacterial Agents</String>
-        </DescriptorName>
-      </DescriptorReferredTo>
-     </PharmacologicalAction>
-    </PharmacologicalActionList>
-  <SourceList>
-   <Source>Farmaco 30(5):211;1975</Source>
-   <Source>Farmaco 31(4):219;1976</Source>
-   <Source>J Antimicrob Chemother 2:195;1976</Source>
-   <Source>J Antimicrob Chemother 2:363;1976</Source>
-   <Source>Pathol Biol 25(10):699;1977</Source>
-   <Source>Rev Fran Gyn Obskt 71(12):775;1976</Source>
-  </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>nlm</RecordOriginator>
-   <RecordMaintainer>system</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
-  <ConceptList>
-   <Concept PreferredConceptYN="Y">
-    <ConceptUI>M0046566</ConceptUI>
-    <ConceptName>
-     <String>methampicillin</String>
-    </ConceptName>
-    <RegistryNumber>G0H6U7VSTK</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <RelatedRegistryNumberList>
-     <RelatedRegistryNumber>59130-14-2</RelatedRegistryNumber>
-     <RelatedRegistryNumber>6489-61-8</RelatedRegistryNumber>
-     <RelatedRegistryNumber>6489-97-0 (methampicillin)</RelatedRegistryNumber>
-    </RelatedRegistryNumberList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0474169</Concept2UI>
-     </ConceptRelation>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0046565</Concept2UI>
-     </ConceptRelation>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0308944</Concept2UI>
-     </ConceptRelation>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0474168</Concept2UI>
-     </ConceptRelation>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0474170</Concept2UI>
-     </ConceptRelation>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0046563</Concept2UI>
-     </ConceptRelation>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0308943</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
-      <TermUI>T076569</TermUI>
-      <String>methampicillin</String>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (1970)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T076567</TermUI>
-      <String>metampicillin</String>
-      <ThesaurusIDlist>
-       <ThesaurusID>FDA SRS (2013)</ThesaurusID>
-       <ThesaurusID>INN (19XX)</ThesaurusID>
-       <ThesaurusID>NLM (1970)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T076565</TermUI>
-      <String>6-(2-methyleneamino-2-phenylacetamido)penicillanic acid</String>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (1970)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0474169</ConceptUI>
-    <ConceptName>
-     <String>Metakes</String>
-    </ConceptName>
-    <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0474169</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T613920</TermUI>
-      <String>Metakes</String>
-      <DateCreated>
-       <Year>2004</Year>
-       <Month>10</Month>
-       <Day>18</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>ES</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T613921</TermUI>
-      <String>Inexfa brand of methampicillin, sodium salt</String>
-      <DateCreated>
-       <Year>2004</Year>
-       <Month>10</Month>
-       <Day>18</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (2004)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0046565</ConceptUI>
-    <ConceptName>
-     <String>Suvipen</String>
-    </ConceptName>
-    <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0046565</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T076568</TermUI>
-      <String>Suvipen</String>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (1970)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0308944</ConceptUI>
-    <ConceptName>
-     <String>methampicillin, monosodium salt, (2S-(2alpha,5alpha,6beta(S*)))-isomer</String>
-    </ConceptName>
-    <RegistryNumber>6489-61-8</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0308944</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T338944</TermUI>
-      <String>methampicillin, monosodium salt, (2S-(2alpha,5alpha,6beta(S*)))-isomer</String>
-      <DateCreated>
-       <Year>1999</Year>
-       <Month>08</Month>
-       <Day>18</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (1970)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0474168</ConceptUI>
-    <ConceptName>
-     <String>methampicillin, sodium salt</String>
-    </ConceptName>
-    <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0474168</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T613919</TermUI>
-      <String>methampicillin, sodium salt</String>
-      <DateCreated>
-       <Year>2004</Year>
-       <Month>10</Month>
-       <Day>18</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (2004)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T760054</TermUI>
-      <String>metampicillin sodium</String>
-      <DateCreated>
-       <Year>2009</Year>
-       <Month>10</Month>
-       <Day>28</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>INN (2009)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0474170</ConceptUI>
-    <ConceptName>
-     <String>Serfabiotic</String>
-    </ConceptName>
-    <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0474170</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T613922</TermUI>
-      <String>Serfabiotic</String>
-      <DateCreated>
-       <Year>2004</Year>
-       <Month>10</Month>
-       <Day>18</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>ES</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T613923</TermUI>
-      <String>Serra Pamies brand of methampicillin, sodium salt</String>
-      <DateCreated>
-       <Year>2004</Year>
-       <Month>10</Month>
-       <Day>18</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (2004)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0046563</ConceptUI>
-    <ConceptName>
-     <String>Magnipen</String>
-    </ConceptName>
-    <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0046563</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T076566</TermUI>
-      <String>Magnipen</String>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (1970)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0308943</ConceptUI>
-    <ConceptName>
-     <String>methampicillin, calcium salt (2:1), (2S-(2alpha,5alpha,6beta(S*)))-isomer</String>
-    </ConceptName>
-    <RegistryNumber>59130-14-2</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0046566</Concept1UI>
-     <Concept2UI>M0308943</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T338943</TermUI>
-      <String>methampicillin, calcium salt (2:1), (2S-(2alpha,5alpha,6beta(S*)))-isomer</String>
-      <DateCreated>
-       <Year>1999</Year>
-       <Month>08</Month>
-       <Day>18</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (1970)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-  </ConceptList>
- </SupplementalRecord>
 <SupplementalRecord SCRClass = "3">
   <SupplementalRecordUI>C564178</SupplementalRecordUI>
   <SupplementalRecordName>
@@ -3198,6 +2768,436 @@
       </DateCreated>
       <ThesaurusIDlist>
        <ThesaurusID>NLM (2014)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </SupplementalRecord>
+<SupplementalRecord SCRClass = "1">
+  <SupplementalRecordUI>C005195</SupplementalRecordUI>
+  <SupplementalRecordName>
+   <String>methampicillin</String>
+  </SupplementalRecordName>
+  <DateCreated>
+   <Year>1970</Year>
+   <Month>01</Month>
+   <Day>01</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2012</Year>
+   <Month>11</Month>
+   <Day>05</Day>
+  </DateRevised>
+  <ActiveMeSHYearList>
+   <Year>2013</Year>
+   <Year>2014</Year>
+  </ActiveMeSHYearList>
+  <Note>RN given refers to parent cpd(2S-(2alpha,5alpha,6beta(S*)))-isomer
+  </Note>
+  <Frequency>4</Frequency>
+  <PreviousIndexingList>
+   <PreviousIndexing>*PENICILLIN (70-75)</PreviousIndexing>
+   <PreviousIndexing>IMINES (72-76)</PreviousIndexing>
+  </PreviousIndexingList>
+  <HeadingMappedToList>
+   <HeadingMappedTo>
+    <DescriptorReferredTo>
+     <DescriptorUI>D000667</DescriptorUI>
+     <DescriptorName>
+      <String>Ampicillin</String>
+     </DescriptorName>
+    </DescriptorReferredTo>
+    <QualifierReferredTo>
+     <QualifierUI>*Q000031</QualifierUI>
+     <QualifierName>
+      <String>analogs &amp; derivatives</String>
+     </QualifierName>
+    </QualifierReferredTo>
+   </HeadingMappedTo>
+  </HeadingMappedToList>
+    <PharmacologicalActionList>
+     <PharmacologicalAction>
+      <DescriptorReferredTo>
+       <DescriptorUI>D000900</DescriptorUI>
+        <DescriptorName>
+         <String>Anti-Bacterial Agents</String>
+        </DescriptorName>
+      </DescriptorReferredTo>
+     </PharmacologicalAction>
+    </PharmacologicalActionList>
+  <SourceList>
+   <Source>Farmaco 30(5):211;1975</Source>
+   <Source>Farmaco 31(4):219;1976</Source>
+   <Source>J Antimicrob Chemother 2:195;1976</Source>
+   <Source>J Antimicrob Chemother 2:363;1976</Source>
+   <Source>Pathol Biol 25(10):699;1977</Source>
+   <Source>Rev Fran Gyn Obskt 71(12):775;1976</Source>
+  </SourceList>
+  <RecordOriginatorsList>
+   <RecordOriginator>nlm</RecordOriginator>
+   <RecordMaintainer>system</RecordMaintainer>
+   <RecordAuthorizer>chodan</RecordAuthorizer>
+  </RecordOriginatorsList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M0046566</ConceptUI>
+    <ConceptName>
+     <String>methampicillin</String>
+    </ConceptName>
+    <RegistryNumber>G0H6U7VSTK</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T195</SemanticTypeUI>
+      <SemanticTypeName>Antibiotic</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <RelatedRegistryNumberList>
+     <RelatedRegistryNumber>59130-14-2</RelatedRegistryNumber>
+     <RelatedRegistryNumber>6489-61-8</RelatedRegistryNumber>
+     <RelatedRegistryNumber>6489-97-0 (methampicillin)</RelatedRegistryNumber>
+    </RelatedRegistryNumberList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0474169</Concept2UI>
+     </ConceptRelation>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0046565</Concept2UI>
+     </ConceptRelation>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0308944</Concept2UI>
+     </ConceptRelation>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0474168</Concept2UI>
+     </ConceptRelation>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0474170</Concept2UI>
+     </ConceptRelation>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0046563</Concept2UI>
+     </ConceptRelation>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0308943</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+      <TermUI>T076569</TermUI>
+      <String>methampicillin</String>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1970)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T076567</TermUI>
+      <String>metampicillin</String>
+      <ThesaurusIDlist>
+       <ThesaurusID>FDA SRS (2013)</ThesaurusID>
+       <ThesaurusID>INN (19XX)</ThesaurusID>
+       <ThesaurusID>NLM (1970)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T076565</TermUI>
+      <String>6-(2-methyleneamino-2-phenylacetamido)penicillanic acid</String>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1970)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0474169</ConceptUI>
+    <ConceptName>
+     <String>Metakes</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T195</SemanticTypeUI>
+      <SemanticTypeName>Antibiotic</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0474169</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T613920</TermUI>
+      <String>Metakes</String>
+      <DateCreated>
+       <Year>2004</Year>
+       <Month>10</Month>
+       <Day>18</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>ES</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T613921</TermUI>
+      <String>Inexfa brand of methampicillin, sodium salt</String>
+      <DateCreated>
+       <Year>2004</Year>
+       <Month>10</Month>
+       <Day>18</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (2004)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0046565</ConceptUI>
+    <ConceptName>
+     <String>Suvipen</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T195</SemanticTypeUI>
+      <SemanticTypeName>Antibiotic</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0046565</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T076568</TermUI>
+      <String>Suvipen</String>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1970)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0308944</ConceptUI>
+    <ConceptName>
+     <String>methampicillin, monosodium salt, (2S-(2alpha,5alpha,6beta(S*)))-isomer</String>
+    </ConceptName>
+    <RegistryNumber>6489-61-8</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T195</SemanticTypeUI>
+      <SemanticTypeName>Antibiotic</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0308944</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T338944</TermUI>
+      <String>methampicillin, monosodium salt, (2S-(2alpha,5alpha,6beta(S*)))-isomer</String>
+      <DateCreated>
+       <Year>1999</Year>
+       <Month>08</Month>
+       <Day>18</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1970)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0474168</ConceptUI>
+    <ConceptName>
+     <String>methampicillin, sodium salt</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T195</SemanticTypeUI>
+      <SemanticTypeName>Antibiotic</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0474168</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T613919</TermUI>
+      <String>methampicillin, sodium salt</String>
+      <DateCreated>
+       <Year>2004</Year>
+       <Month>10</Month>
+       <Day>18</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (2004)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T760054</TermUI>
+      <String>metampicillin sodium</String>
+      <DateCreated>
+       <Year>2009</Year>
+       <Month>10</Month>
+       <Day>28</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>INN (2009)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0474170</ConceptUI>
+    <ConceptName>
+     <String>Serfabiotic</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T195</SemanticTypeUI>
+      <SemanticTypeName>Antibiotic</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0474170</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T613922</TermUI>
+      <String>Serfabiotic</String>
+      <DateCreated>
+       <Year>2004</Year>
+       <Month>10</Month>
+       <Day>18</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>ES</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T613923</TermUI>
+      <String>Serra Pamies brand of methampicillin, sodium salt</String>
+      <DateCreated>
+       <Year>2004</Year>
+       <Month>10</Month>
+       <Day>18</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (2004)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0046563</ConceptUI>
+    <ConceptName>
+     <String>Magnipen</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T195</SemanticTypeUI>
+      <SemanticTypeName>Antibiotic</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0046563</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T076566</TermUI>
+      <String>Magnipen</String>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1970)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0308943</ConceptUI>
+    <ConceptName>
+     <String>methampicillin, calcium salt (2:1), (2S-(2alpha,5alpha,6beta(S*)))-isomer</String>
+    </ConceptName>
+    <RegistryNumber>59130-14-2</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T195</SemanticTypeUI>
+      <SemanticTypeName>Antibiotic</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0046566</Concept1UI>
+     <Concept2UI>M0308943</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T338943</TermUI>
+      <String>methampicillin, calcium salt (2:1), (2S-(2alpha,5alpha,6beta(S*)))-isomer</String>
+      <DateCreated>
+       <Year>1999</Year>
+       <Month>08</Month>
+       <Day>18</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1970)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
     </TermList>

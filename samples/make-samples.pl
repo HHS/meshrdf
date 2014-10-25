@@ -15,7 +15,6 @@ use strict;
 my $meshrdf_home = $ENV{MESHRDF_HOME};
 die "You must first define the environment variables MESHRDF_HOME." if !$meshrdf_home;
 
-}
 my @sets = qw( qual desc supp );
 
 if (@ARGV) {
