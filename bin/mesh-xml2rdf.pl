@@ -1,20 +1,27 @@
 #! /usr/bin/env perl
 
 # The aim of this script is to provide a means to run the XSLTs against the very huge MeSH XML
-# files.  For each of the inputs qual, desc, and supp, it will
+# files, on machines that have limited memory.  For each of the inputs qual, desc, and supp, it will
 #   * split the input XML into chunks
 #   * run each chunk through the XSLT, producing a chunk of RDF in n-triples format
 #   * (maybe) concatenate those n-triples together.
 # The last step is "maybe", because it might turn out to be easier to load the triples into a triple
 # store if they remain in manageable chunk sizes.
 #
-# This depends on SAXON_JAR being set to point to the saxon jar file.
+# Before running this, make sure you have two environment variables set:
+#   - MESHRDF_HOME should point to the directory where the the work will be done.
+#     The `data` subdirectory is assumed to hold the source XML files, and the output
+#     files will be written to `out`.
+#   - SAXON_JAR should point to the saxon jar file.
 
 use strict;
 
 my $LINES_PER_CHUNK = 500000;
+my $meshrdf_home = $ENV{MESHRDF_HOME};
 my $saxon_jar = $ENV{SAXON_JAR};
-die "You must first define the environment variable SAXON_JAR." if !$saxon_jar;
+if (!$meshrdf_home || !$saxon_jar) {
+    die "You must first define the environment variables MESHRDF_HOME and SAXON_JAR.";
+}
 
 my @sets = qw( qual desc supp );
 

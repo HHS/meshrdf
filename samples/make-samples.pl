@@ -1,13 +1,21 @@
 #! /usr/bin/env perl
 # This script will create subsets of the main MeSH XML files, with just a discrete set of
-# sample records.
+# sample records.  The input XML files are assumed to be in the `data` subdirectory of the
+# directory pointed to by the $MESHRDF_HOME environment variable.  The list of records to
+# extract are listed in the samples-list.txt file.
 #
-# This should be run from the base directory of the repository.
+# This should be run from the samples directory of the repository, and it will overrite the
+# *-samples.xml files.
+#
+# By default, it re-generates all three sample files.  If you want only to regenerate one of
+# them, enter "qual", "desc", or "supp" as a command line argument.
 
 use strict;
 
+my $meshrdf_home = $ENV{MESHRDF_HOME};
+die "You must first define the environment variables MESHRDF_HOME." if !$meshrdf_home;
 
-my $meshrdf_home = $ENV{MESHRDF_HOME} || "..";
+}
 my @sets = qw( qual desc supp );
 
 if (@ARGV) {
