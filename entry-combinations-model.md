@@ -10,6 +10,13 @@ The following shows how EntryCombinations (see the [MeSH documentation](http://w
 
 Discussion of this model was on issue [#10](https://github.com/HHS/mesh-rdf/issues/10).
 
+###RDF Graph Diagram
+
+Depicted in this graph:
+
+![Entry Combinations RDF Graph Diagram](images/EntryCombinations.png){: style="width: 500px"}
+
+
 ## XML
 
 Here is a typical example of and EntryCombination represented in XML.
@@ -52,12 +59,6 @@ Here is a typical example of and EntryCombination represented in XML.
 ```
 
 ## RDF
-
-Depicted in this graph:
-
-![](https://github.com/HHS/mesh-rdf/blob/master/doc/EntryCombinations.png)
-
-(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmOGNVcmo3VkNKeEE/edit?usp=sharing).)
 
 
 In turtle format:
