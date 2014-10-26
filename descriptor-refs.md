@@ -13,7 +13,7 @@ translated into RDF.
 
 The RDF is depicted in the following graph:
 
-![Descriptor References RDF Graph Diagram](images/DescriptorRefs.png){: style="width: 500px"}
+![Descriptor References RDF Graph Diagram](images/DescriptorRefs.png){: style="width: 75%"}
 
 
 

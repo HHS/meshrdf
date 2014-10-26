@@ -18,7 +18,7 @@ According to the green tree, "Eyebrow" has broader concept "Eye", which has broa
 According to the purple tree, "Oculomotor Muscles" has broader concept "Eye", which has broader concept
 "Sense Organ".
 
-![Tree Numbers Produce Overlapping Hierarchies](images/BroaderRelations.png){: style="width: 500px"}
+![Tree Numbers Produce Overlapping Hierarchies](images/BroaderRelations.png){: style="width: 75%"}
 
 
 Leaving aside the question of whether or not these particular relationships make sense, this is the
@@ -33,7 +33,7 @@ is reified as a first-class resource.  `skos:broader` relations (which are not t
 between the `Descriptor`s, and `skos:broaderTransitive` relations (which, obviously, are) are asserted
 between the `TreeNumber`s.
 
-![Tree Numbers RDF Graph Model](images/BroaderRelationsWithTreeNodes.png){: style="width: 500px"}
+![Tree Numbers RDF Graph Model](images/BroaderRelationsWithTreeNodes.png){: style="width: 75%"}
 
 
 With this model, if a user wanted to find all the "broader" ancestors of Eyebrows (D005138) then he or

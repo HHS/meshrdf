@@ -14,7 +14,7 @@ Discussion of this model was on issue [#10](https://github.com/HHS/mesh-rdf/issu
 
 Depicted in this graph:
 
-![Entry Combinations RDF Graph Diagram](images/EntryCombinations.png){: style="width: 500px"}
+![Entry Combinations RDF Graph Diagram](images/EntryCombinations.png){: style="width: 75%"}
 
 
 ## XML
