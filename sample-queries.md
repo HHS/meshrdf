@@ -1,3 +1,11 @@
+---
+title: Sample Queries
+layout: queries
+resource: true
+categories:
+- Cheat Sheets
+---
+
 Wrap any of the following in `SPARQL ... ;` if you are entering them through the isql
 interface.
 
@@ -16,7 +24,7 @@ where {
      <http://purl.org/dc/terms/identifier> ?purl
      FILTER regex(?label, "infection","i")
      FILTER(SUBSTR(?purl,1,1) IN("D") || SUBSTR(?purl,1,1) IN("M"))
-     
+
 }
 
 
@@ -38,7 +46,7 @@ where {
      <http://purl.org/dc/terms/identifier> ?purl;
      rdfs:label ?label
      FILTER(?dateCreated > "2014-01-01"^^xsd:date)
-     
+
 
 
 }
@@ -64,8 +72,8 @@ where {
      rdfs:label ?label
      FILTER(?dateCreated > "2014-01-01"^^xsd:date)
      FILTER(SUBSTR(?purl,1,1) = "D")
-     
-     
+
+
 }
 ```
 
