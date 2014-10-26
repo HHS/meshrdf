@@ -9,7 +9,7 @@ Here are how Concepts are modelled in RDF.
 
 ## RDF Graph Diagram
 {: class="inline-header"}
-![Concept RDF Graph Diagram](images/Concepts.png){: style="width: 75%"}
+![Concept RDF Graph Diagram](images/Concepts.png){: class="rdf-graph"}
 
 
 ## SPARQL

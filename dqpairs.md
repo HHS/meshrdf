@@ -12,7 +12,7 @@ This example shows the graph derived from one descriptor (D015242, Ofloxacin) an
 
 The RDF is depicted in the following graph:
 
-![Descriptor Qualifier Pair RDF Graph Diagram](images/DQPair.png){: style="width: 75%"}
+![Descriptor Qualifier Pair RDF Graph Diagram](images/DQPair.png){: class="rdf-graph"}
 
 
 ## XML
