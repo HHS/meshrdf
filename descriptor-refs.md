@@ -1,3 +1,11 @@
+---
+title: Descriptor References
+layout: page
+resource: true
+categories:
+- Data Model
+---
+
 This page documents a couple of the ways that Descriptors reference other items, and how those references are
 translated into RDF.
 
