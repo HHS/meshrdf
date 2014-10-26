@@ -14,9 +14,9 @@ categories:
 
 Depicted in these graphs:
 
-![](images/TermModel-2.png)
+![](images/TermModel-2.png){: style="width: 500px"}
 
-![](images/TermModel.png)
+![](images/TermModel.png){: style="width: 500px"}
 
 
 
