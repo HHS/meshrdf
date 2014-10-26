@@ -9,11 +9,11 @@ categories:
 This page documents a couple of the ways that Descriptors reference other items, and how those references are
 translated into RDF.
 
-## RDF Graph Diagram
+### RDF Graph Diagram
 
 The RDF is depicted in the following graph:
 
-![](images/DescriptorRefs.png)
+![Descriptor References RDF Graph Diagram](images/DescriptorRefs.png){: style="width: 500px"}
 
 
 

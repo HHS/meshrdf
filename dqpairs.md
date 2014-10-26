@@ -1,4 +1,19 @@
+---
+title: Descriptor Qualifier Pairs
+layout: page
+resource: true
+categories:
+- Data Model
+---
+
 This example shows the graph derived from one descriptor (D015242, Ofloxacin) and one of it's allowable qualifiers (Q000008, administration &amp; dosage).
+
+## RDF
+
+The RDF is depicted in the following graph:
+
+![Descriptor Qualifier Pair RDF Graph Diagram](images/DQPair.png){: style="width: 500px"}
+
 
 ## XML
 
@@ -25,27 +40,21 @@ This example shows the graph derived from one descriptor (D015242, Ofloxacin) an
 </DescriptorRecord>
 ```
 
-## RDF
 
-The RDF is depicted in the following graph:
-
-![](https://github.com/HHS/mesh-rdf/blob/master/doc/DQPair.png)
-
-(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmQl9CeTV1X3YwUWc/edit?usp=sharing).)
 
 In turtle format:
 
 ```
-@prefix meshv:	<http://id.nlm.nih.gov/mesh/vocab#> .
-@prefix mesh:	<http://id.nlm.nih.gov/mesh/> .
-@prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
+@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 mesh:D015242  meshv:allowableQualifier  mesh:Q000008 .
 mesh:D015242Q000008  rdf:type  meshv:AllowedDescriptorQualifierPair ;
     meshv:hasDescriptor  mesh:D015242 ;
     meshv:hasQualifier   mesh:Q000008 .
-meshv:AllowedDescriptorQualifierPair  rdfs:subClassOf  meshv:DescriptorQualifierPair . 
+meshv:AllowedDescriptorQualifierPair  rdfs:subClassOf  meshv:DescriptorQualifierPair .
 ```
 
 
