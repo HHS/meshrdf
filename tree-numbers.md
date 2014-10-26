@@ -6,17 +6,19 @@ categories:
 - Data Model
 ---
 
+### RDF Graph Diagram
+
 The following diagram illustrates the problem of tree numbers, that impose multiple overlapping hierarchical
 relationships between descriptors. In the diagram, every arrow indicates a skos:broader relationship.
 
-In this particular example, "Eye" belongs to two overlapping trees -- one that is depicted in green and 
+In this particular example, "Eye" belongs to two overlapping trees -- one that is depicted in green and
 one in purple.
 
 According to the green tree, "Eyebrow" has broader concept "Eye", which has broader concept "Face".
 According to the purple tree, "Oculomotor Muscles" has broader concept "Eye", which has broader concept
 "Sense Organ".
 
-![](https://cloud.githubusercontent.com/assets/77226/3799017/0cfd2b52-1bea-11e4-8786-01e144579e85.png)
+![Tree Numbers Produce Overlapping Hierarchies](images/BroaderRelations.png){: style="width: 500px"}
 
 (This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmbGVxQzJtQmFhSFU/edit?usp=sharing).)
 
@@ -24,7 +26,7 @@ Leaving aside the question of whether or not these particular relationships make
 way the tree numbers currently exist in MeSH.
 
 The problem comes when you try to use these relations to "walk up the tree".  If these properties
-were transitive, then one could conclude that "Eyebrows" has broader concept "Sense Organ", or that 
+were transitive, then one could conclude that "Eyebrows" has broader concept "Sense Organ", or that
 "Oculomotor Muscles" has broader concept "Face", but neither of those is true according to the MeSH trees.
 
 The way that this is modeled in MeSH RDF is illustrated in the following graph.  Each tree number
@@ -32,7 +34,7 @@ is reified as a first-class resource.  `skos:broader` relations (which are not t
 between the `Descriptor`s, and `skos:broaderTransitive` relations (which, obviously, are) are asserted
 between the `TreeNumber`s.
 
-![](https://cloud.githubusercontent.com/assets/77226/3817027/e4b8db10-1cd3-11e4-9065-d980c79b9e1d.png)
+![Tree Numbers RDF Graph Model](images/BroaderRelationsWithTreeNodes.png)
 
 (This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmbWx1by1USlRsWDQ/edit?usp=sharing).)
 
@@ -52,7 +54,7 @@ where {
 
 ```xml
 <DescriptorRecordSet LanguageCode="eng">
-  
+
   <DescriptorRecord DescriptorClass="1">
     <DescriptorUI>D005123</DescriptorUI>
     <DescriptorName>
@@ -77,7 +79,7 @@ where {
     </TreeNumberList>
     ...
   </DescriptorRecord>
-  
+
   <DescriptorRecord DescriptorClass="1">
     <DescriptorUI>D005138</DescriptorUI>
     <DescriptorName>
@@ -90,7 +92,7 @@ where {
     </TreeNumberList>
     ...
   </DescriptorRecord>
-  
+
   <DescriptorRecord DescriptorClass="1">
     <DescriptorUI>D009801</DescriptorUI>
     <DescriptorName>
@@ -103,7 +105,7 @@ where {
     </TreeNumberList>
     ...
   </DescriptorRecord>
-  
+
   <DescriptorRecord DescriptorClass="1">
     <DescriptorUI>D012679</DescriptorUI>
     <DescriptorName>
@@ -167,8 +169,8 @@ where {
   mesh:D005123 meshv:treeNumber ?tree_number .
 
   {
-    select ?tree_number 
-           ?broader_tree_number ?broader_descriptor 
+    select ?tree_number
+           ?broader_tree_number ?broader_descriptor
            ?narrower_tree_number ?narrower_descriptor
     where {
       ?tree_number skos:broaderTransitive ?broader_tree_number .
@@ -185,7 +187,7 @@ where {
 
 The next SPARQL query is very similar, but outputs RDF (using the CONSTRUCT clause) and
 reconstructs the graph that is shown in the figure above.  To execute this on the current
-Virtuoso test bed, click 
+Virtuoso test bed, click
 [here](http://jatspan.org:8890/sparql?query=PREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0A%0ACONSTRUCT%20%7B%0A%20%20mesh%3AD005123%20meshv%3AtreeNumber%20%3Ftree_number%20.%0A%20%20%3Ftree_number%20skos%3AbroaderTransitive%20%3Fbroader_tree_number%20.%0A%20%20%3Fbroader_descriptor%20meshv%3AtreeNumber%20%3Fbroader_tree_number%20.%0A%20%20mesh%3AD005123%20skos%3Abroader%20%3Fbroader_descriptor%20.%0A%0A%20%20%3Fnarrower_tree_number%20skos%3AbroaderTransitive%20%3Ftree_number%20.%0A%20%20%3Fnarrower_descriptor%20meshv%3AtreeNumber%20%3Fnarrower_tree_number%20.%0A%20%20%3Fnarrower_descriptor%20skos%3Abroader%20mesh%3AD005123%20.%0A%7D%0Afrom%20%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0Awhere%20%7B%0A%20%20mesh%3AD005123%20meshv%3AtreeNumber%20%3Ftree_number%20.%0A%0A%20%20%7B%0A%20%20%20%20select%20%3Ftree_number%20%0A%20%20%20%20%20%20%20%20%20%20%20%3Fbroader_tree_number%20%3Fbroader_descriptor%20%0A%20%20%20%20%20%20%20%20%20%20%20%3Fnarrower_tree_number%20%3Fnarrower_descriptor%0A%20%20%20%20where%20%7B%0A%20%20%20%20%20%20%3Ftree_number%20skos%3AbroaderTransitive%20%3Fbroader_tree_number%20.%0A%20%20%20%20%20%20%3Fbroader_descriptor%20meshv%3AtreeNumber%20%3Fbroader_tree_number%20.%0A%20%20%20%20%20%20mesh%3AD005123%20skos%3Abroader%20%3Fbroader_descriptor%20.%0A%0A%20%20%20%20%20%20%3Fnarrower_tree_number%20skos%3AbroaderTransitive%20%3Ftree_number%20.%0A%20%20%20%20%20%20%3Fnarrower_descriptor%20meshv%3AtreeNumber%20%3Fnarrower_tree_number%20.%0A%20%20%20%20%20%20%3Fnarrower_descriptor%20skos%3Abroader%20mesh%3AD005123%20.%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D&format=TURTLE)
 
 ```sparql
@@ -207,8 +209,8 @@ where {
   mesh:D005123 meshv:treeNumber ?tree_number .
 
   {
-    select ?tree_number 
-           ?broader_tree_number ?broader_descriptor 
+    select ?tree_number
+           ?broader_tree_number ?broader_descriptor
            ?narrower_tree_number ?narrower_descriptor
     where {
       ?tree_number skos:broaderTransitive ?broader_tree_number .
