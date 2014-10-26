@@ -5,11 +5,11 @@ resource: true
 categories:
 - Data Model
 ---
-Here are how Concepts are modelled in RDF. 
+Here are how Concepts are modelled in RDF.
 
 ## RDF Graph Diagram
 {: class="inline-header"}
-![Concept RDF Graph Diagram](images/mesh-concept-model.png)
+![Concept RDF Graph Diagram](images/Concepts.png){: style="width: 75%"}
 
 
 ## SPARQL
