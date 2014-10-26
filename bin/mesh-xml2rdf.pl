@@ -4,8 +4,8 @@
 # files, on machines that have limited memory.  For each of the inputs qual, desc, and supp, it will
 #   * split the input XML into chunks
 #   * run each chunk through the XSLT, producing a chunk of RDF in n-triples format
-#   * (maybe) concatenate those n-triples together.
-# The last step is "maybe", because it might turn out to be easier to load the triples into a triple
+#   * (TBD) concatenate those n-triples together.
+# The last step is "TBD", because it might turn out to be easier to load the triples into a triple
 # store if they remain in manageable chunk sizes.
 #
 # Before running this, make sure you have two environment variables set:
@@ -13,6 +13,8 @@
 #     The `data` subdirectory is assumed to hold the source XML files, and the output
 #     files will be written to `out`.
 #   - SAXON_JAR should point to the saxon jar file.
+# Finally, make sure that your current directory is the hhs/meshrdf repository directory, as this
+# script refers to the XSLT files in the xslt directory by their relative paths.
 
 use strict;
 
@@ -22,13 +24,15 @@ my $saxon_jar = $ENV{SAXON_JAR};
 if (!$meshrdf_home || !$saxon_jar) {
     die "You must first define the environment variables MESHRDF_HOME and SAXON_JAR.";
 }
+my $out_dir = "$meshrdf_home/out";
+mkdir $out_dir;    # if it didn't exist already
 
 my @sets = qw( qual desc supp );
 
 # First, chunk up the XML
 foreach my $set (@sets) {
-    my $xml_file = "data/$set" . "2014.xml";
-    my $xml_chunk_base = "out/$set-";
+    my $xml_file = "$meshrdf_home/data/$set" . "2014.xml";
+    my $xml_chunk_base = "$out_dir/$set-";
 
     my $state = 0;   # init
     open( my $XML_FILE, '<' , $xml_file ) or die( "Can't open $xml_file for reading ($!)" );
@@ -65,6 +69,7 @@ foreach my $set (@sets) {
                 my $chunk_file = $xml_chunk_base . sprintf("%03d", $chunk_num) . '.xml';
                 $chunk_num++;
                 open($CHUNK_FILE, ">", $chunk_file) or die("Can't open $chunk_file for writing ($!)");
+                print "  Writing $chunk_file\n";
                 print $CHUNK_FILE $wrapper_line . "\n";
                 print $CHUNK_FILE $line . "\n";
                 $chunk_line_num = 0;
@@ -102,10 +107,10 @@ foreach my $set (@sets) {
 
 # Next, run the transforms
 foreach my $set (@sets) {
-    foreach my $xml_chunk_file (<out/$set-*.xml>) {
+    foreach my $xml_chunk_file (<$out_dir/$set-*.xml>) {
         $xml_chunk_file =~ /-(\d+)/;
         my $num_str = $1;
-        my $nt_chunk_file = "out/$set-$num_str.nt";
+        my $nt_chunk_file = "$out_dir/$set-$num_str.nt";
         print "Converting $xml_chunk_file -> $nt_chunk_file\n";
         my $cmd = "java -Xmx2G -jar $saxon_jar -s:$xml_chunk_file -xsl:xslt/$set.xsl > $nt_chunk_file";
         print "Executing '$cmd'\n";
