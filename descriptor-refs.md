@@ -9,6 +9,13 @@ categories:
 This page documents a couple of the ways that Descriptors reference other items, and how those references are
 translated into RDF.
 
+## RDF Graph Diagram
+
+The RDF is depicted in the following graph:
+
+![](images/DescriptorRefs.png)
+
+
 
 ## XML
 
@@ -69,13 +76,6 @@ translated into RDF.
 </DescriptorRecord>
 ```
 
-## RDF
-
-The RDF is depicted in the following graph:
-
-![](https://github.com/HHS/mesh-rdf/blob/master/doc/DescriptorRefs.png)
-
-(This drawing was done in [LucidChart](https://www.lucidchart.com), and is on Google drive [here](https://drive.google.com/file/d/0B8n-nWqCI5WmRnVMX0N0V1Vyajg/edit?usp=sharing).)
 
 In turtle:
 
