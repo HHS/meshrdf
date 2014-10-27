@@ -13,12 +13,12 @@ rdf:type | Explain Me | Where Do I Come From?
 rdfs:label | Explain Me | Where Do I Come From?
 skos:narrower | Explain Me | Where Do I Come From?
 dcterms:identifier | Explain Me | Where Do I Come From?
-meshv:abbreviation | Explain Me | Where Do I Come From?
+meshv:abbreviation | Two-letter, uppercase abbreviation for a Qualifier term. QUI Q000235 example: GE |```<Abbreviation```
 meshv:activeMeSHYear | Explain Me | Where Do I Come From?
 meshv:allowedTreeNode | Explain Me | Where Do I Come From?
 meshv:annotation | Free-text information for indexers and catalogers concerning the use of the descriptor or qualifier. DUI: D005858 example: for Germany before 23 May 1949 & after 3 Oct 1990; for historical articles before & after 1949: Manual 36.11; BERLIN is also available| ```<Annotation>```
 meshv:concept | Explain Me | Where Do I Come From?
-meshv:dateCreated | Date when first entered in tHe MeSH data entry system. This time-stamp may be a year behind the dateEstablished. Upon conversion to a new MeSH maintenance system in 1999, a default value of 19990101 was supplied. DUI D019987 example: 19970620  |```<DateCreated>```
+meshv:dateCreated | Date when first entered in tHe MeSH data entry system. This time-stamp may be a year behind the dateEstablished. Upon conversion to a new MeSH maintenance system in 1999, a default value of 19990101 was supplied. DUI D022125 example:  20000622 |```<DateCreated>```
 meshv:dateEstablished | Date when effective for use; set to YYYY0101 where YYYY = year of introduction to MeSH. DUI D023482 example: 20010101 |```<DateEstablished>```
 meshv:dateRevised | Date when information in the record was last changed. DUI FILL ME IN . . . |```<DateRevised>```
 meshv:entryVersion | Custom sort form used by indexers and catalogers. DUI D003880 example: DERMATOL |```<EntryVersion>```
