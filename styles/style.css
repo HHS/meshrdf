@@ -29,7 +29,7 @@ margin-top:1em;
 
 }
 
-.inline-header{
+.content > h3, .content > h2, .content h4 {
 
 margin-top:1em;
 margin-bottom:1em;
@@ -121,7 +121,7 @@ background-color:white;
   max-width:600px;
 }
 
-.sample-code {
+pre {
   margin-top:1em;
   margin-bottom:1em;
   padding: .5em;

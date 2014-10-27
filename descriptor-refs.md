@@ -20,7 +20,7 @@ The RDF is depicted in the following graph:
 ## XML
 {: class="inline-header"}
 
-{: class="sample-code"}
+
 ```xml
 <DescriptorRecord DescriptorClass="1">
   <DescriptorUI>D009369</DescriptorUI>
@@ -81,7 +81,7 @@ The RDF is depicted in the following graph:
 
 In turtle:
 
-{: class="sample-code"}
+
 ```
 @prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
 @prefix mesh: <http://id.nlm.nih.gov/mesh/> .
@@ -110,7 +110,7 @@ mesh:D015242  meshv:pharmacologicalAction mesh:D059005 ,
 {: class="inline-header"}
 The RDF output above can be generated with the following SPARQL query, after substituting the current values for the name of the graph and so forth:
 
-{: class="sample-code"}
+
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>

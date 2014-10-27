@@ -11,17 +11,15 @@ The following shows how EntryCombinations (see the [MeSH documentation](http://w
 Discussion of this model was on issue [#10](https://github.com/HHS/mesh-rdf/issues/10).
 
 ###RDF Graph Diagram
-{: class="inline-header"}
 Depicted in this graph:
 
 ![Entry Combinations RDF Graph Diagram](images/EntryCombinations.png){: class="rdf-graph"}
 
 
 ## XML
-{: class="inline-header"}
 Here is a typical example of and EntryCombination represented in XML.
 
-{: class="sample-code"}
+
 ```xml
 <DescriptorRecord DescriptorClass="1">
   <DescriptorUI>D000005</DescriptorUI>
@@ -60,11 +58,9 @@ Here is a typical example of and EntryCombination represented in XML.
 ```
 
 ## RDF
-{: class="inline-header"}
-
 In turtle format:
 
-{: class="sample-code"}
+
 ```
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mesh: <http://id.nlm.nih.gov/mesh/> .
@@ -91,9 +87,8 @@ it is a DescriptorQualifierPair (see [this comment](https://github.com/HHS/mesh-
 not one of the "allowed" ones. This should be the case, but hasn't been confirmed. This suggests validation step, after the conversion to RDF, but before official release, as described by Gang [here](https://github.com/HHS/mesh-rdf/issues/12#issuecomment-51687881).
 
 ## Generating the RDF
-{: class="inline-header"}
 
-{: class="sample-code"}
+
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>

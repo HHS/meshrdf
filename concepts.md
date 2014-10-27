@@ -16,7 +16,7 @@ Here are how Concepts are modelled in RDF.
 {: class="inline-header"}
 The RDF output above can be generated with the following [SPARQL query](http://iddev.nlm.nih.gov/mesh/sparql?query=PREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+dbpedia2%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX+dbpedia%3A+%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0APREFIX+meshv%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0APREFIX+mesh%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0A%0D%0Aconstruct+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%7D%0D%0Afrom+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0Awhere+%7B%0D%0A++++mesh%3AD000001+meshv%3ApreferredConcept+%3Fprefcon+.%0D%0A++++%3Fprefcon+%3Fp+%3Fo+.%0D%0A++++%3Fprefcon+meshv%3AsemanticType+%24semtype+.%0D%0A++++%24semtype+%3Fstp+%24sto+.%0D%0A%0D%0A%7D&render=HTML&limit=50&offset=0#lodestart-sparql-results){:target="_blank"}
 
-{: class="sample-code"}
+
 ```sparql
 prefix mesh: <http://id.nlm.nih.gov/mesh/>
 prefix meshv: <http://id.nlm.nih.gov/mesh/vocab#>
@@ -39,7 +39,7 @@ where {
 
 In [N3](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX%20owl%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX%20dc%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX%20dcterms%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX%20dbpedia2%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX%20dbpedia%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0APREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0A%0D%0Aconstruct%20%7B%0D%0A%20%20%20%20mesh%3AD000001%20meshv%3ApreferredConcept%20%3Fprefcon%20.%0D%0A%20%20%20%20%3Fprefcon%20%3Fp%20%3Fo%20.%0D%0A%20%20%20%20%3Fprefcon%20meshv%3AsemanticType%20%24semtype%20.%0D%0A%20%20%20%20%24semtype%20%3Fstp%20%24sto%20.%0D%0A%7D%0D%0Afrom%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0Awhere%20%7B%0D%0A%20%20%20%20mesh%3AD000001%20meshv%3ApreferredConcept%20%3Fprefcon%20.%0D%0A%20%20%20%20%3Fprefcon%20%3Fp%20%3Fo%20.%0D%0A%20%20%20%20%3Fprefcon%20meshv%3AsemanticType%20%24semtype%20.%0D%0A%20%20%20%20%24semtype%20%3Fstp%20%24sto%20.%0D%0A%0D%0A%7D&format=N3){:target="_blank"} format:
 
-{: class="sample-code"}
+
 ```
 <http://id.nlm.nih.gov/mesh/T195>
         a       <http://id.nlm.nih.gov/mesh/vocab#SemanticType> ;
@@ -92,7 +92,7 @@ Note that this page does not describe Terms, which are subordinate to Concepts, 
 ## MeSH XML
 {: class="inline-header"}
 
-{: class="sample-code"}
+
 ```xml
 <DescriptorRecord DescriptorClass="1">
   <DescriptorUI>D000001</DescriptorUI>
@@ -140,7 +140,7 @@ Note that this page does not describe Terms, which are subordinate to Concepts, 
 
 Note:  RelationAttributes (not depicted in this example; see the [MeSH documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#RelationAttribute) and [GitHub issue #15](https://github.com/HHS/mesh-rdf/issues/15#issuecomment-50952078)) are currently modeled with their own property URIs.  So, for example, the XML
 
-{: class="sample-code"}
+
 ```
     <ConceptRelation RelationName="REL">
       <Concept1UI>M0000205</Concept1UI>
@@ -151,7 +151,7 @@ Note:  RelationAttributes (not depicted in this example; see the [MeSH documenta
 
   would produce two triples:
 
-{: class="sample-code"}
+
 ```
     mesh:M0000205 skos:related mesh:M0567458 .
     mesh:M0000205 mesh:rela/187600 mesh:M0567458 .

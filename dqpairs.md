@@ -11,17 +11,14 @@ When indexing or cataloging resources using MeSH, NLM pairs Descriptors (main he
 http://id.nlm.nih.gov/mesh/D015242Q000008
 
 ### RDF
-{: class="inline-header"}
 The following RDF graph diagram shows how descriptor-qualifier pairs are modeled. Note that the pairing (D015242Q000008, Ofloxacin/administration &amp; dosage) is an instance of the class, meshv:AllowedDescriptorQualifierPair. Relationships between the descriptor-qualifier pair and its respective descriptor and qualifier are explicitly defined. 
 
 ![Descriptor Qualifier Pair RDF Graph Diagram](images/DQPair.png){: class="rdf-graph"}
 
 ### SPARQL
-{: class="inline-header"}
-
 The following SPARQL query will produce the the data shown in the RDF graph diagram above. 
 
-{: class="sample-code"}
+
 ```sparql
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -47,7 +44,7 @@ where {
 ```
 In turtle format:
 
-{: class="sample-code"}
+
 ```
 @prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
 @prefix mesh: <http://id.nlm.nih.gov/mesh/> .
@@ -63,9 +60,8 @@ meshv:AllowedDescriptorQualifierPair  rdfs:subClassOf  meshv:DescriptorQualifier
 The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the turtle data above to the truncated MeSH XML.
 
 ### XML
-{: class="inline-header"}
 
-{: class="sample-code"}
+
 ```xml
 <DescriptorRecord DescriptorClass="1">
   <DescriptorUI>D015242</DescriptorUI>

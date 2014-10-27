@@ -23,7 +23,7 @@ Depicted in these graphs:
 ## XML
 {: class="inline-header"}
 
-{: class="sample-code"}
+
 ```xml
 <DescriptorRecord DescriptorClass="1">
   <DescriptorUI>D000001</DescriptorUI>
@@ -94,7 +94,7 @@ Depicted in these graphs:
 
 In turtle format:
 
-{: class="sample-code"}
+
 ```
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mesh: <http://id.nlm.nih.gov/mesh/> .
@@ -174,7 +174,7 @@ Notes:
 as described in [the SPARQL specification](http://www.w3.org/TR/2013/REC-sparql11-query-20130321/#constructWhere),
 but it seems that Virtuoso doesn't support it.]
 
-{: class="sample-code"}
+
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
