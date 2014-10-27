@@ -6,7 +6,7 @@ categories:
 - Data Model
 ---
 
-When indexing or cataloging resources using MeSH, NLM pairs descriptors (main headings) and qualifiers (sub-headings). Qualifiers comprise a set of 83 terms used to add more specificity to descriptors. Each descriptor has a set of allowable qualifiers. In RDF, descriptors and qualifiers may be treated as separate classes, but we have chosen to create a class of descriptor-qualifier pairs, each with its own URI. For example, the pairing of a descriptor (D015242, Ofloxacin) and one of its allowable qualifiers (Q000008, administration &amp; dosage) has the following URI:
+When indexing or cataloging resources using MeSH, NLM pairs Descriptors (main headings) and Qualifiers (sub-headings). Qualifiers comprise a set of 83 terms used to add more specificity to descriptors. Each Descriptor has a set of Allowable Qualifiers. In RDF, Descriptors and Qualifiers may be treated as separate classes, but we have also chosen to create a class of Descriptor-Qualifier pairs, each with its own URI. For example, the pairing of a Descriptor (D015242, Ofloxacin) and one of its Allowable Qualifiers (Q000008, administration &amp; dosage) has the following URI:
 
 http://id.nlm.nih.gov/mesh/D015242Q000008
 
@@ -19,7 +19,7 @@ The following RDF graph diagram shows how descriptor-qualifier pairs are modeled
 ## SPARQL
 {: class="inline-header"}
 
-The following SPARQL query will produce the the data shown above. 
+The following SPARQL query will produce the the data shown in the RDF graph diagram above. 
 
 {: class="sample-code"}
 ```sparql
