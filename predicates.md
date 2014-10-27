@@ -16,7 +16,10 @@ dcterms:identifier | Explain Me | Where Do I Come From?
 meshv:abbreviation | Explain Me | Where Do I Come From?
 meshv:activeMeSHYear | Explain Me | Where Do I Come From?
 meshv:allowedTreeNode | Explain Me | Where Do I Come From?
-meshv:annotation | Explain Me | Where Do I Come From?
+meshv:annotation | This ....
+DUI: D343434
+Example: gen only prefer specifics
+| <Annotation>
 meshv:concept | Explain Me | Where Do I Come From?
 meshv:dateCreated | Explain Me | Where Do I Come From?
 meshv:dateEstablished | Explain Me | Where Do I Come From?
