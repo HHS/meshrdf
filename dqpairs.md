@@ -35,8 +35,8 @@ construct {
     ?dqpair rdf:type ?dqclass .
     ?dqclass rdfs:subClassOf ?superclass .
 }
-from <http://id.nlm/nih.gov.org/mesh>
-from <http://id.nlm/nih.gov/meshv>
+from <http://id.nlm.nih.gov/mesh>
+from <http://id.nlm.nih.gov/meshv>
 where {
     ?dqpair meshv:hasDescriptor mesh:D015242 .
     ?dqpair meshv:hasQualifier mesh:Q000008 .
