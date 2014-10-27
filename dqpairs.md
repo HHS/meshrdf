@@ -60,7 +60,7 @@ mesh:D015242Q000008  rdf:type  meshv:AllowedDescriptorQualifierPair ;
     meshv:hasQualifier   mesh:Q000008 .
 meshv:AllowedDescriptorQualifierPair  rdfs:subClassOf  meshv:DescriptorQualifierPair .
 ```
-The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the turtle data above to the truncated MeSH XML for Ofloxacin below.
+The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the turtle data above to the truncated MeSH XML.
 
 ## XML
 {: class="inline-header"}
