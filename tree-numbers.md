@@ -7,6 +7,7 @@ categories:
 ---
 
 ### RDF Graph Diagram
+{: class="inline-header"}
 
 The following diagram illustrates the problem of tree numbers, that impose multiple overlapping hierarchical
 relationships between descriptors. In the diagram, every arrow indicates a skos:broader relationship.
@@ -49,6 +50,7 @@ where {
 ```
 
 ## XML
+{: class="inline-header"}
 
 ```xml
 <DescriptorRecordSet LanguageCode="eng">
@@ -120,6 +122,7 @@ where {
 ```
 
 ## RDF
+{: class="inline-header"}
 
 ```
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -153,6 +156,7 @@ mesh:A09.371.613  skos:broaderTransitive  mesh:A09.371 .
 ```
 
 ## Generating the RDF
+{: class="inline-header"}
 
 The following SPARQL query creates a table that shows the relationships between "Eye"
 and each of the immediate broader and narrower concepts for each of its tree numbers:

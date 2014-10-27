@@ -116,7 +116,12 @@ padding:2em 0em 2em 2em;
 background-color:white;
 }
 
-pre, .sample-queries {
+.rdf-graph {
+  
+  max-width:600px;
+}
+
+.sample-code {
   margin-top:1em;
   margin-bottom:1em;
   padding: .5em;

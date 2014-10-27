@@ -11,7 +11,7 @@ categories:
 * Also need an example for Term/Abbreviation; Term/SortVersion, and Term/EntryVersion - use T060555, which is a descendent of the *qualifier* Q000008, administration and dosage. (We'll add a drawing for this under Qualifiers)
 
 ## RDF Graph Model
-
+{: class="inline-header"}
 Depicted in these graphs:
 
 ![](images/TermModel-2.png){: class="rdf-graph"}
@@ -21,7 +21,9 @@ Depicted in these graphs:
 
 
 ## XML
+{: class="inline-header"}
 
+{: class="sample-code"}
 ```xml
 <DescriptorRecord DescriptorClass="1">
   <DescriptorUI>D000001</DescriptorUI>
@@ -92,6 +94,7 @@ Depicted in these graphs:
 
 In turtle format:
 
+{: class="sample-code"}
 ```
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mesh: <http://id.nlm.nih.gov/mesh/> .
@@ -166,11 +169,12 @@ Notes:
   the `rdfs:label` property.
 
 ## Generating the RDF
-
+{: class="inline-header"}
 [Note that the following should be possible using the short `CONSTRUCT WHERE` form,
 as described in [the SPARQL specification](http://www.w3.org/TR/2013/REC-sparql11-query-20130321/#constructWhere),
 but it seems that Virtuoso doesn't support it.]
 
+{: class="sample-code"}
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>

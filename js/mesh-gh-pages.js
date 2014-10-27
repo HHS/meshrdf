@@ -1,4 +1,4 @@
-(function($) {
+/*(function($) {
     $(window).load(function() {
         // Control the size of the RDF graph images.  Usually 75% is just about right,
         // but the max allowed will be 800px
@@ -9,3 +9,4 @@
         });
     });
 })(jQuery);
+*/

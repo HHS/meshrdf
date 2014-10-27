@@ -9,14 +9,16 @@ categories:
 This example shows the graph derived from one descriptor (D015242, Ofloxacin) and one of it's allowable qualifiers (Q000008, administration &amp; dosage).
 
 ## RDF
-
+{: class="inline-header"}
 The RDF is depicted in the following graph:
 
 ![Descriptor Qualifier Pair RDF Graph Diagram](images/DQPair.png){: class="rdf-graph"}
 
 
 ## XML
+{: class="inline-header"}
 
+{: class="sample-code"}
 ```xml
 <DescriptorRecord DescriptorClass="1">
   <DescriptorUI>D015242</DescriptorUI>
@@ -44,6 +46,7 @@ The RDF is depicted in the following graph:
 
 In turtle format:
 
+{: class="sample-code"}
 ```
 @prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
 @prefix mesh: <http://id.nlm.nih.gov/mesh/> .
@@ -59,9 +62,11 @@ meshv:AllowedDescriptorQualifierPair  rdfs:subClassOf  meshv:DescriptorQualifier
 
 
 ## Generating the RDF
+{: class="inline-header"}
 
 The RDF output above can be generated with the following SPARQL query, after substituting the current values for the name of the graph and so forth:
 
+{: class="sample-code"}
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
