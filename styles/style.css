@@ -121,7 +121,7 @@ background-color:white;
   max-width:600px;
 }
 
-pre {
+pre, .sample-queries {
   margin-top:1em;
   margin-bottom:1em;
   padding: .5em;
@@ -130,12 +130,19 @@ pre {
   background:url(../images/paper_fibers.png) repeat;
 }
 
-.predicate-table td {
-
-  border:solid 1px black;
+.data-table {
+  
+border-collapse: collapse;
+margin:1em;
 }
 
-.predicate-table th{
+.data-table td {
+border-bottom:groove 1px #082735;
+border-right:groove 1px #082735;
+padding: .5em;
+}
+
+.data-table th{
 
 text-align:left;
 

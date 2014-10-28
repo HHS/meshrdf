@@ -6,14 +6,16 @@ categories:
 - Cheat Sheets
 ---
 
-{:.predicate-table}
+The table below is a list of predicates in MeSH RDF.  
+
+{:.data-table}
 Predicate Name | Definition | Equivalent XML Data Element
 -------------- | ---------- | ---------------------------
 rdf:type | Explain Me | Where Do I Come From?
 rdfs:label | Explain Me | Where Do I Come From?
 skos:narrower | Explain Me | Where Do I Come From?
 dcterms:identifier | Explain Me | Where Do I Come From?
-meshv:abbreviation | Two-letter, uppercase abbreviation for a Qualifier term. QUI Q000235 example: GE |```<Abbreviation```
+meshv:abbreviation | Two-letter, uppercase abbreviation for a Qualifier term. QUI Q000235 example: GE |```<Abbreviation>```
 meshv:activeMeSHYear | Explain Me | Where Do I Come From?
 meshv:allowedTreeNode | Explain Me | Where Do I Come From?
 meshv:annotation | Free-text information for indexers and catalogers concerning the use of the descriptor or qualifier. DUI: D005858 example: for Germany before 23 May 1949 & after 3 Oct 1990; for historical articles before & after 1949: Manual 36.11; BERLIN is also available| ```<Annotation>```
