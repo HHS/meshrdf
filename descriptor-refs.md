@@ -26,6 +26,7 @@ PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 
 construct {
+    mesh:D009369 meshv:annotation ?a .
     mesh:D009369 meshv:seeAlso ?sa .
     mesh:D009369 meshv:considerAlso ?ca .
     mesh:D009369 meshv:runningHead ?rh .
@@ -33,6 +34,7 @@ construct {
 }
 from <http://id.nlm.nih.gov/mesh2014>
 where {
+    mesh:D009369 meshv:annotation ?a .
     mesh:D009369 meshv:seeAlso ?sa .
     mesh:D009369 meshv:considerAlso ?ca .
     mesh:D009369 meshv:runningHead ?rh .
@@ -61,6 +63,7 @@ mesh:D009369  meshv:seeAlso mesh:D011230 ,
                             mesh:D009858 ;
               meshv:runningHead  "C4 - DISEASES-NEOPLASMS\n  " ;
               meshv:considerAlso  "consider also terms at CANCER, CARCINO-, ONCO-, and TUMOR\n  " .
+              meshv:annotation  "general; prefer ... METASTASIS" ;
 
 mesh:D015242  meshv:pharmacologicalAction mesh:D059005 ,
                                           mesh:D000900 ,
@@ -76,6 +79,7 @@ mesh:D015242  meshv:pharmacologicalAction mesh:D059005 ,
   <DescriptorName>
     <String>Neoplasms</String>
   </DescriptorName>
+  <Annotation>general; prefer specifics; policy: ... NEOPLASM METASTASIS</Annotation>
   <SeeRelatedList>
     <SeeRelatedDescriptor>
       <DescriptorReferredTo>
