@@ -10,13 +10,14 @@ When indexing or cataloging resources using MeSH, NLM pairs Descriptors (main he
 
 http://id.nlm.nih.gov/mesh/D015242Q000008
 
-### RDF
-The following RDF graph diagram shows how descriptor-qualifier pairs are modeled. Note that the pairing (D015242Q000008, Ofloxacin/administration &amp; dosage) is an instance of the class, meshv:AllowedDescriptorQualifierPair. Relationships between the descriptor-qualifier pair and its respective descriptor and qualifier are explicitly defined. 
+### RDF Graph Diagram
+
+The following RDF graph diagram shows how descriptor-qualifier pairs are modeled. Note that the pairing (D015242Q000008, Ofloxacin/administration &amp; dosage) is an instance of the class, meshv:AllowedDescriptorQualifierPair. Relationships between the descriptor-qualifier pair and its respective descriptor and qualifier are explicitly defined.
 
 ![Descriptor Qualifier Pair RDF Graph Diagram](images/DQPair.png){: class="rdf-graph"}
 
 ### SPARQL
-The following SPARQL query will produce the the data shown in the RDF graph diagram above. 
+The following SPARQL query will produce the the data shown in the RDF graph diagram above.
 
 
 ```sparql
@@ -32,8 +33,7 @@ construct {
     ?dqpair rdf:type ?dqclass .
     ?dqclass rdfs:subClassOf ?superclass .
 }
-from <http://id.nlm.nih.gov/mesh>
-from <http://id.nlm.nih.gov/meshv>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
     ?dqpair meshv:hasDescriptor mesh:D015242 .
     ?dqpair meshv:hasQualifier mesh:Q000008 .
@@ -42,8 +42,8 @@ where {
     ?dqclass rdfs:subClassOf ?superclass .
 }
 ```
-In turtle format:
 
+### MeSH RDF Data
 
 ```
 @prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
@@ -59,8 +59,7 @@ meshv:AllowedDescriptorQualifierPair  rdfs:subClassOf  meshv:DescriptorQualifier
 ```
 The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the turtle data above to the truncated MeSH XML.
 
-### XML
-
+### MeSH XML
 
 ```xml
 <DescriptorRecord DescriptorClass="1">
