@@ -12,9 +12,11 @@
   */
   $(document).ready(function () {
       var sparql_endpoint = 'http://jatspan.org:8890/sparql';
-      var sparql_format_param = 'format=text%2Frdf%2Bn3'
-      var query_span = $('.language-sparql');
-      var q_enc = encodeURIComponent(query_span.text());
+      var sparql_format_param = 'format=text%2Frdf%2Bn3';
+
+      var query_ref = $('.invoke-sparql');
+      var query_block = $('.language-sparql');
+      var q_enc = encodeURIComponent(query_block.text());
       var endpoint_url = sparql_endpoint + "?query=" + q_enc + '&' + sparql_format_param;
       query_span.wrap("<a href='" + endpoint_url + "'/>");
 
