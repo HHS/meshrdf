@@ -5,9 +5,7 @@ resource: true
 categories:
 - Data Model
 ---
-A concept is a class in MeSH RDF (meshv:Concept).  A MeSH Concept represents a unit of meaning.  Collections of concepts that may be useful for search and retrieval on a given topic are placed
-into the same MeSH Descriptor.  A concept is considered 'preferred' if its name is used by the descriptor to which it belongs.  All other concepts (if present) are considered
-'sub-concepts'.  
+A concept is a class in MeSH RDF (meshv:Concept).  A MeSH Concept represents a unit of meaning.  Collections of concepts that may be useful for search and retrieval on a given topic are placedinto the same MeSH Descriptor.  A concept is considered 'preferred' if its name is used by the descriptor to which it belongs.  All other concepts (if present) are considered 'sub-concepts'.  
 
 ## RDF Graph Diagram
 {: class="inline-header"}

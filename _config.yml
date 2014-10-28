@@ -2,7 +2,7 @@ name: ""
 description: ""
 
 ## un comment baseurl variable before committing to hhs.github.io/meshrdf each time!
-baseurl: /meshrdf
+#baseurl: /meshrdf
 
 markdown: kramdown
 permalink: /:title.html

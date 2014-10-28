@@ -32,7 +32,7 @@
     
     <p>Query types:
     <select class = "query-types" onchange="location = this.options[this.selectedIndex].value;">
-    {% for type in site.query-types | sort!  %}
+    {% for type in site.query-types | sort_by   %}
     <option value = "#{{ type | downcase | replace: ' ','-' }} ">{{ type }}</option>
     {% endfor %}
     </select>
@@ -45,8 +45,8 @@
       <h4 class = "inline-header">{{ query.name }}</h4>
       <p>{{ query.notes }}</p>
       <div class = "sample-queries {{query.type | downcase | replace: ' ','-' }}">
-       {{{query.string | xml_escape | newline_to_br }}}
-       <p><a href = "{{query.string | cgi_escape | prepend: 'http://iddev.nlm.nih.gov/mesh/sparql?query='}}" target = "_blank">Run This Query:</a></p>
+       {{query.string | xml_escape | newline_to_br }}
+       <p><a href = "{{query.string | cgi_escape | prepend: 'http://iddev.nlm.nih.gov/mesh/sparql?query='}}" target = "_blank">Run This Query</a></p>
       </div>
       {% endif %}
       {% endfor %}
