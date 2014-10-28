@@ -65,9 +65,10 @@ Here is the truncated output of the above query in [N3 format](http://iddev.nlm.
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#subClassOf>
                 <http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair> .
 ```
-The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the N3 data above to the truncated MeSH XML.
 
 ### MeSH XML
+
+The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the N3 data above to the truncated MeSH XML.
 
 ```xml
 <DescriptorRecord DescriptorClass="1">
