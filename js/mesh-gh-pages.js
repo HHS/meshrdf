@@ -18,7 +18,7 @@
       var query_block = $('.language-sparql');
       var q_enc = encodeURIComponent(query_block.text());
       var endpoint_url = sparql_endpoint + "?query=" + q_enc + '&' + sparql_format_param;
-      query_span.wrap("<a href='" + endpoint_url + "'/>");
+      query_ref.wrap("<a href='" + endpoint_url + "'/>");
 
   });
 })(jQuery);
