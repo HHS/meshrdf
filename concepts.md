@@ -5,7 +5,39 @@ resource: true
 categories:
 - Data Model
 ---
-A concept is a class in MeSH RDF (meshv:Concept).  A MeSH Concept represents a unit of meaning.  Collections of concepts that may be useful for search and retrieval on a given topic are placedinto the same MeSH Descriptor.  A concept is considered 'preferred' if its name is used by the descriptor to which it belongs.  All other concepts (if present) are considered 'sub-concepts'.  
+A concept is a class in MeSH RDF (meshv:Concept).  MeSH concepts are all assigned 'M' identifiers.  A MeSH Concept represents a unit of meaning.  Collections of concepts that may be useful for search and retrieval on a given topic are placed into the same MeSH Descriptor.  A concept is considered 'preferred' if its name is used by the descriptor to which it belongs. In MeSH RDF, concepts classes can be connected as follows:  
+
+**When the concept is the 'Subject'**
+
+
+{:.data-table}
+Subject | Predicate | Object
+------- | --------- | -------
+meshv:Concept | skos:narrower | meshv:Concept
+meshv:Concept | meshv:semanticType | meshv:SemanticType
+meshv:Concept | meshv:preferredTerm | meshv:Term
+meshv:Concept | skos:broader | meshv:Concept
+meshv:Concept | meshv:term | meshv:Term
+
+**When the concept is the 'Object'**
+
+{:.data-table}
+Subject | Predicate | Object
+------- | --------- | -------
+meshv:Concept | skos:narrower | meshv:Concept
+meshv:Concept | skos:broader | meshv:Concept
+meshv:Qualifier | meshv:concept | meshv:Concept
+meshv:Qualifier | meshv:preferredConcept | meshv:Concept
+meshv:TopicalDescriptor | meshv:preferredConcept | meshv:Concept
+meshv:TopicalDescriptor | meshv:concept | meshv:Concept
+meshv:GeographicalDescriptor | meshv:preferredConcept | meshv:Concept
+meshv:GeographicalDescriptor | meshv:concept | meshv:Concept
+meshv:PublicationType | meshv:concept | meshv:Concept
+meshv:PublicationType | meshv:preferredConcept | meshv:Concept
+meshv:SupplementaryConceptRecord | meshv:preferredConcept | meshv:Concept
+meshv:SupplementaryConceptRecord | meshv:concept | meshv:Concept
+meshv:CheckTag | meshv:preferredConcept | meshv:Concept
+
 
 ## RDF Graph Diagram
 {: class="inline-header"}
