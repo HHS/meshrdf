@@ -18,7 +18,7 @@ The following RDF graph diagram shows how descriptor-qualifier pairs are modeled
 
 ### SPARQL
 
-The following <span class='invoke-sparql'>SPARQL query</span>{:target="_blank"} will produce the the data
+The following <span class='invoke-sparql'>SPARQL query</span> will produce the the data
 shown in the RDF graph diagram above.
 
 

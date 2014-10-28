@@ -17,7 +17,7 @@ The RDF is depicted in the following graph:
 
 ###SPARQL
 
-The RDF output above can be generated with the following <span class='invoke-sparql'>SPARQL query</span>{:target="_blank"}, after substituting the current values for the name of the graph and so forth:
+The RDF output above can be generated with the following <span class='invoke-sparql'>SPARQL query</span>, after substituting the current values for the name of the graph and so forth:
 
 
 ```sparql

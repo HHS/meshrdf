@@ -25,7 +25,7 @@ In MeSH RDF, Ofloxacin is an instance of the class, meshv:TopicalDescriptor, one
 
 ###SPARQL
 
-The following <span class='invoke-sparql'>SPARQL query</span>{:target="_blank"} will produce the predicates and objects of Ofloxacin.
+The following <span class='invoke-sparql'>SPARQL query</span> will produce the predicates and objects of Ofloxacin.
 
 
 ```sparql
