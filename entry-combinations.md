@@ -16,7 +16,7 @@ Depicted in this graph:
 
 ###SPARQL
 
-The following <span class='invoke-sparql'>SPARQL query</span> does produces the RDF corresponding
+The following <span class='invoke-sparql'>SPARQL query</span>{:target="_blank"} does produces the RDF corresponding
 to the above graph:
 
 ```sparql
@@ -66,9 +66,8 @@ Notes:
   not one of the "allowed" ones.
 
 
-
-
 ### MeSH XML
+
 Here is a typical example of and EntryCombination represented in XML.
 
 

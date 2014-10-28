@@ -17,8 +17,7 @@ The RDF is depicted in the following graph:
 
 ###SPARQL
 
-The RDF output above can be generated with [the following SPARQL
-query](http://iddev.nlm.nih.gov/mesh/sparql?query=PREFIX+mesh%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0APREFIX+meshv%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct+%7B%0D%0A++++mesh%3AD009369+meshv%3AseeAlso+%3Fsa+.%0D%0A++++mesh%3AD009369+meshv%3AconsiderAlso+%3Fca+.%0D%0A++++mesh%3AD009369+meshv%3ArunningHead+%3Frh+.%0D%0A++++mesh%3AD015242+meshv%3ApharmacologicalAction+%3Fpa+.%0D%0A%7D%0D%0Afrom+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0Awhere+%7B%0D%0A++++mesh%3AD009369+meshv%3AseeAlso+%3Fsa+.%0D%0A++++mesh%3AD009369+meshv%3AconsiderAlso+%3Fca+.%0D%0A++++mesh%3AD009369+meshv%3ArunningHead+%3Frh+.%0D%0A++++mesh%3AD015242+meshv%3ApharmacologicalAction+%3Fpa+.%0D%0A%7D%0D%0A&format=text%2Frdf%2Bn3&timeout=0&debug=on), after substituting the current values for the name of the graph and so forth:
+The RDF output above can be generated with the following <span class='invoke-sparql'>SPARQL query</span>{:target="_blank"}, after substituting the current values for the name of the graph and so forth:
 
 
 ```sparql
