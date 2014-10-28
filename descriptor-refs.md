@@ -10,16 +10,65 @@ This page documents a couple of the ways that Descriptors reference other items,
 translated into RDF.
 
 ### RDF Graph Diagram
-{: class="inline-header"}
+
 The RDF is depicted in the following graph:
 
 ![Descriptor References RDF Graph Diagram](images/DescriptorRefs.png){: class="rdf-graph"}
 
+###SPARQL
+
+The RDF output above can be generated with [the following SPARQL
+query](http://iddev.nlm.nih.gov/mesh/sparql?query=PREFIX+mesh%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0APREFIX+meshv%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct+%7B%0D%0A++++mesh%3AD009369+meshv%3AseeAlso+%3Fsa+.%0D%0A++++mesh%3AD009369+meshv%3AconsiderAlso+%3Fca+.%0D%0A++++mesh%3AD009369+meshv%3ArunningHead+%3Frh+.%0D%0A++++mesh%3AD015242+meshv%3ApharmacologicalAction+%3Fpa+.%0D%0A%7D%0D%0Afrom+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0Awhere+%7B%0D%0A++++mesh%3AD009369+meshv%3AseeAlso+%3Fsa+.%0D%0A++++mesh%3AD009369+meshv%3AconsiderAlso+%3Fca+.%0D%0A++++mesh%3AD009369+meshv%3ArunningHead+%3Frh+.%0D%0A++++mesh%3AD015242+meshv%3ApharmacologicalAction+%3Fpa+.%0D%0A%7D%0D%0A&format=text%2Frdf%2Bn3&timeout=0&debug=on), after substituting the current values for the name of the graph and so forth:
 
 
-## XML
-{: class="inline-header"}
+```sparql
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 
+construct {
+    mesh:D009369 meshv:seeAlso ?sa .
+    mesh:D009369 meshv:considerAlso ?ca .
+    mesh:D009369 meshv:runningHead ?rh .
+    mesh:D015242 meshv:pharmacologicalAction ?pa .
+}
+from <http://id.nlm.nih.gov/mesh2014>
+where {
+    mesh:D009369 meshv:seeAlso ?sa .
+    mesh:D009369 meshv:considerAlso ?ca .
+    mesh:D009369 meshv:runningHead ?rh .
+    mesh:D015242 meshv:pharmacologicalAction ?pa .
+}
+```
+
+###MeSH RDF Data
+
+In turtle format:
+
+```
+@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
+@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
+
+mesh:D009369  meshv:seeAlso mesh:D011230 ,
+                            mesh:D000912 ,
+                            mesh:D000951 ,
+                            mesh:D016588 ,
+                            mesh:D004273 ,
+                            mesh:D012334 ,
+                            mesh:D000970 ,
+                            mesh:D016066 ,
+                            mesh:D002273 ,
+                            mesh:D016147 ,
+                            mesh:D009858 ;
+              meshv:runningHead  "C4 - DISEASES-NEOPLASMS\n  " ;
+              meshv:considerAlso  "consider also terms at CANCER, CARCINO-, ONCO-, and TUMOR\n  " .
+
+mesh:D015242  meshv:pharmacologicalAction mesh:D059005 ,
+                                          mesh:D000900 ,
+                                          mesh:D000892 .
+```
+
+
+### MeSH XML
 
 ```xml
 <DescriptorRecord DescriptorClass="1">
@@ -77,58 +126,3 @@ The RDF is depicted in the following graph:
   </PharmacologicalActionList>
 </DescriptorRecord>
 ```
-
-
-In turtle:
-
-
-```
-@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
-@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
-
-mesh:D009369  meshv:seeAlso mesh:D011230 ,
-                            mesh:D000912 ,
-                            mesh:D000951 ,
-                            mesh:D016588 ,
-                            mesh:D004273 ,
-                            mesh:D012334 ,
-                            mesh:D000970 ,
-                            mesh:D016066 ,
-                            mesh:D002273 ,
-                            mesh:D016147 ,
-                            mesh:D009858 ;
-              meshv:runningHead  "C4 - DISEASES-NEOPLASMS\n  " ;
-              meshv:considerAlso  "consider also terms at CANCER, CARCINO-, ONCO-, and TUMOR\n  " .
-
-mesh:D015242  meshv:pharmacologicalAction mesh:D059005 ,
-                                          mesh:D000900 ,
-                                          mesh:D000892 .
-```
-
-
-## Generating the RDF
-{: class="inline-header"}
-The RDF output above can be generated with the following SPARQL query, after substituting the current values for the name of the graph and so forth:
-
-
-```sparql
-PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-
-construct {
-    mesh:D009369 meshv:seeAlso ?sa .
-    mesh:D009369 meshv:considerAlso ?ca .
-    mesh:D009369 meshv:runningHead ?rh .
-    mesh:D015242 meshv:pharmacologicalAction ?pa .
-}
-from <http://chrismaloney.org/mesh>
-where {
-    mesh:D009369 meshv:seeAlso ?sa .
-    mesh:D009369 meshv:considerAlso ?ca .
-    mesh:D009369 meshv:runningHead ?rh .
-    mesh:D015242 meshv:pharmacologicalAction ?pa .
-}
-```
-
-At the time of this writing, you can see the results dynamically from [this
-url](http://jatspan.org:8890/sparql?default-graph-uri=&query=PREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0A%0Aconstruct%20%7B%0A%20%20%20%20mesh%3AD009369%20meshv%3AseeAlso%20%3Fsa%20.%0A%20%20%20%20mesh%3AD009369%20meshv%3AconsiderAlso%20%3Fca%20.%0A%20%20%20%20mesh%3AD009369%20meshv%3ArunningHead%20%3Frh%20.%0A%20%20%20%20mesh%3AD015242%20meshv%3ApharmacologicalAction%20%3Fpa%20.%0A%7D%0Afrom%20%3Chttp%3A%2F%2Fchrismaloney.org%2Fmesh%3E%0Awhere%20%7B%0A%20%20%20%20mesh%3AD009369%20meshv%3AseeAlso%20%3Fsa%20.%0A%20%20%20%20mesh%3AD009369%20meshv%3AconsiderAlso%20%3Fca%20.%0A%20%20%20%20mesh%3AD009369%20meshv%3ArunningHead%20%3Frh%20.%0A%20%20%20%20mesh%3AD015242%20meshv%3ApharmacologicalAction%20%3Fpa%20.%0A%7D&format=text%2Frdf%2Bn3&timeout=0&debug=on).
