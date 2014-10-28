@@ -1,4 +1,38 @@
-#important - see _config.yml query-types for the list of allowable types.
+#important - see _config.yml query-types for the list of allowable query types.
+
+- name: Retrieve list of predicates in MeSH RDF
+  notes: This query gives a complete list of MeSH RDF predicates
+  type: Getting Started
+  string: |+
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   
+   SELECT DISTINCT ?p
+   FROM <http://id.nlm.nih.gov/mesh2014>
+   WHERE {
+   
+     ?s ?p ?o
+     
+   }
+
+- name: Retrieve all meshv classes in MeSH RDF
+  notes: This query gives a unique list of all MeSH classes
+  type: Getting Started
+  string: |+
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   
+   SELECT DISTINCT ?class
+   FROM <http://id.nlm.nih.gov/mesh2014>
+   WHERE {
+   
+      ?s rdf:type ?class
+      
+    }
+    ORDER BY ?class
+    
 - name: Which triples have 'Ofloxacin' as the object?
   notes: A basic subject, predicate, object triple in MeSH RDF.
   type: Getting Started
@@ -11,7 +45,7 @@
    FROM <http://id.nlm.nih.gov/mesh2014>
    
    WHERE {
-   ?s ?p mesh:D015242 .
+     ?s ?p mesh:D015242 .
    }
 
 - name: The Pharmacologic Actions of Oflaxacin and their labels.
@@ -26,9 +60,10 @@
    FROM <http://id.nlm.nih.gov/mesh2014>
    
    WHERE {
-   mesh:D015242 vocab:pharmacologicalAction ?pa .
-   ?pa rdfs:label ?paLabel
+     mesh:D015242 vocab:pharmacologicalAction ?pa .
+     ?pa rdfs:label ?paLabel
    }
+   
 - name: Descriptors/SCRs that have the Pharmacologic Action 'Anti-Bacterial Agents'?
   notes: A filter query of MeSH predicates based on a certain type of Pharmacologic Action
   type: Predicate
@@ -41,12 +76,13 @@
    FROM <http://id.nlm.nih.gov/mesh2014>
    
    WHERE {
-   ?d vocab:pharmacologicalAction ?pa.
-   ?d rdfs:label ?dLabel .
-   ?pa rdfs:label "Anti-Bacterial Agents"
+    ?d vocab:pharmacologicalAction ?pa.
+    ?d rdfs:label ?dLabel .
+    ?pa rdfs:label "Anti-Bacterial Agents"
    }
    
    ORDER BY ASC (?dLabel)
+   
 - name: Any MeSH descriptor that has an allowable qualifier of adverse effects.
   notes: MeSH has rules that govern which qualifiers can be used with which MeSH Headings.
   type: Descriptors and Qualifiers
@@ -63,6 +99,7 @@
         ?q rdfs:label "adverse effects" .  
         ?d rdfs:label ?dLabel  
      }
+     
 - name: Any MeSH descriptor that is an ancestor of D005138 'Eyebrow',
   notes: The MeSH heading for 'Eybrow' can be retrieved through various paths in the MeSH tree.  This query demonstrates how to 'explode up' the MeSH tree to find all ancestors.
   type: Transitive
@@ -83,23 +120,24 @@
    }
    
    ORDER BY ?treeNode ?ancestorTreeNode
+   
 - name: Any MeSH descriptor that is a descendant of D009369 'Neoplasm'
   notes: Find all descendants (not just immediate children) of 'Neoplasm'.  This query 'explodes down' the MeSH tree.
   type: Transitive
   string: |+
-   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#> 
-   PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> 
-   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+    PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#> 
+    PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> 
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
    
-   SELECT DISTINCT ?desc ?desc_label
-   FROM <http://id.nlm.nih.gov/mesh2014>
+    SELECT DISTINCT ?desc ?desc_label
+    FROM <http://id.nlm.nih.gov/mesh2014>
    
-   WHERE {
-    mesh:D009369 vocab:treeNumber ?tn .
-    ?desctn skos:broaderTransitive+ ?tn .
-    ?desc vocab:treeNumber ?desctn .
-    ?desc rdfs:label ?desc_label .
+    WHERE {
+      mesh:D009369 vocab:treeNumber ?tn .
+      ?desctn skos:broaderTransitive+ ?tn .
+      ?desc vocab:treeNumber ?desctn .
+      ?desc rdfs:label ?desc_label .
     }
     
     ORDER BY ?desc_label
@@ -155,20 +193,27 @@
    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-    CONSTRUCT {
+   
+   CONSTRUCT {
+    
     mesh:D000647 meshv:preferredConcept ?prefcon .
     ?prefcon ?p ?o .
     ?prefcon meshv:semanticType $semtype .
     ?prefcon skos:narrower $subcon .
     $subcon rdfs:label $subconLabel .
     $semtype ?stp $sto .
+    
     }
+    
     FROM <http://id.nlm.nih.gov/mesh2014>
+    
     WHERE {
+    
     mesh:D000647 meshv:preferredConcept ?prefcon .
     ?prefcon ?p ?o .
     ?prefcon meshv:semanticType $semtype .
     ?prefcon skos:narrower $subcon .
     $subcon rdfs:label $subconLabel .
     $semtype ?stp $sto .
+    
     }
