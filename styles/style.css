@@ -121,7 +121,7 @@ background-color:white;
   max-width:600px;
 }
 
-pre, .sample-queries {
+pre, .sample-queries, .data-table {
   margin-top:1em;
   margin-bottom:1em;
   padding: .5em;
@@ -145,7 +145,7 @@ padding: .5em;
 .data-table th{
 
 text-align:left;
-
+padding: .5em;
 
 }
 
