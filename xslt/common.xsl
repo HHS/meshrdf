@@ -744,6 +744,10 @@
           </xsl:call-template>
         </xsl:if>
         
+      <!--
+        We had originally discussed creating separate predicates for each of these
+        RelationAttributes (see GitHub issue #15, https://github.com/HHS/mesh-rdf/issues/15,
+        but, later, decided against it.
         <xsl:if test="RelationAttribute">
           <xsl:call-template name="triple">
             <xsl:with-param name="spec">
@@ -759,6 +763,7 @@
             </xsl:with-param>
           </xsl:call-template>
         </xsl:if>
+      -->
       </xsl:for-each>
       
       <!--
