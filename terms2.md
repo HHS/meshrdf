@@ -15,9 +15,6 @@ Depicted in these graphs:
 
 ![](images/TermModel-2.png){: class="rdf-graph"}
 
-![](images/TermModel.png){: class="rdf-graph"}
-
-
 ### SPARQL
 
 [Note that the following should be possible using the short `CONSTRUCT WHERE` form,
@@ -33,48 +30,109 @@ PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 
 construct {
     mesh:D000001 a ?descClass .
+    ?descClass rdfs:subClassOf ?superClass .
 
     mesh:D000001 meshv:preferredConcept ?prefCon .
     ?prefCon a ?prefConClass .
-    mesh:D000001 meshv:preferredTerm ?prefTerm .
-    ?prefTerm a ?prefTermClass .
+
+    mesh:D000001 meshv:recordPreferredTerm ?prefTerm .
     ?prefCon meshv:preferredTerm ?prefTerm .
+    ?prefTerm a ?prefTermClass .
 
     mesh:D000001 meshv:concept ?con .
     ?con a ?conClass .
     ?con meshv:preferredTerm ?conPrefTerm .
     ?conPrefTerm a ?conPrefTermClass .
-    ?conPrefTermClass rdfs:subClassOf ?conPrefTermSuperclass .
 
     ?con meshv:term ?conTerm .
     ?conTerm a ?conTermClass .
-
-    ?conPrefTerm ?cptp ?cpto .
-
-    ?conTerm ?ctp ?cto .
 }
-from <http://id.nlm.nih.gov/mesh2014>
+FROM <http://id.nlm.nih.gov/mesh2014>
 where {
     mesh:D000001 a ?descClass .
+    ?descClass rdfs:subClassOf ?superClass .
 
     mesh:D000001 meshv:preferredConcept ?prefCon .
     ?prefCon a ?prefConClass .
-    mesh:D000001 meshv:preferredTerm ?prefTerm .
-    ?prefTerm a ?prefTermClass .
+
+    mesh:D000001 meshv:recordPreferredTerm ?prefTerm .
     ?prefCon meshv:preferredTerm ?prefTerm .
+    ?prefTerm a ?prefTermClass .
 
     mesh:D000001 meshv:concept ?con .
     ?con a ?conClass .
     ?con meshv:preferredTerm ?conPrefTerm .
     ?conPrefTerm a ?conPrefTermClass .
-    ?conPrefTermClass rdfs:subClassOf ?conPrefTermSuperclass .
 
     ?con meshv:term ?conTerm .
     ?conTerm a ?conTermClass .
+}
+```
 
-    ?conPrefTerm ?cptp ?cpto .
+### MeSH RDF
 
-    ?conTerm ?ctp ?cto .
+
+```
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
+@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+mesh:D000001  rdf:type  meshv:TopicalDescriptor ;
+              meshv:preferredConcept  mesh:M0000001 ;
+              meshv:recordPreferredTerm mesh:T000002 ;
+              meshv:concept mesh:M0353609 .
+mesh:M0000001 rdf:type  meshv:Concept ;
+              meshv:preferredTerm mesh:T000002 .
+mesh:M0353609 rdf:type  meshv:Concept ;
+              meshv:term  mesh:T000003 ,
+                          mesh:T000004 ;
+              meshv:preferredTerm mesh:T000001 .
+mesh:T000002  rdf:type  meshv:Term .
+mesh:T000001  rdf:type  meshv:Term .
+mesh:T000003  rdf:type  meshv:Term .
+mesh:T000004  rdf:type  meshv:Term .
+meshv:TopicalDescriptor rdfs:subClassOf meshv:Descriptor .
+```
+
+
+
+
+### RDF Graph Model
+
+![](images/TermModel.png){: class="rdf-graph"}
+
+The following <span class='invoke-sparql'>SPARQL query</span> produces the graphs depicted in the
+figures above:
+
+```sparql
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+
+construct {
+    mesh:M0353609 rdfs:label ?conLabel .
+    mesh:M0353609 a ?conClass .
+
+    mesh:M0353609 meshv:preferredTerm ?prefTerm .
+    ?prefTerm a ?prefTermClass .
+    ?prefTerm ?p ?o .
+
+    mesh:M0353609 meshv:preferredTerm ?term .
+    ?term a ?termClass .
+    ?term ?p ?o .
+}
+FROM <http://id.nlm.nih.gov/mesh2014>
+where {
+    mesh:M0353609 rdfs:label ?conLabel .
+    mesh:M0353609 a ?conClass .
+
+    mesh:M0353609 meshv:preferredTerm ?prefTerm .
+    ?prefTerm a ?prefTermClass .
+    ?prefTerm ?p ?o .
+
+    mesh:M0353609 meshv:preferredTerm ?term .
+    ?term a ?termClass .
+    ?term ?p ?o .
 }
 ```
 
@@ -89,39 +147,18 @@ where {
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-mesh:D000001    rdf:type  meshv:TopicalDescriptor ;
-                meshv:preferredConcept  mesh:M0000001 ;
-                meshv:concept mesh:M0353609 ;
-                meshv:preferredTerm mesh:T000002 .
-
-mesh:M0000001   rdf:type  meshv:Concept ;
-                meshv:preferredTerm mesh:T000002 .
-
-mesh:M0353609   rdf:type  meshv:Concept ;
-                meshv:term  mesh:T000003 ,
-                            mesh:T000004 ;
-                meshv:preferredTerm mesh:T000001 .
-
-mesh:T000002    rdf:type  meshv:Term .
-
-mesh:T000001    rdf:type  meshv:LabNumber ;
-                meshv:lexicalTag  "LAB" ;
-                rdfs:label  "A-23187" ;
-                skos:prefLabel  "A-23187" ;
-                skos:altLabel "A 23187" .
-                dcterms:identifier  "T000001" ;
-                meshv:dateCreated "1990-03-08"^^xsd:date ;
-                meshv:thesaurusID "NLM (1991)" ;
-                meshv:printFlag "N" ;
-
-mesh:T000003    rdf:type  meshv:Term ;
-                meshv:lexicalTag  "NON" ;
-                rdfs:label  "Antibiotic A23187" ;
-                skos:prefLabel  "Antibiotic A23187" ;
-                skos:altLabel "A23187, Antibiotic" .
-...
-
-meshv:LabNumber rdfs:subClassOf meshv:Term .
+mesh:M0353609 rdf:type  meshv:Concept ;
+              rdfs:label  "A-23187" ;
+              meshv:preferredTerm mesh:T000001 .
+mesh:T000001  rdf:type  meshv:Term ;
+              rdfs:label  "A-23187" .
+mesh:T000001  dcterms:identifier  "T000001" .
+mesh:T000001  meshv:dateCreated "1990-03-08"^^xsd:date ;
+              meshv:lexicalTag  "LAB" ;
+              meshv:printFlag "N" ;
+              meshv:thesaurusID "NLM (1991)" .
+mesh:T000001  skos:prefLabel  "A-23187" ;
+              skos:altLabel   "A 23187" .
 ```
 
 Notes:
