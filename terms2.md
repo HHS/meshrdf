@@ -1,5 +1,5 @@
 ---
-title: Terms
+title: Terms Properties
 layout: page
 resource: true
 categories:
