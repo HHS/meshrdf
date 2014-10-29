@@ -201,8 +201,7 @@ construct {
 
     ?conTerm ?ctp ?cto .
 }
-from <http://chrismaloney.org/mesh>
-from <http://chrismaloney.org/meshv>
+from <http://id.nlm.nih.gov/mesh2014>
 where {
     mesh:D000001 a ?descClass .
 
