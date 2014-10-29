@@ -3,121 +3,97 @@
   padding: 0;
 }
 
-
 body {
-
-    font: normal .75em Arial, Helvetica, sans-serif;
-    padding-bottom:20px;
-    /*background-color:#f2f2f2;*/
-    background:url(../images/NLM_main_background.png)
+  font: normal .75em Arial, Helvetica, sans-serif;
+  padding-bottom:20px;
+  /*background-color:#f2f2f2;*/
+  background:url(../images/NLM_main_background.png)
 }
 
-hr{
-
-margin-top:1em;
-margin-bottom:1em;
+hr {
+  margin-top:1em;
+  margin-bottom:1em;
 }
 
-h1,h2,h3,h4 {
-
+h1, h2, h3, h4 {
   color: #105981 !important;
 }
 
 h1 {
-text-align:center;
-margin-top:1em;
-
+  text-align:center;
+  margin-top:1em;
 }
 
 .content > h3, .content > h2, .content h4 {
-
-margin-top:1em;
-margin-bottom:1em;
-
+  margin-top:1em;
+  margin-bottom:1em;
 }
 
-#logo-container{
-width:100%;
-float:left;
-background-color:#254062;
-border-bottom:2px double #9CC4E4;
-
+#logo-container {
+  width:100%;
+  float:left;
+  background-color:#254062;
+  border-bottom:2px double #9CC4E4;
 }
 
-.breadcrumbs{
-
-width:auto;
-font-size:75%;
-margin-bottom:1em;
-color:#254062;
+.breadcrumbs {
+  width:auto;
+  font-size:75%;
+  margin-bottom:1em;
+  color:#254062;
 }
 
 .left-nav {
-
-width:15%;
-color:#9b0000;
-float:left;
-padding:2em 1em 1em 1em;
+  width:15%;
+  color:#9b0000;
+  float:left;
+  padding:2em 1em 1em 1em;
 }
 
-.meta-nav{
-
-float:right;
-padding:3em 5em 0em 0em;
+.meta-nav {
+  float:right;
+  padding:3em 5em 0em 0em;
 }
 
 .meta-nav a {
-
-color:white;
-text-decoration: none;
+  color:white;
+  text-decoration: none;
 }
 
-
-
-.left-nav ul{
-
-list-style-type: none;
-
+.left-nav ul {
+  list-style-type: none;
 }
 
-.left-nav ul li{
-
-line-height: 1.5em;
+.left-nav ul li {
+  line-height: 1.5em;
 }
 
-.left-nav ul li a:hover{
-
+.left-nav ul li a:hover {
   color: #F26C4F;
 }
 
-.left-nav ul li a{
-
+.left-nav ul li a {
   color: #082735;
   font-weight: bolder;
   font-size:90%;
 }
 
-.main-container{
-
-    float:left;
-    width:100%;
-    background:url(../images/husk.png) repeat;
-
+.main-container {
+  float:left;
+  width:100%;
+  background:url(../images/husk.png) repeat;
 }
 
-
 .content {
-
-box-shadow: -2px 0px 10px 1px #777;
-float:left;
-width:75%;
-margin-top:1em;
-padding:2em 0em 2em 2em;
-background-color:white;
+  box-shadow: -2px 0px 10px 1px #777;
+  float:left;
+  width:75%;
+  margin-top:1em;
+  padding:2em 0em 2em 2em;
+  background-color:white;
 }
 
 .rdf-graph {
-  
   max-width:600px;
 }
 
@@ -131,31 +107,26 @@ pre, .sample-queries, .data-table {
 }
 
 .data-table {
-  
-border-collapse: collapse;
-margin:1em;
+  border-collapse: collapse;
+  margin:1em;
 }
 
 .data-table td {
-border-bottom:groove 1px #082735;
-border-right:groove 1px #082735;
-padding: .5em;
+  border-bottom:groove 1px #082735;
+  border-right:groove 1px #082735;
+  padding: .5em;
 }
 
-.data-table th{
-
-text-align:left;
-padding: .5em;
-
+.data-table th {
+  text-align:left;
+  padding: .5em;
 }
 
-#footer{
-
-    float:left;
-    background-color:#254062;
-    color:white;
-    width:100%;
-    padding: 1em 0em 1em 1em;
-    border-top:2px double #9CC4E4;
-
+#footer {
+  float:left;
+  background-color:#254062;
+  color:white;
+  width:100%;
+  padding: 1em 0em 1em 1em;
+  border-top:2px double #9CC4E4;
 }
