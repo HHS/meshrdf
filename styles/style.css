@@ -24,6 +24,10 @@ h1 {
   margin-top:1em;
 }
 
+p {
+  margin-after: .5em;
+}
+
 .content > h3, .content > h2, .content h4 {
   margin-top:1em;
   margin-bottom:1em;
