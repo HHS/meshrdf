@@ -2,20 +2,18 @@
 title: Tree Numbers
 layout: page
 resource: true
+hard_wrap: false
 categories:
 - Data Model
 ---
 
 ### RDF Graph Diagram
-The following diagram illustrates the problem of tree numbers, that impose multiple overlapping hierarchical
-relationships between descriptors. In the diagram, every arrow indicates a skos:broader relationship.
 
-In this particular example, "Eye" belongs to two overlapping trees -- one that is depicted in green and
-one in purple.
+The following diagram illustrates the problem of tree numbers, that impose multiple overlapping hierarchical relationships between descriptors. In the diagram, every arrow indicates a skos:broader relationship.
 
-According to the green tree, "Eyebrow" has broader concept "Eye", which has broader concept "Face".
-According to the purple tree, "Oculomotor Muscles" has broader concept "Eye", which has broader concept
-"Sense Organ".
+In this particular example, "Eye" belongs to two overlapping trees -- one that is depicted in green and one in purple.
+
+According to the green tree, "Eyebrow" has broader concept "Eye", which has broader concept "Face". According to the purple tree, "Oculomotor Muscles" has broader concept "Eye", which has broader concept "Sense Organ".
 
 ![Tree Numbers Produce Overlapping Hierarchies](images/BroaderRelations.png){: class="rdf-graph"}
 
