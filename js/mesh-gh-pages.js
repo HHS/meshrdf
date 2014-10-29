@@ -20,10 +20,11 @@
       var sparql_endpoint = 'http://jatspan.org:8890/sparql';
       var sparql_format_param = 'format=text%2Frdf%2Bn3';
 
-      var query_ref = $('.invoke-sparql');
-      var query_block = $('.language-sparql');
-      var q_enc = encodeURIComponent(query_block.text());
-      var endpoint_url = sparql_endpoint + "?query=" + q_enc + '&' + sparql_format_param;
-      query_ref.wrap("<a href='" + endpoint_url + "' target='_blank'/>");
+      $('.invoke-sparql').each(function() {
+          var query_block = $(this).closest("p").nextAll("pre:has(code.language-sparql)").first();
+          var q_enc = encodeURIComponent(query_block.text());
+          var endpoint_url = sparql_endpoint + "?query=" + q_enc + '&' + sparql_format_param;
+          $(this).wrap("<a href='" + endpoint_url + "' target='_blank'/>");
+      }
   });
 })(jQuery);
