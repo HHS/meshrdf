@@ -25,6 +25,6 @@
           var q_enc = encodeURIComponent(query_block.text());
           var endpoint_url = sparql_endpoint + "?query=" + q_enc + '&' + sparql_format_param;
           $(this).wrap("<a href='" + endpoint_url + "' target='_blank'/>");
-      }
+  };
   });
 })(jQuery);
