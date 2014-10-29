@@ -32,7 +32,7 @@ construct {
     ?prefTerm a ?prefTermClass .
     ?prefTerm ?p ?o .
 
-    mesh:M0353609 meshv:preferredTerm ?term .
+    mesh:M0353609 meshv:term ?term .
     ?term a ?termClass .
     ?term ?p ?o .
 }
@@ -45,7 +45,7 @@ where {
     ?prefTerm a ?prefTermClass .
     ?prefTerm ?p ?o .
 
-    mesh:M0353609 meshv:preferredTerm ?term .
+    mesh:M0353609 meshv:term ?term .
     ?term a ?termClass .
     ?term ?p ?o .
 }
