@@ -2,7 +2,6 @@
 title: Tree Numbers
 layout: page
 resource: true
-hard_wrap: false
 categories:
 - Data Model
 ---

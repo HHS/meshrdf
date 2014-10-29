@@ -14,6 +14,7 @@ category-list:
 kramdown:
  smart_quotes:  lsquo,rsquo,ldquo,rdquo
  input: GFM
+ hard_wrap: false
 
 ##allowable list of query types are here.  Liquid filters are used to create css selectors out of this list
 
