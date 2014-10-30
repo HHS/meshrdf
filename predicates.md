@@ -12,7 +12,7 @@ The table below is a list of predicates in MeSH RDF.
 Predicate Name | Definition | Equivalent XML Data Element
 -------------- | ---------- | ---------------------------
 rdf:type | rdf:type is used to state that a resource is an instance of a class. For example, Ofloxacin (mesh:D015242) has an rdf:type of meshv:TopicalDescriptor. | N/A
-rdfs:label | rdfs:label is used to provide a human-readable version of a resource's name. For instance, the rdfs:label for mesh:D015242 is Ofloxacin. | <String>
+rdfs:label | rdfs:label is used to provide a human-readable version of a resource's name. For instance, the rdfs:label for mesh:D015242 is Ofloxacin. | ```<String>```
 skos:narrower | Explain Me | Where Do I Come From?
 dcterms:identifier | Explain Me | Where Do I Come From?
 meshv:abbreviation | Two-letter, uppercase abbreviation for a Qualifier term. QUI Q000235 example: GE |```<Abbreviation>```
