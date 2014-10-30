@@ -54,7 +54,7 @@ In [N3 format](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20mesh%3
 
 <http://id.nlm.nih.gov/mesh/D009369>
         <http://id.nlm.nih.gov/mesh/vocab#annotation>
-                "general; prefer specifics; policy: Manual section 24; qualifier / nurs = the patient, ONCOLOGY NURSING = the                 oncologic specialty; qualifier / radiother = the patient, RADIATION ONCOLOGY = the specialty; familial:                      consider also NEOPLASTIC SYNDROMES, HEREDITARY; metastatic cancer of unknown origin: index under NEOPLASM                    METASTASIS" ;
+                "general; prefer specifics; policy: Manual section 24; qualifier / nurs = the patient, ONCOLOGY NURSING = ...";
         <http://id.nlm.nih.gov/mesh/vocab#considerAlso>
                 "consider also terms at CANCER, CARCINO-, ONCO-, and TUMOR" ;
         <http://id.nlm.nih.gov/mesh/vocab#runningHead>
