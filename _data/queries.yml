@@ -53,15 +53,12 @@
   notes: Show the MeSH headings and labels of Pharmacologic Actions for Oflaxacin.
   type: Getting Started
   string: |+
-   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
-   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
    SELECT *
    FROM <http://id.nlm.nih.gov/mesh2014>
    
    WHERE {
-     mesh:D015242 vocab:pharmacologicalAction ?pa .
+     mesh:D015242 meshv:pharmacologicalAction ?pa .
      ?pa rdfs:label ?paLabel
    }
    

@@ -93,6 +93,7 @@ width:90%;
   float:left;
   width:100%;
   background:url(../images/husk.png) repeat;
+  
 }
 
 .content {
@@ -102,22 +103,19 @@ width:90%;
   margin-top:1em;
   padding:2em 0em 2em 2em;
   background-color:white;
+  
 }
 
 .rdf-graph {
   max-width:700px;
 }
 
-pre {
-  word-wrap:break-word;
-  
-}
 
 pre, .sample-queries, .data-table {
   margin-top:1em;
   margin-bottom:1em;
   padding: .5em;
-  width:90%;
+  max-width:90%;
   border:dashed 1px #ccc;
   background:url(../images/paper_fibers.png) repeat;
 }
