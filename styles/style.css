@@ -4,7 +4,7 @@
 }
 
 body {
-  font: normal .75em Arial, Helvetica, sans-serif;
+  font: normal 1em Arial, Helvetica, sans-serif;
   padding-bottom:20px;
   /*background-color:#f2f2f2;*/
   background:url(../images/NLM_main_background.png)
@@ -91,9 +91,9 @@ p {
 .content {
   box-shadow: -2px 0px 10px 1px #777;
   float:left;
-  width:75%;
+  width:70%;
   margin-top:1em;
-  padding:2em 0em 2em 2em;
+  padding:5% 5% 5% 5%;
   background-color:white;
 }
 
