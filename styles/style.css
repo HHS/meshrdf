@@ -33,6 +33,12 @@ p {
   margin-bottom:1em;
 }
 
+.content > p {
+
+width:90%;
+  
+}
+
 #logo-container {
   width:100%;
   float:left;
@@ -93,12 +99,17 @@ p {
   float:left;
   width:70%;
   margin-top:1em;
-  padding:5% 5% 5% 5%;
+  padding:2em 0em 2em 2em;
   background-color:white;
 }
 
 .rdf-graph {
   max-width:600px;
+}
+
+pre {
+  word-wrap:break-word;
+  
 }
 
 pre, .sample-queries, .data-table {
