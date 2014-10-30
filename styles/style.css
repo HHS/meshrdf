@@ -62,7 +62,8 @@ width:90%;
 
 .meta-nav {
   float:right;
-  padding:3em 5em 0em 0em;
+  padding:0em 7em 0em 0em;
+  margin-top:2em;
 }
 
 .meta-nav a {
