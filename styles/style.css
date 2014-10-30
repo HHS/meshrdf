@@ -33,7 +33,7 @@ p {
   margin-bottom:1em;
 }
 
-.content > p {
+.content > p, .content > ul {
 
 width:90%;
   
