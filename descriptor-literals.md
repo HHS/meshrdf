@@ -6,7 +6,22 @@ categories:
 - Data Model
 ---
 
-A Descriptor is a class in MeSH RDF with the name [meshv:Descriptor](http://id.nlm.nih.gov/mesh/describe?uri=http%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23Descriptor){:target="_blank"}. Also known as Main Headings or MeSH Headings, Descriptors are used to index citations in the NLM MEDLINE database and to describe the subjects for NLM Catalog records. Descriptors are searchable in PubMed and NLM Catalog with the search tag [MH]. Most Descriptors indicate the subject of a resource (including geographic terms). Some indicate publication types (what a resource is rather than what it is about; for example: Randomized Controlled Trial or Letter). For more information about Descriptors, visit the NLM [MeSH Record Types page](http://www.nlm.nih.gov/mesh/intro_record_types.html).
+A Descriptor is a class in MeSH RDF with the name [meshv:Descriptor](http://id.nlm.nih.gov/mesh/describe?uri=http%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23Descriptor){:target="_blank"}.
+Also known as Main Headings or MeSH Headings, Descriptors are used to index citations in the NLM MEDLINE database and to describe the subjects for NLM Catalog records.
+Descriptors are searchable in PubMed and NLM Catalog with the search tag [MH]. Most Descriptors indicate the subject of a resource (including geographic terms).
+Some indicate publication types (what a resource is rather than what it is about; for example: Randomized Controlled Trial or Letter).
+For more information about Descriptors, visit the NLM [MeSH Record Types page](http://www.nlm.nih.gov/mesh/intro_record_types.html).
+
+### Class Information
+
+In MeSH RDF, the subclasses of meshv:Descriptor are:
+
+*  meshv:TopicalDescriptor
+*  meshv:PublicationType
+*  meshv:CheckTag
+*  meshv:GeographicalDescriptor
+
+The chart below displays the properties and relations of the meshv:TopicalDescriptor D015242, 'Oflaxacin'. 
 
 ###RDF Graph Diagram
 
@@ -14,14 +29,79 @@ The following RDF graph diagram shows a fairly typical topical descriptor (D0152
 
 ![Descriptor RDF Graph Diagram](images/BasicConversionLiterals.png){: class="rdf-graph"}
 
-###Classes
+### meshv:Descriptor - Relations and Properties
 
-In MeSH RDF, Ofloxacin is an instance of the class, meshv:TopicalDescriptor, one of four subclasses of meshv:Descriptor. The subclasses of meshv:Descriptor are:
+{::options parse_block_html="true" /}
 
-*  meshv:TopicalDescriptor
-*  meshv:PublicationType
-*  meshv:CheckTag
-*  meshv:GeographicalDescriptor
+{: #tabs}
+<div>
+
+*  [Relations to other classes (as subject)](#tabs-1)
+*  [Relations to other classes (as object)](#tabs-2)
+*  [Concept properties](#tabs-3)
+
+{: #tabs-1}
+<div>
+{:.display}
+Subject | Predicate | Object
+------- | --------- | --------
+meshv:TopicalDescriptor | meshv:preferredConcept | meshv:Concept
+meshv:TopicalDescriptor | meshv:concept | meshv:Concept
+meshv:TopicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
+meshv:TopicalDescriptor | <http://www.w3.org/2004/02/skos/core#broader> | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | meshv:treeNumber | meshv:TreeNumber
+meshv:TopicalDescriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:TopicalDescriptor | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | meshv:seeAlso | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&t; | meshv:GeographicalDescriptor
+meshv:TopicalDescriptor | meshv:seeAlso | meshv:PublicationType
+
+</div>
+
+{: #tabs-2}
+<div>
+{:.display}
+Subject | Predicate | Object
+------- | --------- | --------
+meshv:AllowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:TopicalDescriptor
+meshv:DisallowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:TopicalDescriptor
+meshv:TopicalDescriptor &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:SupplementaryConceptRecord | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | meshv:seeAlso | meshv:TopicalDescriptor
+meshv:IndexingData | meshv:indexingDescriptor | meshv:TopicalDescriptor
+meshv:MappedData | meshv:isMappedToDescriptor | meshv:TopicalDescriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
+
+</div>
+
+{: #tabs-3}
+<div>
+{:.display}
+Subject | Predicate
+------- | ---------
+meshv:TopicalDescriptor | rdfs:label
+meshv:TopicalDescriptor | &lt;http://purl.org/dc/terms/identifier&gt;
+meshv:TopicalDescriptor | meshv:activeMeSHYear
+meshv:TopicalDescriptor | meshv:dateCreated
+meshv:TopicalDescriptor | meshv:dateEstablished
+meshv:TopicalDescriptor | meshv:dateRevised
+meshv:TopicalDescriptor | meshv:historyNote
+meshv:TopicalDescriptor | meshv:onlineNote
+meshv:TopicalDescriptor | meshv:recordAuthorizer
+meshv:TopicalDescriptor | meshv:annotation
+meshv:TopicalDescriptor | meshv:recordMaintainer
+meshv:TopicalDescriptor | meshv:recordOriginator
+meshv:TopicalDescriptor | meshv:previousIndexing
+meshv:TopicalDescriptor | meshv:publicMeSHNote
+meshv:TopicalDescriptor | meshv:runningHead
+meshv:TopicalDescriptor | meshv:considerAlso
+
+</div>
+</div>
+
+<div>
 
 ###SPARQL
 
