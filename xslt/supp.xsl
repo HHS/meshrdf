@@ -120,170 +120,80 @@
       -->
       <xsl:if test="Frequency">
         <xsl:call-template name='triple'>
-        <xsl:with-param name="doc">
-          <desc>A supplemental record can have a frequency associated with it. This number represents the number of citations
-            indexed with the supplemental record in PubMed.</desc>
-        </xsl:with-param>
-        <xsl:with-param name='spec'>
-          <xsl:copy-of select="$supprec_uri"/>
-          <uri prefix='&meshv;'>frequencyyyyyy</uri>
-          <literal type='&xs;#int'>
-            <xsl:value-of select="xs:int(Frequency)"/>
-          </literal>
-        </xsl:with-param>
-      </xsl:call-template>
-      </xsl:if>
-
-      <!--
-        Transformation rule: mappedData
-      -->
-      <xsl:for-each select="HeadingMappedToList/HeadingMappedTo">
-        <xsl:variable name='supp_rec_blank'>
-          <named>
-            <xsl:text>_:blank_set1_</xsl:text>
-            <xsl:value-of select="../../SupplementalRecordUI"/>
-            <xsl:text>_</xsl:text>
-            <xsl:value-of select="position()"/>
-          </named>
-        </xsl:variable>
-
-        <xsl:call-template name="triple">
           <xsl:with-param name="doc">
-            <desc>To remain true to the structure of the supplemental records in XML format, we created the hasMappedData relation.
-              A supplemental record can be mappled to at least one descriptor record or descriptor record/qualifier record combination. A
-              blank node makes up the mapped data entity.</desc>
+            <desc>A supplemental record can have a frequency associated with it. This number represents the number of citations
+              indexed with the supplemental record in PubMed.</desc>
           </xsl:with-param>
-          <xsl:with-param name="spec">
+          <xsl:with-param name='spec'>
             <xsl:copy-of select="$supprec_uri"/>
-            <uri prefix='&meshv;'>mappedData</uri>
-            <xsl:copy-of select='$supp_rec_blank'/>
-          </xsl:with-param>
-        </xsl:call-template>
-
-        <!--
-          Transformation rule: rdf:type
-        -->
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc>This relation states that a Subject node used to identify mapped data is of type "MappedData".</desc>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select="$supp_rec_blank"/>
-            <uri prefix='&rdf;'>type</uri>
-            <uri prefix='&meshv;'>MappedData</uri>
-          </xsl:with-param>
-        </xsl:call-template>
-
-        <!--
-          Transformation rule: isMappedToDescriptor
-        -->
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc>A supplemental record is mapped to a descriptor record. In our representation 
-              the mapping is first to a blank node and then to the descriptor record.</desc>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select="$supp_rec_blank"/>
-            <uri prefix='&meshv;'>isMappedToDescriptor</uri>
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="replace(DescriptorReferredTo/DescriptorUI,'\*','')"/>
-            </uri>
-          </xsl:with-param>
-        </xsl:call-template>
-        
-        <!--
-          Descriptor is starred
-        -->
-        <!--<xsl:variable name="descui" select="DescriptorReferredTo/DescriptorUI"/>-->
-        <xsl:if test="starts-with(DescriptorReferredTo/DescriptorUI, '*')">
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <fixme reporter='klortho'>As with many other cases, I don't think a predicate with a literal value is the
-                right way to handle this.  I'd rather see this as an `rdf:type` to some class that encapsulates the
-                semantics.</fixme>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$supp_rec_blank"/>
-              <uri prefix='&meshv;'>isDescriptorStarred</uri>
-              <literal>Y</literal>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:if>
-        
-        <!--
-          Transformation rule: rdfs:label
-        -->
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc>A descriptor has a name.</desc>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="replace(DescriptorReferredTo/DescriptorUI, '\*', '')"/>
-            </uri>
-            <uri prefix='&rdfs;'>label</uri>
-            <literal>
-              <xsl:value-of select="DescriptorReferredTo/DescriptorName/String"/>
+            <uri prefix='&meshv;'>frequency</uri>
+            <literal type='&xs;#int'>
+              <xsl:value-of select="Frequency"/>
             </literal>
           </xsl:with-param>
         </xsl:call-template>
-        
-        <xsl:if test="QualifierReferredTo">
-          <xsl:variable name='qualifier_referred_to_uri'>
-            <uri prefix='&mesh;'>
-              <xsl:value-of select="replace(QualifierReferredTo/QualifierUI, '\*', '')"/>
+      </xsl:if>
+
+      <!--
+        Transformation rule: mappedData.  This will use either the predicate mappedTo or preferredMappedTo,
+        depending on whether either (or both) of the descriptors or qualifiers starts with an asterisk.
+        See issue #17.
+      -->
+      <xsl:for-each select="HeadingMappedToList/HeadingMappedTo">
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>Mapped data</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$supprec_uri"/>
+            <uri prefix='&meshv;'>
+              <xsl:choose>
+                <xsl:when test='starts-with(DescriptorReferredTo/DescriptorUI, "*") or 
+                  starts-with(QualifierReferredTo/QualifierUI, "*")'>
+                  <xsl:value-of select="'preferredMappedTo'"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="'mappedTo'"/>
+                </xsl:otherwise>
+              </xsl:choose>
             </uri>
-          </xsl:variable>
-          
-          <!--
-            Transformation rule: isMappedToQualifier
-          -->
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>A supplemental record can be mapped to a qualifier record. In our representation
-                the mapping is first to a blank node and then to
-                the qualifier record.</desc>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$supp_rec_blank"/>
-              <uri prefix='&meshv;'>isMappedToQualifier</uri>
-              <xsl:copy-of select="$qualifier_referred_to_uri"/>
-            </xsl:with-param>
-          </xsl:call-template>
-
-          <!--
-            Qualifier is starred
-          -->
-          <xsl:if test="starts-with(QualifierReferredTo/QualifierUI, '*')">
-            <xsl:call-template name='triple'>
-              <xsl:with-param name="doc">
-                <fixme reporter='klortho'>As usual, I don't like this predicate with a literal "Y" value</fixme>
-              </xsl:with-param>
-              <xsl:with-param name='spec'>
-                <xsl:copy-of select="$supp_rec_blank"/>
-                <uri prefix='&meshv;'>isQualifierStarred</uri>
-                <literal>Y</literal>
-              </xsl:with-param>
-            </xsl:call-template>
-          </xsl:if>
-
-          <!-- 
-            Transformation rule: rdfs:label
-          -->
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>A qualifier has a name.</desc>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$qualifier_referred_to_uri"/>
-              <uri prefix='&rdfs;'>label</uri>
-              <literal>
-                <xsl:value-of select="QualifierReferredTo/QualifierName/String"/>
-              </literal>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:if>
+            <uri prefix='&meshv;'>
+              <xsl:choose>
+                <xsl:when test='QualifierReferredTo'>
+                  <xsl:value-of select="concat(f:no-asterisk(DescriptorReferredTo/DescriptorUI),
+                    f:no-asterisk(QualifierReferredTo/QualifierUI))"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="f:no-asterisk(DescriptorReferredTo/DescriptorUI)"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </uri>
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:for-each>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <xsl:for-each select="IndexingInformationList/IndexingInformation">
         <xsl:variable name='indexing_data_blank'>
@@ -387,4 +297,22 @@
 
     </xsl:for-each>
   </xsl:template>
+
+  <!--
+    Helper function to strip out a leading asterisk from an identifier, if there is one
+  -->
+  <xsl:function name='f:no-asterisk' as="text()">
+    <xsl:param name='orig'/>
+    <xsl:choose>
+      <xsl:when test='starts-with($orig, "*")'>
+        <xsl:value-of select="substring($orig, 2)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$orig"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+  
+
+
 </xsl:stylesheet>
