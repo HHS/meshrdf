@@ -4,7 +4,7 @@
 }
 
 body {
-  font: normal .75em Arial, Helvetica, sans-serif;
+  font: large Arial, Helvetica, sans-serif;
   padding-bottom:20px;
   /*background-color:#f2f2f2;*/
   background:url(../images/NLM_main_background.png)
@@ -33,6 +33,12 @@ p {
   margin-bottom:1em;
 }
 
+.content > p, .content > ul {
+
+width:90%;
+  
+}
+
 #logo-container {
   width:100%;
   float:left;
@@ -56,7 +62,8 @@ p {
 
 .meta-nav {
   float:right;
-  padding:3em 5em 0em 0em;
+  padding:0em 7em 0em 0em;
+  margin-top:2em;
 }
 
 .meta-nav a {
@@ -86,26 +93,29 @@ p {
   float:left;
   width:100%;
   background:url(../images/husk.png) repeat;
+  
 }
 
 .content {
   box-shadow: -2px 0px 10px 1px #777;
   float:left;
-  width:75%;
+  width:70%;
   margin-top:1em;
   padding:2em 0em 2em 2em;
   background-color:white;
+  
 }
 
 .rdf-graph {
-  max-width:600px;
+  max-width:700px;
 }
+
 
 pre, .sample-queries, .data-table {
   margin-top:1em;
   margin-bottom:1em;
   padding: .5em;
-  width:90%;
+  max-width:90%;
   border:dashed 1px #ccc;
   background:url(../images/paper_fibers.png) repeat;
 }

@@ -15,6 +15,7 @@
      ?s ?p ?o
      
    }
+   ORDER BY ?p
 
 - name: Retrieve all meshv classes in MeSH RDF
   notes: This query gives a unique list of all MeSH classes
@@ -52,15 +53,12 @@
   notes: Show the MeSH headings and labels of Pharmacologic Actions for Oflaxacin.
   type: Getting Started
   string: |+
-   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
-   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
    SELECT *
    FROM <http://id.nlm.nih.gov/mesh2014>
    
    WHERE {
-     mesh:D015242 vocab:pharmacologicalAction ?pa .
+     mesh:D015242 meshv:pharmacologicalAction ?pa .
      ?pa rdfs:label ?paLabel
    }
    
@@ -193,7 +191,6 @@
    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-   
    CONSTRUCT {
     
     mesh:D000647 meshv:preferredConcept ?prefcon .
@@ -202,18 +199,15 @@
     ?prefcon skos:narrower $subcon .
     $subcon rdfs:label $subconLabel .
     $semtype ?stp $sto .
-    
     }
     
     FROM <http://id.nlm.nih.gov/mesh2014>
     
     WHERE {
-    
     mesh:D000647 meshv:preferredConcept ?prefcon .
     ?prefcon ?p ?o .
     ?prefcon meshv:semanticType $semtype .
     ?prefcon skos:narrower $subcon .
     $subcon rdfs:label $subconLabel .
     $semtype ?stp $sto .
-    
     }

@@ -6,7 +6,7 @@ categories:
 - Data Model
 ---
 
-This page documents a couple of the ways that Descriptors reference other items, and how those references are
+This page documents a couple of the ways that Descriptors reference other Descriptors, and how those references are
 translated into RDF.
 
 ### RDF Graph Diagram
@@ -43,30 +43,27 @@ where {
 
 ###MeSH RDF Data
 
-In turtle format:
+In [N3 format](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct%20%7B%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3Aannotation%20%3Fa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AseeAlso%20%3Fsa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AconsiderAlso%20%3Fca%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3ArunningHead%20%3Frh%20.%0D%0A%20%20%20%20mesh%3AD015242%20meshv%3ApharmacologicalAction%20%3Fpa%20.%0D%0A%7D%0D%0Afrom%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0Awhere%20%7B%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3Aannotation%20%3Fa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AseeAlso%20%3Fsa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AconsiderAlso%20%3Fca%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3ArunningHead%20%3Frh%20.%0D%0A%20%20%20%20mesh%3AD015242%20meshv%3ApharmacologicalAction%20%3Fpa%20.%0D%0A%7D&format=N3){:target="_blank"}:
 
 ```
-@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
-@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
+<http://id.nlm.nih.gov/mesh/D015242>
+        <http://id.nlm.nih.gov/mesh/vocab#pharmacologicalAction>
+                <http://id.nlm.nih.gov/mesh/D000892> , 
+                ...
+                <http://id.nlm.nih.gov/mesh/D059005> .
 
-mesh:D009369  meshv:seeAlso mesh:D011230 ,
-                            mesh:D000912 ,
-                            mesh:D000951 ,
-                            mesh:D016588 ,
-                            mesh:D004273 ,
-                            mesh:D012334 ,
-                            mesh:D000970 ,
-                            mesh:D016066 ,
-                            mesh:D002273 ,
-                            mesh:D016147 ,
-                            mesh:D009858 ;
-              meshv:runningHead  "C4 - DISEASES-NEOPLASMS\n  " ;
-              meshv:considerAlso  "consider also terms at CANCER, CARCINO-, ONCO-, and TUMOR\n  " .
-              meshv:annotation  "general; prefer ... METASTASIS" ;
-
-mesh:D015242  meshv:pharmacologicalAction mesh:D059005 ,
-                                          mesh:D000900 ,
-                                          mesh:D000892 .
+<http://id.nlm.nih.gov/mesh/D009369>
+        <http://id.nlm.nih.gov/mesh/vocab#annotation>
+                "general; prefer specifics; policy: Manual section 24; qualifier / nurs = the patient, ONCOLOGY NURSING = ...";
+        <http://id.nlm.nih.gov/mesh/vocab#considerAlso>
+                "consider also terms at CANCER, CARCINO-, ONCO-, and TUMOR" ;
+        <http://id.nlm.nih.gov/mesh/vocab#runningHead>
+                "C4 - DISEASES-NEOPLASMS" ;
+        <http://id.nlm.nih.gov/mesh/vocab#seeAlso>
+                ...
+                <http://id.nlm.nih.gov/mesh/D016147> ,
+                ...
+                <http://id.nlm.nih.gov/mesh/D002273> .
 ```
 
 

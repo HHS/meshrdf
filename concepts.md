@@ -5,7 +5,12 @@ resource: true
 categories:
 - Data Model
 ---
-A concept is a class in MeSH RDF (meshv:Concept).  MeSH concepts are all assigned 'M' identifiers.  A MeSH Concept represents a unit of meaning.  Collections of concepts that may be useful for search and retrieval on a given topic are placed into the same MeSH Descriptor.  A concept is considered 'preferred' if its name is used by the descriptor to which it belongs. In MeSH RDF, concepts classes can be connected as follows:
+A concept is a class in MeSH RDF with the name [meshv:Concept](http://id.nlm.nih.gov/mesh/describe?uri=http%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23Concept){:target="_blank"}.  MeSH Concepts are all assigned 'M' identifiers.  A MeSH Concept represents a unit of meaning.
+Each MeSH record consists of one or more Concepts, and each Concept consists in one or more synonymous terms.
+Collections of concepts that may be useful for search and retrieval on a given topic are placed into the same MeSH Descriptor.
+A concept is considered 'preferred' if its name is used by the descriptor to which it belongs.
+For more information about Concepts, visit the NLM [MeSH Concept Structure page](http://www.nlm.nih.gov/mesh/concept_structure.html){:target="_blank"}.
+In MeSH RDF, concepts classes can be connected as follows:
 
 **When the concept is the 'Subject'**
 
