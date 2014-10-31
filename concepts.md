@@ -30,7 +30,7 @@ In MeSH RDF, concepts classes can be connected as follows:
 {: #tabs-1}
 <div>
 
-{:.display }
+{:.data-table-standard .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:Concept | skos:narrower | meshv:Concept
@@ -44,7 +44,7 @@ meshv:Concept | meshv:term | meshv:Term
 {: #tabs-2}
 <div>
 
-{:.display  }
+{:.data-table-standard .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:Concept | skos:narrower | meshv:Concept
@@ -65,7 +65,7 @@ meshv:CheckTag | meshv:preferredConcept | meshv:Concept
 
 {: #tabs-3}
 <div>
-{:.display}
+{:.data-table-standard .row-border .hover}
 Subject | Predicate
 ------- | ---------
 meshv:Concept | rdfs:label
