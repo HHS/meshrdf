@@ -23,16 +23,24 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script type = 'text/javascript'>
-      $(document).ready(function() {
-    $('table.display').dataTable( {
-        "paging":   false,
+    // there two classes of data tables.  data-table-standard (no paging) and data-table-long (includes paging)
+    $(document).ready(function() {
+         $('table.data-table-standard').dataTable( {
+         "paging":   false,
+         "ordering": true,
+         "info":     false,
+         "searching": false
+          } );
+      $('table.data-table-long').dataTable( {
+        "paging":   true,
         "ordering": true,
         "info":     false,
-        "searching": false
+        "searching": true
           } );
-
-    $( "#tabs" ).tabs();
-    } );
+      //default to 25 rows for longer tables
+      $('table.data-table-long').dataTable().api().page.len(25).draw();
+      $( "#tabs" ).tabs();
+    });
 
     </script>
   </head>
