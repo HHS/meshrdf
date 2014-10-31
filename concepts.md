@@ -177,8 +177,8 @@ which are subordinate to Concepts, but most other things directly related to Con
   modelled in the RDF.
 
 * \<ConceptRelation>s (see the [documentation on the XML
-  elements](http://www.nlm.nih.gov/mesh/xml_data_elements.html#ConceptRelation) aree converted into
-  simple triples on the basis of the \@RelationName attribute:
+  elements](http://www.nlm.nih.gov/mesh/xml_data_elements.html#ConceptRelation)) are converted into
+  simple triples on the basis of the @RelationName attribute:
     * BRD - skos:broader
     * NRW - skos:narrower
     * REL - skos:related
