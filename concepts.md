@@ -12,10 +12,23 @@ A concept is considered 'preferred' if its name is used by the descriptor to whi
 For more information about Concepts, visit the NLM [MeSH Concept Structure page](http://www.nlm.nih.gov/mesh/concept_structure.html){:target="_blank"}.
 In MeSH RDF, concepts classes can be connected as follows:
 
-**When the concept is the 'Subject'**
+### RDF Graph Diagram
 
+![Concept RDF Graph Diagram](images/Concepts.png){: class="rdf-graph"}
 
-{:.data-table}
+{::options parse_block_html="true" /}
+
+{: #tabs}
+<div>
+
+*  [Relations to other classes (as subject)](#tabs-1)
+*  [Relations to other classes (as object)](#tabs-2)
+*  [Concept properties](#tabs-3)
+
+{: #tabs-1}
+<div>
+
+{:.display }
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:Concept | skos:narrower | meshv:Concept
@@ -24,9 +37,12 @@ meshv:Concept | meshv:preferredTerm | meshv:Term
 meshv:Concept | skos:broader | meshv:Concept
 meshv:Concept | meshv:term | meshv:Term
 
-**When the concept is the 'Object'**
+</div>
 
-{:.data-table}
+{: #tabs-2}
+<div>
+
+{:.display  }
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:Concept | skos:narrower | meshv:Concept
@@ -43,11 +59,13 @@ meshv:SupplementaryConceptRecord | meshv:preferredConcept | meshv:Concept
 meshv:SupplementaryConceptRecord | meshv:concept | meshv:Concept
 meshv:CheckTag | meshv:preferredConcept | meshv:Concept
 
+</div>
 
-### RDF Graph Diagram
-
-![Concept RDF Graph Diagram](images/Concepts.png){: class="rdf-graph"}
-
+{: #tabs-3}
+<div>
+Coming soon...
+</div>
+</div>
 
 ### SPARQL
 
