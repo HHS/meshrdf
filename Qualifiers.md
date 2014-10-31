@@ -15,7 +15,8 @@ categories:
 
 ### SPARQL
 
-The RDF output above can be generated with the following <span class='invoke-sparql'>SPARQL query</span>:
+The RDF output above can be generated with the following
+<span class='invoke-sparql'>SPARQL query</span>:
 
 
 ```sparql
