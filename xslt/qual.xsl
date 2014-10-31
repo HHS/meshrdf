@@ -57,7 +57,7 @@
 
       <!--
         Transformation rule: isQualifierType
-      -->
+        This only ever has a value of one, so we will drop it
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <desc>This relation states that a qualifier has a qualifier type.</desc>
@@ -73,6 +73,7 @@
           </literal>
         </xsl:with-param>
       </xsl:call-template>
+      -->
 
       <!--
         Transformation rule: rdfs:label
@@ -101,9 +102,9 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$qualifier_uri"/>
             <uri prefix='&meshv;'>allowedTreeNode</uri>
-            <literal>
+            <uri prefix='&mesh;'>
               <xsl:value-of select="."/>
-            </literal>
+            </uri>
           </xsl:with-param>
         </xsl:call-template>
       </xsl:for-each>
