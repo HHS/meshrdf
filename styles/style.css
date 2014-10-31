@@ -111,7 +111,7 @@ width:90%;
 }
 
 
-pre, .sample-queries, .data-table {
+pre, .sample-queries {
   margin-top:1em;
   margin-bottom:1em;
   padding: .5em;
@@ -120,21 +120,6 @@ pre, .sample-queries, .data-table {
   background:url(../images/paper_fibers.png) repeat;
 }
 
-.data-table {
-  border-collapse: collapse;
-  margin:1em;
-}
-
-.data-table td {
-  border-bottom:groove 1px #082735;
-  border-right:groove 1px #082735;
-  padding: .5em;
-}
-
-.data-table th {
-  text-align:left;
-  padding: .5em;
-}
 
 #footer {
   float:left;
@@ -150,11 +135,5 @@ pre, .sample-queries, .data-table {
    width:30%;
    padding:0em .5em 0em .5em;
    text-wrap: unrestricted; 
-}
-
-.ui-tabs-nav li a{
-  
-  
-  
 }
 
