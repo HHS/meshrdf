@@ -188,5 +188,15 @@ which are subordinate to Concepts, but most other things directly related to Con
 </DescriptorRecord>
 ```
 
-Note:  RelationAttributes (see the [MeSH documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#RelationAttribute) are not
-modelled in the RDF.
+### Notes
+
+* RelationAttributes (see the [MeSH
+  documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#RelationAttribute) are not
+  modelled in the RDF.
+
+* \<ConceptRelation>s (see the [documentation on the XML
+  elements](http://www.nlm.nih.gov/mesh/xml_data_elements.html#ConceptRelation)) are converted into
+  simple triples on the basis of the @RelationName attribute:
+    * BRD - skos:broader
+    * NRW - skos:narrower
+    * REL - skos:related
