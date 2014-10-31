@@ -26,6 +26,7 @@ The following RDF graph diagram shows how descriptor-qualifier pairs are modeled
 
 ### meshv:DescriptorQualifierPairs - Relations and Properties
 This table includes all the sub-classes of the meshv:DescriptorQualifierPairs class as either the subject or object of an RDF triple.
+
 {::options parse_block_html="true" /}
 
 {: #tabs}
