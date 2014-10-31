@@ -115,7 +115,7 @@ pre, .sample-queries, .data-table {
   margin-top:1em;
   margin-bottom:1em;
   padding: .5em;
-  max-width:90%;
+  max-width:80%;
   border:dashed 1px #ccc;
   background:url(../images/paper_fibers.png) repeat;
 }
@@ -144,3 +144,17 @@ pre, .sample-queries, .data-table {
   padding: 1em 0em 1em 1em;
   border-top:2px double #9CC4E4;
 }
+
+.ui-tabs .ui-tabs-nav li {
+   font-size:small;
+   width:30%;
+   padding:0em .5em 0em .5em;
+   text-wrap: unrestricted; 
+}
+
+.ui-tabs-nav li a{
+  
+  
+  
+}
+
