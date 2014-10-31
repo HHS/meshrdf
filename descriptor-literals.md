@@ -21,6 +21,7 @@ In MeSH RDF, the subclasses of meshv:Descriptor are:
 *  meshv:CheckTag
 *  meshv:GeographicalDescriptor
 
+
 The chart below displays the properties and relations of the meshv:TopicalDescriptor D015242, 'Oflaxacin'. 
 
 ###RDF Graph Diagram
@@ -48,12 +49,12 @@ Subject | Predicate | Object
 meshv:TopicalDescriptor | meshv:preferredConcept | meshv:Concept
 meshv:TopicalDescriptor | meshv:concept | meshv:Concept
 meshv:TopicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
-meshv:TopicalDescriptor | <http://www.w3.org/2004/02/skos/core#broader> | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
 meshv:TopicalDescriptor | meshv:treeNumber | meshv:TreeNumber
 meshv:TopicalDescriptor | meshv:recordPreferredTerm | meshv:Term
 meshv:TopicalDescriptor | meshv:pharmacologicalAction | meshv:TopicalDescriptor
 meshv:TopicalDescriptor | meshv:seeAlso | meshv:TopicalDescriptor
-meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&t; | meshv:GeographicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:GeographicalDescriptor
 meshv:TopicalDescriptor | meshv:seeAlso | meshv:PublicationType
 
 </div>
@@ -65,7 +66,7 @@ Subject | Predicate | Object
 ------- | --------- | --------
 meshv:AllowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:TopicalDescriptor
 meshv:DisallowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:TopicalDescriptor
-meshv:TopicalDescriptor &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
 meshv:TopicalDescriptor | meshv:pharmacologicalAction | meshv:TopicalDescriptor
 meshv:SupplementaryConceptRecord | meshv:pharmacologicalAction | meshv:TopicalDescriptor
 meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:TopicalDescriptor
