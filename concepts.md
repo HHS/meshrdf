@@ -68,11 +68,13 @@ meshv:CheckTag | meshv:preferredConcept | meshv:Concept
 {:.data-table-standard .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:Concept | rdfs:label
-meshv:Concept | &lt;http://purl.org/dc/terms/identifier&gt;
-meshv:Concept | &lt;http://www.w3.org/2004/02/skos/core#scopeNote&gt;
 meshv:Concept | meshv:CASN1_label
 meshv:Concept | meshv:registryNumber
+meshv:Concept | meshv:relatedRegistryNumber
+meshv:Concept | &lt;http://purl.org/dc/terms/identifier&gt;
+meshv:Concept | rdfs:label
+meshv:Concept | &lt;http://www.w3.org/2004/02/skos/core#note&gt;
+meshv:Concept | &lt;http://www.w3.org/2004/02/skos/core#scopeNote&gt;
 
 </div>
 </div>

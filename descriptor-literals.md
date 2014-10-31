@@ -31,7 +31,7 @@ The following RDF graph diagram shows a fairly typical topical descriptor (D0152
 ![Descriptor RDF Graph Diagram](images/BasicConversionLiterals.png){: class="rdf-graph"}
 
 ### meshv:Descriptor - Relations and Properties
-This table includes all the sub-classes of the meshv:Descriptor as either the subject or object of an RDF triple, as well its properties.
+This table includes all the sub-classes of the meshv:Descriptor class as either the subject or object of an RDF triple, as well properties of the class.
 
 {::options parse_block_html="true" /}
 
@@ -44,6 +44,7 @@ This table includes all the sub-classes of the meshv:Descriptor as either the su
 
 {: #tabs-1}
 <div>
+
 {:.data-table-long .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | --------
@@ -121,6 +122,7 @@ meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelati
 
 {: #tabs-2}
 <div>
+
 {:.data-table-long .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | --------
