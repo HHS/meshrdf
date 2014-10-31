@@ -16,6 +16,8 @@ In MeSH RDF, concepts classes can be connected as follows:
 
 ![Concept RDF Graph Diagram](images/Concepts.png){: class="rdf-graph"}
 
+### MeSH Concept Relations
+
 {::options parse_block_html="true" /}
 
 {: #tabs}
