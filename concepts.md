@@ -16,7 +16,7 @@ In MeSH RDF, concepts classes can be connected as follows:
 
 ![Concept RDF Graph Diagram](images/Concepts.png){: class="rdf-graph"}
 
-### MeSH Concept Relations
+### meshv:Concept - Relations and Properties
 
 {::options parse_block_html="true" /}
 
@@ -65,7 +65,15 @@ meshv:CheckTag | meshv:preferredConcept | meshv:Concept
 
 {: #tabs-3}
 <div>
-Coming soon...
+{:.display}
+Subject | Predicate
+------- | ---------
+meshv:Concept | rdfs:label
+meshv:Concept | &lt;http://purl.org/dc/terms/identifier&gt;
+meshv:Concept | &lt;http://www.w3.org/2004/02/skos/core#scopeNote&gt;
+meshv:Concept | meshv:CASN1_label
+meshv:Concept | meshv:registryNumber
+
 </div>
 </div>
 
