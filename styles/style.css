@@ -137,3 +137,13 @@ pre, .sample-queries {
    text-wrap: unrestricted; 
 }
 
+.display {
+  
+  font-size:80%;
+  
+}
+
+#tabs {
+  
+  margin-bottom:1em;
+}
