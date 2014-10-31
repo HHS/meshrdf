@@ -25,7 +25,7 @@ In MeSH RDF, concepts classes can be connected as follows:
 
 *  [Relations to other classes (as subject)](#tabs-1)
 *  [Relations to other classes (as object)](#tabs-2)
-*  [Concept properties](#tabs-3)
+*  [meshv:Concept properties](#tabs-3)
 
 {: #tabs-1}
 <div>

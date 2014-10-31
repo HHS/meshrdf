@@ -39,7 +39,7 @@ The following RDF graph diagram shows a fairly typical topical descriptor (D0152
 
 *  [Relations to other classes (as subject)](#tabs-1)
 *  [Relations to other classes (as object)](#tabs-2)
-*  [Concept properties](#tabs-3)
+*  [meshv:Descriptor properties](#tabs-3)
 
 {: #tabs-1}
 <div>
