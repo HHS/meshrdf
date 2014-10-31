@@ -45,26 +45,30 @@
       -->
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
-          <fixme reporter='klortho'>As usual, I don't like these predicates with literal values.
-            I think this should be done with rdf:type relations to particular classes, each of
-            which would be a subclass of SupplementaryConceptRecord.</fixme>
         </xsl:with-param>
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$supprec_uri"/>
-          <uri prefix='&meshv;'>SCRClass</uri>
-          <literal>
-            <xsl:value-of select="@SCRClass"/>
-          </literal>
+          <uri prefix='&rdf;'>type</uri>
+          <xsl:choose>
+            <xsl:when test='@SCRClass = "1"'>
+              <uri prefix='&meshv;'>RegularSubstance</uri>
+            </xsl:when>
+            <xsl:when test='@SCRClass = "2"'>
+              <uri prefix='&meshv;'>Protocol</uri>
+            </xsl:when>
+            <xsl:when test='@SCRClass = "3"'>
+              <uri prefix='&meshv;'>RareDisease</uri>
+            </xsl:when>
+          </xsl:choose>
         </xsl:with-param>
       </xsl:call-template>
 
       <!--
         Transformation rule: rdf:type
-      -->
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <desc>This relation states that a Subject node used to identify a Supplementary Concept 
-            Record (SCR) is of type "SupplementaryConceptRecord".</desc>
+            Record (SCR) is of type "SupplementaryConcept".</desc>
           <fixme report='klortho'>
             How about naming this, simply, SupplementaryConcept?
           </fixme>
@@ -72,9 +76,10 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$supprec_uri"/>
           <uri prefix='&rdf;'>type</uri>
-          <uri prefix='&meshv;'>SupplementaryConceptRecord</uri>
+          <uri prefix='&meshv;'>SupplementaryConcept</uri>
         </xsl:with-param>
       </xsl:call-template>
+      -->
 
       <!--
         Transformation rule: rdfs:label
@@ -121,9 +126,9 @@
         </xsl:with-param>
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$supprec_uri"/>
-          <uri prefix='&meshv;'>frequency</uri>
-          <literal>
-            <xsl:value-of select="Frequency"/>
+          <uri prefix='&meshv;'>frequencyyyyyy</uri>
+          <literal type='&xs;#int'>
+            <xsl:value-of select="xs:int(Frequency)"/>
           </literal>
         </xsl:with-param>
       </xsl:call-template>
@@ -313,7 +318,7 @@
         -->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
-            <desc>This relation states that a Subject node used to identify a Supplementary Concept Record (SCR) is of type "SupplementaryConceptRecord".</desc>
+            <desc>This relation states that a Subject node used to identify a Supplementary Concept Record (SCR) is of type "SupplementaryConcept".</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select="$indexing_data_blank"/>
