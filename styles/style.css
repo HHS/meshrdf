@@ -137,9 +137,9 @@ pre, .sample-queries {
    text-wrap: unrestricted; 
 }
 
-.display {
+.data-table-standard, .data-table-long {
   
-  font-size:80%;
+  font-size:.75em;
   
 }
 
