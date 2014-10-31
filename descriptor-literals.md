@@ -31,6 +31,7 @@ The following RDF graph diagram shows a fairly typical topical descriptor (D0152
 ![Descriptor RDF Graph Diagram](images/BasicConversionLiterals.png){: class="rdf-graph"}
 
 ### meshv:Descriptor - Relations and Properties
+This table includes all the sub-classes of the meshv:Descriptor as either the subject or object of an RDF triple, as well its properties.
 
 {::options parse_block_html="true" /}
 
@@ -43,43 +44,158 @@ The following RDF graph diagram shows a fairly typical topical descriptor (D0152
 
 {: #tabs-1}
 <div>
-{:.display}
+{:.data-table-long .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | --------
-meshv:TopicalDescriptor | meshv:preferredConcept | meshv:Concept
-meshv:TopicalDescriptor | meshv:concept | meshv:Concept
+meshv:CheckTag | meshv:preferredConcept | meshv:Concept
+meshv:CheckTag | meshv:recordPreferredTerm | meshv:Term
+meshv:Descriptor | meshv:allowableQualifier | meshv:Qualifier
+meshv:Descriptor | meshv:concept | meshv:Concept
+meshv:Descriptor | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:Descriptor | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:Descriptor | meshv:preferredConcept | meshv:Concept
+meshv:Descriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:Descriptor | meshv:seeAlso | meshv:TopicalDescriptor
+meshv:Descriptor | meshv:seeAlso | meshv:Descriptor
+meshv:Descriptor | meshv:seeAlso | meshv:PublicationType
+meshv:Descriptor | meshv:treeNumber | meshv:TreeNumber
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:Descriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:GeographicalDescriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:PublicationType
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:TopicalDescriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:Descriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:GeographicalDescriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:PublicationType
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:TopicalDescriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:Descriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:GeographicalDescriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:PublicationType
+meshv:GeographicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
+meshv:GeographicalDescriptor | meshv:concept | meshv:Concept
+meshv:GeographicalDescriptor | meshv:preferredConcept | meshv:Concept
+meshv:GeographicalDescriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:GeographicalDescriptor | meshv:treeNumber | meshv:TreeNumber
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:GeographicalDescriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:Descriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:GeographicalDescriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:Descriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:TopicalDescriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:GeographicalDescriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:Descriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:TopicalDescriptor
+meshv:PublicationType | meshv:concept | meshv:Concept
+meshv:PublicationType | meshv:preferredConcept | meshv:Concept
+meshv:PublicationType | meshv:recordPreferredTerm | meshv:Term
+meshv:PublicationType | meshv:seeAlso | meshv:PublicationType
+meshv:PublicationType | meshv:seeAlso | meshv:Descriptor
+meshv:PublicationType | meshv:treeNumber | meshv:TreeNumber
+meshv:PublicationType | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:PublicationType
+meshv:PublicationType | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:Descriptor
+meshv:PublicationType | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:PublicationType
+meshv:PublicationType | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:Descriptor
+meshv:PublicationType | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:PublicationType
+meshv:PublicationType | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:Descriptor
 meshv:TopicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
-meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
-meshv:TopicalDescriptor | meshv:treeNumber | meshv:TreeNumber
-meshv:TopicalDescriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:TopicalDescriptor | meshv:concept	meshv:Concept
 meshv:TopicalDescriptor | meshv:pharmacologicalAction | meshv:TopicalDescriptor
-meshv:TopicalDescriptor | meshv:seeAlso | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:TopicalDescriptor | meshv:preferredConcept | meshv:Concept
+meshv:TopicalDescriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:TopicalDescriptor | meshv:seeAlso	meshv:TopicalDescriptor
+meshv:TopicalDescriptor | meshv:seeAlso	meshv:Descriptor
+meshv:TopicalDescriptor | meshv:seeAlso	meshv:PublicationType
+meshv:TopicalDescriptor | meshv:treeNumber | meshv:TreeNumber
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:Descriptor
 meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:GeographicalDescriptor
-meshv:TopicalDescriptor | meshv:seeAlso | meshv:PublicationType
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:Descriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:GeographicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:Descriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:GeographicalDescriptor
 
 </div>
 
 {: #tabs-2}
 <div>
-{:.display}
+{:.data-table-long .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | --------
 meshv:AllowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:TopicalDescriptor
+meshv:AllowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:Descriptor
+meshv:AllowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:GeographicalDescriptor
+meshv:Descriptor | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:Descriptor | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:Descriptor | meshv:seeAlso | meshv:TopicalDescriptor
+meshv:Descriptor | meshv:seeAlso | meshv:Descriptor
+meshv:Descriptor | meshv:seeAlso | meshv:PublicationType
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:Descriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:GeographicalDescriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:PublicationType
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:TopicalDescriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:Descriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:GeographicalDescriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:PublicationType
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:TopicalDescriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:Descriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:GeographicalDescriptor
+meshv:Descriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:PublicationType
+meshv:DescriptorQualifierPair | meshv:hasDescriptor | meshv:TopicalDescriptor
+meshv:DescriptorQualifierPair | meshv:hasDescriptor | meshv:Descriptor
+meshv:DescriptorQualifierPair | meshv:hasDescriptor | meshv:GeographicalDescriptor
+meshv:DescriptorQualifierPair | meshv:useInstead | meshv:TopicalDescriptor
+meshv:DescriptorQualifierPair | meshv:useInstead | meshv:Descriptor
 meshv:DisallowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:TopicalDescriptor
-meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
-meshv:TopicalDescriptor | meshv:pharmacologicalAction | meshv:TopicalDescriptor
-meshv:SupplementaryConceptRecord | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:DisallowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:Descriptor
 meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:TopicalDescriptor
-meshv:TopicalDescriptor | meshv:seeAlso | meshv:TopicalDescriptor
-meshv:IndexingData | meshv:indexingDescriptor | meshv:TopicalDescriptor
-meshv:MappedData | meshv:isMappedToDescriptor | meshv:TopicalDescriptor
+meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:Descriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:GeographicalDescriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:Descriptor
 meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:GeographicalDescriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:Descriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:TopicalDescriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:GeographicalDescriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:Descriptor
+meshv:GeographicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:TopicalDescriptor
+meshv:IndexingData | meshv:indexingDescriptor | meshv:TopicalDescriptor
+meshv:IndexingData | meshv:indexingDescriptor | meshv:Descriptor
+meshv:MappedData | meshv:isMappedToDescriptor | meshv:TopicalDescriptor
+meshv:MappedData | meshv:isMappedToDescriptor | meshv:Descriptor
+meshv:PublicationType | meshv:seeAlso | meshv:PublicationType
+meshv:PublicationType | meshv:seeAlso | meshv:Descriptor
+meshv:PublicationType | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:PublicationType
+meshv:PublicationType | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:Descriptor
+meshv:PublicationType | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:PublicationType
+meshv:PublicationType | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:Descriptor
+meshv:PublicationType | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:PublicationType
+meshv:PublicationType | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:Descriptor
+meshv:SupplementaryConceptRecord | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:SupplementaryConceptRecord | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:TopicalDescriptor | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:TopicalDescriptor | meshv:seeAlso | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | meshv:seeAlso | meshv:Descriptor
+meshv:TopicalDescriptor | meshv:seeAlso | meshv:PublicationType
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:Descriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broader&gt; | meshv:GeographicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:Descriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#broaderTransitive&gt; | meshv:GeographicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:TopicalDescriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:Descriptor
+meshv:TopicalDescriptor | &lt;http://www.w3.org/2004/02/skos/core#semanticRelation&gt; | meshv:GeographicalDescriptor
 
 </div>
 
 {: #tabs-3}
 <div>
-{:.display}
+{:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
 meshv:TopicalDescriptor | rdfs:label
