@@ -31,6 +31,8 @@ construct {
     mesh:C025735 meshv:recordPreferredTerm ?prefTerm .
     ?prefTerm a ?prefTermType .
     ?prefCon ?pct ?prefTerm .
+
+    mesh:C012211 meshv:indexerConsiderAlso ?ica .
 }
 from <http://id.nlm.nih.gov/mesh2014>
 where {
@@ -42,6 +44,8 @@ where {
     mesh:C025735 meshv:recordPreferredTerm ?prefTerm .
     ?prefTerm a ?prefTermType .
     ?prefCon ?pct ?prefTerm .
+
+    mesh:C012211 meshv:indexerConsiderAlso ?ica .
 }
 ```
 
@@ -80,6 +84,8 @@ mesh:C025735  rdfs:label  "Aeron" ;
 mesh:M0085468 rdf:type  meshv:Concept ;
               meshv:preferredTerm mesh:T115471 .
 mesh:T115471  rdf:type  meshv:Term .
+
+mesh:C012211  meshv:indexerConsiderAlso mesh:D000626Q000037 .
 ```
 
 ### MeSH XML
