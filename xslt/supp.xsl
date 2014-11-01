@@ -173,80 +173,21 @@
       </xsl:for-each>
       
       <xsl:for-each select="IndexingInformationList/IndexingInformation">
-        <xsl:variable name='indexing_data_blank'>
-          <named>
-            <xsl:text>_:blank_set2_</xsl:text>
-            <xsl:value-of select="../../SupplementalRecordUI"/>
-            <xsl:text>_</xsl:text>
-            <xsl:value-of select="position()"/>
-          </named>
-        </xsl:variable>
-        
-        <!--
-          Transformation rule: indexingData
-        -->
-        <xsl:call-template name="triple">
+        <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc>To remain true to the structure of the supplemental records in XML 
-              format, we created the hasIndexingData relation.
-              A supplemental record can have indexing information that consists of at least one 
-              descriptor record or descriptor record/qualifier record combination. A
-              blank node makes up the indexing data entity.</desc>
+            <desc>See GitHub issue #16.</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select="$supprec_uri"/>
-            <uri prefix='&meshv;'>indexingData</uri>
-            <xsl:copy-of select="$indexing_data_blank"/>
-          </xsl:with-param>
-        </xsl:call-template>
-        
-        <!--
-          Transformation rule: rdf:type
-        -->
-        <xsl:call-template name="triple">
-          <xsl:with-param name="doc">
-            <desc>This relation states that a Subject node used to identify a Supplementary Concept Record (SCR) is of type "SupplementaryConcept".</desc>
-          </xsl:with-param>
-          <xsl:with-param name="spec">
-            <xsl:copy-of select="$indexing_data_blank"/>
-            <uri prefix='&rdf;'>type</uri>
-            <uri prefix='&meshv;'>IndexingData</uri>
-          </xsl:with-param>
-        </xsl:call-template>
-        
-        <!--
-          Transformation rule: indexingDescriptor
-        -->
-        <xsl:call-template name="triple">
-          <xsl:with-param name="doc">
-            <desc>A supplemental record can be indexed to more than one descriptor via a unique blank node.</desc>
-          </xsl:with-param>
-          <xsl:with-param name="spec">
-            <xsl:copy-of select="$indexing_data_blank"/>
-            <uri prefix='&meshv;'>indexingDescriptor</uri>
+            <uri prefix='&meshv;'>indexerConsiderAlso</uri>
             <uri prefix='&mesh;'>
               <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
+              <xsl:if test="QualifierReferredTo">
+                <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
+              </xsl:if>
             </uri>
           </xsl:with-param>
         </xsl:call-template>
-        
-        <!--
-          Transformation rule: indexingQualifier
-        -->
-        <xsl:if test="QualifierReferredTo">
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>A supplemental record can be indexed to more than one qualifier via a unique blank node.</desc>
-            </xsl:with-param>
-            <xsl:with-param name='spec'>
-              <xsl:copy-of select="$indexing_data_blank"/>
-              <uri prefix='&meshv;'>indexingQualifier</uri>
-              <uri prefix='&mesh;'>
-                <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
-              </uri>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:if>
       </xsl:for-each>        
 
       <!--
