@@ -157,7 +157,7 @@
                 </xsl:otherwise>
               </xsl:choose>
             </uri>
-            <uri prefix='&meshv;'>
+            <uri prefix='&mesh;'>
               <xsl:choose>
                 <xsl:when test='QualifierReferredTo'>
                   <xsl:value-of select="concat(f:no-asterisk(DescriptorReferredTo/DescriptorUI),
@@ -172,29 +172,6 @@
         </xsl:call-template>
       </xsl:for-each>
       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <xsl:for-each select="IndexingInformationList/IndexingInformation">
         <xsl:variable name='indexing_data_blank'>
           <named>
