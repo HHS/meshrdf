@@ -27,6 +27,10 @@ meshv:Concept a rdfs:Class .
 
 meshv:Term a rdfs:Class .
 
+meshv:RegularSubstance rdfs:subClassOf meshv:SupplementaryConcept .
+meshv:Protocol rdfs:subClassOf meshv:SupplementaryConcept .
+meshv:RareDisease rdfs:subClassOf meshv:SupplementaryConcept .
+
 # In issue #36, we discussed this, and decided not to create individual subclasses of meshv:Term.
 # Leaving the code here, just in case they ever change their minds.
 #meshv:Abbreviation a rdfs:Class ;
