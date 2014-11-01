@@ -184,4 +184,42 @@ mesh:C012211  meshv:indexerConsiderAlso mesh:D000626Q000037 .
     </Concept>
   </ConceptList>
 </SupplementalRecord>
+...
+<SupplementalRecord SCRClass="1">
+  <SupplementalRecordUI>C012211</SupplementalRecordUI>
+  <SupplementalRecordName>
+    <String>ubenimex</String>
+  </SupplementalRecordName>
+  ...
+  <IndexingInformationList>
+    <IndexingInformation>
+      <DescriptorReferredTo>
+        <DescriptorUI>D000626</DescriptorUI>
+        <DescriptorName>
+          <String>Aminopeptidases</String>
+        </DescriptorName>
+      </DescriptorReferredTo>
+      <QualifierReferredTo>
+        <QualifierUI>Q000037</QualifierUI>
+        <QualifierName>
+          <String>antagonists &amp; inhibitors</String>
+        </QualifierName>
+      </QualifierReferredTo>
+    </IndexingInformation>
+  </IndexingInformationList>
+  ...
+</SupplementalRecord>
 ```
+
+###Notes
+
+There are three possible values for the *SCRClass* attribute (see the [XML
+documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#SCRClass), which result in three
+rdfs:Classes:
+
+* 1 - meshv:RegularSubstance
+* 2 - meshv:Protocol
+* 3 - meshv:RareDisease
+
+Each of these is an rdfs:subClassOf meshv:SupplementaryConcept.
+
