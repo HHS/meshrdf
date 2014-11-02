@@ -7,7 +7,7 @@ categories:
 ---
 The table below is a list of classes in MeSH RDF.
 
-{:.data-table .display}
+{:.data-table-standard}
 Class Name | Definition | Predicates (Objects) | Equivalent XML Data Element
 ---------- | ---------- | ---------------------------
 meshv:AllowedDescriptorQualifierPair | MeSH RDF creates URIs based on allowable descriptor-qualifier pairs (such as [D000236Q000235](http://id.nlm.nih.gov/mesh/D000236Q000235.html){:target="_blank"}). | meshv:hasQualifier (meshv:Qualifier), meshv:hasDescriptor (meshv:TopicalDescriptor or meshv:GeographicDescriptor) | Where do I come from ?
