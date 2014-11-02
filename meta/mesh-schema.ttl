@@ -27,6 +27,8 @@ meshv:Concept a rdfs:Class .
 
 meshv:Term a rdfs:Class .
 
+meshv::SupplementaryConcept a rdfs:Class .
+
 meshv:RegularSubstance rdfs:subClassOf meshv:SupplementaryConcept .
 meshv:Protocol rdfs:subClassOf meshv:SupplementaryConcept .
 meshv:RareDisease rdfs:subClassOf meshv:SupplementaryConcept .
@@ -56,7 +58,6 @@ meshv:RareDisease rdfs:subClassOf meshv:SupplementaryConcept .
 # meshv::MappedData                     rdf:type    rdfs:Class .
 # meshv::Qualifier                      rdf:type    rdfs:Class .
 # meshv::SemanticType                   rdf:type    rdfs:Class .
-# meshv::SupplementaryConceptRecord     rdf:type    rdfs:Class .
 #
 # meshv::abbreviation                   rdfs:domain meshv::Qualifier .
 # meshv::abbreviation                   rdfs:domain meshv::Term .
