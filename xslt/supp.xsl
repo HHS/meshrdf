@@ -17,6 +17,13 @@
 
   <xsl:template match="/">
 
+    <!--
+      Documenting and diagramming all of these sub-graphs on the wiki. See issue #30.
+      Done up to here.
+    -->
+    
+    
+    
     <xsl:for-each select="SupplementalRecordSet/SupplementalRecord">
       <xsl:variable name='supprec_uri'>
         <uri prefix='&mesh;'>

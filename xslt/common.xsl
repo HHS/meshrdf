@@ -583,7 +583,7 @@
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select="$concept_uri"/>
-            <uri prefix='&meshv;'>CASN1_label</uri>
+            <uri prefix='&meshv;'>casn1_label</uri>
             <literal>
               <xsl:value-of select="CASN1Name"/>
             </literal>
@@ -976,12 +976,6 @@
             </xsl:with-param>
           </xsl:call-template>
         </xsl:if>
-        
-        <!--
-          Documenting and diagramming all of these sub-graphs on the wiki. See issue #30.
-          Done up to here.
-        -->
-        
         
         <!--
           Transformation rule: abbreviation
