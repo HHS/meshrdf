@@ -17,13 +17,6 @@
 
   <xsl:template match="/">
 
-    <!--
-      Documenting and diagramming all of these sub-graphs on the wiki. See issue #30.
-      Done up to here.
-    -->
-    
-    
-    
     <xsl:for-each select="SupplementalRecordSet/SupplementalRecord">
       <xsl:variable name='supprec_uri'>
         <uri prefix='&mesh;'>
@@ -69,24 +62,6 @@
           </xsl:choose>
         </xsl:with-param>
       </xsl:call-template>
-
-      <!--
-        Transformation rule: rdf:type
-      <xsl:call-template name='triple'>
-        <xsl:with-param name="doc">
-          <desc>This relation states that a Subject node used to identify a Supplementary Concept 
-            Record (SCR) is of type "SupplementaryConcept".</desc>
-          <fixme report='klortho'>
-            How about naming this, simply, SupplementaryConcept?
-          </fixme>
-        </xsl:with-param>
-        <xsl:with-param name='spec'>
-          <xsl:copy-of select="$supprec_uri"/>
-          <uri prefix='&rdf;'>type</uri>
-          <uri prefix='&meshv;'>SupplementaryConcept</uri>
-        </xsl:with-param>
-      </xsl:call-template>
-      -->
 
       <!--
         Transformation rule: rdfs:label
