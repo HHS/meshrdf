@@ -6,7 +6,7 @@ categories:
 - Cheat Sheets
 ---
 
-The table below is a list of predicates in MeSH RDF.  
+The table below is a list of predicates in MeSH RDF.
 
 {:.display .data-table}
 Predicate Name | Definition | Equivalent XML Data Element
@@ -44,7 +44,7 @@ skos:broaderTransitive | Explain Me | Where Do I Come From?
 skos:prefLabel | Explain Me | Where Do I Come From?
 skos:related | Explain Me | Where Do I Come From?
 skos:scopeNote | Free-text narrative giving the scope and meaning (definition) of a concept. DUI D019644 example: Replacement of the hip joint. |```<ScopeNote>```
-meshv:CASN1_label | Free-text of the Chemical Abstracts Type N1 Name which is the systematic name used in the Chemical Abstracts Chemical Substance and Formula Indexes. The systematic name is a unique name assigned to a chemical substance to represent its structure. First available for Descriptors in 1995. DUI D000082 example: Acetamide, N-(4-hydroxyphenyl)-|```<CASN1Name>```
+meshv:casn1_label | Free-text of the Chemical Abstracts Type N1 Name which is the systematic name used in the Chemical Abstracts Chemical Substance and Formula Indexes. The systematic name is a unique name assigned to a chemical substance to represent its structure. First available for Descriptors in 1995. DUI D000082 example: Acetamide, N-(4-hydroxyphenyl)-|```<CASN1Name>```
 meshv:allowableQualifier | A specific Qualifier allowed in combination with the Descriptor. DUI D000667 example: HOW DO I FILL THIS OUT? This is an XML envelope element; data are in <QualifierUI, String, and Abbreviation; think I may have filled other elements out wrongly, too. . .???|```<AllowableQualifier```
 meshv:hasDescriptor | Explain Me | Where Do I Come From?
 meshv:hasQualifier | Explain Me | Where Do I Come From?

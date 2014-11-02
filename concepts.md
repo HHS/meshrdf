@@ -68,7 +68,7 @@ meshv:CheckTag | meshv:preferredConcept | meshv:Concept
 {:.data-table-standard .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:Concept | meshv:CASN1_label
+meshv:Concept | meshv:casn1_label
 meshv:Concept | meshv:registryNumber
 meshv:Concept | meshv:relatedRegistryNumber
 meshv:Concept | &lt;http://purl.org/dc/terms/identifier&gt;
@@ -129,7 +129,7 @@ where {
         a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Calcimycin" ;
-        <http://id.nlm.nih.gov/mesh/vocab#CASN1_label>
+        <http://id.nlm.nih.gov/mesh/vocab#casn1_label>
                 "4-Benzoxazolecarboxylic acid, 5-(methylamino)-2-((3,9,11-trimethyl-8-(1-methyl-2-oxo-2-(1H-pyrrol-2-yl)ethyl)-1,7-dioxaspiro(5.5)undec-2-yl)methyl)-, (6S-(6alpha(2S*,3S*),8beta(R*),9beta,11alpha))-" ;
         <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
                 <http://id.nlm.nih.gov/mesh/T000002> ;
