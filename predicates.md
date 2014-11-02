@@ -8,7 +8,7 @@ categories:
 
 The table below is a list of predicates in MeSH RDF.  
 
-{:.display .data-table}
+{:.display }
 Predicate Name | Definition | Equivalent XML Data Element
 -------------- | ---------- | ---------------------------
 rdf:type | rdf:type is used to state that a resource is an instance of a class. For example, Ofloxacin (mesh:D015242) has an rdf:type of meshv:TopicalDescriptor. | N/A
