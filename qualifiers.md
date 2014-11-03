@@ -44,39 +44,55 @@ where {
 ###MeSH RDF Data
 
 ```
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
-@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dcterms:  <http://purl.org/dc/terms/> .
-@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+<http://id.nlm.nih.gov/mesh/T060555>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> .
 
-mesh:Q000008  rdf:type  meshv:Qualifier ;
-              rdfs:label  "administration & dosage" ;
-              dcterms:identifier  "Q000008" ;
-              meshv:dateCreated "1973-12-27"^^xsd:date ;
-              meshv:dateRevised "2003-07-22"^^xsd:date ;
-              meshv:dateEstablished "1966-01-01"^^xsd:date ;
-              meshv:activeMeSHYear  "2004-01-01"^^xsd:date ,
-                                    ...
-                                    "2014-01-01"^^xsd:date;
-              meshv:annotation  "subhead only; for ... or /AD" ;
-              meshv:onlineNote  "search policy: ... SUBS APPLY AD" .
-              meshv:allowedTreeNode mesh:D01 ,
-                                    mesh:D27 ;
-              meshv:recordOriginator  "nlm" ;
-              meshv:recordMaintainer  "schulmaj" ;
-              meshv:recordAuthorizer  "nelsons" ;
-              meshv:preferredConcept  mesh:M0030212 ;
-              meshv:recordPreferredTerm mesh:T060555 ;
-              meshv:historyNote "66; used with Category D 1966-90 forward" ;
-              meshv:treeNumber  mesh:Y10.010 ,
-                                mesh:Y07.010 ;
+<http://id.nlm.nih.gov/mesh/M0030212>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
+                <http://id.nlm.nih.gov/mesh/T060555> .
 
-mesh:M0030212 rdf:type  meshv:Concept ;
-              meshv:preferredTerm mesh:T060555 .
-
-mesh:T060555  rdf:type  meshv:Term .
+<http://id.nlm.nih.gov/mesh/Q000008>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Qualifier> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "administration & dosage" ;
+        <http://id.nlm.nih.gov/mesh/vocab#activeMeSHYear>
+               "2004-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ,
+               ...
+               "2014-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://id.nlm.nih.gov/mesh/vocab#allowedTreeNode>
+                <http://id.nlm.nih.gov/mesh/D01>
+                ...
+                <http://id.nlm.nih.gov/mesh/D27> 
+        <http://id.nlm.nih.gov/mesh/vocab#annotation>
+                "subhead only; ... /admin or /AD" ;
+        <http://id.nlm.nih.gov/mesh/vocab#dateCreated>
+                "1973-12-27"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://id.nlm.nih.gov/mesh/vocab#dateEstablished>
+                "1966-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://id.nlm.nih.gov/mesh/vocab#dateRevised>
+                "2003-07-22"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://id.nlm.nih.gov/mesh/vocab#historyNote>
+                "66; used with Category D 1966-90 forward" ;
+        <http://id.nlm.nih.gov/mesh/vocab#onlineNote>
+                "search policy: ... or SUBS APPLY AD" ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredConcept>
+                <http://id.nlm.nih.gov/mesh/M0030212> ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordAuthorizer>
+                "nelsons" ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordMaintainer>
+                "schulmaj" ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordOriginator>
+                "nlm" ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm>
+                <http://id.nlm.nih.gov/mesh/T060555> ;
+        <http://id.nlm.nih.gov/mesh/vocab#treeNumber>
+                <http://id.nlm.nih.gov/mesh/Y07.010> , 
+                <http://id.nlm.nih.gov/mesh/Y10.010> ;
+        <http://purl.org/dc/terms/identifier>
+                "Q000008" ;
+        <http://www.w3.org/2004/02/skos/core#broader>
+                <http://id.nlm.nih.gov/mesh/> .
 ```
 
 ### MeSH XML
