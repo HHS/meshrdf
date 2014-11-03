@@ -1,5 +1,8 @@
 # MeSH® RDF
 
+***Status:  pre-beta.  Feedback is welcome, but please bear in mind that the data model is
+subject to change.***
+
 This repository contains a set of XSLT files that transform MeSH XML into RDF, and also contains
 the content for the technical documentation pages, deployed as a set of GitHub pages, at
 [http://hhs.github.io/meshrdf](http://hhs.github.io/meshrdf).
