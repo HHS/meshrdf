@@ -16,7 +16,7 @@ Depicted in this graph:
 
 ###SPARQL
 
-The following <span class='invoke-sparql'>SPARQL query</span> does produces the RDF corresponding
+The following <span class='invoke-sparql'>SPARQL query</span> produces the RDF corresponding
 to the above graph:
 
 ```sparql
@@ -42,18 +42,21 @@ where {
 
 
 ### MeSH RDF Data
-
+Here is the truncated output of the above query in N3 format. The same data is illustrated in the RDF graph diagram above.
 ```
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
-@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+...
+<http://id.nlm.nih.gov/mesh/D000005Q000293>
+        a       <http://id.nlm.nih.gov/mesh/vocab#DisallowedDescriptorQualifierPair> ;
+        <http://id.nlm.nih.gov/mesh/vocab#hasDescriptor>
+                <http://id.nlm.nih.gov/mesh/D000005> ;
+        <http://id.nlm.nih.gov/mesh/vocab#hasQualifier>
+                <http://id.nlm.nih.gov/mesh/Q000293> ;
+        <http://id.nlm.nih.gov/mesh/vocab#useInstead>
+                <http://id.nlm.nih.gov/mesh/D000007> .
 
-mesh:D000005Q000293  rdf:type  meshv:DisallowedDescriptorQualifierPair ;
-  meshv:hasDescriptor  mesh:D000005 ;
-  meshv:hasQualifier   mesh:Q000293 ;
-  meshv:useInstead     mesh:D000007 .
-meshv:DisallowedDescriptorQualifierPair rdfs:subClassOf meshv:DescriptorQualifierPair .
+<http://id.nlm.nih.gov/mesh/vocab#DisallowedDescriptorQualifierPair>
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair> .
 ```
 
 Notes:
@@ -68,8 +71,7 @@ Notes:
 
 ### MeSH XML
 
-Here is a typical example of and EntryCombination represented in XML.
-
+The MeSH RDF was derived from non-RDF MeSH XML. Here is a typical example of an EntryCombination represented in MeSH XML.
 
 ```xml
 <DescriptorRecord DescriptorClass="1">
