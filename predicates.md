@@ -28,16 +28,16 @@ meshv:historyNote | Free-text information that traces the concept in MeSH and is
 meshv:isQualifierType | Currently all Qualifiers have QualifierType of "1".  |```QualifierType attribute on <QualifierRecord>```
 meshv:lexicalTag | A 3-letter value that indicates the lexical category.  Valid values with their meanings in parentheses are: ABB (Abbreviation); ABX (Embedded abbreviation); ACR (Acronym); ACX (Embedded acronym); EPO (Eponym); LAB (Lab number); NAM (Proper name); NON (None); and TRD (Trade name). Note that a Permuted Term will always have the same Lexical Tag value as the term from which it is generated. DUI FILL ME IN |```LexicalTag attribute on <Term>```
 meshv:onlineNote | Free-text information formerly intended to help the NLM online searcher. Superseded by a more detailed historyNote when onlineNote is not present. |```<OnlineNote>```
-meshv:preferredConcept | Explain Me | Where Do I Come From?
-meshv:preferredTerm | Explain Me | Where Do I Come From?
+meshv:preferredConcept | The meaning of the term that names the record. The preferred concept is frequently a broader concept that includes narrower sub-concepts, but may also be one among several distinct concepts. In any case, the preferred concept is selected as the primary or most prominent representation among the concepts in the literature to be indexed by the record. DUI FILL ME IN  Not sure I got this right - difference between this XML vs. RecordPreferredTermYN and ConceptPreferredTermYN on <Term>? |```PreferredConceptYN attribute on <Concept>```
+meshv:preferredTerm | see above question of preferredConcept and recordPreferred Term FIX ME | Where Do I Come From?
 meshv:printFlag | For NLM internal processing only. |```PrintFlagYN attribute on <Term>```
 meshv:recordAuthorizer | Used for internal NLM processing only. |```<RecordAuthorizer>```
 meshv:recordMaintainer | Used for internal NLM processing only. |```<RecordMaintainer>```
 meshv:recordOriginator | Used for internal NLM processing only. |```<RecordOriginator>```
-meshv:recordPreferredTerm | Explain Me | Where Do I Come From?
-meshv:semanticType | Explain Me | Where Do I Come From?
+meshv:recordPreferredTerm | Indicates that the term is the preferred term for the record. DUI FILL ME IN |```RecordPreferredTerm attribute on <Term>```
+meshv:semanticType | One of approximately 140 categories in the UMLS Semantic Network that name properties of a concept. An example is Organic Chemical which is Type T109. DUI FILL ME IN. . . are the data the string or the type UI? |```<SemanticType>```
 meshv:sortVersion | Custom version of a term used to sort properly in a print product; format is all uppercase. DUI D002880 example:  FILL ME IN . . .  |```<Sort Version>```
-meshv:term | Explain Me | Where Do I Come From?
+meshv:term | Alpha-numeric string that is the basic unit of the MeSH vocabulary. Also functions as the name of a Descriptor and concept. DUI FILL ME IN . . . and where do I put this infor: The term itself is the <String> element. |```<Term>```
 meshv:treeNumber | Alpha-numeric string referring to location within a Descriptor or Qualifier hierarchy. Used for browsing the MeSH vocabulary and for inclusive searches by retrieval systems using MeSH. (Note that the Trees hierarchy is not represented using subelements. The hierarchy is represented by the Tree Number itself.) DUI D000163 example showing one of four 2014 MeSH tree locations: C02.839.040 |```<TreeNumber>```
 skos:broader | Explain Me | Where Do I Come From?
 skos:broaderTransitive | Explain Me | Where Do I Come From?
@@ -49,10 +49,10 @@ meshv:allowableQualifier | A specific Qualifier allowed in combination with the 
 meshv:hasDescriptor | Explain Me | Where Do I Come From?
 meshv:hasQualifier | Explain Me | Where Do I Come From?
 meshv:pharmacologicalAction | Reference to a Descriptor describing observed biological activity of an exogenously administered chemical represented by a Descriptor or SCR. DUI D000667 example: Anti-Bacterial Agents |```<PharmacologicalAction>```
-meshv:previousIndexing | Explain Me | Where Do I Come From?
-meshv:publicMeSHNote | Explain Me | Where Do I Come From?
-meshv:registryNumber | Explain Me | Where Do I Come From?
-meshv:relatedRegistryNumber | Explain Me | Where Do I Come From?
+meshv:previousIndexing | Free-text information referring to Descriptors or Descriptor/Qualifier combinations that were used to index the concept in MEDLINE before the Descriptor was created. Intended to enable users of new Descriptors to find similar concepts indexed before the Descriptor was created. Includes dates of the format (YYYY) for a single year or (YYYY-YYYY) for a range of years. May include descriptive text referring to a group of Descriptors as "specifics". Data are not maintained when a Descriptor or Qualifier name changes.  DUI FILL ME IN. . . Also used for SCRs to refer to the Heading Mapped-to to which the SCR was previously mapped. CUI FILL ME IN . . .|```<PreviousIndexing>```
+meshv:publicMeSHNote | Free-text information about the history of changes in the record that may be helpful to the user of the printed Index Medicus publication (ceased in 2005). This includes the date the record was created in MeSH, changes in the preferred term, earlier status as an SCR, etc. Unlike the History Note, MeSH terms reflect the MeSH vocabulary printed at that point in time, not as updated for online databases. In Descriptors, applies only to records having DescriptorClass value of 1. MeSH terms are in upper case. DUI FILL ME IN . . .|```<PublicMeSHNote>```
+meshv:registryNumber | A unique identifier from one of these sources: Enzyme Commission (Example: EC 2.4.2.17; Example for Partial enzyme number: EC 1.4.3.-); Chemical Abstracts Service (CAS) (Example: 7004-12-8); FDA Substance Registration System Unique Identifier (UNII) in 10-character format (Example: R16CO5Y76E); or the value of 0 if no match is available from the previous sources. Used for Descriptors in the D Category Drugs and Chemicals and for SCRs. DUI FILL ME IN . . .|```<RegistryNumber>```
+meshv:relatedRegistryNumber | The same type of value as the Registry Number but for concepts taht do not have their own Descriptor or Supplementary Concept Record. For example, these might be salts and/or stereoisomers of the parent compound. Most values correspond to a Registry Number value in a sub-concept in the record. A CAS number may be followed by note in parentheses which specifies the chemical relation between the Related Registry Number entry and the concept compound. Used for Descriptors in the D Category Drugs and Chemicals and for SCRs. DUI FILL ME IN . . . |```<RelatedRegistryNumber>```
 meshv:runningHead | For internal NLM processing only (archaic). |```<RunningHead>```
 meshv:seeAlso | Explain Me | Where Do I Come From?
 meshv:thesaurusID | Explain Me | Where Do I Come From?
