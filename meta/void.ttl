@@ -8,7 +8,7 @@
 @prefix : <http://id.nlm.nih.gov/mesh/void#> .
 
 # Metadata about this VoID description
-<> rdf:type void:DatasetDescription ;
+<http://id.nlm.nih.gov/mesh/void> rdf:type void:DatasetDescription ;
     dcterms:title "Medical Subject Headings (MeSH) RDF Dataset Description";
     dcterms:description "This is the VoID description for MeSH RDF datasets.";
     dcterms:creator "U.S. National Library of Medicine" ;
@@ -65,4 +65,4 @@
     void:entities "2417704"^^xsd:long ;
 
 # distinct subject
-    void:distinctSubjects "2417704"^^xsd:long ;
+    void:distinctSubjects "2417704"^^xsd:long .
