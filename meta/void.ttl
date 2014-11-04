@@ -9,58 +9,60 @@
 
 # Metadata about this VoID description
 <> rdf:type void:DatasetDescription ;
-     dcterms:title "MeSHRDF Dataset Description";
-     dcterms:description "This is the VoID description for MeSHRDF datasets.";
-     dcterms:creator "U.S. National Library of Medicine" ;
-     dcterms:date "2014-11-01"^^xsd:date ;
-     foaf:primaryTopic <http://id.nlm.nih.gov/mesh/void.ttl#MeSHRDF> .
+    dcterms:title "Medical Subject Headings (MeSH) RDF Dataset Description";
+    dcterms:description "This is the VoID description for MeSH RDF datasets.";
+    dcterms:creator "U.S. National Library of Medicine" ;
+    dcterms:date "2014-11-01"^^xsd:date ;
+    foaf:primaryTopic <http://id.nlm.nih.gov/mesh/void#MeSHRDF> .
 
 # Metadata description of the Dataset
 
 :MeSHRDF a void:Dataset ;
-     foaf:homepage <http://id.nlm.nih.gov/mesh/> ;
-     foaf:page <http://www.nlm.nih.gov/mesh/filelist.html> ;
-     dcterms:title "MeSHRDF"^^xsd:string ;
-     dcterms:description "The MeSH vocabulary as a Linked Data service." ;
-     void:uriSpace "http://id.nlm.nih.gov/mesh/" ;
-     void:uriLookupEndpoint <http://id.nlm.nih.gov/mesh/> ;
+    foaf:homepage <http://id.nlm.nih.gov/mesh/> ;
+    foaf:page <http://www.nlm.nih.gov/mesh/filelist.html> ;
+    dcterms:title "Medical Subject Headings (MeSH) RDF"^^xsd:string ;
+    dcterms:description "The Medical Subject Headings (MeSH) vocabulary as a Linked Data service." ;
+    void:uriSpace "http://id.nlm.nih.gov/mesh/" ;
+    void:uriLookupEndpoint <http://id.nlm.nih.gov/mesh/> ;
 
 # License
-     dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
 
 # Provenance
-     dcterms:creator "U.S. National Library of Medicine" ;
-     dcterms:publisher "U.S. National Library of Medicine" ;
-     dcterms:created "2014-11-01"^^xsd:date ;
+    dcterms:creator "U.S. National Library of Medicine" ;
+    dcterms:publisher "U.S. National Library of Medicine" ;
+    dcterms:created "2014-11-01"^^xsd:date ;
 
 # Vocabularies, topics, resources
-     void:vocabulary <http://www.w3.org/2000/01/rdf-schema#> ,
-                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ,
-                        <http://www.w3.org/2001/XMLSchema#> ,
-                        <http://purl.org/dc/terms/> ,
-                        <http://www.w3.org/2004/02/skos/core#> ,
-                        <http://id.nlm.nih.gov/mesh/shema#> ;
+    void:vocabulary <http://www.w3.org/2000/01/rdf-schema#> ,
+                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ,
+                    <http://www.w3.org/2001/XMLSchema#> ,
+                    <http://purl.org/dc/terms/> ,
+                    <http://www.w3.org/2004/02/skos/core#> ,
+                    <http://id.nlm.nih.gov/mesh/vocab#> ;
 
 # Database Access
-         void:sparqlEndpoint <http://id.nlm.nih.gov/mesh/sparql> ;
+    void:sparqlEndpoint <http://id.nlm.nih.gov/mesh/sparql> ;
 
 # Major Topic in DBpedia
-         dcterms:subject <http://dbpedia.org/page/Medical_Subject_Headings> ;
+    dcterms:subject <http://dbpedia.org/page/Medical_Subject_Headings> ;
 
 # other metadata
-         void:feature <http://www.w3.org/ns/formats/N3> ;
+    void:feature <http://www.w3.org/ns/formats/N3> ;
 
 # Example URI
-         void:exampleResource <http://id.nlm.nih.gov/mesh/D000001> ;
+    void:exampleResource <http://id.nlm.nih.gov/mesh/D000001> ;
 
 # FTP dump file
-         void:dataDump "## dump_file_URI ##" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2014/desc2014.nt" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2014/qual2014.nt" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2014/supp2014.nt" ;
 
 # triple count
-         void:triples "19133159"^^xsd:long ;
+    void:triples "19133159"^^xsd:long ;
 
 # entity count
-         void:entities "2417704"^^xsd:long ;
+    void:entities "2417704"^^xsd:long ;
 
 # distinct subject
-         void:distinctSubjects "2417704"^^xsd:long ;
+    void:distinctSubjects "2417704"^^xsd:long ;
