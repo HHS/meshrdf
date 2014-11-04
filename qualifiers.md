@@ -50,7 +50,6 @@ meshv:GeographicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
 meshv:AllowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
 meshv:DisallowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
 
-
 </div>
 
 {: #tabs-3}
@@ -70,6 +69,7 @@ meshv:Qualifier | meshv:onlineNote
 meshv:Qualifier | meshv:recordAuthorizer
 meshv:Qualifier | meshv:recordMaintainer
 meshv:Qualifier | meshv:recordOriginator
+
 </div>
 </div>
 
