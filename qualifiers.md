@@ -12,6 +12,66 @@ categories:
 
 ![Qualifier RDF Graph Diagram](images/Qualifiers.png){: class="rdf-graph"}
 
+### meshv:Qualifier - Relations and Properties
+
+{::options parse_block_html="true" /}
+
+{: #tabs}
+<div>
+
+*  [Relations to other classes (as subject)](#tabs-1)
+*  [Relations to other classes (as object)](#tabs-2)
+*  [meshv:Concept properties](#tabs-3)
+
+{: #tabs-1}
+<div>
+
+{:.data-table-standard .row-border .hover }
+Subject | Predicate | Object
+------- | --------- | -------
+meshv:Qualifier | rdf:type | rdfs:Class
+meshv:Qualifier | meshv:allowedTreeNode | meshv:TreeNumber
+meshv:Qualifier | meshv:concept | meshv:Concept
+meshv:Qualifier | meshv:preferredConcept | meshv:Concept
+meshv:Qualifier | meshv:recordPreferredTerm | meshv:Term
+meshv:Qualifier | meshv:treeNumber | meshv:TreeNumber
+meshv:Qualifier | skos:broader | meshv:Qualifier
+
+</div>
+
+{: #tabs-2}
+<div>
+
+{:.data-table-standard .row-border .hover}
+Subject | Predicate | Object
+------- | --------- | -------
+meshv:TopicalDescriptor	meshv:allowableQualifier	meshv:Qualifier
+meshv:GeographicalDescriptor	meshv:allowableQualifier	meshv:Qualifier
+meshv:AllowedDescriptorQualifierPair	meshv:hasQualifier	meshv:Qualifier
+meshv:DisallowedDescriptorQualifierPair	meshv:hasQualifier	meshv:Qualifier
+
+
+</div>
+
+{: #tabs-3}
+<div>
+{:.data-table-standard .row-border .hover}
+Subject | Predicate
+------- | ---------
+meshv:Qualifier | rdfs:label
+meshv:Qualifier | dcterms:identifier
+meshv:Qualifier | meshv:activeMeSHYear
+meshv:Qualifier | meshv:annotation
+meshv:Qualifier | meshv:dateCreated
+meshv:Qualifier | meshv:dateEstablished
+meshv:Qualifier | meshv:dateRevised
+meshv:Qualifier | meshv:historyNote
+meshv:Qualifier | meshv:onlineNote
+meshv:Qualifier | meshv:recordAuthorizer
+meshv:Qualifier | meshv:recordMaintainer
+meshv:Qualifier | meshv:recordOriginator
+</div>
+</div>
 
 ### SPARQL
 
