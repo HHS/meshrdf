@@ -16,8 +16,8 @@ rdfs:label | rdfs:label is used to provide a human-readable version of a resourc
 skos:narrower | Explain Me | Where Do I Come From?
 dcterms:identifier | Explain Me | Where Do I Come From?
 meshv:abbreviation | Two-letter, uppercase abbreviation for a Qualifier term. QUI Q000235 example: GE |```<Abbreviation>```
-meshv:activeMeSHYear | Explain Me | Where Do I Come From?
-meshv:allowedTreeNode | Explain Me | Where Do I Come From?
+meshv:activeMeSHYear | MeSH year(s) in which the record was active since it was last modified. For example, a record not modified in the five years it has been in MeSH will have five occurrences. A record modified in the latest MeSH year will have one occurrence. DUI FILL ME IN |```<ActiveMeSHYearList>```
+meshv:allowedTreeNode | Name of a subcategory in the MeSH Trees indicating, that for most Descriptors in that subcategory, the allowed Qualifiers on the Descriptor include the Qualifier. This value does not impact Descriptors permitted with a given Qualifier, but is a statistical summary of Descriptors permitted with the Qualifier. DUI FILL ME IN |```<TreeNodeAllowed>```
 meshv:annotation | Free-text information for indexers and catalogers concerning the use of the descriptor or qualifier. DUI: D005858 example: for Germany before 23 May 1949 & after 3 Oct 1990; for historical articles before & after 1949: Manual 36.11; BERLIN is also available|```<Annotation>```
 meshv:concept | Explain Me | Where Do I Come From?
 meshv:dateCreated | Date when first entered in tHe MeSH data entry system. This time-stamp may be a year behind the dateEstablished. Upon conversion to a new MeSH maintenance system in 1999, a default value of 19990101 was supplied. DUI D022125 example:  20000622 |```<DateCreated>```
@@ -25,8 +25,8 @@ meshv:dateEstablished | Date when effective for use; set to YYYY0101 where YYYY 
 meshv:dateRevised | Date when information in the record was last changed. DUI FILL ME IN . . . |```<DateRevised>```
 meshv:entryVersion | Custom sort form used by indexers and catalogers. DUI D003880 example: DERMATOL |```<EntryVersion>```
 meshv:historyNote | Free-text information that traces the concept in MeSH and is deemed helpful for the online searcher. Headings and entry terms are entered in upper case. Initial characters refer to the year in which the record was created in MeSH in its current form (i.e., with the same preferred term). A date in parentheses indicates the oldest creation date of terms, provisional headings (before 1975), or minor headings (before 1991), which are reflected in citations indexed to the record. Entries without a year date are early records, dating between 1963 and 1966. DUI D012441 example: 73(72) DUI D016239 example: 1991; use MEDLARS 1978-1990; for INDEX MEDICUS use MEDLINE 1979-2004|```<HistoryNote>```
-meshv:isQualifierType | Explain Me | Where Do I Come From?
-meshv:lexicalTag | Explain Me | Where Do I Come From?
+meshv:isQualifierType | Currently all Qualifiers have QualifierType of "1".  |```QualifierType attribute on <QualifierRecord>```
+meshv:lexicalTag | A 3-letter value that indicates the lexical category.  Valid values with their meanings in parentheses are: ABB (Abbreviation); ABX (Embedded abbreviation); ACR (Acronym); ACX (Embedded acronym); EPO (Eponym); LAB (Lab number); NAM (Proper name); NON (None); and TRD (Trade name). Note that a Permuted Term will always have the same Lexical Tag value as the term from which it is generated. DUI FILL ME IN |```LexicalTag attribute on <Term>```
 meshv:onlineNote | Free-text information formerly intended to help the NLM online searcher. Superseded by a more detailed historyNote when onlineNote is not present. |```<OnlineNote>```
 meshv:preferredConcept | Explain Me | Where Do I Come From?
 meshv:preferredTerm | Explain Me | Where Do I Come From?
