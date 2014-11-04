@@ -140,8 +140,8 @@ pre, .sample-queries {
 .data-table-standard, .data-table-long {
   
   font-size:.75em;
+  width: 95% !important;
   
-}
 
 #tabs {
   
