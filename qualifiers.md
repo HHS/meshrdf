@@ -45,10 +45,10 @@ meshv:Qualifier | skos:broader | meshv:Qualifier
 {:.data-table-standard .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:TopicalDescriptor	meshv:allowableQualifier	meshv:Qualifier
-meshv:GeographicalDescriptor	meshv:allowableQualifier	meshv:Qualifier
-meshv:AllowedDescriptorQualifierPair	meshv:hasQualifier	meshv:Qualifier
-meshv:DisallowedDescriptorQualifierPair	meshv:hasQualifier	meshv:Qualifier
+meshv:TopicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
+meshv:GeographicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
+meshv:AllowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
+meshv:DisallowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
 
 
 </div>
