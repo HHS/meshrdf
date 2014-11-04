@@ -46,8 +46,10 @@ meshv:Qualifier | skos:broader | meshv:Qualifier
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:TopicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
+meshv:Descriptor | meshv:allowableQualifier | meshv:Qualifier
 meshv:GeographicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
 meshv:AllowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
+meshv:DescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
 meshv:DisallowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
 
 </div>
