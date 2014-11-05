@@ -129,7 +129,9 @@ pre, .sample-queries {
 }
 
 pre > code {
-white-space: pre-line;
+
+white-space: pre-wrap; /* CSS 2.1 */
+  
 }
 
 #footer {
