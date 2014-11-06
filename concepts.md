@@ -149,6 +149,8 @@ where {
 
 ### MeSH XML
 
+The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the RDF data above to the truncated MeSH XML below.
+
 ```xml
 <DescriptorRecord DescriptorClass="1">
   <DescriptorUI>D000001</DescriptorUI>
