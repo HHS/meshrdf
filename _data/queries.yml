@@ -4,7 +4,6 @@
   notes: This query gives a complete list of MeSH RDF predicates
   type: Getting Started
   string: |+
-   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
    
@@ -21,7 +20,6 @@
   notes: This query gives a unique list of all MeSH classes
   type: Getting Started
   string: |+
-   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
    
@@ -39,8 +37,7 @@
   type: Getting Started
   string: |+
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
-   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    
    SELECT *
    FROM <http://id.nlm.nih.gov/mesh2014>
@@ -53,6 +50,9 @@
   notes: Show the MeSH headings and labels of Pharmacologic Actions for Oflaxacin.
   type: Getting Started
   string: |+
+   
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    
    SELECT *
    FROM <http://id.nlm.nih.gov/mesh2014>
@@ -67,14 +67,13 @@
   type: Predicate
   string: |+
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
-   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    
    SELECT ?d ?dLabel
    FROM <http://id.nlm.nih.gov/mesh2014>
    
    WHERE {
-    ?d vocab:pharmacologicalAction ?pa.
+    ?d meshv:pharmacologicalAction ?pa.
     ?d rdfs:label ?dLabel .
     ?pa rdfs:label "Anti-Bacterial Agents"
    }
@@ -86,14 +85,13 @@
   type: Descriptors and Qualifiers
   string: |+
      PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-     PREFIX vocab:  <http://id.nlm.nih.gov/mesh/vocab#>
-     PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>  
+     PREFIX meshv:  <http://id.nlm.nih.gov/mesh/vocab#>
      
      SELECT distinct ?d ?dLabel  
      FROM  <http://id.nlm.nih.gov/mesh2014>
      
      WHERE {  
-        ?d vocab:allowableQualifier ?q .  
+        ?d meshv:allowableQualifier ?q .  
         ?q rdfs:label "adverse effects" .  
         ?d rdfs:label ?dLabel  
      }
@@ -103,17 +101,15 @@
   type: Transitive
   string: |+
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#> 
-   PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> 
-   PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#> 
    
    SELECT ?treeNode ?ancestorTreeNode ?ancestor ?alabel
    FROM <http://id.nlm.nih.gov/mesh2014>
    
    WHERE {
-      mesh:D005138 vocab:treeNumber ?treeNode .
+      mesh:D005138 meshv:treeNumber ?treeNode .
       ?treeNode skos:broaderTransitive+ ?ancestorTreeNode .
-      ?ancestor vocab:treeNumber ?ancestorTreeNode .
+      ?ancestor meshv:treeNumber ?ancestorTreeNode .
       ?ancestor rdfs:label ?alabel
    }
    
@@ -124,17 +120,15 @@
   type: Transitive
   string: |+
     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-    PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#> 
-    PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> 
-    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#> 
    
     SELECT DISTINCT ?desc ?desc_label
     FROM <http://id.nlm.nih.gov/mesh2014>
    
     WHERE {
-      mesh:D009369 vocab:treeNumber ?tn .
+      mesh:D009369 meshv:treeNumber ?tn .
       ?desctn skos:broaderTransitive+ ?tn .
-      ?desc vocab:treeNumber ?desctn .
+      ?desc meshv:treeNumber ?desctn .
       ?desc rdfs:label ?desc_label .
     }
     
@@ -145,8 +139,7 @@
   type: String
   string: |+
     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-    PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
     
     SELECT *
     FROM <http://id.nlm.nih.gov/mesh2014>
@@ -164,17 +157,15 @@
   type: Aggregation
   string: |+
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-   PREFIX vocab: <http://id.nlm.nih.gov/mesh/vocab#>
-   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-   PREFIX xsd: <http://www.w3.org/2001/XMLSchema>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    
    SELECT DISTINCT ?id ?label
    FROM <http://id.nlm.nih.gov/mesh2014>
    
    WHERE {
-     ?id vocab:dateEstablished ?dateEstablished .
+     ?id meshv:dateEstablished ?dateEstablished .
      ?id rdfs:label ?label .
-     ?id vocab:treeNumber ?tn
+     ?id meshv:treeNumber ?tn
      FILTER(?dateEstablished = xsd::date("2014-01-01"))
      FILTER(REGEX(?tn,"C"))
      }
@@ -185,10 +176,7 @@
   notes: MeSH Descriptors are collections of MeSH concepts.  The name of the preferred concept (prefCon) always contributes the name of the Descriptor.
   type: Descriptors and Concepts
   string: |+
-   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-   PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+   
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
    CONSTRUCT {
