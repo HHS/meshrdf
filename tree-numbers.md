@@ -153,6 +153,8 @@ mesh:A09.371.613  skos:broaderTransitive  mesh:A09.371 .
 
 ### MeSH XML
 
+The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the RDF data above to the truncated MeSH XML below.
+
 ```xml
 <DescriptorRecordSet LanguageCode="eng">
 

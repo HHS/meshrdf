@@ -128,7 +128,7 @@ Here is the truncated output of the above query in [N3 format](http://iddev.nlm.
 
 ### MeSH XML
 
-The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the N3 data above to the truncated MeSH XML.
+The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the RDF data above to the truncated MeSH XML below.
 
 ```xml
 <DescriptorRecord DescriptorClass="1">

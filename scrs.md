@@ -90,6 +90,8 @@ mesh:C012211  meshv:indexerConsiderAlso mesh:D000626Q000037 .
 
 ### MeSH XML
 
+The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the RDF data above to the truncated MeSH XML below.
+
 ```xml
 <SupplementalRecord SCRClass="1">
   <SupplementalRecordUI>C025735</SupplementalRecordUI>
