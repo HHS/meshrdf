@@ -10,7 +10,7 @@ Each MeSH record consists of one or more Concepts, and each Concept consists in 
 Collections of concepts that may be useful for search and retrieval on a given topic are placed into the same MeSH Descriptor.
 A concept is considered 'preferred' if its name is used by the descriptor to which it belongs.
 For more information about Concepts, visit the NLM [MeSH Concept Structure page](http://www.nlm.nih.gov/mesh/concept_structure.html){:target="_blank"}.
-In MeSH RDF, concepts classes can be connected as follows:
+The diagram below illustrates the relations and properties of meshv:Concept classes.
 
 ### RDF Graph Diagram
 
@@ -147,10 +147,6 @@ where {
                 "An ionophorous, polyether antibiotic from Streptomyces chartreusensis. It binds and transports CALCIUM and other divalent cations across membranes and uncouples oxidative phosphorylation while inhibiting ATPase of rat liver mitochondria. The substance is used mostly as a biochemical tool to study the role of divalent cations in various biological systems."
 ```
 
-
-Note that this page does not describe Terms,
-which are subordinate to Concepts, but most other things directly related to Concepts are here.
-
 ### MeSH XML
 
 ```xml
@@ -204,7 +200,7 @@ which are subordinate to Concepts, but most other things directly related to Con
   documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#RelationAttribute) are not
   modelled in the RDF.
 
-* \<ConceptRelation>s (see the [documentation on the XML
+* \<ConceptRelations> (see the [documentation on the XML
   elements](http://www.nlm.nih.gov/mesh/xml_data_elements.html#ConceptRelation)) are converted into
   simple triples on the basis of the @RelationName attribute:
     * BRD - meshv:broader
