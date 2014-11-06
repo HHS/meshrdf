@@ -31,6 +31,7 @@ p {
 .content > h3, .content > h2, .content h4 {
   margin-top:1em;
   margin-bottom:1em;
+  max-width:90%;
 }
 
 
@@ -57,9 +58,10 @@ p {
 
 .meta-nav {
   float:right;
+  font-size:.9em;
   padding:0em 2.5em 0em 0em;
-  margin-top:2em;
-  text-align:right;
+  margin-top:2.5em;
+  text-align:center;
 }
 
 .meta-nav a {
