@@ -138,39 +138,42 @@
   notes: Find MeSH descriptors or sub-concepts based on string.
   type: String
   string: |+
-    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-    
-    SELECT *
+    SELECT ?d ?dName ?c ?cName
     FROM <http://id.nlm.nih.gov/mesh2014>
     
     WHERE {
-    ?id rdfs:label ?label .
-    FILTER regex(?label, "infection","i")
-    FILTER regex(?id,"[MD]")
-    }
+      
+    ?d a meshv:TopicalDescriptor .
+    ?d meshv:concept ?c .
+    ?d rdfs:label ?dName .
+    ?c rdfs:label ?cName
+    FILTER(REGEX(?dName,"infection","i") || REGEX(?cName,"infection","i"))
     
-    ORDER BY (?label)
+    }
+    ORDER BY ?d
   
 - name: What are all the new MeSH Descriptor in the 'Diseases' tree for a given year (2014).
   notes: This query leverages the MeSH 'C' tree to find new diseases in MeSH.
   type: Aggregation
   string: |+
-   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    
-   SELECT DISTINCT ?id ?label
-   FROM <http://id.nlm.nih.gov/mesh2014>
+    SELECT DISTINCT ?d ?name
+    FROM <http://id.nlm.nih.gov/mesh2014>
+    
+    WHERE {
+    
+    ?d a meshv:TopicalDescriptor .
+    ?d rdfs:label ?name .
+    ?d meshv:treeNumber ?tn .
+    ?d meshv:dateEstablished ?dateEstablished
+    FILTER(?dateEstablished = xsd::date("2014-01-01"))
+    FILTER(REGEX(?tn,"C"))
    
-   WHERE {
-     ?id meshv:dateEstablished ?dateEstablished .
-     ?id rdfs:label ?label .
-     ?id meshv:treeNumber ?tn
-     FILTER(?dateEstablished = xsd::date("2014-01-01"))
-     FILTER(REGEX(?tn,"C"))
-     }
-     
-     ORDER BY ?label
+    }
+    
+    ORDER BY ?name
     
 - name: All the MeSH concepts (prefCon and subCon) and semantic types associated with D000647 'Amnesia'
   notes: MeSH Descriptors are collections of MeSH concepts.  The name of the preferred concept (prefCon) always contributes the name of the Descriptor.
