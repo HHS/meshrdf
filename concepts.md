@@ -198,7 +198,7 @@ where {
 
 * RelationAttributes (see the [MeSH
   documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#RelationAttribute) are not
-  modelled in the RDF.
+  modelled in the RDF).
 
 * \<ConceptRelations> (see the [documentation on the XML
   elements](http://www.nlm.nih.gov/mesh/xml_data_elements.html#ConceptRelation)) are converted into
