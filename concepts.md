@@ -25,7 +25,7 @@ The diagram below illustrates the relations and properties of meshv:Concept clas
 
 *  [Relations to other classes (as subject)](#tabs-1)
 *  [Relations to other classes (as object)](#tabs-2)
-*  [meshv:Qualifier properties](#tabs-3)
+*  [meshv:Concept properties](#tabs-3)
 
 {: #tabs-1}
 <div>
