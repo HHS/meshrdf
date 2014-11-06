@@ -138,6 +138,9 @@
   notes: Find MeSH descriptors or sub-concepts based on string.
   type: String
   string: |+
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   
     SELECT ?d ?dName ?c ?cName
     FROM <http://id.nlm.nih.gov/mesh2014>
     
