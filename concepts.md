@@ -33,10 +33,10 @@ In MeSH RDF, concepts classes can be connected as follows:
 {:.data-table-standard .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:Concept | skos:narrower | meshv:Concept
+meshv:Concept | meshv:narrower | meshv:Concept
 meshv:Concept | meshv:semanticType | meshv:SemanticType
 meshv:Concept | meshv:preferredTerm | meshv:Term
-meshv:Concept | skos:broader | meshv:Concept
+meshv:Concept | mesvh:broader | meshv:Concept
 meshv:Concept | meshv:term | meshv:Term
 
 </div>
@@ -47,8 +47,8 @@ meshv:Concept | meshv:term | meshv:Term
 {:.data-table-standard .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:Concept | skos:narrower | meshv:Concept
-meshv:Concept | skos:broader | meshv:Concept
+meshv:Concept | meshv:narrower | meshv:Concept
+meshv:Concept | meshv:broader | meshv:Concept
 meshv:Qualifier | meshv:concept | meshv:Concept
 meshv:Qualifier | meshv:preferredConcept | meshv:Concept
 meshv:TopicalDescriptor | meshv:preferredConcept | meshv:Concept
@@ -144,9 +144,7 @@ where {
         <http://www.w3.org/2004/02/skos/core#narrower>
                 <http://id.nlm.nih.gov/mesh/M0353609> ;
         <http://www.w3.org/2004/02/skos/core#scopeNote>
-                "An ionophorous, polyether antibiotic from Streptomyces chartreusensis.
-                It binds and transports CALCIUM and other divalent cations across membranes and uncouples oxidative phosphorylation while inhibiting ATPase of rat liver mitochondria.
-                The substance is used mostly as a biochemical tool to study the role of divalent cations in various biological systems."
+                "An ionophorous, polyether antibiotic from Streptomyces chartreusensis. It binds and transports CALCIUM and other divalent cations across membranes and uncouples oxidative phosphorylation while inhibiting ATPase of rat liver mitochondria. The substance is used mostly as a biochemical tool to study the role of divalent cations in various biological systems."
 ```
 
 
@@ -209,6 +207,6 @@ which are subordinate to Concepts, but most other things directly related to Con
 * \<ConceptRelation>s (see the [documentation on the XML
   elements](http://www.nlm.nih.gov/mesh/xml_data_elements.html#ConceptRelation)) are converted into
   simple triples on the basis of the @RelationName attribute:
-    * BRD - skos:broader
-    * NRW - skos:narrower
-    * REL - skos:related
+    * BRD - meshv:broader
+    * NRW - meshv:narrower
+    * REL - meshv:related
