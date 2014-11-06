@@ -49,7 +49,7 @@ p {
 }
 
 .left-nav {
-  width:15%;
+  max-width:15%;
   color:#9b0000;
   float:left;
   padding:2em 1em 1em 1em;
@@ -57,13 +57,19 @@ p {
 
 .meta-nav {
   float:right;
-  padding:0em 7em 0em 0em;
-  margin-top:4em;
+  padding:0em 2.5em 0em 0em;
+  margin-top:2em;
+  text-align:right;
 }
 
 .meta-nav a {
   color:white;
   text-decoration: none;
+}
+
+.meta-nav a:hover {
+  
+  text-decoration: underline;
 }
 
 .left-nav ul {
@@ -98,7 +104,7 @@ p {
 .content {
   box-shadow: -2px 0px 10px 1px #777;
   float:left;
-  width:70%;
+  width:75%;
   margin-top:1em;
   padding:2em 0em 2em 2em;
   background-color:white;
