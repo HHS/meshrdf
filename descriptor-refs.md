@@ -69,6 +69,8 @@ In [N3 format](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20mesh%3
 
 ### MeSH XML
 
+The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the RDF data above to the truncated MeSH XML below.
+
 ```xml
 <DescriptorRecord DescriptorClass="1">
   <DescriptorUI>D009369</DescriptorUI>
