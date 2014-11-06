@@ -49,6 +49,55 @@ where {
 }
 ```
 
+### meshv:TreeNumber - Relations and Properties
+
+{::options parse_block_html="true" /}
+
+{: #tabs}
+<div>
+
+*  [Relations to other classes (as subject)](#tabs-1)
+*  [Relations to other classes (as object)](#tabs-2)
+*  [meshv:TreeNumber properties](#tabs-3)
+
+{: #tabs-1}
+<div>
+
+{:.data-table-standard .row-border .hover }
+Subject | Predicate | Object
+------- | --------- | -------
+meshv:TreeNumber | rdf:type | meshv:TreeNumber
+meshv:TreeNumber | skos:broaderTransitive | meshv:TreeNumber
+
+
+</div>
+
+{: #tabs-2}
+<div>
+
+{:.data-table-standard .row-border .hover}
+Subject | Predicate | Object
+------- | --------- | -------
+meshv:allowedTreeNode | meshv:Qualifier | meshv:TreeNumber
+meshv:treeNumber | meshv:TopicalDescriptor | meshv:TreeNumber
+meshv:treeNumber | meshv:Descriptor | meshv:TreeNumber
+meshv:treeNumber | meshv:Qualifier | meshv:TreeNumber
+skos:broaderTransitive | meshv:TreeNumber | meshv:TreeNumber
+meshv:treeNumber | meshv:GeographicalDescriptor | meshv:TreeNumber
+meshv:treeNumber | meshv:PublicationType | meshv:TreeNumber
+
+</div>
+
+{: #tabs-3}
+<div>
+{:.data-table-standard .row-border .hover}
+Subject | Predicate
+------- | ---------
+meshv:TreeNumber | rdfs:label
+
+</div>
+</div>
+
 ### SPARQL
 
 The following <span class='invoke-sparql'>SPARQL query</span> creates a table that shows the relationships between "Eye"
