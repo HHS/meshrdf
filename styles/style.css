@@ -68,10 +68,12 @@ p {
 
 .left-nav ul {
   list-style-type: none;
+
 }
 
 .left-nav ul li {
   line-height: 1.5em;
+   
 }
 
 .left-nav ul li a:hover {
@@ -82,6 +84,8 @@ p {
   color: #082735;
   font-weight: bolder;
   font-size:90%;
+ 
+ 
 }
 
 .main-container {
@@ -148,9 +152,12 @@ pre > code{
 
 .ui-tabs .ui-tabs-nav li {
    font-size:small;
-   width:30%;
+   width:auto;
+   height:3em;
    padding:0em .5em 0em .5em;
+
 }
+
 
 .data-table-standard, .data-table-long {
   
