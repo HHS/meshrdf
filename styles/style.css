@@ -20,7 +20,7 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  text-align:center;
+  margin-left:10em;
   margin-top:1em;
 }
 
@@ -37,7 +37,7 @@ p {
 #logo-container {
   width:100%;
   float:left;
-  background-color:#254062;
+  background-color:#1F4D7A;
   border-bottom:2px double #9CC4E4;
 }
 
@@ -45,7 +45,7 @@ p {
   width:auto;
   font-size:75%;
   margin-bottom:1em;
-  color:#254062;
+  color:#1F4D7A;
 }
 
 .left-nav {
@@ -58,7 +58,7 @@ p {
 .meta-nav {
   float:right;
   padding:0em 7em 0em 0em;
-  margin-top:2em;
+  margin-top:4em;
 }
 
 .meta-nav a {
@@ -125,13 +125,16 @@ pre, .sample-queries {
   max-width:80%;
   border:dashed 1px #ccc;
   background:url(../images/paper_fibers.png) repeat;
+
   
 }
 
-pre > code {
+pre > code{
 
-white-space: pre-wrap; /* CSS 2.1 */
-  
+   white-space: pre-wrap; /* CSS 2.1 */ 
+    
+    
+   
 }
 
 #footer {
