@@ -17,8 +17,8 @@
     in the sparql code block.  It assumes there's only one sparql code block on the page.
    */
   $(document).ready(function () {
-      var sparql_endpoint = 'http://jatspan.org:8890/sparql';
-      var sparql_format_param = 'format=text%2Frdf%2Bn3';
+      var sparql_endpoint = 'http://id.nlm.nih.gov/mesh/sparql';
+      var sparql_format_param = 'format=N3';
 
       $('.invoke-sparql').each(function() {
           var query_block = $(this).closest("p").nextAll("pre:has(code.language-sparql)").first();
