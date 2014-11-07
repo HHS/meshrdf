@@ -8,18 +8,23 @@ meshv:Descriptor a rdfs:Class .
 
 meshv:TopicalDescriptor a rdfs:Class ;
     rdfs:subClassOf meshv:Descriptor .
+
 meshv:PublicationType a rdfs:Class ;
     rdfs:subClassOf meshv:Descriptor .
+
 meshv:CheckTag a rdfs:Class ;
     rdfs:subClassOf meshv:Descriptor .
+
 meshv:GeographicalDescriptor a rdfs:Class ;
     rdfs:subClassOf meshv:Descriptor .
 
 meshv:Qualifier a rdfs:Class .
 
 meshv:DescriptorQualifierPair a rdfs:Class .
+
 meshv:AllowedDescriptorQualifierPair a rdfs:Class ;
     rdfs:subClassOf meshv:DescriptorQualifierPair .
+
 meshv:DisallowedDescriptorQualifierPair a rdfs:Class ;
     rdfs:subClassOf meshv:DescriptorQualifierPair .
 
@@ -27,11 +32,16 @@ meshv:Concept a rdfs:Class .
 
 meshv:Term a rdfs:Class .
 
-meshv::SupplementaryConcept a rdfs:Class .
+meshv::SupplementaryConceptRecord a rdfs:Class .
 
-meshv:RegularSubstance rdfs:subClassOf meshv:SupplementaryConcept .
-meshv:Protocol rdfs:subClassOf meshv:SupplementaryConcept .
-meshv:RareDisease rdfs:subClassOf meshv:SupplementaryConcept .
+meshv:SCR_Chemical rdfs:subClassOf meshv:SupplementaryConceptRecord .
+
+meshv:SCR_Protocol rdfs:subClassOf meshv:SupplementaryConceptRecord .
+
+meshv:SCR_Disease rdfs:subClassOf meshv:SupplementaryConceptRecord .
+
+
+
 
 # In issue #36, we discussed this, and decided not to create individual subclasses of meshv:Term.
 # Leaving the code here, just in case they ever change their minds.

@@ -51,13 +51,13 @@
           <uri prefix='&rdf;'>type</uri>
           <xsl:choose>
             <xsl:when test='@SCRClass = "1"'>
-              <uri prefix='&meshv;'>RegularSubstance</uri>
+              <uri prefix='&meshv;'>SCR_Chemical</uri>
             </xsl:when>
             <xsl:when test='@SCRClass = "2"'>
-              <uri prefix='&meshv;'>Protocol</uri>
+              <uri prefix='&meshv;'>SCR_Protocol</uri>
             </xsl:when>
             <xsl:when test='@SCRClass = "3"'>
-              <uri prefix='&meshv;'>RareDisease</uri>
+              <uri prefix='&meshv;'>SCR_Disease</uri>
             </xsl:when>
           </xsl:choose>
         </xsl:with-param>
