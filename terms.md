@@ -82,7 +82,6 @@ mesh:M0353609 rdf:type  meshv:Concept ;
               meshv:preferredTerm mesh:T000001 .
 mesh:T000001  rdf:type  meshv:Term ;
               meshv:lexicalTag  "LAB" ;
-              rdfs:label  "A-23187" ;
               meshv:prefLabel  "A-23187" ;
               meshv:altLabel "A 23187" .
               dcterms:identifier  "T000001" ;
@@ -91,7 +90,6 @@ mesh:T000001  rdf:type  meshv:Term ;
               meshv:printFlag "N" ;
 mesh:T000003  rdf:type  meshv:Term ;
               meshv:lexicalTag  "NON" ;
-              rdfs:label  "Antibiotic A23187" ;
               meshv:prefLabel  "Antibiotic A23187" ;
               meshv:altLabel "A23187, Antibiotic" .
               dcterms:identifier  "T000003" ;
@@ -101,7 +99,7 @@ mesh:M0030212 rdf:type  meshv:Concept ;
               rdfs:label  "administration & dosage" ;
               meshv:preferredTerm mesh:T060555 .
 mesh:T060555  rdf:type  meshv:Term ;
-              rdfs:label  "administration & dosage" ;
+              meshv:prefLabel  "administration & dosage" ;
               meshv:abbreviation  "AD" ;
               meshv:sortVersion "ADMINISTRATION A" ;
               meshv:entryVersion  "ADMIN" ;
