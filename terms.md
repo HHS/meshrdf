@@ -268,26 +268,40 @@ where {
 
 
 ```
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
-@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+<http://id.nlm.nih.gov/mesh/T000003>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> .
 
-mesh:D000001  rdf:type  meshv:TopicalDescriptor ;
-              meshv:preferredConcept  mesh:M0000001 ;
-              meshv:recordPreferredTerm mesh:T000002 ;
-              meshv:concept mesh:M0353609 .
-mesh:M0000001 rdf:type  meshv:Concept ;
-              meshv:preferredTerm mesh:T000002 .
-mesh:M0353609 rdf:type  meshv:Concept ;
-              meshv:term  mesh:T000003 ,
-                          mesh:T000004 ;
-              meshv:preferredTerm mesh:T000001 .
-mesh:T000002  rdf:type  meshv:Term .
-mesh:T000001  rdf:type  meshv:Term .
-mesh:T000003  rdf:type  meshv:Term .
-mesh:T000004  rdf:type  meshv:Term .
-meshv:TopicalDescriptor rdfs:subClassOf meshv:Descriptor .
+<http://id.nlm.nih.gov/mesh/T000001>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> .
+
+<http://id.nlm.nih.gov/mesh/M0000001>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
+                <http://id.nlm.nih.gov/mesh/T000002> .
+...
+<http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor>
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://id.nlm.nih.gov/mesh/vocab#Descriptor> .
+
+<http://id.nlm.nih.gov/mesh/M0353609>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
+                <http://id.nlm.nih.gov/mesh/T000001> ;
+        <http://id.nlm.nih.gov/mesh/vocab#term>
+                ...
+                <http://id.nlm.nih.gov/mesh/T000003> .
+
+<http://id.nlm.nih.gov/mesh/T000002>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> .
+
+<http://id.nlm.nih.gov/mesh/D000001>
+        a       <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> ;
+        <http://id.nlm.nih.gov/mesh/vocab#concept>
+                <http://id.nlm.nih.gov/mesh/M0353609> ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredConcept>
+                <http://id.nlm.nih.gov/mesh/M0000001> ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm>
+                <http://id.nlm.nih.gov/mesh/T000002> .
 ```
 
 Notes:
