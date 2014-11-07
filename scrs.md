@@ -101,6 +101,7 @@ The RDF output above can be generated with the following
 
 
 ```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix mesh: <http://id.nlm.nih.gov/mesh/>
 prefix meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 construct {
