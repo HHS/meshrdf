@@ -13,7 +13,7 @@ Some indicate publication types (what a resource is rather than what it is about
 For more information about Descriptors, visit the NLM [MeSH Record Types page](http://www.nlm.nih.gov/mesh/intro_record_types.html).
 
 {: .jump}
-&#91; jump to [descriptor properties](#descriptor-properties) or [descriptor-relations](#descriptor-relations) &#93;
+&#91; jump to [descriptor properties](#properties) or [descriptor relations](#relations) &#93;
 
 
 ### Class Information
@@ -26,9 +26,9 @@ In MeSH RDF, the subclasses of meshv:Descriptor are:
 *  meshv:GeographicalDescriptor
 
 
-The chart below displays the properties of the meshv:TopicalDescriptor D015242, 'Oflaxacin' (jump to [descriptor relations](#descriptor-relations)).
+The chart below displays the properties of the meshv:TopicalDescriptor D015242, 'Oflaxacin'.
 
-###<a name = "descriptor-properties"/>RDF Graph Diagram - Descriptor Properties
+###<a name = "properties"/>RDF Graph Diagram - Descriptor Properties
 
 The following RDF graph diagram shows a fairly typical topical descriptor (D015242, Ofloxacin) and its literals. For reference, see [Ofloxacin in the MeSH browser](https://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?term=ofloxacin). The data elements featured here have literal strings as objects, not identifiers.
 
@@ -383,8 +383,7 @@ meshv:TopicalDescriptor | rdfs:label
 </div>
 
 
-
-###<a name = "descriptor-relations"/>RDF Graph Diagram - Descriptor Relations
+###<a name = "relations"/>RDF Graph Diagram - Descriptor Relations
 
 The graph below depicts the relations of Ofloxacin to other classes.
 
