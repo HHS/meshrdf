@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- 
+<!--
   This external subset defines all of the entities that we'll use for URI prefixes from other
   various ontologies.
 -->
@@ -11,24 +11,24 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="&xs;"
                 exclude-result-prefixes="xs f">
-  
+
   <xsl:key name='tree-numbers' match="//TreeNumber" use='.'/>
-  
-  <!-- 
+
+  <!--
     The main named template used for outputting triples.
-    This takes two parameters:  
+    This takes two parameters:
     - doc - for self-documentation only; this isn't used when generating the triples.  It can contain:
         - <output> - put a stylized summary of the triple here
         - <desc> - short description of the rule
-        - <fixme reporter='github-user' issue='github-issue-num'> - (optional) any work to be done? The 
+        - <fixme reporter='github-user' issue='github-issue-num'> - (optional) any work to be done? The
           value of the reporter attribute (if present) should be the GitHub username of the user.  The
           issue attribute can be used to point to a specific GitHub issue number.
     - spec - the three element children of this parameter define what to put out for the subject,
       predicate, and object, respectively.  The name of the child element defines the type thing to emit
       (see the n-triples grammar specification, http://www.w3.org/2001/sw/RDFCore/ntriples/):
-        - <uri prefix='&pref;'>suffix</url> - generates a properly escaped and delimited URI.  The 
+        - <uri prefix='&pref;'>suffix</url> - generates a properly escaped and delimited URI.  The
           @prefix attribute should have the prefix, and the contents should hold the rest.
-        - <literal>some string</literal> - generates a properly escaped and delimited literal 
+        - <literal>some string</literal> - generates a properly escaped and delimited literal
           (string) value.
         - <named>_:blank_123</named> - for blank nodes
 
@@ -45,7 +45,7 @@
           <named>
             <xsl:value-of select='$blank_node_variable'/>
           </named>
-      
+
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <desc></desc>
@@ -67,7 +67,7 @@
     </xsl:if>
     <xsl:variable name='s' select='$spec/*[1]'/>
     <xsl:variable name='p' select='$spec/*[2]'/>
-    
+
     <!-- Strip leading and/or trailing whitespace from all literal values.  See issue #27.  We will issue a warning when these are
       encountered, and strip them out. -->
     <xsl:variable name='o' as="element()">
@@ -94,8 +94,8 @@
         f:serialize($o)
       )'/>
   </xsl:template>
-  
-  <!-- 
+
+  <!--
     This helper function serializes one of the three types of the components of the spec
     parameter sent to the triple template.
   -->
@@ -124,17 +124,17 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
-  
-  
-  <!-- 
+
+
+  <!--
     Put delimiters (angle brackets) around a URI during serialization to NTriples format.
   -->
   <xsl:function name='f:delimit-uri'>
     <xsl:param name="uri"/>
     <xsl:value-of select='concat("&lt;", $uri, "&gt;")'/>
   </xsl:function>
-  
-  <!-- 
+
+  <!--
     Output a single triple.  The arguments should be already in their serialized form
   -->
   <xsl:function name='f:triple'>
@@ -143,8 +143,8 @@
     <xsl:param name="o"/>
     <xsl:value-of select='concat($s, " ", $p, " ", $o, " .&#10;")'/>
   </xsl:function>
-  
-  <!-- 
+
+  <!--
     Create a literal string, wrapped in double-quotes, and properly escaped.
   -->
   <xsl:function name='f:literal-str'>
@@ -152,7 +152,7 @@
     <xsl:value-of select="concat('&quot;', f:n3-escape($lit), '&quot;')"/>
   </xsl:function>
 
-  <!-- 
+  <!--
     Escapes literals properly for the N3 format.
   -->
   <xsl:function name="f:n3-escape">
@@ -187,8 +187,8 @@
       </xsl:choose>
     </uri>
   </xsl:function>
-  
-  
+
+
   <!--============================================================================
    The following are named templates that handle chunks of XML that are shared among
    more than one of the main XML files.
@@ -214,7 +214,7 @@
         </xsl:with-param>
       </xsl:call-template>
     </xsl:if>
-    
+
     <!--
       Transformation rule: dateRevised
     -->
@@ -230,10 +230,10 @@
             <xsl:with-param name="context" select="DateRevised"/>
           </xsl:call-template>
         </xsl:with-param>
-      </xsl:call-template>    
+      </xsl:call-template>
     </xsl:if>
 
-    <!-- 
+    <!--
       Transformation rule: dateEstablished
     -->
     <xsl:if test="DateEstablished">
@@ -265,7 +265,7 @@
         </xsl:with-param>
       </xsl:call-template>
     </xsl:for-each>
-    
+
     <!--
       Transformation rule: annotation
     -->
@@ -283,7 +283,7 @@
         </xsl:with-param>
       </xsl:call-template>
     </xsl:if>
-    
+
     <!--
       Transformation rule: historyNote
     -->
@@ -302,7 +302,7 @@
         </xsl:with-param>
       </xsl:call-template>
     </xsl:if>
-    
+
     <!--
       Transformation rule: onlineNote
     -->
@@ -317,7 +317,7 @@
         </xsl:with-param>
       </xsl:call-template>
     </xsl:if>
-    
+
     <!--
       Transformation rule: previousIndexing
     -->
@@ -325,7 +325,7 @@
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <desc>A record can have some previous indexing.</desc>
-          <fixme>Whether there is any use in parsing the previous indexing text to 
+          <fixme>Whether there is any use in parsing the previous indexing text to
             derive other triples.</fixme>
         </xsl:with-param>
         <xsl:with-param name='spec'>
@@ -337,7 +337,7 @@
         </xsl:with-param>
       </xsl:call-template>
     </xsl:for-each>
-    
+
     <!--
       Transformation rule: pharmacologicalAction.
     -->
@@ -355,8 +355,8 @@
         </xsl:with-param>
       </xsl:call-template>
     </xsl:for-each>
-    
-    <!-- 
+
+    <!--
       Transformation rule: treeNumber
     -->
     <xsl:for-each select="TreeNumberList/TreeNumber">
@@ -364,11 +364,11 @@
       <xsl:variable name='tree-number-uri'>
         <uri prefix='&mesh;'><xsl:value-of select="$tree-number-str"/></uri>
       </xsl:variable>
-      
+
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <desc>Records can have zero-to-many tree numbers.
-            A tree number is a dot-delimited string of alphanumeric segments, that 
+            A tree number is a dot-delimited string of alphanumeric segments, that
             loosely encode "broader" relationships.</desc>
         </xsl:with-param>
         <xsl:with-param name='spec'>
@@ -377,7 +377,7 @@
           <xsl:copy-of select='$tree-number-uri'/>
         </xsl:with-param>
       </xsl:call-template>
-      
+
       <xsl:call-template name="triple">
         <xsl:with-param name="doc">
           <desc>The tree number resource is of type meshv:TreeNumber</desc>
@@ -388,7 +388,7 @@
           <uri prefix='&meshv;'>TreeNumber</uri>
         </xsl:with-param>
       </xsl:call-template>
-      
+
       <xsl:call-template name="triple">
         <xsl:with-param name="doc">
           <desc>The human-readable label for the tree number is the identifier string itself.</desc>
@@ -399,11 +399,11 @@
           <literal><xsl:value-of select="$tree-number-str"/></literal>
         </xsl:with-param>
       </xsl:call-template>
-      
+
       <!-- If this tree number has a parent, then we'll create some more links -->
       <xsl:if test='contains($tree-number-str, ".")'>
         <xsl:variable name="parent-tree-number" select="replace($tree-number-str, '^(.*)\..*', '$1')"/>
-        
+
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>Every time we reify a TreeNumber that has a dot in it, we'll create a triple
@@ -417,8 +417,8 @@
             </uri>
           </xsl:with-param>
         </xsl:call-template>
-        
-        <xsl:variable name='parent-tree-number-element' 
+
+        <xsl:variable name='parent-tree-number-element'
           select='key("tree-numbers", $parent-tree-number)'/>
         <xsl:if test='$parent-tree-number-element'>
           <xsl:call-template name='triple'>
@@ -437,8 +437,8 @@
         </xsl:if>
       </xsl:if>
     </xsl:for-each>
-    
-    
+
+
     <!--
       Transformation rule: recordOriginator
     -->
@@ -455,7 +455,7 @@
           </literal>
         </xsl:with-param>
       </xsl:call-template>
-      
+
       <!--
         Transformation rule: recordMaintainer
       -->
@@ -473,7 +473,7 @@
           </xsl:with-param>
         </xsl:call-template>
       </xsl:if>
-      
+
       <!--
         Transformation rule: recordAuthorizer
       -->
@@ -529,7 +529,7 @@
       -->
       <xsl:call-template name="triple">
         <xsl:with-param name="doc">
-          <desc>This relation states that a Subject node used to identify a concept 
+          <desc>This relation states that a Subject node used to identify a concept
             is of type "Concept".</desc>
         </xsl:with-param>
         <xsl:with-param name="spec">
@@ -538,7 +538,7 @@
           <uri prefix='&meshv;'>Concept</uri>
         </xsl:with-param>
       </xsl:call-template>
-      
+
       <!--
         Transformation rule: rdfs:label
       -->
@@ -573,7 +573,7 @@
 
       <!--
         Transformation rule: CASN1_label
-      -->    
+      -->
       <xsl:if test="CASN1Name">
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
@@ -599,7 +599,7 @@
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>This relation states that a concept has a registry number.</desc>
-            <fixme reporter='klortho' issue='32'>According to the 
+            <fixme reporter='klortho' issue='32'>According to the
               [documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#RegistryNumber),
               currently, this can be one of four types.  It would help the "linked data" cause if
               we could parse out excactly what the type was and point to the canonical linked-data
@@ -642,7 +642,7 @@
 
         <!--
           Transformation rule: semanticType
-        -->            
+        -->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>This relation states that a concept has a semantic type.</desc>
@@ -714,7 +714,7 @@
           <xsl:call-template name="triple">
             <xsl:with-param name="doc">
               <desc>This relation states that a concept has a related registry number.</desc>
-              <fixme issue='32'>Maybe it would be good to reduce this value to only a number. But 
+              <fixme issue='32'>Maybe it would be good to reduce this value to only a number. But
                 I'm not sure. Need to check with a MeSH expert to see how important is the text
                 after the number.  Also, according to the documentation, this takes the same
                 format as RegistryNumber above.  See the fixme item there.</fixme>
@@ -744,7 +744,7 @@
             </xsl:with-param>
           </xsl:call-template>
         </xsl:if>
-        
+
       <!--
         We had originally discussed creating separate predicates for each of these
         RelationAttributes (see GitHub issue #15, https://github.com/HHS/mesh-rdf/issues/15,
@@ -766,18 +766,18 @@
         </xsl:if>
       -->
       </xsl:for-each>
-      
+
       <!--
         Two separate `for-each` sections, one for non-permuted terms, and one for permuted.
       -->
-      
+
       <xsl:for-each select="TermList/Term[@IsPermutedTermYN='N']">
         <xsl:variable name='term_uri'>
           <uri prefix='&mesh;'>
             <xsl:value-of select="TermUI"/>
           </uri>
         </xsl:variable>
-        
+
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
             <desc>This relation states that a concept has a term. The property used will either be
@@ -801,7 +801,7 @@
 
         <!--
           Transformation rule: rdf:type
-        -->          
+        -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
             <desc>A term is of type Term.</desc>
@@ -850,7 +850,7 @@
             </xsl:choose>
             -->
             <uri prefix='&meshv;'>Term</uri>
-            
+
           </xsl:with-param>
         </xsl:call-template>
 
@@ -870,27 +870,14 @@
           </xsl:with-param>
         </xsl:call-template>
 
-        <!-- 
-          Transformation rule: rdfs:label, meshv:prefLabel
+        <!--
+          Transformation rule: meshv:prefLabel
           Since IsPermutedTermYN is "N", we know this is the
-          preferred label: record that with both meshv:prefLabel and rdfs:label. 
+          preferred label: record that with both meshv:prefLabel and rdfs:label.
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc>The label for this term.</desc>
-          </xsl:with-param>
-          <xsl:with-param name='spec'>
-            <xsl:copy-of select='$term_uri'/>
-            <uri prefix='&rdfs;'>label</uri>
-            <literal>
-              <xsl:value-of select="String"/>
-            </literal>
-          </xsl:with-param>
-        </xsl:call-template>
-        
-        <xsl:call-template name='triple'>
-          <xsl:with-param name="doc">
-            <desc>Record the same thing with meshv:prefLabel.</desc>
+            <desc>The label for this term. meshv:prefLabel is a subproperty of rdfs:label.</desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
@@ -900,7 +887,7 @@
             </literal>
           </xsl:with-param>
         </xsl:call-template>
-        
+
         <!--
           Transformation rule: lexicalTag
         -->
@@ -922,7 +909,7 @@
             </literal>
           </xsl:with-param>
         </xsl:call-template>
-        
+
         <!--
           Transformation rule: printFlag
         -->
@@ -939,7 +926,7 @@
             </literal>
           </xsl:with-param>
         </xsl:call-template>
-        
+
         <!--
           Transformation rule: record preferred term
         -->
@@ -958,7 +945,7 @@
             </xsl:with-param>
           </xsl:call-template>
         </xsl:if>
-        
+
         <!--
           Transformation rule: dateCreated
         -->
@@ -977,7 +964,7 @@
             </xsl:with-param>
           </xsl:call-template>
         </xsl:if>
-        
+
         <!--
           Transformation rule: abbreviation
         -->
@@ -995,7 +982,7 @@
             </xsl:with-param>
           </xsl:call-template>
         </xsl:if>
-        
+
         <!--
           Transformation rule: sortVersion
         -->
@@ -1013,7 +1000,7 @@
             </xsl:with-param>
           </xsl:call-template>
         </xsl:if>
-        
+
         <!--
           Transformation rule: entryVersion
         -->
@@ -1031,7 +1018,7 @@
             </xsl:with-param>
           </xsl:call-template>
         </xsl:if>
-        
+
         <!--
           Transformation rule: thesaurusID
         -->
@@ -1051,7 +1038,7 @@
         </xsl:for-each>
       </xsl:for-each>
 
-      <!-- 
+      <!--
         Now permuted Terms.  This just produces a meshv:altLabel
       -->
       <xsl:for-each select="TermList/Term[@IsPermutedTermYN='Y']">

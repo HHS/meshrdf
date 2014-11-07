@@ -41,6 +41,14 @@ meshv:SCR_Protocol rdfs:subClassOf meshv:SupplementaryConceptRecord .
 meshv:SCR_Disease rdfs:subClassOf meshv:SupplementaryConceptRecord .
 
 
+meshv:preferredTerm a rdf:Property ;
+    rdfs:subPropertyOf meshv:term .
+
+meshv:prefLabel a rdf:Property ;
+    rdfs:subPropertyOf rdfs:label .
+
+meshv:altLabel a rdf:Property ;
+    rdfs:subPropertyOf rdfs:label .
 
 
 # In issue #36, we discussed this, and decided not to create individual subclasses of meshv:Term.
