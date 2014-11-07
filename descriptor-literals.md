@@ -1,7 +1,7 @@
 ---
 title: Descriptor Literals
 layout: page
-resource: true
+resource: false
 categories:
 - Data Model
 ---
