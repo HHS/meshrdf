@@ -52,40 +52,60 @@ where {
 ###MeSH RDF Data
 
 ```
-@prefix dcterms:  <http://purl.org/dc/terms/> .
-@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
-@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+<http://id.nlm.nih.gov/mesh/C012211>
+        <http://id.nlm.nih.gov/mesh/vocab#indexerConsiderAlso>
+                <http://id.nlm.nih.gov/mesh/D000626Q000037> .
 
-mesh:C025735  rdf:type  meshv:SCR_Chemical .
-meshv:SCR_Chemical  rdfs:subClassOf meshv:SupplementaryConceptRecord .
-mesh:C025735  rdfs:label  "Aeron" ;
-              dcterms:identifier  "C025735" ;
-              meshv:dateCreated "1980-10-03"^^xsd:date ;
-              meshv:dateRevised "1986-04-03"^^xsd:date ;
-              meshv:activeMeSHYear  "1989"^^xsd:date ,
-                                    . . .
-                                    "2014"^^xsd:date ;
-              meshv:note  "contains scopolamine ... camphorate" ;
-              meshv:frequency "4"^^xsd:int ;
-              meshv:previousIndexing  "ATROPINE/*analogs (81-86)" ;
-              meshv:preferredMappedTo mesh:D001286 ,
-                                      mesh:D002164Q000031 ,
-                                      mesh:D012602 ;
-              meshv:mappedTo  mesh:D004338 ;
-              meshv:source  "Vrach Delo 1980;(7):55" ;
-              meshv:recordOriginator  "nbm" ;
-              meshv:recordMaintainer  "standardr" ;
-              meshv:recordAuthorizer  "nlm" ;
-              meshv:preferredConcept  mesh:M0085468 ;
-              meshv:recordPreferredTerm mesh:T115471 .
-mesh:M0085468 rdf:type  meshv:Concept ;
-              meshv:preferredTerm mesh:T115471 .
-mesh:T115471  rdf:type  meshv:Term .
+<http://id.nlm.nih.gov/mesh/C025735>
+        a       <http://id.nlm.nih.gov/mesh/vocab#RegularSubstance> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Aeron" ;
+        <http://id.nlm.nih.gov/mesh/vocab#activeMeSHYear>
+                "1989-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ,
+                ...
+                "2014-01-01"^^<http://www.w3.org/2001/XMLSchema#date>;
+        <http://id.nlm.nih.gov/mesh/vocab#dateCreated>
+                "1980-10-03"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://id.nlm.nih.gov/mesh/vocab#dateRevised>
+                "1986-04-03"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://id.nlm.nih.gov/mesh/vocab#frequency>
+                "4"^^<http://www.w3.org/2001/XMLSchema#int> ;
+        <http://id.nlm.nih.gov/mesh/vocab#mappedTo>
+                <http://id.nlm.nih.gov/mesh/D004338> ;
+        <http://id.nlm.nih.gov/mesh/vocab#note>
+                "contains scopolamine camphorate mixture with (-)-atropine camphorate" ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredConcept>
+                <http://id.nlm.nih.gov/mesh/M0085468> ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredMappedTo>
+                <http://id.nlm.nih.gov/mesh/D012602> , 
+                <http://id.nlm.nih.gov/mesh/D002164Q000031> , 
+                <http://id.nlm.nih.gov/mesh/D001286> ;
+        <http://id.nlm.nih.gov/mesh/vocab#previousIndexing>
+                "ATROPINE/*analogs (81-86)" ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordAuthorizer>
+                "nlm" ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordMaintainer>
+                "standardr" ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordOriginator>
+                "nbm" ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm>
+                <http://id.nlm.nih.gov/mesh/T115471> ;
+        <http://id.nlm.nih.gov/mesh/vocab#source>
+                "Vrach Delo 1980;(7):55" ;
+        <http://purl.org/dc/terms/identifier>
+                "C025735" .
 
-mesh:C012211  meshv:indexerConsiderAlso mesh:D000626Q000037 .
+<http://id.nlm.nih.gov/mesh/M0085468>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
+                <http://id.nlm.nih.gov/mesh/T115471> .
+
+<http://id.nlm.nih.gov/mesh/vocab#RegularSubstance>
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConcept> .
+
+<http://id.nlm.nih.gov/mesh/T115471>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> .
 ```
 
 ### MeSH XML
