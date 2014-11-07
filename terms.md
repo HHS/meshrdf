@@ -204,6 +204,68 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
 </QualifierRecord>
 ```
 
+### meshv:Term - Relations and Properties
+
+{::options parse_block_html="true" /}
+
+{: #tabs}
+<div>
+
+*  [Relations to other classes (as subject)](#tabs-1)
+*  [Relations to other classes (as object)](#tabs-2)
+*  [meshv:Term properties](#tabs-3)
+
+{: #tabs-1}
+<div>
+
+{:.data-table-standard .row-border .hover }
+Subject | Predicate | Object
+------- | --------- | -------
+meshv:Term | rdf:type | rdfs:Class
+
+</div>
+
+{: #tabs-2}
+<div>
+
+{:.data-table-standard .row-border .hover}
+Subject | Predicate | Object
+------- | --------- | -------
+meshv:Concept | meshv:preferredTerm | meshv:Term
+meshv:Concept | meshv:term | meshv:Term
+meshv:Qualifier | meshv:recordPreferredTerm | meshv:Term
+meshv:TopicalDescriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:Descriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:GeographicalDescriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:PublicationType | meshv:recordPreferredTerm | meshv:Term
+meshv:RegularSubstance | meshv:recordPreferredTerm | meshv:Term
+meshv:SupplementaryConcept | meshv:recordPreferredTerm | meshv:Term
+meshv:Protocol | meshv:recordPreferredTerm | meshv:Term
+meshv:RareDisease | meshv:recordPreferredTerm | meshv:Term
+meshv:CheckTag | meshv:recordPreferredTerm | meshv:Term
+
+</div>
+
+{: #tabs-3}
+<div>
+{:.data-table-standard .row-border .hover}
+Subject | Predicate
+------- | ---------
+meshv:Term | rdfs:label
+meshv:Term | dcterms:identifier
+meshv:Term | meshv:abbreviation
+meshv:Term | meshv:entryVersion
+meshv:Term | meshv:lexicalTag
+meshv:Term | meshv:printFlag
+meshv:Term | meshv:sortVersion
+meshv:Term | meshv:prefLabel
+meshv:Term | meshv:dateCreated
+meshv:Term | meshv:thesaurusID
+meshv:Term | meshv:altLabel
+
+</div>
+</div>
+
 ###<a name = "relations"/>RDF Graph Model - Term Relations
 
 Depicted in these graphs:
