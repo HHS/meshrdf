@@ -391,7 +391,7 @@ The graph below depicts the relations of Ofloxacin to other classes.
 
 ###SPARQL - Descriptor Relations
 
-The RDF output above can be generated with the following <span class='invoke-sparql'>SPARQL query</span>, after substituting the current values for the name of the graph and so forth:
+The RDF output above can be generated with the following <span class='invoke-sparql'>SPARQL query</span>.
 
 
 ```sparql
