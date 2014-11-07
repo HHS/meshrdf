@@ -164,7 +164,7 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
       <ConceptName>
         <String>Calcimycin</String>
       </ConceptName>
-      <CASN1Name>4-Benzoxazolecarboxylic acid,  ...</CASN1Name>
+      <CASN1Name>4-Benzoxazolecarboxylic acid, 5-(methylamino)-2-((3,9,11-trimethyl-8-(1-methyl-2-oxo-2-(1H-pyrrol-2-yl)ethyl)-1,7-dioxaspiro(5.5)undec-2-yl)methyl)-, (6S-(6alpha(2S*,3S*),8beta(R*),9beta,11alpha))-</CASN1Name>
       <RegistryNumber>37H9VM9WZL</RegistryNumber>
       <ScopeNote>An ionophorous, ... </ScopeNote>
       <SemanticTypeList>
