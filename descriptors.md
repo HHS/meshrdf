@@ -428,7 +428,7 @@ Here is the truncated output of the above query in N3 format. The same data is i
 
 <http://id.nlm.nih.gov/mesh/D009369>
         <http://id.nlm.nih.gov/mesh/vocab#annotation>
-                "general; prefer specifics; policy: Manual section 24; qualifier / nurs = the patient, ONCOLOGY NURSING = ...";
+                "general; prefer specifics; policy: Manual section 24; qualifier / nurs = the patient, ONCOLOGY NURSING = the oncologic specialty; qualifier / radiother = the patient, RADIATION ONCOLOGY = the specialty; familial: consider also NEOPLASTIC SYNDROMES, HEREDITARY; metastatic cancer of unknown origin: index under NEOPLASM METASTASIS";
         <http://id.nlm.nih.gov/mesh/vocab#considerAlso>
                 "consider also terms at CANCER, CARCINO-, ONCO-, and TUMOR" ;
         <http://id.nlm.nih.gov/mesh/vocab#runningHead>
@@ -451,7 +451,7 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
   <DescriptorName>
     <String>Neoplasms</String>
   </DescriptorName>
-  <Annotation>general; prefer specifics; policy: ... NEOPLASM METASTASIS</Annotation>
+  <Annotation>general; prefer specifics; policy: Manual section 24; qualifier / nurs = the patient, ONCOLOGY NURSING = the oncologic specialty; qualifier / radiother = the patient, RADIATION ONCOLOGY = the specialty; familial: consider also NEOPLASTIC SYNDROMES, HEREDITARY; metastatic cancer of unknown origin: index under NEOPLASM METASTASIS</Annotation>
   <SeeRelatedList>
     <SeeRelatedDescriptor>
       <DescriptorReferredTo>
