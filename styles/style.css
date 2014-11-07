@@ -29,11 +29,10 @@ p {
 }
 
 .content > h3, .content > h2, .content h4 {
-  margin-top:1em;
-  margin-bottom:1em;
+  padding-top:1em;
+  padding-bottom:1em;
   max-width:90%;
 }
-
 
 #logo-container {
   width:100%;
@@ -47,6 +46,12 @@ p {
   font-size:75%;
   margin-bottom:1em;
   color:#1F4D7A;
+}
+
+.jump, .jump a {
+  
+  font-size:.9em;
+  color:#9b0000;
 }
 
 .left-nav {
@@ -121,7 +126,7 @@ width:90%;
 .content > ul {
   
   margin-left:2em;
-  
+  margin-bottom:1em;
 }
 
 
