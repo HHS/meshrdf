@@ -1,7 +1,7 @@
 ---
-title: Descriptor Literals
+title: Descriptors
 layout: page
-resource: false
+resource: true
 categories:
 - Data Model
 ---
@@ -11,6 +11,10 @@ Also known as Main Headings or MeSH Headings, Descriptors are used to index cita
 Descriptors are searchable in PubMed and NLM Catalog with the search tag [MH]. Most Descriptors indicate the subject of a resource (including geographic terms).
 Some indicate publication types (what a resource is rather than what it is about; for example: Randomized Controlled Trial or Letter).
 For more information about Descriptors, visit the NLM [MeSH Record Types page](http://www.nlm.nih.gov/mesh/intro_record_types.html).
+
+{: .jump}
+&#91; jump to [descriptor properties](#descriptor-properties) or [descriptor-relations](#descriptor-relations) &#93;
+
 
 ### Class Information
 
@@ -22,13 +26,118 @@ In MeSH RDF, the subclasses of meshv:Descriptor are:
 *  meshv:GeographicalDescriptor
 
 
-The chart below displays the properties and relations of the meshv:TopicalDescriptor D015242, 'Oflaxacin'. 
+The chart below displays the properties of the meshv:TopicalDescriptor D015242, 'Oflaxacin' (jump to [descriptor relations](#descriptor-relations)).
 
-###RDF Graph Diagram
+###<a name = "descriptor-properties"/>RDF Graph Diagram - Descriptor Properties
 
 The following RDF graph diagram shows a fairly typical topical descriptor (D015242, Ofloxacin) and its literals. For reference, see [Ofloxacin in the MeSH browser](https://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?term=ofloxacin). The data elements featured here have literal strings as objects, not identifiers.
 
 ![Descriptor RDF Graph Diagram](images/BasicConversionLiterals.png){: class="rdf-graph"}
+
+###SPARQL - Descriptor Properties
+
+The following <span class='invoke-sparql'>SPARQL query</span> will produce the predicates and objects of Ofloxacin.
+
+
+```sparql
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+CONSTRUCT { mesh:D015242 ?p ?o . }
+FROM <http://id.nlm.nih.gov/mesh2014>
+WHERE {
+  mesh:D015242 ?p ?o .
+}
+```
+
+###MeSH RDF Data - Descriptor Properties
+
+Here is the truncated output of the above query in [N3 format](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX%20owl%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX%20dc%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX%20dcterms%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX%20dbpedia2%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX%20dbpedia%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0APREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0A%0D%0ACONSTRUCT%20%7B%20mesh%3AD015242%20%3Fp%20%3Fo%20.%20%7D%0D%0AFROM%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0AWHERE%20%7B%0D%0A%20%20mesh%3AD015242%20%3Fp%20%3Fo%20.%0D%0A%7D&format=N3){:target="_blank"}. The same data is illustrated in the RDF graph diagram above.
+
+
+```
+<http://id.nlm.nih.gov/mesh/D015242>
+        a       <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Ofloxacin" ;
+        <http://id.nlm.nih.gov/mesh/vocab#activeMeSHYear>
+                "2014-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+                ...
+        <http://id.nlm.nih.gov/mesh/vocab#dateCreated>
+                "2014-06-26"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://id.nlm.nih.gov/mesh/vocab#dateEstablished>
+                "1989-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://id.nlm.nih.gov/mesh/vocab#dateRevised>
+                "2013-07-08"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://id.nlm.nih.gov/mesh/vocab#historyNote>
+                "89" ;
+                ...
+        <http://id.nlm.nih.gov/mesh/vocab#previousIndexing>
+                "Anti-Infective Agents, Urinary (1981-1988)" ,
+                ...
+                "Oxazines (1981-1988)" ;
+        <http://id.nlm.nih.gov/mesh/vocab#publicMeSHNote>
+                "89" ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordAuthorizer>
+                "chodan" ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordMaintainer>
+                "pashj" ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordOriginator>
+                "standardr" ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm>
+                <http://id.nlm.nih.gov/mesh/T044624> ;
+                ...
+        <http://purl.org/dc/terms/identifier>
+                "D015242" ;
+                ...
+```
+
+###MeSH XML - Descriptor Properties
+
+The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the N3 data above to the truncated MeSH XML for Ofloxacin below.
+
+
+```xml
+<DescriptorRecord DescriptorClass = "1">
+  <DescriptorUI>D015242</DescriptorUI>
+  <DescriptorName>
+   <String>Ofloxacin</String>
+  </DescriptorName>
+  <DateCreated>
+   <Year>2014</Year>
+   <Month>06</Month>
+   <Day>26</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2013</Year>
+   <Month>07</Month>
+   <Day>08</Day>
+  </DateRevised>
+  <DateEstablished>
+   <Year>1989</Year>
+   <Month>01</Month>
+   <Day>01</Day>
+  </DateEstablished>
+  <ActiveMeSHYearList>
+   <Year>2014</Year>
+  </ActiveMeSHYearList>
+  ...
+  <HistoryNote>89
+  </HistoryNote>
+  <PublicMeSHNote>89
+  </PublicMeSHNote>
+  <PreviousIndexingList>
+   ...
+   <PreviousIndexing>Anti-Infective Agents, Urinary (1981-1988)</PreviousIndexing>
+   <PreviousIndexing>Oxazines (1981-1988)</PreviousIndexing>
+  </PreviousIndexingList>
+  ...
+  <RecordOriginatorsList>
+   <RecordOriginator>standardr</RecordOriginator>
+   <RecordMaintainer>pashj</RecordMaintainer>
+   <RecordAuthorizer>chodan</RecordAuthorizer>
+  </RecordOriginatorsList>
+  ...
+ </DescriptorRecord>
+```
 
 ### meshv:Descriptor - Relations and Properties
 This table includes all the sub-classes of the meshv:Descriptor class as either the subject or object of an RDF triple, as well properties of the class.
@@ -273,109 +382,124 @@ meshv:TopicalDescriptor | rdfs:label
 </div>
 </div>
 
-<div>
 
-###SPARQL
 
-The following <span class='invoke-sparql'>SPARQL query</span> will produce the predicates and objects of Ofloxacin.
+###<a name = "descriptor-relations"/>RDF Graph Diagram - Descriptor Relations
+
+The graph below depicts the relations of Ofloxacin to other classes.
+
+![Descriptor References RDF Graph Diagram](images/DescriptorRefs.png){: class="rdf-graph"}
+
+###SPARQL - Descriptor Relations
+
+The RDF output above can be generated with the following <span class='invoke-sparql'>SPARQL query</span>, after substituting the current values for the name of the graph and so forth:
 
 
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-CONSTRUCT { mesh:D015242 ?p ?o . }
-FROM <http://id.nlm.nih.gov/mesh2014>
-WHERE {
-  mesh:D015242 ?p ?o .
+PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+
+construct {
+    mesh:D009369 meshv:annotation ?a .
+    mesh:D009369 meshv:seeAlso ?sa .
+    mesh:D009369 meshv:considerAlso ?ca .
+    mesh:D009369 meshv:runningHead ?rh .
+    mesh:D015242 meshv:pharmacologicalAction ?pa .
+}
+from <http://id.nlm.nih.gov/mesh2014>
+where {
+    mesh:D009369 meshv:annotation ?a .
+    mesh:D009369 meshv:seeAlso ?sa .
+    mesh:D009369 meshv:considerAlso ?ca .
+    mesh:D009369 meshv:runningHead ?rh .
+    mesh:D015242 meshv:pharmacologicalAction ?pa .
 }
 ```
 
-###MeSH RDF Data
+###MeSH RDF Data - Descriptor Relations
 
-Here is the truncated output of the above query in [N3 format](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX%20owl%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX%20dc%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX%20dcterms%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX%20dbpedia2%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX%20dbpedia%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0APREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0A%0D%0ACONSTRUCT%20%7B%20mesh%3AD015242%20%3Fp%20%3Fo%20.%20%7D%0D%0AFROM%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0AWHERE%20%7B%0D%0A%20%20mesh%3AD015242%20%3Fp%20%3Fo%20.%0D%0A%7D&format=N3){:target="_blank"}. The same data is illustrated in the RDF graph diagram above.
-
+In [N3 format](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct%20%7B%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3Aannotation%20%3Fa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AseeAlso%20%3Fsa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AconsiderAlso%20%3Fca%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3ArunningHead%20%3Frh%20.%0D%0A%20%20%20%20mesh%3AD015242%20meshv%3ApharmacologicalAction%20%3Fpa%20.%0D%0A%7D%0D%0Afrom%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0Awhere%20%7B%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3Aannotation%20%3Fa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AseeAlso%20%3Fsa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AconsiderAlso%20%3Fca%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3ArunningHead%20%3Frh%20.%0D%0A%20%20%20%20mesh%3AD015242%20meshv%3ApharmacologicalAction%20%3Fpa%20.%0D%0A%7D&format=N3){:target="_blank"}:
 
 ```
 <http://id.nlm.nih.gov/mesh/D015242>
-        a       <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Ofloxacin" ;
-        <http://id.nlm.nih.gov/mesh/vocab#activeMeSHYear>
-                "2014-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://id.nlm.nih.gov/mesh/vocab#pharmacologicalAction>
+                <http://id.nlm.nih.gov/mesh/D000892> , 
                 ...
-        <http://id.nlm.nih.gov/mesh/vocab#dateCreated>
-                "2014-06-26"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://id.nlm.nih.gov/mesh/vocab#dateEstablished>
-                "1989-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://id.nlm.nih.gov/mesh/vocab#dateRevised>
-                "2013-07-08"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://id.nlm.nih.gov/mesh/vocab#historyNote>
-                "89" ;
+                <http://id.nlm.nih.gov/mesh/D059005> .
+
+<http://id.nlm.nih.gov/mesh/D009369>
+        <http://id.nlm.nih.gov/mesh/vocab#annotation>
+                "general; prefer specifics; policy: Manual section 24; qualifier / nurs = the patient, ONCOLOGY NURSING = ...";
+        <http://id.nlm.nih.gov/mesh/vocab#considerAlso>
+                "consider also terms at CANCER, CARCINO-, ONCO-, and TUMOR" ;
+        <http://id.nlm.nih.gov/mesh/vocab#runningHead>
+                "C4 - DISEASES-NEOPLASMS" ;
+        <http://id.nlm.nih.gov/mesh/vocab#seeAlso>
                 ...
-        <http://id.nlm.nih.gov/mesh/vocab#previousIndexing>
-                "Anti-Infective Agents, Urinary (1981-1988)" ,
+                <http://id.nlm.nih.gov/mesh/D016147> ,
                 ...
-                "Oxazines (1981-1988)" ;
-        <http://id.nlm.nih.gov/mesh/vocab#publicMeSHNote>
-                "89" ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordAuthorizer>
-                "chodan" ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordMaintainer>
-                "pashj" ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordOriginator>
-                "standardr" ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm>
-                <http://id.nlm.nih.gov/mesh/T044624> ;
-                ...
-        <http://purl.org/dc/terms/identifier>
-                "D015242" ;
-                ...
+                <http://id.nlm.nih.gov/mesh/D002273> .
 ```
 
-###MeSH XML
 
-The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the N3 data above to the truncated MeSH XML for Ofloxacin below.
+### MeSH XML - Descriptor Relations
 
+The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the RDF data above to the truncated MeSH XML below.
 
 ```xml
-<DescriptorRecord DescriptorClass = "1">
+<DescriptorRecord DescriptorClass="1">
+  <DescriptorUI>D009369</DescriptorUI>
+  <DescriptorName>
+    <String>Neoplasms</String>
+  </DescriptorName>
+  <Annotation>general; prefer specifics; policy: ... NEOPLASM METASTASIS</Annotation>
+  <SeeRelatedList>
+    <SeeRelatedDescriptor>
+      <DescriptorReferredTo>
+        <DescriptorUI>D000912</DescriptorUI>
+        <DescriptorName>
+          <String>Antibodies, Neoplasm</String>
+        </DescriptorName>
+      </DescriptorReferredTo>
+    </SeeRelatedDescriptor>
+    ...
+    <SeeRelatedDescriptor>
+      <DescriptorReferredTo>
+        <DescriptorUI>D016588</DescriptorUI>
+        <DescriptorName>
+          <String>Anticarcinogenic Agents</String>
+        </DescriptorName>
+      </DescriptorReferredTo>
+    </SeeRelatedDescriptor>
+  </SeeRelatedList>
+  <ConsiderAlso>consider also terms at CANCER, CARCINO-, ONCO-, and TUMOR </ConsiderAlso>
+  <RunningHead>C4 - DISEASES-NEOPLASMS </RunningHead>
+  ...
+</DescriptorRecord>
+
+<DescriptorRecord DescriptorClass="1">
   <DescriptorUI>D015242</DescriptorUI>
   <DescriptorName>
-   <String>Ofloxacin</String>
+    <String>Ofloxacin</String>
   </DescriptorName>
-  <DateCreated>
-   <Year>2014</Year>
-   <Month>06</Month>
-   <Day>26</Day>
-  </DateCreated>
-  <DateRevised>
-   <Year>2013</Year>
-   <Month>07</Month>
-   <Day>08</Day>
-  </DateRevised>
-  <DateEstablished>
-   <Year>1989</Year>
-   <Month>01</Month>
-   <Day>01</Day>
-  </DateEstablished>
-  <ActiveMeSHYearList>
-   <Year>2014</Year>
-  </ActiveMeSHYearList>
-  ...
-  <HistoryNote>89
-  </HistoryNote>
-  <PublicMeSHNote>89
-  </PublicMeSHNote>
-  <PreviousIndexingList>
-   ...
-   <PreviousIndexing>Anti-Infective Agents, Urinary (1981-1988)</PreviousIndexing>
-   <PreviousIndexing>Oxazines (1981-1988)</PreviousIndexing>
-  </PreviousIndexingList>
-  ...
-  <RecordOriginatorsList>
-   <RecordOriginator>standardr</RecordOriginator>
-   <RecordMaintainer>pashj</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
-  ...
- </DescriptorRecord>
+  <PharmacologicalActionList>
+    <PharmacologicalAction>
+      <DescriptorReferredTo>
+        <DescriptorUI>D000892</DescriptorUI>
+        <DescriptorName>
+          <String>Anti-Infective Agents, Urinary</String>
+        </DescriptorName>
+      </DescriptorReferredTo>
+    </PharmacologicalAction>
+    ...
+    <PharmacologicalAction>
+      <DescriptorReferredTo>
+        <DescriptorUI>D059005</DescriptorUI>
+        <DescriptorName>
+          <String>Topoisomerase II Inhibitors</String>
+        </DescriptorName>
+      </DescriptorReferredTo>
+    </PharmacologicalAction>
+  </PharmacologicalActionList>
+</DescriptorRecord>
 ```
