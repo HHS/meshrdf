@@ -12,6 +12,87 @@ categories:
 
 ![Qualifier RDF Graph Diagram](images/SCRs.png){: class="rdf-graph"}
 
+### meshv:SupplementaryConcept - Relations and Properties
+
+{::options parse_block_html="true" /}
+
+{: #tabs}
+<div>
+
+*  [Relations to other classes (as subject)](#tabs-1)
+*  [Relations to other classes (as object)](#tabs-2)
+*  [meshv:SupplementaryConcept properties](#tabs-3)
+
+{: #tabs-1}
+<div>
+
+{:.data-table-standard .row-border .hover }
+Subject | Predicate | Object
+------- | --------- | -------
+meshv:SupplementaryConcept | rdf:type | meshv:Protocol
+meshv:SupplementaryConcept | rdf:type | meshv:SupplementaryConcept
+meshv:SupplementaryConcept | rdf:type | meshv:RareDisease
+meshv:SupplementaryConcept | rdf:type | meshv:RegularSubstance
+meshv:SupplementaryConcept | meshv:concept | meshv:RegularSubstance
+meshv:SupplementaryConcept | meshv:concept | meshv:SupplementaryConcept
+meshv:SupplementaryConcept | meshv:concept | meshv:Protocol
+meshv:SupplementaryConcept | meshv:concept | meshv:RareDisease
+meshv:SupplementaryConcept | meshv:preferredConcept | meshv:RegularSubstance
+meshv:SupplementaryConcept | meshv:preferredConcept | meshv:SupplementaryConcept
+meshv:SupplementaryConcept | meshv:preferredConcept | meshv:Protocol
+meshv:SupplementaryConcept | meshv:preferredConcept | meshv:RareDisease
+meshv:SupplementaryConcept | meshv:recordPreferredTerm | meshv:RegularSubstance
+meshv:SupplementaryConcept | meshv:recordPreferredTerm | meshv:SupplementaryConcept
+meshv:SupplementaryConcept | meshv:recordPreferredTerm | meshv:Protocol
+meshv:SupplementaryConcept | meshv:recordPreferredTerm | meshv:RareDisease
+meshv:SupplementaryConcept | meshv:pharmacologicalAction | meshv:RegularSubstance
+meshv:SupplementaryConcept | meshv:pharmacologicalAction | meshv:SupplementaryConcept
+meshv:SupplementaryConcept | meshv:pharmacologicalAction | meshv:Protocol
+meshv:SupplementaryConcept | meshv:indexerConsiderAlso | meshv:RegularSubstance
+meshv:SupplementaryConcept | meshv:indexerConsiderAlso | meshv:SupplementaryConcept
+meshv:SupplementaryConcept | meshv:indexerConsiderAlso | meshv:Protocol
+meshv:SupplementaryConcept | meshv:indexerConsiderAlso | meshv:RareDisease
+meshv:SupplementaryConcept | meshv:mappedTo | meshv:RegularSubstance
+meshv:SupplementaryConcept | meshv:mappedTo | meshv:SupplementaryConcept
+meshv:SupplementaryConcept | meshv:mappedTo | meshv:Protocol
+meshv:SupplementaryConcept | meshv:mappedTo | meshv:RareDisease
+meshv:SupplementaryConcept | meshv:preferredMappedTo | meshv:RegularSubstance
+meshv:SupplementaryConcept | meshv:preferredMappedTo | meshv:SupplementaryConcept
+meshv:SupplementaryConcept | meshv:preferredMappedTo | meshv:RareDisease
+meshv:SupplementaryConcept | meshv:preferredMappedTo | meshv:Protocol
+
+</div>
+
+{: #tabs-2}
+<div>
+
+{:.data-table-standard .row-border .hover}
+Subject | Predicate | Object
+------- | --------- | -------
+N/A | N/A | N/A
+
+</div>
+
+{: #tabs-3}
+<div>
+{:.data-table-standard .row-border .hover}
+Subject | Predicate
+------- | ---------
+meshv:SupplementaryConcept | rdfs:label
+meshv:SupplementaryConcept | dcterms:identifier
+meshv:SupplementaryConcept | meshv:activeMeSHYear
+meshv:SupplementaryConcept | meshv:dateCreated
+meshv:SupplementaryConcept | meshv:dateRevised
+meshv:SupplementaryConcept | meshv:recordAuthorizer
+meshv:SupplementaryConcept | meshv:recordMaintainer
+meshv:SupplementaryConcept | meshv:recordOriginator
+meshv:SupplementaryConcept | meshv:previousIndexing
+meshv:SupplementaryConcept | meshv:frequency
+meshv:SupplementaryConcept | meshv:note
+meshv:SupplementaryConcept | meshv:source
+
+</div>
+</div>
 
 ### SPARQL
 
