@@ -79,8 +79,8 @@ mesh:M0353609 rdf:type  meshv:Concept ;
 mesh:T000001  rdf:type  meshv:Term ;
               meshv:lexicalTag  "LAB" ;
               rdfs:label  "A-23187" ;
-              skos:prefLabel  "A-23187" ;
-              skos:altLabel "A 23187" .
+              meshv:prefLabel  "A-23187" ;
+              meshv:altLabel "A 23187" .
               dcterms:identifier  "T000001" ;
               meshv:dateCreated "1990-03-08"^^xsd:date ;
               meshv:thesaurusID "NLM (1991)" ;
@@ -88,8 +88,8 @@ mesh:T000001  rdf:type  meshv:Term ;
 mesh:T000003  rdf:type  meshv:Term ;
               meshv:lexicalTag  "NON" ;
               rdfs:label  "Antibiotic A23187" ;
-              skos:prefLabel  "Antibiotic A23187" ;
-              skos:altLabel "A23187, Antibiotic" .
+              meshv:prefLabel  "Antibiotic A23187" ;
+              meshv:altLabel "A23187, Antibiotic" .
               dcterms:identifier  "T000003" ;
               ...
 ...

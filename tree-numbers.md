@@ -10,7 +10,7 @@ categories:
 
 The following diagram illustrates the problem of tree numbers, that impose multiple
 overlapping hierarchical relationships between descriptors. In the diagram, every
-arrow indicates a skos:broader relationship.
+arrow indicates a meshv:broader relationship.
 
 In this particular example, "Eye" belongs to two overlapping trees -- one that is
 depicted in green and one in purple.
@@ -30,8 +30,8 @@ were transitive, then one could conclude that "Eyebrows" has broader concept "Se
 "Oculomotor Muscles" has broader concept "Face", but neither of those is true according to the MeSH trees.
 
 The way that this is modeled in MeSH RDF is illustrated in the following graph.  Each tree number
-is reified as a first-class resource.  `skos:broader` relations (which are not transitive) are asserted
-between the `Descriptor`s, and `skos:broaderTransitive` relations (which, obviously, are) are asserted
+is reified as a first-class resource.  `meshv:broader` relations (which are not transitive) are asserted
+between the `Descriptor`s, and `meshv:broaderTransitive` relations (which, obviously, are) are asserted
 between the `TreeNumber`s.
 
 ![Tree Numbers RDF Graph Model](images/BroaderRelationsWithTreeNodes.png){: class="rdf-graph"}
@@ -44,7 +44,7 @@ she could do so, using the SPARQL transitivity operator ("+"), with the followin
 select ?ancestor
 where {
     mesh:D005138 mesh:hasTreeNode ?treeNode .
-    ?treeNode skos:broaderTransitive+ ?ancestorTreeNode .
+    ?treeNode meshv:broaderTransitive+ ?ancestorTreeNode .
     ?ancestor mesh:hasTreeNode ?ancestorTreeNode
 }
 ```
@@ -67,7 +67,7 @@ where {
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:TreeNumber | rdf:type | meshv:TreeNumber
-meshv:TreeNumber | skos:broaderTransitive | meshv:TreeNumber
+meshv:TreeNumber | meshv:broaderTransitive | meshv:TreeNumber
 
 
 </div>
@@ -82,7 +82,7 @@ meshv:allowedTreeNode | meshv:Qualifier | meshv:TreeNumber
 meshv:treeNumber | meshv:TopicalDescriptor | meshv:TreeNumber
 meshv:treeNumber | meshv:Descriptor | meshv:TreeNumber
 meshv:treeNumber | meshv:Qualifier | meshv:TreeNumber
-skos:broaderTransitive | meshv:TreeNumber | meshv:TreeNumber
+meshv:broaderTransitive | meshv:TreeNumber | meshv:TreeNumber
 meshv:treeNumber | meshv:GeographicalDescriptor | meshv:TreeNumber
 meshv:treeNumber | meshv:PublicationType | meshv:TreeNumber
 
@@ -117,13 +117,13 @@ where {
            ?broader_tree_number ?broader_descriptor
            ?narrower_tree_number ?narrower_descriptor
     where {
-      ?tree_number skos:broaderTransitive ?broader_tree_number .
+      ?tree_number meshv:broaderTransitive ?broader_tree_number .
       ?broader_descriptor meshv:treeNumber ?broader_tree_number .
-      mesh:D005123 skos:broader ?broader_descriptor .
+      mesh:D005123 meshv:broader ?broader_descriptor .
 
-      ?narrower_tree_number skos:broaderTransitive ?tree_number .
+      ?narrower_tree_number meshv:broaderTransitive ?tree_number .
       ?narrower_descriptor meshv:treeNumber ?narrower_tree_number .
-      ?narrower_descriptor skos:broader mesh:D005123 .
+      ?narrower_descriptor meshv:broader mesh:D005123 .
     }
   }
 }
@@ -138,13 +138,13 @@ PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 
 CONSTRUCT {
   mesh:D005123 meshv:treeNumber ?tree_number .
-  ?tree_number skos:broaderTransitive ?broader_tree_number .
+  ?tree_number meshv:broaderTransitive ?broader_tree_number .
   ?broader_descriptor meshv:treeNumber ?broader_tree_number .
-  mesh:D005123 skos:broader ?broader_descriptor .
+  mesh:D005123 meshv:broader ?broader_descriptor .
 
-  ?narrower_tree_number skos:broaderTransitive ?tree_number .
+  ?narrower_tree_number meshv:broaderTransitive ?tree_number .
   ?narrower_descriptor meshv:treeNumber ?narrower_tree_number .
-  ?narrower_descriptor skos:broader mesh:D005123 .
+  ?narrower_descriptor meshv:broader mesh:D005123 .
 }
 from <http://id.nlm.nih.gov/mesh2014>
 where {
@@ -155,13 +155,13 @@ where {
            ?broader_tree_number ?broader_descriptor
            ?narrower_tree_number ?narrower_descriptor
     where {
-      ?tree_number skos:broaderTransitive ?broader_tree_number .
+      ?tree_number meshv:broaderTransitive ?broader_tree_number .
       ?broader_descriptor meshv:treeNumber ?broader_tree_number .
-      mesh:D005123 skos:broader ?broader_descriptor .
+      mesh:D005123 meshv:broader ?broader_descriptor .
 
-      ?narrower_tree_number skos:broaderTransitive ?tree_number .
+      ?narrower_tree_number meshv:broaderTransitive ?tree_number .
       ?narrower_descriptor meshv:treeNumber ?narrower_tree_number .
-      ?narrower_descriptor skos:broader mesh:D005123 .
+      ?narrower_descriptor meshv:broader mesh:D005123 .
     }
   }
 }
@@ -170,34 +170,33 @@ where {
 ### MeSH RDF
 
 ```
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix mesh: <http://id.nlm.nih.gov/mesh/> .
 @prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
 
 # Eye
-mesh:D005123 skos:broader mesh:D005145, mesh:D012679 ;
+mesh:D005123 meshv:broader mesh:D005145, mesh:D012679 ;
              meshv:treeNumber mesh:A09.371 ,
                               mesh:A01.456.505.420 .
 
 # Eyebrows
-mesh:D005138 skos:broader mesh:D005123 ;
+mesh:D005138 meshv:broader mesh:D005123 ;
              meshv:treeNumber mesh:A01.456.505.420.338 .
 
 # Face
 mesh:D005145 meshv:treeNumber mesh:A01.456.505 .
 
 # Oculomotor Muscles
-mesh:D009801 skos:broader mesh:D005123 ;
+mesh:D009801 meshv:broader mesh:D005123 ;
              meshv:treeNumber mesh:A09.371.613 .
 
 # Sense Organs
 mesh:D012679 meshv:treeNumber  mesh:A09 .
 
 # Relations among TreeNumbers
-mesh:A01.456.505.420  skos:broaderTransitive  mesh:A01.456.505 .
-mesh:A09.371  skos:broaderTransitive  mesh:A09 .
-mesh:A01.456.505.420.338  skos:broaderTransitive  mesh:A01.456.505.420 .
-mesh:A09.371.613  skos:broaderTransitive  mesh:A09.371 .
+mesh:A01.456.505.420  meshv:broaderTransitive  mesh:A01.456.505 .
+mesh:A09.371  meshv:broaderTransitive  mesh:A09 .
+mesh:A01.456.505.420.338  meshv:broaderTransitive  mesh:A01.456.505.420 .
+mesh:A09.371.613  meshv:broaderTransitive  mesh:A09.371 .
 ```
 
 ### MeSH XML
