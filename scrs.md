@@ -59,8 +59,8 @@ where {
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 
-mesh:C025735  rdf:type  meshv:RegularSubstance .
-meshv:RegularSubstance  rdfs:subClassOf meshv:SupplementaryConcept .
+mesh:C025735  rdf:type  meshv:SCR_Chemical .
+meshv:SCR_Chemical  rdfs:subClassOf meshv:SupplementaryConceptRecord .
 mesh:C025735  rdfs:label  "Aeron" ;
               dcterms:identifier  "C025735" ;
               meshv:dateCreated "1980-10-03"^^xsd:date ;
@@ -219,9 +219,9 @@ There are three possible values for the *SCRClass* attribute (see the [XML
 documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#SCRClass), which result in three
 rdfs:Classes:
 
-* 1 - meshv:RegularSubstance
-* 2 - meshv:Protocol
-* 3 - meshv:RareDisease
+* 1 - meshv:SCR_Chemical
+* 2 - meshv:SCR_Protocol
+* 3 - meshv:SCR_Disease
 
-Each of these is an rdfs:subClassOf meshv:SupplementaryConcept.
+Each of these is an rdfs:subClassOf meshv:SupplementaryConceptRecord.
 
