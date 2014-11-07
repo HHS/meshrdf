@@ -417,7 +417,7 @@ where {
 
 ###MeSH RDF Data - Descriptor Relations
 
-In [N3 format](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct%20%7B%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3Aannotation%20%3Fa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AseeAlso%20%3Fsa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AconsiderAlso%20%3Fca%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3ArunningHead%20%3Frh%20.%0D%0A%20%20%20%20mesh%3AD015242%20meshv%3ApharmacologicalAction%20%3Fpa%20.%0D%0A%7D%0D%0Afrom%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0Awhere%20%7B%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3Aannotation%20%3Fa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AseeAlso%20%3Fsa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AconsiderAlso%20%3Fca%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3ArunningHead%20%3Frh%20.%0D%0A%20%20%20%20mesh%3AD015242%20meshv%3ApharmacologicalAction%20%3Fpa%20.%0D%0A%7D&format=N3){:target="_blank"}:
+Here is the truncated output of the above query in N3 format. The same data is illustrated in the RDF graph diagram above.
 
 ```
 <http://id.nlm.nih.gov/mesh/D015242>
