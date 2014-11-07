@@ -6,7 +6,10 @@ categories:
 - Data Model
 ---
 
-
+A Qualifier (also known as a Subheading) is a class in MeSH RDF with the name [meshv:Qualifier](http://id.nlm.nih.gov/mesh/vocab#Qualifier){: target="_blank"}.
+Qualifiers are used to give additional context to a Descriptor.  NLM Indexers have rules that govern which Qualifiers can be used with which Descriptors, as well as
+which Qualifers cannot be used for a given Descriptor.  MeSH RDF has minted Descriptor-Qualifier Pair URIs for both Allowed and Disallowed [Descriptor-Qualifier Pairs](http://hhs.github.io/meshrdf/descriptor-qualifier-pairs.html).
+Qualifiers each have tree numbers, and are [hierarchically arranged](http://www.nlm.nih.gov/mesh/subhierarchy.html){: target="_blank"}.
 
 ### RDF Graph Diagram
 
