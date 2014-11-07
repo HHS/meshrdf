@@ -67,43 +67,68 @@ where {
 ### MeSH RDF - Term Properties
 
 ```
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
-@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dcterms:  <http://purl.org/dc/terms/> .
-@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+<http://id.nlm.nih.gov/mesh/T000003>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> ;
+        ...
+        <http://id.nlm.nih.gov/mesh/vocab#altLabel>
+                "A23187, Antibiotic" ;
+        ...
+        <http://id.nlm.nih.gov/mesh/vocab#lexicalTag>
+                "NON" ;
+        <http://id.nlm.nih.gov/mesh/vocab#prefLabel>
+                "Antibiotic A23187" ;
+        ...
+        <http://purl.org/dc/terms/identifier>
+                "T000003" .
 
-mesh:M0353609 rdf:type  meshv:Concept ;
-              rdfs:label  "A-23187" ;
-              meshv:term  mesh:T000003 ,
-                          mesh:T000004 ;
-              meshv:preferredTerm mesh:T000001 .
-mesh:T000001  rdf:type  meshv:Term ;
-              meshv:lexicalTag  "LAB" ;
-              meshv:prefLabel  "A-23187" ;
-              meshv:altLabel "A 23187" .
-              dcterms:identifier  "T000001" ;
-              meshv:dateCreated "1990-03-08"^^xsd:date ;
-              meshv:thesaurusID "NLM (1991)" ;
-              meshv:printFlag "N" ;
-mesh:T000003  rdf:type  meshv:Term ;
-              meshv:lexicalTag  "NON" ;
-              meshv:prefLabel  "Antibiotic A23187" ;
-              meshv:altLabel "A23187, Antibiotic" .
-              dcterms:identifier  "T000003" ;
-              ...
-...
-mesh:M0030212 rdf:type  meshv:Concept ;
-              rdfs:label  "administration & dosage" ;
-              meshv:preferredTerm mesh:T060555 .
-mesh:T060555  rdf:type  meshv:Term ;
-              meshv:prefLabel  "administration & dosage" ;
-              meshv:abbreviation  "AD" ;
-              meshv:sortVersion "ADMINISTRATION A" ;
-              meshv:entryVersion  "ADMIN" ;
-              ...
+<http://id.nlm.nih.gov/mesh/T000001>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "A-23187" ;
+        <http://id.nlm.nih.gov/mesh/vocab#altLabel>
+                "A 23187" ;
+        <http://id.nlm.nih.gov/mesh/vocab#dateCreated>
+                "1990-03-08"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://id.nlm.nih.gov/mesh/vocab#lexicalTag>
+                "LAB" ;
+        <http://id.nlm.nih.gov/mesh/vocab#prefLabel>
+                "A-23187" ;
+        <http://id.nlm.nih.gov/mesh/vocab#printFlag>
+                "N" ;
+        <http://id.nlm.nih.gov/mesh/vocab#thesaurusID>
+                "NLM (1991)" ;
+        <http://purl.org/dc/terms/identifier>
+                "T000001" .
+        ...
+<http://id.nlm.nih.gov/mesh/M0353609>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "A-23187" ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
+                <http://id.nlm.nih.gov/mesh/T000001> ;
+        <http://id.nlm.nih.gov/mesh/vocab#term>
+                ...
+                <http://id.nlm.nih.gov/mesh/T000003> .
+
+<http://id.nlm.nih.gov/mesh/T060555>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> ;
+        ...
+        <http://id.nlm.nih.gov/mesh/vocab#abbreviation>
+                "AD" ;
+        <http://id.nlm.nih.gov/mesh/vocab#entryVersion>
+                "ADMIN" ;
+        ...
+        <http://id.nlm.nih.gov/mesh/vocab#sortVersion>
+                "ADMINISTRATION A" ;
+        <http://purl.org/dc/terms/identifier>
+                "T060555" .
+
+<http://id.nlm.nih.gov/mesh/M0030212>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "administration & dosage" ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
+                <http://id.nlm.nih.gov/mesh/T060555> .
 ```
 
 
@@ -179,6 +204,68 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
 </QualifierRecord>
 ```
 
+### meshv:Term - Relations and Properties
+
+{::options parse_block_html="true" /}
+
+{: #tabs}
+<div>
+
+*  [Relations to other classes (as subject)](#tabs-1)
+*  [Relations to other classes (as object)](#tabs-2)
+*  [meshv:Term properties](#tabs-3)
+
+{: #tabs-1}
+<div>
+
+{:.data-table-standard .row-border .hover }
+Subject | Predicate | Object
+------- | --------- | -------
+meshv:Term | rdf:type | rdfs:Class
+
+</div>
+
+{: #tabs-2}
+<div>
+
+{:.data-table-standard .row-border .hover}
+Subject | Predicate | Object
+------- | --------- | -------
+meshv:Concept | meshv:preferredTerm | meshv:Term
+meshv:Concept | meshv:term | meshv:Term
+meshv:Qualifier | meshv:recordPreferredTerm | meshv:Term
+meshv:TopicalDescriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:Descriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:GeographicalDescriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:PublicationType | meshv:recordPreferredTerm | meshv:Term
+meshv:RegularSubstance | meshv:recordPreferredTerm | meshv:Term
+meshv:SupplementaryConcept | meshv:recordPreferredTerm | meshv:Term
+meshv:Protocol | meshv:recordPreferredTerm | meshv:Term
+meshv:RareDisease | meshv:recordPreferredTerm | meshv:Term
+meshv:CheckTag | meshv:recordPreferredTerm | meshv:Term
+
+</div>
+
+{: #tabs-3}
+<div>
+{:.data-table-standard .row-border .hover}
+Subject | Predicate
+------- | ---------
+meshv:Term | rdfs:label
+meshv:Term | dcterms:identifier
+meshv:Term | meshv:abbreviation
+meshv:Term | meshv:entryVersion
+meshv:Term | meshv:lexicalTag
+meshv:Term | meshv:printFlag
+meshv:Term | meshv:sortVersion
+meshv:Term | meshv:prefLabel
+meshv:Term | meshv:dateCreated
+meshv:Term | meshv:thesaurusID
+meshv:Term | meshv:altLabel
+
+</div>
+</div>
+
 ###<a name = "relations"/>RDF Graph Model - Term Relations
 
 Depicted in these graphs:
@@ -243,26 +330,40 @@ where {
 
 
 ```
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
-@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+<http://id.nlm.nih.gov/mesh/T000003>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> .
 
-mesh:D000001  rdf:type  meshv:TopicalDescriptor ;
-              meshv:preferredConcept  mesh:M0000001 ;
-              meshv:recordPreferredTerm mesh:T000002 ;
-              meshv:concept mesh:M0353609 .
-mesh:M0000001 rdf:type  meshv:Concept ;
-              meshv:preferredTerm mesh:T000002 .
-mesh:M0353609 rdf:type  meshv:Concept ;
-              meshv:term  mesh:T000003 ,
-                          mesh:T000004 ;
-              meshv:preferredTerm mesh:T000001 .
-mesh:T000002  rdf:type  meshv:Term .
-mesh:T000001  rdf:type  meshv:Term .
-mesh:T000003  rdf:type  meshv:Term .
-mesh:T000004  rdf:type  meshv:Term .
-meshv:TopicalDescriptor rdfs:subClassOf meshv:Descriptor .
+<http://id.nlm.nih.gov/mesh/T000001>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> .
+
+<http://id.nlm.nih.gov/mesh/M0000001>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
+                <http://id.nlm.nih.gov/mesh/T000002> .
+...
+<http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor>
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://id.nlm.nih.gov/mesh/vocab#Descriptor> .
+
+<http://id.nlm.nih.gov/mesh/M0353609>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
+                <http://id.nlm.nih.gov/mesh/T000001> ;
+        <http://id.nlm.nih.gov/mesh/vocab#term>
+                ...
+                <http://id.nlm.nih.gov/mesh/T000003> .
+
+<http://id.nlm.nih.gov/mesh/T000002>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> .
+
+<http://id.nlm.nih.gov/mesh/D000001>
+        a       <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> ;
+        <http://id.nlm.nih.gov/mesh/vocab#concept>
+                <http://id.nlm.nih.gov/mesh/M0353609> ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredConcept>
+                <http://id.nlm.nih.gov/mesh/M0000001> ;
+        <http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm>
+                <http://id.nlm.nih.gov/mesh/T000002> .
 ```
 
 Notes:

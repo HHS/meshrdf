@@ -50,8 +50,7 @@ WHERE {
 
 ###MeSH RDF Data - Descriptor Properties
 
-Here is the truncated output of the above query in [N3 format](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20rdf%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX%20owl%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX%20dc%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX%20dcterms%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX%20dbpedia2%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0D%0APREFIX%20dbpedia%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2F%3E%0D%0APREFIX%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX%20skos%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0APREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0A%0D%0ACONSTRUCT%20%7B%20mesh%3AD015242%20%3Fp%20%3Fo%20.%20%7D%0D%0AFROM%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0AWHERE%20%7B%0D%0A%20%20mesh%3AD015242%20%3Fp%20%3Fo%20.%0D%0A%7D&format=N3){:target="_blank"}. The same data is illustrated in the RDF graph diagram above.
-
+Here is the truncated output of the above query in N3 format. The same data is illustrated in the RDF graph diagram above.
 
 ```
 <http://id.nlm.nih.gov/mesh/D015242>
@@ -417,7 +416,7 @@ where {
 
 ###MeSH RDF Data - Descriptor Relations
 
-In [N3 format](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20mesh%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0APREFIX%20meshv%3A%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0A%0D%0Aconstruct%20%7B%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3Aannotation%20%3Fa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AseeAlso%20%3Fsa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AconsiderAlso%20%3Fca%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3ArunningHead%20%3Frh%20.%0D%0A%20%20%20%20mesh%3AD015242%20meshv%3ApharmacologicalAction%20%3Fpa%20.%0D%0A%7D%0D%0Afrom%20%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh2014%3E%0D%0Awhere%20%7B%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3Aannotation%20%3Fa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AseeAlso%20%3Fsa%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3AconsiderAlso%20%3Fca%20.%0D%0A%20%20%20%20mesh%3AD009369%20meshv%3ArunningHead%20%3Frh%20.%0D%0A%20%20%20%20mesh%3AD015242%20meshv%3ApharmacologicalAction%20%3Fpa%20.%0D%0A%7D&format=N3){:target="_blank"}:
+Here is the truncated output of the above query in N3 format. The same data is illustrated in the RDF graph diagram above.
 
 ```
 <http://id.nlm.nih.gov/mesh/D015242>
@@ -428,7 +427,7 @@ In [N3 format](http://iddev.nlm.nih.gov/mesh/servlet/query?query=PREFIX%20mesh%3
 
 <http://id.nlm.nih.gov/mesh/D009369>
         <http://id.nlm.nih.gov/mesh/vocab#annotation>
-                "general; prefer specifics; policy: Manual section 24; qualifier / nurs = the patient, ONCOLOGY NURSING = ...";
+                "general; prefer specifics; policy: Manual section 24; qualifier / nurs = the patient, ONCOLOGY NURSING = the oncologic specialty; qualifier / radiother = the patient, RADIATION ONCOLOGY = the specialty; familial: consider also NEOPLASTIC SYNDROMES, HEREDITARY; metastatic cancer of unknown origin: index under NEOPLASM METASTASIS";
         <http://id.nlm.nih.gov/mesh/vocab#considerAlso>
                 "consider also terms at CANCER, CARCINO-, ONCO-, and TUMOR" ;
         <http://id.nlm.nih.gov/mesh/vocab#runningHead>
@@ -451,7 +450,7 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
   <DescriptorName>
     <String>Neoplasms</String>
   </DescriptorName>
-  <Annotation>general; prefer specifics; policy: ... NEOPLASM METASTASIS</Annotation>
+  <Annotation>general; prefer specifics; policy: Manual section 24; qualifier / nurs = the patient, ONCOLOGY NURSING = the oncologic specialty; qualifier / radiother = the patient, RADIATION ONCOLOGY = the specialty; familial: consider also NEOPLASTIC SYNDROMES, HEREDITARY; metastatic cancer of unknown origin: index under NEOPLASM METASTASIS</Annotation>
   <SeeRelatedList>
     <SeeRelatedDescriptor>
       <DescriptorReferredTo>

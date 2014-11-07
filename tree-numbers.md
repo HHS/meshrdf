@@ -172,31 +172,58 @@ where {
 ```
 @prefix mesh: <http://id.nlm.nih.gov/mesh/> .
 @prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
-
+...
 # Eye
-mesh:D005123 meshv:broader mesh:D005145, mesh:D012679 ;
-             meshv:treeNumber mesh:A09.371 ,
-                              mesh:A01.456.505.420 .
-
+<http://id.nlm.nih.gov/mesh/D005123>
+        <http://id.nlm.nih.gov/mesh/vocab#broader>
+                <http://id.nlm.nih.gov/mesh/D005145> , 
+                <http://id.nlm.nih.gov/mesh/D012679> ;
+        <http://id.nlm.nih.gov/mesh/vocab#treeNumber>
+                <http://id.nlm.nih.gov/mesh/A09.371> , 
+                <http://id.nlm.nih.gov/mesh/A01.456.505.420> .
+...
 # Eyebrows
-mesh:D005138 meshv:broader mesh:D005123 ;
-             meshv:treeNumber mesh:A01.456.505.420.338 .
-
+<http://id.nlm.nih.gov/mesh/D005138>
+        <http://id.nlm.nih.gov/mesh/vocab#broader>
+                <http://id.nlm.nih.gov/mesh/D005123> ;
+        <http://id.nlm.nih.gov/mesh/vocab#treeNumber>
+                <http://id.nlm.nih.gov/mesh/A01.456.505.420.338> .
+...
 # Face
-mesh:D005145 meshv:treeNumber mesh:A01.456.505 .
-
+<http://id.nlm.nih.gov/mesh/D005145>
+        <http://id.nlm.nih.gov/mesh/vocab#treeNumber>
+                <http://id.nlm.nih.gov/mesh/A01.456.505> .
+...
 # Oculomotor Muscles
-mesh:D009801 meshv:broader mesh:D005123 ;
-             meshv:treeNumber mesh:A09.371.613 .
-
+<http://id.nlm.nih.gov/mesh/D005123>
+        <http://id.nlm.nih.gov/mesh/vocab#broader>
+                <http://id.nlm.nih.gov/mesh/D005145> , 
+                <http://id.nlm.nih.gov/mesh/D012679> ;
+        <http://id.nlm.nih.gov/mesh/vocab#treeNumber>
+                <http://id.nlm.nih.gov/mesh/A09.371> , 
+                <http://id.nlm.nih.gov/mesh/A01.456.505.420> .
+...
 # Sense Organs
-mesh:D012679 meshv:treeNumber  mesh:A09 .
-
+<http://id.nlm.nih.gov/mesh/D012679>
+        <http://id.nlm.nih.gov/mesh/vocab#treeNumber>
+                <http://id.nlm.nih.gov/mesh/A09> .
+...
 # Relations among TreeNumbers
-mesh:A01.456.505.420  meshv:broaderTransitive  mesh:A01.456.505 .
-mesh:A09.371  meshv:broaderTransitive  mesh:A09 .
-mesh:A01.456.505.420.338  meshv:broaderTransitive  mesh:A01.456.505.420 .
-mesh:A09.371.613  meshv:broaderTransitive  mesh:A09.371 .
+<http://id.nlm.nih.gov/mesh/A01.456.505.420>
+        <http://id.nlm.nih.gov/mesh/vocab#broaderTransitive>
+                <http://id.nlm.nih.gov/mesh/A01.456.505> .
+...
+<http://id.nlm.nih.gov/mesh/A09.371>
+        <http://id.nlm.nih.gov/mesh/vocab#broaderTransitive>
+                <http://id.nlm.nih.gov/mesh/A09> .
+...
+<http://id.nlm.nih.gov/mesh/A01.456.505.420.338>
+        <http://id.nlm.nih.gov/mesh/vocab#broaderTransitive>
+                <http://id.nlm.nih.gov/mesh/A01.456.505.420> .
+...
+<http://id.nlm.nih.gov/mesh/A09.371.613>
+        <http://id.nlm.nih.gov/mesh/vocab#broaderTransitive>
+                <http://id.nlm.nih.gov/mesh/A09.371> .
 ```
 
 ### MeSH XML
