@@ -1,7 +1,7 @@
 ---
 title: Descriptors, Concepts, and Terms
 layout: page
-resource: true
+resource: false
 categories:
 - Data Model
 ---

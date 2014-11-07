@@ -1,7 +1,7 @@
 ---
 title: Entry Combinations
 layout: page
-resource: true
+resource: false
 categories:
 - Data Model
 ---
