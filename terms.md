@@ -67,43 +67,68 @@ where {
 ### MeSH RDF - Term Properties
 
 ```
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix mesh: <http://id.nlm.nih.gov/mesh/> .
-@prefix meshv:  <http://id.nlm.nih.gov/mesh/vocab#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dcterms:  <http://purl.org/dc/terms/> .
-@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+<http://id.nlm.nih.gov/mesh/T000003>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> ;
+        ...
+        <http://id.nlm.nih.gov/mesh/vocab#altLabel>
+                "A23187, Antibiotic" ;
+        ...
+        <http://id.nlm.nih.gov/mesh/vocab#lexicalTag>
+                "NON" ;
+        <http://id.nlm.nih.gov/mesh/vocab#prefLabel>
+                "Antibiotic A23187" ;
+        ...
+        <http://purl.org/dc/terms/identifier>
+                "T000003" .
 
-mesh:M0353609 rdf:type  meshv:Concept ;
-              rdfs:label  "A-23187" ;
-              meshv:term  mesh:T000003 ,
-                          mesh:T000004 ;
-              meshv:preferredTerm mesh:T000001 .
-mesh:T000001  rdf:type  meshv:Term ;
-              meshv:lexicalTag  "LAB" ;
-              meshv:prefLabel  "A-23187" ;
-              meshv:altLabel "A 23187" .
-              dcterms:identifier  "T000001" ;
-              meshv:dateCreated "1990-03-08"^^xsd:date ;
-              meshv:thesaurusID "NLM (1991)" ;
-              meshv:printFlag "N" ;
-mesh:T000003  rdf:type  meshv:Term ;
-              meshv:lexicalTag  "NON" ;
-              meshv:prefLabel  "Antibiotic A23187" ;
-              meshv:altLabel "A23187, Antibiotic" .
-              dcterms:identifier  "T000003" ;
-              ...
-...
-mesh:M0030212 rdf:type  meshv:Concept ;
-              rdfs:label  "administration & dosage" ;
-              meshv:preferredTerm mesh:T060555 .
-mesh:T060555  rdf:type  meshv:Term ;
-              meshv:prefLabel  "administration & dosage" ;
-              meshv:abbreviation  "AD" ;
-              meshv:sortVersion "ADMINISTRATION A" ;
-              meshv:entryVersion  "ADMIN" ;
-              ...
+<http://id.nlm.nih.gov/mesh/T000001>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "A-23187" ;
+        <http://id.nlm.nih.gov/mesh/vocab#altLabel>
+                "A 23187" ;
+        <http://id.nlm.nih.gov/mesh/vocab#dateCreated>
+                "1990-03-08"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        <http://id.nlm.nih.gov/mesh/vocab#lexicalTag>
+                "LAB" ;
+        <http://id.nlm.nih.gov/mesh/vocab#prefLabel>
+                "A-23187" ;
+        <http://id.nlm.nih.gov/mesh/vocab#printFlag>
+                "N" ;
+        <http://id.nlm.nih.gov/mesh/vocab#thesaurusID>
+                "NLM (1991)" ;
+        <http://purl.org/dc/terms/identifier>
+                "T000001" .
+        ...
+<http://id.nlm.nih.gov/mesh/M0353609>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "A-23187" ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
+                <http://id.nlm.nih.gov/mesh/T000001> ;
+        <http://id.nlm.nih.gov/mesh/vocab#term>
+                ...
+                <http://id.nlm.nih.gov/mesh/T000003> .
+
+<http://id.nlm.nih.gov/mesh/T060555>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Term> ;
+        ...
+        <http://id.nlm.nih.gov/mesh/vocab#abbreviation>
+                "AD" ;
+        <http://id.nlm.nih.gov/mesh/vocab#entryVersion>
+                "ADMIN" ;
+        ...
+        <http://id.nlm.nih.gov/mesh/vocab#sortVersion>
+                "ADMINISTRATION A" ;
+        <http://purl.org/dc/terms/identifier>
+                "T060555" .
+
+<http://id.nlm.nih.gov/mesh/M0030212>
+        a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "administration & dosage" ;
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
+                <http://id.nlm.nih.gov/mesh/T060555> .
 ```
 
 
