@@ -168,11 +168,12 @@
 
   <!--
     This function turns an enum value that is used throughout MeSH XML ('BRD', 'NRW', 'REL')
-    into the related skos URI.
+    into the related meshv URI. (This used to use skos predicates, but we were advised that
+    it's better to keep our vocabulary separate.)
   -->
-  <xsl:function name='f:skos_relation_uri'>
+  <xsl:function name='f:meshv_relation_uri'>
     <xsl:param name='rel'/>
-    <uri prefix='&skos;'>
+    <uri prefix='&meshv;'>
       <xsl:choose>
         <xsl:when test="matches($rel, 'BRD')">
           <xsl:text>broader</xsl:text>
@@ -406,11 +407,11 @@
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>Every time we reify a TreeNumber that has a dot in it, we'll create a triple
-              to link it to its parent with skos:broaderTransitive.</desc>
+              to link it to its parent with meshv:broaderTransitive.</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select='$tree-number-uri'/>
-            <uri prefix='&skos;'>broaderTransitive</uri>
+            <uri prefix='&meshv;'>broaderTransitive</uri>
             <uri prefix='&mesh;'>
               <xsl:value-of select="$parent-tree-number"/>
             </uri>
@@ -422,12 +423,12 @@
         <xsl:if test='$parent-tree-number-element'>
           <xsl:call-template name='triple'>
             <xsl:with-param name="doc">
-              <desc>Also create a simple skos:broader relationship between this descriptor and
+              <desc>Also create a simple meshv:broader relationship between this descriptor and
                 the descriptor that has the parent tree number</desc>
             </xsl:with-param>
             <xsl:with-param name="spec">
               <xsl:copy-of select="$parent"/>
-              <uri prefix='&skos;'>broader</uri>
+              <uri prefix='&meshv;'>broader</uri>
               <uri prefix='&mesh;'>
                 <xsl:value-of select="$parent-tree-number-element/ancestor::DescriptorRecord/DescriptorUI"/>
               </uri>
@@ -615,7 +616,7 @@
       </xsl:if>
 
       <!--
-        Transformation rule: skos:scopeNote
+        Transformation rule: meshv:scopeNote
       -->
       <xsl:if test="ScopeNote">
         <xsl:call-template name="triple">
@@ -624,7 +625,7 @@
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select="$concept_uri"/>
-            <uri prefix='&skos;'>scopeNote</uri>
+            <uri prefix='&meshv;'>scopeNote</uri>
             <literal>
               <xsl:value-of select="ScopeNote"/>
             </literal>
@@ -736,7 +737,7 @@
               <uri prefix='&mesh;'>
                 <xsl:value-of select="Concept1UI"/>
               </uri>
-              <xsl:copy-of select="f:skos_relation_uri(@RelationName)"/>
+              <xsl:copy-of select="f:meshv_relation_uri(@RelationName)"/>
               <uri prefix='&mesh;'>
                 <xsl:value-of select="Concept2UI"/>
               </uri>
@@ -870,9 +871,9 @@
         </xsl:call-template>
 
         <!-- 
-          Transformation rule: rdfs:label, skos:prefLabel
+          Transformation rule: rdfs:label, meshv:prefLabel
           Since IsPermutedTermYN is "N", we know this is the
-          preferred label: record that with both skos:prefLabel and rdfs:label. 
+          preferred label: record that with both meshv:prefLabel and rdfs:label. 
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
@@ -889,11 +890,11 @@
         
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
-            <desc>Record the same thing with skos:prefLabel.</desc>
+            <desc>Record the same thing with meshv:prefLabel.</desc>
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
-            <uri prefix='&skos;'>prefLabel</uri>
+            <uri prefix='&meshv;'>prefLabel</uri>
             <literal>
               <xsl:value-of select="String"/>
             </literal>
@@ -1051,7 +1052,7 @@
       </xsl:for-each>
 
       <!-- 
-        Now permuted Terms.  This just produces a skos:altLabel
+        Now permuted Terms.  This just produces a meshv:altLabel
       -->
       <xsl:for-each select="TermList/Term[@IsPermutedTermYN='Y']">
         <xsl:variable name='term_uri'>
@@ -1066,7 +1067,7 @@
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
-            <uri prefix='&skos;'>altLabel</uri>
+            <uri prefix='&meshv;'>altLabel</uri>
             <literal>
               <xsl:value-of select="String"/>
             </literal>
