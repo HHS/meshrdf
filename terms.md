@@ -22,6 +22,7 @@ The following <span class='invoke-sparql'>SPARQL query</span> produces the graph
 figures above:
 
 ```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 
@@ -282,6 +283,7 @@ The following <span class='invoke-sparql'>SPARQL query</span> produces the graph
 figures above:
 
 ```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 
