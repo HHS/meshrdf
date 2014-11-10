@@ -26,7 +26,7 @@ meshv:SemanticType | N/A  | A [semantic type](http://www.nlm.nih.gov/research/um
 meshv:SupplementaryConcept * | N/A | Supplementary Concepts are created in MeSH to aid in searching the large volume of mainly chemicals and drugs.  meshv:SupplementaryConcept has three sub-classes: meshv:RegularSubstance, meshv:Protocol, and meshv:RareDisease. | SupplementalRecord
 meshv:Term | N/A | MeSH terms provide synonymous names for MeSH concepts.  Terms have 'T' identifiers, and are considered either preferred or lexical variants, such as ['Congenital Abnormalities'](http://id.nlm.nih.gov/mesh/T000029.html){:target="_blank"} as opposed to 'Abnormality, Congenital'. | Term
 meshv:TopicalDescriptor | meshv:Descriptor |  Topical Descriptors indicate the subject of an indexed item such as a journal article.  See [D063926 - 'Drug Hypersensitivity Syndrome'](http://id.nlm.nih.gov/mesh/D063926.html){:target="_blank"} for an example. | DescriptorRecord @DescriptorClass = "1"
-meshv:TreeNumber | N/A | Tree Numbers are used to organize MeSH Descriptors in a subsumptive manner. For example, every Descriptor treed under [C04 - 'Neoplasms'](http://id.nlm.nih.gov/mesh/C04.html){:target="_blank"} would be about something more specific than 'Neoplasms'. | TreeNumber
+meshv:TreeNumber | N/A | Tree Numbers are used to organize MeSH Descriptors in a broader-than/narrower-than manner. For example, every Descriptor treed under [C04 - 'Neoplasms'](http://id.nlm.nih.gov/mesh/C04.html){:target="_blank"} would be about something more specific than 'Neoplasms'. | TreeNumber
 
 
 &#42; Indicates this is a super class. Use RDF inferencing when querying these to retrieve sub-classes.
