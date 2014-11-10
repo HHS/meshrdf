@@ -6,7 +6,6 @@ categories:
 - Data Model
 ---
 
-* Also need an example for Term/Abbreviation; Term/SortVersion, and Term/EntryVersion - use T060555, which is a descendent of the *qualifier* Q000008, administration and dosage. (We'll add a drawing for this under Qualifiers)
 
 {: .jump}
 &#91; jump to [term properties](#properties) or [term relations](#relations) &#93;
