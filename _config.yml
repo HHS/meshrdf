@@ -9,7 +9,6 @@ permalink: /:title.html
 category-list:
 - Data Model
 - Cheat Sheets
-- Graphs
 
 
 kramdown:
