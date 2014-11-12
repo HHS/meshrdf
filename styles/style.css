@@ -154,6 +154,12 @@ pre > code{
    
 }
 
+.sample-query-list {
+  
+  font-size:.9em;
+  
+}
+
 #footer {
   float:left;
   background-color:#254062;
