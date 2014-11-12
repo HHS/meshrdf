@@ -28,8 +28,11 @@
     <a href = "index.html">Documentation Home</a>&nbsp;&nbsp;&raquo;&nbsp;{{ page.title }}
     {% endif %}
     </div>
+    <!--give users a way to return to the top of the page --><a name = "top"/>
     <h2>{{page.title}}</h2><br/>
+    <select class = "query-types" onchange="location = this.options[this.selectedIndex].value;">
     
+    <!-- will consider re-adding query types when they are easier  to categorize
     <p>Query types:
     <select class = "query-types" onchange="location = this.options[this.selectedIndex].value;">
     {% for type in site.query-types | sort_by   %}
@@ -37,19 +40,23 @@
     {% endfor %}
     </select>
     </p>
+    -->
+  
+    {% for query in site.data.queries %}
+    <option value = "#sample-query-{{forloop.index}}">{{ query.name }}</option>
+    {% endfor %}
+    </select>
     <br/>
-      {% for type in site.query-types %}
-      <a name = "{{type | downcase | replace: ' ','-' }}"></a><p><b>{{ type }}</b></p><br/>
       {% for query in site.data.queries %}
-      {% if query.type == type %}
-      <h4 class = "inline-header">{{ query.name }}</h4>
-      <p>{{ query.notes }}</p>
-      <div class = "sample-queries {{query.type | downcase | replace: ' ','-' }}">
+      <a name = "sample-query-{{forloop.index}}"/><h4 class = "inline-header">#{{forloop.index}}: {{ query.name }}</h4></a>
+      <!-- keeping these out for now <p>{{ query.notes }}</p>-->
+      <div class = "sample-queries {{ query.name | downcase | replace: ' ', '-' }}">
        {{query.string | xml_escape | newline_to_br }}
-       <p><a href = "{{query.string | cgi_escape | prepend: 'http://id.nlm.nih.gov/mesh/sparql?query='}}" target = "_blank">Run This Query</a></p>
+       <p><a href = "{{query.string | cgi_escape | prepend: 'http://id.nlm.nih.gov/mesh/sparql?query=' | append: '&inference=true' }}" target = "_blank">Run This Query</a></p>
       </div>
+      {% if forloop.index > 1 %}
+      <a href = "#top">return to top</a>
       {% endif %}
-      {% endfor %}
       {% endfor %}
       </div>
     </div>
