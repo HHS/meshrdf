@@ -104,7 +104,8 @@
   type: Transitive
   string: |+
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#> 
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
    SELECT ?treeNode ?ancestorTreeNode ?ancestor ?alabel
    FROM <http://id.nlm.nih.gov/mesh2014>
@@ -123,7 +124,8 @@
   type: Transitive
   string: |+
     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#> 
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
     SELECT DISTINCT ?desc ?desc_label
     FROM <http://id.nlm.nih.gov/mesh2014>
@@ -191,6 +193,8 @@
    
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   
    CONSTRUCT {
     
     mesh:D000647 meshv:preferredConcept ?prefcon .
