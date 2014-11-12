@@ -417,23 +417,41 @@
             </uri>
           </xsl:with-param>
         </xsl:call-template>
-
+        
+        <!-- Create triples to relate descriptors to descriptors and qualifiers to qualifiers using meshv:broader -->
         <xsl:variable name='parent-tree-number-element'
           select='key("tree-numbers", $parent-tree-number)'/>
-        <xsl:if test='$parent-tree-number-element'>
-          <xsl:call-template name='triple'>
-            <xsl:with-param name="doc">
-              <desc>Also create a simple meshv:broader relationship between this descriptor and
-                the descriptor that has the parent tree number</desc>
-            </xsl:with-param>
-            <xsl:with-param name="spec">
-              <xsl:copy-of select="$parent"/>
-              <uri prefix='&meshv;'>broader</uri>
-              <uri prefix='&mesh;'>
-                <xsl:value-of select="$parent-tree-number-element/ancestor::DescriptorRecord/DescriptorUI"/>
-              </uri>
-            </xsl:with-param>
-          </xsl:call-template>
+         <xsl:if test='$parent-tree-number-element'>
+           <xsl:if test='ancestor::DescriptorRecord'>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <desc>Also create a simple meshv:broader relationship between this descriptor and
+                  the descriptor that has the parent tree number</desc>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$parent"/>
+                <uri prefix='&meshv;'>broader</uri>
+                <uri prefix='&mesh;'>
+                  <xsl:value-of select="$parent-tree-number-element/ancestor::DescriptorRecord/DescriptorUI"/>
+                </uri>
+              </xsl:with-param>
+            </xsl:call-template>
+            </xsl:if>
+            <xsl:if test='ancestor::QualifierRecord'>
+              <xsl:call-template name='triple'>
+                <xsl:with-param name="doc">
+                  <desc>Also create a simple meshv:broader relationship between this qualifier and
+                    the qualifier that has the parent tree number</desc>
+                </xsl:with-param>
+                <xsl:with-param name="spec">
+                  <xsl:copy-of select="$parent"/>
+                  <uri prefix='&meshv;'>broader</uri>
+                  <uri prefix='&mesh;'>
+                    <xsl:value-of select="$parent-tree-number-element/ancestor::QualifierRecord/QualifierUI"/>
+                  </uri>
+                </xsl:with-param>
+              </xsl:call-template>
+           </xsl:if>
         </xsl:if>
       </xsl:if>
     </xsl:for-each>
