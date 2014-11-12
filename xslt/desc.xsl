@@ -20,7 +20,7 @@
       <xsl:variable name='descriptor_id' select='DescriptorUI'/>
       
       <!--
-        Transformation rule: dcterms:identifier
+        Transformation rule: meshv:identifier
       -->
       <xsl:variable name='descriptor_uri'>
         <uri prefix='&mesh;'>
@@ -34,7 +34,7 @@
         </xsl:with-param>
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$descriptor_uri"/>
-          <uri prefix='&dcterms;'>identifier</uri>
+          <uri prefix='&meshv;'>identifier</uri>
           <literal>
             <xsl:value-of select="DescriptorUI"/>
           </literal>

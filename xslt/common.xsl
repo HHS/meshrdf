@@ -574,7 +574,7 @@
       </xsl:call-template>
 
       <!--
-        Transformation rule: dcterms:identifier
+        Transformation rule: meshv:identifier
       -->
       <xsl:call-template name="triple">
         <xsl:with-param name="doc">
@@ -582,7 +582,7 @@
         </xsl:with-param>
         <xsl:with-param name="spec">
           <xsl:copy-of select="$concept_uri"/>
-          <uri prefix='&dcterms;'>identifier</uri>
+          <uri prefix='&meshv;'>identifier</uri>
           <literal>
             <xsl:value-of select="ConceptUI"/>
           </literal>
@@ -707,7 +707,7 @@
         </xsl:call-template>
 
         <!--
-          Transformation rule: dcterms:identifier
+          Transformation rule: meshv:identifier
         -->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
@@ -716,7 +716,7 @@
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select="$semantic_type_uri"/>
-            <uri prefix='&dcterms;'>identifier</uri>
+            <uri prefix='&meshv;'>identifier</uri>
             <literal>
               <xsl:value-of select="SemanticTypeUI"/>
             </literal>
@@ -873,7 +873,7 @@
         </xsl:call-template>
 
         <!--
-          Transformation rule: dcterms:identifier
+          Transformation rule: meshv:identifier
         -->
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
@@ -881,7 +881,7 @@
           </xsl:with-param>
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
-            <uri prefix='&dcterms;'>identifier</uri>
+            <uri prefix='&meshv;'>identifier</uri>
             <literal>
               <xsl:value-of select="TermUI"/>
             </literal>
