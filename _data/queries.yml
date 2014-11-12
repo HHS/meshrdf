@@ -22,6 +22,7 @@
   string: |+
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
    
    SELECT DISTINCT ?class
    FROM <http://id.nlm.nih.gov/mesh2014>
