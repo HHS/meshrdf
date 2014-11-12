@@ -70,3 +70,4 @@ Q000188 drug therapy
 Q000293 injuries
 Q000331 legislation & jurisprudence
 Q000453 epidemiology
+Q000627 therapeutic use
