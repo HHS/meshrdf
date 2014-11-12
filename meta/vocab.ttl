@@ -53,7 +53,7 @@ meshv:identifier a rdf:Property ;
     rdfs:domain rdfs:Class ;
     rdfs:range  rdfs:Literal .
 
-meshv:broader a rdf:Property , owl:ObjectProperty
+meshv:broader a rdf:Property , owl:ObjectProperty ;
     rdfs:domain rdfs:Class ;
     rdfs:range rdfs:Class ;
     rdfs:subPropertyOf meshv:broaderTransitive ;
