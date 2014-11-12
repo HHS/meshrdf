@@ -40,7 +40,7 @@
       </xsl:call-template>
       
       <!--
-        Transformation rule: dcterms:identifier
+        Transformation rule: meshv:identifier
       -->
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
@@ -48,7 +48,7 @@
         </xsl:with-param>
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$qualifier_uri"/>
-          <uri prefix='&dcterms;'>identifier</uri>
+          <uri prefix='&meshv;'>identifier</uri>
           <literal>
             <xsl:value-of select="QualifierUI"/>
           </literal>
