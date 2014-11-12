@@ -59,10 +59,10 @@
     void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2014/supp2014.nt" ;
 
 # triple count
-    void:triples "19133159"^^xsd:long ;
+    void:triples "16644674"^^xsd:long ;
 
 # entity count
-    void:entities "2417704"^^xsd:long ;
+    void:entities "1925662"^^xsd:long ;
 
 # distinct subject
-    void:distinctSubjects "2417704"^^xsd:long .
+    void:distinctSubjects "1925662"^^xsd:long .
