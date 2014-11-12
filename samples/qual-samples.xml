@@ -1133,4 +1133,202 @@
    </Concept>
   </ConceptList>
  </QualifierRecord>
+<QualifierRecord QualifierType = "1">
+  <QualifierUI>Q000627</QualifierUI>
+  <QualifierName>
+   <String>therapeutic use</String>
+  </QualifierName>
+  <DateCreated>
+   <Year>1973</Year>
+   <Month>12</Month>
+   <Day>27</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2004</Year>
+   <Month>07</Month>
+   <Day>13</Day>
+  </DateRevised>
+  <DateEstablished>
+   <Year>1966</Year>
+   <Month>01</Month>
+   <Day>01</Day>
+  </DateEstablished>
+  <ActiveMeSHYearList>
+   <Year>2005</Year>
+   <Year>2006</Year>
+   <Year>2007</Year>
+   <Year>2008</Year>
+   <Year>2009</Year>
+   <Year>2010</Year>
+   <Year>2011</Year>
+   <Year>2012</Year>
+   <Year>2013</Year>
+   <Year>2014</Year>
+  </ActiveMeSHYearList>
+  <Annotation>subhead only; for treatment or preventive use of drugs or physical agents in clinical or experimental human or animal disease; indexing policy: Manual 19.8.71; DF: /ther use or /TU
+  </Annotation>
+  <HistoryNote>66; used with Category D 1966; D &amp; H 1967-89; D 1990 forward
+  </HistoryNote>
+  <OnlineNote>search policy: Online Manual; use: main heading/TU or TU (SH) or SUBS APPLY TU
+  </OnlineNote>
+  <TreeNumberList>
+   <TreeNumber>Y10</TreeNumber>
+  </TreeNumberList>
+  <TreeNodeAllowedList>
+   <TreeNodeAllowed>D01</TreeNodeAllowed>
+   <TreeNodeAllowed>D02</TreeNodeAllowed>
+   <TreeNodeAllowed>D03</TreeNodeAllowed>
+   <TreeNodeAllowed>D04</TreeNodeAllowed>
+   <TreeNodeAllowed>D05</TreeNodeAllowed>
+   <TreeNodeAllowed>D06</TreeNodeAllowed>
+   <TreeNodeAllowed>D08</TreeNodeAllowed>
+   <TreeNodeAllowed>D09</TreeNodeAllowed>
+   <TreeNodeAllowed>D10</TreeNodeAllowed>
+   <TreeNodeAllowed>D12</TreeNodeAllowed>
+   <TreeNodeAllowed>D13</TreeNodeAllowed>
+   <TreeNodeAllowed>D20</TreeNodeAllowed>
+   <TreeNodeAllowed>D23</TreeNodeAllowed>
+   <TreeNodeAllowed>D25</TreeNodeAllowed>
+   <TreeNodeAllowed>D26</TreeNodeAllowed>
+   <TreeNodeAllowed>D27</TreeNodeAllowed>
+  </TreeNodeAllowedList>
+  <RecordOriginatorsList>
+   <RecordOriginator>nlm</RecordOriginator>
+   <RecordMaintainer>schulmaj</RecordMaintainer>
+   <RecordAuthorizer>nelsons</RecordAuthorizer>
+  </RecordOriginatorsList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M0030820</ConceptUI>
+    <ConceptName>
+     <String>therapeutic use</String>
+    </ConceptName>
+    <ScopeNote>Used with drugs, biological preparations, and physical agents for their use in the prophylaxis and treatment of disease. It includes veterinary use.
+    </ScopeNote>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T061</SemanticTypeUI>
+      <SemanticTypeName>Therapeutic or Preventive Procedure</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+      <TermUI>T061267</TermUI>
+      <String>therapeutic use</String>
+      <Abbreviation>TU</Abbreviation>
+      <EntryVersion>THER USE</EntryVersion>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </QualifierRecord>
+<QualifierRecord QualifierType = "1">
+  <QualifierUI>Q000628</QualifierUI>
+  <QualifierName>
+   <String>therapy</String>
+  </QualifierName>
+  <DateCreated>
+   <Year>1973</Year>
+   <Month>12</Month>
+   <Day>27</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2003</Year>
+   <Month>07</Month>
+   <Day>22</Day>
+  </DateRevised>
+  <DateEstablished>
+   <Year>1966</Year>
+   <Month>01</Month>
+   <Day>01</Day>
+  </DateEstablished>
+  <ActiveMeSHYearList>
+   <Year>2004</Year>
+   <Year>2005</Year>
+   <Year>2006</Year>
+   <Year>2007</Year>
+   <Year>2008</Year>
+   <Year>2009</Year>
+   <Year>2010</Year>
+   <Year>2011</Year>
+   <Year>2012</Year>
+   <Year>2013</Year>
+   <Year>2014</Year>
+  </ActiveMeSHYearList>
+  <Annotation>subhead only; for general or unspecified therapy &amp; multiple therapies; for tissue therapy &amp; therapy with biological products; not for drug therapy ( =/drug therapy), nor for diet therapy ( = /diet therapy), nor for surgical therapy ( = /surgery), nor for radiotherapy ( = /radiotherapy), nor for rehabilitative therapy ( = /rehabilitation); indexing policy: Manual 19.8.72; DF: /ther or /TH
+  </Annotation>
+  <HistoryNote>66; used with Category C &amp; F 1966-74; C &amp; F3 1975-87; C, F3 &amp; SMOKING 1988; C, F3 &amp; SMOKING+ 1989; C &amp; F3 1990 forward
+  </HistoryNote>
+  <OnlineNote>search policy: Online Manual; use: main heading/TH or TH (SH) or SUBS APPLY TH
+  </OnlineNote>
+  <TreeNumberList>
+   <TreeNumber>Y11</TreeNumber>
+  </TreeNumberList>
+  <TreeNodeAllowedList>
+   <TreeNodeAllowed>C01</TreeNodeAllowed>
+   <TreeNodeAllowed>C02</TreeNodeAllowed>
+   <TreeNodeAllowed>C03</TreeNodeAllowed>
+   <TreeNodeAllowed>C04</TreeNodeAllowed>
+   <TreeNodeAllowed>C05</TreeNodeAllowed>
+   <TreeNodeAllowed>C06</TreeNodeAllowed>
+   <TreeNodeAllowed>C07</TreeNodeAllowed>
+   <TreeNodeAllowed>C08</TreeNodeAllowed>
+   <TreeNodeAllowed>C09</TreeNodeAllowed>
+   <TreeNodeAllowed>C10</TreeNodeAllowed>
+   <TreeNodeAllowed>C11</TreeNodeAllowed>
+   <TreeNodeAllowed>C12</TreeNodeAllowed>
+   <TreeNodeAllowed>C13</TreeNodeAllowed>
+   <TreeNodeAllowed>C14</TreeNodeAllowed>
+   <TreeNodeAllowed>C15</TreeNodeAllowed>
+   <TreeNodeAllowed>C16</TreeNodeAllowed>
+   <TreeNodeAllowed>C17</TreeNodeAllowed>
+   <TreeNodeAllowed>C18</TreeNodeAllowed>
+   <TreeNodeAllowed>C19</TreeNodeAllowed>
+   <TreeNodeAllowed>C20</TreeNodeAllowed>
+   <TreeNodeAllowed>C21</TreeNodeAllowed>
+   <TreeNodeAllowed>C22</TreeNodeAllowed>
+   <TreeNodeAllowed>C23</TreeNodeAllowed>
+   <TreeNodeAllowed>C24</TreeNodeAllowed>
+   <TreeNodeAllowed>C25</TreeNodeAllowed>
+   <TreeNodeAllowed>C26</TreeNodeAllowed>
+   <TreeNodeAllowed>F03</TreeNodeAllowed>
+  </TreeNodeAllowedList>
+  <RecordOriginatorsList>
+   <RecordOriginator>nlm</RecordOriginator>
+   <RecordMaintainer>schulmaj</RecordMaintainer>
+   <RecordAuthorizer>nelsons</RecordAuthorizer>
+  </RecordOriginatorsList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M0030821</ConceptUI>
+    <ConceptName>
+     <String>therapy</String>
+    </ConceptName>
+    <ScopeNote>Used with diseases for therapeutic interventions except drug therapy, diet therapy, radiotherapy, and surgery, for which specific subheadings exist. The concept is also used for articles and books dealing with multiple therapies.
+    </ScopeNote>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T169</SemanticTypeUI>
+      <SemanticTypeName>Functional Concept</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+      <TermUI>T061268</TermUI>
+      <String>therapy</String>
+      <Abbreviation>TH</Abbreviation>
+      <EntryVersion>THER</EntryVersion>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T061269</TermUI>
+      <String>treatment</String>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T061270</TermUI>
+      <String>disease management</String>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </QualifierRecord>
 </QualifierRecordSet>
