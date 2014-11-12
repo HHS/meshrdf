@@ -1,8 +1,7 @@
 @prefix meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 meshv:Descriptor a rdfs:Class .
 
@@ -49,6 +48,25 @@ meshv:prefLabel a rdf:Property ;
 
 meshv:altLabel a rdf:Property ;
     rdfs:subPropertyOf rdfs:label .
+
+meshv:identifier a rdf:Property ;
+    rdfs:domain rdfs:Class ;
+    rdfs:range  rdfs:Literal .
+
+meshv:broader a rdf:Property , owl:ObjectProperty
+    rdfs:domain rdfs:Class ;
+    rdfs:range rdfs:Class ;
+    rdfs:subPropertyOf meshv:broaderTransitive ;
+    owl:inverseOf meshv:narrower .
+
+meshv:narrower a rdf:Property , owl:ObjectProperty ;
+    rdfs:domain rdfs:Class ;
+    rdfs:range rdfs:Class ;
+    owl:inverseOf meshv:broader .
+
+meshv:broaderTransitive a rdf:Property , owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain rdfs:Class ;
+    rdfs:range rdfs:Class .
 
 
 # In issue #36, we discussed this, and decided not to create individual subclasses of meshv:Term.
