@@ -57,7 +57,6 @@ meshv:seeAlso | Reference to a specific Descriptor to which a user is referred b
 meshv:thesaurusID | Name of a Thesaurus in which the term occurs, including NLM (=MeSH). Includes year. DUI D000009 example: NLM (1966) | ```ThesaurusID```
 meshv:useInstead | Explain Me | Where Do I Come From?
 meshv:altLabel | Explain Me | Where Do I Come From?
-meshv:SCRClass | One of three valid values that indicate the type of SCR record: 1=Chemical; 2=Protocol; or 3=Disease. CUI C017472: Chemical | ```SupplementalRecord@SCRClass```
 meshv:frequency | Number of citations indexed with the SCR in MEDLINE/PubMed. Automatically updated monthly. CUI C012211 example: 745 |```Frequency```
 meshv:indexConsiderAlso | Explain Me | Where Do I Come From?
 meshv:mappedTo | Explain Me | Where Do I Come From?
