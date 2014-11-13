@@ -14,7 +14,7 @@ Predicate Name | Definition | Equivalent XML Data Element
 rdf:type | rdf:type is used to state that a resource is an instance of a class. For example, Ofloxacin (mesh:D015242) has an rdf:type of meshv:TopicalDescriptor. | N/A
 rdfs:label | rdfs:label is used to provide a human-readable version of a resource's name. DUI D015242 example: Ofloxacin |```String```
 skos:narrower | Explain Me | Where Do I Come From?
-dcterms:identifier | Explain Me | Where Do I Come From?
+meshv:identifier | Explain Me | Where Do I Come From?
 meshv:abbreviation | Two-letter, uppercase abbreviation for a Qualifier term. QUI Q000235 example: GE |```Abbreviation```
 meshv:activeMeSHYear | MeSH year(s) in which the record was active since it was last modified. For example, a record not modified in the five years it has been in MeSH will have five occurrences. A record modified in the latest MeSH year will have one occurrence. DUI FILL ME IN |```ActiveMeSHYearList/Year```
 meshv:allowedTreeNode | Name of a subcategory in the MeSH Trees indicating, that for most Descriptors in that subcategory, the allowed Qualifiers on the Descriptor include the Qualifier. This value does not impact Descriptors permitted with a given Qualifier, but is a statistical summary of Descriptors permitted with the Qualifier. DUI FILL ME IN |```TreeNodeAllowed```
@@ -39,11 +39,11 @@ meshv:semanticType | One of approximately 140 categories in the UMLS Semantic Ne
 meshv:sortVersion | Custom version of a term used to sort properly in a print product; format is all uppercase. DUI D002880 example:  FILL ME IN . . .  |```Sort Version```
 meshv:term | Alpha-numeric string that is the basic unit of the MeSH vocabulary. Also functions as the name of a Descriptor and concept. DUI FILL ME IN . . . and where do I put this infor: The term itself is the <String> element. |```Term/TermUI/String```
 meshv:treeNumber | Alpha-numeric string referring to location within a Descriptor or Qualifier hierarchy. Used for browsing the MeSH vocabulary and for inclusive searches by retrieval systems using MeSH. (Note that the Trees hierarchy is not represented using subelements. The hierarchy is represented by the Tree Number itself.) DUI D000163 example showing one of four 2014 MeSH tree locations: C02.839.040 |```TreeNumber```
-skos:broader | Explain Me | Where Do I Come From?
-skos:broaderTransitive | Explain Me | Where Do I Come From?
-skos:prefLabel | Explain Me | Where Do I Come From?
-skos:related | Explain Me | Where Do I Come From?
-skos:scopeNote | Free-text narrative giving the scope and meaning (definition) of a concept. DUI D019644 example: Replacement of the hip joint. |```ScopeNote```
+meshv:broader | Explain Me | Where Do I Come From?
+meshv:broaderTransitive | Explain Me | Where Do I Come From?
+meshv:prefLabel | Explain Me | Where Do I Come From?
+meshv:related | Explain Me | Where Do I Come From?
+meshv:scopeNote | Free-text narrative giving the scope and meaning (definition) of a concept. DUI D019644 example: Replacement of the hip joint. |```ScopeNote```
 meshv:casn1_label | Free-text of the Chemical Abstracts Type N1 Name which is the systematic name used in the Chemical Abstracts Chemical Substance and Formula Indexes. The systematic name is a unique name assigned to a chemical substance to represent its structure. First available for Descriptors in 1995. DUI D000082 example: Acetamide, N-(4-hydroxyphenyl)-|```CASN1Name```
 meshv:allowableQualifier | A specific Qualifier allowed in combination with the Descriptor. DUI D000667 example: HOW DO I FILL THIS OUT? This is an XML envelope element; data are in QualifierUI, String, and Abbreviation; think I may have filled other elements out wrongly, too. . .???|```AllowableQualifier/QualiferUI/String/Abbreviation```
 meshv:hasDescriptor | Explain Me | Where Do I Come From?
@@ -57,16 +57,12 @@ meshv:runningHead | For internal NLM processing only (archaic). |```RunningHead`
 meshv:seeAlso | Reference to a specific Descriptor to which a user is referred by a "see related" cross-reference. DUI D000009 example: Abdominal Wall | ```SeeRelatedDescriptor/DescriptorUI/String```
 meshv:thesaurusID | Name of a Thesaurus in which the term occurs, including NLM (=MeSH). Includes year. DUI D000009 example: NLM (1966) | ```ThesaurusID```
 meshv:useInstead | Explain Me | Where Do I Come From?
-skos:altLabel | Explain Me | Where Do I Come From?
+meshv:altLabel | Explain Me | Where Do I Come From?
 meshv:SCRClass | One of three valid values that indicate the type of SCR record: 1=Chemical; 2=Protocol; or 3=Disease. CUI C017472: Chemical | ```SupplementalRecord@SCRClass```
 meshv:frequency | Number of citations indexed with the SCR in MEDLINE/PubMed. Automatically updated monthly. CUI C012211 example: 745 |```Frequency```
-meshv:indexingData | Explain Me | Where Do I Come From?
-meshv:indexingDescriptor | Explain Me | Where Do I Come From?
+meshv:indexConsiderAlso | Explain Me | Where Do I Come From?
+meshv:mappedTo | Explain Me | Where Do I Come From?
 meshv:indexingQualifier | Explain Me | Where Do I Come From?
-meshv:isDescriptorStarred | Explain Me | Where Do I Come From?
-meshv:isMappedToDescriptor | Explain Me | Where Do I Come From?
-meshv:isMappedToQualifier | Explain Me | Where Do I Come From?
-meshv:isQualifierStarred | Explain Me | Where Do I Come From?
 meshv:mappedData | Explain Me | Where Do I Come From?
 meshv:note | Free-text narrative giving information about the substance particularly its biological properties, but may include other information such as about the registryNumber. "structure" indicates that the structure of the chemical is given in the first Source. CUI C012211 example: growth inhibitor; RN given refers to ((L-Leu)-(S-(R*,S*)))-isomer; structure  |```Note```
 meshv:source | Citation reference string in which the SCR concept was first found. Single occurrence if SCR record created since 1980; frequency reports total citations indexed with the term in MEDLINE/PubMed. Possible multiple occurrences if SCR record created prior to 1980; term not found on those citations in MEDLINE/PubMed. Number of multiple Source occurrences need to be added to Frequency count for grand total of citations to articles discussing the SCR. CUI C012211 example: Prog Biochem Pharmacol 11:24;1976 |```Source```
