@@ -13,7 +13,7 @@ Qualifiers each have tree numbers and are [hierarchically arranged](http://www.n
 
 ### RDF Graph Diagram
 
-![Qualifier RDF Graph Diagram](images/Qualifiers.png){: class="rdf-graph"}
+![Qualifier RDF Graph Diagram](images/Qualifiers.png){: class="rdf-graph img-responsive"}
 
 ### meshv:Qualifier - Relations and Properties
 
