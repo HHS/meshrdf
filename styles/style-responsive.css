@@ -1,13 +1,14 @@
 .navbar{ 
-background-color:#1F4D7A !important;
-width:100%;
+
+width:auto;
 padding:0;
+background-color:#1F4D7A !important;
 }
 
 
 .navbar-header {
- 
- max-width:700px;   
+
+ max-width:750px;   
     
 }
 
@@ -23,5 +24,6 @@ background-color:#1F4D7A;
 }
 .navbar-right li {
     
-line-height:.75em;
+line-height:.5em;
 }
+
