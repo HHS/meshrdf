@@ -13,7 +13,7 @@ Predicate Name | Definition | Equivalent XML Data Element
 -------------- | ---------- | ---------------------------
 rdf:type | rdf:type is used to state that a resource is an instance of a class. For example, Ofloxacin (mesh:D015242) has an rdf:type of meshv:TopicalDescriptor. | N/A
 rdfs:label | rdfs:label is used to provide a human-readable version of a resource's name. DUI D015242 example: Ofloxacin |```String```
-skos:narrower | Explain Me | Where Do I Come From?
+meshv:narrower | Explain Me | Where Do I Come From?
 meshv:identifier | Explain Me | Where Do I Come From?
 meshv:abbreviation | Two-letter, uppercase abbreviation for a Qualifier term. QUI Q000235 example: GE |```Abbreviation```
 meshv:activeMeSHYear | MeSH year(s) in which the record was active since it was last modified. For example, a record not modified in the five years it has been in MeSH will have five occurrences. A record modified in the latest MeSH year will have one occurrence. DUI FILL ME IN |```ActiveMeSHYearList/Year```
