@@ -13,7 +13,7 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-     button, button ul li,  button ul li a{
+     .btn {
           font-size:small;
 
      }
@@ -45,4 +45,9 @@ padding:0;
 .navbar-brand{
     
     max-width:750px;
+}
+
+.row-fluid .navbar{
+    
+    margin-bottom:0px;
 }
