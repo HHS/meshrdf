@@ -1,0 +1,20 @@
+<div class = "col-md-3 col-xs-12 col-sm-3">
+<nav class = "navbar-left">
+<div class = "container">
+{% for cat in site.category-list %}
+<h3>{{ cat }}</h3>
+<ul>
+{% for page in site.pages %}
+{% if page.resource == true %}
+{% for pc in page.categories %}
+{% if pc == cat %}
+<li><a href="{{site.baseurl}}{{ page.url }}">&raquo;&nbsp;{{ page.title }}</a></li>
+{% endif %}  
+{% endfor %}  
+{% endif %}  
+{% endfor %}<br/>
+</ul>
+{% endfor %}
+</div>
+</nav>
+</div>
