@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon"
+          type="image/ico"
+          href="images/favicon.ico">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/responsive/1.0.2/js/dataTables.responsive.min.js"></script>
+    <script type='text/javascript' src='js/mesh-gh-pages.js'></script>
+
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+
+    <link data-require="bootstrap-css" data-semver="3.2.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link data-require="bootstrap@*" data-semver="3.2.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
+    <link href="styles/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link href="//cdn.datatables.net/1.10.3/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="//cdn.datatables.net/responsive/1.0.2/css/dataTables.responsive.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type = 'text/javascript'>
+    // there two classes of data tables.  data-table-standard (no paging) and data-table-long (includes paging)
+    $(document).ready(function() {
+         $('table.data-table-standard').dataTable( {
+         "paging":   false,
+         "ordering": true,
+         "info":     false,
+         "searching": false,
+         "responsive": false
+          } );
+      $('table.data-table-long').dataTable( {
+        "paging":   true,
+        "ordering": true,
+        "info":     false,
+        "searching": true,
+        "responsive": true
+          } );
+      
+      //default to 25 rows for longer tables
+      $('table.data-table-long').dataTable().api().page.len(25).draw();
+      
+      //initialize Jquery tabs
+      $( "#tabs" ).tabs();
+    });
+
+    </script>
+  </head>
+
+  <body>
+  <div class="container-fluid">
+<!--header to hold banner + top navigation area -->
+  {% include header.html %}
+<!-- // end header -->
+    <div class="main-container">
+      {% include menu.html %}
+    <h1>MeSH RDF Technical Documentation (beta) </h1>
+    <div class = "content">
+    <img width="35" class="logo" alt="Medical Subject Headings" src="images/meshhead.gif" style = "float:right;margin-right:2px;margin-top:1px;position:relative;top:-2em;"/></a>
+    <div class = "breadcrumbs">
+    {% if page.resource == true %}
+    <a href = "index.html">Documentation Home</a>&nbsp;&nbsp;&raquo;&nbsp;{{ page.title }}
+    {% endif %}
+    </div>
+    <h2>{{page.title}}</h2>
+    <br/>
+      {{content}}
+    </div>
+
+    </div>
+
+<!-- footer area   -->
+ {% include footer.html %}
+ <!-- //end footer -->
+  </div>
+  </body>
+</html>
