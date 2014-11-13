@@ -12,6 +12,12 @@ body {
   
 }
 
+@media screen and (max-width: 480px) {
+     button, button ul li,  button ul li a{
+          font-size:small;
+
+     }
+}
 
 
 .navbar{ 
