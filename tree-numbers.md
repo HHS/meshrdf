@@ -66,9 +66,7 @@ where {
 {:.data-table-standard .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:TreeNumber | rdf:type | meshv:TreeNumber
 meshv:TreeNumber | meshv:broaderTransitive | meshv:TreeNumber
-
 
 </div>
 
@@ -78,13 +76,13 @@ meshv:TreeNumber | meshv:broaderTransitive | meshv:TreeNumber
 {:.data-table-standard .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:allowedTreeNode | meshv:Qualifier | meshv:TreeNumber
-meshv:treeNumber | meshv:TopicalDescriptor | meshv:TreeNumber
-meshv:treeNumber | meshv:Descriptor | meshv:TreeNumber
-meshv:treeNumber | meshv:Qualifier | meshv:TreeNumber
-meshv:broaderTransitive | meshv:TreeNumber | meshv:TreeNumber
-meshv:treeNumber | meshv:GeographicalDescriptor | meshv:TreeNumber
-meshv:treeNumber | meshv:PublicationType | meshv:TreeNumber
+meshv:Descriptor | meshv:treeNumber | meshv:TreeNumber
+meshv:GeographicalDescriptor | meshv:treeNumber | meshv:TreeNumber
+meshv:PublicationType | meshv:treeNumber | meshv:TreeNumber
+meshv:Qualifier | meshv:allowedTreeNode | meshv:TreeNumber
+meshv:Qualifier | meshv:treeNumber | meshv:TreeNumber
+meshv:TopicalDescriptor | meshv:treeNumber | meshv:TreeNumber
+meshv:TreeNumber | meshv:broaderTransitive | meshv:TreeNumber
 
 </div>
 

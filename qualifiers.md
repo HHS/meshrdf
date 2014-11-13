@@ -32,13 +32,13 @@ Qualifiers each have tree numbers and are [hierarchically arranged](http://www.n
 {:.data-table-standard .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:Qualifier | rdf:type | rdfs:Class
 meshv:Qualifier | meshv:allowedTreeNode | meshv:TreeNumber
+meshv:Qualifier | meshv:broader | meshv:Qualifier
+meshv:Qualifier | meshv:broaderTransitive | meshv:Qualifier
 meshv:Qualifier | meshv:concept | meshv:Concept
 meshv:Qualifier | meshv:preferredConcept | meshv:Concept
 meshv:Qualifier | meshv:recordPreferredTerm | meshv:Term
 meshv:Qualifier | meshv:treeNumber | meshv:TreeNumber
-meshv:Qualifier | skos:broader | meshv:Qualifier
 
 </div>
 
@@ -48,12 +48,14 @@ meshv:Qualifier | skos:broader | meshv:Qualifier
 {:.data-table-standard .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:TopicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
-meshv:Descriptor | meshv:allowableQualifier | meshv:Qualifier
-meshv:GeographicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
 meshv:AllowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
+meshv:Descriptor | meshv:allowableQualifier | meshv:Qualifier
 meshv:DescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
 meshv:DisallowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
+meshv:GeographicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
+meshv:Qualifier | meshv:broader | meshv:Qualifier
+meshv:Qualifier | meshv:broaderTransitive | meshv:Qualifier
+meshv:TopicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
 
 </div>
 
@@ -62,18 +64,18 @@ meshv:DisallowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
 {:.data-table-standard .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:Qualifier | rdfs:label
-meshv:Qualifier | dcterms:identifier
 meshv:Qualifier | meshv:activeMeSHYear
 meshv:Qualifier | meshv:annotation
 meshv:Qualifier | meshv:dateCreated
 meshv:Qualifier | meshv:dateEstablished
 meshv:Qualifier | meshv:dateRevised
 meshv:Qualifier | meshv:historyNote
+meshv:Qualifier | meshv:identifier
 meshv:Qualifier | meshv:onlineNote
 meshv:Qualifier | meshv:recordAuthorizer
 meshv:Qualifier | meshv:recordMaintainer
 meshv:Qualifier | meshv:recordOriginator
+meshv:Qualifier | rdfs:label
 
 </div>
 </div>

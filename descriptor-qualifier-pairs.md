@@ -52,15 +52,15 @@ meshv:DescriptorQualifierPair | meshv:hasDescriptor | meshv:GeographicalDescript
 meshv:DescriptorQualifierPair | meshv:hasDescriptor | meshv:TopicalDescriptor
 meshv:DescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
 meshv:DescriptorQualifierPair | meshv:useInstead | meshv:AllowedDescriptorQualifierPair
-meshv:DescriptorQualifierPair | meshv:useInstead | meshv:DescriptorQualifierPair
 meshv:DescriptorQualifierPair | meshv:useInstead | meshv:Descriptor
+meshv:DescriptorQualifierPair | meshv:useInstead | meshv:DescriptorQualifierPair
 meshv:DescriptorQualifierPair | meshv:useInstead | meshv:TopicalDescriptor
 meshv:DisallowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:Descriptor
 meshv:DisallowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:TopicalDescriptor
 meshv:DisallowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
 meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:AllowedDescriptorQualifierPair
-meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:DescriptorQualifierPair
 meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:Descriptor
+meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:DescriptorQualifierPair
 meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:TopicalDescriptor
 
 </div>
@@ -71,10 +71,28 @@ meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:TopicalDescri
 {:.data-table-standard .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:DescriptorQualifierPair | meshv:useInstead | meshv:DescriptorQualifierPair
 meshv:DescriptorQualifierPair | meshv:useInstead | meshv:AllowedDescriptorQualifierPair
-meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:DescriptorQualifierPair
+meshv:DescriptorQualifierPair | meshv:useInstead | meshv:DescriptorQualifierPair
 meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:AllowedDescriptorQualifierPair
+meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:DescriptorQualifierPair
+meshv:SCR_Chemical | meshv:indexerConsiderAlso | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Chemical | meshv:indexerConsiderAlso | meshv:DescriptorQualifierPair
+meshv:SCR_Chemical | meshv:indexerConsiderAlso | meshv:DisallowedDescriptorQualifierPair
+meshv:SCR_Chemical | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Chemical | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
+meshv:SCR_Disease | meshv:mappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Disease | meshv:mappedTo | meshv:DescriptorQualifierPair
+meshv:SCR_Disease | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Disease | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
+meshv:SCR_Protocol | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Protocol | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:indexerConsiderAlso | meshv:AllowedDescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:indexerConsiderAlso | meshv:DescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:indexerConsiderAlso | meshv:DisallowedDescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:mappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:mappedTo | meshv:DescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
 
 </div>
 </div>

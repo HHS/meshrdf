@@ -29,37 +29,66 @@ categories:
 {:.data-table-standard .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:SupplementaryConcept | rdf:type | meshv:Protocol
-meshv:SupplementaryConcept | rdf:type | meshv:SupplementaryConcept
-meshv:SupplementaryConcept | rdf:type | meshv:RareDisease
-meshv:SupplementaryConcept | rdf:type | meshv:RegularSubstance
-meshv:SupplementaryConcept | meshv:concept | meshv:RegularSubstance
-meshv:SupplementaryConcept | meshv:concept | meshv:SupplementaryConcept
-meshv:SupplementaryConcept | meshv:concept | meshv:Protocol
-meshv:SupplementaryConcept | meshv:concept | meshv:RareDisease
-meshv:SupplementaryConcept | meshv:preferredConcept | meshv:RegularSubstance
-meshv:SupplementaryConcept | meshv:preferredConcept | meshv:SupplementaryConcept
-meshv:SupplementaryConcept | meshv:preferredConcept | meshv:Protocol
-meshv:SupplementaryConcept | meshv:preferredConcept | meshv:RareDisease
-meshv:SupplementaryConcept | meshv:recordPreferredTerm | meshv:RegularSubstance
-meshv:SupplementaryConcept | meshv:recordPreferredTerm | meshv:SupplementaryConcept
-meshv:SupplementaryConcept | meshv:recordPreferredTerm | meshv:Protocol
-meshv:SupplementaryConcept | meshv:recordPreferredTerm | meshv:RareDisease
-meshv:SupplementaryConcept | meshv:pharmacologicalAction | meshv:RegularSubstance
-meshv:SupplementaryConcept | meshv:pharmacologicalAction | meshv:SupplementaryConcept
-meshv:SupplementaryConcept | meshv:pharmacologicalAction | meshv:Protocol
-meshv:SupplementaryConcept | meshv:indexerConsiderAlso | meshv:RegularSubstance
-meshv:SupplementaryConcept | meshv:indexerConsiderAlso | meshv:SupplementaryConcept
-meshv:SupplementaryConcept | meshv:indexerConsiderAlso | meshv:Protocol
-meshv:SupplementaryConcept | meshv:indexerConsiderAlso | meshv:RareDisease
-meshv:SupplementaryConcept | meshv:mappedTo | meshv:RegularSubstance
-meshv:SupplementaryConcept | meshv:mappedTo | meshv:SupplementaryConcept
-meshv:SupplementaryConcept | meshv:mappedTo | meshv:Protocol
-meshv:SupplementaryConcept | meshv:mappedTo | meshv:RareDisease
-meshv:SupplementaryConcept | meshv:preferredMappedTo | meshv:RegularSubstance
-meshv:SupplementaryConcept | meshv:preferredMappedTo | meshv:SupplementaryConcept
-meshv:SupplementaryConcept | meshv:preferredMappedTo | meshv:RareDisease
-meshv:SupplementaryConcept | meshv:preferredMappedTo | meshv:Protocol
+meshv:SCR_Chemical | meshv:concept | meshv:Concept
+meshv:SCR_Chemical | meshv:indexerConsiderAlso | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Chemical | meshv:indexerConsiderAlso | meshv:Descriptor
+meshv:SCR_Chemical | meshv:indexerConsiderAlso | meshv:DescriptorQualifierPair
+meshv:SCR_Chemical | meshv:indexerConsiderAlso | meshv:DisallowedDescriptorQualifierPair
+meshv:SCR_Chemical | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
+meshv:SCR_Chemical | meshv:mappedTo | meshv:Descriptor
+meshv:SCR_Chemical | meshv:mappedTo | meshv:TopicalDescriptor
+meshv:SCR_Chemical | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:SCR_Chemical | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:SCR_Chemical | meshv:preferredConcept | meshv:Concept
+meshv:SCR_Chemical | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Chemical | meshv:preferredMappedTo | meshv:Descriptor
+meshv:SCR_Chemical | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
+meshv:SCR_Chemical | meshv:preferredMappedTo | meshv:TopicalDescriptor
+meshv:SCR_Chemical | meshv:recordPreferredTerm | meshv:Term
+meshv:SCR_Disease | meshv:concept | meshv:Concept
+meshv:SCR_Disease | meshv:indexerConsiderAlso | meshv:Descriptor
+meshv:SCR_Disease | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
+meshv:SCR_Disease | meshv:mappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Disease | meshv:mappedTo | meshv:Descriptor
+meshv:SCR_Disease | meshv:mappedTo | meshv:DescriptorQualifierPair
+meshv:SCR_Disease | meshv:mappedTo | meshv:TopicalDescriptor
+meshv:SCR_Disease | meshv:preferredConcept | meshv:Concept
+meshv:SCR_Disease | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Disease | meshv:preferredMappedTo | meshv:Descriptor
+meshv:SCR_Disease | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
+meshv:SCR_Disease | meshv:preferredMappedTo | meshv:TopicalDescriptor
+meshv:SCR_Disease | meshv:recordPreferredTerm | meshv:Term
+meshv:SCR_Protocol | meshv:concept | meshv:Concept
+meshv:SCR_Protocol | meshv:indexerConsiderAlso | meshv:Descriptor
+meshv:SCR_Protocol | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
+meshv:SCR_Protocol | meshv:mappedTo | meshv:Descriptor
+meshv:SCR_Protocol | meshv:mappedTo | meshv:TopicalDescriptor
+meshv:SCR_Protocol | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:SCR_Protocol | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:SCR_Protocol | meshv:preferredConcept | meshv:Concept
+meshv:SCR_Protocol | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Protocol | meshv:preferredMappedTo | meshv:Descriptor
+meshv:SCR_Protocol | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
+meshv:SCR_Protocol | meshv:preferredMappedTo | meshv:TopicalDescriptor
+meshv:SCR_Protocol | meshv:recordPreferredTerm | meshv:Term
+meshv:SupplementaryConceptRecord | meshv:concept | meshv:Concept
+meshv:SupplementaryConceptRecord | meshv:indexerConsiderAlso | meshv:AllowedDescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:indexerConsiderAlso | meshv:Descriptor
+meshv:SupplementaryConceptRecord | meshv:indexerConsiderAlso | meshv:DescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:indexerConsiderAlso | meshv:DisallowedDescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
+meshv:SupplementaryConceptRecord | meshv:mappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:mappedTo | meshv:Descriptor
+meshv:SupplementaryConceptRecord | meshv:mappedTo | meshv:DescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:mappedTo | meshv:TopicalDescriptor
+meshv:SupplementaryConceptRecord | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:SupplementaryConceptRecord | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:SupplementaryConceptRecord | meshv:preferredConcept | meshv:Concept
+meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:Descriptor
+meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
+meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:TopicalDescriptor
+meshv:SupplementaryConceptRecord | meshv:recordPreferredTerm | meshv:Term
 
 </div>
 
@@ -78,18 +107,55 @@ N/A | N/A | N/A
 {:.data-table-standard .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:SupplementaryConcept | rdfs:label
-meshv:SupplementaryConcept | dcterms:identifier
-meshv:SupplementaryConcept | meshv:activeMeSHYear
-meshv:SupplementaryConcept | meshv:dateCreated
-meshv:SupplementaryConcept | meshv:dateRevised
-meshv:SupplementaryConcept | meshv:recordAuthorizer
-meshv:SupplementaryConcept | meshv:recordMaintainer
-meshv:SupplementaryConcept | meshv:recordOriginator
-meshv:SupplementaryConcept | meshv:previousIndexing
-meshv:SupplementaryConcept | meshv:frequency
-meshv:SupplementaryConcept | meshv:note
-meshv:SupplementaryConcept | meshv:source
+meshv:SCR_Chemical | meshv:activeMeSHYear
+meshv:SCR_Chemical | meshv:dateCreated
+meshv:SCR_Chemical | meshv:dateRevised
+meshv:SCR_Chemical | meshv:frequency
+meshv:SCR_Chemical | meshv:identifier
+meshv:SCR_Chemical | meshv:note
+meshv:SCR_Chemical | meshv:previousIndexing
+meshv:SCR_Chemical | meshv:recordAuthorizer
+meshv:SCR_Chemical | meshv:recordMaintainer
+meshv:SCR_Chemical | meshv:recordOriginator
+meshv:SCR_Chemical | meshv:source
+meshv:SCR_Chemical | rdfs:label
+meshv:SCR_Disease | meshv:activeMeSHYear
+meshv:SCR_Disease | meshv:dateCreated
+meshv:SCR_Disease | meshv:dateRevised
+meshv:SCR_Disease | meshv:frequency
+meshv:SCR_Disease | meshv:identifier
+meshv:SCR_Disease | meshv:note
+meshv:SCR_Disease | meshv:previousIndexing
+meshv:SCR_Disease | meshv:recordAuthorizer
+meshv:SCR_Disease | meshv:recordMaintainer
+meshv:SCR_Disease | meshv:recordOriginator
+meshv:SCR_Disease | meshv:source
+meshv:SCR_Disease | rdfs:label
+meshv:SCR_Protocol | meshv:activeMeSHYear
+meshv:SCR_Protocol | meshv:dateCreated
+meshv:SCR_Protocol | meshv:dateRevised
+meshv:SCR_Protocol | meshv:frequency
+meshv:SCR_Protocol | meshv:identifier
+meshv:SCR_Protocol | meshv:note
+meshv:SCR_Protocol | meshv:previousIndexing
+meshv:SCR_Protocol | meshv:recordAuthorizer
+meshv:SCR_Protocol | meshv:recordMaintainer
+meshv:SCR_Protocol | meshv:recordOriginator
+meshv:SCR_Protocol | meshv:source
+meshv:SCR_Protocol | rdfs:label
+meshv:SupplementaryConceptRecord | meshv:activeMeSHYear
+meshv:SupplementaryConceptRecord | meshv:dateCreated
+meshv:SupplementaryConceptRecord | meshv:dateRevised
+meshv:SupplementaryConceptRecord | meshv:frequency
+meshv:SupplementaryConceptRecord | meshv:identifier
+meshv:SupplementaryConceptRecord | meshv:note
+meshv:SupplementaryConceptRecord | meshv:previousIndexing
+meshv:SupplementaryConceptRecord | meshv:recordAuthorizer
+meshv:SupplementaryConceptRecord | meshv:recordMaintainer
+meshv:SupplementaryConceptRecord | meshv:recordOriginator
+meshv:SupplementaryConceptRecord | meshv:source
+meshv:SupplementaryConceptRecord | rdfs:label
+
 
 </div>
 </div>

@@ -221,7 +221,7 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
 {:.data-table-standard .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:Term | rdf:type | rdfs:Class
+N/A | N/A | N/A 
 
 </div>
 
@@ -231,18 +231,18 @@ meshv:Term | rdf:type | rdfs:Class
 {:.data-table-standard .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
+meshv:CheckTag | meshv:recordPreferredTerm | meshv:Term
 meshv:Concept | meshv:preferredTerm | meshv:Term
 meshv:Concept | meshv:term | meshv:Term
-meshv:Qualifier | meshv:recordPreferredTerm | meshv:Term
-meshv:TopicalDescriptor | meshv:recordPreferredTerm | meshv:Term
 meshv:Descriptor | meshv:recordPreferredTerm | meshv:Term
 meshv:GeographicalDescriptor | meshv:recordPreferredTerm | meshv:Term
 meshv:PublicationType | meshv:recordPreferredTerm | meshv:Term
-meshv:RegularSubstance | meshv:recordPreferredTerm | meshv:Term
-meshv:SupplementaryConcept | meshv:recordPreferredTerm | meshv:Term
-meshv:Protocol | meshv:recordPreferredTerm | meshv:Term
-meshv:RareDisease | meshv:recordPreferredTerm | meshv:Term
-meshv:CheckTag | meshv:recordPreferredTerm | meshv:Term
+meshv:Qualifier | meshv:recordPreferredTerm | meshv:Term
+meshv:SCR_Chemical | meshv:recordPreferredTerm | meshv:Term
+meshv:SCR_Disease | meshv:recordPreferredTerm | meshv:Term
+meshv:SCR_Protocol | meshv:recordPreferredTerm | meshv:Term
+meshv:SupplementaryConceptRecord | meshv:recordPreferredTerm | meshv:Term
+meshv:TopicalDescriptor | meshv:recordPreferredTerm | meshv:Term
 
 </div>
 
@@ -251,17 +251,17 @@ meshv:CheckTag | meshv:recordPreferredTerm | meshv:Term
 {:.data-table-standard .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:Term | rdfs:label
-meshv:Term | dcterms:identifier
 meshv:Term | meshv:abbreviation
+meshv:Term | meshv:altLabel
+meshv:Term | meshv:dateCreated
 meshv:Term | meshv:entryVersion
+meshv:Term | meshv:identifier
 meshv:Term | meshv:lexicalTag
+meshv:Term | meshv:prefLabel
 meshv:Term | meshv:printFlag
 meshv:Term | meshv:sortVersion
-meshv:Term | meshv:prefLabel
-meshv:Term | meshv:dateCreated
 meshv:Term | meshv:thesaurusID
-meshv:Term | meshv:altLabel
+meshv:Term | rdfs:label
 
 </div>
 </div>
