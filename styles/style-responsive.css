@@ -1,0 +1,23 @@
+.navbar{ 
+background-color:#1F4D7A !important;      
+}
+
+
+.logo {  
+max-width:700px !important;    
+}
+
+.navbar-right li a:hover{
+    
+text-decoration: underline;
+background-color:#1F4D7A;
+
+   
+}
+.navbar-right li a{
+    color:white !important;
+}
+.navbar-right li {
+    
+line-height:.75em;
+}
