@@ -33,11 +33,13 @@ The diagram below illustrates the relations and properties of meshv:Concept clas
 {:.data-table-standard .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
+meshv:Concept | meshv:broader | meshv:Concept
+meshv:Concept | meshv:broaderTransitive | meshv:Concept
 meshv:Concept | meshv:narrower | meshv:Concept
-meshv:Concept | meshv:semanticType | meshv:SemanticType
 meshv:Concept | meshv:preferredTerm | meshv:Term
-meshv:Concept | mesvh:broader | meshv:Concept
 meshv:Concept | meshv:term | meshv:Term
+meshv:Concept | meshv:related | meshv:Concept
+meshv:Concept | meshv:semanticType | meshv:SemanticType
 
 </div>
 
@@ -47,19 +49,29 @@ meshv:Concept | meshv:term | meshv:Term
 {:.data-table-standard .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:Concept | meshv:narrower | meshv:Concept
+meshv:CheckTag | meshv:preferredConcept | meshv:Concept
 meshv:Concept | meshv:broader | meshv:Concept
-meshv:Qualifier | meshv:concept | meshv:Concept
-meshv:Qualifier | meshv:preferredConcept | meshv:Concept
-meshv:TopicalDescriptor | meshv:preferredConcept | meshv:Concept
-meshv:TopicalDescriptor | meshv:concept | meshv:Concept
-meshv:GeographicalDescriptor | meshv:preferredConcept | meshv:Concept
+meshv:Concept | meshv:broaderTransitive | meshv:Concept
+meshv:Concept | meshv:narrower | meshv:Concept
+meshv:Concept | meshv:related | meshv:Concept
+meshv:Descriptor | meshv:concept | meshv:Concept
+meshv:Descriptor | meshv:preferredConcept | meshv:Concept
 meshv:GeographicalDescriptor | meshv:concept | meshv:Concept
+meshv:GeographicalDescriptor | meshv:preferredConcept | meshv:Concept
 meshv:PublicationType | meshv:concept | meshv:Concept
 meshv:PublicationType | meshv:preferredConcept | meshv:Concept
-meshv:SupplementaryConceptRecord | meshv:preferredConcept | meshv:Concept
+meshv:Qualifier | meshv:concept | meshv:Concept
+meshv:Qualifier | meshv:preferredConcept | meshv:Concept
+meshv:SCR_Chemical | meshv:concept | meshv:Concept
+meshv:SCR_Chemical | meshv:preferredConcept | meshv:Concept
+meshv:SCR_Disease | meshv:concept | meshv:Concept
+meshv:SCR_Disease | meshv:preferredConcept | meshv:Concept
+meshv:SCR_Protocol | meshv:concept | meshv:Concept
+meshv:SCR_Protocol | meshv:preferredConcept | meshv:Concept
 meshv:SupplementaryConceptRecord | meshv:concept | meshv:Concept
-meshv:CheckTag | meshv:preferredConcept | meshv:Concept
+meshv:SupplementaryConceptRecord | meshv:preferredConcept | meshv:Concept
+meshv:TopicalDescriptor | meshv:concept | meshv:Concept
+meshv:TopicalDescriptor | meshv:preferredConcept | meshv:Concept
 
 </div>
 
@@ -69,12 +81,11 @@ meshv:CheckTag | meshv:preferredConcept | meshv:Concept
 Subject | Predicate
 ------- | ---------
 meshv:Concept | meshv:casn1_label
+meshv:Concept | meshv:identifier
 meshv:Concept | meshv:registryNumber
 meshv:Concept | meshv:relatedRegistryNumber
-meshv:Concept | &lt;http://purl.org/dc/terms/identifier&gt;
+meshv:Concept | meshv:scopeNote
 meshv:Concept | rdfs:label
-meshv:Concept | &lt;http://www.w3.org/2004/02/skos/core#note&gt;
-meshv:Concept | &lt;http://www.w3.org/2004/02/skos/core#scopeNote&gt;
 
 </div>
 </div>
