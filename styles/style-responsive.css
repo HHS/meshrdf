@@ -3,8 +3,12 @@ background-color:#1F4D7A !important;
 }
 
 
-.logo {  
-max-width:700px !important;    
+@media screen and (max-width: 700px) { /* Specific to this particular image */
+  img.logo {
+    left: 50%;
+    max-width:400px;
+    margin-left: -512px;   /* 50% */
+  }
 }
 
 .navbar-right li a:hover{
