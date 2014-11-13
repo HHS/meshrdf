@@ -1,30 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+body {
+  font: large Arial, Helvetica, sans-serif;
+  max-width:1024px;
+  
+  
+}
+
+
+
 .navbar{ 
 
 width:auto;
-padding:0;
 background-color:#1F4D7A !important;
+padding:0;
+
 }
 
-
-.navbar-brand {
-
- max-width:750px;
- padding:0;
+.logo {
     
+padding:0;
+max-width:700px;
+
 }
 
-.navbar-right li a:hover{
+.navbar-header{
     
-text-decoration: underline;
-background-color:#1F4D7A;
+    border:solid 1px red;
+    height:auto;
+    background-color:#1F4D7A;
+}
 
-   
-}
-.navbar-right li a{
-    color:white !important;
-}
-.navbar-right li {
+.navbar-brand{
     
-line-height:1em;
+    max-width:750px;
 }
 
+.row {
+    
+
+}
