@@ -8,7 +8,8 @@ background-color:#1F4D7A !important;
 
 .navbar-brand {
 
- max-width:750px;   
+ max-width:750px;
+ padding:0;
     
 }
 
@@ -24,6 +25,6 @@ background-color:#1F4D7A;
 }
 .navbar-right li {
     
-line-height:.5em;
+line-height:1em;
 }
 
