@@ -1,20 +1,11 @@
 <!-- responsive design header using bootstrap css framework -->
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-  <div class = "row">
-  <div class = "col-md-6 col-xs-12 col-sm-6">
-  <div class="navbar-header">
-        <a class="navbar-brand" href="http://www.nlm.nih.gov"><img class= "logo img-responsive" alt="National Library of Medicine" src="images/nih_nlmlogo_webheader.png "></a>
-      </a>
-  </div><!-- end navbar-header -->
-  </div><!-- end column 1 -->
-  <div class = "col-md-6 col-xs-12 col-sm-6">
-  <ul class="nav nav-pills nav-stacked navbar-right">
-    <li><a href = "http://id.nlm.nih.gov/">Linked Data Home</a></li>
-    <li><a href = "http://id.nlm.nih.gov/mesh/sparql">SPARQL Endpoint</a></li>
-    <li><a href = "http://apps.nlm.nih.gov/mainweb/siebel/nlm/index.cfm">Contact NLM</a></li>
-    </ul>
-  </div><!-- end column 2 -->
-  </div><!-- end row -->
-  </div><!-- end container-fluid-->
-</nav>
+<div class = "row navbar">
+      <div class = "col-md-12 col-xs-4 col-sm-8">
+          <a href="http://www.nlm.nih.gov"><img class= "logo img-responsive" alt="National Library of Medicine" src="images/nih_nlmlogo_webheader.png "></a>
+      </div>
+      <div class = "col-md-12 col-xs-4 col-sm-8">     
+        {% include menu-responsive.html %}
+      </div><!-- end column 2 -->
+</div>
+
+
