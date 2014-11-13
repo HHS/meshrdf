@@ -1,10 +1,12 @@
 .navbar{ 
-background-color:#1F4D7A !important;      
+background-color:#1F4D7A !important;
+width:100%;
 }
 
 
-.logo{
-max-width:700px;    
+.navbar-header {
+ 
+ max-width:700px;   
     
 }
 
