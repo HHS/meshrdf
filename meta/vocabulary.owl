@@ -1,0 +1,1192 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://id.nlm.nih.gov/mesh/vocabulary"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://id.nlm.nih.gov/mesh/vocabulary">
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Abbreviation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Acronym"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#AllowedDescriptorQualifierPair"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#CheckTag"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DisallowedDescriptorQualifierPair"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAbbreviation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAcronym"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Eponym"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#GeographicalDescriptor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#LabNumber"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#ProperName"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Protocol"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#PublicationType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Qualifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#RareDisease"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#RegularSubstance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SemanticType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TopicalDescriptor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TradeName"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TreeNumber"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#allowableQualifier"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#allowedTreeNode"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#broader"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#broaderTransitive"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#concept"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#hasDescriptor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#hasQualifier"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#indexerConsiderAlso"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#mappedTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#narrower"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#narrowerTransitive"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#pharmacologicalAction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#preferredConcept"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#preferredMappedTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#preferredTerm"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#previousIndexing"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#term"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#abbreviation"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#activeMeSHYear"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#altLabel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#annotation"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#casn1_label"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#considerAlso"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#dateCreated"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#dateEstablished"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#dateRevised"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#entryVersion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#frequency"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#historyNote"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#identifier"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#lexicalTag"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#note"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#prefLabel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="rdfs:label"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Abbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Acronym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#AllowedDescriptorQualifierPair"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#CheckTag"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DisallowedDescriptorQualifierPair"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAbbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAcronym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Eponym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#GeographicalDescriptor"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#LabNumber"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#ProperName"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Protocol"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#PublicationType"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Qualifier"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#RareDisease"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#RegularSubstance"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SemanticType"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TopicalDescriptor"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TradeName"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TreeNumber"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Abbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Acronym"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Abbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAbbreviation"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Abbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAcronym"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Abbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Eponym"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Abbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#LabNumber"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Abbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#ProperName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Abbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TradeName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Acronym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAbbreviation"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Acronym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAcronym"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Acronym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Eponym"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Acronym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#LabNumber"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Acronym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#ProperName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Acronym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TradeName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#AllowedDescriptorQualifierPair"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DisallowedDescriptorQualifierPair"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#CheckTag"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#GeographicalDescriptor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#CheckTag"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#PublicationType"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#CheckTag"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TopicalDescriptor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Qualifier"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SemanticType"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TreeNumber"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Qualifier"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SemanticType"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TreeNumber"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Qualifier"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SemanticType"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TreeNumber"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAbbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAcronym"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAbbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Eponym"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAbbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#LabNumber"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAbbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#ProperName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAbbreviation"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TradeName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAcronym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Eponym"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAcronym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#LabNumber"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAcronym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#ProperName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAcronym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TradeName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Eponym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#LabNumber"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Eponym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#ProperName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Eponym"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TradeName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#GeographicalDescriptor"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#PublicationType"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#GeographicalDescriptor"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TopicalDescriptor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#LabNumber"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#ProperName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#LabNumber"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TradeName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#ProperName"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TradeName"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Protocol"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#RareDisease"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Protocol"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#RegularSubstance"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#PublicationType"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TopicalDescriptor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Qualifier"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SemanticType"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Qualifier"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Qualifier"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Qualifier"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TreeNumber"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#RareDisease"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#RegularSubstance"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SemanticType"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SemanticType"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SemanticType"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TreeNumber"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TreeNumber"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TreeNumber"/>
+    </DisjointClasses>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#broader"/>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#broaderTransitive"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#narrower"/>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#narrowerTransitive"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#preferredConcept"/>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#concept"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#preferredMappedTo"/>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#mappedTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#preferredTerm"/>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#term"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#narrower"/>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#broader"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#narrowerTransitive"/>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#broaderTransitive"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#allowableQualifier"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#allowedTreeNode"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#broader"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#concept"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#hasDescriptor"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#hasQualifier"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#mappedTo"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#narrower"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#preferredConcept"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#preferredMappedTo"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#term"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#allowableQualifier"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Qualifier"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#allowedTreeNode"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#TreeNumber"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#broader"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#concept"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#hasDescriptor"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#hasQualifier"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Qualifier"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#mappedTo"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#narrower"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#preferredConcept"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#preferredMappedTo"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Descriptor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#term"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Term"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#altLabel"/>
+        <DataProperty abbreviatedIRI="rdfs:label"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#prefLabel"/>
+        <DataProperty abbreviatedIRI="rdfs:label"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#abbreviation"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#activeMeSHYear"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#altLabel"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#annotation"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#casn1_label"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#considerAlso"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#dateCreated"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#dateEstablished"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#dateRevised"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#frequency"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#historyNote"/>
+        <Class IRI="http://id.nlm.nih.gov/mesh/vocabulary#Concept"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#identifier"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#lexicalTag"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#note"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#prefLabel"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="rdfs:label"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#abbreviation"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#activeMeSHYear"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#altLabel"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#annotation"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#casn1_label"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#considerAlso"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#dateCreated"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#dateEstablished"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#dateRevised"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#frequency"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#historyNote"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#identifier"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#lexicalTag"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#note"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#prefLabel"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="rdfs:label"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DisjointDataProperties>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#altLabel"/>
+        <DataProperty IRI="http://id.nlm.nih.gov/mesh/vocabulary#prefLabel"/>
+    </DisjointDataProperties>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Abbreviation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH Abbreviation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Acronym</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH Acronym</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#AllowedDescriptorQualifierPair</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A combined MeSH descriptor and qualifier, where the pairing is allowed by MeSH rules. These URIs are a mash up of the descriptor and qualifier identifiers (such as D000236Q000235).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#AllowedDescriptorQualifierPair</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH AllowedDescriptorQualifierPair</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#CheckTag</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A special class of descriptor singled out because they are so frequently applied to biomedical literature. There are only 2 Descriptors that are members of the class meshv:CheckTag - D005260 ‘Male’ and D008297 ‘Female’. These two Descriptors do not have tree numbers. Please see the MEDLINE Indexing Online Training Course for the complete list.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#CheckTag</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH CheckTag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Concept</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH concepts are meanings. Many MeSH concepts contain synonymous terms. meshv:Concept identifiers begin with ‘M’ such as M0000013 - ‘Congenital Abnormalities’. See the MeSH concept structure page for more information.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Concept</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH Concept</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Descriptor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH Descriptors are a cluster of one or more concepts used to describe what a publication is about. meshv:Descriptor is the parent class of meshv:TopicalDescriptor, meshv:GeographicDescriptor, meshv:PublicationType, and meshv:CheckTag.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Descriptor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH Descriptor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A combined MeSH descriptor and qualifier pair. Allowed pairs (according to MeSH rules) belong to the class meshv:AllowedDescriptorQualifierPair. Disallowed pairs belong to the class meshv:DisallowedDescriptorQualifierPair.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#DescriptorQualifierPair</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH DescriptorQualifierPair</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#DisallowedDescriptorQualifierPair</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A combined MeSH descriptor and qualifier where the pairing is not allowed by MeSH rules, such as ‘Abdomen/radiography’.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#DisallowedDescriptorQualifierPair</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH DisallowedDescriptorQualifierPair</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAbbreviation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH EmbeddedAbbreviation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#EmbeddedAcronym</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH EmbeddedAcronym</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Eponym</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH Eponym</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#GeographicalDescriptor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A descriptor that references places or regions of the world, such as D001061 - ‘Appalachian Region’.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#GeographicalDescriptor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH GeographicalDescriptor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#LabNumber</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH LabNumber</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#ProperName</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH ProperName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Protocol</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH protocols are therapies in the domain of cancer treatment, such as ABVD Protocol.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Protocol</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH Protocol</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#PublicationType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A special class of descriptor that describes what type of publication a resource is as opposed to what it is about. All MeSH Publication Types are in the ‘V’ tree.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#PublicationType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH PublicationType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Qualifier</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Also known as Subheadings, these provide context to the use of a MeSH Heading. See heart - drug effects for an example.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Qualifier</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH Qualifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#RareDisease</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Rare Diseases were originally brought into MeSH from a list maintained by the Office of Rare Diseases Research. See Hepatic Fibrosis, Congenital for an example.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#RareDisease</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH RareDisease</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#RegularSubstance</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">These are chemicals, drugs, enzymes, vitamins, etc., such as C011657 - ‘Andrenosterone’.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#RegularSubstance</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH RegularSubstance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#SemanticType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A semantic type provides broad categorization for meshv:Concept classes, such as ‘Disease or Syndrome’, ‘Medical Device’, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#SemanticType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH SemanticType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Supplementary Concepts are created in MeSH to aid in searching the large volume of mainly chemicals and drugs. meshv:SupplementaryConcept has three sub-classes: meshv:RegularSubstance, meshv:Protocol, and meshv:RareDisease.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#SupplementaryConcept</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH SupplementaryConcept</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Term</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH terms provide synonymous names for MeSH concepts. Terms have ‘T’ identifiers, and are considered either preferred or lexical variants, such as ‘Congenital Abnormalities’ as opposed to ‘Abnormality, Congenital’.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#Term</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH Term</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#TopicalDescriptor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Topical Descriptors indicate the subject of an indexed item such as a journal article. See D063926 - ‘Drug Hypersensitivity Syndrome’ for an example.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#TopicalDescriptor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH TopicalDescriptor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#TradeName</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH TradeName</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#TreeNumber</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Tree Numbers are used to organize MeSH Descriptors in a broader-than/narrower-than manner. For example, every Descriptor treed under C04 - ‘Neoplasms’ would be about something more specific than ‘Neoplasms’.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#TreeNumber</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH TreeNumber</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#abbreviation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Two-letter, uppercase abbreviation for a Qualifier term. QUI Q000235 example: GE</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#abbreviation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">abbreviation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#activeMeSHYear</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH year(s) in 4-digit format in which the record was active since it was last modified. For example, a record not modified in the five years it has been in MeSH will have five occurrences. A record modified in the latest MeSH year will have one occurrence.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#allowedTreeNode</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Name of a subcategory in the MeSH Trees indicating, that for most Descriptors in that subcategory, the allowed Qualifiers on the Descriptor include the Qualifier. This value does not impact Descriptors permitted with a given Qualifier, but is a statistical summary of Descriptors permitted with the Qualifier.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#allowedTreeNode</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">allowedTreeNode</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#altLabel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">alternative label</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#altLabel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">altLabel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#annotation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Free-text information for indexers and catalogers concerning the use of the descriptor or qualifier. DUI: D005858 example: for Germany before 23 May 1949 &amp; after 3 Oct 1990; for historical articles before &amp; after 1949: Manual 36.11; BERLIN is also available</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#annotation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">annotation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#casn1_label</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Free-text of the Chemical Abstracts Type N1 Name which is the systematic name used in the Chemical Abstracts Chemical Substance and Formula Indexes. The systematic name is a unique name assigned to a chemical substance to represent its structure. First available for Descriptors in 1995. DUI D000082 example: Acetamide, N-(4-hydroxyphenyl)-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#casn1_label</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">casn1_label</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#considerAlso</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Free-text information that refers a user from a Descriptor to other terms which have related roots. DUI D006321 example: consider also terms at CARDI- and MYOCARDI-</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#considerAlso</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">considerAlso</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#dateCreated</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Date when first entered in tHe MeSH data entry system. This time-stamp may be a year behind the dateEstablished. Upon conversion to a new MeSH maintenance system in 1999, a default value of 19990101 was supplied. DUI D022125 example: 2000-06-22</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#dateCreated</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">dateCreated</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#dateEstablished</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Date when effective for use; set to YYYY0101 where YYYY = year of introduction to MeSH. DUI D023482 example: 2001-01-01</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#dateEstablished</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">dateEstablished</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#dateRevised</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Date when information in the record was last changed.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#dateRevised</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">dateRevised</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#entryVersion</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Custom sort form used by indexers and catalogers. DUI D003880 example: DERMATOL</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#historyNote</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Free-text information that traces the concept in MeSH and is deemed helpful for the online searcher. Headings and entry terms are entered in upper case. Initial characters refer to the year in which the record was created in MeSH in its current form (i.e., with the same preferred term). A date in parentheses indicates the oldest creation date of terms, provisional headings (before 1975), or minor headings (before 1991), which are reflected in citations indexed to the record. Entries without a year date are early records, dating between 1963 and 1966. DUI D012441 example: 73(72) DUI D016239 example: 1991; use MEDLARS 1978-1990; for INDEX MEDICUS use MEDLINE 1979-2004</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#historyNote</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">historyNote</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#identifier</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Unique identifier for a record, concept, or term. DescriptorUI is a 7 or 10 alphanumeric starting with the letter D. QualifierUI is a 7 or 10 alphanumeric starting with the letter Q. SupplementalRecordUI is a 7 or 10 alphanumeric starting with the letter C. ConceptUI is an 8 or 10 alphanumeric starting with the letter M. TermUI is a 7 or 10 alphanumeric starting with the letter T. The 10 alphanumeric format was implemented for new identifiers created on or after about May 19, 2014. DUI D064418 example in 7-character format: D064418. CUI C000588751 example in 10-character format: C000588751 MUI M0353701 exmaple in 8-character format (associated with D000667: M0353701.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#identifier</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">identifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#lexicalTag</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A 3-letter value that indicates the lexical category. Valid values with their meanings in parentheses are: ABB (Abbreviation); ABX (Embedded abbreviation); ACR (Acronym); ACX (Embedded acronym); EPO (Eponym); LAB (Lab number); NAM (Proper name); NON (None); and TRD (Trade name). Note that a Permuted Term will always have the same Lexical Tag value as the term from which it is generated. DUI D005858 (Germany) example: NAM</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#lexicalTag</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">lexicalTag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#note</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Free-text narrative giving information about the substance particularly its biological properties, but may include other information such as about the registryNumber. “structure” indicates that the structure of the chemical is given in the first Source. CUI C012211 example: growth inhibitor; RN given refers to ((L-Leu)-(S-(R,S)))-isomer; structure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#note</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">note</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#prefLabel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">preferred label.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://id.nlm.nih.gov/mesh/vocabulary#prefLabel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">prefLabel</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+
