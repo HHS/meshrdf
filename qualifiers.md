@@ -34,7 +34,6 @@ Subject | Predicate | Object
 ------- | --------- | -------
 meshv:Qualifier | meshv:allowedTreeNode | meshv:TreeNumber
 meshv:Qualifier | meshv:broader | meshv:Qualifier
-meshv:Qualifier | meshv:broaderTransitive | meshv:Qualifier
 meshv:Qualifier | meshv:concept | meshv:Concept
 meshv:Qualifier | meshv:preferredConcept | meshv:Concept
 meshv:Qualifier | meshv:recordPreferredTerm | meshv:Term
@@ -49,12 +48,10 @@ meshv:Qualifier | meshv:treeNumber | meshv:TreeNumber
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:AllowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
-meshv:Descriptor | meshv:allowableQualifier | meshv:Qualifier
 meshv:DescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
 meshv:DisallowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
 meshv:GeographicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
 meshv:Qualifier | meshv:broader | meshv:Qualifier
-meshv:Qualifier | meshv:broaderTransitive | meshv:Qualifier
 meshv:TopicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
 
 </div>

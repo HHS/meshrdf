@@ -34,7 +34,6 @@ The diagram below illustrates the relations and properties of meshv:Concept clas
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:Concept | meshv:broader | meshv:Concept
-meshv:Concept | meshv:broaderTransitive | meshv:Concept
 meshv:Concept | meshv:narrower | meshv:Concept
 meshv:Concept | meshv:preferredTerm | meshv:Term
 meshv:Concept | meshv:term | meshv:Term
@@ -51,7 +50,6 @@ Subject | Predicate | Object
 ------- | --------- | -------
 meshv:CheckTag | meshv:preferredConcept | meshv:Concept
 meshv:Concept | meshv:broader | meshv:Concept
-meshv:Concept | meshv:broaderTransitive | meshv:Concept
 meshv:Concept | meshv:narrower | meshv:Concept
 meshv:Concept | meshv:related | meshv:Concept
 meshv:Descriptor | meshv:concept | meshv:Concept
