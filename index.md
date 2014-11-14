@@ -1,5 +1,5 @@
 ---
-title: MeSH-RDF Linked Data Technical Documentation
+title: MeSH RDF Linked Data Technical Documentation
 layout: page
 ---
 
