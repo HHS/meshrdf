@@ -12,7 +12,7 @@ categories:
 
 ![Qualifier RDF Graph Diagram](images/SCRs.png){: class="rdf-graph"}
 
-### meshv:SupplementaryConcept - Relations and Properties
+### meshv:SupplementaryConceptRecord - Relations and Properties
 
 {::options parse_block_html="true" /}
 
@@ -21,7 +21,7 @@ categories:
 
 *  [Relations to other classes (as subject)](#tabs-1)
 *  [Relations to other classes (as object)](#tabs-2)
-*  [meshv:SupplementaryConcept properties](#tabs-3)
+*  [meshv:SupplementaryConceptRecord properties](#tabs-3)
 
 {: #tabs-1}
 <div>
@@ -250,7 +250,7 @@ where {
 
 <http://id.nlm.nih.gov/mesh/vocab#RegularSubstance>
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConcept> .
+                <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> .
 
 <http://id.nlm.nih.gov/mesh/T115471>
         a       <http://id.nlm.nih.gov/mesh/vocab#Term> .
