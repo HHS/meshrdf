@@ -37,7 +37,6 @@ WHERE {
 
 ?d a meshv:Descriptor .
 ?d rdfs:label ?name .
-?d meshv:treeNumber ?tn .
 ?d meshv:dateEstablished ?dateEstablished
 FILTER(?dateEstablished = xsd::date("2014-01-01"))
 
