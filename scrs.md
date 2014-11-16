@@ -1,10 +1,16 @@
 ---
-title: Supplementary Concepts
+title: Supplementary Concept Records
 layout: page
 resource: true
 categories:
 - Data Model
 ---
+
+Supplementary Concept Records are created in MeSH to account for the large volume of chemical names that are found in biomedical literature.   In MeSH RDF, these are
+represented by the super class meshv:SupplementaryConceptRecord, which has three sub-classes:
+*  meshv:SCR_Chemical
+*  meshv:SCR_Disease
+*  meshv:SCR_Protocol
 
 
 
