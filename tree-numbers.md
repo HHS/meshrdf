@@ -15,12 +15,7 @@ examples).  More information about MeSH Tree Numbers is available in the [MeSH d
 
 ### RDF Graph Diagram
 
-In this particular example, "Eye" belongs to two intersecting trees - one that is
-depicted in green and one in purple.
-
-According to the green tree, "Eyebrow" has broader descriptor "Eye", which has broader
-descriptor "Face". According to the purple tree, "Oculomotor Muscles" has broader descriptor
-"Eye", which has broader concept "Sense Organ".
+In this particular example, 'Eye' belongs to both the 'Body Regions' tree (A01) and the 'Sense Organs' tree (A09).
 
 ![Tree Numbers Produce Overlapping Hierarchies](images/BroaderRelations.png){: class="rdf-graph"}
 
