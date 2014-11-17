@@ -1,0 +1,52 @@
+---
+title: Semantic Types
+layout: page
+resource: true
+categories:
+- Data Model
+---
+
+[Semantic Types](http://www.nlm.nih.gov/research/umls/META3_current_semantic_types.html){: target="_blank"} are assigned to MeSH concepts to provide broad categorization.  In MeSH RDF, Semantic types are members of the class [meshv:SemanticType](http://id.nlm.nih.gov/mesh/describe?uri=http%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23SemanticType){:target="_blank"}.
+Examples of semantic types are 'Organ or Tissue Function', 'Gene or Genome', etc.
+
+### meshv:SemanticType - Relations and Properties
+
+{::options parse_block_html="true" /}
+
+{: #tabs}
+<div>
+
+*  [Relations to other classes (as subject)](#tabs-1)
+*  [Relations to other classes (as object)](#tabs-2)
+*  [meshv:SemanticType properties](#tabs-3)
+
+{: #tabs-1}
+<div>
+
+{:.data-table-standard .row-border .hover }
+Subject | Predicate | Object
+------- | --------- | -------
+N/A | N/A | N/A 
+
+</div>
+
+{: #tabs-2}
+<div>
+
+{:.data-table-standard .row-border .hover}
+Subject | Predicate | Object
+------- | --------- | -------
+meshv:Concept | meshv:semanticType | meshv:SemanticType
+
+</div>
+
+{: #tabs-3}
+<div>
+{:.data-table-standard .row-border .hover}
+Subject | Predicate
+------- | ---------
+meshv:SemanticType | rdfs:label
+meshv:SemanticType | meshv:identifier
+
+</div>
+</div>
