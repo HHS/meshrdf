@@ -9,7 +9,7 @@ categories:
 The table below lists MeSH RDF super classes and their subclasses (via the rdfs:subClassOf predicate).  Inference is required when querying these superclasses.
 
 {:.data-table-standard .row-border .hover}
-Super Class | Predicate | Child Class
+Child Class | Predicate | Super Class
 ------- | --------- | -------
 meshv:AllowedDescriptorQualifierPair | rdfs:subClassOf | meshv:DescriptorQualifierPair
 meshv:DisallowedDescriptorQualifierPair | rdfs:subClassOf | meshv:DescriptorQualifierPair
