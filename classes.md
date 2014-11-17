@@ -1,5 +1,5 @@
 ---
-title: Classes
+title: Class Definitions
 layout: page
 resource: true
 categories:
