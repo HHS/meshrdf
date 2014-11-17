@@ -13,13 +13,13 @@ Predicate Name | Definition | Equivalent XML Data Element
 -------------- | ---------- | ---------------------------
 rdf:type | Used to state that a resource is an instance of a class. DUI D015242 example: Ofloxacin has an rdf:type of meshv:TopicalDescriptor. | N/A
 rdfs:label | Used to provide a human-readable version of a resource's name. DUI D015242 example: Ofloxacin |```String```
-meshv:narrower | Explain Me | Where Do I Come From?
+meshv:narrower | Coming Soon... | Coming Soon...
 meshv:identifier | Unique identifier for a record, concept, or term. DescriptorUI is a 7 or 10 alphanumeric starting with the letter D. QualifierUI is a 7 or 10 alphanumeric starting with the letter Q. SupplementalRecordUI is a 7 or 10 alphanumeric starting with the letter C. ConceptUI is an 8 or 10 alphanumeric starting with the letter M. TermUI is a 7 or 10 alphanumeric starting with the letter T. The 10 alphanumeric format was implemented for new identifiers created on or after about May 19, 2014. DUI D064418 example in 7-character format: D064418. CUI C000588751 example in 10-character format: C000588751 MUI M0353701 example in 8-character format (associated with D000667): M0353701. | ```DescriptorUI, QualifierUI, SupplementalRecordUI, ConceptUI, TermUI```
 meshv:abbreviation | Two-letter, uppercase abbreviation for a Qualifier term. QUI Q000235 example: GE |```Abbreviation```
 meshv:activeMeSHYear | MeSH year(s) in 4-digit format in which the record was active since it was last modified. For example, a record not modified in the five years it has been in MeSH will have five occurrences. A record modified in the latest MeSH year will have one occurrence. |```ActiveMeSHYearList/Year```
 meshv:allowedTreeNode | Name of a subcategory in the MeSH Trees indicating, that for most Descriptors in that subcategory, the allowed Qualifiers on the Descriptor include the Qualifier. This value does not impact Descriptors permitted with a given Qualifier, but is a statistical summary of Descriptors permitted with the Qualifier. |```TreeNodeAllowed```
 meshv:annotation | Free-text information for indexers and catalogers concerning the use of the descriptor or qualifier. DUI: D005858 example: for Germany before 23 May 1949 & after 3 Oct 1990; for historical articles before & after 1949: Manual 36.11; BERLIN is also available|```Annotation```
-meshv:concept | Explain Me | Where Do I Come From?
+meshv:concept | Coming Soon... | Coming Soon...
 meshv:dateCreated | Date when first entered in tHe MeSH data entry system. This time-stamp may be a year behind the dateEstablished. Upon conversion to a new MeSH maintenance system in 1999, a default value of 19990101 was supplied. DUI D022125 example: 2000-06-22 |```DateCreated/Year/Month/Day```
 meshv:dateEstablished | Date when effective for use; set to YYYY0101 where YYYY = year of introduction to MeSH. DUI D023482 example: 2001-01-01 |```DateEstablished/Year/Month/Day```
 meshv:dateRevised | Date when information in the record was last changed. DUI D005290 example: 2011-06-24 |```DateRevised/Year/Month/Day```
@@ -38,15 +38,15 @@ meshv:semanticType | One of approximately 140 categories in the UMLS Semantic Ne
 meshv:sortVersion | Custom version of a term used to sort properly in a print product; format is all uppercase. DUI D002880 example:  FILL ME IN . . .  |```Sort Version```
 meshv:term | Alpha-numeric string that is the basic unit of the MeSH vocabulary. Also functions as the name of a Descriptor and concept. |```Term/TermUI```
 meshv:treeNumber | Alpha-numeric string referring to location within a Descriptor or Qualifier hierarchy. Used for browsing the MeSH vocabulary and for inclusive searches by retrieval systems using MeSH. (Note that the Trees hierarchy is not represented using subelements. The hierarchy is represented by the Tree Number itself.) Up to twelve hierarchical levels. DUI D000163 example showing one of four 2014 MeSH tree locations: C02.839.040 |```TreeNumber```
-meshv:broader | Explain Me | Where Do I Come From?
-meshv:broaderTransitive | Immediate "parent" tree number. | Where Do I Come From?
-meshv:prefLabel | Explain Me | Where Do I Come From?
-meshv:related | Explain Me | Where Do I Come From?
+meshv:broader | Coming Soon... | Coming Soon...
+meshv:broaderTransitive | Immediate "parent" tree number. | Coming Soon...
+meshv:prefLabel | Coming Soon... | Coming Soon...
+meshv:related | Coming Soon... | Coming Soon...
 meshv:scopeNote | Free-text narrative giving the scope and meaning (definition) of a concept. DUI D019644 example: Replacement of the hip joint. |```ScopeNote```
 meshv:casn1_label | Free-text of the Chemical Abstracts Type N1 Name which is the systematic name used in the Chemical Abstracts Chemical Substance and Formula Indexes. The systematic name is a unique name assigned to a chemical substance to represent its structure. First available for Descriptors in 1995. DUI D000082 example: Acetamide, N-(4-hydroxyphenyl)-|```CASN1Name```
 meshv:allowableQualifier | A specific Qualifier allowed in combination with the Descriptor. DUI D000667 example: Q000627 |```AllowableQualifier/QualiferUI```
-meshv:hasDescriptor | Explain Me | Where Do I Come From?
-meshv:hasQualifier | Explain Me | Where Do I Come From?
+meshv:hasDescriptor | Coming Soon... | Coming Soon...
+meshv:hasQualifier | Coming Soon... | Coming Soon...
 meshv:pharmacologicalAction | Reference to a Descriptor describing observed biological activity of an exogenously administered chemical represented by a Descriptor or SCR. DUI D000082 example: D058633 |```PharmacologicalAction/DescriptorUI```
 meshv:previousIndexing | Free-text information referring to Descriptors or Descriptor/Qualifier combinations that were used to index the concept in MEDLINE before the Descriptor was created. Intended to enable users of new Descriptors to find similar concepts indexed before the Descriptor was created. Includes dates of the format (YYYY) for a single year or (YYYY-YYYY) for a range of years. May include descriptive text referring to a group of Descriptors as "specifics". Data are not maintained when a Descriptor or Qualifier name changes.  DUI D005290 example: Iron (1966-1974). Also used for SCRs to refer to the Heading Mapped-to to which the SCR was previously mapped. CUI C025735 example: ATROPINE/*analogs (81-86)|```PreviousIndexing```
 meshv:publicMeSHNote | Free-text information about the history of changes in the record that may be helpful to the user of the printed Index Medicus publication (ceased in 2005). This includes the date the record was created in MeSH, changes in the preferred term, earlier status as an SCR, etc. Unlike the History Note, MeSH terms reflect the MeSH vocabulary printed at that point in time, not as updated for online databases. In Descriptors, applies only to records having DescriptorClass value of 1. MeSH terms are in upper case. DUI D000082 example: 1965; for ACEPHEN see MECLOFENOXATE 1990-2002|```PublicMeSHNote```
@@ -56,11 +56,11 @@ meshv:runningHead | For internal NLM processing only (archaic). |```RunningHead`
 meshv:seeAlso | Reference to a specific Descriptor to which a user is referred by a "see related" cross-reference. DUI D000009 example: D034861 | ```SeeRelatedDescriptor/DescriptorUI```
 meshv:thesaurusID | Name of a Thesaurus in which the term occurs, including NLM (=MeSH). Includes year. DUI D000009 example: NLM (1966) | ```ThesaurusID```
 meshv:useInstead | Descriptor or Descriptor/Qualifier combination recommended in place of the prohibited combination. DUI D006321 examples: | ```ECOUT```
-meshv:altLabel | Explain Me | Where Do I Come From?
+meshv:altLabel | Coming Soon... | Coming Soon...
 meshv:frequency | Number of citations indexed with the SCR in MEDLINE/PubMed. Automatically updated monthly. CUI C012211 example: 745 |```Frequency```
-meshv:indexConsiderAlso | Explain Me | Where Do I Come From?
-meshv:mappedTo | Explain Me | Where Do I Come From?
-meshv:preferredMappedTo | Explain Me | Where Do I Come From?
+meshv:indexConsiderAlso | Coming Soon... | Coming Soon...
+meshv:mappedTo | Coming Soon... | Coming Soon...
+meshv:preferredMappedTo | Coming Soon... | Coming Soon...
 meshv:note | Free-text narrative giving information about the substance particularly its biological properties, but may include other information such as about the registryNumber. "structure" indicates that the structure of the chemical is given in the first Source. CUI C012211 example: growth inhibitor; RN given refers to ((L-Leu)-(S-(R*,S*)))-isomer; structure  |```Note```
 meshv:source | Citation reference string in which the SCR concept was first found. Single occurrence if SCR record created since 1980; frequency reports total citations indexed with the term in MEDLINE/PubMed. Possible multiple occurrences if SCR record created prior to 1980; term not found on those citations in MEDLINE/PubMed. Number of multiple Source occurrences need to be added to Frequency count for grand total of citations to articles discussing the SCR. CUI C012211 example: Prog Biochem Pharmacol 11:24;1976 |```Source```
 meshv:considerAlso | Free-text information that refers a user from a Descriptor to other terms which have related roots. DUI D006321 example: consider also terms at CARDI- and MYOCARDI- |```ConsiderAlso```
