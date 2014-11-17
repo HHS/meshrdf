@@ -6,8 +6,9 @@ categories:
 - Data Model
 ---
 
-[Semantic Types](http://www.nlm.nih.gov/research/umls/META3_current_semantic_types.html){: target="_blank"} are assigned to MeSH concepts to provide broad categorization.  In MeSH RDF, Semantic types are members of the class [meshv:SemanticType](http://id.nlm.nih.gov/mesh/describe?uri=http%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23SemanticType){:target="_blank"}.
-Examples of semantic types are 'Organ or Tissue Function', 'Gene or Genome', etc.
+[Semantic Types](http://www.nlm.nih.gov/research/umls/META3_current_semantic_types.html){: target="_blank"} are assigned to MeSH concepts, and provide a hierarchical framework for
+broad levels of categorization.  Examples of semantic types are 'Organ or Tissue Function', 'Gene or Genome', etc.  In MeSH RDF, Semantic types are members of the class [meshv:SemanticType](http://id.nlm.nih.gov/mesh/describe?uri=http%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23SemanticType){:target="_blank"}.
+
 
 ### meshv:SemanticType - Relations and Properties
 
