@@ -184,7 +184,15 @@ pre > code{
   width: 95% !important;
   margin-bottom:1em !important;
 
-} 
+}
+
+label input{
+
+background-color:#FFEEAA;
+border:solid 2px orange;
+margin-right:3em;
+  
+}
 
 #tabs {
   
