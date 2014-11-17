@@ -1,5 +1,5 @@
 ---
-title: Predicate Definitions
+title: Predicates
 layout: page
 resource: true
 categories:
@@ -45,8 +45,8 @@ meshv:related | A semantic relationship between two concepts, usually between th
 meshv:scopeNote | Free-text narrative giving the scope and meaning (definition) of a concept. DUI D019644 example: Replacement of the hip joint. |```ScopeNote```
 meshv:casn1_label | Free-text of the Chemical Abstracts Type N1 Name which is the systematic name used in the Chemical Abstracts Chemical Substance and Formula Indexes. The systematic name is a unique name assigned to a chemical substance to represent its structure. First available for Descriptors in 1995. DUI D000082 example: Acetamide, N-(4-hydroxyphenyl)-|```CASN1Name```
 meshv:allowableQualifier | A specific Qualifier allowed in combination with the Descriptor. DUI D000667 example: Q000627 |```AllowableQualifier/QualiferUI```
-meshv:hasDescriptor | Coming Soon... | Coming Soon...
-meshv:hasQualifier | Coming Soon... | Coming Soon...
+meshv:hasDescriptor | The DescriptorUI for a Descriptor-Qualifier pair. DUIQUI D015242Q000008 example: D015242 | ```DescriptorUI```
+meshv:hasQualifier | The QualifierUI for a Descriptor-Qualifier pair. DUIQUI D015242Q000008 example: Q000008 | ```AllowableQualifier/QualifierUI```
 meshv:pharmacologicalAction | Reference to a Descriptor describing observed biological activity of an exogenously administered chemical represented by a Descriptor or SCR. DUI D000082 example: D058633 |```PharmacologicalAction/DescriptorUI```
 meshv:previousIndexing | Free-text information referring to Descriptors or Descriptor/Qualifier combinations that were used to index the concept in MEDLINE before the Descriptor was created. Intended to enable users of new Descriptors to find similar concepts indexed before the Descriptor was created. Includes dates of the format (YYYY) for a single year or (YYYY-YYYY) for a range of years. May include descriptive text referring to a group of Descriptors as "specifics". Data are not maintained when a Descriptor or Qualifier name changes.  DUI D005290 example: Iron (1966-1974). Also used for SCRs to refer to the Heading Mapped-to to which the SCR was previously mapped. CUI C025735 example: ATROPINE/*analogs (81-86)|```PreviousIndexing```
 meshv:publicMeSHNote | Free-text information about the history of changes in the record that may be helpful to the user of the printed Index Medicus publication (ceased in 2005). This includes the date the record was created in MeSH, changes in the preferred term, earlier status as an SCR, etc. Unlike the History Note, MeSH terms reflect the MeSH vocabulary printed at that point in time, not as updated for online databases. In Descriptors, applies only to records having DescriptorClass value of 1. MeSH terms are in upper case. DUI D000082 example: 1965; for ACEPHEN see MECLOFENOXATE 1990-2002|```PublicMeSHNote```
@@ -55,7 +55,7 @@ meshv:relatedRegistryNumber | The same type of value as the Registry Number but 
 meshv:runningHead | For internal NLM processing only (archaic). |```RunningHead```
 meshv:seeAlso | Reference to a specific Descriptor to which a user is referred by a "see related" cross-reference. DUI D000009 example: D034861 | ```SeeRelatedDescriptor/DescriptorUI```
 meshv:thesaurusID | Name of a Thesaurus in which the term occurs, including NLM (=MeSH). Includes year. DUI D000009 example: NLM (1966) | ```ThesaurusID```
-meshv:useInstead | Descriptor or Descriptor/Qualifier combination recommended in place of the prohibited combination. DUI D006321 examples: | ```ECOUT```
+meshv:useInstead | Descriptor or Descriptor/Qualifier combination recommended in place of the prohibited combination. DUI D006321 examples: Heart/abnormalities use instead Heart Defects, Congenital | ```EntryCombination/ECOUT```
 meshv:altLabel | Coming Soon... | Coming Soon...
 meshv:frequency | Number of citations indexed with the SCR in MEDLINE/PubMed. Automatically updated monthly. CUI C012211 example: 745 |```Frequency```
 meshv:indexConsiderAlso | A Descriptor or Descriptor/Qualifier pair that is usually broader than the SCR, and which is suggested as an indexing guideline for addition to the citation if pertinent to the article being indexed. Represented by the unique identifier. CUI C017372 (lonazolac) example: D011448 | ```IndexingInformation```
