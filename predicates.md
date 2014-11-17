@@ -1,5 +1,5 @@
 ---
-title: Predicates
+title: Predicate Definitions
 layout: page
 resource: true
 categories:
