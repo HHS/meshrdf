@@ -7,7 +7,7 @@ categories:
 ---
 
 The table below lists MeSH RDF super classes and their subclasses according to the [MeSH OWL Schema](http://id.nlm.nih.gov/mesh/schema.owl){:target="_blank"}.
-Use inference when querying these superclasses.
+Use inference when querying these super classes.
 
 {:.data-table-standard .row-border .hover}
 Child Class | Predicate | Super Class
