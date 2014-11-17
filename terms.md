@@ -6,6 +6,10 @@ categories:
 - Data Model
 ---
 
+A term is a human readable name used by a MeSH Concept.  Within a MeSH concept, terms are strictly synonymous. In MeSH RDF, terms are members of the  class meshv:Term.
+Terms in MeSH often have lexical permutations, such as 'Abnormality, Congenital' as opposed to ['Congenital Abnormalities'](http://id.nlm.nih.gov/mesh/T000029.html).
+In MeSH RDF, terms have a property of 'prefLabel' and 'altLabel' to describe this lexical difference.
+
 
 {: .jump}
 &#91; jump to [term properties](#properties) or [term relations](#relations) &#93;
