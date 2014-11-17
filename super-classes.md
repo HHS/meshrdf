@@ -6,7 +6,8 @@ categories:
 - Cheat Sheets
 ---
 
-The table below lists MeSH RDF super classes and their subclasses (via the rdfs:subClassOf predicate).  Inference is required when querying these superclasses.
+The table below lists MeSH RDF super classes and their subclasses according to the [MeSH OWL Schema](http://id.nlm.nih.gov/mesh/schema.owl){:target="_blank"}.
+Use inference when querying these superclasses.
 
 {:.data-table-standard .row-border .hover}
 Child Class | Predicate | Super Class
