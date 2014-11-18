@@ -1,6 +1,13 @@
 <!-- responsive design header using bootstrap css framework -->
-<div class = "col-md-12 col-sm-8 col-xs-4 navbar navbar-header">
-    <a href="http://www.nlm.nih.gov"><img class= "nlm-logo img-responsive" alt="National Library of Medicine" src="images/nih_nlmlogo_webheader.png "></a>
-</div>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+         <a href="http://www.nlm.nih.gov"><img class= "nlm-logo img-responsive" alt="National Library of Medicine" src="images/nih_nlmlogo_webheader.png "></a>
+      </a>
+    </div>
+    {% include menu-responsive.html %}
+  </div>
+</nav>
 
 
