@@ -7,7 +7,7 @@ categories:
 ---
 The table below is a list of classes in MeSH RDF.
 
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Class Name | Parent Class | Definition | Equivalent XML Data Element
 ---------- | ---------- | ------------ | ---------------------------
 meshv:AllowedDescriptorQualifierPair  | meshv:DescriptorQualifierPair | A combined MeSH descriptor and qualifier, where the pairing is allowed by MeSH rules.  These URIs are a mash up of the descriptor and qualifier identifiers  (such as [D000236Q000235](http://id.nlm.nih.gov/mesh/D000236Q000235.html){:target="_blank"}). | EntryCombination/ECIN
