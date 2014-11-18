@@ -9,8 +9,8 @@ body {
 }
 
 .header {
-   background-color:#1F4D7A !important; 
-    
+   background-color:#1F4D7A; 
+   border-bottom:2px double #300018;
 }
 
 .nlm-logo{ 
@@ -24,6 +24,27 @@ padding:.5em;
     
 color:white;
     
+}
+
+.main-menu {
+    background-color: #80B0D1;
+    
+}
+
+.btn, .btn a{
+ color: #1F4D7A;
+    
+}
+
+.btn:hover {
+    
+    background-color:#FFDB73;
+}
+
+.dropdown-menu li a:hover{
+background-color:#FFDB73;
+box-shadow: -2px 0px 10px 1px #FFEBB2;
+
 }
 
 .husk{
@@ -44,8 +65,8 @@ h1 {
 .main-content {
     
   box-shadow: -2px 0px 10px 1px #777;
-  margin-top:1em;
-  padding:.5em 1em 2em 2em;
+  margin-top: .5em;
+  padding: 1em 1em 2em 2em;
   background-color:white;
     
 }
