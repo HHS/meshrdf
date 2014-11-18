@@ -1,6 +1,7 @@
 <div class = "btn-group navbar-btn navbar-left" role = "group">
 {% for cat in site.category-list %}
 <div class = "btn-group" role = "group">
+ <div class = "col-md-2 col-sm-2 col-xs-2 pull-left">
  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{cat}}<span class = "caret"/></button>    
   <ul class = "dropdown-menu" role = "menu">
    {% for page in site.pages %}
@@ -12,8 +13,8 @@
      {% endfor %}
     {% endif %}  
    {% endfor %}
-   
   </ul>
+  </div>
 </div>
 {% endfor %}
 <button type="button" class="btn btn-default" role = "button"><a href = "http://id.nlm.nih.gov/">Linked Data Home</a></button>
