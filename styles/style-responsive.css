@@ -10,10 +10,13 @@ body {
   
 }
 
+.header {
+   background-color:#1F4D7A !important; 
+    
+}
 
 .nlm-logo{ 
 
-background-color:#1F4D7A !important;
 padding:.5em;
 max-width:750px;
 
