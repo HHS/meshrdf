@@ -58,21 +58,17 @@
 
 <body>
 <div class="container-fluid husk">
-    <div class = "row">
+
 <!--header to hold banner + top navigation area -->
   {% include header-responsive.html %}
 <!-- // end header -->
-    </div>
+        
     <div class = "row">
-      <div class = "container-fluid col-md-2 col-sm-2 col-xs-2">
+      <div class = "container-fluid col-md-10 col-sm-10 col-xs-12 main-content">
         {% include menu-responsive.html %}
-      </div>
-      <div class = "container-fluid col-md-10 col-sm-10 col-xs-10 main-content">
         {{content}}
       </div>
     </div>
-<p>some content</p>
-
 <!-- footer area   -->
 <div class = "row-fluid footer">
   <div class = "span-10">

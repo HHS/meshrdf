@@ -8,6 +8,7 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/responsive/1.0.2/js/dataTables.responsive.min.js"></script>
     <script type='text/javascript' src='js/mesh-gh-pages.js'></script>
 
     <title>{{ page.title }}</title>
@@ -17,7 +18,7 @@
     <link href="styles/style.css" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <link href="//cdn.datatables.net/1.10.3/css/jquery.dataTables.css" rel="stylesheet">
-
+    <link href="//cdn.datatables.net/responsive/1.0.2/css/dataTables.responsive.css" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,16 +30,21 @@
          "paging":   false,
          "ordering": true,
          "info":     false,
-         "searching": false
+         "searching": false,
+         "responsive": true
           } );
       $('table.data-table-long').dataTable( {
         "paging":   true,
         "ordering": true,
         "info":     false,
-        "searching": true
+        "searching": true,
+        "responsive": true
           } );
+      
       //default to 25 rows for longer tables
       $('table.data-table-long').dataTable().api().page.len(25).draw();
+      
+      //initialize Jquery tabs
       $( "#tabs" ).tabs();
     });
 
