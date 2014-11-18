@@ -55,7 +55,7 @@ meshv:relatedRegistryNumber | The same type of value as the Registry Number but 
 meshv:runningHead | For internal NLM processing only (archaic). |```RunningHead```
 meshv:seeAlso | Reference to a specific Descriptor to which a user is referred by a "see related" cross-reference. Represented by the DescriptorUI. DUI D000009 example: D034861 | ```SeeRelatedDescriptor/DescriptorUI```
 meshv:thesaurusID | Name of a Thesaurus in which the term occurs, including NLM (=MeSH). Includes year. DUI D000009 example: NLM (1966) | ```ThesaurusID```
-meshv:useInstead | Descriptor or Descriptor/Qualifier combination recommended in place of the prohibited combination. DUI D006321 examples: Heart/abnormalities use instead Heart Defects, Congenital | ```EntryCombination/ECOUT```
+meshv:useInstead | Descriptor or Descriptor/Qualifier combination recommended in place of the prohibited combination. Represented by the unique identifier. Human readable example using lable from DUI D006321: Heart/abnormalities useIstead Heart Defects, Congenital DUI D006321 example: D006321Q000002 useInstead D006330 | ```EntryCombination/ECOUT```
 meshv:altLabel | An alternative string for the term. DUI D000001 example: A23187, Antibiotic | ```Term@ConceptPreferredTermYN="N"/String```
 meshv:frequency | Number of citations indexed with the SCR in MEDLINE/PubMed. Automatically updated monthly. CUI C012211 example: 745 |```Frequency```
 meshv:indexConsiderAlso | A Descriptor or Descriptor/Qualifier pair that is usually broader than the SCR, and which is suggested as an indexing guideline for addition to the citation if pertinent to the article being indexed. Represented by the unique identifier. CUI C017372 (lonazolac) example: D011448 | ```IndexingInformation```
