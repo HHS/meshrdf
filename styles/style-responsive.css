@@ -3,8 +3,6 @@
   padding: 0;
 }
 
-
-
 body {
   font-family: Verdana, Geneva, sans-serif !important;
   
@@ -47,7 +45,7 @@ h1 {
     
   box-shadow: -2px 0px 10px 1px #777;
   margin-top:1em;
-  padding:2em 1em 2em 2em;
+  padding:.5em 1em 2em 2em;
   background-color:white;
     
 }
