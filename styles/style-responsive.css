@@ -20,30 +20,29 @@ padding:.5em;
 
 }
 
-.top-nav a{
-    
-color:white;
-    
-}
-
 .main-menu {
     background-color: #80B0D1;
-    
+    border:none;
+    border-top:3px double #FFEBB2;
+   
 }
+
 
 .btn, .btn a{
  color: #1F4D7A;
-    
+ text-decoration: none;
 }
 
 .btn:hover {
     
     background-color:#FFDB73;
+    box-shadow: -1px 0px 10px 1px #FFEBB2;
 }
+
 
 .dropdown-menu li a:hover{
 background-color:#FFDB73;
-box-shadow: -2px 0px 10px 1px #FFEBB2;
+
 
 }
 
