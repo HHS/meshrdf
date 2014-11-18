@@ -6,19 +6,9 @@
 
 
 body {
-  font: large Arial, Helvetica, sans-serif;
-  max-width:1024px;
-  
+  font-family: Verdana, Geneva, sans-serif !important;
   
 }
-
-@media screen and (max-width: 480px) {
-     .btn {
-          font-size:small;
-
-     }
-}
-
 
 .navbar{ 
 
@@ -28,26 +18,49 @@ padding:0;
 
 }
 
-.logo {
+.nlm-logo {
     
-padding:0;
+    max-width:700px;
+}
 
+.husk{
+    
+    background:url(../images/husk.png) repeat;
+    padding:0em 2em 2em 2em;
+}
+
+h1, h2, h3, h4 {
+  color: #105981 !important;
+}
+
+h1 {
+    
+    text-align:center;
+}
+
+.main-content {
+    
+  box-shadow: -2px 0px 10px 1px #777;
+  margin-top:1em;
+  padding:2em 1em 2em 2em;
+  background-color:white;
+    
+}
+
+.ui-tabs .ui-tabs-nav li {
+   font-size:small;
+   width:auto;
+   height:3em;
+   padding:0em .5em 0em .5em;
 
 }
 
-.navbar-header{
+.data-table-standard, .data-table-long{
     
-    border:solid 1px red;
-    height:auto;
-    background-color:#1F4D7A;
+ font-size:.8em;   
 }
 
-.navbar-brand{
+.footer {
     
-    max-width:750px;
-}
-
-.row-fluid .navbar{
-    
-    margin-bottom:0px;
+    margin-top:1em;
 }
