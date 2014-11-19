@@ -29,7 +29,7 @@ Qualifiers each have tree numbers and are [hierarchically arranged](http://www.n
 {: #tabs-1}
 <div>
 
-{:.data-table-standard .row-border .hover }
+{:.data-table-standard .row-border .hover .table}
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:Qualifier | rdf:type | rdfs:Class
