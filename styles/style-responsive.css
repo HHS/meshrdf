@@ -30,6 +30,10 @@ body {
 
 }
 
+.rdf-graph{
+    
+    max-width:700px;
+}
 
 h1, h2, h3, h4 {
   color: #105981 !important;
@@ -75,8 +79,14 @@ width:inherit !important;
     
 }
 
+label input{
 
-.footer {
-    
+background-color:#FFEEAA;
+border:solid 2px orange;
+  
+}
+
+
+.footer { 
     margin-top:1em;
 }
