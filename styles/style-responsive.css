@@ -68,7 +68,8 @@ h1 {
 
 .data-table-standard, .data-table-long{
     
- font-size:.8em;   
+ font-size:.8em;
+ width:inherit;
 }
 
 .footer {
