@@ -34,9 +34,10 @@
          $('table.data-table-standard').dataTable( {
          "paging":   false,
          "ordering": true,
-         "info":     false,
-         "searching": false,
-         "bAutoWidth": true
+        "searching": true,
+        "bAutoWidth": true,
+        "responsive": true,
+        "bScrollX": "100%"
           } );
          
        $('table.data-table-long').dataTable( {
@@ -45,7 +46,8 @@
         "info":     false,
         "searching": true,
         "bAutoWidth": true,
-        "responsive": true
+        "responsive": true,
+        "bScrollX": "100%"
 
           } );
       
