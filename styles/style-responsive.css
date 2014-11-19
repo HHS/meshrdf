@@ -7,7 +7,6 @@ body {
    background-color:#134181; 
 }
 
-
 .main-menu {
     border:none;
     border-top: solid 2px #4F88D9;
@@ -22,21 +21,16 @@ body {
  text-decoration: none;
 }
 
-
 .dropdown-menu li a:hover{
   
   color:#DE4319;
 
-
-}
-
-img.rdf-graph.img-responsive{
-    
-    max-width:700px;
 }
 
 h1, h2, h3, h4 {
+    
   color: #105981 !important;
+  
 }
 
 h1 {
