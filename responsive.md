@@ -1,5 +1,5 @@
 ---
-title: Descriptors
+title: Responsive Design Mockup
 layout: page-responsive
 resource: true
 categories:
