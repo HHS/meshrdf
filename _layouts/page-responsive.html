@@ -35,8 +35,9 @@
          //"paging":   false,
          "ordering": true,
        // "searching": true,
-         "autowidth": true,
          "responsive": true,
+         "scrollX":true,
+         "scrollCollapse":true,
          "pageLength":25
          
           } );
@@ -46,11 +47,15 @@
         "ordering": true,
         "info":     false,
         //"searching": true,
-         "autowidth": true,
+         "scrollX":true,
          "responsive": true,
+         "scrollCollapse":true,
          "pageLength":25
 
           } );
+      
+      //default to 25 rows for longer tables
+      //('table.data-table-long').dataTable().api().page.len(25).draw();
       
       //initialize Jquery tabs
 
