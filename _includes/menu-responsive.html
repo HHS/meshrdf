@@ -30,7 +30,7 @@
 <div class = "btn-group navbar-btn visible-xs visible-sm" role = "group">
 {% for cat in site.category-list %}
 <div class = "btn-group" role = "group">
- <button type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{cat}}<span class = "caret"/></button>    
+ <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{cat}}<span class = "caret"/></button>    
   <ul class = "dropdown-menu" role = "menu">
    {% for page in site.pages %}
     {% if page.resource == true %}
@@ -45,7 +45,7 @@
 </div>
 {% endfor %}
 <div class = "btn-group" role = "group">
- <button type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Linked Data Links<span class = "caret"/></button>    
+ <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Linked Data Links<span class = "caret"/></button>    
   <ul class = "dropdown-menu" role = "menu">
     <li><a href = "http://id.nlm.nih.gov/">Linked Data Home</a></li>
     <li><a href = "http://id.nlm.nih.gov/mesh/sparql">SPARQL Endpoint</a></li>
