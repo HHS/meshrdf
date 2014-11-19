@@ -30,7 +30,7 @@ body {
 
 }
 
-.main-content .img-responsive{
+img.rdf-graph.img-responsive{
     
     max-width:700px;
 }
