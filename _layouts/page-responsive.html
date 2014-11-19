@@ -32,11 +32,12 @@
         $( "#tabs" ).tabs();
         
          $('table.data-table-standard').dataTable( {
-         "paging":   false,
+         //"paging":   false,
          "ordering": true,
        // "searching": true,
-         "scrollX":true,
-         "responsive": true
+         "autowidth": true,
+         "responsive": true,
+         "pageLength":25
          
           } );
          
@@ -45,13 +46,11 @@
         "ordering": true,
         "info":     false,
         //"searching": true,
-         "scrollX":true,
-         "responsive": true
+         "autowidth": true,
+         "responsive": true,
+         "pageLength":25
 
           } );
-      
-      //default to 25 rows for longer tables
-      $('table.data-table-long').dataTable().api().page.len(25).draw();
       
       //initialize Jquery tabs
 
