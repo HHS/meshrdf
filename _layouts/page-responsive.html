@@ -34,20 +34,21 @@
          $('table.data-table-standard').dataTable( {
          "paging":   false,
          "ordering": true,
-        "searching": true,
-        "bAutoWidth": true,
-        "responsive": true,
-        "bScrollX": "100%"
+       // "searching": true,
+         "bAutoWidth": true,
+         "responsive": true,
+        "sScrollX": "100%",
+        "sScrollXInner": "110%"
           } );
          
        $('table.data-table-long').dataTable( {
         "paging":   true,
         "ordering": true,
         "info":     false,
-        "searching": true,
+        //"searching": true,
         "bAutoWidth": true,
         "responsive": true,
-        "bScrollX": "100%"
+       // "scrollY": "100%",
 
           } );
       
