@@ -32,24 +32,20 @@
         $( "#tabs" ).tabs();
         
          $('table.data-table-standard').dataTable( {
-         //"paging":   false,
+         "paging":   false,
          "ordering": true,
-       // "searching": true,
+         "searching": true,
          "responsive": true,
-         "scrollX":true,
-         "scrollCollapse":true,
-         "pageLength":25
          
           } );
          
        $('table.data-table-long').dataTable( {
-        //"paging":   true,
-        "ordering": true,
-        "info":     false,
-        //"searching": true,
-         "scrollX":true,
+         "paging":   true,
+         "ordering": true,
+         "info":     false,
+         "searching": true,
          "responsive": true,
-         "scrollCollapse":true,
+         "scrollX":true,
          "pageLength":25
 
           } );

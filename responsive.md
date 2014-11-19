@@ -153,7 +153,7 @@ This table includes all the sub-classes of the meshv:Descriptor class as either 
 {: #tabs-1}
 <div>
 
-{:.data-table-long .row-border .hover}
+{:.data-table-long .row-border .hover .table}
 Subject | Predicate | Object
 ------- | --------- | --------
 meshv:CheckTag | meshv:preferredConcept | meshv:Concept
@@ -206,7 +206,7 @@ meshv:TopicalDescriptor | meshv:treeNumber | meshv:TreeNumber
 {: #tabs-2}
 <div>
 
-{:.data-table-long .row-border .hover}
+{:.data-table-long .row-border .hover .table}
 Subject | Predicate | Object
 ------- | --------- | --------
 meshv:AllowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:Descriptor
@@ -279,7 +279,7 @@ meshv:TopicalDescriptor | meshv:seeAlso | meshv:TopicalDescriptor
 
 {: #tabs-3}
 <div>
-{:.data-table-long .row-border .hover}
+{:.data-table-long .row-border .hover .table}
 Subject | Predicate
 ------- | ---------
 meshv:CheckTag | meshv:activeMeSHYear

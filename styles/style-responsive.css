@@ -1,8 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: Verdana, Geneva, sans-serif !important;
   background:url(../images/husk.png) repeat;
@@ -18,8 +13,6 @@ body {
     border-top: solid 2px #4F88D9;
     border-bottom:solid 2px #4F88D9;
     background-color:#001818;
-    
-    /*background: linear-gradient(to bottom, #134181, #4F88D9);*/
     border-radius: 0 !important;
 }
 
@@ -45,7 +38,7 @@ h1, h2, h3, h4 {
 h1 {
     
     text-align:left;
-    margin-left: 1.5em;
+    margin-left: 1.0em;
 }
 
 .main-content {
@@ -69,8 +62,19 @@ h1 {
 .data-table-standard, .data-table-long{
     
  font-size:.8em;
- width:inherit;
+
 }
+
+table.dataTable th, table.dataTable {
+width:inherit !important;
+    
+}
+
+.dataTables_scrollHeadInner{
+width:inherit !important;   
+    
+}
+
 
 .footer {
     
