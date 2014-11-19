@@ -34,14 +34,16 @@
          "ordering": true,
          "info":     false,
          "searching": false,
-         "responsive": false
+         "responsive": false,
+         "sScrollX": "100%"
           } );
       $('table.data-table-long').dataTable( {
         "paging":   true,
         "ordering": true,
         "info":     false,
         "searching": true,
-        "responsive": true
+        "responsive": true,
+        "sScrollX": "100%"
           } );
       
       //default to 25 rows for longer tables
@@ -67,12 +69,12 @@
           </div>
     </div>
     <div class = "row">
-        <div class = "container-fluid">
+        <div class = "container-fluid col-md-10 col-sm-10 col-xs-12">
              <h1>MeSH Linked Data (beta) Technical Documentation</h1>
         </div>
     </div>
     <div class = "row">
-      <div class = "container-fluid col-md-10 col-sm-10 col-xs-12 main-content">
+      <div class = "container-fluid col-md-10 col-sm-10 col-xs-10 main-content">
         <h2>{{page.title}}</h2>
         {{content}}
       </div>
