@@ -29,29 +29,30 @@
     <script type = 'text/javascript'>
     // there two classes of data tables.  data-table-standard (no paging) and data-table-long (includes paging)
     $(document).ready(function() {
+        $( "#tabs" ).tabs();
+        
          $('table.data-table-standard').dataTable( {
          "paging":   false,
          "ordering": true,
          "info":     false,
          "searching": false,
-         "responsive": false,
-         "sScrollX": "100%"
+         "bAutoWidth": true
           } );
-      $('table.data-table-long').dataTable( {
+         
+       $('table.data-table-long').dataTable( {
         "paging":   true,
         "ordering": true,
         "info":     false,
         "searching": true,
-        "responsive": true,
-        "sScrollX": "100%"
+        "bAutoWidth": true
+
           } );
       
       //default to 25 rows for longer tables
       $('table.data-table-long').dataTable().api().page.len(25).draw();
       
       //initialize Jquery tabs
-      $( "#tabs" ).tabs();
-      
+
       $('.dropdown-toggle').dropdown();
     });
 
