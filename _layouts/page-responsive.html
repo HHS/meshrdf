@@ -57,23 +57,25 @@
   </head>
 
 <body>
-<div class="container-fluid husk">
+<div class="container-fluid husk col-md-10">
 
 <!--header to hold banner + top navigation area -->
   {% include header-responsive.html %}
 <!-- // end header -->
     <div class = "row">
           <div class = "container-fluid main-menu navbar navbar-default">
-          {% include menu-responsive.html %}
+          {% include menu-responsive.html %} 
           </div>
+          <h1>MeSH Linked Data (beta) Technical Documentation</h1>
     </div>
     <div class = "row">
-      <div class = "container-fluid col-md-10 col-sm-10 col-xs-11 main-content">
+      <div class = "container-fluid col-md-12 col-sm-10 col-xs-11 main-content">
+        <h2>{{page.title}}</h2>
         {{content}}
       </div>
     </div>
 <!-- footer area   -->
-<div class = "row-fluid footer">
+<div class = "container-fluid footer">
   <div class = "span-10">
     {% include footer.html %}
   </div>

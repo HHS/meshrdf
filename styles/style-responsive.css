@@ -4,53 +4,42 @@
 }
 
 body {
-  font-family: Verdana, Geneva, sans-serif !important;
-  
+  font: large Arial, Helvetica, sans-serif;
+  margin-left:4em;
+  margin-top:1em;
+  background:url(../images/husk.png) repeat;
 }
 
 .header {
-   background-color:#1F4D7A; 
-   border-bottom:2px double #300018;
+   background-color:#134181; 
 }
 
-.nlm-logo{ 
-
-padding:.5em;
-
-
-}
 
 .main-menu {
-    background-color: #80B0D1;
     border:none;
-    border-top:3px double #FFEBB2;
-   
+    background-color:#4F88D9;
+    background: linear-gradient(to bottom, #134181, #4F88D9);
+    border-radius: 0 !important;
 }
-
 
 .btn, .btn a{
  color: #1F4D7A;
  text-decoration: none;
 }
 
-.btn:hover {
+.btn-default:hover{
     
-    background-color:#FFDB73;
-    box-shadow: -1px 0px 10px 1px #FFEBB2;
+    color:#DE4319;
+    
 }
-
 
 .dropdown-menu li a:hover{
-background-color:#FFDB73;
+  
+  color:#DE4319;
 
 
 }
 
-.husk{
-    
-    background:url(../images/husk.png) repeat;
-    padding:0em 2em 2em 2em;
-}
 
 h1, h2, h3, h4 {
   color: #105981 !important;
@@ -58,7 +47,7 @@ h1, h2, h3, h4 {
 
 h1 {
     
-    text-align:center;
+    text-align:left;
 }
 
 .main-content {
