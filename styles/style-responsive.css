@@ -4,9 +4,7 @@
 }
 
 body {
-  font: large Arial, Helvetica, sans-serif;
-  margin-left:4em;
-  margin-top:1em;
+  font: large Georgia  !important;
   background:url(../images/husk.png) repeat;
 }
 
@@ -48,13 +46,15 @@ h1, h2, h3, h4 {
 h1 {
     
     text-align:left;
+    margin-left: 1.5em;
 }
 
 .main-content {
     
   box-shadow: -2px 0px 10px 1px #777;
+  margin-left:3em;
   margin-top: .5em;
-  padding: 1em 1em 2em 2em;
+  padding: 1em 2em 2em 2em;
   background-color:white;
     
 }
