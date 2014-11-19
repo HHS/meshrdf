@@ -4,7 +4,7 @@
 }
 
 body {
-  font: large Georgia  !important;
+  font: large Calibri sans-serif  !important;
   background:url(../images/husk.png) repeat;
 }
 
@@ -15,21 +15,20 @@ body {
 
 .main-menu {
     border:none;
-    background-color:#4F88D9;
-    background: linear-gradient(to bottom, #134181, #4F88D9);
+    border-top: solid 2px #4F88D9;
+    border-bottom:solid 2px #4F88D9;
+    background-color:#001818;
+    
+    /*background: linear-gradient(to bottom, #134181, #4F88D9);*/
     border-radius: 0 !important;
 }
 
-.btn, .btn a{
- color: #1F4D7A;
+.btn:hover, .btn:active{
+ background-color: #F06018;
+ color:white;
  text-decoration: none;
 }
 
-.btn-default:hover{
-    
-    color:#DE4319;
-    
-}
 
 .dropdown-menu li a:hover{
   
