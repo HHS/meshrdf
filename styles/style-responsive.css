@@ -4,7 +4,7 @@
 }
 
 body {
-  font: large Calibri sans-serif  !important;
+  font-family: Verdana, Geneva, sans-serif !important;
   background:url(../images/husk.png) repeat;
 }
 

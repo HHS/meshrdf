@@ -1,7 +1,7 @@
-<div class = "btn-group navbar-btn" role = "group">
+<div class = "btn-group navbar-btn visible-lg visible-md" role = "group">
 {% for cat in site.category-list %}
 <div class = "btn-group" role = "group">
- <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{cat}}<span class = "caret"/></button>    
+ <button type="button" class="btn btn-md dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{cat}}<span class = "caret"/></button>    
   <ul class = "dropdown-menu" role = "menu">
    {% for page in site.pages %}
     {% if page.resource == true %}
@@ -16,7 +16,7 @@
 </div>
 {% endfor %}
 <div class = "btn-group" role = "group">
- <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Linked Data Links<span class = "caret"/></button>    
+ <button type="button" class="btn btn-md dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Linked Data Links<span class = "caret"/></button>    
   <ul class = "dropdown-menu" role = "menu">
     <li><a href = "http://id.nlm.nih.gov/">Linked Data Home</a></li>
     <li><a href = "http://id.nlm.nih.gov/mesh/sparql">SPARQL Endpoint</a></li>
@@ -24,9 +24,33 @@
     <li><a href = "http://apps.nlm.nih.gov/mainweb/siebel/nlm/index.cfm">Support</a></li>   
   </ul>
 </div>
-<!--
-<button type="button" class="btn btn-default" role = "button"><a href = "http://id.nlm.nih.gov/">Linked Data Home</a></button>
-<button type="button" class="btn btn-default"><a href = "http://id.nlm.nih.gov/mesh/sparql">SPARQL Endpoint</a></button>
-<button type="button" class="btn btn-default"><a href = "http://apps.nlm.nih.gov/mainweb/siebel/nlm/index.cfm">Contact NLM</a></button>
--->
+</div>
+
+
+<div class = "btn-group navbar-btn visible-xs visible-sm" role = "group">
+{% for cat in site.category-list %}
+<div class = "btn-group" role = "group">
+ <button type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{cat}}<span class = "caret"/></button>    
+  <ul class = "dropdown-menu" role = "menu">
+   {% for page in site.pages %}
+    {% if page.resource == true %}
+     {% for pc in page.categories %}
+      {% if pc == cat %}
+      <li><a href="{{site.baseurl}}{{ page.url }}">{{ page.title }}</a></li>
+      {% endif %}
+     {% endfor %}
+    {% endif %}  
+   {% endfor %}
+  </ul>
+</div>
+{% endfor %}
+<div class = "btn-group" role = "group">
+ <button type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Linked Data Links<span class = "caret"/></button>    
+  <ul class = "dropdown-menu" role = "menu">
+    <li><a href = "http://id.nlm.nih.gov/">Linked Data Home</a></li>
+    <li><a href = "http://id.nlm.nih.gov/mesh/sparql">SPARQL Endpoint</a></li>
+    <li><a href = "http://github.com/hhs/meshrdf">Github Project</a></li>
+    <li><a href = "http://apps.nlm.nih.gov/mainweb/siebel/nlm/index.cfm">Support</a></li>   
+  </ul>
+</div>
 </div>
