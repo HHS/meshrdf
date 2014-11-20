@@ -1,6 +1,6 @@
 ---
 title: Supplementary Concept Records
-layout: page
+layout: page-responsive
 resource: true
 categories:
 - Data Model
@@ -17,7 +17,7 @@ represented by the super class meshv:SupplementaryConceptRecord, which has three
 
 ### RDF Graph Diagram
 
-![Qualifier RDF Graph Diagram](images/SCRs.png){: class="rdf-graph"}
+![Qualifier RDF Graph Diagram](images/SCRs.png){: class="rdf-graph img-responsive"}
 
 ### meshv:SupplementaryConceptRecord - Relations and Properties
 
@@ -33,7 +33,7 @@ represented by the super class meshv:SupplementaryConceptRecord, which has three
 {: #tabs-1}
 <div>
 
-{:.data-table-standard .row-border .hover }
+{:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:SCR_Chemical | meshv:concept | meshv:Concept
@@ -102,7 +102,7 @@ meshv:SupplementaryConceptRecord | meshv:recordPreferredTerm | meshv:Term
 {: #tabs-2}
 <div>
 
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
 N/A | N/A | N/A
@@ -111,7 +111,7 @@ N/A | N/A | N/A
 
 {: #tabs-3}
 <div>
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
 meshv:SCR_Chemical | meshv:activeMeSHYear

@@ -1,6 +1,6 @@
 ---
 title: Terms
-layout: page
+layout: page-responsive
 resource: true
 categories:
 - Data Model
@@ -16,7 +16,7 @@ In MeSH RDF, terms have a property of 'prefLabel' and 'altLabel' to describe thi
 
 ### <a name = "properties"/>RDF Graph Model - Term Properties
 
-![](images/TermModel.png){: class="rdf-graph"}
+![](images/TermModel.png){: class="rdf-graph img-responsive"}
 
 
 ### SPARQL - Term Properties
@@ -222,7 +222,7 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
 {: #tabs-1}
 <div>
 
-{:.data-table-standard .row-border .hover }
+{:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
 N/A | N/A | N/A 
@@ -232,7 +232,7 @@ N/A | N/A | N/A
 {: #tabs-2}
 <div>
 
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:CheckTag | meshv:recordPreferredTerm | meshv:Term
@@ -252,7 +252,7 @@ meshv:TopicalDescriptor | meshv:recordPreferredTerm | meshv:Term
 
 {: #tabs-3}
 <div>
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
 meshv:Term | meshv:abbreviation
@@ -274,7 +274,7 @@ meshv:Term | rdfs:label
 
 Depicted in these graphs:
 
-![](images/TermModel-2.png){: class="rdf-graph"}
+![](images/TermModel-2.png){: class="rdf-graph img-responsive"}
 
 ### SPARQL - Term Relations
 

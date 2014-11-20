@@ -1,6 +1,6 @@
 ---
 title: Descriptors
-layout: page
+layout: page-responsive
 resource: true
 categories:
 - Data Model
@@ -26,13 +26,13 @@ In MeSH RDF, the subclasses of meshv:Descriptor are:
 *  meshv:GeographicalDescriptor
 
 
-The chart below displays the properties of the meshv:TopicalDescriptor D015242, 'Oflaxacin'.
+The chart below displays the properties of the meshv:TopicalDescriptor D015242, 'Ofloxacin'.
 
 ###<a name = "properties"/>RDF Graph Diagram - Descriptor Properties
 
 The following RDF graph diagram shows a fairly typical topical descriptor (D015242, Ofloxacin) and its literals. For reference, see [Ofloxacin in the MeSH browser](https://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?term=ofloxacin). The data elements featured here have literal strings as objects, not identifiers.
 
-![Descriptor RDF Graph Diagram](images/BasicConversionLiterals.png){: class="rdf-graph"}
+![Descriptor RDF Graph Diagram](images/BasicConversionLiterals.png){: class="rdf-graph img-responsive"}
 
 ###SPARQL - Descriptor Properties
 
@@ -360,7 +360,7 @@ meshv:TopicalDescriptor | rdfs:label
 
 The graph below depicts the relations of Ofloxacin to other classes.
 
-![Descriptor References RDF Graph Diagram](images/DescriptorRefs.png){: class="rdf-graph"}
+![Descriptor References RDF Graph Diagram](images/DescriptorRefs.png){: class="rdf-graph img-responsive"}
 
 ###SPARQL - Descriptor Relations
 

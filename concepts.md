@@ -1,6 +1,6 @@
 ---
 title: Concepts
-layout: page
+layout: page-responsive
 resource: true
 categories:
 - Data Model
@@ -14,7 +14,7 @@ The diagram below illustrates the relations and properties of meshv:Concept clas
 
 ### RDF Graph Diagram
 
-![Concept RDF Graph Diagram](images/Concepts.png){: class="rdf-graph"}
+![Concept RDF Graph Diagram](images/Concepts.png){: class="rdf-graph img-responsive"}
 
 ### meshv:Concept - Relations and Properties
 
@@ -30,7 +30,7 @@ The diagram below illustrates the relations and properties of meshv:Concept clas
 {: #tabs-1}
 <div>
 
-{:.data-table-standard .row-border .hover }
+{:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:Concept | meshv:broader | meshv:Concept
@@ -45,7 +45,7 @@ meshv:Concept | meshv:semanticType | meshv:SemanticType
 {: #tabs-2}
 <div>
 
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:CheckTag | meshv:preferredConcept | meshv:Concept
@@ -75,7 +75,7 @@ meshv:TopicalDescriptor | meshv:preferredConcept | meshv:Concept
 
 {: #tabs-3}
 <div>
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
 meshv:Concept | meshv:casn1_label

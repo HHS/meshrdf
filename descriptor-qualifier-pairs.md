@@ -1,6 +1,6 @@
 ---
 title: Descriptor-Qualifier Pairs
-layout: page
+layout: page-responsive
 resource: true
 categories:
 - Data Model
@@ -23,7 +23,7 @@ In MeSH RDF, the subclasses of meshv:DescriptorQualifierPairs are:
 
 The following RDF graph diagram shows how descriptor-qualifier pairs are modeled. Note that the pairing (D015242Q000008, Ofloxacin/administration &amp; dosage) is an instance of the class, meshv:AllowedDescriptorQualifierPair. Relationships between the descriptor-qualifier pair and its respective descriptor and qualifier are explicitly defined.
 
-![Descriptor Qualifier Pair RDF Graph Diagram](images/DQPair.png){: class="rdf-graph"}
+![Descriptor Qualifier Pair RDF Graph Diagram](images/DQPair.png){: class="rdf-graph img-responsive"}
 
 
 ### meshv:DescriptorQualifierPairs - Relations and Properties
@@ -40,7 +40,7 @@ This table includes all the sub-classes of the meshv:DescriptorQualifierPairs cl
 {: #tabs-1}
 <div>
 
-{:.data-table-standard .row-border .hover }
+{:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:AllowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:Descriptor
@@ -68,7 +68,7 @@ meshv:DisallowedDescriptorQualifierPair | meshv:useInstead | meshv:TopicalDescri
 {: #tabs-2}
 <div>
 
-{:.data-table-standard .row-border .hover }
+{:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:DescriptorQualifierPair | meshv:useInstead | meshv:AllowedDescriptorQualifierPair
@@ -178,7 +178,7 @@ The following shows how EntryCombinations (see the [MeSH documentation](http://w
 
 Depicted in this graph:
 
-![Entry Combinations RDF Graph Diagram](images/EntryCombinations.png){: class="rdf-graph"}
+![Entry Combinations RDF Graph Diagram](images/EntryCombinations.png){: class="rdf-graph img-responsive"}
 
 ###SPARQL
 

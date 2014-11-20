@@ -1,6 +1,6 @@
 ---
 title: Predicate Definitions
-layout: page
+layout: page-responsive
 resource: true
 categories:
 - Cheat Sheets

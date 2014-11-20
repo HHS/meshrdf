@@ -1,6 +1,6 @@
 ---
 title: REST URL Examples
-layout: page
+layout: page-responsive
 resource: true
 categories:
 - Cheat Sheets
@@ -11,7 +11,7 @@ Users can also append the format to the end of the URL (e.g. D000900.html) to sp
 
 All URLs assume the prefix http://id.nlm.nih.gov/
 
-{:.data-table-standard .row-border .hover }
+{:.data-table-long .row-border .hover }
 URL | Accept Header | Return Format
 ------- | --------- | -------
 mesh/D000900 | text/html | html

@@ -1,6 +1,6 @@
 ---
 title: Super Classes
-layout: page
+layout: page-responsive
 resource: true
 categories:
 - Cheat Sheets
@@ -9,7 +9,7 @@ categories:
 The table below lists MeSH RDF super classes and their subclasses according to the [MeSH OWL Schema](http://id.nlm.nih.gov/mesh/schema.owl){:target="_blank"}.
 Use inference when querying these super classes.
 
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Child Class | Predicate | Super Class
 ------- | --------- | -------
 meshv:AllowedDescriptorQualifierPair | rdfs:subClassOf | meshv:DescriptorQualifierPair

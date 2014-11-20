@@ -1,6 +1,6 @@
 ---
 title: Qualifiers
-layout: page
+layout: page-responsive
 resource: true
 categories:
 - Data Model
@@ -13,7 +13,7 @@ Qualifiers each have tree numbers and are [hierarchically arranged](http://www.n
 
 ### RDF Graph Diagram
 
-![Qualifier RDF Graph Diagram](images/Qualifiers.png){: class="rdf-graph"}
+![Qualifier RDF Graph Diagram](images/Qualifiers.png){: class="rdf-graph img-responsive"}
 
 ### meshv:Qualifier - Relations and Properties
 
@@ -29,7 +29,7 @@ Qualifiers each have tree numbers and are [hierarchically arranged](http://www.n
 {: #tabs-1}
 <div>
 
-{:.data-table-standard .row-border .hover }
+{:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:Qualifier | meshv:allowedTreeNode | meshv:TreeNumber
@@ -44,7 +44,7 @@ meshv:Qualifier | meshv:treeNumber | meshv:TreeNumber
 {: #tabs-2}
 <div>
 
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:AllowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
@@ -58,7 +58,7 @@ meshv:TopicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
 
 {: #tabs-3}
 <div>
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
 meshv:Qualifier | meshv:activeMeSHYear

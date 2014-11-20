@@ -1,6 +1,6 @@
 ---
 title: Semantic Types
-layout: page
+layout: page-responsive
 resource: true
 categories:
 - Data Model
@@ -24,7 +24,7 @@ broad levels of categorization.  Examples of semantic types are 'Organ or Tissue
 {: #tabs-1}
 <div>
 
-{:.data-table-standard .row-border .hover }
+{:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
 N/A | N/A | N/A 
@@ -34,7 +34,7 @@ N/A | N/A | N/A
 {: #tabs-2}
 <div>
 
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:Concept | meshv:semanticType | meshv:SemanticType
@@ -43,7 +43,7 @@ meshv:Concept | meshv:semanticType | meshv:SemanticType
 
 {: #tabs-3}
 <div>
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
 meshv:SemanticType | rdfs:label

@@ -1,6 +1,6 @@
 ---
 title: All Class-Predicate-Class
-layout: page
+layout: page-responsive
 resource: true
 categories:
 - Cheat Sheets

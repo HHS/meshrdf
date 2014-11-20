@@ -1,6 +1,6 @@
 ---
 title: Tree Numbers
-layout: page
+layout: page-responsive
 resource: true
 categories:
 - Data Model
@@ -17,13 +17,13 @@ examples).  More information about MeSH Tree Numbers is available in the [MeSH d
 
 In this particular example, 'Eye' belongs to both the 'Body Regions' tree (A01) and the 'Sense Organs' tree (A09).
 
-![Tree Numbers Produce Overlapping Hierarchies](images/BroaderRelations.png){: class="rdf-graph"}
+![Tree Numbers Produce Overlapping Hierarchies](images/BroaderRelations.png){: class="rdf-graph img-responsive"}
 
 To account for the fact that MeSH Descriptors can belong to multiple trees, MeSH RDF represents tree numbers a proper class called meshv:TreeNumber.
 As mentioned earlier, users can leverage the meshv:broaderTransitive+ to subsumptively 'explode' up and down the trees to which MeSH descriptors belong.
 For example, <span class = "invoke-sparql">this query</span> retrieves all ancestors of 'Eyebrow' (in both of its trees).
 
-{::comment} This graph needs edited to get updated predicates ![Tree Numbers RDF Graph Model](images/BroaderRelationsWithTreeNodes.png){: class="rdf-graph"}{:/comment}
+{::comment} This graph needs edited to get updated predicates ![Tree Numbers RDF Graph Model](images/BroaderRelationsWithTreeNodes.png){: class="rdf-graph img-responsive"}{:/comment}
 
 
 ```sparql
@@ -58,7 +58,7 @@ ORDER BY ?treeNode ?ancestorTreeNode
 {: #tabs-1}
 <div>
 
-{:.data-table-standard .row-border .hover }
+{:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:TreeNumber | meshv:broaderTransitive | meshv:TreeNumber
@@ -68,7 +68,7 @@ meshv:TreeNumber | meshv:broaderTransitive | meshv:TreeNumber
 {: #tabs-2}
 <div>
 
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
 meshv:Descriptor | meshv:treeNumber | meshv:TreeNumber
@@ -83,7 +83,7 @@ meshv:TreeNumber | meshv:broaderTransitive | meshv:TreeNumber
 
 {: #tabs-3}
 <div>
-{:.data-table-standard .row-border .hover}
+{:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
 meshv:TreeNumber | rdfs:label
