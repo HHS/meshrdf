@@ -42,7 +42,14 @@ h1 {
     
     text-align:left;
     margin-left: 1.0em;
+
 }
+
+.breadcrumb li {
+  
+  color:#FD5600 !important;
+}
+
 
 .main-content {
     
@@ -76,6 +83,16 @@ width:inherit !important;
 .dataTables_scrollHeadInner{
 width:inherit !important;   
     
+}
+
+.sample-queries {
+  margin-top:1em;
+  margin-bottom:1em;
+  padding: .5em;
+  max-width:80%;
+  border:dashed 1px #ccc;
+  background:url(../images/paper_fibers.png) repeat;
+  
 }
 
 label input{
