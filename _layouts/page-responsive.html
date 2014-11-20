@@ -75,6 +75,12 @@
     </div>
     <div class = "row">
       <div class = "container-fluid col-md-10 col-sm-10 col-xs-10 main-content">
+        <div class = "container-fluid navbar pull-right">
+        <ol class = "breadcrumb">
+        <li><a href = "index.html">Documentation Home</a></li>
+        <li class = "active">{{page.title}}</li>
+        </ol>
+        </div>
         <h2>{{page.title}}</h2>
         {{content}}
       </div>
@@ -85,7 +91,7 @@
     {% include footer.html %}
 </div>
 </div>
-  <!-- //end footer -->
+<!-- //end footer -->
   
 </div>
 </body>
