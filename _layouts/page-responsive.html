@@ -34,9 +34,8 @@
          $('table.data-table-standard').dataTable( {
          "paging":   false,
          "ordering": true,
-         "searching": true,
-         "responsive": true,
-         
+         "searching": false,
+         "responsive":true
           } );
          
        $('table.data-table-long').dataTable( {
@@ -68,6 +67,12 @@
           {% include menu-responsive.html %} 
           </div>
     </div>
+<!-- breadcrumbs-->
+    <ol class = "breadcrumb col-md-6 col-sm-6 col-xs-10">
+        <li><a href = "index.html">Documentation Home</a></li>
+        <li class = "active">{{page.title}}</li>
+    </ol>
+<!-- //end breadcrumbs -->
     <div class = "row">
         <div class = "container-fluid col-md-10 col-sm-10 col-xs-12">
              <h1>MeSH Linked Data (beta) Technical Documentation</h1>
@@ -75,12 +80,6 @@
     </div>
     <div class = "row">
       <div class = "container-fluid col-md-10 col-sm-10 col-xs-10 main-content">
-        <div class = "container-fluid navbar pull-right">
-        <ol class = "breadcrumb">
-        <li><a href = "index.html">Documentation Home</a></li>
-        <li class = "active">{{page.title}}</li>
-        </ol>
-        </div>
         <h2>{{page.title}}</h2>
         {{content}}
       </div>

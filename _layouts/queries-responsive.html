@@ -63,23 +63,23 @@
   {% include header-responsive.html %}
 <!-- // end header -->
 <div class = "row">
-          <div class = "container-fluid main-menu navbar navbar-default">
-          {% include menu-responsive.html %} 
-          </div>
+    <div class = "container-fluid main-menu navbar navbar-default">
+    {% include menu-responsive.html %} 
+    </div>
 </div>
+<!-- breadcrumbs-->
+      <ol class = "breadcrumb col-md-6 col-sm-6 col-xs-10">
+        <li><a href = "index.html">Documentation Home</a></li>
+        <li class = "active">{{page.title}}</li>
+      </ol>
+<!-- //end breadcrumbs -->
 <div class = "row">
-        <div class = "container-fluid col-md-10 col-sm-10 col-xs-12">
-             <h1>MeSH Linked Data (beta) Technical Documentation</h1>
-        </div>
+      <div class = "container-fluid col-md-10 col-sm-10 col-xs-12">
+          <h1>MeSH Linked Data (beta) Technical Documentation</h1>
+      </div>
 </div>
 <div class = "row">
   <div class = "container-fluid col-md-10 col-sm-10 col-xs-10 main-content">
-  <div class = "container-fluid navbar pull-right">
-    <ol class = "breadcrumb">
-      <li><a href = "index.html">Documentation Home</a></li>
-      <li class = "active">{{page.title}}</li>
-    </ol>
-  </div>
         <h2>{{page.title}}</h2>
         <select class = "form-control" onchange="location = this.options[this.selectedIndex].value;">
              {% for query in site.data.queries %}
@@ -91,7 +91,7 @@
         <a name = "sample-query-{{forloop.index}}"/><h4 class = "inline-header">#{{forloop.index}}: {{ query.name }}</h4></a>
         <div class = "sample-queries {{ query.name | downcase | replace: ' ', '-' }}">
         {{query.string | xml_escape | newline_to_br }}
-        <p><a href = "{{query.string | cgi_escape | prepend: 'http://id.nlm.nih.gov/mesh/sparql?query=' | append: '&inference=true' }}" target = "_blank">Run This Query</a></p>
+        <a role = "button" class = "btn btn-success" href = "{{query.string | cgi_escape | prepend: 'http://id.nlm.nih.gov/mesh/sparql?query=' | append: '&inference=true' }}" target = "_blank">Run This Query</a>
         </div>
         {% if forloop.index > 1 %}
         <a href = "#top">return to top</a>

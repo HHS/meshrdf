@@ -61,6 +61,12 @@ h1 {
     
 }
 
+.jump, .jump a {
+  
+  color:#9b0000;
+}
+
+
 .ui-tabs .ui-tabs-nav li {
    font-size:small;
    width:auto;
@@ -75,12 +81,7 @@ h1 {
 
 }
 
-table.dataTable th, table.dataTable {
-width:inherit !important;
-    
-}
-
-.dataTables_scrollHeadInner{
+.dataTables_scrollHeadInner, table.dataTable th, table.dataTable, .dataTables_wrapper {
 width:inherit !important;   
     
 }
