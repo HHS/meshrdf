@@ -1,6 +1,6 @@
 ---
 title: Supplementary Concept Records
-layout: page-responsive
+layout: page
 resource: true
 categories:
 - Data Model

@@ -1,6 +1,6 @@
 ---
 title: Class Definitions
-layout: page-responsive
+layout: page
 resource: true
 categories:
 - Cheat Sheets

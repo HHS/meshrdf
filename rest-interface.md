@@ -1,6 +1,6 @@
 ---
 title: REST URL Examples
-layout: page-responsive
+layout: page
 resource: true
 categories:
 - Cheat Sheets

@@ -1,6 +1,6 @@
 ---
 title: Responsive Design Mockup
-layout: page-responsive
+layout: page
 resource: false
 categories:
 - Data Model

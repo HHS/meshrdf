@@ -1,6 +1,6 @@
 ---
 title: Descriptor-Qualifier Pairs
-layout: page-responsive
+layout: page
 resource: true
 categories:
 - Data Model

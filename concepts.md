@@ -1,6 +1,6 @@
 ---
 title: Concepts
-layout: page-responsive
+layout: page
 resource: true
 categories:
 - Data Model

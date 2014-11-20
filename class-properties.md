@@ -1,6 +1,6 @@
 ---
 title: All Class Properties
-layout: page-responsive
+layout: page
 resource: true
 categories:
 - Cheat Sheets
