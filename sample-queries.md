@@ -1,6 +1,6 @@
 ---
 title: Sample Queries
-layout: queries
+layout: queries-responsive
 resource: true
 categories:
 - Cheat Sheets
