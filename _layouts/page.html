@@ -7,6 +7,7 @@
           href="images/favicon.ico">
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/responsive/1.0.2/js/dataTables.responsive.min.js"></script>
     <script type='text/javascript' src='js/mesh-gh-pages.js'></script>
@@ -15,10 +16,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ site.description }}">
 
-    <link href="styles/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-    <link href="//cdn.datatables.net/1.10.3/css/jquery.dataTables.css" rel="stylesheet">
-    <link href="//cdn.datatables.net/responsive/1.0.2/css/dataTables.responsive.css" rel="stylesheet">
+    <link data-require="bootstrap-css" data-semver="3.2.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link data-require="bootstrap@*" data-semver="3.2.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <link href="//cdn.datatables.net/1.10.3/css/jquery.dataTables.css" rel="stylesheet" />
+    <link href="//cdn.datatables.net/responsive/1.0.2/css/dataTables.responsive.css" rel="stylesheet" />
+    <link href="styles/style-responsive.css" rel="stylesheet" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -26,54 +29,73 @@
     <script type = 'text/javascript'>
     // there two classes of data tables.  data-table-standard (no paging) and data-table-long (includes paging)
     $(document).ready(function() {
+        $( "#tabs" ).tabs();
+        
          $('table.data-table-standard').dataTable( {
          "paging":   false,
          "ordering": true,
-         "info":     false,
          "searching": false,
-         "responsive": true
+         "responsive":true
           } );
-      $('table.data-table-long').dataTable( {
-        "paging":   true,
-        "ordering": true,
-        "info":     false,
-        "searching": true,
-        "responsive": true
+         
+       $('table.data-table-long').dataTable( {
+         "paging":   true,
+         "ordering": true,
+         "info":     false,
+         "searching": true,
+         "responsive": true,
+         "scrollX":true,
+         "scrollY":"300",
+         "pageLength":25
+
           } );
       
-      //default to 25 rows for longer tables
-      $('table.data-table-long').dataTable().api().page.len(25).draw();
-      
-      //initialize Jquery tabs
-      $( "#tabs" ).tabs();
+
+      $('.dropdown-toggle').dropdown();
     });
 
     </script>
   </head>
 
-  <body>
+<body>
+<div class="container-fluid">
 <!--header to hold banner + top navigation area -->
-  {% include header.html %}
+  {% include header-responsive.html %}
 <!-- // end header -->
-    <div class="main-container">
-      {% include menu.html %}
-    <h1>MeSH RDF Technical Documentation (beta) </h1>
-    <div class = "content">
-    <img width="35" class="logo" alt="Medical Subject Headings" src="images/meshhead.gif" style = "float:right;margin-right:2px;margin-top:1px;position:relative;top:-2em;"/></a>
-    <div class = "breadcrumbs">
-    {% if page.resource == true %}
-    <a href = "index.html">Documentation Home</a>&nbsp;&nbsp;&raquo;&nbsp;{{ page.title }}
+    <div class = "row">    
+          <div class = "container-fluid main-menu navbar navbar-default">
+          {% include menu-responsive.html %} 
+          </div>
+    </div>
+<!-- breadcrumbs but don't put them on the technical docs landing page -->
+    {% if page.url != "/index.html"  %}
+    <ol class = "breadcrumb col-md-6 col-sm-6 col-xs-10">
+        <li><a href = "index.html">Documentation Home</a></li>
+        <li class = "active">{{page.title}}</li>
+    </ol>
     {% endif %}
+<!-- //end breadcrumbs -->
+    {% if page.url != "/index.html"  %}
+    <div class = "row">
+        <div class = "container-fluid col-md-10 col-sm-10 col-xs-12">
+             <h1>MeSH Linked Data (beta) Technical Documentation</h1>
+        </div>
     </div>
-    <h2>{{page.title}}</h2>
-    <br/>
-      {{content}}
+    {% endif %}
+    <div class = "row">
+      <div class = "container-fluid col-md-10 col-sm-10 col-xs-10 main-content">
+        <h2>{{page.title}}</h2>
+        {{content}}
+      </div>
     </div>
-
-    </div>
-
 <!-- footer area   -->
- {% include footer.html %}
- <!-- //end footer -->
-  </body>
+<div class = "row">
+<div class = "container-fluid footer col-md-12 col-sm-8 col-xs-12">
+    {% include footer.html %}
+</div>
+</div>
+<!-- //end footer -->
+  
+</div>
+</body>
 </html>
