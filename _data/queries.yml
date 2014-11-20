@@ -33,7 +33,7 @@
     }
     ORDER BY ?class
     
-- name: Find triples with 'Oflaxacin' as the object
+- name: Find triples with 'Ofloxacin' as the object
   notes: A basic subject, predicate, object triple in MeSH RDF.
   type: Getting Started
   string: |+
@@ -47,8 +47,8 @@
      ?s ?p mesh:D015242 .
    }
 
-- name:  Find the MeSH headings and labels of Pharmacologic Actions for 'Oflaxacin'
-  notes: Show the MeSH headings and labels of Pharmacologic Actions for Oflaxacin.
+- name:  Find the MeSH headings and labels of Pharmacologic Actions for 'Ofloxacin'
+  notes: Show the MeSH headings and labels of Pharmacologic Actions for Ofloxacin.
   type: Getting Started
   string: |+
    
