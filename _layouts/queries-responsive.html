@@ -81,7 +81,7 @@
     </ol>
   </div>
         <h2>{{page.title}}</h2>
-        <select class = "sample-query-list" onchange="location = this.options[this.selectedIndex].value;">
+        <select class = "form-control" onchange="location = this.options[this.selectedIndex].value;">
              {% for query in site.data.queries %}
              <option value = "#sample-query-{{forloop.index}}">{{ query.name }}</option>
              {% endfor %}
