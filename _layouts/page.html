@@ -29,7 +29,6 @@
     <script type = 'text/javascript'>
     // there two classes of data tables.  data-table-standard (no paging) and data-table-long (includes paging)
     $(document).ready(function() {
-        $( "#tabs" ).tabs();
         
          $('table.data-table-standard').dataTable( {
          "paging":   false,
@@ -49,8 +48,9 @@
          "pageLength":25
 
           } );
-      
-
+       
+       $( "#tabs" ).tabs();
+    
       $('.dropdown-toggle').dropdown();
     });
 
