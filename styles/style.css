@@ -1,5 +1,5 @@
 body {
-  font-family: "Gill Sans", Calibri, "Lucidia Console", sans-serif !important;
+  font-family: Tahoma, Calibri, sans-serif !important;
   background:url(../images/husk.png) repeat;
   font-size:1.5em;
 }
@@ -74,12 +74,11 @@ h1 {
    padding:0em .5em 0em .5em;
 
 }
-
-.data-table-standard, .data-table-long{
-    
- font-size:.8em;
-
+#tabs .ui-widget-header{
+  
+  background-color:yellow;
 }
+
 
 .dataTables_scrollHeadInner, table.dataTable th, table.dataTable, .dataTables_wrapper {
 width:inherit !important;   
