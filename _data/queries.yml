@@ -217,14 +217,13 @@
     $semtype ?stp $sto .
     }
 
-- name: Retrieve all the Semantic Types in MeSH
+- name: Retrieve a list of all Semantic Types in MeSH
   notes: This is a distinct list of all Semantic Types (TUI and label) that have been assigned to MeSH concepts.
   type: Semantic Types
   string: |+
     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     
     SELECT DISTINCT ?sty ?name
     FROM <http://id.nlm.nih.gov/mesh2014>
