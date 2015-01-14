@@ -217,7 +217,7 @@
     $semtype ?stp $sto .
     }
 
-- name: Retrieve all the Semantic Types in MeSH.
+- name: Retrieve all the Semantic Types in MeSH
   notes: This is a distinct list of all Semantic Types (TUI and label) that have been assigned to MeSH concepts.
   type: Semantic Types
   string: |+
