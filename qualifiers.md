@@ -155,8 +155,6 @@ where {
                 <http://id.nlm.nih.gov/mesh/Y10.010> ;
         <http://purl.org/dc/terms/identifier>
                 "Q000008" ;
-        <http://www.w3.org/2004/02/skos/core#broader>
-                <http://id.nlm.nih.gov/mesh/> .
 ```
 
 ### MeSH XML

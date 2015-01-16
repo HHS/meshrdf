@@ -150,9 +150,9 @@ where {
                 <http://id.nlm.nih.gov/mesh/T195> , <http://id.nlm.nih.gov/mesh/T109> ;
         <http://purl.org/dc/terms/identifier>
                 "M0000001" ;
-        <http://www.w3.org/2004/02/skos/core#narrower>
+        <http://id.nlm.nih.gov/mesh/vocab#narrower>
                 <http://id.nlm.nih.gov/mesh/M0353609> ;
-        <http://www.w3.org/2004/02/skos/core#scopeNote>
+        <http://id.nlm.nih.gov/mesh/vocab#scopeNote>
                 "An ionophorous, polyether antibiotic from Streptomyces chartreusensis. It binds and transports CALCIUM and other divalent cations across membranes and uncouples oxidative phosphorylation while inhibiting ATPase of rat liver mitochondria. The substance is used mostly as a biochemical tool to study the role of divalent cations in various biological systems."
 ```
 
