@@ -81,7 +81,8 @@ h1 {
 
 
 .dataTables_scrollHeadInner, table.dataTable th, table.dataTable, .dataTables_wrapper {
-width:inherit !important;   
+/*width:inherit !important;*/
+
     
 }
 
