@@ -74,10 +74,6 @@ h1 {
    padding:0em .5em 0em .5em;
 
 }
-#tabs .ui-widget-header{
-  
-  background-color:yellow;
-}
 
 
 .dataTables_scrollHeadInner, table.dataTable th, table.dataTable, .dataTables_wrapper {
