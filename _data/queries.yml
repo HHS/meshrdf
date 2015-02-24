@@ -232,4 +232,23 @@
      ?sty rdfs:label ?name
      }
      ORDER BY ?sty
+
+- name: Retrieve all terms that belong to Descriptor D009369 'Neoplasm'.
+  notes: The query uses inferencing to get all meshv:term labels and their altLabels (lexical variants)
+  type: Lexical Variation
+  string: |+
+     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+     SELECT ?t ?pred ?label
+     
+     FROM <http://id.nlm.nih.gov/mesh2014>
+     
+       WHERE { 
+       mesh:D009369 meshv:concept ?c .
+       ?c meshv:term ?t .
+       ?t rdfs:label ?label .
+       ?t ?pred ?label
+       } 
     
