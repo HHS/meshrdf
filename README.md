@@ -1,6 +1,7 @@
-# MeSHÂ® RDF
+# MeSH® RDF
 
-***Status:  Beta.  Feedback is [welcome](https://github.com/HHS/meshrdf/issues).***
+***Status:  pre-beta.  Feedback is welcome, but please bear in mind that the data model is
+subject to change.***
 
 This repository contains a set of XSLT files that transform MeSH XML into RDF, and also contains
 the content for the technical documentation pages, deployed as a set of GitHub pages, at
@@ -87,13 +88,16 @@ XSLT conversions.
 The conversion scripts are:
 
 * mesh-xml2rdf.sh - For unix, this shell script will brute-force convert each of the three
-  main MeSH XML files into RDF N-Triples format, and put the results into the *out* directory
+  main MeSH XML files into RDF N-Triples format, and put the results into the *$MESHRDF_HOME/out* 
+  directory.
 * mesh-xml2rdf.bat - This does the same thing, but can be run from Windows.
-* mesh-xml2rdf.pl - [To do: fix this to work with the MESHRDF_HOME env. var.]
-  This Perl script takes a completely different approach, that is useful
-  for doing the conversions on less-powerful machines.  It first chops up each of the
-  input XML files into manageable sized chunks, and then runs each chunk through the
-  XSLTs separately.  It should run on any machine that has Perl installed.
+
+There is one other script that takes a different approach, that was useful for 
+doing the conversions on less-powerful machines.  The Perl script mesh-xml2rdf.pl first 
+chops up each of the input XML files into manageable sized chunks, and then runs each chunk 
+through the XSLTs separately. ***Note, however, that because of the way it chunks the input
+files, it fails to create a lot of meshv:broader links between the various tree nodes.
+Therefore, this should not be used in production.***
 
 
 ### Generating and converting the sample files

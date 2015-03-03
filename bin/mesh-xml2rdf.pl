@@ -1,5 +1,9 @@
 #! /usr/bin/env perl
 
+# THIS SCRIPT SHOULD NOT BE USED IN PRODUCTION.
+# Because of the way this script chunks the input files, it fails to create a lot 
+# of meshv:broader links between the various tree nodes.
+#
 # The aim of this script is to provide a means to run the XSLTs against the very huge MeSH XML
 # files, on machines that have limited memory.  For each of the inputs qual, desc, and supp, it will
 #   * split the input XML into chunks
