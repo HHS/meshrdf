@@ -126,6 +126,11 @@ Finally, either of the scripts *convert-samples.sh* (for Unix) or *convert-sampl
 (for Windows) can be used to convert the sample XML files into RDF, the final output
 being *samples.nt*.
 
+***Note, though, that the generated RDF will be missing a lot of meshv:broader 
+relationships, because those are generated from the tree node identifiers to link between 
+various records. Since the sample files contain only a subset of the records, most of 
+these cannot be generated.***
+
 
 ## Project directory structure
 
