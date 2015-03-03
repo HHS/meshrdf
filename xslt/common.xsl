@@ -111,7 +111,17 @@
             <xsl:value-of select='concat("^^&lt;", $v/@type, ">")'/>
           </xsl:if>
         </xsl:variable>
-        <xsl:value-of select="concat(f:literal-str($v), $type-string)"/>
+        <xsl:variable name='lang-string'>
+          <xsl:choose>
+            <xsl:when test='$v/@lang'>
+              <xsl:value-of select='concat("@", $v/@lang)'/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select='""'/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="concat(f:literal-str($v), $type-string, $lang-string)"/>
       </xsl:when>
       <xsl:when test='$v/self::named'>
         <xsl:value-of select='$v'/>
