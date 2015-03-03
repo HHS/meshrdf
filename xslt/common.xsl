@@ -259,7 +259,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>activeMeSHYear</uri>
-          <literal type="&xs;#date">
+          <literal>
             <xsl:value-of select="."/>
           </literal>
         </xsl:with-param>
