@@ -6,10 +6,16 @@
 # separately.
 
 mkdir -p $MESHRDF_HOME/out
+
 java -Xmx2G -jar $SAXON_JAR -s:$MESHRDF_HOME/data/qual2014.xml \
-    -xsl:xslt/qual.xsl > $MESHRDF_HOME/out/qual2014.nt
+    -xsl:xslt/qual.xsl > $MESHRDF_HOME/out/qual2014-dups.nt
+sort -u $MESHRDF_HOME/out/qual2014-dups.nt > $MESHRDF_HOME/out/qual2014.nt
+
 java -Xmx2G -jar $SAXON_JAR -s:$MESHRDF_HOME/data/desc2014.xml \
-    -xsl:xslt/desc.xsl > $MESHRDF_HOME/out/desc2014.nt
+    -xsl:xslt/desc.xsl > $MESHRDF_HOME/out/desc2014-dups.nt
+sort -u $MESHRDF_HOME/out/desc2014-dups.nt > $MESHRDF_HOME/out/desc2014.nt
+
 java -Xmx2G -jar $SAXON_JAR -s:$MESHRDF_HOME/data/supp2014.xml \
-    -xsl:xslt/supp.xsl > $MESHRDF_HOME/out/supp2014.nt
+    -xsl:xslt/supp.xsl > $MESHRDF_HOME/out/supp2014-dups.nt
+sort -u $MESHRDF_HOME/out/supp2014-dups.nt > $MESHRDF_HOME/out/supp2014.nt
 
