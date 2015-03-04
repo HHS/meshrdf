@@ -89,7 +89,8 @@ The conversion scripts are:
 
 * mesh-xml2rdf.sh - For unix, this shell script will brute-force convert each of the three
   main MeSH XML files into RDF N-Triples format, and put the results into the *$MESHRDF_HOME/out* 
-  directory.
+  directory. It produces mesh2014.nt, which is the RDF in N-triples format, and mesh2014.nt.gz,
+  a gzipped version.
 * mesh-xml2rdf.bat - This does the same thing (mostly), but can be run from Windows. Note that
   the unix shell script sorts and uniques the output, whereas this one does not.
 
