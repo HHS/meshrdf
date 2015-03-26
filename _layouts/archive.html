@@ -51,7 +51,7 @@
         {% for year in mesh-years %}
          {% assign real-year = year | plus:0 %}
           <div class = "row">
-            <h2>{{year}}</h2>
+            <h3>MeSH Year {{year}}</h3>
             <ul>
             {% for page in site.pages %}
             {% assign real-mesh-year = page.mesh-year|plus:0 %}
