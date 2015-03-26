@@ -16,6 +16,20 @@ body {
     border-radius: 0 !important;
 }
 
+#archived-content {
+  
+  background-color: red;
+  border-top:solid 2px white;
+  border-bottom:solid 2px white;
+  text-align: center;
+}
+
+#archived-content > p {
+  
+  color:white;
+  font-size:1.4em;
+}
+
 .footer {
     color:white;
 }
@@ -44,6 +58,7 @@ h1 {
     margin-left: 1.0em;
 
 }
+
 
 .breadcrumb li {
   
