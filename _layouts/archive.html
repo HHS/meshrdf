@@ -56,7 +56,7 @@
             {% for page in site.pages %}
             {% assign real-mesh-year = page.mesh-year|plus:0 %}
             {% if real-mesh-year == real-year %}
-            <li><a href = "{{site.baseurl}}/{{page.url}}">{{page.title}} ({{page.mesh-year}})</a></li>
+            <li><a href = "{{site.baseurl}}{{page.url}}">{{page.title}} ({{page.mesh-year}})</a></li>
             {% endif %}
             {% endfor %}
             </ul>
