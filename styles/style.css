@@ -22,6 +22,7 @@ body {
   border-top:solid 2px white;
   border-bottom:solid 2px white;
   text-align: center;
+  padding:.5em 0em 0em 0em;
 }
 
 #archived-content > p {
