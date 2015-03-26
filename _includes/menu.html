@@ -4,7 +4,7 @@
  <button type="button" class="btn btn-md dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{cat}}<span class = "caret"/></button>    
   <ul class = "dropdown-menu" role = "menu">
    {% for page in site.pages %}
-    {% if page.resource == true %}
+    {% if page.resource == true and page.archived != true %}
      {% for pc in page.categories %}
       {% if pc == cat %}
       <li><a href="{{site.baseurl}}{{ page.url }}">{{ page.title }}</a></li>
@@ -33,7 +33,7 @@
  <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{cat}}<span class = "caret"/></button>    
   <ul class = "dropdown-menu" role = "menu">
    {% for page in site.pages %}
-    {% if page.resource == true %}
+    {% if page.resource == true and page.archived != true %}
      {% for pc in page.categories %}
       {% if pc == cat %}
       <li><a href="{{site.baseurl}}{{ page.url }}">{{ page.title }}</a></li>
