@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/responsive/1.0.2/js/dataTables.responsive.min.js"></script>
-    <script type='text/javascript' src='js/mesh-gh-pages.js'></script>
+    <script type='text/javascript' src='{{site.baseurl}}/js/mesh-gh-pages.js'></script>
 
     <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
     <link href="//cdn.datatables.net/1.10.3/css/jquery.dataTables.css" rel="stylesheet" />
     <link href="//cdn.datatables.net/responsive/1.0.2/css/dataTables.responsive.css" rel="stylesheet" />
-    <link href="styles/style.css" rel="stylesheet" />
+    <link href="{{site.baseurl}}/styles/style.css" rel="stylesheet" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -79,15 +79,15 @@
 <!-- breadcrumbs but don't put them on the technical docs landing page -->
     {% if page.url != "/index.html" and page.archived != true %}
     <ol class = "breadcrumb col-md-6 col-sm-6 col-xs-10">
-        <li><a href = "/index.html">Documentation Home</a></li>
+        <li><a href = "{{site.baseurl}}/index.html">Documentation Home</a></li>
         <li class = "active">{{page.title}}</li>
     </ol>
     {% endif %}
     
     {% if page.archived == true %}
     <ol class = "breadcrumb col-md-6 col-sm-6 col-xs-10">
-        <li><a href = "/index.html">Documentation Home</a></li>
-        <li><a href = "/archives/index.html">Documentation Archives</a></li>
+        <li><a href = "{{site.baseurl}}/index.html">Documentation Home</a></li>
+        <li><a href = "{{site.baseurl}}/archives/index.html">Documentation Archives</a></li>
         <li class = "active">{{page.title}} <i>(MeSH Year {{page.mesh-year}})</i></li>
     </ol>
     {% endif %}
