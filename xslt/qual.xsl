@@ -85,7 +85,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$qualifier_uri"/>
           <uri prefix='&rdfs;'>label</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="QualifierName/String"/>
           </literal>
         </xsl:with-param>

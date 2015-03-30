@@ -80,7 +80,10 @@
             <xsl:value-of select='$oo'/>
             <xsl:text>'</xsl:text>
           </xsl:message>
-          <literal><xsl:value-of select="replace($oo, '^\s+|\s+$', '')"/></literal>
+          <literal>
+            <xsl:copy-of select='$oo/@*'/>
+            <xsl:value-of select="replace($oo, '^\s+|\s+$', '')"/>
+          </literal>
         </xsl:when>
         <xsl:otherwise>
           <xsl:copy-of select='$oo'/>
@@ -289,7 +292,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>annotation</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="Annotation"/>
           </literal>
         </xsl:with-param>
@@ -308,7 +311,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>historyNote</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="HistoryNote"/>
           </literal>
         </xsl:with-param>
@@ -323,7 +326,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>onlineNote</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="OnlineNote"/>
           </literal>
         </xsl:with-param>
@@ -408,7 +411,7 @@
         <xsl:with-param name="spec">
           <xsl:copy-of select='$tree-number-uri'/>
           <uri prefix='&rdfs;'>label</uri>
-          <literal><xsl:value-of select="$tree-number-str"/></literal>
+          <literal lang='en'><xsl:value-of select="$tree-number-str"/></literal>
         </xsl:with-param>
       </xsl:call-template>
 
@@ -580,7 +583,7 @@
         <xsl:with-param name="spec">
           <xsl:copy-of select="$concept_uri"/>
           <uri prefix='&rdfs;'>label</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="ConceptName/String"/>
           </literal>
         </xsl:with-param>
@@ -657,7 +660,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select="$concept_uri"/>
             <uri prefix='&meshv;'>scopeNote</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="ScopeNote"/>
             </literal>
           </xsl:with-param>
@@ -713,7 +716,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select="$semantic_type_uri"/>
             <uri prefix='&rdfs;'>label</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="SemanticTypeName"/>
             </literal>
           </xsl:with-param>
@@ -913,7 +916,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
             <uri prefix='&meshv;'>prefLabel</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="String"/>
             </literal>
           </xsl:with-param>
@@ -1007,7 +1010,7 @@
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
               <uri prefix='&meshv;'>abbreviation</uri>
-              <literal>
+              <literal lang='en'>
                 <xsl:value-of select="Abbreviation"/>
               </literal>
             </xsl:with-param>
@@ -1086,7 +1089,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
             <uri prefix='&meshv;'>altLabel</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="String"/>
             </literal>
           </xsl:with-param>
