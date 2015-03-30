@@ -53,20 +53,37 @@ meshv:identifier a rdf:Property ;
     rdfs:domain rdfs:Class ;
     rdfs:range  rdfs:Literal .
 
-meshv:broader a rdf:Property , owl:ObjectProperty ;
-    rdfs:domain rdfs:Class ;
-    rdfs:range rdfs:Class ;
-    rdfs:subPropertyOf meshv:broaderTransitive ;
-    owl:inverseOf meshv:narrower .
 
-meshv:narrower a rdf:Property , owl:ObjectProperty ;
-    rdfs:domain rdfs:Class ;
-    rdfs:range rdfs:Class ;
-    owl:inverseOf meshv:broader .
 
-meshv:broaderTransitive a rdf:Property , owl:ObjectProperty , owl:TransitiveProperty ;
-    rdfs:domain rdfs:Class ;
-    rdfs:range rdfs:Class .
+
+
+meshv:broaderConcept a rdf:Property , owl:ObjectProperty ;
+    rdfs:domain meshv:Concept ;
+    rdfs:range meshv:Concept ;
+    owl:inverseOf meshv:narrowerConcept .
+
+meshv:narrowerConcept a rdf:Property , owl:ObjectProperty ;
+    rdfs:domain meshv:Concept ;
+    rdfs:range meshv:Concept ;
+    owl:inverseOf meshv:broaderConcept .
+    
+meshv:relatedConcept a rdf:Property , owl:ObjectProperty ;
+    rdfs:domain meshv:Concept ;
+    rdfs:range meshv:Concept .
+
+meshv:broaderDescriptor a rdf:Property , owl:ObjectProperty ;
+    rdfs:domain meshv:Descriptor ;
+    rdfs:range meshv:Descriptor .
+
+meshv:broaderQualifier a rdf:Property , owl:ObjectProperty ;
+    rdfs:domain meshv:Qualifier ;
+    rdfs:range meshv:Qualifier .
+
+meshv:broaderTreeNumber a rdf:Propery , owl:TransitiveProperty;
+    rdfs:domain meshv:TreeNumber ;
+    rdfs:range meshv:TreeNumber .
+
+
 
 
 # In issue #36, we discussed this, and decided not to create individual subclasses of meshv:Term.
