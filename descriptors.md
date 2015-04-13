@@ -34,7 +34,7 @@ The following RDF graph diagram shows a fairly typical topical descriptor (D0152
 
 ![Descriptor RDF Graph Diagram](images/BasicConversionLiterals.png){: class="rdf-graph img-responsive"}
 
-###SPARQL - Descriptor Properties
+### SPARQL - Descriptor Properties
 
 The following <span class='invoke-sparql'>SPARQL query</span> will produce the predicates and objects of Ofloxacin.
 
@@ -48,7 +48,7 @@ WHERE {
 }
 ```
 
-###MeSH RDF Data - Descriptor Properties
+### MeSH RDF Data - Descriptor Properties
 
 Here is the truncated output of the above query in N3 format. The same data is illustrated in the RDF graph diagram above.
 
@@ -89,7 +89,7 @@ Here is the truncated output of the above query in N3 format. The same data is i
                 ...
 ```
 
-###MeSH XML - Descriptor Properties
+### MeSH XML - Descriptor Properties
 
 The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the N3 data above to the truncated MeSH XML for Ofloxacin below.
 
@@ -388,7 +388,7 @@ where {
 }
 ```
 
-###MeSH RDF Data - Descriptor Relations
+### MeSH RDF Data - Descriptor Relations
 
 Here is the truncated output of the above query in N3 format. The same data is illustrated in the RDF graph diagram above.
 
