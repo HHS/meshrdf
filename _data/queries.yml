@@ -113,7 +113,7 @@
    
    WHERE {
       mesh:D005138 meshv:treeNumber ?treeNode .
-      ?treeNode meshv:broaderTransitive+ ?ancestorTreeNode .
+      ?treeNode meshv:broaderTreeNumber+ ?ancestorTreeNode .
       ?ancestor meshv:treeNumber ?ancestorTreeNode .
       ?ancestor rdfs:label ?alabel
    }
