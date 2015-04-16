@@ -270,7 +270,7 @@ meshv:Term | rdfs:label
 </div>
 </div>
 
-###<a name = "relations"/>RDF Graph Model - Term Relations
+### <a name = "relations"/>RDF Graph Model - Term Relations
 
 Depicted in these graphs:
 
