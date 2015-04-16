@@ -174,13 +174,13 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
 ```
 The following shows how EntryCombinations (see the [MeSH documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#EntryCombination)) are modeled.
 
-###<a name = "entry-combinations"/>RDF Graph Diagram
+### <a name = "entry-combinations"/>RDF Graph Diagram
 
 Depicted in this graph:
 
 ![Entry Combinations RDF Graph Diagram](images/EntryCombinations.png){: class="rdf-graph img-responsive"}
 
-###SPARQL
+### SPARQL
 
 The following <span class='invoke-sparql'>SPARQL query</span> produces the RDF corresponding
 to the above graph:
