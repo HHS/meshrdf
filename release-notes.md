@@ -21,7 +21,7 @@ meshv:printFlag | Deprecation |
 meshv:recordAuthorizer | Deprecation |
 meshv:recordMaintainer | Deprecation |
 meshv:recordOriginator | Deprecation |
-meshv:related | Deprecation | Will be replaced by meshv:releatedConcept
+meshv:related | Deprecation | Will be replaced by meshv:relatedConcept
 meshv:runningHead | Deprecation |
 meshv:SemanticType | Deprecation |
 meshv:semanticType | Deprecation |
