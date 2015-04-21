@@ -61,7 +61,7 @@ ORDER BY ?treeNode ?ancestorTreeNode
 {:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:TreeNumber | ~~meshv:broaderTransitive~~ | meshv:TreeNumber
+meshv:TreeNumber | <s>meshv:broaderTransitive</s> | meshv:TreeNumber
 
 </div>
 
@@ -77,7 +77,7 @@ meshv:PublicationType | meshv:treeNumber | meshv:TreeNumber
 meshv:Qualifier | meshv:allowedTreeNode | meshv:TreeNumber
 meshv:Qualifier | meshv:treeNumber | meshv:TreeNumber
 meshv:TopicalDescriptor | meshv:treeNumber | meshv:TreeNumber
-meshv:TreeNumber | meshv:broaderTransitive | meshv:TreeNumber
+meshv:TreeNumber | <s>meshv:broaderTransitive</s> | meshv:TreeNumber
 
 </div>
 

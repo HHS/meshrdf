@@ -8,7 +8,6 @@ resource: false
 
 #### Data Changes:
 The table below lists changes in classes and predicates as of 2014 MeSH.  
-in May 2015.
 
 {:.data-table-standard .row-border .hover}
 Data Element | Change Type | Additonal Information

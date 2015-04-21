@@ -37,7 +37,7 @@ N/A | N/A | N/A
 {:.data-table-long .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:Concept | meshv:semanticType | meshv:SemanticType
+meshv:Concept | <s>meshv:semanticType</s> | <s>meshv:SemanticType</s>
 
 </div>
 
@@ -46,8 +46,8 @@ meshv:Concept | meshv:semanticType | meshv:SemanticType
 {:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:SemanticType | rdfs:label
-meshv:SemanticType | meshv:identifier
+<s>meshv:SemanticType</s> | rdfs:label
+<s>meshv:SemanticType</s> | meshv:identifier
 
 </div>
 </div>
