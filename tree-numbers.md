@@ -61,7 +61,7 @@ ORDER BY ?treeNode ?ancestorTreeNode
 {:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:TreeNumber | meshv:broaderTransitive | meshv:TreeNumber
+meshv:TreeNumber | ~~meshv:broaderTransitive~~ | meshv:TreeNumber
 
 </div>
 

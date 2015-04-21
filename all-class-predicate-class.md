@@ -78,4 +78,4 @@ meshv:TopicalDescriptor | meshv:recordPreferredTerm | meshv:Term
 meshv:TopicalDescriptor | meshv:seeAlso | meshv:TopicalDescriptor
 meshv:TopicalDescriptor | meshv:seeAlso | meshv:PublicationType
 meshv:TopicalDescriptor | meshv:treeNumber | meshv:TreeNumber
-meshv:TreeNumber | meshv:broaderTransitive | meshv:TreeNumber
+meshv:TreeNumber | ~~meshv:broaderTransitive~~ | meshv:TreeNumber
