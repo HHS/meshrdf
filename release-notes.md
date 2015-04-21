@@ -11,7 +11,7 @@ The table below lists changes in classes and predicates as of 2014 MeSH.
 in May 2015.
 
 Data Element | Change Type | Additonal Information
------------- | ------------| ---------------------
+------------ | ----------- | ---------------------
 meshv:activeMeSHYear | Deprecation | 
 meshv:allowedTreeNode | Deprecation |
 meshv:broader | Deprecation | Will be replaced by meshv:broaderConcept, meshv:broaderDescriptor, or meshv:broaderQualifier
