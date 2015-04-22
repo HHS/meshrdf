@@ -10,7 +10,7 @@ resource: false
 The table below lists changes in classes and predicates as of 2014 MeSH.  
 
 {:.data-table-standard .row-border .hover}
-Data Element | Change Type | Additonal Information
+Data Element | Change Type | Additional Information
 ------------ | ----------- | ---------------------
 meshv:activeMeSHYear | Deprecation | 
 meshv:allowedTreeNode | Deprecation |
