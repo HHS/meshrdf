@@ -4,10 +4,14 @@ layout: page
 resource: false
 ---
 
-### MeSH 2014 (pre-beta) Release Notes
+### MeSH 2014 (Beta) Release Notes
 
-#### Data Changes:
-The table below lists changes in classes and predicates as of 2014 MeSH.  
+Sometime between late May and early June of 2015, 2014 MeSH RDF will be replaced by 2015 MeSH RDF.  **2014 MeSH RDF will not be archived and the data will no longer be available**.
+The new URL structure will be id.nlm.nih.gov/mesh/current, which will serve 2015 MeSH RDF.
+
+### Data Changes:
+
+The table below lists changes in classes and predicates as of 2014 MeSH.  These changes will go into effect when 2015 MeSH RDF goes live.
 
 {:.data-table-standard .row-border .hover}
 Data Element | Change Type | Additional Information
