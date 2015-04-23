@@ -7,7 +7,7 @@ resource: false
 ### MeSH 2014 (Beta) Release Notes
 
 Sometime between late May and early June of 2015, 2014 MeSH RDF will be replaced by 2015 MeSH RDF.  **2014 MeSH RDF will not be archived and the data will no longer be available**.
-The new URL structure will be id.nlm.nih.gov/mesh/current, which will serve 2015 MeSH RDF.
+The new URL structure to access the latest MeSH RDF graph will be id.nlm.nih.gov/mesh/current, which will serve 2015 MeSH RDF.
 
 ### Data Changes:
 
