@@ -5,16 +5,31 @@
 # huge XML files into manageable chunks, and then passes each chunk through XSLT
 # separately.
 
-mkdir -p $MESHRDF_HOME/out
+if [ -z "$MESHRDF_HOME" ]; then
+    echo "Please define MESHRDF_HOME environment variable" 1>&2
+    exit 1
+fi
 
-java -Xmx2G -jar $SAXON_JAR -s:$MESHRDF_HOME/data/qual2014.xml \
-    -xsl:xslt/qual.xsl > $MESHRDF_HOME/out/mesh2014-dups.nt
+if [ -z "$SAXON_JAR" ]; then
+    echo "Please define SAXON_JAR environment variable" 1>&2
+    exit 1
+fi
 
-java -Xmx2G -jar $SAXON_JAR -s:$MESHRDF_HOME/data/desc2014.xml \
-    -xsl:xslt/desc.xsl >> $MESHRDF_HOME/out/mesh2014-dups.nt
+# Can override default year with MESHRDF_YEAR environment variable
+YEAR=${MESHRDF_YEAR:-2014}
 
-java -Xmx2G -jar $SAXON_JAR -s:$MESHRDF_HOME/data/supp2014.xml \
-    -xsl:xslt/supp.xsl >> $MESHRDF_HOME/out/mesh2014-dups.nt
+# Use year to modify $MESHRDF_HOME/xslt/mesh-rdf-prefixes.ent
 
-sort -u -T$MESHRDF_HOME/out $MESHRDF_HOME/out/mesh2014-dups.nt > $MESHRDF_HOME/out/mesh2014.nt
-gzip -c $MESHRDF_HOME/out/mesh2014.nt > $MESHRDF_HOME/out/mesh2014.nt.gz
+mkdir -p "$MESHRDF_HOME/out"
+
+java -Xmx2G -jar $SAXON_JAR -s:$MESHRDF_HOME/data/qual$YEAR.xml \
+    -xsl:xslt/qual.xsl > $MESHRDF_HOME/out/mesh$YEAR-dups.nt
+
+java -Xmx2G -jar $SAXON_JAR -s:$MESHRDF_HOME/data/desc$YEAR.xml \
+    -xsl:xslt/desc.xsl >> $MESHRDF_HOME/out/mesh$YEAR-dups.nt
+
+java -Xmx2G -jar $SAXON_JAR -s:$MESHRDF_HOME/data/supp$YEAR.xml \
+    -xsl:xslt/supp.xsl >> $MESHRDF_HOME/out/mesh$YEAR-dups.nt
+
+sort -u -T$MESHRDF_HOME/out $MESHRDF_HOME/out/mesh$YEAR-dups.nt > $MESHRDF_HOME/out/mesh$YEAR.nt
+gzip -c $MESHRDF_HOME/out/mesh$YEAR.nt > $MESHRDF_HOME/out/mesh$YEAR.nt.gz
