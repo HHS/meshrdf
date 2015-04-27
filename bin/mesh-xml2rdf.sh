@@ -16,5 +16,5 @@ java -Xmx2G -jar $SAXON_JAR -s:$MESHRDF_HOME/data/desc2014.xml \
 java -Xmx2G -jar $SAXON_JAR -s:$MESHRDF_HOME/data/supp2014.xml \
     -xsl:xslt/supp.xsl >> $MESHRDF_HOME/out/mesh2014-dups.nt
 
-sort -u $MESHRDF_HOME/out/mesh2014-dups.nt > $MESHRDF_HOME/out/mesh2014.nt
-gzip -k mesh2014.nt
+sort -u -T$MESHRDF_HOME/out $MESHRDF_HOME/out/mesh2014-dups.nt > $MESHRDF_HOME/out/mesh2014.nt
+gzip -c $MESHRDF_HOME/out/mesh2014.nt > $MESHRDF_HOME/out/mesh2014.nt.gz
