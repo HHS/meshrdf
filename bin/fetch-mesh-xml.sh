@@ -7,11 +7,11 @@ fi
 
 mkdir -p "$MESHRDF_HOME/data"
 
-# Can override default URI with MESHRDF_URI environment variable
-URI=${MESHRDF_URI:-ftp://ftp.nlm.nih.gov/online/mesh/2014}
-
 # CAn override default year with MESHRDF_YEAR environment variable
 YEAR=${MESHRDF_YEAR:-2014}
+
+# Can override default URI with MESHRDF_URI environment variable
+URI=${MESHRDF_URI:-ftp://ftp.nlm.nih.gov/online/mesh/$YEAR}
 
 wget "$URI/desc$YEAR.dtd" -O "$MESHRDF_HOME/data/desc$YEAR.dtd"
 wget "$URI/desc$YEAR.xml" -O "$MESHRDF_HOME/data/desc$YEAR.xml"
