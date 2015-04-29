@@ -22,6 +22,7 @@
 
 use strict;
 
+
 my $LINES_PER_CHUNK = 500000;
 my $meshrdf_home = $ENV{MESHRDF_HOME};
 my $saxon_jar = $ENV{SAXON_JAR};
@@ -31,11 +32,27 @@ if (!$meshrdf_home || !$saxon_jar) {
 my $out_dir = "$meshrdf_home/out";
 mkdir $out_dir;    # if it didn't exist already
 
+my $YEAR = ($ENV{MESHRDF_YEAR} || "2014");
+my $PREFIX = ($ENV{MESHRDF_PREFIX} || "mesh/$YEAR");
+
+# substitute the prefix into the file
+my $prefix_file= "$meshrdf_home/xslt/mesh-rdf-prefixes.ent";
+my $prefix_template = "$prefix_file.template";
+
+open(INPUT, '<', $prefix_template) || die "$prefix_template: $!";
+open(OUTPUT, '>', $prefix_file) || die "$prefix_file: $!";
+while (<INPUT>) {
+    s{MESHRDF_PATH}{$PREFIX}g;
+    print OUTPUT $_;
+}
+close INPUT;
+close OUTPUT;
+
 my @sets = qw( qual desc supp );
 
 # First, chunk up the XML
 foreach my $set (@sets) {
-    my $xml_file = "$meshrdf_home/data/$set" . "2014.xml";
+    my $xml_file = "$meshrdf_home/data/$set" . "$YEAR.xml";
     my $xml_chunk_base = "$out_dir/$set-";
 
     my $state = 0;   # init
@@ -108,6 +125,8 @@ foreach my $set (@sets) {
     close $xml_file;
     print "$xml_file split into $chunk_num chunks\n";
 }
+
+
 
 # Next, run the transforms
 foreach my $set (@sets) {
