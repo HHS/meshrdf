@@ -73,7 +73,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$supprec_uri"/>
           <uri prefix='&rdfs;'>label</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="SupplementalRecordName/String"/>
           </literal>
         </xsl:with-param>

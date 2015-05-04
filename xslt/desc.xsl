@@ -81,7 +81,7 @@
         <xsl:with-param name="spec">
           <xsl:copy-of select="$descriptor_uri"/>
           <uri prefix='&rdfs;'>label</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="DescriptorName/String"/>
           </literal>
         </xsl:with-param>
@@ -170,7 +170,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
             <uri prefix='&meshv;'>publicMeSHNote</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="PublicMeSHNote"/>
             </literal>
           </xsl:with-param>
@@ -281,7 +281,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
             <uri prefix='&meshv;'>considerAlso</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="ConsiderAlso"/>
             </literal>
           </xsl:with-param>

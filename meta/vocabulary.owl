@@ -11,10 +11,10 @@
 
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
      xml:base="http://id.nlm.nih.gov/mesh/vocab#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://id.nlm.nih.gov/mesh/vocab#">
     <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
@@ -83,7 +83,16 @@
         <ObjectProperty IRI="broader"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="broaderTransitive"/>
+        <ObjectProperty IRI="broaderConcept"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="broaderDescriptor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="broaderQualifier"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="broaderTreeNumber"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="concept"/>
@@ -101,10 +110,7 @@
         <ObjectProperty IRI="mappedTo"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="narrower"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="narrowerTransitive"/>
+        <ObjectProperty IRI="narrowerConcept"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="pharmacologicalAction"/>
@@ -126,6 +132,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="related"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="relatedConcept"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="seeAlso"/>
@@ -463,12 +472,20 @@
         <Class IRI="TreeNumber"/>
     </DisjointClasses>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="broaderConcept"/>
         <ObjectProperty IRI="broader"/>
-        <ObjectProperty IRI="broaderTransitive"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="narrower"/>
-        <ObjectProperty IRI="narrowerTransitive"/>
+        <ObjectProperty IRI="broaderDescriptor"/>
+        <ObjectProperty IRI="broader"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="broaderQualifier"/>
+        <ObjectProperty IRI="broader"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="broaderTreeNumber"/>
+        <ObjectProperty IRI="broader"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="preferredConcept"/>
@@ -482,16 +499,77 @@
         <ObjectProperty IRI="preferredTerm"/>
         <ObjectProperty IRI="term"/>
     </SubObjectPropertyOf>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="broader"/>
-        <ObjectProperty IRI="narrower"/>
-    </InverseObjectProperties>
     <TransitiveObjectProperty>
-        <ObjectProperty IRI="broaderTransitive"/>
+        <ObjectProperty IRI="broaderTreeNumber"/>
     </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="narrowerTransitive"/>
-    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="broaderConcept"/>
+        <Class IRI="Concept"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="broaderDescriptor"/>
+        <Class IRI="Descriptor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="broaderQualifier"/>
+        <Class IRI="Qualifier"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="broaderTreeNumber"/>
+        <Class IRI="TreeNumber"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="narrowerConcept"/>
+        <Class IRI="Concept"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="relatedConcept"/>
+        <Class IRI="Concept"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="allowableQualifier"/>
+        <Class IRI="Qualifier"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="allowedTreeNode"/>
+        <Class IRI="TreeNumber"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="broaderConcept"/>
+        <Class IRI="Concept"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="broaderDescriptor"/>
+        <Class IRI="Descriptor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="broaderQualifier"/>
+        <Class IRI="Qualifier"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="broaderTreeNumber"/>
+        <Class IRI="TreeNumber"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasDescriptor"/>
+        <Class IRI="Descriptor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasQualifier"/>
+        <Class IRI="Qualifier"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="narrowerConcept"/>
+        <Class IRI="Concept"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="relatedConcept"/>
+        <Class IRI="Concept"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="treeNumber"/>
+        <Class IRI="TreeNumber"/>
+    </ObjectPropertyRange>
     <SubDataPropertyOf>
         <DataProperty IRI="altLabel"/>
         <DataProperty abbreviatedIRI="rdfs:label"/>
@@ -527,7 +605,7 @@
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
         <IRI>Concept</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH concepts are meanings. Many MeSH concepts contain synonymous terms. meshv:Concept identifiers begin with ‘M’ such as M0000013 (Congenital Abnormalities).</Literal>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH concepts are smeanings. Many MeSH concepts contain synonymous terms. meshv:Concept identifiers begin with ‘M’ such as M0000013 (Congenital Abnormalities).</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -763,5 +841,5 @@
 
 
 
-<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
 
