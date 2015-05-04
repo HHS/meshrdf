@@ -204,7 +204,7 @@ where {
 }
 ```
 
-###MeSH RDF Data
+### MeSH RDF Data
 
 ```
 <http://id.nlm.nih.gov/mesh/C012211>
@@ -388,7 +388,7 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
 </SupplementalRecord>
 ```
 
-###Notes
+### Notes
 
 There are three possible values for the *SCRClass* attribute (see the [XML
 documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#SCRClass), which result in three

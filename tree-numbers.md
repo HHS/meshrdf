@@ -76,7 +76,7 @@ ORDER BY ?treeNode
 {:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:TreeNumber | meshv:broaderTreeNumber | meshv:TreeNumber
+meshv:TreeNumber | meshv:parentTreeNumber | meshv:TreeNumber
 
 </div>
 
@@ -92,7 +92,7 @@ meshv:PublicationType | meshv:treeNumber | meshv:TreeNumber
 meshv:Qualifier | meshv:allowedTreeNode | meshv:TreeNumber
 meshv:Qualifier | meshv:treeNumber | meshv:TreeNumber
 meshv:TopicalDescriptor | meshv:treeNumber | meshv:TreeNumber
-meshv:TreeNumber | meshv:broaderTreeNumber | meshv:TreeNumber
+meshv:TreeNumber | meshv:parentTreeNumber | meshv:TreeNumber
 
 </div>
 

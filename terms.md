@@ -270,7 +270,7 @@ meshv:Term | rdfs:label
 </div>
 </div>
 
-###<a name = "relations"/>RDF Graph Model - Term Relations
+### <a name = "relations"/>RDF Graph Model - Term Relations
 
 Depicted in these graphs:
 
@@ -381,7 +381,7 @@ Notes:
 * The [IsPermutedTermYN
   attribute](http://www.nlm.nih.gov/mesh/xml_data_elements.html#IsPermutedTermYN) is used to determine the
   properties to use for a given label.  If IsPermutedTermYN is "N", then `meshv:prefLabel` is used.
-  If it is "Y", then `skos:altLabel` is used.  For convenience, the preferred label is also indicated with
+  If it is "Y", then `meshv:altLabel` is used.  For convenience, the preferred label is also indicated with
   the `rdfs:label` property.
 
 
