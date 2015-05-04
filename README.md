@@ -11,8 +11,13 @@ Please see that technical documentation for details about the data model, and ho
 RDF version of MeSH relates to the XML from which it derives.
 
 The rest of this README describes how to set up a development environment, perform the
-transformations yourself, if you are interested in doing that.  All the instructions assume
-that you're running on a Unix-like operating system, in a bash shell.
+transformations yourself, if you are interested in doing that.  
+
+All the instructions assume
+that you're running on a Unix-like operating system, in a bash shell. If you have a Windows
+machine, we recommend that you install [cygwin](https://www.cygwin.com/). Please let us know
+(by opening a GitHub issue here) if you have problems.
+
 
 ## Quick start
 
@@ -75,9 +80,6 @@ Where *repository-dir* is the base directory of this repository.
 If your version of Saxon is in a different location, then, of course, set this environment variable
 appropriately.
 
-On Windows:
-
-    set SAXON_JAR=*repository-dir*\saxon\saxon9he.jar
 
 
 ### Converting the complete MeSH data set
@@ -85,21 +87,11 @@ On Windows:
 There are a few conversion scripts in the repository which you can use to run the
 XSLT conversions.
 
-The conversion scripts are:
+The conversion script is *mesh-xml2rdf.sh*. This shell script will brute-force convert each of 
+the three main MeSH XML files into RDF N-Triples format, and put the results into the 
+*$MESHRDF_HOME/out* directory. It produces *mesh2014.nt*, which is the RDF in N-triples format, and 
+*mesh2014.nt.gz*, a gzipped version.
 
-* mesh-xml2rdf.sh - For unix, this shell script will brute-force convert each of the three
-  main MeSH XML files into RDF N-Triples format, and put the results into the *$MESHRDF_HOME/out* 
-  directory. It produces mesh2014.nt, which is the RDF in N-triples format, and mesh2014.nt.gz,
-  a gzipped version.
-* mesh-xml2rdf.bat - This does the same thing (mostly), but can be run from Windows. Note that
-  the unix shell script sorts and uniques the output, whereas this one does not.
-
-There is one other script that takes a different approach, that was useful for 
-doing the conversions on less-powerful machines.  The Perl script mesh-xml2rdf.pl first 
-chops up each of the input XML files into manageable sized chunks, and then runs each chunk 
-through the XSLTs separately. ***Note, however, that because of the way it chunks the input
-files, it fails to create a lot of meshv:broader links between the various tree nodes.
-Therefore, this should not be used in production.***
 
 
 ### Generating and converting the sample files
@@ -124,11 +116,10 @@ file, if any of those changes.  So, keep in mind that these samples in the repos
 used for testing/demo purposes, and are not necessarily up-to-date with the latest MeSH
 release.
 
-Finally, either of the scripts *convert-samples.sh* (for Unix) or *convert-samples.bat*
-(for Windows) can be used to convert the sample XML files into RDF, the final output
-being *samples.nt*.
+Finally, the script *convert-samples.sh* can be used to convert the sample XML files into 
+RDF, the final output being *samples.nt*.
 
-***Note, though, that the generated RDF will be missing a lot of meshv:broader 
+***Note that the generated RDF will be missing a lot of meshv:parentTreeNumber 
 relationships, because those are generated from the tree node identifiers to link between 
 various records. Since the sample files contain only a subset of the records, most of 
 these cannot be generated.***
@@ -166,7 +157,7 @@ Decide on a directory where you will install virtuoso, and set the $VIRTUOSO_HOM
 
 Checkout source from github:
 
-    git clone git://github.com/openlink/virtuoso-opensource.git
+    git clone https://github.com/openlink/virtuoso-opensource.git
     cd virtuoso-opensource
     git checkout develop/7   # should say already on develop/7
 

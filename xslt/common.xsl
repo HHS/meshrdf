@@ -422,11 +422,11 @@
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>Every time we reify a TreeNumber that has a dot in it, we'll create a triple
-              to link it to its parent with meshv:broaderTreeNumber.</desc>
+              to link it to its parent with meshv:parentTreeNumber.</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select='$tree-number-uri'/>
-            <uri prefix='&meshv;'>broaderTreeNumber</uri>
+            <uri prefix='&meshv;'>parentTreeNumber</uri>
             <uri prefix='&mesh;'>
               <xsl:value-of select="$parent-tree-number"/>
             </uri>
