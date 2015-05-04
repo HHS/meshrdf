@@ -80,7 +80,10 @@
             <xsl:value-of select='$oo'/>
             <xsl:text>'</xsl:text>
           </xsl:message>
-          <literal><xsl:value-of select="replace($oo, '^\s+|\s+$', '')"/></literal>
+          <literal>
+            <xsl:copy-of select='$oo/@*'/>
+            <xsl:value-of select="replace($oo, '^\s+|\s+$', '')"/>
+          </literal>
         </xsl:when>
         <xsl:otherwise>
           <xsl:copy-of select='$oo'/>
@@ -111,7 +114,17 @@
             <xsl:value-of select='concat("^^&lt;", $v/@type, ">")'/>
           </xsl:if>
         </xsl:variable>
-        <xsl:value-of select="concat(f:literal-str($v), $type-string)"/>
+        <xsl:variable name='lang-string'>
+          <xsl:choose>
+            <xsl:when test='$v/@lang'>
+              <xsl:value-of select='concat("@", $v/@lang)'/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select='""'/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="concat(f:literal-str($v), $type-string, $lang-string)"/>
       </xsl:when>
       <xsl:when test='$v/self::named'>
         <xsl:value-of select='$v'/>
@@ -173,6 +186,7 @@
   -->
   <xsl:function name='f:meshv_relation_uri'>
     <xsl:param name='rel'/>
+    <xsl:param name='subj_type'/>
     <uri prefix='&meshv;'>
       <xsl:choose>
         <xsl:when test="matches($rel, 'BRD')">
@@ -185,6 +199,7 @@
           <xsl:text>related</xsl:text>
         </xsl:when>
       </xsl:choose>
+      <xsl:value-of select='$subj_type'/>
     </uri>
   </xsl:function>
 
@@ -259,7 +274,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>activeMeSHYear</uri>
-          <literal type="&xs;#date">
+          <literal>
             <xsl:value-of select="."/>
           </literal>
         </xsl:with-param>
@@ -277,7 +292,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>annotation</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="Annotation"/>
           </literal>
         </xsl:with-param>
@@ -296,7 +311,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>historyNote</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="HistoryNote"/>
           </literal>
         </xsl:with-param>
@@ -311,7 +326,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>onlineNote</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="OnlineNote"/>
           </literal>
         </xsl:with-param>
@@ -396,7 +411,7 @@
         <xsl:with-param name="spec">
           <xsl:copy-of select='$tree-number-uri'/>
           <uri prefix='&rdfs;'>label</uri>
-          <literal><xsl:value-of select="$tree-number-str"/></literal>
+          <literal lang='en'><xsl:value-of select="$tree-number-str"/></literal>
         </xsl:with-param>
       </xsl:call-template>
 
@@ -407,11 +422,11 @@
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>Every time we reify a TreeNumber that has a dot in it, we'll create a triple
-              to link it to its parent with meshv:broaderTransitive.</desc>
+              to link it to its parent with meshv:parentTreeNumber.</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select='$tree-number-uri'/>
-            <uri prefix='&meshv;'>broaderTransitive</uri>
+            <uri prefix='&meshv;'>parentTreeNumber</uri>
             <uri prefix='&mesh;'>
               <xsl:value-of select="$parent-tree-number"/>
             </uri>
@@ -421,8 +436,9 @@
         <!-- Create triples to relate descriptors to descriptors and qualifiers to qualifiers using meshv:broader -->
         <xsl:variable name='parent-tree-number-element'
           select='key("tree-numbers", $parent-tree-number)'/>
-         <xsl:if test='$parent-tree-number-element'>
-           <xsl:if test='ancestor::DescriptorRecord'>
+
+        <xsl:if test='$parent-tree-number-element'>
+          <xsl:if test='ancestor::DescriptorRecord'>
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
                 <desc>Also create a simple meshv:broader relationship between this descriptor and
@@ -430,28 +446,28 @@
               </xsl:with-param>
               <xsl:with-param name="spec">
                 <xsl:copy-of select="$parent"/>
-                <uri prefix='&meshv;'>broader</uri>
+                <uri prefix='&meshv;'>broaderDescriptor</uri>
                 <uri prefix='&mesh;'>
                   <xsl:value-of select="$parent-tree-number-element/ancestor::DescriptorRecord/DescriptorUI"/>
                 </uri>
               </xsl:with-param>
             </xsl:call-template>
-            </xsl:if>
-            <xsl:if test='ancestor::QualifierRecord'>
-              <xsl:call-template name='triple'>
-                <xsl:with-param name="doc">
-                  <desc>Also create a simple meshv:broader relationship between this qualifier and
-                    the qualifier that has the parent tree number</desc>
-                </xsl:with-param>
-                <xsl:with-param name="spec">
-                  <xsl:copy-of select="$parent"/>
-                  <uri prefix='&meshv;'>broader</uri>
-                  <uri prefix='&mesh;'>
-                    <xsl:value-of select="$parent-tree-number-element/ancestor::QualifierRecord/QualifierUI"/>
-                  </uri>
-                </xsl:with-param>
-              </xsl:call-template>
-           </xsl:if>
+          </xsl:if>
+          <xsl:if test='ancestor::QualifierRecord'>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <desc>Also create a simple meshv:broader relationship between this qualifier and
+                  the qualifier that has the parent tree number</desc>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$parent"/>
+                <uri prefix='&meshv;'>broaderQualifier</uri>
+                <uri prefix='&mesh;'>
+                  <xsl:value-of select="$parent-tree-number-element/ancestor::QualifierRecord/QualifierUI"/>
+                </uri>
+              </xsl:with-param>
+            </xsl:call-template>
+          </xsl:if>
         </xsl:if>
       </xsl:if>
     </xsl:for-each>
@@ -567,7 +583,7 @@
         <xsl:with-param name="spec">
           <xsl:copy-of select="$concept_uri"/>
           <uri prefix='&rdfs;'>label</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="ConceptName/String"/>
           </literal>
         </xsl:with-param>
@@ -644,7 +660,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select="$concept_uri"/>
             <uri prefix='&meshv;'>scopeNote</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="ScopeNote"/>
             </literal>
           </xsl:with-param>
@@ -700,7 +716,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select="$semantic_type_uri"/>
             <uri prefix='&rdfs;'>label</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="SemanticTypeName"/>
             </literal>
           </xsl:with-param>
@@ -755,7 +771,7 @@
               <uri prefix='&mesh;'>
                 <xsl:value-of select="Concept1UI"/>
               </uri>
-              <xsl:copy-of select="f:meshv_relation_uri(@RelationName)"/>
+              <xsl:copy-of select="f:meshv_relation_uri(@RelationName, 'Concept')"/>
               <uri prefix='&mesh;'>
                 <xsl:value-of select="Concept2UI"/>
               </uri>
@@ -900,7 +916,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
             <uri prefix='&meshv;'>prefLabel</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="String"/>
             </literal>
           </xsl:with-param>
@@ -994,7 +1010,7 @@
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
               <uri prefix='&meshv;'>abbreviation</uri>
-              <literal>
+              <literal lang='en'>
                 <xsl:value-of select="Abbreviation"/>
               </literal>
             </xsl:with-param>
@@ -1073,7 +1089,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
             <uri prefix='&meshv;'>altLabel</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="String"/>
             </literal>
           </xsl:with-param>

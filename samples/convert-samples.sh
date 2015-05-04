@@ -5,4 +5,5 @@
 java -jar $SAXON_JAR -s:qual-samples.xml -xsl:../xslt/qual.xsl > qual-samples.nt
 java -jar $SAXON_JAR -s:desc-samples.xml -xsl:../xslt/desc.xsl > desc-samples.nt
 java -jar $SAXON_JAR -s:supp-samples.xml -xsl:../xslt/supp.xsl > supp-samples.nt
-cat qual-samples.nt desc-samples.nt supp-samples.nt > samples.nt
+cat qual-samples.nt desc-samples.nt supp-samples.nt > samples-dups.nt
+sort -u samples-dups.nt > samples.nt
