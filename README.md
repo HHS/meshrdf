@@ -166,7 +166,7 @@ Decide on a directory where you will install virtuoso, and set the $VIRTUOSO_HOM
 
 Checkout source from github:
 
-    git clone git://github.com/openlink/virtuoso-opensource.git
+    git clone https://github.com/openlink/virtuoso-opensource.git
     cd virtuoso-opensource
     git checkout develop/7   # should say already on develop/7
 
