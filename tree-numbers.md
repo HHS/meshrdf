@@ -15,9 +15,9 @@ fits into the category hierarchies in multiple places.
 
 In MeSH RDF, tree numbers are both classes in their own right (meshv:TreeNumber), as well as 
 properties of a meshv:Descriptor, via the meshv:treeNumber predicate. meshv:TreeNumber classes 
-are related to each other via the meshv:broaderTreeNumber relationship. In order to discover
+are related to each other via the meshv:parentTreeNumber relationship. In order to discover
 ancestors or descendants of a meshv:Descriptor according to these hierarchies,
-one could use the '+' operator on the meshv:broaderTreeNumber property. (See the [Sample 
+one could use the '+' operator on the meshv:parentTreeNumber property. (See the [Sample 
 Queries](http://hhs.github.io/meshrdf/sample-queries.html) page for
 examples).
 
@@ -33,7 +33,7 @@ Organs' tree (A09).
 
 To account for the fact that MeSH Descriptors can belong to multiple trees, MeSH RDF represents 
 tree numbers as a proper class called meshv:TreeNumber. As mentioned earlier, users can leverage the 
-"meshv:broaderTreeNumber+" construct to walk up and down the trees to which MeSH descriptors belong.
+"meshv:parentTreeNumber+" construct to walk up and down the trees to which MeSH descriptors belong.
 For example, <span class = "invoke-sparql">this query</span> retrieves all ancestors of 'Eyebrows'.
 Note, in particular, that the results do *not* include D012679, Sense Organs (which a naive query
 using the meshv:broaderDescriptor property would.)
@@ -51,7 +51,7 @@ FROM <http://id.nlm.nih.gov/mesh2014>
 
 WHERE {
   mesh:D005138 meshv:treeNumber ?treeNode .
-  ?treeNode meshv:broaderTreeNumber+ ?ancestorTreeNode .
+  ?treeNode meshv:parentTreeNumber+ ?ancestorTreeNode .
   ?ancestor meshv:treeNumber ?ancestorTreeNode .
   ?ancestor rdfs:label ?alabel
 }
@@ -108,7 +108,7 @@ meshv:TreeNumber | rdfs:label
 
 ### SPARQL
 
-Users can also discover immediate narrower/broader meshv:Descriptors via the meshv:broaderTreeNumber predicate.
+Users can also discover immediate narrower/broader meshv:Descriptors via the meshv:parentTreeNumber predicate.
 The following <span class='invoke-sparql'>SPARQL query</span> creates a table that shows the relationships between "Eye"
 and each of the immediate broader and narrower concepts for each of its tree numbers:
 
@@ -126,11 +126,11 @@ WHERE {
            ?broader_tree_number ?broader_descriptor
            ?narrower_tree_number ?narrower_descriptor
     WHERE {
-      ?tree_number meshv:broaderTreeNumber ?broader_tree_number .
+      ?tree_number meshv:parentTreeNumber ?broader_tree_number .
       ?broader_descriptor meshv:treeNumber ?broader_tree_number .
       mesh:D005123 meshv:broaderDescriptor ?broader_descriptor .
 
-      ?narrower_tree_number meshv:broaderTreeNumber ?tree_number .
+      ?narrower_tree_number meshv:parentTreeNumber ?tree_number .
       ?narrower_descriptor meshv:treeNumber ?narrower_tree_number .
       ?narrower_descriptor meshv:broaderDescriptor mesh:D005123 .
     }
@@ -147,11 +147,11 @@ PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 
 CONSTRUCT {
   mesh:D005123 meshv:treeNumber ?tree_number .
-  ?tree_number meshv:broaderTreeNumber ?broader_tree_number .
+  ?tree_number meshv:parentTreeNumber ?broader_tree_number .
   ?broader_descriptor meshv:treeNumber ?broader_tree_number .
   mesh:D005123 meshv:broaderDescriptor ?broader_descriptor .
 
-  ?narrower_tree_number meshv:broaderTreeNumber ?tree_number .
+  ?narrower_tree_number meshv:parentTreeNumber ?tree_number .
   ?narrower_descriptor meshv:treeNumber ?narrower_tree_number .
   ?narrower_descriptor meshv:broaderDescriptor mesh:D005123 .
 }
@@ -164,11 +164,11 @@ where {
            ?broader_tree_number ?broader_descriptor
            ?narrower_tree_number ?narrower_descriptor
     where {
-      ?tree_number meshv:broaderTreeNumber ?broader_tree_number .
+      ?tree_number meshv:parentTreeNumber ?broader_tree_number .
       ?broader_descriptor meshv:treeNumber ?broader_tree_number .
       mesh:D005123 meshv:broaderDescriptor ?broader_descriptor .
 
-      ?narrower_tree_number meshv:broaderTreeNumber ?tree_number .
+      ?narrower_tree_number meshv:parentTreeNumber ?tree_number .
       ?narrower_descriptor meshv:treeNumber ?narrower_tree_number .
       ?narrower_descriptor meshv:broaderDescriptor mesh:D005123 .
     }
@@ -219,19 +219,19 @@ where {
 ...
 # Relations among TreeNumbers
 <http://id.nlm.nih.gov/mesh/A01.456.505.420>
-        <http://id.nlm.nih.gov/mesh/vocab#broaderTreeNumber>
+        <http://id.nlm.nih.gov/mesh/vocab#parentTreeNumber>
                 <http://id.nlm.nih.gov/mesh/A01.456.505> .
 ...
 <http://id.nlm.nih.gov/mesh/A09.371>
-        <http://id.nlm.nih.gov/mesh/vocab#broaderTreeNumber>
+        <http://id.nlm.nih.gov/mesh/vocab#parentTreeNumber>
                 <http://id.nlm.nih.gov/mesh/A09> .
 ...
 <http://id.nlm.nih.gov/mesh/A01.456.505.420.338>
-        <http://id.nlm.nih.gov/mesh/vocab#broaderTreeNumber>
+        <http://id.nlm.nih.gov/mesh/vocab#parentTreeNumber>
                 <http://id.nlm.nih.gov/mesh/A01.456.505.420> .
 ...
 <http://id.nlm.nih.gov/mesh/A09.371.613>
-        <http://id.nlm.nih.gov/mesh/vocab#broaderTreeNumber>
+        <http://id.nlm.nih.gov/mesh/vocab#parentTreeNumber>
                 <http://id.nlm.nih.gov/mesh/A09.371> .
 ```
 
