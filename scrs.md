@@ -6,8 +6,7 @@ categories:
 - Data Model
 ---
 
-Supplementary Concept Records are created in MeSH to account for the large volume of chemical names that are found in biomedical literature.   In MeSH RDF, these are
-represented by the super class meshv:SupplementaryConceptRecord, which has three sub-classes:
+Supplementary Concept Records are created in MeSH to account for the large volume of chemical names that are found in biomedical literature. In MeSH RDF, these are represented by the super class meshv:SupplementaryConceptRecord, which has three sub-classes:
 
 *  meshv:SCR_Chemical
 *  meshv:SCR_Disease
@@ -51,7 +50,7 @@ meshv:SCR_Chemical | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierP
 meshv:SCR_Chemical | meshv:preferredMappedTo | meshv:Descriptor
 meshv:SCR_Chemical | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
 meshv:SCR_Chemical | meshv:preferredMappedTo | meshv:TopicalDescriptor
-meshv:SCR_Chemical | meshv:recordPreferredTerm | meshv:Term
+meshv:SCR_Chemical | meshv:preferredTerm | meshv:Term
 meshv:SCR_Disease | meshv:concept | meshv:Concept
 meshv:SCR_Disease | meshv:indexerConsiderAlso | meshv:Descriptor
 meshv:SCR_Disease | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
@@ -64,7 +63,7 @@ meshv:SCR_Disease | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierPa
 meshv:SCR_Disease | meshv:preferredMappedTo | meshv:Descriptor
 meshv:SCR_Disease | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
 meshv:SCR_Disease | meshv:preferredMappedTo | meshv:TopicalDescriptor
-meshv:SCR_Disease | meshv:recordPreferredTerm | meshv:Term
+meshv:SCR_Disease | meshv:preferredTerm | meshv:Term
 meshv:SCR_Protocol | meshv:concept | meshv:Concept
 meshv:SCR_Protocol | meshv:indexerConsiderAlso | meshv:Descriptor
 meshv:SCR_Protocol | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
@@ -77,7 +76,7 @@ meshv:SCR_Protocol | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierP
 meshv:SCR_Protocol | meshv:preferredMappedTo | meshv:Descriptor
 meshv:SCR_Protocol | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
 meshv:SCR_Protocol | meshv:preferredMappedTo | meshv:TopicalDescriptor
-meshv:SCR_Protocol | meshv:recordPreferredTerm | meshv:Term
+meshv:SCR_Protocol | meshv:preferredTerm | meshv:Term
 meshv:SupplementaryConceptRecord | meshv:concept | meshv:Concept
 meshv:SupplementaryConceptRecord | meshv:indexerConsiderAlso | meshv:AllowedDescriptorQualifierPair
 meshv:SupplementaryConceptRecord | meshv:indexerConsiderAlso | meshv:Descriptor
@@ -95,7 +94,7 @@ meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:AllowedDescri
 meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:Descriptor
 meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
 meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:TopicalDescriptor
-meshv:SupplementaryConceptRecord | meshv:recordPreferredTerm | meshv:Term
+meshv:SupplementaryConceptRecord | meshv:preferredTerm | meshv:Term
 
 </div>
 
@@ -114,52 +113,52 @@ N/A | N/A | N/A
 {:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:SCR_Chemical | meshv:activeMeSHYear
+meshv:SCR_Chemical | <s>meshv:activeMeSHYear</s>
 meshv:SCR_Chemical | meshv:dateCreated
 meshv:SCR_Chemical | meshv:dateRevised
 meshv:SCR_Chemical | meshv:frequency
 meshv:SCR_Chemical | meshv:identifier
 meshv:SCR_Chemical | meshv:note
 meshv:SCR_Chemical | meshv:previousIndexing
-meshv:SCR_Chemical | meshv:recordAuthorizer
-meshv:SCR_Chemical | meshv:recordMaintainer
-meshv:SCR_Chemical | meshv:recordOriginator
+meshv:SCR_Chemical | <s>meshv:recordAuthorizer</s>
+meshv:SCR_Chemical | <s>meshv:recordMaintainer</s>
+meshv:SCR_Chemical | <s>meshv:recordOriginator</s>
 meshv:SCR_Chemical | meshv:source
 meshv:SCR_Chemical | rdfs:label
-meshv:SCR_Disease | meshv:activeMeSHYear
+meshv:SCR_Disease | <s>meshv:activeMeSHYear</s>
 meshv:SCR_Disease | meshv:dateCreated
 meshv:SCR_Disease | meshv:dateRevised
 meshv:SCR_Disease | meshv:frequency
 meshv:SCR_Disease | meshv:identifier
 meshv:SCR_Disease | meshv:note
 meshv:SCR_Disease | meshv:previousIndexing
-meshv:SCR_Disease | meshv:recordAuthorizer
-meshv:SCR_Disease | meshv:recordMaintainer
-meshv:SCR_Disease | meshv:recordOriginator
+meshv:SCR_Disease | <s>meshv:recordAuthorizer</s>
+meshv:SCR_Disease | <s>meshv:recordMaintainer</s>
+meshv:SCR_Disease | <s>meshv:recordOriginator</s>
 meshv:SCR_Disease | meshv:source
 meshv:SCR_Disease | rdfs:label
-meshv:SCR_Protocol | meshv:activeMeSHYear
+meshv:SCR_Protocol | <s>meshv:activeMeSHYear</s>
 meshv:SCR_Protocol | meshv:dateCreated
 meshv:SCR_Protocol | meshv:dateRevised
 meshv:SCR_Protocol | meshv:frequency
 meshv:SCR_Protocol | meshv:identifier
 meshv:SCR_Protocol | meshv:note
 meshv:SCR_Protocol | meshv:previousIndexing
-meshv:SCR_Protocol | meshv:recordAuthorizer
-meshv:SCR_Protocol | meshv:recordMaintainer
-meshv:SCR_Protocol | meshv:recordOriginator
+meshv:SCR_Protocol | <s>meshv:recordAuthorizer</s>
+meshv:SCR_Protocol | <s>meshv:recordMaintainer</s>
+meshv:SCR_Protocol | <s>meshv:recordOriginator</s>
 meshv:SCR_Protocol | meshv:source
 meshv:SCR_Protocol | rdfs:label
-meshv:SupplementaryConceptRecord | meshv:activeMeSHYear
+meshv:SupplementaryConceptRecord | <s>meshv:activeMeSHYear</s>
 meshv:SupplementaryConceptRecord | meshv:dateCreated
 meshv:SupplementaryConceptRecord | meshv:dateRevised
 meshv:SupplementaryConceptRecord | meshv:frequency
 meshv:SupplementaryConceptRecord | meshv:identifier
 meshv:SupplementaryConceptRecord | meshv:note
 meshv:SupplementaryConceptRecord | meshv:previousIndexing
-meshv:SupplementaryConceptRecord | meshv:recordAuthorizer
-meshv:SupplementaryConceptRecord | meshv:recordMaintainer
-meshv:SupplementaryConceptRecord | meshv:recordOriginator
+meshv:SupplementaryConceptRecord | <s>meshv:recordAuthorizer</s>
+meshv:SupplementaryConceptRecord | <s>meshv:recordMaintainer</s>
+meshv:SupplementaryConceptRecord | <s>meshv:recordOriginator</s>
 meshv:SupplementaryConceptRecord | meshv:source
 meshv:SupplementaryConceptRecord | rdfs:label
 
@@ -183,7 +182,7 @@ construct {
     ?scrClass rdfs:subClassOf $scrSuperClass .
     mesh:C025735 meshv:preferredConcept ?prefCon .
     ?prefCon a ?prefConType .
-    mesh:C025735 meshv:recordPreferredTerm ?prefTerm .
+    mesh:C025735 meshv:preferredTerm ?prefTerm .
     ?prefTerm a ?prefTermType .
     ?prefCon ?pct ?prefTerm .
 
@@ -196,7 +195,7 @@ where {
     ?scrClass rdfs:subClassOf $scrSuperClass .
     mesh:C025735 meshv:preferredConcept ?prefCon .
     ?prefCon a ?prefConType .
-    mesh:C025735 meshv:recordPreferredTerm ?prefTerm .
+    mesh:C025735 meshv:preferredTerm ?prefTerm .
     ?prefTerm a ?prefTermType .
     ?prefCon ?pct ?prefTerm .
 
@@ -215,8 +214,6 @@ where {
         a       <http://id.nlm.nih.gov/mesh/vocab#RegularSubstance> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Aeron" ;
-        <http://id.nlm.nih.gov/mesh/vocab#activeMeSHYear>
-                "1989-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ,
                 ...
                 "2014-01-01"^^<http://www.w3.org/2001/XMLSchema#date>;
         <http://id.nlm.nih.gov/mesh/vocab#dateCreated>
@@ -237,13 +234,7 @@ where {
                 <http://id.nlm.nih.gov/mesh/D001286> ;
         <http://id.nlm.nih.gov/mesh/vocab#previousIndexing>
                 "ATROPINE/*analogs (81-86)" ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordAuthorizer>
-                "nlm" ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordMaintainer>
-                "standardr" ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordOriginator>
-                "nbm" ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm>
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
                 <http://id.nlm.nih.gov/mesh/T115471> ;
         <http://id.nlm.nih.gov/mesh/vocab#source>
                 "Vrach Delo 1980;(7):55" ;
@@ -283,11 +274,7 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
     <Month>04</Month>
     <Day>03</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-    <Year>1989</Year>
     ...
-    <Year>2014</Year>
-  </ActiveMeSHYearList>
   <Note>contains scopolamine camphorate mixture with (-)-atropine camphorate </Note>
   <Frequency>4</Frequency>
   <PreviousIndexingList>
@@ -336,11 +323,6 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
   <SourceList>
     <Source>Vrach Delo 1980;(7):55</Source>
   </SourceList>
-  <RecordOriginatorsList>
-    <RecordOriginator>nbm</RecordOriginator>
-    <RecordMaintainer>standardr</RecordMaintainer>
-    <RecordAuthorizer>nlm</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
     <Concept PreferredConceptYN="Y">
       <ConceptUI>M0085468</ConceptUI>
