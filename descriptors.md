@@ -30,7 +30,7 @@ The chart below displays the properties of the meshv:TopicalDescriptor D015242, 
 
 ###<a name = "properties"/>RDF Graph Diagram - Descriptor Properties
 
-The following RDF graph diagram shows a fairly typical topical descriptor (D015242, Ofloxacin) and its literals. For reference, see [Ofloxacin in the MeSH browser](https://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?term=ofloxacin). The data elements featured here have literal strings as objects, not identifiers.
+The following RDF graph diagram shows a fairly typical Topical Descriptor (D015242, Ofloxacin) and its literals. For reference, see [Ofloxacin in the MeSH browser](https://www.nlm.nih.gov/cgi/mesh/2014/MB_cgi?term=ofloxacin). The data elements featured here have literal strings as objects, not identifiers.
 
 ![Descriptor RDF Graph Diagram](images/BasicConversionLiterals.png){: class="rdf-graph img-responsive"}
 
@@ -57,8 +57,6 @@ Here is the truncated output of the above query in N3 format. The same data is i
         a       <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Ofloxacin" ;
-        <http://id.nlm.nih.gov/mesh/vocab#activeMeSHYear>
-                "2014-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
                 ...
         <http://id.nlm.nih.gov/mesh/vocab#dateCreated>
                 "2014-06-26"^^<http://www.w3.org/2001/XMLSchema#date> ;
@@ -75,13 +73,7 @@ Here is the truncated output of the above query in N3 format. The same data is i
                 "Oxazines (1981-1988)" ;
         <http://id.nlm.nih.gov/mesh/vocab#publicMeSHNote>
                 "89" ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordAuthorizer>
-                "chodan" ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordMaintainer>
-                "pashj" ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordOriginator>
-                "standardr" ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm>
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
                 <http://id.nlm.nih.gov/mesh/T044624> ;
                 ...
         <http://purl.org/dc/terms/identifier>
@@ -115,9 +107,6 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
    <Month>01</Month>
    <Day>01</Day>
   </DateEstablished>
-  <ActiveMeSHYearList>
-   <Year>2014</Year>
-  </ActiveMeSHYearList>
   ...
   <HistoryNote>89
   </HistoryNote>
@@ -128,12 +117,6 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
    <PreviousIndexing>Anti-Infective Agents, Urinary (1981-1988)</PreviousIndexing>
    <PreviousIndexing>Oxazines (1981-1988)</PreviousIndexing>
   </PreviousIndexingList>
-  ...
-  <RecordOriginatorsList>
-   <RecordOriginator>standardr</RecordOriginator>
-   <RecordMaintainer>pashj</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
   ...
  </DescriptorRecord>
 ```
@@ -157,7 +140,7 @@ This table includes all the sub-classes of the meshv:Descriptor class as either 
 Subject | Predicate | Object
 ------- | --------- | --------
 meshv:CheckTag | meshv:preferredConcept | meshv:Concept
-meshv:CheckTag | meshv:recordPreferredTerm | meshv:Term
+meshv:CheckTag | meshv:preferredTerm | meshv:Term
 meshv:Descriptor | meshv:allowableQualifier | meshv:Qualifier
 meshv:Descriptor | meshv:broader | meshv:Descriptor
 meshv:Descriptor | meshv:broader | meshv:GeographicalDescriptor
@@ -167,7 +150,7 @@ meshv:Descriptor | meshv:concept | meshv:Concept
 meshv:Descriptor | meshv:pharmacologicalAction | meshv:Descriptor
 meshv:Descriptor | meshv:pharmacologicalAction | meshv:TopicalDescriptor
 meshv:Descriptor | meshv:preferredConcept | meshv:Concept
-meshv:Descriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:Descriptor | meshv:preferredTerm | meshv:Term
 meshv:Descriptor | meshv:seeAlso | meshv:Descriptor
 meshv:Descriptor | meshv:seeAlso | meshv:PublicationType
 meshv:Descriptor | meshv:seeAlso | meshv:TopicalDescriptor
@@ -178,13 +161,13 @@ meshv:GeographicalDescriptor | meshv:broader | meshv:GeographicalDescriptor
 meshv:GeographicalDescriptor | meshv:broader | meshv:TopicalDescriptor
 meshv:GeographicalDescriptor | meshv:concept | meshv:Concept
 meshv:GeographicalDescriptor | meshv:preferredConcept | meshv:Concept
-meshv:GeographicalDescriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:GeographicalDescriptor | meshv:preferredTerm | meshv:Term
 meshv:GeographicalDescriptor | meshv:treeNumber | meshv:TreeNumber
 meshv:PublicationType | meshv:broader | meshv:Descriptor
 meshv:PublicationType | meshv:broader | meshv:PublicationType
 meshv:PublicationType | meshv:concept | meshv:Concept
 meshv:PublicationType | meshv:preferredConcept | meshv:Concept
-meshv:PublicationType | meshv:recordPreferredTerm | meshv:Term
+meshv:PublicationType | meshv:preferredTerm | meshv:Term
 meshv:PublicationType | meshv:seeAlso | meshv:Descriptor
 meshv:PublicationType | meshv:seeAlso | meshv:PublicationType
 meshv:PublicationType | meshv:treeNumber | meshv:TreeNumber
@@ -195,7 +178,7 @@ meshv:TopicalDescriptor | meshv:concept | meshv:Concept
 meshv:TopicalDescriptor | meshv:pharmacologicalAction | meshv:Descriptor
 meshv:TopicalDescriptor | meshv:pharmacologicalAction | meshv:TopicalDescriptor
 meshv:TopicalDescriptor | meshv:preferredConcept | meshv:Concept
-meshv:TopicalDescriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:TopicalDescriptor | meshv:preferredTerm | meshv:Term
 meshv:TopicalDescriptor | meshv:seeAlso | meshv:Descriptor
 meshv:TopicalDescriptor | meshv:seeAlso | meshv:PublicationType
 meshv:TopicalDescriptor | meshv:seeAlso | meshv:TopicalDescriptor
@@ -282,17 +265,17 @@ meshv:TopicalDescriptor | meshv:seeAlso | meshv:TopicalDescriptor
 {:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:CheckTag | meshv:activeMeSHYear
+meshv:CheckTag | <s>meshv:activeMeSHYear</s>
 meshv:CheckTag | meshv:annotation
 meshv:CheckTag | meshv:dateCreated
 meshv:CheckTag | meshv:dateRevised
 meshv:CheckTag | meshv:historyNote
 meshv:CheckTag | meshv:identifier
-meshv:CheckTag | meshv:recordAuthorizer
-meshv:CheckTag | meshv:recordMaintainer
-meshv:CheckTag | meshv:recordOriginator
+meshv:CheckTag | <s>meshv:recordAuthorizer</s>
+meshv:CheckTag | <s>meshv:recordMaintainer</s>
+meshv:CheckTag | <s>meshv:recordOriginator</s>
 meshv:CheckTag | rdfs:label
-meshv:Descriptor | meshv:activeMeSHYear
+meshv:Descriptor | <s>meshv:activeMeSHYear</s>
 meshv:Descriptor | meshv:annotation
 meshv:Descriptor | meshv:considerAlso
 meshv:Descriptor | meshv:dateCreated
@@ -303,12 +286,12 @@ meshv:Descriptor | meshv:identifier
 meshv:Descriptor | meshv:onlineNote
 meshv:Descriptor | meshv:previousIndexing
 meshv:Descriptor | meshv:publicMeSHNote
-meshv:Descriptor | meshv:recordAuthorizer
-meshv:Descriptor | meshv:recordMaintainer
-meshv:Descriptor | meshv:recordOriginator
-meshv:Descriptor | meshv:runningHead
+meshv:Descriptor | <s>meshv:recordAuthorizer</s>
+meshv:Descriptor | <s>meshv:recordMaintainer</s>
+meshv:Descriptor | <s>meshv:recordOriginator</s>
+meshv:Descriptor | <s>meshv:runningHead</s>
 meshv:Descriptor | rdfs:label
-meshv:GeographicalDescriptor | meshv:activeMeSHYear
+meshv:GeographicalDescriptor | <s>meshv:activeMeSHYear</s>
 meshv:GeographicalDescriptor | meshv:annotation
 meshv:GeographicalDescriptor | meshv:dateCreated
 meshv:GeographicalDescriptor | meshv:dateEstablished
@@ -317,12 +300,12 @@ meshv:GeographicalDescriptor | meshv:historyNote
 meshv:GeographicalDescriptor | meshv:identifier
 meshv:GeographicalDescriptor | meshv:onlineNote
 meshv:GeographicalDescriptor | meshv:previousIndexing
-meshv:GeographicalDescriptor | meshv:recordAuthorizer
-meshv:GeographicalDescriptor | meshv:recordMaintainer
-meshv:GeographicalDescriptor | meshv:recordOriginator
-meshv:GeographicalDescriptor | meshv:runningHead
+meshv:GeographicalDescriptor | <s>meshv:recordAuthorizer</s>
+meshv:GeographicalDescriptor | <s>meshv:recordMaintainer</s>
+meshv:GeographicalDescriptor | <s>meshv:recordOriginator</s>
+meshv:GeographicalDescriptor | <s>meshv:runningHead</s>
 meshv:GeographicalDescriptor | rdfs:label
-meshv:PublicationType | meshv:activeMeSHYear
+meshv:PublicationType | <s>meshv:activeMeSHYear</s>
 meshv:PublicationType | meshv:annotation
 meshv:PublicationType | meshv:dateCreated
 meshv:PublicationType | meshv:dateEstablished
@@ -330,12 +313,12 @@ meshv:PublicationType | meshv:dateRevised
 meshv:PublicationType | meshv:historyNote
 meshv:PublicationType | meshv:identifier
 meshv:PublicationType | meshv:previousIndexing
-meshv:PublicationType | meshv:recordAuthorizer
-meshv:PublicationType | meshv:recordMaintainer
-meshv:PublicationType | meshv:recordOriginator
-meshv:PublicationType | meshv:runningHead
+meshv:PublicationType | <s>meshv:recordAuthorizer</s>
+meshv:PublicationType | <s>meshv:recordMaintainer</s>
+meshv:PublicationType | <s>meshv:recordOriginator</s>
+meshv:PublicationType | <s>meshv:runningHead</s>
 meshv:PublicationType | rdfs:label
-meshv:TopicalDescriptor | meshv:activeMeSHYear
+meshv:TopicalDescriptor | <s>meshv:activeMeSHYear</s>
 meshv:TopicalDescriptor | meshv:annotation
 meshv:TopicalDescriptor | meshv:considerAlso
 meshv:TopicalDescriptor | meshv:dateCreated
@@ -346,10 +329,10 @@ meshv:TopicalDescriptor | meshv:identifier
 meshv:TopicalDescriptor | meshv:onlineNote
 meshv:TopicalDescriptor | meshv:previousIndexing
 meshv:TopicalDescriptor | meshv:publicMeSHNote
-meshv:TopicalDescriptor | meshv:recordAuthorizer
-meshv:TopicalDescriptor | meshv:recordMaintainer
-meshv:TopicalDescriptor | meshv:recordOriginator
-meshv:TopicalDescriptor | meshv:runningHead
+meshv:TopicalDescriptor | <s>meshv:recordAuthorizer</s>
+meshv:TopicalDescriptor | <s>meshv:recordMaintainer</s>
+meshv:TopicalDescriptor | <s>meshv:recordOriginator</s>
+meshv:TopicalDescriptor | <s>meshv:runningHead</s>
 meshv:TopicalDescriptor | rdfs:label
 
 </div>
@@ -375,7 +358,6 @@ construct {
     mesh:D009369 meshv:annotation ?a .
     mesh:D009369 meshv:seeAlso ?sa .
     mesh:D009369 meshv:considerAlso ?ca .
-    mesh:D009369 meshv:runningHead ?rh .
     mesh:D015242 meshv:pharmacologicalAction ?pa .
 }
 from <http://id.nlm.nih.gov/mesh2014>
@@ -383,7 +365,6 @@ where {
     mesh:D009369 meshv:annotation ?a .
     mesh:D009369 meshv:seeAlso ?sa .
     mesh:D009369 meshv:considerAlso ?ca .
-    mesh:D009369 meshv:runningHead ?rh .
     mesh:D015242 meshv:pharmacologicalAction ?pa .
 }
 ```
@@ -404,8 +385,6 @@ Here is the truncated output of the above query in N3 format. The same data is i
                 "general; prefer specifics; policy: Manual section 24; qualifier / nurs = the patient, ONCOLOGY NURSING = the oncologic specialty; qualifier / radiother = the patient, RADIATION ONCOLOGY = the specialty; familial: consider also NEOPLASTIC SYNDROMES, HEREDITARY; metastatic cancer of unknown origin: index under NEOPLASM METASTASIS";
         <http://id.nlm.nih.gov/mesh/vocab#considerAlso>
                 "consider also terms at CANCER, CARCINO-, ONCO-, and TUMOR" ;
-        <http://id.nlm.nih.gov/mesh/vocab#runningHead>
-                "C4 - DISEASES-NEOPLASMS" ;
         <http://id.nlm.nih.gov/mesh/vocab#seeAlso>
                 ...
                 <http://id.nlm.nih.gov/mesh/D016147> ,
@@ -445,7 +424,6 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
     </SeeRelatedDescriptor>
   </SeeRelatedList>
   <ConsiderAlso>consider also terms at CANCER, CARCINO-, ONCO-, and TUMOR </ConsiderAlso>
-  <RunningHead>C4 - DISEASES-NEOPLASMS </RunningHead>
   ...
 </DescriptorRecord>
 
