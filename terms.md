@@ -97,8 +97,6 @@ where {
                 "LAB" ;
         <http://id.nlm.nih.gov/mesh/vocab#prefLabel>
                 "A-23187" ;
-        <http://id.nlm.nih.gov/mesh/vocab#printFlag>
-                "N" ;
         <http://id.nlm.nih.gov/mesh/vocab#thesaurusID>
                 "NLM (1991)" ;
         <http://purl.org/dc/terms/identifier>
@@ -235,18 +233,18 @@ N/A | N/A | N/A
 {:.data-table-long .row-border .hover}
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:CheckTag | meshv:recordPreferredTerm | meshv:Term
+meshv:CheckTag | meshv:preferredTerm | meshv:Term
 meshv:Concept | meshv:preferredTerm | meshv:Term
 meshv:Concept | meshv:term | meshv:Term
-meshv:Descriptor | meshv:recordPreferredTerm | meshv:Term
-meshv:GeographicalDescriptor | meshv:recordPreferredTerm | meshv:Term
-meshv:PublicationType | meshv:recordPreferredTerm | meshv:Term
-meshv:Qualifier | meshv:recordPreferredTerm | meshv:Term
-meshv:SCR_Chemical | meshv:recordPreferredTerm | meshv:Term
-meshv:SCR_Disease | meshv:recordPreferredTerm | meshv:Term
-meshv:SCR_Protocol | meshv:recordPreferredTerm | meshv:Term
-meshv:SupplementaryConceptRecord | meshv:recordPreferredTerm | meshv:Term
-meshv:TopicalDescriptor | meshv:recordPreferredTerm | meshv:Term
+meshv:Descriptor | meshv:preferredTerm | meshv:Term
+meshv:GeographicalDescriptor | meshv:preferredTerm | meshv:Term
+meshv:PublicationType | meshv:preferredTerm | meshv:Term
+meshv:Qualifier | meshv:preferredTerm | meshv:Term
+meshv:SCR_Chemical | meshv:preferredTerm | meshv:Term
+meshv:SCR_Disease | meshv:preferredTerm | meshv:Term
+meshv:SCR_Protocol | meshv:preferredTerm | meshv:Term
+meshv:SupplementaryConceptRecord | meshv:preferredTerm | meshv:Term
+meshv:TopicalDescriptor | meshv:preferredTerm | meshv:Term
 
 </div>
 
@@ -262,7 +260,7 @@ meshv:Term | meshv:entryVersion
 meshv:Term | meshv:identifier
 meshv:Term | meshv:lexicalTag
 meshv:Term | meshv:prefLabel
-meshv:Term | meshv:printFlag
+meshv:Term | <s>meshv:printFlag</s>
 meshv:Term | meshv:sortVersion
 meshv:Term | meshv:thesaurusID
 meshv:Term | rdfs:label
@@ -297,7 +295,7 @@ construct {
     mesh:D000001 meshv:preferredConcept ?prefCon .
     ?prefCon a ?prefConClass .
 
-    mesh:D000001 meshv:recordPreferredTerm ?prefTerm .
+    mesh:D000001 meshv:preferredTerm ?prefTerm .
     ?prefCon meshv:preferredTerm ?prefTerm .
     ?prefTerm a ?prefTermClass .
 
@@ -317,7 +315,7 @@ where {
     mesh:D000001 meshv:preferredConcept ?prefCon .
     ?prefCon a ?prefConClass .
 
-    mesh:D000001 meshv:recordPreferredTerm ?prefTerm .
+    mesh:D000001 meshv:preferredTerm ?prefTerm .
     ?prefCon meshv:preferredTerm ?prefTerm .
     ?prefTerm a ?prefTermClass .
 
@@ -367,7 +365,7 @@ where {
                 <http://id.nlm.nih.gov/mesh/M0353609> ;
         <http://id.nlm.nih.gov/mesh/vocab#preferredConcept>
                 <http://id.nlm.nih.gov/mesh/M0000001> ;
-        <http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm>
+        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
                 <http://id.nlm.nih.gov/mesh/T000002> .
 ```
 
