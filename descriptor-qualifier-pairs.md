@@ -116,6 +116,7 @@ construct {
     ?dqclass rdfs:subClassOf ?superclass .
 }
 from <http://id.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014/schema>
 where {
     ?dqpair meshv:hasDescriptor mesh:D015242 .
     ?dqpair meshv:hasQualifier mesh:Q000008 .
@@ -195,6 +196,7 @@ CONSTRUCT {
   ?eclass rdfs:subClassOf $superclass .
 }
 from <http://id.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh2014/schema>
 where {
   ?ecin meshv:hasDescriptor mesh:D000005 .
   ?ecin meshv:hasQualifier ?ecinq .
