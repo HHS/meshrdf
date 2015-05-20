@@ -93,7 +93,7 @@
 
       <!--
         Transformation rule: allowedTreeNode
-      -->
+        Removed:  see https://github.com/HHS/mesh-rdf/issues/119
       <xsl:for-each select="TreeNodeAllowedList/TreeNodeAllowed">
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
@@ -108,6 +108,7 @@
           </xsl:with-param>
         </xsl:call-template>
       </xsl:for-each>
+      -->
 
       <xsl:call-template name='CommonKids'>
         <xsl:with-param name="parent" select="$qualifier_uri"/>
