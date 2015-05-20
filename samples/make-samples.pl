@@ -20,6 +20,8 @@ use strict;
 my $meshrdf_home = $ENV{MESHRDF_HOME};
 die "You must first define the environment variables MESHRDF_HOME." if !$meshrdf_home;
 
+my $meshrdf_year = ($ENV{MESHRDF_YEAR} || 2015);
+
 my @sets = qw( qual desc supp );
 
 if (@ARGV) {
@@ -75,7 +77,7 @@ close $SAMPLE_LIST;
 foreach my $set (@sets) {
     my $set_data = $set_info{$set};
     my $sample_list = $set_data->{sample_list};
-    my $xml_file = "$meshrdf_home/data/$set" . "2014.xml";
+    my $xml_file = "$meshrdf_home/data/$set" . "$meshrdf_year.xml";
     my $sample_file = "$set-samples.xml";
 
     my $state = 0;   # init

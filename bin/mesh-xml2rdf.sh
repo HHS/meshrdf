@@ -16,7 +16,7 @@ if [ -z "$SAXON_JAR" ]; then
 fi
 
 # Can override default year with MESHRDF_YEAR environment variable
-YEAR=${MESHRDF_YEAR:-2014}
+YEAR=${MESHRDF_YEAR:-2015}
 
 # Override the default Mesh prefix and output file by setting MESHRDF_URI_YEAR to "yes"
 if [ "$MESHRDF_URI_YEAR" = "yes" ]; then

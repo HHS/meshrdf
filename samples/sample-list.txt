@@ -1,4 +1,4 @@
-# Samples 2014 MeSH records that span the three record types (Descriptor, Qualifier, SCR) and classes,
+# Samples MeSH records that span the three record types (Descriptor, Qualifier, SCR) and classes,
 # such as Geographic, Publication Type, and Check tag for Descriptors; and Chemical, Protocol, and
 # Disease for SCRs
 
