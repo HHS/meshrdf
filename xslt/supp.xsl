@@ -90,7 +90,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$supprec_uri"/>
             <uri prefix='&meshv;'>note</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="Note"/>
             </literal>
           </xsl:with-param>
@@ -184,7 +184,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$supprec_uri"/>
             <uri prefix='&meshv;'>source</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="."/>
             </literal>
           </xsl:with-param>

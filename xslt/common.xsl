@@ -347,7 +347,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>previousIndexing</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="."/>
           </literal>
         </xsl:with-param>
@@ -621,7 +621,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select="$concept_uri"/>
             <uri prefix='&meshv;'>casn1_label</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="CASN1Name"/>
             </literal>
           </xsl:with-param>
@@ -946,7 +946,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
             <uri prefix='&meshv;'>lexicalTag</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="@LexicalTag"/>
             </literal>
           </xsl:with-param>
@@ -1037,7 +1037,7 @@
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
               <uri prefix='&meshv;'>sortVersion</uri>
-              <literal>
+              <literal lang='en'>
                 <xsl:value-of select="SortVersion"/>
               </literal>
             </xsl:with-param>
@@ -1055,7 +1055,7 @@
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
               <uri prefix='&meshv;'>entryVersion</uri>
-              <literal>
+              <literal lang='en'>
                 <xsl:value-of select="EntryVersion"/>
               </literal>
             </xsl:with-param>
@@ -1073,7 +1073,7 @@
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
               <uri prefix='&meshv;'>thesaurusID</uri>
-              <literal>
+              <literal lang='en'>
                 <xsl:value-of select="."/>
               </literal>
             </xsl:with-param>
