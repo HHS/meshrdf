@@ -1,0 +1,746 @@
+@prefix : <http://www.w3.org/2002/07/owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://id.nlm.nih.gov/mesh/vocab#> .
+
+<http://id.nlm.nih.gov/mesh/vocab#> rdf:type :Ontology .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://purl.org/dc/terms/description
+
+<http://purl.org/dc/terms/description> rdf:type :AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#allowableQualifier
+
+<http://id.nlm.nih.gov/mesh/vocab#allowableQualifier> rdf:type :ObjectProperty ;
+                                                      
+                                                      rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Qualifier> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#allowedTreeNode
+
+<http://id.nlm.nih.gov/mesh/vocab#allowedTreeNode> rdf:type :ObjectProperty ;
+                                                   
+                                                   rdfs:label "allowedTreeNode" ;
+                                                   
+                                                   <http://purl.org/dc/terms/description> "Name of a subcategory in the MeSH Trees indicating, that for most Descriptors in that subcategory, the allowed Qualifiers on the Descriptor include the Qualifier. This value does not impact Descriptors permitted with a given Qualifier, but is a statistical summary of Descriptors permitted with the Qualifier." ;
+                                                   
+                                                   rdfs:range <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#broader
+
+<http://id.nlm.nih.gov/mesh/vocab#broader> rdf:type :ObjectProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#broaderConcept
+
+<http://id.nlm.nih.gov/mesh/vocab#broaderConcept> rdf:type :ObjectProperty ;
+                                                  
+                                                  rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+                                                  
+                                                  rdfs:domain <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+                                                  
+                                                  rdfs:subPropertyOf <http://id.nlm.nih.gov/mesh/vocab#broader> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#broaderDescriptor
+
+<http://id.nlm.nih.gov/mesh/vocab#broaderDescriptor> rdf:type :ObjectProperty ;
+                                                     
+                                                     rdfs:domain <http://id.nlm.nih.gov/mesh/vocab#Descriptor> ;
+                                                     
+                                                     rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Descriptor> ;
+                                                     
+                                                     rdfs:subPropertyOf <http://id.nlm.nih.gov/mesh/vocab#broader> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#broaderQualifier
+
+<http://id.nlm.nih.gov/mesh/vocab#broaderQualifier> rdf:type :ObjectProperty ;
+                                                    
+                                                    rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Qualifier> ;
+                                                    
+                                                    rdfs:domain <http://id.nlm.nih.gov/mesh/vocab#Qualifier> ;
+                                                    
+                                                    rdfs:subPropertyOf <http://id.nlm.nih.gov/mesh/vocab#broader> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#broaderTreeNumber
+
+<http://id.nlm.nih.gov/mesh/vocab#broaderTreeNumber> rdf:type :ObjectProperty ,
+                                                              :TransitiveProperty ;
+                                                     
+                                                     rdfs:domain <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
+                                                     
+                                                     rdfs:range <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
+                                                     
+                                                     rdfs:subPropertyOf <http://id.nlm.nih.gov/mesh/vocab#broader> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#concept
+
+<http://id.nlm.nih.gov/mesh/vocab#concept> rdf:type :ObjectProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#hasDescriptor
+
+<http://id.nlm.nih.gov/mesh/vocab#hasDescriptor> rdf:type :ObjectProperty ;
+                                                 
+                                                 rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Descriptor> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#hasQualifier
+
+<http://id.nlm.nih.gov/mesh/vocab#hasQualifier> rdf:type :ObjectProperty ;
+                                                
+                                                rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Qualifier> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#indexerConsiderAlso
+
+<http://id.nlm.nih.gov/mesh/vocab#indexerConsiderAlso> rdf:type :ObjectProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#mappedTo
+
+<http://id.nlm.nih.gov/mesh/vocab#mappedTo> rdf:type :ObjectProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#narrowerConcept
+
+<http://id.nlm.nih.gov/mesh/vocab#narrowerConcept> rdf:type :ObjectProperty ;
+                                                   
+                                                   rdfs:domain <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+                                                   
+                                                   rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Concept> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#pharmacologicalAction
+
+<http://id.nlm.nih.gov/mesh/vocab#pharmacologicalAction> rdf:type :ObjectProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#preferredConcept
+
+<http://id.nlm.nih.gov/mesh/vocab#preferredConcept> rdf:type :ObjectProperty ;
+                                                    
+                                                    rdfs:subPropertyOf <http://id.nlm.nih.gov/mesh/vocab#concept> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#preferredMappedTo
+
+<http://id.nlm.nih.gov/mesh/vocab#preferredMappedTo> rdf:type :ObjectProperty ;
+                                                     
+                                                     rdfs:subPropertyOf <http://id.nlm.nih.gov/mesh/vocab#mappedTo> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#preferredTerm
+
+<http://id.nlm.nih.gov/mesh/vocab#preferredTerm> rdf:type :ObjectProperty ;
+                                                 
+                                                 rdfs:subPropertyOf <http://id.nlm.nih.gov/mesh/vocab#term> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#previousIndexing
+
+<http://id.nlm.nih.gov/mesh/vocab#previousIndexing> rdf:type :ObjectProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm
+
+<http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm> rdf:type :ObjectProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#related
+
+<http://id.nlm.nih.gov/mesh/vocab#related> rdf:type :ObjectProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#relatedConcept
+
+<http://id.nlm.nih.gov/mesh/vocab#relatedConcept> rdf:type :ObjectProperty ;
+                                                  
+                                                  rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
+                                                  
+                                                  rdfs:domain <http://id.nlm.nih.gov/mesh/vocab#Concept> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#seeAlso
+
+<http://id.nlm.nih.gov/mesh/vocab#seeAlso> rdf:type :ObjectProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#semanticType
+
+<http://id.nlm.nih.gov/mesh/vocab#semanticType> rdf:type :ObjectProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#term
+
+<http://id.nlm.nih.gov/mesh/vocab#term> rdf:type :ObjectProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#treeNumber
+
+<http://id.nlm.nih.gov/mesh/vocab#treeNumber> rdf:type :ObjectProperty ;
+                                              
+                                              rdfs:range <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#useInstead
+
+<http://id.nlm.nih.gov/mesh/vocab#useInstead> rdf:type :ObjectProperty .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#abbreviation
+
+<http://id.nlm.nih.gov/mesh/vocab#abbreviation> rdf:type :DatatypeProperty ;
+                                                
+                                                rdfs:label "abbreviation" .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#activeMeSHYear
+
+<http://id.nlm.nih.gov/mesh/vocab#activeMeSHYear> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#altLabel
+
+<http://id.nlm.nih.gov/mesh/vocab#altLabel> rdf:type :DatatypeProperty ;
+                                            
+                                            rdfs:label "altLabel" ;
+                                            
+                                            <http://purl.org/dc/terms/description> "alternative label" ;
+                                            
+                                            :propertyDisjointWith <http://id.nlm.nih.gov/mesh/vocab#prefLabel> ;
+                                            
+                                            rdfs:subPropertyOf rdfs:label .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#annotation
+
+<http://id.nlm.nih.gov/mesh/vocab#annotation> rdf:type :DatatypeProperty ;
+                                              
+                                              rdfs:label "annotation" .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#casn1_label
+
+<http://id.nlm.nih.gov/mesh/vocab#casn1_label> rdf:type :DatatypeProperty ;
+                                               
+                                               rdfs:label "casn1_label" .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#considerAlso
+
+<http://id.nlm.nih.gov/mesh/vocab#considerAlso> rdf:type :DatatypeProperty ;
+                                                
+                                                rdfs:label "considerAlso" .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#dateCreated
+
+<http://id.nlm.nih.gov/mesh/vocab#dateCreated> rdf:type :DatatypeProperty ;
+                                               
+                                               rdfs:label "dateCreated" .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#dateEstablished
+
+<http://id.nlm.nih.gov/mesh/vocab#dateEstablished> rdf:type :DatatypeProperty ;
+                                                   
+                                                   rdfs:label "dateEstablished" .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#dateRevised
+
+<http://id.nlm.nih.gov/mesh/vocab#dateRevised> rdf:type :DatatypeProperty ;
+                                               
+                                               rdfs:label "dateRevised" .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#entryVersion
+
+<http://id.nlm.nih.gov/mesh/vocab#entryVersion> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#frequency
+
+<http://id.nlm.nih.gov/mesh/vocab#frequency> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#historyNote
+
+<http://id.nlm.nih.gov/mesh/vocab#historyNote> rdf:type :DatatypeProperty ;
+                                               
+                                               rdfs:label "historyNote" .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#identifier
+
+<http://id.nlm.nih.gov/mesh/vocab#identifier> rdf:type :DatatypeProperty ;
+                                              
+                                              rdfs:label "identifier" .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#lexicalTag
+
+<http://id.nlm.nih.gov/mesh/vocab#lexicalTag> rdf:type :DatatypeProperty ;
+                                              
+                                              rdfs:label "lexicalTag" .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#note
+
+<http://id.nlm.nih.gov/mesh/vocab#note> rdf:type :DatatypeProperty ;
+                                        
+                                        rdfs:label "note" .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#onlineNote
+
+<http://id.nlm.nih.gov/mesh/vocab#onlineNote> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#prefLabel
+
+<http://id.nlm.nih.gov/mesh/vocab#prefLabel> rdf:type :DatatypeProperty ;
+                                             
+                                             rdfs:label "prefLabel" ;
+                                             
+                                             <http://purl.org/dc/terms/description> "preferred label." ;
+                                             
+                                             rdfs:subPropertyOf rdfs:label .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#previousIndexing
+
+<http://id.nlm.nih.gov/mesh/vocab#previousIndexing> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#printFlag
+
+<http://id.nlm.nih.gov/mesh/vocab#printFlag> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#publicMeSHNote
+
+<http://id.nlm.nih.gov/mesh/vocab#publicMeSHNote> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#recordAuthorizer
+
+<http://id.nlm.nih.gov/mesh/vocab#recordAuthorizer> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#recordMaintainer
+
+<http://id.nlm.nih.gov/mesh/vocab#recordMaintainer> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#recordOriginator
+
+<http://id.nlm.nih.gov/mesh/vocab#recordOriginator> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#registryNumber
+
+<http://id.nlm.nih.gov/mesh/vocab#registryNumber> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#relatedRegistryNumber
+
+<http://id.nlm.nih.gov/mesh/vocab#relatedRegistryNumber> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#runningHead
+
+<http://id.nlm.nih.gov/mesh/vocab#runningHead> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#scopeNote
+
+<http://id.nlm.nih.gov/mesh/vocab#scopeNote> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#sortVersion
+
+<http://id.nlm.nih.gov/mesh/vocab#sortVersion> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#source
+
+<http://id.nlm.nih.gov/mesh/vocab#source> rdf:type :DatatypeProperty .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#thesaurusID
+
+<http://id.nlm.nih.gov/mesh/vocab#thesaurusID> rdf:type :DatatypeProperty .
+
+
+
+###  http://www.w3.org/2000/01/rdf-schema#label
+
+rdfs:label rdf:type :DatatypeProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#AllowedDescriptorQualifierPair
+
+<http://id.nlm.nih.gov/mesh/vocab#AllowedDescriptorQualifierPair> rdf:type :Class ;
+                                                                  
+                                                                  rdfs:label "MeSH AllowedDescriptorQualifierPair" ;
+                                                                  
+                                                                  rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair> ;
+                                                                  
+                                                                  :disjointWith <http://id.nlm.nih.gov/mesh/vocab#DisallowedDescriptorQualifierPair> ;
+                                                                  
+                                                                  <http://purl.org/dc/terms/description> "A combined MeSH descriptor and qualifier, where the pairing is allowed by MeSH rules. These URIs are a mash up of the descriptor and qualifier identifiers, such as D000236Q000235." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#CheckTag
+
+<http://id.nlm.nih.gov/mesh/vocab#CheckTag> rdf:type :Class ;
+                                            
+                                            rdfs:label "MeSH CheckTag" ;
+                                            
+                                            rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#Descriptor> ;
+                                            
+                                            :disjointWith <http://id.nlm.nih.gov/mesh/vocab#GeographicalDescriptor> ,
+                                                          <http://id.nlm.nih.gov/mesh/vocab#PublicationType> ,
+                                                          <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> ;
+                                            
+                                            <http://purl.org/dc/terms/description> "A special class of descriptor singled out because they are so frequently applied to biomedical literature. There are only 2 Descriptors that are members of the class meshv:CheckTag: D005260 (Male) and D008297 (Female). These two Descriptors do not have tree numbers. " .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#Concept
+
+<http://id.nlm.nih.gov/mesh/vocab#Concept> rdf:type :Class ;
+                                           
+                                           rdfs:label "MeSH Concept" ;
+                                           
+                                           rdfs:subClassOf :Thing ;
+                                           
+                                           :disjointWith <http://id.nlm.nih.gov/mesh/vocab#Descriptor> ,
+                                                         <http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair> ,
+                                                         <http://id.nlm.nih.gov/mesh/vocab#Qualifier> ,
+                                                         <http://id.nlm.nih.gov/mesh/vocab#SemanticType> ,
+                                                         <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ,
+                                                         <http://id.nlm.nih.gov/mesh/vocab#Term> ,
+                                                         <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
+                                           
+                                           <http://purl.org/dc/terms/description> "MeSH concepts are smeanings. Many MeSH concepts contain synonymous terms. meshv:Concept identifiers begin with ‘M’ such as M0000013 (Congenital Abnormalities)." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#Descriptor
+
+<http://id.nlm.nih.gov/mesh/vocab#Descriptor> rdf:type :Class ;
+                                              
+                                              rdfs:label "MeSH Descriptor" ;
+                                              
+                                              rdfs:subClassOf :Thing ;
+                                              
+                                              :disjointWith <http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair> ,
+                                                            <http://id.nlm.nih.gov/mesh/vocab#Qualifier> ,
+                                                            <http://id.nlm.nih.gov/mesh/vocab#SemanticType> ,
+                                                            <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ,
+                                                            <http://id.nlm.nih.gov/mesh/vocab#Term> ,
+                                                            <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
+                                              
+                                              <http://purl.org/dc/terms/description> "MeSH Descriptors are a cluster of one or more concepts used to describe what a publication is about. meshv:Descriptor is the parent class of meshv:TopicalDescriptor, meshv:GeographicDescriptor, meshv:PublicationType, and meshv:CheckTag." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair
+
+<http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair> rdf:type :Class ;
+                                                           
+                                                           rdfs:label "MeSH DescriptorQualifierPair" ;
+                                                           
+                                                           rdfs:subClassOf :Thing ;
+                                                           
+                                                           :disjointWith <http://id.nlm.nih.gov/mesh/vocab#Qualifier> ,
+                                                                         <http://id.nlm.nih.gov/mesh/vocab#SemanticType> ,
+                                                                         <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ,
+                                                                         <http://id.nlm.nih.gov/mesh/vocab#Term> ,
+                                                                         <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
+                                                           
+                                                           <http://purl.org/dc/terms/description> "A combined MeSH descriptor and qualifier pair. Allowed pairs belong to the class meshv:AllowedDescriptorQualifierPair. Disallowed pairs belong to the class meshv:DisallowedDescriptorQualifierPair." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#DisallowedDescriptorQualifierPair
+
+<http://id.nlm.nih.gov/mesh/vocab#DisallowedDescriptorQualifierPair> rdf:type :Class ;
+                                                                     
+                                                                     rdfs:label "MeSH DisallowedDescriptorQualifierPair" ;
+                                                                     
+                                                                     rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair> ;
+                                                                     
+                                                                     <http://purl.org/dc/terms/description> "A combined MeSH descriptor and qualifier where the pairing is not allowed by MeSH rules, such as Abdomen/radiography." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#GeographicalDescriptor
+
+<http://id.nlm.nih.gov/mesh/vocab#GeographicalDescriptor> rdf:type :Class ;
+                                                          
+                                                          rdfs:label "MeSH GeographicalDescriptor" ;
+                                                          
+                                                          rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#Descriptor> ;
+                                                          
+                                                          :disjointWith <http://id.nlm.nih.gov/mesh/vocab#PublicationType> ,
+                                                                        <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> ;
+                                                          
+                                                          <http://purl.org/dc/terms/description> "A descriptor that references places or regions of the world, such as D001061 (Appalachian Region)." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#PublicationType
+
+<http://id.nlm.nih.gov/mesh/vocab#PublicationType> rdf:type :Class ;
+                                                   
+                                                   rdfs:label "MeSH PublicationType" ;
+                                                   
+                                                   rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#Descriptor> ;
+                                                   
+                                                   :disjointWith <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> ;
+                                                   
+                                                   <http://purl.org/dc/terms/description> "A special class of descriptor that describes what type of publication a resource is as opposed to what it is about. All MeSH Publication Types are in the V  tree." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#Qualifier
+
+<http://id.nlm.nih.gov/mesh/vocab#Qualifier> rdf:type :Class ;
+                                             
+                                             rdfs:label "MeSH Qualifier" ;
+                                             
+                                             rdfs:subClassOf :Thing ;
+                                             
+                                             :disjointWith <http://id.nlm.nih.gov/mesh/vocab#SemanticType> ,
+                                                           <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ,
+                                                           <http://id.nlm.nih.gov/mesh/vocab#Term> ,
+                                                           <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
+                                             
+                                             <http://purl.org/dc/terms/description> "Also known as MeSH Subheadings, these provide context to the use of a MeSH Heading." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#SCR_Chemical
+
+<http://id.nlm.nih.gov/mesh/vocab#SCR_Chemical> rdf:type :Class ;
+                                                
+                                                rdfs:label "MeSH SCR Chemical" ;
+                                                
+                                                rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ;
+                                                
+                                                :disjointWith <http://id.nlm.nih.gov/mesh/vocab#SCR_Disease> ,
+                                                              <http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol> ;
+                                                
+                                                <http://purl.org/dc/terms/description> "These are chemicals, drugs, enzymes, vitamins, etc." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#SCR_Disease
+
+<http://id.nlm.nih.gov/mesh/vocab#SCR_Disease> rdf:type :Class ;
+                                               
+                                               rdfs:label "MeSH SCR Disease" ;
+                                               
+                                               rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ;
+                                               
+                                               :disjointWith <http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol> ;
+                                               
+                                               <http://purl.org/dc/terms/description> "SCR Diseases were originally brought into MeSH from a list maintained by the Office of Rare Diseases Research." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol
+
+<http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol> rdf:type :Class ;
+                                                
+                                                rdfs:label "MeSH SCR Protocol" ;
+                                                
+                                                rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ;
+                                                
+                                                <http://purl.org/dc/terms/description> "MeSH protocols are therapies in the domain of cancer treatment" .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#SemanticType
+
+<http://id.nlm.nih.gov/mesh/vocab#SemanticType> rdf:type :Class ;
+                                                
+                                                rdfs:label "MeSH SemanticType" ;
+                                                
+                                                rdfs:subClassOf :Thing ;
+                                                
+                                                :disjointWith <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ,
+                                                              <http://id.nlm.nih.gov/mesh/vocab#Term> ,
+                                                              <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
+                                                
+                                                <http://purl.org/dc/terms/description> "A semantic type provides broad categorization for meshv:Concept classes, such as Disease or Syndrome, Medical Device, etc." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord
+
+<http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> rdf:type :Class ;
+                                                              
+                                                              rdfs:label "MeSH SupplementaryConceptRecord " ;
+                                                              
+                                                              rdfs:subClassOf :Thing ;
+                                                              
+                                                              :disjointWith <http://id.nlm.nih.gov/mesh/vocab#Term> ,
+                                                                            <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
+                                                              
+                                                              <http://purl.org/dc/terms/description> "Supplementary Concepts are created in MeSH to aid in searching the large volume of mainly chemicals and drugs. meshv:SupplementaryConceptRecord has three sub-classes: meshv:RegularSubstance, meshv:SCR_Protocol, and meshv:SCR_Disease." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#Term
+
+<http://id.nlm.nih.gov/mesh/vocab#Term> rdf:type :Class ;
+                                        
+                                        rdfs:label "MeSH Term" ;
+                                        
+                                        rdfs:subClassOf :Thing ;
+                                        
+                                        :disjointWith <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
+                                        
+                                        <http://purl.org/dc/terms/description> "MeSH terms provide synonymous names for MeSH concepts. Terms have T identifiers, and are considered either preferred or lexical variants." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor
+
+<http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> rdf:type :Class ;
+                                                     
+                                                     rdfs:label "MeSH TopicalDescriptor" ;
+                                                     
+                                                     rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#Descriptor> ;
+                                                     
+                                                     <http://purl.org/dc/terms/description> "Topical Descriptors indicate the subject of an indexed item such as a journal article. See D063926 (Drug Hypersensitivity Syndrome) for an example." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#TreeNumber
+
+<http://id.nlm.nih.gov/mesh/vocab#TreeNumber> rdf:type :Class ;
+                                              
+                                              rdfs:label "MeSH TreeNumber" ;
+                                              
+                                              rdfs:subClassOf :Thing ;
+                                              
+                                              <http://purl.org/dc/terms/description> "Tree Numbers are used to organize MeSH Descriptors in a broader-than/narrower-than manner." .
+
+
+
+###  http://www.w3.org/2002/07/owl#Thing
+
+:Thing rdfs:subClassOf :Thing .
+
+
+
+
+###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+
