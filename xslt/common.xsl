@@ -265,7 +265,7 @@
 
     <!--
       Tranformation rule: activeMeSHYear
-    -->
+      Removed:  see https://github.com/HHS/mesh-rdf/issues/119
     <xsl:for-each select="ActiveMeSHYearList/Year">
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
@@ -280,6 +280,7 @@
         </xsl:with-param>
       </xsl:call-template>
     </xsl:for-each>
+    -->
 
     <!--
       Transformation rule: annotation
@@ -475,7 +476,7 @@
 
     <!--
       Transformation rule: recordOriginator
-    -->
+      Removed:  see https://github.com/HHS/mesh-rdf/issues/119
     <xsl:if test="RecordOriginatorsList">
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
@@ -490,9 +491,9 @@
         </xsl:with-param>
       </xsl:call-template>
 
-      <!--
+      <!-/-
         Transformation rule: recordMaintainer
-      -->
+      -/->
       <xsl:if test='RecordOriginatorsList/RecordMaintainer'>
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
@@ -508,9 +509,9 @@
         </xsl:call-template>
       </xsl:if>
 
-      <!--
+      <!-/-
         Transformation rule: recordAuthorizer
-      -->
+      -/->
       <xsl:if test='RecordOriginatorsList/RecordAuthorizer'>
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
@@ -526,6 +527,7 @@
         </xsl:call-template>
       </xsl:if>
     </xsl:if>
+    -->
 
     <xsl:for-each select="ConceptList/Concept">
       <xsl:variable name='concept_uri'>
@@ -667,6 +669,9 @@
         </xsl:call-template>
       </xsl:if>
 
+      <!--
+        Removed SemanticType class and semanticType predicate:  see https://github.com/HHS/mesh-rdf/issues/119
+        
       <xsl:for-each select="SemanticTypeList/SemanticType">
         <xsl:variable name='semantic_type_uri'>
           <uri prefix='&mesh;'>
@@ -674,9 +679,9 @@
           </uri>
         </xsl:variable>
 
-        <!--
+        <!-\-
           Transformation rule: semanticType
-        -->
+        -\->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>This relation states that a concept has a semantic type.</desc>
@@ -688,9 +693,9 @@
           </xsl:with-param>
         </xsl:call-template>
 
-        <!--
+        <!-\-
           Transformation rule: rdf:type
-        -->
+        -\->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>Specifies the class of the semantic type resource.</desc>
@@ -702,9 +707,9 @@
           </xsl:with-param>
         </xsl:call-template>
 
-        <!--
+        <!-\-
           Transformation rule: rdfs:label
-        -->
+        -\->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>This rule states the a semantic type unique identifier has a semantic type name.</desc>
@@ -722,9 +727,9 @@
           </xsl:with-param>
         </xsl:call-template>
 
-        <!--
+        <!-\-
           Transformation rule: meshv:identifier
-        -->
+        -\->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>This rule states that a semantic type has a unique identifier.</desc>
@@ -739,7 +744,10 @@
           </xsl:with-param>
         </xsl:call-template>
       </xsl:for-each>
-
+      -->
+      
+      
+      
       <!--
         Transformation rule: relatedRegistryNumber
       -->
@@ -946,7 +954,7 @@
 
         <!--
           Transformation rule: printFlag
-        -->
+          Removed:  see https://github.com/HHS/mesh-rdf/issues/119
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
             <desc>This relation states that a term has a print flag.</desc>
@@ -960,6 +968,7 @@
             </literal>
           </xsl:with-param>
         </xsl:call-template>
+        -->
 
         <!--
           Transformation rule: record preferred term

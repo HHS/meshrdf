@@ -290,7 +290,7 @@
 
       <!--
         Transformation rule: runningHead
-      -->
+        Removed:  see https://github.com/HHS/mesh-rdf/issues/119
       <xsl:if test="RunningHead">
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
@@ -307,6 +307,7 @@
           </xsl:with-param>
         </xsl:call-template>
       </xsl:if>
+      -->
 
       <xsl:call-template name='CommonKids'>
         <xsl:with-param name="parent" select="$descriptor_uri"/>

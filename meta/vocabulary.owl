@@ -59,9 +59,6 @@
         <Class IRI="SCR_Protocol"/>
     </Declaration>
     <Declaration>
-        <Class IRI="SemanticType"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="SupplementaryConceptRecord"/>
     </Declaration>
     <Declaration>
@@ -75,9 +72,6 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="allowableQualifier"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="allowedTreeNode"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="broader"/>
@@ -140,9 +134,6 @@
         <ObjectProperty IRI="seeAlso"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="semanticType"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="term"/>
     </Declaration>
     <Declaration>
@@ -153,9 +144,6 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="abbreviation"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="activeMeSHYear"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="altLabel"/>
@@ -206,28 +194,13 @@
         <DataProperty IRI="previousIndexing"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="printFlag"/>
-    </Declaration>
-    <Declaration>
         <DataProperty IRI="publicMeSHNote"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="recordAuthorizer"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="recordMaintainer"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="recordOriginator"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="registryNumber"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="relatedRegistryNumber"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="runningHead"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="scopeNote"/>
@@ -296,10 +269,6 @@
         <Class IRI="SupplementaryConceptRecord"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="SemanticType"/>
-        <Class abbreviatedIRI="owl:Thing"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="SupplementaryConceptRecord"/>
         <Class abbreviatedIRI="owl:Thing"/>
     </SubClassOf>
@@ -349,10 +318,6 @@
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="Concept"/>
-        <Class IRI="SemanticType"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="Concept"/>
         <Class IRI="SupplementaryConceptRecord"/>
     </DisjointClasses>
     <DisjointClasses>
@@ -373,10 +338,6 @@
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="Descriptor"/>
-        <Class IRI="SemanticType"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="Descriptor"/>
         <Class IRI="SupplementaryConceptRecord"/>
     </DisjointClasses>
     <DisjointClasses>
@@ -390,10 +351,6 @@
     <DisjointClasses>
         <Class IRI="DescriptorQualifierPair"/>
         <Class IRI="Qualifier"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="DescriptorQualifierPair"/>
-        <Class IRI="SemanticType"/>
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="DescriptorQualifierPair"/>
@@ -421,10 +378,6 @@
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="Qualifier"/>
-        <Class IRI="SemanticType"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="Qualifier"/>
         <Class IRI="SupplementaryConceptRecord"/>
     </DisjointClasses>
     <DisjointClasses>
@@ -446,18 +399,6 @@
     <DisjointClasses>
         <Class IRI="SCR_Disease"/>
         <Class IRI="SCR_Protocol"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="SemanticType"/>
-        <Class IRI="SupplementaryConceptRecord"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="SemanticType"/>
-        <Class IRI="Term"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="SemanticType"/>
-        <Class IRI="TreeNumber"/>
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="SupplementaryConceptRecord"/>
@@ -529,10 +470,6 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="allowableQualifier"/>
         <Class IRI="Qualifier"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="allowedTreeNode"/>
-        <Class IRI="TreeNumber"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="broaderConcept"/>
@@ -704,16 +641,6 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
-        <IRI>SemanticType</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">A semantic type provides broad categorization for meshv:Concept classes, such as Disease or Syndrome, Medical Device, etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>SemanticType</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">MeSH SemanticType</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
         <IRI>SupplementaryConceptRecord</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Supplementary Concepts are created in MeSH to aid in searching the large volume of mainly chemicals and drugs. meshv:SupplementaryConceptRecord has three sub-classes: meshv:RegularSubstance, meshv:SCR_Protocol, and meshv:SCR_Disease.</Literal>
     </AnnotationAssertion>
@@ -756,16 +683,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>abbreviation</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">abbreviation</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
-        <IRI>allowedTreeNode</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Name of a subcategory in the MeSH Trees indicating, that for most Descriptors in that subcategory, the allowed Qualifiers on the Descriptor include the Qualifier. This value does not impact Descriptors permitted with a given Qualifier, but is a statistical summary of Descriptors permitted with the Qualifier.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>allowedTreeNode</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">allowedTreeNode</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
