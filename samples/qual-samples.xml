@@ -31,6 +31,7 @@
    <Year>2012</Year>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Annotation>subhead only; for routes of administration, timing, amounts of doses; not for "dosage" in Romance languages ( = /analysis) ; see MeSH scope note in Introduction; indexing policy: Manual 19.8.2; DF: /admin or /AD
   </Annotation>
@@ -123,6 +124,7 @@
    <Year>2012</Year>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Annotation>subhead only; includes treatment or prevention by drugs &amp;  chemicals; includes therapy with antibiotics; not for immunotherapy nor for tissue therapy  ( = /therapy); see MeSH scope note in Introduction; indexing policy: Manual 19.8.26;  DF: /drug ther or /DT
   </Annotation>
@@ -236,6 +238,7 @@
    <Year>2012</Year>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Annotation>subhead only; by physical trauma only; includes "wounds", "trauma"; for "lesion" in Romance languages; not for cell damage ( = /pathology); indexing policy: Manual 19.8.38; DF: /inj or /IN
   </Annotation>
@@ -356,6 +359,7 @@
    <Year>2012</Year>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Annotation>subhead only; includes "legal", "laws", "government regulations","statutes", "ordinances", "medicolegal", "judicial", "juridical", "suits", "avoidance of suits", "litigation", "court decisions"; indexing policy: Manual 19.8.42; DF: /legis or /LJ
   </Annotation>
@@ -809,6 +813,7 @@
    <Year>2012</Year>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Annotation>subhead only; with diseases &amp; geographicals only; includes "incidence", "frequency", "prevalence", "occurrence", "outbreaks"; not for "mortality" ( = /mortality); not for "statistics" on non-disease terms ( = /statist); see MeSH scope note in Introduction; indexing policy: Manual 19.8.31; DF: /epidemiol or /EP      CATALOG: may be subdivided geographically
   </Annotation>
@@ -1164,6 +1169,7 @@
    <Year>2012</Year>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Annotation>subhead only; for treatment or preventive use of drugs or physical agents in clinical or experimental human or animal disease; indexing policy: Manual 19.8.71; DF: /ther use or /TU
   </Annotation>

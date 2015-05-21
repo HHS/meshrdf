@@ -5,8 +5,6 @@
 #
 # 
 
-
-
 if [ -z "$MESHRDF_HOME" ]; then
     echo "Please define MESHRDF_HOME environment variable" 1>&2
     exit 1
@@ -18,7 +16,7 @@ if [ -z "$SAXON_JAR" ]; then
 fi
 
 # Can override default year with MESHRDF_YEAR environment variable
-YEAR=${MESHRDF_YEAR:-2014}
+YEAR=${MESHRDF_YEAR:-2015}
 
 # Override the default Mesh prefix and output file by setting MESHRDF_URI_YEAR to "yes"
 if [ "$MESHRDF_URI_YEAR" = "yes" ]; then
@@ -51,17 +49,25 @@ fi
 java -Xmx4G -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/desc$YEAR.xml" \
     -xsl:xslt/desc.xsl >> "$MESHRDF_HOME/out/$OUT-dups.nt"
 if [ $? -ne 0 ]; then
-    echo "Error converting $MESHRDF_HOME/data/desc$YEAR.xml"
+    echo "Error converting $MESHRDF_HOME/data/desc$YEAR.xml" 1>&2
     exit 1
 fi
-
 
 java -Xmx4G -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/supp$YEAR.xml" \
     -xsl:xslt/supp.xsl >> "$MESHRDF_HOME/out/$OUT-dups.nt"
 if [ $? -ne 0 ]; then
-    echo "Error converting $MESHRDF_HOME/data/supp$YEAR.xml"
+    echo "Error converting $MESHRDF_HOME/data/supp$YEAR.xml" 1>&2
     exit 1
 fi
 
 sort -u -T"$MESHRDF_HOME/out" "$MESHRDF_HOME/out/$OUT-dups.nt" > "$MESHRDF_HOME/out/$OUT.nt"
+if [ $? -ne 0 ]; then 
+    echo "Error deduplicating $MESHRDF_HOME/out/$OUT-dups.nt" 1>&2
+    exit 1
+fi
+
 gzip -c "$MESHRDF_HOME/out/$OUT.nt" > "$MESHRDF_HOME/out/$OUT.nt.gz"
+if [ $? -ne 0 ]; then
+    echo "Error compressing $MESHRDF_HOME/out/$OUT.nt" 1>&2
+    exit 1
+fi

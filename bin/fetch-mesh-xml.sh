@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 if [ -z "$MESHRDF_HOME" ]; then
     echo "Please define MESHRDF_HOME environment variable" 1>&2
@@ -8,7 +8,7 @@ fi
 mkdir -p "$MESHRDF_HOME/data"
 
 # CAn override default year with MESHRDF_YEAR environment variable
-YEAR=${MESHRDF_YEAR:-2014}
+YEAR=${MESHRDF_YEAR:-2015}
 
 # Can override default URI with MESHRDF_URI environment variable
 URI=${MESHRDF_URI:-ftp://ftp.nlm.nih.gov/online/mesh/$YEAR}
