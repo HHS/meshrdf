@@ -3,7 +3,11 @@
 # This script will convert all of the MeSH XML to RDF, assuming that your machine has
 # enough memory and resources.
 #
-# 
+# It is parameterized according to the following environment variables:
+# - MESHRDF_YEAR - default is "2015". Set this to override the *source* data. In other
+#   words, this is used to determine which XML files are used as input.
+# - MESHRDF_URI_YEAR - no default. If this is set to "yes", then the generated URIs will
+#   include the year.
 
 if [ -z "$MESHRDF_HOME" ]; then
     echo "Please define MESHRDF_HOME environment variable" 1>&2
