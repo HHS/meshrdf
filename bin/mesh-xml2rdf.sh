@@ -14,6 +14,7 @@ if [ -z "$MESHRDF_HOME" ]; then
     echo "Please define MESHRDF_HOME environment variable" 1>&2
     exit 1
 fi
+cd $MESHRDF_HOME
 
 if [ -z "$SAXON_JAR" ]; then
     echo "Please define SAXON_JAR environment variable" 1>&2
