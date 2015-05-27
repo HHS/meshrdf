@@ -37,6 +37,7 @@ D005138 Eyebrows
 D005260 Female
 D005290 Ferric Compounds
 D005145 Face
+D005840 Gentian Violet  # has non-ascii characters in concept "Kristallviolett-Lšsung"
 D005858 Germany
 D006321 Heart
 D006732 Horner Syndrome

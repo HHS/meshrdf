@@ -12,7 +12,7 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="common.xsl"/>
-  <xsl:output method="text"/>
+  <xsl:output method="text" encoding="UTF-8"/>
 
   <xsl:template match="/">
     <xsl:for-each select="DescriptorRecordSet/DescriptorRecord">
@@ -23,7 +23,7 @@
         Transformation rule: meshv:identifier
       -->
       <xsl:variable name='descriptor_uri'>
-        <uri prefix='&mesh;'>
+        <uri prefix='{$mesh-prefix}'>
           <xsl:value-of select="$descriptor_id"/>
         </uri>
       </xsl:variable>
@@ -90,7 +90,7 @@
       <xsl:for-each select="AllowableQualifiersList/AllowableQualifier">
         <xsl:variable name='qualifier_id' select='QualifierReferredTo/QualifierUI'/>
         <xsl:variable name='qualifier_uri'>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$mesh-prefix}'>
             <xsl:value-of select="$qualifier_id"/>
           </uri>
         </xsl:variable>
@@ -113,7 +113,7 @@
           Create a DescriptorQualifierPair resource
         -->
         <xsl:variable name='dqpair_uri'>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$mesh-prefix}'>
             <xsl:value-of select="concat($descriptor_id, $qualifier_id)"/>
           </uri>
         </xsl:variable>
@@ -180,7 +180,7 @@
       <xsl:for-each select="EntryCombinationList/EntryCombination">
 
         <xsl:variable name='ecin_uri'>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$mesh-prefix}'>
             <xsl:value-of select="concat(ECIN/DescriptorReferredTo/DescriptorUI,
                                          ECIN/QualifierReferredTo/QualifierUI)"/>
           </uri>
@@ -210,7 +210,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select='$ecin_uri'/>
             <uri prefix='&meshv;'>hasDescriptor</uri>
-            <uri prefix='&mesh;'>
+            <uri prefix='{$mesh-prefix}'>
               <xsl:value-of select="ECIN/DescriptorReferredTo/DescriptorUI"/>
             </uri>
           </xsl:with-param>
@@ -226,7 +226,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select='$ecin_uri'/>
             <uri prefix='&meshv;'>hasQualifier</uri>
-            <uri prefix='&mesh;'>
+            <uri prefix='{$mesh-prefix}'>
               <xsl:value-of select="ECIN/QualifierReferredTo/QualifierUI"/>
             </uri>
           </xsl:with-param>
@@ -242,7 +242,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select='$ecin_uri'/>
             <uri prefix='&meshv;'>useInstead</uri>
-            <uri prefix='&mesh;'>
+            <uri prefix='{$mesh-prefix}'>
               <xsl:value-of select="ECOUT/DescriptorReferredTo/DescriptorUI"/>
               <xsl:if test='ECOUT/QualifierReferredTo'>
                 <xsl:value-of select="ECOUT/QualifierReferredTo/QualifierUI"/>
@@ -263,7 +263,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$descriptor_uri"/>
             <uri prefix='&meshv;'>seeAlso</uri>
-            <uri prefix='&mesh;'>
+            <uri prefix='{$mesh-prefix}'>
               <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
             </uri>
           </xsl:with-param>

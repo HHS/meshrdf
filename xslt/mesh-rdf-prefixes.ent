@@ -1,5 +1,4 @@
-<!ENTITY mesh "http://id.nlm.nih.gov/MESHRDF_PATH/">
-<!ENTITY meshv "http://id.nlm.nih.gov/MESHRDF_PATH/vocab#">
+<!ENTITY meshv "http://id.nlm.nih.gov/vocab#">
 <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 <!ENTITY xs "http://www.w3.org/2001/XMLSchema">
