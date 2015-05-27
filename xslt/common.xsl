@@ -12,6 +12,18 @@
                 xmlns:xs="&xs;"
                 exclude-result-prefixes="xs f">
 
+  <xsl:param name='uri-year-segment' select='""'/>
+  <xsl:variable name='mesh-prefix'>
+    <xsl:choose>
+      <xsl:when test="$uri-year-segment = ''">
+        <xsl:value-of select="'http://id.nlm.nih.gov/mesh/'"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="concat('http://id.nlm.nih.gov/mesh/', $uri-year-segment, '/')"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  
   <xsl:key name='tree-numbers' match="//TreeNumber" use='.'/>
 
   <!--
@@ -36,7 +48,7 @@
       * For fixme/@reporter, use the GitHub username
       * Within the `spec` parameter, put three children.  Any of which could look something like this:
           <uri prefix='&meshv;'>property</uri>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$uri-year-segment}'>
             <xsl:value-of select='$something_uri'/>
           </uri>
           <literal>
@@ -365,7 +377,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>pharmacologicalAction</uri>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$mesh-prefix}'>
             <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
           </uri>
         </xsl:with-param>
@@ -378,7 +390,7 @@
     <xsl:for-each select="TreeNumberList/TreeNumber">
       <xsl:variable name='tree-number-str' select='string(.)'/>
       <xsl:variable name='tree-number-uri'>
-        <uri prefix='&mesh;'><xsl:value-of select="$tree-number-str"/></uri>
+        <uri prefix='{$mesh-prefix}'><xsl:value-of select="$tree-number-str"/></uri>
       </xsl:variable>
 
       <xsl:call-template name='triple'>
@@ -428,7 +440,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select='$tree-number-uri'/>
             <uri prefix='&meshv;'>parentTreeNumber</uri>
-            <uri prefix='&mesh;'>
+            <uri prefix='{$mesh-prefix}'>
               <xsl:value-of select="$parent-tree-number"/>
             </uri>
           </xsl:with-param>
@@ -448,7 +460,7 @@
               <xsl:with-param name="spec">
                 <xsl:copy-of select="$parent"/>
                 <uri prefix='&meshv;'>broaderDescriptor</uri>
-                <uri prefix='&mesh;'>
+                <uri prefix='{$mesh-prefix}'>
                   <xsl:value-of select="$parent-tree-number-element/ancestor::DescriptorRecord/DescriptorUI"/>
                 </uri>
               </xsl:with-param>
@@ -463,7 +475,7 @@
               <xsl:with-param name="spec">
                 <xsl:copy-of select="$parent"/>
                 <uri prefix='&meshv;'>broaderQualifier</uri>
-                <uri prefix='&mesh;'>
+                <uri prefix='{$mesh-prefix}'>
                   <xsl:value-of select="$parent-tree-number-element/ancestor::QualifierRecord/QualifierUI"/>
                 </uri>
               </xsl:with-param>
@@ -531,7 +543,7 @@
 
     <xsl:for-each select="ConceptList/Concept">
       <xsl:variable name='concept_uri'>
-        <uri prefix='&mesh;'>
+        <uri prefix='{$mesh-prefix}'>
           <xsl:value-of select="ConceptUI"/>
         </uri>
       </xsl:variable>
@@ -674,7 +686,7 @@
         
       <xsl:for-each select="SemanticTypeList/SemanticType">
         <xsl:variable name='semantic_type_uri'>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$mesh-prefix}'>
             <xsl:value-of select="SemanticTypeUI"/>
           </uri>
         </xsl:variable>
@@ -776,11 +788,11 @@
         <xsl:if test="@RelationName">
           <xsl:call-template name="triple">
             <xsl:with-param name="spec">
-              <uri prefix='&mesh;'>
+              <uri prefix='{$mesh-prefix}'>
                 <xsl:value-of select="Concept1UI"/>
               </uri>
               <xsl:copy-of select="f:meshv_relation_uri(@RelationName, 'Concept')"/>
-              <uri prefix='&mesh;'>
+              <uri prefix='{$mesh-prefix}'>
                 <xsl:value-of select="Concept2UI"/>
               </uri>
             </xsl:with-param>
@@ -794,13 +806,13 @@
         <xsl:if test="RelationAttribute">
           <xsl:call-template name="triple">
             <xsl:with-param name="spec">
-              <uri prefix='&mesh;'>
+              <uri prefix='{$mesh-prefix}'>
                 <xsl:value-of select="Concept1UI"/>
               </uri>
-              <uri prefix='&mesh;'>
+              <uri prefix='{$mesh-prefix}'>
                 <xsl:value-of select="concat('rela/', RelationAttribute)"/>
               </uri>
-              <uri prefix='&mesh;'>
+              <uri prefix='{$mesh-prefix}'>
                 <xsl:value-of select="Concept2UI"/>
               </uri>
             </xsl:with-param>
@@ -815,7 +827,7 @@
 
       <xsl:for-each select="TermList/Term[@IsPermutedTermYN='N']">
         <xsl:variable name='term_uri'>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$mesh-prefix}'>
             <xsl:value-of select="TermUI"/>
           </uri>
         </xsl:variable>
@@ -1086,7 +1098,7 @@
       -->
       <xsl:for-each select="TermList/Term[@IsPermutedTermYN='Y']">
         <xsl:variable name='term_uri'>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$mesh-prefix}'>
             <xsl:value-of select="TermUI"/>
           </uri>
         </xsl:variable>

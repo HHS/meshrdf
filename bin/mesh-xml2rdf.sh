@@ -7,7 +7,8 @@
 # - MESHRDF_YEAR - default is "2015". Set this to override the *source* data. In other
 #   words, this is used to determine which XML files are used as input.
 # - MESHRDF_URI_YEAR - no default. If this is set to "yes", then the generated URIs will
-#   include the year.
+#   include the year, and the output file will be mesh<YYYY>.nt; otherwise, the URIs will
+#   not include the year, and the output file will be mesh.nt.
 
 if [ -z "$MESHRDF_HOME" ]; then
     echo "Please define MESHRDF_HOME environment variable" 1>&2
@@ -22,43 +23,35 @@ fi
 # Can override default year with MESHRDF_YEAR environment variable
 YEAR=${MESHRDF_YEAR:-2015}
 
-# Override the default Mesh prefix and output file by setting MESHRDF_URI_YEAR to "yes"
+# Set the output file name, and the parameter that controls the RDF URIs,
+# according to whether or not MESHRDF_URI_YEAR is "yes"
 if [ "$MESHRDF_URI_YEAR" = "yes" ]; then
-    PREFIX=mesh/$YEAR
     OUT=mesh$YEAR
+    URI_YEAR_PARAM=uri-year-segment=$YEAR
 else
-    PREFIX=mesh
     OUT=mesh
+    URI_YEAR_PARAM=
 fi
 
-#echo PREFIX = $PREFIX
-#echo OUT = $OUT
-
-# substitute the prefix into the DTD entity file
-sed -e "s,MESHRDF_PATH,$PREFIX,g" xslt/mesh-rdf-prefixes.ent.template > xslt/mesh-rdf-prefixes.ent
-if [ $? -ne 0 ]; then 
-    echo "Error creating xslt/mesh-rdf-prefixes.ent from template" 1>&2
-    exit 1
-fi
 
 mkdir -p "$MESHRDF_HOME/out"
 
 java -Xmx4G -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/qual$YEAR.xml" \
-    -xsl:xslt/qual.xsl > "$MESHRDF_HOME/out/$OUT-dups.nt"
+    -xsl:xslt/qual.xsl $URI_YEAR_PARAM > "$MESHRDF_HOME/out/$OUT-dups.nt"
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/qual$YEAR.xml" 1>&2
     exit 1
 fi
 
 java -Xmx4G -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/desc$YEAR.xml" \
-    -xsl:xslt/desc.xsl >> "$MESHRDF_HOME/out/$OUT-dups.nt"
+    -xsl:xslt/desc.xsl $URI_YEAR_PARAM >> "$MESHRDF_HOME/out/$OUT-dups.nt"
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/desc$YEAR.xml" 1>&2
     exit 1
 fi
 
 java -Xmx4G -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/supp$YEAR.xml" \
-    -xsl:xslt/supp.xsl >> "$MESHRDF_HOME/out/$OUT-dups.nt"
+    -xsl:xslt/supp.xsl $URI_YEAR_PARAM >> "$MESHRDF_HOME/out/$OUT-dups.nt"
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/supp$YEAR.xml" 1>&2
     exit 1

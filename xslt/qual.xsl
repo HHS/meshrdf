@@ -15,12 +15,17 @@
 
 
   <xsl:template match="/">
+    <xsl:message>
+      <xsl:text>mesh-prefix = '</xsl:text>
+      <xsl:value-of select="$mesh-prefix"/>
+      <xsl:text>'</xsl:text>
+    </xsl:message>
 
     <!-- triples for Qualifier Records -->
 
     <xsl:for-each select="QualifierRecordSet/QualifierRecord">
       <xsl:variable name='qualifier_uri'>
-        <uri prefix='&mesh;'>
+        <uri prefix='{$mesh-prefix}'>
           <xsl:value-of select="QualifierUI"/>
         </uri>
       </xsl:variable>
@@ -102,7 +107,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$qualifier_uri"/>
             <uri prefix='&meshv;'>allowedTreeNode</uri>
-            <uri prefix='&mesh;'>
+            <uri prefix='{$mesh-prefix}'>
               <xsl:value-of select="."/>
             </uri>
           </xsl:with-param>
