@@ -7,7 +7,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://id.nlm.nih.gov/mesh/vocab#> .
 
-<http://id.nlm.nih.gov/mesh/vocab#> rdf:type :Ontology .
+<http://id.nlm.nih.gov/mesh/vocab#> rdf:type :Ontology ;
+                                    
+                                    :versionInfo "0.9-dev" .
 
 
 #################################################################
