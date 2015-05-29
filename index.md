@@ -15,7 +15,7 @@ MeSH RDF is updated nightly. In producing MeSH RDF, we have attempted to remain 
 
 #### MeSH RDF 2015 (beta)
 
-[Release Notes](./release-notes.md) 
+[Release Notes](./release-notes.html) 
 
 [SPARQL Endpoint](http://id.nlm.nih.gov/mesh/sparql) 
 
@@ -25,7 +25,7 @@ MeSH RDF is updated nightly. In producing MeSH RDF, we have attempted to remain 
 
 #### MeSH RDF 2014 (beta) 
 
-In November, 2014, NLM produced an initial beta release of MeSH RDF using 2014 MeSH data. On June 15, 2015, NLM produced a second beta release using 2015 MeSH data. The 2014 MeSH RDF data was not retained. See our [versioning policy](./versioning-policy) for more information. 
+In November, 2014, NLM produced an initial beta release of MeSH RDF using 2014 MeSH data. On June 15, 2015, NLM produced a second beta release using 2015 MeSH data. The 2014 MeSH RDF data was not retained. See our [versioning policy](./versioning-policy.html) for more information. 
 
 
 
