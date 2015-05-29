@@ -8,7 +8,7 @@ categories:
 
 SPARQL queries from our [SPARQL endpoint](http://id.nlm.nih.gov/mesh/sparql) will produce permanent, shareable URLs. SPARQL request parameters expressed in SPARQL query URLs are described below.
 
-{:.data-table-long .row-border .hover}
+{:.data-table-standard .row-border .hover}
 Parameter | Valid Values (SELECT Queries) | Valid Values (CONSTRUCT Queries) | Default Value | Use Case
 ------------- | --------------------- | --------------------- | ---------- | ------------------------------
 &limit | Accepts positive integers up to 1000 | N/A | 1000 | Limits the number of results per request. The maximum number of results per request for SELECT queries is 1,000.
