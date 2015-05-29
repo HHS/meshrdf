@@ -17,7 +17,7 @@ MeSH RDF is updated nightly. In producing MeSH RDF, we have attempted to remain 
 
 [Release Notes](./release-notes.md) 
 
-[SPARQL EndPoint](http://id.nlm.nih.gov/mesh/sparql) 
+[SPARQL Endpoint](http://id.nlm.nih.gov/mesh/sparql) 
 
 [GitHub](https://github.com/HHS/meshrdf/) 
 
