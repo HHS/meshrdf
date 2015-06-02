@@ -81,3 +81,19 @@ fi
 cp $MESHRDF_HOME/meta/vocabulary.ttl $OUTDIR
 cp $MESHRDF_HOME/meta/void.ttl $OUTDIR
 
+cd $OUTDIR
+
+vocab_version=`awk '$1~/versionInfo/ { gsub(/"/, "", $2); print $2 }' vocabulary.ttl`
+if [ -z "$vocab_version" ]; then 
+    echo "Unable to determine vocabulary.ttl version" 1>&2
+    exit 1
+fi
+
+void_version=`awk '$1~/versionInfo/ { gsub(/"/, "", $2); print $2 }' void.ttl`
+if [ -z "$void_version" ]; then 
+    echo "Unable to determine void.ttl version" 1>&2
+fi
+
+ln -f void.ttl void_$vocab_version.ttl
+ln -f vocabulary.ttl vocabulary_$vocab_version.ttl
+
