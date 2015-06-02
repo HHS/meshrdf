@@ -78,7 +78,7 @@
    WHERE {
     ?d meshv:pharmacologicalAction ?pa.
     ?d rdfs:label ?dLabel .
-    ?pa rdfs:label "Anti-Bacterial Agents"
+    ?pa rdfs:label "Anti-Bacterial Agents"@en
    }
    
    ORDER BY ASC (?dLabel)
@@ -96,7 +96,7 @@
      
      WHERE {  
         ?d meshv:allowableQualifier ?q .  
-        ?q rdfs:label "adverse effects" .  
+        ?q rdfs:label "adverse effects"@en .  
         ?d rdfs:label ?dLabel  
      }
      
@@ -227,7 +227,7 @@
       ?tn rdfs:label ?tnLabel .
       ?q meshv:recordPreferredTerm ?pt .
       ?pt meshv:prefLabel ?qualifier
-      FILTER(?qualifier = 'adverse effects')
+      FILTER(?qualifier = 'adverse effects'@en)
         #full list of qualifiers to choose from:
         #http://www.nlm.nih.gov/mesh/topsubscope.html
        }
