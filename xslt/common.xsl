@@ -995,7 +995,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$parent'/>
-              <uri prefix='&meshv;'>recordPreferredTerm</uri>
+              <uri prefix='&meshv;'>preferredTerm</uri>
               <xsl:copy-of select='$term_uri'/>
             </xsl:with-param>
           </xsl:call-template>

@@ -203,9 +203,9 @@ dct:description rdf:type :AnnotationProperty .
 
 
 
-###  http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm
+###  http://id.nlm.nih.gov/mesh/vocab#preferredTerm
 
-<http://id.nlm.nih.gov/mesh/vocab#recordPreferredTerm> rdf:type :ObjectProperty ;
+<http://id.nlm.nih.gov/mesh/vocab#preferredTerm> rdf:type :ObjectProperty ;
                                                        
                                                        dct:description "Relates Descriptors, Qualifiers or SupplementaryConceptRecords to Terms. Indicates that the Term is the preferred term for a Descriptor, Qualifier, or SupplementaryConceptRecord." .
 
