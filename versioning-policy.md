@@ -61,13 +61,13 @@ This graph expresses the MeSH vocabulary schema, which includes the following in
 
 The VOID graph is versionless and contains metadata about MeSH RDF:
 
-http://id.nlm.nih.gov/mesh/void
+* http://id.nlm.nih.gov/mesh/void
 
 ### FTP Download Files
 
 NLM makes available MeSH RDF files for download:
 
-ftp://ftp.nlm.nih.gov/online/mesh/
+* ftp://ftp.nlm.nih.gov/online/mesh/
 
 #### Data Files
 
