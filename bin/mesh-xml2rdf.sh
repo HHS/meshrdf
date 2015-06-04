@@ -36,10 +36,12 @@ if [ "$MESHRDF_URI_YEAR" = "yes" ]; then
     OUTDIR=$MESHRDF_HOME/out/$YEAR
     OUTFILE=$OUTDIR/mesh$YEAR
     URI_YEAR_PARAM=uri-year-segment=$YEAR
+    URI_PREFIX="http://id.nlm.nih.gov/mesh/$YEAR"
 else
     OUTDIR=$MESHRDF_HOME/out
     OUTFILE=$OUTDIR/mesh
     URI_YEAR_PARAM=
+    URI_PREFIX="http://id.nlm.nih.gov/mesh"
 fi
 
 
@@ -64,6 +66,11 @@ java -Xmx4G -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/supp$YEAR.xml" \
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/supp$YEAR.xml" 1>&2
     exit 1
+fi
+
+if [ -f "$MESHRDF_HOME/data/cns-disease-2014AB.nt" ]; then
+    sed -e "s,http://id.nlm.nih.gov/mesh,$URI_PREFIX," \
+        "$MESHRDF_HOME/data/cns-disease-2014AB.nt" >> "$OUTFILE-dups.nt"
 fi
 
 sort -u -T"$OUTDIR" "$OUTFILE-dups.nt" > "$OUTFILE.nt"
