@@ -12,7 +12,7 @@ MeSH RDF will use the following conventions for URIs, graphs and filenames.
 
 ### URIs
 
-#### Data
+#### MeSH RDF Data
 
 MeSH RDF will follow established versioning practices, but MeSH RDF will be expressed in versioned and non-versioned URIs. For example, the Descriptor for Ofloxacin will have the following URIs:
 
