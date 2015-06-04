@@ -8,7 +8,7 @@ categories:
 
 MeSH is versioned on a yearly basis. NLM releases provisional MeSH data for the following year each September, and changes to MeSH are implemented in PubMed the following December. 2015 MeSH data was released in XML format in September, 2014. Most changes made in September of each year involve the addition of new Descriptors to the MeSH vocabulary. Supplementary Concept Records are added throughout the year, and those changes are reflected in daily updates to MeSH XML. Starting June 15, 2015, MeSH RDF data will update on a daily basis in sync with MeSH XML. 
 
-MeSH RDF will use the following conventions for URIs, graphs and filenames. 
+MeSH RDF will use the following conventions for URIs, graphs and filenames:
 
 ### URIs
 
