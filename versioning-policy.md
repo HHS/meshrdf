@@ -73,12 +73,17 @@ ftp://ftp.nlm.nih.gov/online/mesh/
 
 Current MeSH RDF data is available for download in .nt (N-Triples format). 
 
-ftp://ftp.nlm.nih.gov/online/mesh/mesh.nt
+* Filename: mesh.nt 
+* Location: ftp://ftp.nlm.nih.gov/online/mesh/
 
-MeSH XML is also available. Versioned MeSH data is available in subdirectories labeled by year:
+MeSH XML is also available. Versioned MeSH data is available in subdirectories labeled by year. 
 
-ftp://ftp.nlm.nih.gov/online/mesh/2015/mesh2015.nt
+* Filename: mesh2015.nt 
+* Location: ftp://ftp.nlm.nih.gov/online/mesh/2015/
 
 #### Vocabulary Files
 
-The MeSH vocabulary schema is expressed in a .ttl (TURTLE) file on the FTP site. This file has a version number that will increment upon changes to the vocabulary schema. The current version is named vocabulary_0.9.ttl and is located in ftp://ftp.nlm.nih.gov/online/mesh/. 
+The MeSH vocabulary schema is expressed in a .ttl (TURTLE) file on the FTP site. This file has a version number that will increment upon changes to the vocabulary schema. 
+
+* Filename: vocabulary_0.9.ttl 
+* Location: ftp://ftp.nlm.nih.gov/online/mesh/
