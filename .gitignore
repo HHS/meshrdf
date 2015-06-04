@@ -1,4 +1,6 @@
 Saxon*.zip
 saxon9he
-data
+data/*.xml
+data/*.dtd
+data/readme*
 out
