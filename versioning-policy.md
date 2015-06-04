@@ -12,7 +12,7 @@ MeSH RDF will use the following conventions for URIs, graphs and filenames.
 
 ### URIs
 
-#### MeSH RDF Data
+#### Data URIs
 
 MeSH RDF will follow established versioning practices, but MeSH RDF will be expressed in versioned and non-versioned URIs. For example, the Descriptor for Ofloxacin will have the following URIs:
 
@@ -21,7 +21,7 @@ MeSH RDF will follow established versioning practices, but MeSH RDF will be expr
 
 The non-versioned URI reflects the current state of MeSH at any given time. The versioned URI for the current year will mirror the non-versioned URI until the next year's MeSH data is released in the Fall. At some point, the next year's versioned URI will mirror the non-versioned URI, and the current year's URI will become static and archived. NLM will retain no more than three years of versioned URIs, and NLM will not produce versioned URIs for data prior to 2015. 
 
-#### Vocabulary
+#### Vocabulary URIs
 
 MeSH RDF vocabulary URIs will be versionless, though they will be derived from versioned schema files (see below). All predicate and class URIs will have the following prefix, regardless of MeSH year or schema version: http://id.nlm.nih.gov/mesh/vocab#. Predicate names are expressed in camel case. Class names are capitalized.
 
@@ -34,7 +34,7 @@ Currently, we do not have a mechanism for handling deprecated URIs. On occasion,
 
 ### Graphs
 
-#### MeSH RDF Data
+#### Data Graphs
 
 MeSH RDF data is expressed in a current, versionless graph and a versioned graph:
 
@@ -43,7 +43,7 @@ MeSH RDF data is expressed in a current, versionless graph and a versioned graph
 
 Use these graphs to run SPARQL queries on MeSH RDF data. NLM will retain no more than three years of versioned graphs, and NLM will not produced versioned graphs for data prior to 2015. 
 
-#### MeSH RDF Vocabulary
+#### Vocabulary Graph
 
 MeSH RDF's vocabulary is expressed in a versionless graph:
 
@@ -57,7 +57,7 @@ This graph expresses the MeSH vocabulary schema, which includes the following in
 * Disjoint relationships between classes or properties (owl:disjointWith, owl:propertyDisjointWith)
 * Descriptions of classes and properties (dct:description)
 
-#### VoID
+#### VoID Graph
 
 The VOID graph is versionless and contains metadata about MeSH RDF:
 
@@ -69,7 +69,7 @@ NLM makes available MeSH RDF files for download:
 
 ftp://ftp.nlm.nih.gov/online/mesh/
 
-#### MeSH RDF Data
+#### Data Files
 
 Current MeSH RDF data is available for download in .nt (N-Triples format). 
 
@@ -79,6 +79,6 @@ MeSH XML is also available. Versioned MeSH data is available in subdirectories l
 
 ftp://ftp.nlm.nih.gov/online/mesh/2015/mesh2015.nt
 
-#### MeSH RDF Vocabulary
+#### Vocabulary Files
 
-The MeSH vocabulary schema is expressed in a .ttl (TURTLE) file on the FTP site. These files have version numbers that will increment upon changes to the vocabulary schema. The current version is named vocabulary_0.9.ttl and is located in ftp://ftp.nlm.nih.gov/online/mesh/. 
+The MeSH vocabulary schema is expressed in a .ttl (TURTLE) file on the FTP site. This file has a version number that will increment upon changes to the vocabulary schema. The current version is named vocabulary_0.9.ttl and is located in ftp://ftp.nlm.nih.gov/online/mesh/. 
