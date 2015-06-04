@@ -225,7 +225,7 @@
       ?dq meshv:hasQualifier ?q .
       ?d meshv:treeNumber ?tn .
       ?tn rdfs:label ?tnLabel .
-      ?q meshv:recordPreferredTerm ?pt .
+      ?q meshv:preferredTerm ?pt .
       ?pt meshv:prefLabel ?qualifier
       FILTER(?qualifier = 'adverse effects'@en)
         #full list of qualifiers to choose from:
