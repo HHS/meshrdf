@@ -6,7 +6,7 @@ categories:
 - Policy
 ---
 
-MeSH is versioned on a yearly basis. NLM releases provisional MeSH data for the following year each September, and changes to MeSH are implemented in PubMed the following December. 2015 MeSH data was released in XML format in September 2014. Most changes made in September of each year involve the addition of new Descriptors and changes to existing Descriptors. Supplementary Concept Records are also added throughout the year, and those changes are reflected in daily updates to MeSH XML. Starting June 15, 2015, MeSH RDF data will update on a daily basis in sync with MeSH XML. 
+MeSH is versioned on a yearly basis. NLM releases provisional MeSH data for the following year each September, and changes to MeSH are implemented in PubMed the following December. NLM released 2015 MeSH data in XML format in September 2014. Most changes made in September of each year involve the addition of new Descriptors and changes to existing Descriptors. Supplementary Concept Records are also added throughout the year, and those changes are reflected in daily updates to MeSH XML. Starting June 15, 2015, MeSH RDF data will update on a daily basis in sync with MeSH XML. Supplementary Concept Records are added throughout the year on a daily basis.  
 
 MeSH RDF will use the following conventions for URIs, graphs and filenames:
 
@@ -19,7 +19,7 @@ MeSH RDF will follow established versioning practices, but MeSH RDF will be expr
 * http://id.nlm.nih.gov/mesh/D015242 (current)
 * http://id.nlm.nih.gov/mesh/2015/D015242 (2015)
 
-The non-versioned URI reflects the current state of MeSH at any given time. The versioned URI for the current year will mirror the non-versioned URI until the next year's MeSH data is released in the Fall. At some point, the next year's versioned URI will mirror the non-versioned URI, and the current year's URI will become static and archived. Current year MeSH is dynamic until archived. NLM will retain no more than three years of versioned URIs, and NLM will not produce versioned URIs for data prior to 2015 MeSH. 
+The non-versioned URI reflects the current state of MeSH at any given time. The versioned URI for the current year will mirror the non-versioned URI until NLM releases the next year's MeSH data. Once NLM begins using the next year's MeSH data, the next year's versioned URI will mirror the non-versioned URI, and the current year's data will become static and archived. Current year MeSH is dynamic until archived. NLM will retain no more than three years of versioned URIs, and NLM will not produce versioned URIs for data prior to 2015 MeSH. 
 
 #### Vocabulary URIs
 
@@ -40,12 +40,12 @@ Currently, we do not have a mechanism for handling deprecated URIs. On occasion,
 
 #### Data Graphs
 
-MeSH RDF data is expressed in a current, versionless graph and a versioned graph:
+MeSH RDF data are expressed in a current, versionless graph and a versioned graph:
 
 * http://id.nlm.nih.gov/mesh (current)
 * http://id.nlm.nih.gov/mesh/2015 (2015)
 
-Use these graphs to run SPARQL queries on MeSH RDF data. NLM will retain no more than three years of versioned graphs, and NLM will not produced versioned graphs for data prior to 2015. 
+Use these graphs to run SPARQL queries on MeSH RDF data. NLM will retain no more than three years of versioned graphs, and NLM will not produced versioned graphs for data prior to 2015 MeSH. 
 
 #### Vocabulary Graph
 
@@ -53,7 +53,7 @@ MeSH RDF's vocabulary is expressed in a versionless graph:
 
 * http://id.nlm.nih.gov/mesh/vocab 
 
-This graph expresses the MeSH vocabulary schema, which includes the following information:
+This graph expresses the MeSH vocabulary schema, which describes and relates the various predicates and classes in MeSH RDF. 
 
 * Types of classes and properties (expressed by rdf:type)
 * Class and property labels (rdfs:label)
@@ -75,12 +75,12 @@ NLM makes available MeSH RDF files for download:
 
 #### Data Files
 
-Current MeSH RDF data is available for download in .nt (N-Triples format). 
+Current MeSH RDF data are available for download in .nt (N-Triples format). 
 
 * Filename: mesh.nt 
 * Location: ftp://ftp.nlm.nih.gov/online/mesh/
 
-Versioned MeSH data is available in subdirectories labeled by year. MeSH XML and DTDs are also available without restriction.
+Versioned MeSH data are available in subdirectories labeled by year. MeSH XML and DTDs are also available without restriction. Note that MeSH RDF data are expressed in a single file (for example, mesh2015.nt), while the XML data are grouped into files for Descriptors, Qualifiers and Supplementary Concept Records.
 
 * 2015 MeSH RDF Filename: mesh2015.nt 
 * 2015 XML Data Filenames: desc2015.xml, qual2015.xml, supp2015.xml
