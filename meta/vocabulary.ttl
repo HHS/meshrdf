@@ -54,7 +54,7 @@ dct:description rdf:type :AnnotationProperty .
 
 <http://id.nlm.nih.gov/mesh/vocab#broaderConcept> rdf:type :ObjectProperty ;
                                                   
-                                                  dct:description "Relates 2 instances of the meshv:Concept class, one of which is broader than the other." ;
+                                                  dct:description "Relates one Concept to another. A semantic relationship between two Concepts, usually between the preferred concept and subordinate concept(s) where one is broader in meaning. Example: M0024816 is broader than M0024811." ;
                                                   
                                                   rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
                                                   
@@ -68,7 +68,7 @@ dct:description rdf:type :AnnotationProperty .
 
 <http://id.nlm.nih.gov/mesh/vocab#broaderDescriptor> rdf:type :ObjectProperty ;
                                                      
-                                                     dct:description "Relates 2 instances of the meshv:Descriptor class, one of which is broader than the other." ;
+                                                     dct:description "Relates one Descriptor to another. The immediate parent Descriptor(s) of a given Descriptor based on the TreeNumber hierarchy. Example: both DUI D007254 (Information Science) and DUI D008491 (Medical Informatics Applications) are parents of DUI D016247 (Information Storage and Retrieval)." ;
                                                      
                                                      rdfs:domain <http://id.nlm.nih.gov/mesh/vocab#Descriptor> ;
                                                      
@@ -81,6 +81,8 @@ dct:description rdf:type :AnnotationProperty .
 ###  http://id.nlm.nih.gov/mesh/vocab#broaderQualifier
 
 <http://id.nlm.nih.gov/mesh/vocab#broaderQualifier> rdf:type :ObjectProperty ;
+                                                    
+                                                    dct:description "Relates one Qualifier to another. The immediate parent Qualifier(s) of a given Qualifier based on the TreeNumber hierarchy. Example: QUI Q000458 (organization & administration) is a parent of QUI Q000592 (standards)." ;
                                                     
                                                     rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Qualifier> ;
                                                     
@@ -138,7 +140,7 @@ dct:description rdf:type :AnnotationProperty .
 
 <http://id.nlm.nih.gov/mesh/vocab#narrowerConcept> rdf:type :ObjectProperty ;
                                                    
-                                                   dct:description "Relates 2 instances the of meshv:Concept class, one of which is narrower than the other." ;
+                                                   dct:description "Relates one Concept to another. A semantic relationship between the preferred concept and subordinate concept(s) where one is narrower in meaning. Example: M0353609 is narrower with respect to M0000001." ;
                                                    
                                                    rdfs:domain <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
                                                    
@@ -151,7 +153,7 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#parentTreeNumber> rdf:type :ObjectProperty ,
                                                              :TransitiveProperty ;
                                                     
-                                                    dct:description "Relates 2 instances of meshv:treeNumber classes, one of which is the immediate parent of the other." ;
+                                                    dct:description "Relates one TreeNumber to another. Immediate “parent” TreeNumber, meaning one level higher in the TreeNumber hierarchy. Example: D03.438.221 is a parent of D03.438.221.173." ;
                                                     
                                                     rdfs:range <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
                                                     
@@ -191,7 +193,7 @@ dct:description rdf:type :AnnotationProperty .
 
 <http://id.nlm.nih.gov/mesh/vocab#preferredTerm> rdf:type :ObjectProperty ;
                                                  
-                                                 dct:description "Relates Concepts to Terms. The Term in this relationship expresses the most relevant name of the Concept. meshv:preferredTerm is a subproperty of meshv:term." ;
+                                                 dct:description "Relates Concepts, Descriptors, Qualifiers or SupplementaryConceptRecords to Terms. Indicates that the Term is the preferred term for a Concept, Descriptor, Qualifier, or SupplementaryConceptRecord." ;
                                                  
                                                  rdfs:subPropertyOf <http://id.nlm.nih.gov/mesh/vocab#term> .
 
@@ -203,19 +205,11 @@ dct:description rdf:type :AnnotationProperty .
 
 
 
-###  http://id.nlm.nih.gov/mesh/vocab#preferredTerm
-
-<http://id.nlm.nih.gov/mesh/vocab#preferredTerm> rdf:type :ObjectProperty ;
-                                                       
-                                                       dct:description "Relates Descriptors, Qualifiers or SupplementaryConceptRecords to Terms. Indicates that the Term is the preferred term for a Descriptor, Qualifier, or SupplementaryConceptRecord." .
-
-
-
 ###  http://id.nlm.nih.gov/mesh/vocab#relatedConcept
 
 <http://id.nlm.nih.gov/mesh/vocab#relatedConcept> rdf:type :ObjectProperty ;
                                                   
-                                                  dct:description "Relates one Concept to another. A semantic relationship between two Concepts, usually between the preferred Concept and subordinate Concept(s) where one is neither broader nor narrower in meaning." ;
+                                                  dct:description "Relates one Concept to another. A semantic relationship between two Concepts, usually between the preferred Concept and subordinate Concept(s) where one is neither broader nor narrower in meaning. Example: M0000562 is related to M0000561" ;
                                                   
                                                   rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
                                                   
@@ -386,7 +380,7 @@ dct:description rdf:type :AnnotationProperty .
                                               
                                               rdfs:label "identifier" ;
                                               
-                                              dct:description "A property of Descriptors, Qualifiers, SupplementaryConceptRecords, Concepts, Terms and SemanticTypes. Descriptor identifier is a 7 or 10 alphanumeric starting with the letter D. Qualifier identifier is a 7 or 10 alphanumeric starting with the letter Q. SupplementaryConceptRecord identifier is a 7 or 10 alphanumeric starting with the letter C. Concept identifier is an 8 or 10 alphanumeric starting with the letter M. Term identifier is a 7 or 10 alphanumeric starting with the letter T. The 10 alphanumeric format was implemented for new identifiers created on or after about May 19, 2014." .
+                                              dct:description "A property of Descriptors, Qualifiers, SupplementaryConceptRecords, Concepts and Terms. Descriptor identifier is a 7 or 10 alphanumeric starting with the letter D. Qualifier identifier is a 7 or 10 alphanumeric starting with the letter Q. SupplementaryConceptRecord identifier is a 7 or 10 alphanumeric starting with the letter C. Concept identifier is an 8 or 10 alphanumeric starting with the letter M. Term identifier is a 7 or 10 alphanumeric starting with the letter T. The 10 alphanumeric format was implemented for new identifiers created on or after about May 19, 2014." .
 
 
 
