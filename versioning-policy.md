@@ -92,4 +92,4 @@ Versioned MeSH data are available in subdirectories labeled by year. MeSH XML an
 The MeSH vocabulary schema is expressed in a .ttl (TURTLE) file on the FTP site. This file has a version number that will increment upon changes to the vocabulary schema. 
 
 * Filename: vocabulary_0.9.ttl 
-* Location: ftp://ftp.nlm.nih.gov/online/mesh/
+* Location: ftp://ftp.nlm.nih.gov/online/mesh/, ftp://ftp.nlm.nih.gov/online/mesh/2015/
