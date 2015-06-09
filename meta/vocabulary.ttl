@@ -496,8 +496,7 @@ dct:description rdf:type :AnnotationProperty .
 
 <http://id.nlm.nih.gov/mesh/vocab#thesaurusID> rdf:type :DatatypeProperty ;
                                                
-                                               dct:description "A property of Terms. Name of a Thesaurus in which the term occurs. The value 'NLM' is equivalent to MeSH." ,
-                                                               "thesaurusID" .
+                                               dct:description "A property of Terms. Name of a Thesaurus in which the term occurs. The value 'NLM' is equivalent to MeSH." .
 
 
 
