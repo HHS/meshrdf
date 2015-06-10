@@ -18,7 +18,6 @@ meshv:Concept | meshv:broaderConcept | meshv:Concept
 meshv:Concept | meshv:narrowerConcept | meshv:Concept
 meshv:Concept | meshv:preferredTerm | meshv:Term
 meshv:Concept | meshv:relatedConcept | meshv:Concept
-meshv:Concept | <s>meshv:semanticType</s>| <s>meshv:SemanticType</s>
 meshv:Concept | meshv:term | meshv:Term
 meshv:DisallowedDescriptorQualifierPair | meshv:hasDescriptor | meshv:TopicalDescriptor
 meshv:DisallowedDescriptorQualifierPair | meshv:hasQualifier | meshv:Qualifier
@@ -37,7 +36,6 @@ meshv:PublicationType | meshv:preferredConcept | meshv:Concept
 meshv:PublicationType | meshv:preferredTerm | meshv:Term
 meshv:PublicationType | meshv:seeAlso | meshv:PublicationType
 meshv:PublicationType | meshv:treeNumber | meshv:TreeNumber
-meshv:Qualifier | <s>meshv:allowedTreeNode</s> | meshv:TreeNumber
 meshv:Qualifier | meshv:broaderQualifier | meshv:Qualifier
 meshv:Qualifier | meshv:concept | meshv:Concept
 meshv:Qualifier | meshv:preferredConcept | meshv:Concept
