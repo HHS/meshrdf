@@ -1,7 +1,7 @@
 ---
 title: Release Notes
 layout: page
-resource: true
+resource: false
 categories:
 - Cheat Sheets
 ---

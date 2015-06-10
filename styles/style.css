@@ -35,6 +35,13 @@ body {
     color:white;
 }
 
+.navbar-btn > .btn {
+
+background-color:#f0f0f0;
+color:#333;
+  
+}
+
 .btn:hover, .btn:active{
  background-color: #F06018;
  color:white;
