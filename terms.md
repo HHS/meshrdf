@@ -260,7 +260,6 @@ meshv:Term | meshv:entryVersion
 meshv:Term | meshv:identifier
 meshv:Term | meshv:lexicalTag
 meshv:Term | meshv:prefLabel
-meshv:Term | <s>meshv:printFlag</s>
 meshv:Term | meshv:sortVersion
 meshv:Term | meshv:thesaurusID
 meshv:Term | rdfs:label

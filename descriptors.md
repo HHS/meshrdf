@@ -265,17 +265,12 @@ meshv:TopicalDescriptor | meshv:seeAlso | meshv:TopicalDescriptor
 {:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:CheckTag | <s>meshv:activeMeSHYear</s>
 meshv:CheckTag | meshv:annotation
 meshv:CheckTag | meshv:dateCreated
 meshv:CheckTag | meshv:dateRevised
 meshv:CheckTag | meshv:historyNote
 meshv:CheckTag | meshv:identifier
-meshv:CheckTag | <s>meshv:recordAuthorizer</s>
-meshv:CheckTag | <s>meshv:recordMaintainer</s>
-meshv:CheckTag | <s>meshv:recordOriginator</s>
 meshv:CheckTag | rdfs:label
-meshv:Descriptor | <s>meshv:activeMeSHYear</s>
 meshv:Descriptor | meshv:annotation
 meshv:Descriptor | meshv:considerAlso
 meshv:Descriptor | meshv:dateCreated
@@ -286,12 +281,7 @@ meshv:Descriptor | meshv:identifier
 meshv:Descriptor | meshv:onlineNote
 meshv:Descriptor | meshv:previousIndexing
 meshv:Descriptor | meshv:publicMeSHNote
-meshv:Descriptor | <s>meshv:recordAuthorizer</s>
-meshv:Descriptor | <s>meshv:recordMaintainer</s>
-meshv:Descriptor | <s>meshv:recordOriginator</s>
-meshv:Descriptor | <s>meshv:runningHead</s>
 meshv:Descriptor | rdfs:label
-meshv:GeographicalDescriptor | <s>meshv:activeMeSHYear</s>
 meshv:GeographicalDescriptor | meshv:annotation
 meshv:GeographicalDescriptor | meshv:dateCreated
 meshv:GeographicalDescriptor | meshv:dateEstablished
@@ -300,12 +290,7 @@ meshv:GeographicalDescriptor | meshv:historyNote
 meshv:GeographicalDescriptor | meshv:identifier
 meshv:GeographicalDescriptor | meshv:onlineNote
 meshv:GeographicalDescriptor | meshv:previousIndexing
-meshv:GeographicalDescriptor | <s>meshv:recordAuthorizer</s>
-meshv:GeographicalDescriptor | <s>meshv:recordMaintainer</s>
-meshv:GeographicalDescriptor | <s>meshv:recordOriginator</s>
-meshv:GeographicalDescriptor | <s>meshv:runningHead</s>
 meshv:GeographicalDescriptor | rdfs:label
-meshv:PublicationType | <s>meshv:activeMeSHYear</s>
 meshv:PublicationType | meshv:annotation
 meshv:PublicationType | meshv:dateCreated
 meshv:PublicationType | meshv:dateEstablished
@@ -313,12 +298,7 @@ meshv:PublicationType | meshv:dateRevised
 meshv:PublicationType | meshv:historyNote
 meshv:PublicationType | meshv:identifier
 meshv:PublicationType | meshv:previousIndexing
-meshv:PublicationType | <s>meshv:recordAuthorizer</s>
-meshv:PublicationType | <s>meshv:recordMaintainer</s>
-meshv:PublicationType | <s>meshv:recordOriginator</s>
-meshv:PublicationType | <s>meshv:runningHead</s>
 meshv:PublicationType | rdfs:label
-meshv:TopicalDescriptor | <s>meshv:activeMeSHYear</s>
 meshv:TopicalDescriptor | meshv:annotation
 meshv:TopicalDescriptor | meshv:considerAlso
 meshv:TopicalDescriptor | meshv:dateCreated
@@ -329,10 +309,6 @@ meshv:TopicalDescriptor | meshv:identifier
 meshv:TopicalDescriptor | meshv:onlineNote
 meshv:TopicalDescriptor | meshv:previousIndexing
 meshv:TopicalDescriptor | meshv:publicMeSHNote
-meshv:TopicalDescriptor | <s>meshv:recordAuthorizer</s>
-meshv:TopicalDescriptor | <s>meshv:recordMaintainer</s>
-meshv:TopicalDescriptor | <s>meshv:recordOriginator</s>
-meshv:TopicalDescriptor | <s>meshv:runningHead</s>
 meshv:TopicalDescriptor | rdfs:label
 
 </div>

@@ -32,7 +32,6 @@ Qualifiers each have tree numbers and are [hierarchically arranged](http://www.n
 {:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
-meshv:Qualifier | <s>meshv:allowedTreeNode</s> | meshv:TreeNumber
 meshv:Qualifier | meshv:broaderQualifier | meshv:Qualifier
 meshv:Qualifier | meshv:concept | meshv:Concept
 meshv:Qualifier | meshv:preferredConcept | meshv:Concept
@@ -61,7 +60,6 @@ meshv:TopicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
 {:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:Qualifier | <s>meshv:activeMeSHYear</s>
 meshv:Qualifier | meshv:annotation
 meshv:Qualifier | meshv:dateCreated
 meshv:Qualifier | meshv:dateEstablished
@@ -69,9 +67,6 @@ meshv:Qualifier | meshv:dateRevised
 meshv:Qualifier | meshv:historyNote
 meshv:Qualifier | meshv:identifier
 meshv:Qualifier | meshv:onlineNote
-meshv:Qualifier | <s>meshv:recordAuthorizer</s>
-meshv:Qualifier | <s>meshv:recordMaintainer</s>
-meshv:Qualifier | <s>meshv:recordOriginator</s>
 meshv:Qualifier | rdfs:label
 
 </div>
