@@ -17,7 +17,7 @@
     in the sparql code block.  It assumes there's only one sparql code block on the page.
    */
   $(document).ready(function () {
-      var sparql_endpoint = 'http://iddev.nlm.nih.gov/mesh/sparql';
+      var sparql_endpoint = 'http://id.nlm.nih.gov/mesh/sparql';
       var sparql_format_param = 'format=N3';
 
       $('.invoke-sparql').each(function() {
