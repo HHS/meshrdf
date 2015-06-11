@@ -42,83 +42,10 @@ The following <span class='invoke-sparql'>SPARQL query</span> will produce the p
 ```sparql
 PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 CONSTRUCT { mesh:D015242 ?p ?o . }
-FROM <http://id.nlm.nih.gov/mesh2014>
+FROM <http://id.nlm.nih.gov/mesh>
 WHERE {
   mesh:D015242 ?p ?o .
 }
-```
-
-### MeSH RDF Data - Descriptor Properties
-
-Here is the truncated output of the above query in N3 format. The same data is illustrated in the RDF graph diagram above.
-
-```
-<http://id.nlm.nih.gov/mesh/D015242>
-        a       <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "Ofloxacin" ;
-                ...
-        <http://id.nlm.nih.gov/mesh/vocab#dateCreated>
-                "2014-06-26"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://id.nlm.nih.gov/mesh/vocab#dateEstablished>
-                "1989-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://id.nlm.nih.gov/mesh/vocab#dateRevised>
-                "2013-07-08"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://id.nlm.nih.gov/mesh/vocab#historyNote>
-                "89" ;
-                ...
-        <http://id.nlm.nih.gov/mesh/vocab#previousIndexing>
-                "Anti-Infective Agents, Urinary (1981-1988)" ,
-                ...
-                "Oxazines (1981-1988)" ;
-        <http://id.nlm.nih.gov/mesh/vocab#publicMeSHNote>
-                "89" ;
-        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
-                <http://id.nlm.nih.gov/mesh/T044624> ;
-                ...
-        <http://purl.org/dc/terms/identifier>
-                "D015242" ;
-                ...
-```
-
-### MeSH XML - Descriptor Properties
-
-The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the N3 data above to the truncated MeSH XML for Ofloxacin below.
-
-
-```xml
-<DescriptorRecord DescriptorClass = "1">
-  <DescriptorUI>D015242</DescriptorUI>
-  <DescriptorName>
-   <String>Ofloxacin</String>
-  </DescriptorName>
-  <DateCreated>
-   <Year>2014</Year>
-   <Month>06</Month>
-   <Day>26</Day>
-  </DateCreated>
-  <DateRevised>
-   <Year>2013</Year>
-   <Month>07</Month>
-   <Day>08</Day>
-  </DateRevised>
-  <DateEstablished>
-   <Year>1989</Year>
-   <Month>01</Month>
-   <Day>01</Day>
-  </DateEstablished>
-  ...
-  <HistoryNote>89
-  </HistoryNote>
-  <PublicMeSHNote>89
-  </PublicMeSHNote>
-  <PreviousIndexingList>
-   ...
-   <PreviousIndexing>Anti-Infective Agents, Urinary (1981-1988)</PreviousIndexing>
-   <PreviousIndexing>Oxazines (1981-1988)</PreviousIndexing>
-  </PreviousIndexingList>
-  ...
- </DescriptorRecord>
 ```
 
 ### meshv:Descriptor - Relations and Properties
@@ -336,7 +263,7 @@ construct {
     mesh:D009369 meshv:considerAlso ?ca .
     mesh:D015242 meshv:pharmacologicalAction ?pa .
 }
-from <http://id.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh>
 where {
     mesh:D009369 meshv:annotation ?a .
     mesh:D009369 meshv:seeAlso ?sa .

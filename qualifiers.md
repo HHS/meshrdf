@@ -89,7 +89,7 @@ construct {
     ?prefTerm a ?prefTermType .
     ?prefCon ?pct ?prefTerm .
 }
-from <http://id.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh>
 where {
     mesh:Q000008 ?p ?o .
     mesh:Q000008 meshv:preferredConcept ?prefCon .

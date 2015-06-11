@@ -171,7 +171,9 @@ construct {
 
     mesh:C012211 meshv:indexerConsiderAlso ?ica .
 }
-from <http://id.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh>
+from <http://id.nlm.nih.gov/mesh/vocab>
+
 where {
     mesh:C025735 ?p ?o .
     mesh:C025735 a ?scrClass .
@@ -183,6 +185,6 @@ where {
     ?prefCon ?pct ?prefTerm .
 
     mesh:C012211 meshv:indexerConsiderAlso ?ica .
-}
+      }
 ```
 
