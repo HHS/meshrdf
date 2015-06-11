@@ -100,7 +100,7 @@ construct {
     mesh:D000001 meshv:preferredConcept ?prefcon .
     ?prefcon ?p ?o .
 }
-from <http://id.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh>
 where {
     mesh:D000001 meshv:preferredConcept ?prefcon .
     ?prefcon ?p ?o .

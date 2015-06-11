@@ -117,7 +117,7 @@ PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 
 SELECT *
-FROM <http://id.nlm.nih.gov/mesh2014>
+FROM <http://id.nlm.nih.gov/mesh>
 WHERE {
  mesh:D005123 meshv:treeNumber ?tree_number .
 
@@ -155,7 +155,7 @@ CONSTRUCT {
   ?narrower_descriptor meshv:treeNumber ?narrower_tree_number .
   ?narrower_descriptor meshv:broaderDescriptor mesh:D005123 .
 }
-from <http://id.nlm.nih.gov/mesh2014>
+from <http://id.nlm.nih.gov/mesh>
 where {
   mesh:D005123 meshv:treeNumber ?tree_number .
 

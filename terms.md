@@ -47,7 +47,7 @@ construct {
     ?con2PrefTerm a ?con2PrefTermClass .
     ?con2PrefTerm ?con2PrefTerm_p ?con2PrefTerm_o .
 }
-FROM <http://id.nlm.nih.gov/mesh2014>
+FROM <http://id.nlm.nih.gov/mesh>
 where {
     mesh:M0353609 rdfs:label ?con1Label .
     mesh:M0353609 a ?con1Class .
@@ -66,144 +66,6 @@ where {
     ?con2PrefTerm a ?con2PrefTermClass .
     ?con2PrefTerm ?con2PrefTerm_p ?con2PrefTerm_o .
 }
-```
-
-### MeSH RDF - Term Properties
-
-```
-<http://id.nlm.nih.gov/mesh/T000003>
-        a       <http://id.nlm.nih.gov/mesh/vocab#Term> ;
-        ...
-        <http://id.nlm.nih.gov/mesh/vocab#altLabel>
-                "A23187, Antibiotic" ;
-        ...
-        <http://id.nlm.nih.gov/mesh/vocab#lexicalTag>
-                "NON" ;
-        <http://id.nlm.nih.gov/mesh/vocab#prefLabel>
-                "Antibiotic A23187" ;
-        ...
-        <http://purl.org/dc/terms/identifier>
-                "T000003" .
-
-<http://id.nlm.nih.gov/mesh/T000001>
-        a       <http://id.nlm.nih.gov/mesh/vocab#Term> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "A-23187" ;
-        <http://id.nlm.nih.gov/mesh/vocab#altLabel>
-                "A 23187" ;
-        <http://id.nlm.nih.gov/mesh/vocab#dateCreated>
-                "1990-03-08"^^<http://www.w3.org/2001/XMLSchema#date> ;
-        <http://id.nlm.nih.gov/mesh/vocab#lexicalTag>
-                "LAB" ;
-        <http://id.nlm.nih.gov/mesh/vocab#prefLabel>
-                "A-23187" ;
-        <http://id.nlm.nih.gov/mesh/vocab#thesaurusID>
-                "NLM (1991)" ;
-        <http://purl.org/dc/terms/identifier>
-                "T000001" .
-        ...
-<http://id.nlm.nih.gov/mesh/M0353609>
-        a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "A-23187" ;
-        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
-                <http://id.nlm.nih.gov/mesh/T000001> ;
-        <http://id.nlm.nih.gov/mesh/vocab#term>
-                ...
-                <http://id.nlm.nih.gov/mesh/T000003> .
-
-<http://id.nlm.nih.gov/mesh/T060555>
-        a       <http://id.nlm.nih.gov/mesh/vocab#Term> ;
-        ...
-        <http://id.nlm.nih.gov/mesh/vocab#abbreviation>
-                "AD" ;
-        <http://id.nlm.nih.gov/mesh/vocab#entryVersion>
-                "ADMIN" ;
-        ...
-        <http://id.nlm.nih.gov/mesh/vocab#sortVersion>
-                "ADMINISTRATION A" ;
-        <http://purl.org/dc/terms/identifier>
-                "T060555" .
-
-<http://id.nlm.nih.gov/mesh/M0030212>
-        a       <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
-        <http://www.w3.org/2000/01/rdf-schema#label>
-                "administration & dosage" ;
-        <http://id.nlm.nih.gov/mesh/vocab#preferredTerm>
-                <http://id.nlm.nih.gov/mesh/T060555> .
-```
-
-
-### MeSH XML - Term Properties
-
-The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram and the RDF data above to the truncated MeSH XML below.
-
-```xml
-<DescriptorRecord DescriptorClass = "1">
-  <DescriptorUI>D000001</DescriptorUI>
-  ...
-  <Concept PreferredConceptYN="N">
-    <ConceptUI>M0353609</ConceptUI>
-    <ConceptName>
-      <String>A-23187</String>
-    </ConceptName>
-    ...
-    <TermList>
-      <Term ConceptPreferredTermYN="Y" IsPermutedTermYN="N" LexicalTag="LAB" PrintFlagYN="N"
-        RecordPreferredTermYN="N">
-        <TermUI>T000001</TermUI>
-        <String>A-23187</String>
-        <DateCreated>
-          <Year>1990</Year>
-          <Month>03</Month>
-          <Day>08</Day>
-        </DateCreated>
-        <ThesaurusIDlist>
-          <ThesaurusID>NLM (1991)</ThesaurusID>
-        </ThesaurusIDlist>
-      </Term>
-      <Term ConceptPreferredTermYN="N" IsPermutedTermYN="Y" LexicalTag="LAB" PrintFlagYN="N"
-        RecordPreferredTermYN="N">
-        <TermUI>T000001</TermUI>
-        <String>A 23187</String>
-      </Term>
-      <Term ConceptPreferredTermYN="N" IsPermutedTermYN="N" LexicalTag="NON" PrintFlagYN="N"
-        RecordPreferredTermYN="N">
-        <TermUI>T000003</TermUI>
-        <String>Antibiotic A23187</String>
-        ...
-      </Term>
-      <Term ConceptPreferredTermYN="N" IsPermutedTermYN="Y" LexicalTag="NON" PrintFlagYN="N"
-        RecordPreferredTermYN="N">
-        <TermUI>T000003</TermUI>
-        <String>A23187, Antibiotic</String>
-      </Term>
-      ...
-    </TermList>
-  </Concept>
-</DescriptorRecord>
-...
-<QualifierRecord QualifierType = "1">
-  <QualifierUI>Q000008</QualifierUI>
-  ...
-  <Concept PreferredConceptYN="Y">
-    <ConceptUI>M0030212</ConceptUI>
-    <ConceptName>
-      <String>administration &amp; dosage</String>
-    </ConceptName>
-    ...
-    <TermList>
-      <Term ConceptPreferredTermYN="Y" IsPermutedTermYN="N" LexicalTag="NON" PrintFlagYN="Y"
-        RecordPreferredTermYN="Y">
-        <TermUI>T060555</TermUI>
-        <String>administration &amp; dosage</String>
-        <Abbreviation>AD</Abbreviation>
-        <SortVersion>ADMINISTRATION A</SortVersion>
-        <EntryVersion>ADMIN</EntryVersion>
-      </Term>
-    </TermList>
-  </Concept>
-</QualifierRecord>
 ```
 
 ### meshv:Term - Relations and Properties
@@ -306,7 +168,8 @@ construct {
     ?con meshv:term ?conTerm .
     ?conTerm a ?conTermClass .
 }
-FROM <http://id.nlm.nih.gov/mesh2014>
+FROM <http://id.nlm.nih.gov/mesh>
+FROM <http://id.nlm.nih.gov/mesh/vocab>
 where {
     mesh:D000001 a ?descClass .
     ?descClass rdfs:subClassOf ?superClass .
