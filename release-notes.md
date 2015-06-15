@@ -22,7 +22,7 @@ MeSH RDF will follow established versioning practices, but MeSH RDF will be expr
 The non-versioned URI reflects the current state of MeSH at any given time. The versioned URI for the current year will mirror the non-versioned URI until NLM releases the next year's MeSH data. Once NLM begins using the next year's MeSH data, the next year's versioned URI will mirror the non-versioned URI, and the current year's data will become static and archived. Current year MeSH is dynamic until archived. NLM will retain no more than three years of versioned URIs, and NLM will not produce versioned URIs for data prior to 2015 MeSH.
 
 ### Language Tags
-Users now must specify the language tag '@en' when searching rdfs:label.  See the [sample queries page](sample-queries.html) (queries #5 and #6) for examples.
+Users now must specify the language tag '@en' when searching rdfs:label.
 
 ### New Classes
 
