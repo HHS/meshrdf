@@ -12,7 +12,7 @@ The 2015 version of MeSH RDF will go live the afternoon of June 18th, 2015. The 
 
 ### Graph Changes
 
-MeSH RDF will follow established versioning practices, but MeSH RDF will be expressed in versioned and non-versioned URIs. For example, the Descriptor for Ofloxacin will have the following URIs:
+MeSH RDF will follow established versioning practices, but MeSH RDF will be expressed in non-versioned and versioned URIs. For example, the Descriptor for Ofloxacin will have the following URIs:
 
 * http://id.nlm.nih.gov/mesh/D015242 (current)
 * http://id.nlm.nih.gov/mesh/2015/D015242 (2015)
@@ -20,7 +20,7 @@ MeSH RDF will follow established versioning practices, but MeSH RDF will be expr
 The non-versioned URI reflects the current state of MeSH at any given time. The versioned URI for the current year will mirror the non-versioned URI until NLM releases the next year's MeSH data. Once NLM begins using the next year's MeSH data, the next year's versioned URI will mirror the non-versioned URI, and the current year's data will become static and archived. Current year MeSH is dynamic until archived. NLM will retain no more than three years of versioned URIs, and NLM will not produce versioned URIs for data prior to 2015 MeSH.
 
 ### Daily Updates
-Starting June 15, 2015, MeSH RDF data will update on a daily basis in sync with MeSH XML.
+Starting June 18, 2015, MeSH RDF data will update on a daily basis in sync with MeSH XML.
 Supplementary Concept Records (SCRs) are added throughout the year on a daily basis.
 Changes to MeSH Descriptors and Qualifiers are typically done only on an annual basis at the end of the year,
 but may occasionally occur at other times.
