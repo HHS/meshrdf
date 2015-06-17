@@ -74,7 +74,7 @@ meshv:Qualifier | rdfs:label
 
 ### SPARQL
 
-The RDF output above can be generated with the following
+The RDF output shown in the diagram above can be generated with the following
 <span class='invoke-sparql'>SPARQL query</span>:
 
 

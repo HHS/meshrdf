@@ -151,7 +151,7 @@ meshv:SupplementaryConceptRecord | rdfs:label
 
 ### SPARQL
 
-The RDF output in the diagram above can be generated with the following
+The RDF output shown in the diagram above can be generated with the following
 <span class='invoke-sparql'>SPARQL query</span>:
 
 
