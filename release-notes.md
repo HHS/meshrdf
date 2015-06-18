@@ -28,7 +28,7 @@ NLM will load daily SCR data so that users have the benefit of new SCR URIs, but
 However, these deleted URIs **will not** return an HTTP status 404 code.  This will be remedied in future updates.
 
 ### Language Tags
-Users now must specify the language tag '@en' when searching rdfs:label.
+Users now must specify the language tag '@en' when searching rdfs:label or any other string literal.  See the [sample queries page](sample-queries.html) (queries #5 and #6) for examples.
 One preferred MeSH Heading, Central Nervous System which is D002493, has non-English strings as a proof-of-concept example.  This sample will remain in the beta version but may not be included in the production MeSH RDF version.
 
 ### New Classes

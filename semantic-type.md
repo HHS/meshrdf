@@ -1,7 +1,7 @@
 ---
 title: Semantic Types
 layout: page
-resource: true
+resource: false
 categories:
 - Data Model
 ---

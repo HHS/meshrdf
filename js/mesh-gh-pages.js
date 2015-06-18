@@ -18,7 +18,7 @@
    */
   $(document).ready(function () {
       var sparql_endpoint = 'http://id.nlm.nih.gov/mesh/sparql';
-      var sparql_format_param = 'format=N3';
+      var sparql_format_param = 'format=HTML';
 
       $('.invoke-sparql').each(function() {
           var query_block = $(this).closest("p").nextAll("pre:has(code.language-sparql)").first();

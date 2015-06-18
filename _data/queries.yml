@@ -8,7 +8,7 @@
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
    
    SELECT DISTINCT ?p
-   FROM <http://id.nlm.nih.gov/mesh2014>
+   FROM <http://id.nlm.nih.gov/mesh>
    WHERE {
    
      ?s ?p ?o
@@ -25,7 +25,7 @@
    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
    
    SELECT DISTINCT ?class
-   FROM <http://id.nlm.nih.gov/mesh2014>
+   FROM <http://id.nlm.nih.gov/mesh>
    WHERE {
    
       ?s rdf:type ?class
@@ -41,7 +41,7 @@
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    
    SELECT *
-   FROM <http://id.nlm.nih.gov/mesh2014>
+   FROM <http://id.nlm.nih.gov/mesh>
    
    WHERE {
      ?s ?p mesh:D015242 .
@@ -57,7 +57,7 @@
    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
    SELECT *
-   FROM <http://id.nlm.nih.gov/mesh2014>
+   FROM <http://id.nlm.nih.gov/mesh>
    
    WHERE {
      mesh:D015242 meshv:pharmacologicalAction ?pa .
@@ -73,12 +73,12 @@
    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
    SELECT ?d ?dLabel
-   FROM <http://id.nlm.nih.gov/mesh2014>
+   FROM <http://id.nlm.nih.gov/mesh>
    
    WHERE {
     ?d meshv:pharmacologicalAction ?pa.
     ?d rdfs:label ?dLabel .
-    ?pa rdfs:label "Anti-Bacterial Agents"
+    ?pa rdfs:label "Anti-Bacterial Agents"@en
    }
    
    ORDER BY ASC (?dLabel)
@@ -92,11 +92,11 @@
      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
      
      SELECT distinct ?d ?dLabel  
-     FROM  <http://id.nlm.nih.gov/mesh2014>
+     FROM  <http://id.nlm.nih.gov/mesh>
      
      WHERE {  
         ?d meshv:allowableQualifier ?q .  
-        ?q rdfs:label "adverse effects" .  
+        ?q rdfs:label "adverse effects"@en .  
         ?d rdfs:label ?dLabel  
      }
      
@@ -108,17 +108,17 @@
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
-   SELECT ?treeNode ?ancestorTreeNode ?ancestor ?alabel
-   FROM <http://id.nlm.nih.gov/mesh2014>
+   SELECT ?treeNum ?ancestorTreeNum ?ancestor ?alabel
+   FROM <http://id.nlm.nih.gov/mesh>
    
    WHERE {
-      mesh:D005138 meshv:treeNumber ?treeNode .
-      ?treeNode meshv:broaderTransitive+ ?ancestorTreeNode .
-      ?ancestor meshv:treeNumber ?ancestorTreeNode .
+      mesh:D005138 meshv:treeNumber ?treeNum .
+      ?treeNum meshv:parentTreeNumber+ ?ancestorTreeNum .
+      ?ancestor meshv:treeNumber ?ancestorTreeNum .
       ?ancestor rdfs:label ?alabel
    }
    
-   ORDER BY ?treeNode ?ancestorTreeNode
+   ORDER BY ?treeNum ?ancestorTreeNum
    
 - name: Find all MeSH descriptors that are descendants of MeSH descriptor D009369 'Neoplasm'
   notes: Find all descendants (not just immediate children) of 'Neoplasm'.  This query 'explodes down' the MeSH tree.
@@ -128,17 +128,17 @@
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
-    SELECT DISTINCT ?desc ?desc_label
-    FROM <http://id.nlm.nih.gov/mesh2014>
+    SELECT DISTINCT ?descriptor ?label
+    FROM <http://id.nlm.nih.gov/mesh>
    
     WHERE {
-      mesh:D009369 meshv:treeNumber ?tn .
-      ?desctn meshv:broaderTransitive+ ?tn .
-      ?desc meshv:treeNumber ?desctn .
-      ?desc rdfs:label ?desc_label .
+      mesh:D009369 meshv:treeNumber ?treeNum .
+      ?childTreeNum meshv:parentTreeNumber+ ?treeNum .
+      ?descriptor meshv:treeNumber ?childTreeNum .
+      ?descriptor rdfs:label ?label .
     }
     
-    ORDER BY ?desc_label
+    ORDER BY ?label
 
 - name: Retrieve all MeSH descriptors or concepts with 'infection' anywhere in its name
   notes: Find MeSH descriptors or sub-concepts based on string.
@@ -149,7 +149,7 @@
    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
     SELECT ?d ?dName ?c ?cName
-    FROM <http://id.nlm.nih.gov/mesh2014>
+    FROM <http://id.nlm.nih.gov/mesh>
     
     WHERE {
       
@@ -162,7 +162,7 @@
     }
     ORDER BY ?d
   
-- name: Find all MeSH Descriptors created for 2014 MeSH that are treed under diseases.
+- name: Find all MeSH Descriptors created for 2015 MeSH that are treed under diseases.
   notes: This query leverages the MeSH 'C' tree to find new diseases in MeSH.
   type: Aggregation
   string: |+
@@ -172,7 +172,7 @@
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
    
     SELECT DISTINCT ?d ?name
-    FROM <http://id.nlm.nih.gov/mesh2014>
+    FROM <http://id.nlm.nih.gov/mesh>
     
     WHERE {
     
@@ -180,59 +180,13 @@
     ?d rdfs:label ?name .
     ?d meshv:treeNumber ?tn .
     ?d meshv:dateEstablished ?dateEstablished
-    FILTER(?dateEstablished = xsd::date("2014-01-01"))
+    FILTER(?dateEstablished = xsd::date("2015-01-01"))
     FILTER(REGEX(?tn,"C"))
    
     }
     
     ORDER BY ?name
     
-- name: Retrieve all the MeSH concepts and semantic types associated with the MeSH descriptor D000647 'Amnesia'
-  notes: MeSH Descriptors are collections of MeSH concepts.  The name of the preferred concept (prefCon) always contributes the name of the Descriptor.
-  type: Descriptors and Concepts
-  string: |+
-   
-   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-   
-   CONSTRUCT {
-    
-    mesh:D000647 meshv:preferredConcept ?prefcon .
-    ?prefcon ?p ?o .
-    ?prefcon meshv:semanticType $semtype .
-    ?prefcon meshv:narrower $subcon .
-    $subcon rdfs:label $subconLabel .
-    $semtype ?stp $sto .
-    }
-    
-    FROM <http://id.nlm.nih.gov/mesh2014>
-    
-    WHERE {
-    mesh:D000647 meshv:preferredConcept ?prefcon .
-    ?prefcon ?p ?o .
-    ?prefcon meshv:semanticType $semtype .
-    ?prefcon meshv:narrower $subcon .
-    $subcon rdfs:label $subconLabel .
-    $semtype ?stp $sto .
-    }
-
-- name: Retrieve a list of all Semantic Types in MeSH
-  notes: This is a distinct list of all Semantic Types (TUI and label) that have been assigned to MeSH concepts.
-  type: Semantic Types
-  string: |+
-    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    
-    SELECT DISTINCT ?sty ?name
-    FROM <http://id.nlm.nih.gov/mesh2014>
-    WHERE {
-     ?sty a meshv:SemanticType .
-     ?sty rdfs:label ?name
-     }
-     ORDER BY ?sty
-
 - name: Retrieve all terms that belong to Descriptor D009369 'Neoplasm'.
   notes: The query uses inferencing to get all meshv:term labels and their altLabels (lexical variants)
   type: Lexical Variation
@@ -244,7 +198,7 @@
      
      SELECT ?t ?pred ?label
      
-     FROM <http://id.nlm.nih.gov/mesh2014>
+     FROM <http://id.nlm.nih.gov/mesh>
      
        WHERE { 
        mesh:D009369 meshv:concept ?c .
@@ -271,9 +225,9 @@
       ?dq meshv:hasQualifier ?q .
       ?d meshv:treeNumber ?tn .
       ?tn rdfs:label ?tnLabel .
-      ?q meshv:recordPreferredTerm ?pt .
+      ?q meshv:preferredTerm ?pt .
       ?pt meshv:prefLabel ?qualifier
-      FILTER(?qualifier = 'adverse effects')
+      FILTER(?qualifier = 'adverse effects'@en)
         #full list of qualifiers to choose from:
         #http://www.nlm.nih.gov/mesh/topsubscope.html
        }
