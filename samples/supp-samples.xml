@@ -18,8 +18,9 @@
    <Year>2013</Year>
    <Year>2013A</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
-  <Frequency>9</Frequency>
+  <Frequency>14</Frequency>
   <HeadingMappedToList>
    <HeadingMappedTo>
     <DescriptorReferredTo>
@@ -196,6 +197,7 @@
    <Year>2012</Year>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Note>contains scopolamine camphorate mixture with (-)-atropine camphorate
   </Note>
@@ -312,6 +314,7 @@
    <Year>2012</Year>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Note>chemotherapy protocol consisting of above cpds
   </Note>
@@ -425,6 +428,7 @@
    <Year>2012</Year>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Note>mixture of derivs of 2-hydroxyethylrutoside
   </Note>
@@ -492,265 +496,6 @@
   </ConceptList>
  </SupplementalRecord>
 <SupplementalRecord SCRClass = "1">
-  <SupplementalRecordUI>C017472</SupplementalRecordUI>
-  <SupplementalRecordName>
-   <String>lonazolac</String>
-  </SupplementalRecordName>
-  <DateCreated>
-   <Year>1979</Year>
-   <Month>01</Month>
-   <Day>01</Day>
-  </DateCreated>
-  <DateRevised>
-   <Year>2009</Year>
-   <Month>11</Month>
-   <Day>12</Day>
-  </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>1989</Year>
-   <Year>1990</Year>
-   <Year>1991</Year>
-   <Year>1992</Year>
-   <Year>1993</Year>
-   <Year>1994</Year>
-   <Year>1995</Year>
-   <Year>1996</Year>
-   <Year>1997</Year>
-   <Year>1998</Year>
-   <Year>1999</Year>
-   <Year>2000</Year>
-   <Year>2001</Year>
-   <Year>2001A</Year>
-   <Year>2002</Year>
-   <Year>2003</Year>
-   <Year>2004</Year>
-   <Year>2004A</Year>
-   <Year>2005</Year>
-   <Year>2006</Year>
-   <Year>2007</Year>
-   <Year>2007A</Year>
-   <Year>2008</Year>
-   <Year>2009</Year>
-   <Year>2010</Year>
-   <Year>2011</Year>
-   <Year>2012</Year>
-   <Year>2013</Year>
-   <Year>2014</Year>
-  </ActiveMeSHYearList>
-  <Note>RN given refers to parent cpd
-  </Note>
-  <Frequency>33</Frequency>
-  <PreviousIndexingList>
-   <PreviousIndexing>ACETIC ACIDS (79-82)</PreviousIndexing>
-  </PreviousIndexingList>
-  <HeadingMappedToList>
-   <HeadingMappedTo>
-    <DescriptorReferredTo>
-     <DescriptorUI>*D011720</DescriptorUI>
-     <DescriptorName>
-      <String>Pyrazoles</String>
-     </DescriptorName>
-    </DescriptorReferredTo>
-   </HeadingMappedTo>
-  </HeadingMappedToList>
-  <IndexingInformationList>
-   <IndexingInformation>
-     <DescriptorReferredTo>
-    <DescriptorUI>D011448</DescriptorUI>
-     <DescriptorName>
-      <String>Prostaglandin Antagonists</String>
-      </DescriptorName>
-     </DescriptorReferredTo>
-   </IndexingInformation>
-  </IndexingInformationList>
-    <PharmacologicalActionList>
-     <PharmacologicalAction>
-      <DescriptorReferredTo>
-       <DescriptorUI>D000894</DescriptorUI>
-        <DescriptorName>
-         <String>Anti-Inflammatory Agents, Non-Steroidal</String>
-        </DescriptorName>
-      </DescriptorReferredTo>
-     </PharmacologicalAction>
-    </PharmacologicalActionList>
-  <SourceList>
-   <Source>Z Rheumatol 37(7-8):254;1978</Source>
-  </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>nlm</RecordOriginator>
-   <RecordMaintainer>system</RecordMaintainer>
-   <RecordAuthorizer>bears</RecordAuthorizer>
-  </RecordOriginatorsList>
-  <ConceptList>
-   <Concept PreferredConceptYN="Y">
-    <ConceptUI>M0068239</ConceptUI>
-    <ConceptName>
-     <String>lonazolac</String>
-    </ConceptName>
-    <RegistryNumber>53808-88-1</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <RelatedRegistryNumberList>
-     <RelatedRegistryNumber>75821-71-5 (Ca salt)</RelatedRegistryNumber>
-    </RelatedRegistryNumberList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0068239</Concept1UI>
-     <Concept2UI>M0313426</Concept2UI>
-     </ConceptRelation>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0068239</Concept1UI>
-     <Concept2UI>M0463994</Concept2UI>
-     </ConceptRelation>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0068239</Concept1UI>
-     <Concept2UI>M0068237</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
-      <TermUI>T098242</TermUI>
-      <String>lonazolac</String>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (1979)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T098239</TermUI>
-      <String>3-(4-chlorophenyl)-1-phenylpyrazole-4-acetic acid</String>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (1979)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0313426</ConceptUI>
-    <ConceptName>
-     <String>lonazolac calcium salt</String>
-    </ConceptName>
-    <RegistryNumber>75821-71-5</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0068239</Concept1UI>
-     <Concept2UI>M0313426</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T343426</TermUI>
-      <String>lonazolac calcium salt</String>
-      <DateCreated>
-       <Year>1999</Year>
-       <Month>08</Month>
-       <Day>18</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (1979)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0463994</ConceptUI>
-    <ConceptName>
-     <String>Argun</String>
-    </ConceptName>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0068239</Concept1UI>
-     <Concept2UI>M0463994</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T581962</TermUI>
-      <String>Argun</String>
-      <DateCreated>
-       <Year>2004</Year>
-       <Month>04</Month>
-       <Day>08</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>DE</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T581963</TermUI>
-      <String>Merckle Brand of Lonazolac Calcium Salt</String>
-      <DateCreated>
-       <Year>2004</Year>
-       <Month>04</Month>
-       <Day>08</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (2004)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0068237</ConceptUI>
-    <ConceptName>
-     <String>Irriten</String>
-    </ConceptName>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0068239</Concept1UI>
-     <Concept2UI>M0068237</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T098240</TermUI>
-      <String>Irriten</String>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (1979)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-  </ConceptList>
- </SupplementalRecord>
-<SupplementalRecord SCRClass = "1">
   <SupplementalRecordUI>C111106</SupplementalRecordUI>
   <SupplementalRecordName>
    <String>7-methylguanosine 5'-diphosphate</String>
@@ -786,8 +531,9 @@
    <Year>2013A</Year>
    <Year>2013B</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
-  <Frequency>17</Frequency>
+  <Frequency>18</Frequency>
   <HeadingMappedToList>
    <HeadingMappedTo>
     <DescriptorReferredTo>
@@ -930,10 +676,11 @@
   <ActiveMeSHYearList>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Note>growth inhibitor; RN given refers to ((L-Leu)-(S-(R*,S*)))-isomer; structure
   </Note>
-  <Frequency>745</Frequency>
+  <Frequency>750</Frequency>
   <PreviousIndexingList>
    <PreviousIndexing>DIPEPTIDES (76-79)</PreviousIndexing>
   </PreviousIndexingList>
@@ -1399,6 +1146,7 @@
    <Year>2012</Year>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Frequency>1</Frequency>
   <HeadingMappedToList>
@@ -1511,6 +1259,7 @@
    <Year>2012</Year>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Note>Russian drug, geriatric preparation
   </Note>
@@ -1644,6 +1393,7 @@
    <Year>2012</Year>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Frequency>11</Frequency>
   <HeadingMappedToList>
@@ -1889,6 +1639,7 @@
   <ActiveMeSHYearList>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Note>cpd is acetaminophen acetate
   </Note>
@@ -1973,317 +1724,6 @@
    </Concept>
   </ConceptList>
  </SupplementalRecord>
-<SupplementalRecord SCRClass = "1">
-  <SupplementalRecordUI>C014792</SupplementalRecordUI>
-  <SupplementalRecordName>
-   <String>reproterol</String>
-  </SupplementalRecordName>
-  <DateCreated>
-   <Year>1977</Year>
-   <Month>01</Month>
-   <Day>01</Day>
-  </DateCreated>
-  <DateRevised>
-   <Year>2012</Year>
-   <Month>11</Month>
-   <Day>05</Day>
-  </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2013</Year>
-   <Year>2014</Year>
-  </ActiveMeSHYearList>
-  <Note>RN given refers to cpd without isomeric designation; structure
-  </Note>
-  <Frequency>62</Frequency>
-  <HeadingMappedToList>
-   <HeadingMappedTo>
-    <DescriptorReferredTo>
-     <DescriptorUI>D004338</DescriptorUI>
-     <DescriptorName>
-      <String>Drug Combinations</String>
-     </DescriptorName>
-    </DescriptorReferredTo>
-   </HeadingMappedTo>
-   <HeadingMappedTo>
-    <DescriptorReferredTo>
-     <DescriptorUI>D009921</DescriptorUI>
-     <DescriptorName>
-      <String>Metaproterenol</String>
-     </DescriptorName>
-    </DescriptorReferredTo>
-    <QualifierReferredTo>
-     <QualifierUI>*Q000031</QualifierUI>
-     <QualifierName>
-      <String>analogs &amp; derivatives</String>
-     </QualifierName>
-    </QualifierReferredTo>
-   </HeadingMappedTo>
-   <HeadingMappedTo>
-    <DescriptorReferredTo>
-     <DescriptorUI>D013806</DescriptorUI>
-     <DescriptorName>
-      <String>Theophylline</String>
-     </DescriptorName>
-    </DescriptorReferredTo>
-    <QualifierReferredTo>
-     <QualifierUI>*Q000031</QualifierUI>
-     <QualifierName>
-      <String>analogs &amp; derivatives</String>
-     </QualifierName>
-    </QualifierReferredTo>
-   </HeadingMappedTo>
-  </HeadingMappedToList>
-    <PharmacologicalActionList>
-     <PharmacologicalAction>
-      <DescriptorReferredTo>
-       <DescriptorUI>D000318</DescriptorUI>
-        <DescriptorName>
-         <String>Adrenergic beta-Agonists</String>
-        </DescriptorName>
-      </DescriptorReferredTo>
-     </PharmacologicalAction>
-     <PharmacologicalAction>
-      <DescriptorReferredTo>
-       <DescriptorUI>D001993</DescriptorUI>
-        <DescriptorName>
-         <String>Bronchodilator Agents</String>
-        </DescriptorName>
-      </DescriptorReferredTo>
-     </PharmacologicalAction>
-    </PharmacologicalActionList>
-  <SourceList>
-   <Source>Arzneim Forsch 28(1):765;1978</Source>
-   <Source>Birth Defects 1979;15(4):541</Source>
-   <Source>Curr Med Res Opin 1979;6(5):364</Source>
-   <Source>Dtsch Med Wochenschr 102(16):619;1977</Source>
-   <Source>Dtsch Med Wochenschr 104(29):1041;1979</Source>
-   <Source>Med Welt 30(23):897;1979</Source>
-   <Source>Respiration 1979;38(5):280</Source>
-  </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>nlm</RecordOriginator>
-   <RecordMaintainer>system</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
-  <ConceptList>
-   <Concept PreferredConceptYN="Y">
-    <ConceptUI>M0063597</ConceptUI>
-    <ConceptName>
-     <String>reproterol</String>
-    </ConceptName>
-    <RegistryNumber>11941YC6RN</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <RelatedRegistryNumberList>
-     <RelatedRegistryNumber>13055-82-8 (mono-HCl)</RelatedRegistryNumber>
-     <RelatedRegistryNumber>54063-54-6 (reproterol)</RelatedRegistryNumber>
-     <RelatedRegistryNumber>62401-83-6 ((-)-isomer)</RelatedRegistryNumber>
-    </RelatedRegistryNumberList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0063597</Concept1UI>
-     <Concept2UI>M0312623</Concept2UI>
-     </ConceptRelation>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0063597</Concept1UI>
-     <Concept2UI>M0063596</Concept2UI>
-     </ConceptRelation>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0063597</Concept1UI>
-     <Concept2UI>M0312622</Concept2UI>
-     </ConceptRelation>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0063597</Concept1UI>
-     <Concept2UI>M0475022</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
-      <TermUI>T093600</TermUI>
-      <String>reproterol</String>
-      <ThesaurusIDlist>
-       <ThesaurusID>FDA SRS (2013)</ThesaurusID>
-       <ThesaurusID>INN (19XX)</ThesaurusID>
-       <ThesaurusID>USAN (1977)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0312623</ConceptUI>
-    <ConceptName>
-     <String>reproterol, (-)-isomer</String>
-    </ConceptName>
-    <RegistryNumber>62401-83-6</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0063597</Concept1UI>
-     <Concept2UI>M0312623</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T342623</TermUI>
-      <String>reproterol, (-)-isomer</String>
-      <DateCreated>
-       <Year>1999</Year>
-       <Month>08</Month>
-       <Day>18</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (1977)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0063596</ConceptUI>
-    <ConceptName>
-     <String>Bronchospasmin</String>
-    </ConceptName>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0063597</Concept1UI>
-     <Concept2UI>M0063596</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T093599</TermUI>
-      <String>Bronchospasmin</String>
-      <ThesaurusIDlist>
-       <ThesaurusID>DE</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T616841</TermUI>
-      <String>Viatris brand of reproterol monohydrochloride</String>
-      <DateCreated>
-       <Year>2004</Year>
-       <Month>11</Month>
-       <Day>01</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (2004)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0312622</ConceptUI>
-    <ConceptName>
-     <String>reproterol monohydrochloride</String>
-    </ConceptName>
-    <RegistryNumber>13055-82-8</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0063597</Concept1UI>
-     <Concept2UI>M0312622</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T342622</TermUI>
-      <String>reproterol monohydrochloride</String>
-      <DateCreated>
-       <Year>1999</Year>
-       <Month>08</Month>
-       <Day>18</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (1977)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0475022</ConceptUI>
-    <ConceptName>
-     <String>Epiferol</String>
-    </ConceptName>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="NRW">
-     <Concept1UI>M0063597</Concept1UI>
-     <Concept2UI>M0475022</Concept2UI>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T616842</TermUI>
-      <String>Epiferol</String>
-      <DateCreated>
-       <Year>2004</Year>
-       <Month>11</Month>
-       <Day>01</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>ES</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T616843</TermUI>
-      <String>Juventus brand of reproterol monohydrochloride</String>
-      <DateCreated>
-       <Year>2004</Year>
-       <Month>11</Month>
-       <Day>01</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (2004)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-  </ConceptList>
- </SupplementalRecord>
 <SupplementalRecord SCRClass = "3">
   <SupplementalRecordUI>C564178</SupplementalRecordUI>
   <SupplementalRecordName>
@@ -2301,6 +1741,7 @@
   </DateRevised>
   <ActiveMeSHYearList>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Frequency>0</Frequency>
   <HeadingMappedToList>
@@ -2371,6 +1812,7 @@
   </DateRevised>
   <ActiveMeSHYearList>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Note>Familial Dandy-Walker malformation associated with macrocephaly, facial anomalies, developmental delay, and brain stem dysgenesis.
   </Note>
@@ -2459,6 +1901,7 @@
   </DateRevised>
   <ActiveMeSHYearList>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Note>alkaloid from Fritillaria shuchengensis; structure in first source
   </Note>
@@ -2528,6 +1971,7 @@
   </DateRevised>
   <ActiveMeSHYearList>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Frequency>1</Frequency>
   <HeadingMappedToList>
@@ -2606,6 +2050,7 @@
   </DateRevised>
   <ActiveMeSHYearList>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Note>mutation in TYK2
   </Note>
@@ -2722,6 +2167,7 @@
   </DateRevised>
   <ActiveMeSHYearList>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Note>anti-inflammatory and cytotoxic sterol from Penicillium purpurogenum; structure in first source
   </Note>
@@ -2785,13 +2231,14 @@
    <Day>01</Day>
   </DateCreated>
   <DateRevised>
-   <Year>2012</Year>
-   <Month>11</Month>
-   <Day>05</Day>
+   <Year>2014</Year>
+   <Month>10</Month>
+   <Day>27</Day>
   </DateRevised>
   <ActiveMeSHYearList>
    <Year>2013</Year>
    <Year>2014</Year>
+   <Year>2015</Year>
   </ActiveMeSHYearList>
   <Note>RN given refers to parent cpd(2S-(2alpha,5alpha,6beta(S*)))-isomer
   </Note>
@@ -2836,7 +2283,7 @@
   </SourceList>
   <RecordOriginatorsList>
    <RecordOriginator>nlm</RecordOriginator>
-   <RecordMaintainer>system</RecordMaintainer>
+   <RecordMaintainer>pashj</RecordMaintainer>
    <RecordAuthorizer>chodan</RecordAuthorizer>
   </RecordOriginatorsList>
   <ConceptList>
@@ -2900,18 +2347,18 @@
       </ThesaurusIDlist>
      </Term>
      <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T076565</TermUI>
+      <String>6-(2-methyleneamino-2-phenylacetamido)penicillanic acid</String>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1970)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
       <TermUI>T076567</TermUI>
       <String>metampicillin</String>
       <ThesaurusIDlist>
        <ThesaurusID>FDA SRS (2013)</ThesaurusID>
        <ThesaurusID>INN (19XX)</ThesaurusID>
-       <ThesaurusID>NLM (1970)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T076565</TermUI>
-      <String>6-(2-methyleneamino-2-phenylacetamido)penicillanic acid</String>
-      <ThesaurusIDlist>
        <ThesaurusID>NLM (1970)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
@@ -2950,18 +2397,6 @@
       </DateCreated>
       <ThesaurusIDlist>
        <ThesaurusID>ES</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T613921</TermUI>
-      <String>Inexfa brand of methampicillin, sodium salt</String>
-      <DateCreated>
-       <Year>2004</Year>
-       <Month>10</Month>
-       <Day>18</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (2004)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
     </TermList>
@@ -3119,18 +2554,6 @@
        <ThesaurusID>ES</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T613923</TermUI>
-      <String>Serra Pamies brand of methampicillin, sodium salt</String>
-      <DateCreated>
-       <Year>2004</Year>
-       <Month>10</Month>
-       <Day>18</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>NLM (2004)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
     </TermList>
    </Concept>
    <Concept PreferredConceptYN="N">
@@ -3198,6 +2621,560 @@
       </DateCreated>
       <ThesaurusIDlist>
        <ThesaurusID>NLM (1970)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </SupplementalRecord>
+<SupplementalRecord SCRClass = "1">
+  <SupplementalRecordUI>C014792</SupplementalRecordUI>
+  <SupplementalRecordName>
+   <String>reproterol</String>
+  </SupplementalRecordName>
+  <DateCreated>
+   <Year>1977</Year>
+   <Month>01</Month>
+   <Day>01</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2014</Year>
+   <Month>10</Month>
+   <Day>28</Day>
+  </DateRevised>
+  <ActiveMeSHYearList>
+   <Year>2013</Year>
+   <Year>2014</Year>
+   <Year>2015</Year>
+  </ActiveMeSHYearList>
+  <Note>RN given refers to cpd without isomeric designation; structure
+  </Note>
+  <Frequency>62</Frequency>
+  <HeadingMappedToList>
+   <HeadingMappedTo>
+    <DescriptorReferredTo>
+     <DescriptorUI>D004338</DescriptorUI>
+     <DescriptorName>
+      <String>Drug Combinations</String>
+     </DescriptorName>
+    </DescriptorReferredTo>
+   </HeadingMappedTo>
+   <HeadingMappedTo>
+    <DescriptorReferredTo>
+     <DescriptorUI>D009921</DescriptorUI>
+     <DescriptorName>
+      <String>Metaproterenol</String>
+     </DescriptorName>
+    </DescriptorReferredTo>
+    <QualifierReferredTo>
+     <QualifierUI>*Q000031</QualifierUI>
+     <QualifierName>
+      <String>analogs &amp; derivatives</String>
+     </QualifierName>
+    </QualifierReferredTo>
+   </HeadingMappedTo>
+   <HeadingMappedTo>
+    <DescriptorReferredTo>
+     <DescriptorUI>D013806</DescriptorUI>
+     <DescriptorName>
+      <String>Theophylline</String>
+     </DescriptorName>
+    </DescriptorReferredTo>
+    <QualifierReferredTo>
+     <QualifierUI>*Q000031</QualifierUI>
+     <QualifierName>
+      <String>analogs &amp; derivatives</String>
+     </QualifierName>
+    </QualifierReferredTo>
+   </HeadingMappedTo>
+  </HeadingMappedToList>
+    <PharmacologicalActionList>
+     <PharmacologicalAction>
+      <DescriptorReferredTo>
+       <DescriptorUI>D000318</DescriptorUI>
+        <DescriptorName>
+         <String>Adrenergic beta-Agonists</String>
+        </DescriptorName>
+      </DescriptorReferredTo>
+     </PharmacologicalAction>
+     <PharmacologicalAction>
+      <DescriptorReferredTo>
+       <DescriptorUI>D001993</DescriptorUI>
+        <DescriptorName>
+         <String>Bronchodilator Agents</String>
+        </DescriptorName>
+      </DescriptorReferredTo>
+     </PharmacologicalAction>
+    </PharmacologicalActionList>
+  <SourceList>
+   <Source>Arzneim Forsch 28(1):765;1978</Source>
+   <Source>Birth Defects 1979;15(4):541</Source>
+   <Source>Curr Med Res Opin 1979;6(5):364</Source>
+   <Source>Dtsch Med Wochenschr 102(16):619;1977</Source>
+   <Source>Dtsch Med Wochenschr 104(29):1041;1979</Source>
+   <Source>Med Welt 30(23):897;1979</Source>
+   <Source>Respiration 1979;38(5):280</Source>
+  </SourceList>
+  <RecordOriginatorsList>
+   <RecordOriginator>nlm</RecordOriginator>
+   <RecordMaintainer>pbutler</RecordMaintainer>
+   <RecordAuthorizer>chodan</RecordAuthorizer>
+  </RecordOriginatorsList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M0063597</ConceptUI>
+    <ConceptName>
+     <String>reproterol</String>
+    </ConceptName>
+    <RegistryNumber>11941YC6RN</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T121</SemanticTypeUI>
+      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <RelatedRegistryNumberList>
+     <RelatedRegistryNumber>13055-82-8 (mono-HCl)</RelatedRegistryNumber>
+     <RelatedRegistryNumber>54063-54-6 (reproterol)</RelatedRegistryNumber>
+     <RelatedRegistryNumber>62401-83-6 ((-)-isomer)</RelatedRegistryNumber>
+    </RelatedRegistryNumberList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0063597</Concept1UI>
+     <Concept2UI>M0312623</Concept2UI>
+     </ConceptRelation>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0063597</Concept1UI>
+     <Concept2UI>M0063596</Concept2UI>
+     </ConceptRelation>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0063597</Concept1UI>
+     <Concept2UI>M0312622</Concept2UI>
+     </ConceptRelation>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0063597</Concept1UI>
+     <Concept2UI>M0475022</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+      <TermUI>T093600</TermUI>
+      <String>reproterol</String>
+      <ThesaurusIDlist>
+       <ThesaurusID>FDA SRS (2013)</ThesaurusID>
+       <ThesaurusID>INN (19XX)</ThesaurusID>
+       <ThesaurusID>USAN (1977)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0312623</ConceptUI>
+    <ConceptName>
+     <String>reproterol, (-)-isomer</String>
+    </ConceptName>
+    <RegistryNumber>62401-83-6</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T121</SemanticTypeUI>
+      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0063597</Concept1UI>
+     <Concept2UI>M0312623</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T342623</TermUI>
+      <String>reproterol, (-)-isomer</String>
+      <DateCreated>
+       <Year>1999</Year>
+       <Month>08</Month>
+       <Day>18</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1977)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0063596</ConceptUI>
+    <ConceptName>
+     <String>Bronchospasmin</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T121</SemanticTypeUI>
+      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0063597</Concept1UI>
+     <Concept2UI>M0063596</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T093599</TermUI>
+      <String>Bronchospasmin</String>
+      <ThesaurusIDlist>
+       <ThesaurusID>DE</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0312622</ConceptUI>
+    <ConceptName>
+     <String>reproterol monohydrochloride</String>
+    </ConceptName>
+    <RegistryNumber>13055-82-8</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T121</SemanticTypeUI>
+      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0063597</Concept1UI>
+     <Concept2UI>M0312622</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T342622</TermUI>
+      <String>reproterol monohydrochloride</String>
+      <DateCreated>
+       <Year>1999</Year>
+       <Month>08</Month>
+       <Day>18</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1977)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0475022</ConceptUI>
+    <ConceptName>
+     <String>Epiferol</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T121</SemanticTypeUI>
+      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0063597</Concept1UI>
+     <Concept2UI>M0475022</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T616842</TermUI>
+      <String>Epiferol</String>
+      <DateCreated>
+       <Year>2004</Year>
+       <Month>11</Month>
+       <Day>01</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>ES</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </SupplementalRecord>
+<SupplementalRecord SCRClass = "1">
+  <SupplementalRecordUI>C017472</SupplementalRecordUI>
+  <SupplementalRecordName>
+   <String>lonazolac</String>
+  </SupplementalRecordName>
+  <DateCreated>
+   <Year>1979</Year>
+   <Month>01</Month>
+   <Day>01</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2014</Year>
+   <Month>11</Month>
+   <Day>02</Day>
+  </DateRevised>
+  <ActiveMeSHYearList>
+   <Year>1989</Year>
+   <Year>1990</Year>
+   <Year>1991</Year>
+   <Year>1992</Year>
+   <Year>1993</Year>
+   <Year>1994</Year>
+   <Year>1995</Year>
+   <Year>1996</Year>
+   <Year>1997</Year>
+   <Year>1998</Year>
+   <Year>1999</Year>
+   <Year>2000</Year>
+   <Year>2001</Year>
+   <Year>2001A</Year>
+   <Year>2002</Year>
+   <Year>2003</Year>
+   <Year>2004</Year>
+   <Year>2004A</Year>
+   <Year>2005</Year>
+   <Year>2006</Year>
+   <Year>2007</Year>
+   <Year>2007A</Year>
+   <Year>2008</Year>
+   <Year>2009</Year>
+   <Year>2010</Year>
+   <Year>2011</Year>
+   <Year>2012</Year>
+   <Year>2013</Year>
+   <Year>2014</Year>
+   <Year>2015</Year>
+  </ActiveMeSHYearList>
+  <Note>RN given refers to parent cpd
+  </Note>
+  <Frequency>33</Frequency>
+  <PreviousIndexingList>
+   <PreviousIndexing>ACETIC ACIDS (79-82)</PreviousIndexing>
+  </PreviousIndexingList>
+  <HeadingMappedToList>
+   <HeadingMappedTo>
+    <DescriptorReferredTo>
+     <DescriptorUI>*D011720</DescriptorUI>
+     <DescriptorName>
+      <String>Pyrazoles</String>
+     </DescriptorName>
+    </DescriptorReferredTo>
+   </HeadingMappedTo>
+  </HeadingMappedToList>
+  <IndexingInformationList>
+   <IndexingInformation>
+     <DescriptorReferredTo>
+    <DescriptorUI>D011448</DescriptorUI>
+     <DescriptorName>
+      <String>Prostaglandin Antagonists</String>
+      </DescriptorName>
+     </DescriptorReferredTo>
+   </IndexingInformation>
+  </IndexingInformationList>
+    <PharmacologicalActionList>
+     <PharmacologicalAction>
+      <DescriptorReferredTo>
+       <DescriptorUI>D000894</DescriptorUI>
+        <DescriptorName>
+         <String>Anti-Inflammatory Agents, Non-Steroidal</String>
+        </DescriptorName>
+      </DescriptorReferredTo>
+     </PharmacologicalAction>
+    </PharmacologicalActionList>
+  <SourceList>
+   <Source>Z Rheumatol 37(7-8):254;1978</Source>
+  </SourceList>
+  <RecordOriginatorsList>
+   <RecordOriginator>nlm</RecordOriginator>
+   <RecordMaintainer>pashj</RecordMaintainer>
+   <RecordAuthorizer>chodan</RecordAuthorizer>
+  </RecordOriginatorsList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M0068239</ConceptUI>
+    <ConceptName>
+     <String>lonazolac</String>
+    </ConceptName>
+    <RegistryNumber>13097143QI</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T121</SemanticTypeUI>
+      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <RelatedRegistryNumberList>
+     <RelatedRegistryNumber>53808-88-1</RelatedRegistryNumber>
+     <RelatedRegistryNumber>75821-71-5 (Ca salt)</RelatedRegistryNumber>
+    </RelatedRegistryNumberList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0068239</Concept1UI>
+     <Concept2UI>M0313426</Concept2UI>
+     </ConceptRelation>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0068239</Concept1UI>
+     <Concept2UI>M0463994</Concept2UI>
+     </ConceptRelation>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0068239</Concept1UI>
+     <Concept2UI>M0068237</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+      <TermUI>T098242</TermUI>
+      <String>lonazolac</String>
+      <ThesaurusIDlist>
+       <ThesaurusID>FDA SRS (2015)</ThesaurusID>
+       <ThesaurusID>INN (19XX)</ThesaurusID>
+       <ThesaurusID>NLM (1979)</ThesaurusID>
+       <ThesaurusID>USAN (19XX)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T098239</TermUI>
+      <String>3-(4-chlorophenyl)-1-phenylpyrazole-4-acetic acid</String>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1979)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0313426</ConceptUI>
+    <ConceptName>
+     <String>lonazolac calcium salt</String>
+    </ConceptName>
+    <RegistryNumber>75821-71-5</RegistryNumber>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T121</SemanticTypeUI>
+      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0068239</Concept1UI>
+     <Concept2UI>M0313426</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T343426</TermUI>
+      <String>lonazolac calcium salt</String>
+      <DateCreated>
+       <Year>1999</Year>
+       <Month>08</Month>
+       <Day>18</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1979)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0463994</ConceptUI>
+    <ConceptName>
+     <String>Argun</String>
+    </ConceptName>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T121</SemanticTypeUI>
+      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0068239</Concept1UI>
+     <Concept2UI>M0463994</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T581962</TermUI>
+      <String>Argun</String>
+      <DateCreated>
+       <Year>2004</Year>
+       <Month>04</Month>
+       <Day>08</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>DE</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T581963</TermUI>
+      <String>Merckle Brand of Lonazolac Calcium Salt</String>
+      <DateCreated>
+       <Year>2004</Year>
+       <Month>04</Month>
+       <Day>08</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (2004)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0068237</ConceptUI>
+    <ConceptName>
+     <String>Irriten</String>
+    </ConceptName>
+    <SemanticTypeList>
+     <SemanticType>
+      <SemanticTypeUI>T109</SemanticTypeUI>
+      <SemanticTypeName>Organic Chemical</SemanticTypeName>
+     </SemanticType>
+     <SemanticType>
+      <SemanticTypeUI>T121</SemanticTypeUI>
+      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
+     </SemanticType>
+    </SemanticTypeList>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="NRW">
+     <Concept1UI>M0068239</Concept1UI>
+     <Concept2UI>M0068237</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+      <TermUI>T098240</TermUI>
+      <String>Irriten</String>
+      <ThesaurusIDlist>
+       <ThesaurusID>NLM (1979)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
     </TermList>

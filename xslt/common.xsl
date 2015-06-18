@@ -12,6 +12,18 @@
                 xmlns:xs="&xs;"
                 exclude-result-prefixes="xs f">
 
+  <xsl:param name='uri-year-segment' select='""'/>
+  <xsl:variable name='mesh-prefix'>
+    <xsl:choose>
+      <xsl:when test="$uri-year-segment = ''">
+        <xsl:value-of select="'http://id.nlm.nih.gov/mesh/'"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="concat('http://id.nlm.nih.gov/mesh/', $uri-year-segment, '/')"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  
   <xsl:key name='tree-numbers' match="//TreeNumber" use='.'/>
 
   <!--
@@ -36,7 +48,7 @@
       * For fixme/@reporter, use the GitHub username
       * Within the `spec` parameter, put three children.  Any of which could look something like this:
           <uri prefix='&meshv;'>property</uri>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$uri-year-segment}'>
             <xsl:value-of select='$something_uri'/>
           </uri>
           <literal>
@@ -80,7 +92,10 @@
             <xsl:value-of select='$oo'/>
             <xsl:text>'</xsl:text>
           </xsl:message>
-          <literal><xsl:value-of select="replace($oo, '^\s+|\s+$', '')"/></literal>
+          <literal>
+            <xsl:copy-of select='$oo/@*'/>
+            <xsl:value-of select="replace($oo, '^\s+|\s+$', '')"/>
+          </literal>
         </xsl:when>
         <xsl:otherwise>
           <xsl:copy-of select='$oo'/>
@@ -111,7 +126,17 @@
             <xsl:value-of select='concat("^^&lt;", $v/@type, ">")'/>
           </xsl:if>
         </xsl:variable>
-        <xsl:value-of select="concat(f:literal-str($v), $type-string)"/>
+        <xsl:variable name='lang-string'>
+          <xsl:choose>
+            <xsl:when test='$v/@lang'>
+              <xsl:value-of select='concat("@", $v/@lang)'/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select='""'/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="concat(f:literal-str($v), $type-string, $lang-string)"/>
       </xsl:when>
       <xsl:when test='$v/self::named'>
         <xsl:value-of select='$v'/>
@@ -173,6 +198,7 @@
   -->
   <xsl:function name='f:meshv_relation_uri'>
     <xsl:param name='rel'/>
+    <xsl:param name='subj_type'/>
     <uri prefix='&meshv;'>
       <xsl:choose>
         <xsl:when test="matches($rel, 'BRD')">
@@ -185,6 +211,7 @@
           <xsl:text>related</xsl:text>
         </xsl:when>
       </xsl:choose>
+      <xsl:value-of select='$subj_type'/>
     </uri>
   </xsl:function>
 
@@ -250,7 +277,7 @@
 
     <!--
       Tranformation rule: activeMeSHYear
-    -->
+      Removed:  see https://github.com/HHS/mesh-rdf/issues/119
     <xsl:for-each select="ActiveMeSHYearList/Year">
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
@@ -259,12 +286,13 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>activeMeSHYear</uri>
-          <literal type="&xs;#date">
+          <literal>
             <xsl:value-of select="."/>
           </literal>
         </xsl:with-param>
       </xsl:call-template>
     </xsl:for-each>
+    -->
 
     <!--
       Transformation rule: annotation
@@ -277,7 +305,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>annotation</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="Annotation"/>
           </literal>
         </xsl:with-param>
@@ -296,7 +324,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>historyNote</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="HistoryNote"/>
           </literal>
         </xsl:with-param>
@@ -311,7 +339,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>onlineNote</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="OnlineNote"/>
           </literal>
         </xsl:with-param>
@@ -331,7 +359,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>previousIndexing</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="."/>
           </literal>
         </xsl:with-param>
@@ -349,7 +377,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$parent"/>
           <uri prefix='&meshv;'>pharmacologicalAction</uri>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$mesh-prefix}'>
             <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
           </uri>
         </xsl:with-param>
@@ -362,7 +390,7 @@
     <xsl:for-each select="TreeNumberList/TreeNumber">
       <xsl:variable name='tree-number-str' select='string(.)'/>
       <xsl:variable name='tree-number-uri'>
-        <uri prefix='&mesh;'><xsl:value-of select="$tree-number-str"/></uri>
+        <uri prefix='{$mesh-prefix}'><xsl:value-of select="$tree-number-str"/></uri>
       </xsl:variable>
 
       <xsl:call-template name='triple'>
@@ -396,7 +424,7 @@
         <xsl:with-param name="spec">
           <xsl:copy-of select='$tree-number-uri'/>
           <uri prefix='&rdfs;'>label</uri>
-          <literal><xsl:value-of select="$tree-number-str"/></literal>
+          <literal lang='en'><xsl:value-of select="$tree-number-str"/></literal>
         </xsl:with-param>
       </xsl:call-template>
 
@@ -407,12 +435,12 @@
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>Every time we reify a TreeNumber that has a dot in it, we'll create a triple
-              to link it to its parent with meshv:broaderTransitive.</desc>
+              to link it to its parent with meshv:parentTreeNumber.</desc>
           </xsl:with-param>
           <xsl:with-param name="spec">
             <xsl:copy-of select='$tree-number-uri'/>
-            <uri prefix='&meshv;'>broaderTransitive</uri>
-            <uri prefix='&mesh;'>
+            <uri prefix='&meshv;'>parentTreeNumber</uri>
+            <uri prefix='{$mesh-prefix}'>
               <xsl:value-of select="$parent-tree-number"/>
             </uri>
           </xsl:with-param>
@@ -421,8 +449,9 @@
         <!-- Create triples to relate descriptors to descriptors and qualifiers to qualifiers using meshv:broader -->
         <xsl:variable name='parent-tree-number-element'
           select='key("tree-numbers", $parent-tree-number)'/>
-         <xsl:if test='$parent-tree-number-element'>
-           <xsl:if test='ancestor::DescriptorRecord'>
+
+        <xsl:if test='$parent-tree-number-element'>
+          <xsl:if test='ancestor::DescriptorRecord'>
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
                 <desc>Also create a simple meshv:broader relationship between this descriptor and
@@ -430,28 +459,28 @@
               </xsl:with-param>
               <xsl:with-param name="spec">
                 <xsl:copy-of select="$parent"/>
-                <uri prefix='&meshv;'>broader</uri>
-                <uri prefix='&mesh;'>
+                <uri prefix='&meshv;'>broaderDescriptor</uri>
+                <uri prefix='{$mesh-prefix}'>
                   <xsl:value-of select="$parent-tree-number-element/ancestor::DescriptorRecord/DescriptorUI"/>
                 </uri>
               </xsl:with-param>
             </xsl:call-template>
-            </xsl:if>
-            <xsl:if test='ancestor::QualifierRecord'>
-              <xsl:call-template name='triple'>
-                <xsl:with-param name="doc">
-                  <desc>Also create a simple meshv:broader relationship between this qualifier and
-                    the qualifier that has the parent tree number</desc>
-                </xsl:with-param>
-                <xsl:with-param name="spec">
-                  <xsl:copy-of select="$parent"/>
-                  <uri prefix='&meshv;'>broader</uri>
-                  <uri prefix='&mesh;'>
-                    <xsl:value-of select="$parent-tree-number-element/ancestor::QualifierRecord/QualifierUI"/>
-                  </uri>
-                </xsl:with-param>
-              </xsl:call-template>
-           </xsl:if>
+          </xsl:if>
+          <xsl:if test='ancestor::QualifierRecord'>
+            <xsl:call-template name='triple'>
+              <xsl:with-param name="doc">
+                <desc>Also create a simple meshv:broader relationship between this qualifier and
+                  the qualifier that has the parent tree number</desc>
+              </xsl:with-param>
+              <xsl:with-param name="spec">
+                <xsl:copy-of select="$parent"/>
+                <uri prefix='&meshv;'>broaderQualifier</uri>
+                <uri prefix='{$mesh-prefix}'>
+                  <xsl:value-of select="$parent-tree-number-element/ancestor::QualifierRecord/QualifierUI"/>
+                </uri>
+              </xsl:with-param>
+            </xsl:call-template>
+          </xsl:if>
         </xsl:if>
       </xsl:if>
     </xsl:for-each>
@@ -459,7 +488,7 @@
 
     <!--
       Transformation rule: recordOriginator
-    -->
+      Removed:  see https://github.com/HHS/mesh-rdf/issues/119
     <xsl:if test="RecordOriginatorsList">
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
@@ -474,9 +503,9 @@
         </xsl:with-param>
       </xsl:call-template>
 
-      <!--
+      <!-/-
         Transformation rule: recordMaintainer
-      -->
+      -/->
       <xsl:if test='RecordOriginatorsList/RecordMaintainer'>
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
@@ -492,9 +521,9 @@
         </xsl:call-template>
       </xsl:if>
 
-      <!--
+      <!-/-
         Transformation rule: recordAuthorizer
-      -->
+      -/->
       <xsl:if test='RecordOriginatorsList/RecordAuthorizer'>
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
@@ -510,10 +539,11 @@
         </xsl:call-template>
       </xsl:if>
     </xsl:if>
+    -->
 
     <xsl:for-each select="ConceptList/Concept">
       <xsl:variable name='concept_uri'>
-        <uri prefix='&mesh;'>
+        <uri prefix='{$mesh-prefix}'>
           <xsl:value-of select="ConceptUI"/>
         </uri>
       </xsl:variable>
@@ -567,7 +597,7 @@
         <xsl:with-param name="spec">
           <xsl:copy-of select="$concept_uri"/>
           <uri prefix='&rdfs;'>label</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="ConceptName/String"/>
           </literal>
         </xsl:with-param>
@@ -603,7 +633,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select="$concept_uri"/>
             <uri prefix='&meshv;'>casn1_label</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="CASN1Name"/>
             </literal>
           </xsl:with-param>
@@ -644,23 +674,26 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select="$concept_uri"/>
             <uri prefix='&meshv;'>scopeNote</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="ScopeNote"/>
             </literal>
           </xsl:with-param>
         </xsl:call-template>
       </xsl:if>
 
+      <!--
+        Removed SemanticType class and semanticType predicate:  see https://github.com/HHS/mesh-rdf/issues/119
+        
       <xsl:for-each select="SemanticTypeList/SemanticType">
         <xsl:variable name='semantic_type_uri'>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$mesh-prefix}'>
             <xsl:value-of select="SemanticTypeUI"/>
           </uri>
         </xsl:variable>
 
-        <!--
+        <!-\-
           Transformation rule: semanticType
-        -->
+        -\->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>This relation states that a concept has a semantic type.</desc>
@@ -672,9 +705,9 @@
           </xsl:with-param>
         </xsl:call-template>
 
-        <!--
+        <!-\-
           Transformation rule: rdf:type
-        -->
+        -\->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>Specifies the class of the semantic type resource.</desc>
@@ -686,9 +719,9 @@
           </xsl:with-param>
         </xsl:call-template>
 
-        <!--
+        <!-\-
           Transformation rule: rdfs:label
-        -->
+        -\->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>This rule states the a semantic type unique identifier has a semantic type name.</desc>
@@ -700,15 +733,15 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select="$semantic_type_uri"/>
             <uri prefix='&rdfs;'>label</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="SemanticTypeName"/>
             </literal>
           </xsl:with-param>
         </xsl:call-template>
 
-        <!--
+        <!-\-
           Transformation rule: meshv:identifier
-        -->
+        -\->
         <xsl:call-template name="triple">
           <xsl:with-param name="doc">
             <desc>This rule states that a semantic type has a unique identifier.</desc>
@@ -723,7 +756,10 @@
           </xsl:with-param>
         </xsl:call-template>
       </xsl:for-each>
-
+      -->
+      
+      
+      
       <!--
         Transformation rule: relatedRegistryNumber
       -->
@@ -752,11 +788,11 @@
         <xsl:if test="@RelationName">
           <xsl:call-template name="triple">
             <xsl:with-param name="spec">
-              <uri prefix='&mesh;'>
+              <uri prefix='{$mesh-prefix}'>
                 <xsl:value-of select="Concept1UI"/>
               </uri>
-              <xsl:copy-of select="f:meshv_relation_uri(@RelationName)"/>
-              <uri prefix='&mesh;'>
+              <xsl:copy-of select="f:meshv_relation_uri(@RelationName, 'Concept')"/>
+              <uri prefix='{$mesh-prefix}'>
                 <xsl:value-of select="Concept2UI"/>
               </uri>
             </xsl:with-param>
@@ -770,13 +806,13 @@
         <xsl:if test="RelationAttribute">
           <xsl:call-template name="triple">
             <xsl:with-param name="spec">
-              <uri prefix='&mesh;'>
+              <uri prefix='{$mesh-prefix}'>
                 <xsl:value-of select="Concept1UI"/>
               </uri>
-              <uri prefix='&mesh;'>
+              <uri prefix='{$mesh-prefix}'>
                 <xsl:value-of select="concat('rela/', RelationAttribute)"/>
               </uri>
-              <uri prefix='&mesh;'>
+              <uri prefix='{$mesh-prefix}'>
                 <xsl:value-of select="Concept2UI"/>
               </uri>
             </xsl:with-param>
@@ -791,7 +827,7 @@
 
       <xsl:for-each select="TermList/Term[@IsPermutedTermYN='N']">
         <xsl:variable name='term_uri'>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$mesh-prefix}'>
             <xsl:value-of select="TermUI"/>
           </uri>
         </xsl:variable>
@@ -900,7 +936,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
             <uri prefix='&meshv;'>prefLabel</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="String"/>
             </literal>
           </xsl:with-param>
@@ -922,7 +958,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
             <uri prefix='&meshv;'>lexicalTag</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="@LexicalTag"/>
             </literal>
           </xsl:with-param>
@@ -930,7 +966,7 @@
 
         <!--
           Transformation rule: printFlag
-        -->
+          Removed:  see https://github.com/HHS/mesh-rdf/issues/119
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
             <desc>This relation states that a term has a print flag.</desc>
@@ -944,6 +980,7 @@
             </literal>
           </xsl:with-param>
         </xsl:call-template>
+        -->
 
         <!--
           Transformation rule: record preferred term
@@ -958,7 +995,7 @@
             </xsl:with-param>
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$parent'/>
-              <uri prefix='&meshv;'>recordPreferredTerm</uri>
+              <uri prefix='&meshv;'>preferredTerm</uri>
               <xsl:copy-of select='$term_uri'/>
             </xsl:with-param>
           </xsl:call-template>
@@ -994,7 +1031,7 @@
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
               <uri prefix='&meshv;'>abbreviation</uri>
-              <literal>
+              <literal lang='en'>
                 <xsl:value-of select="Abbreviation"/>
               </literal>
             </xsl:with-param>
@@ -1012,7 +1049,7 @@
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
               <uri prefix='&meshv;'>sortVersion</uri>
-              <literal>
+              <literal lang='en'>
                 <xsl:value-of select="SortVersion"/>
               </literal>
             </xsl:with-param>
@@ -1030,7 +1067,7 @@
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
               <uri prefix='&meshv;'>entryVersion</uri>
-              <literal>
+              <literal lang='en'>
                 <xsl:value-of select="EntryVersion"/>
               </literal>
             </xsl:with-param>
@@ -1048,7 +1085,7 @@
             <xsl:with-param name='spec'>
               <xsl:copy-of select='$term_uri'/>
               <uri prefix='&meshv;'>thesaurusID</uri>
-              <literal>
+              <literal lang='en'>
                 <xsl:value-of select="."/>
               </literal>
             </xsl:with-param>
@@ -1061,7 +1098,7 @@
       -->
       <xsl:for-each select="TermList/Term[@IsPermutedTermYN='Y']">
         <xsl:variable name='term_uri'>
-          <uri prefix='&mesh;'>
+          <uri prefix='{$mesh-prefix}'>
             <xsl:value-of select="TermUI"/>
           </uri>
         </xsl:variable>
@@ -1073,7 +1110,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select='$term_uri'/>
             <uri prefix='&meshv;'>altLabel</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="String"/>
             </literal>
           </xsl:with-param>

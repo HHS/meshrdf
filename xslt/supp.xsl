@@ -12,14 +12,14 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="common.xsl"/>
-  <xsl:output method="text"/>
+  <xsl:output method="text" encoding="UTF-8"/>
 
 
   <xsl:template match="/">
 
     <xsl:for-each select="SupplementalRecordSet/SupplementalRecord">
       <xsl:variable name='supprec_uri'>
-        <uri prefix='&mesh;'>
+        <uri prefix='{$mesh-prefix}'>
           <xsl:value-of select="SupplementalRecordUI"/>
         </uri>
       </xsl:variable>
@@ -73,7 +73,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$supprec_uri"/>
           <uri prefix='&rdfs;'>label</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="SupplementalRecordName/String"/>
           </literal>
         </xsl:with-param>
@@ -90,7 +90,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$supprec_uri"/>
             <uri prefix='&meshv;'>note</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="Note"/>
             </literal>
           </xsl:with-param>
@@ -139,7 +139,7 @@
                 </xsl:otherwise>
               </xsl:choose>
             </uri>
-            <uri prefix='&mesh;'>
+            <uri prefix='{$mesh-prefix}'>
               <xsl:choose>
                 <xsl:when test='QualifierReferredTo'>
                   <xsl:value-of select="concat(f:no-asterisk(DescriptorReferredTo/DescriptorUI),
@@ -162,7 +162,7 @@
           <xsl:with-param name="spec">
             <xsl:copy-of select="$supprec_uri"/>
             <uri prefix='&meshv;'>indexerConsiderAlso</uri>
-            <uri prefix='&mesh;'>
+            <uri prefix='{$mesh-prefix}'>
               <xsl:value-of select="DescriptorReferredTo/DescriptorUI"/>
               <xsl:if test="QualifierReferredTo">
                 <xsl:value-of select="QualifierReferredTo/QualifierUI"/>
@@ -184,7 +184,7 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$supprec_uri"/>
             <uri prefix='&meshv;'>source</uri>
-            <literal>
+            <literal lang='en'>
               <xsl:value-of select="."/>
             </literal>
           </xsl:with-param>

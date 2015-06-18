@@ -1,4 +1,4 @@
-# MeSHÂ® RDF
+# MeSH® RDF
 
 [![Join the chat at https://gitter.im/HHS/meshrdf](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/HHS/meshrdf?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -12,8 +12,13 @@ Please see that technical documentation for details about the data model, and ho
 RDF version of MeSH relates to the XML from which it derives.
 
 The rest of this README describes how to set up a development environment, perform the
-transformations yourself, if you are interested in doing that.  All the instructions assume
-that you're running on a Unix-like operating system, in a bash shell.
+transformations yourself, if you are interested in doing that.  
+
+All the instructions assume
+that you're running on a Unix-like operating system, in a bash shell. If you have a Windows
+machine, we recommend that you install [cygwin](https://www.cygwin.com/). Please let us know
+(by opening a GitHub issue here) if you have problems.
+
 
 ## Quick start
 
@@ -27,6 +32,7 @@ Next, you can either explore this repository using the included sample XML files
 relatively small), or, if you need complete and up-to-date data, you can download the latest
 MeSH XML files from the NLM server.  The latter option is described first.
 
+
 ### Getting the MeSH XML files
 
 Since the complete MeSH data files are quite large, we assume that they'll be kept
@@ -38,7 +44,7 @@ $MESHRDF_HOME to point to that location.  For example,
 You can run the script *bin/fetch-mesh-xml.sh*, which downloads all the XML and corresponding
 DTD files from the NLM FTP server.  It saves them to the *data* subdirectory of $MESHRDF_HOME.
 
-It downloads the following:
+By default, it downloads the following:
 
 * desc2014.dtd
 * desc2014.xml
@@ -48,6 +54,16 @@ It downloads the following:
 * qual2014.xml
 * supp2014.dtd
 * supp2014.xml
+
+If you want to download a different year's data, set the MESHRDF_YEAR environment variable
+before executing the script. For example,
+
+    MESHRDF_YEAR=2015 bin/fetch-mesh-xml.sh
+
+***Note that at the time of this writing, the 2015 MeSH XML files have not yet been deployed
+to that location.*** To specify the actual location for these files, use this command line:
+
+    MESHRDF_YEAR=2015 MESHRDF_URI=ftp://ftp.nlm.nih.gov/online/mesh/.xmlmesh bin/fetch-mesh-xml.sh
 
 
 ### Getting Saxon
@@ -76,26 +92,34 @@ Where *repository-dir* is the base directory of this repository.
 If your version of Saxon is in a different location, then, of course, set this environment variable
 appropriately.
 
-On Windows:
-
-    set SAXON_JAR=*repository-dir*\saxon\saxon9he.jar
-
 
 ### Converting the complete MeSH data set
 
-There are a few conversion scripts in the repository which you can use to run the
-XSLT conversions.
+The conversion script is *mesh-xml2rdf.sh*. This shell script will run the XSLTs to convert each of 
+the three main MeSH XML files into RDF N-Triples format, and put the results into the 
+*$MESHRDF_HOME/out* directory. 
 
-The conversion scripts are:
+By default, it looks for 2014 data files, and will produce *mesh.nt*, which is the 
+RDF in N-triples format, and *mesh.nt.gz*, a gzipped version. Also by default, these 
+data files will have RDF URIs that do not include the year. For example, the descriptor for 
+Ofloxacin would have the URI http://id.nlm.nih.gov/mesh/D015242.
 
-* mesh-xml2rdf.sh - For unix, this shell script will brute-force convert each of the three
-  main MeSH XML files into RDF N-Triples format, and put the results into the *out* directory
-* mesh-xml2rdf.bat - This does the same thing, but can be run from Windows.
-* mesh-xml2rdf.pl - [To do: fix this to work with the MESHRDF_HOME env. var.]
-  This Perl script takes a completely different approach, that is useful
-  for doing the conversions on less-powerful machines.  It first chops up each of the
-  input XML files into manageable sized chunks, and then runs each chunk through the
-  XSLTs separately.  It should run on any machine that has Perl installed.
+As with the fetch script, described above, you can use the MESHRDF_YEAR environment variable
+to specify that it convert a different set of data files. For example:
+
+    MESHRDF_YEAR=2015 bin/mesh-xml2rdf.sh
+
+This uses the 2015 data files to produce the "current" RDF output files *out/mesh.nt*
+and *out/mesh.nt.gz*.
+
+To produce RDF data that has URIs with the year, then you should also set the
+MESHRDF_URI_YEAR variable to "yes".  Thus, the following uses the 2015 MeSH XML files to
+generate the data that has RDF URIs that include the year:
+
+    MESHRDF_YEAR=2015 MESHRDF_URI_YEAR=yes bin/mesh-xml2rdf.sh
+
+In this case, the output data files will be written to *out/mesh-2015.nt* and
+*out/mesh-2015.nt.gz*.
 
 
 ### Generating and converting the sample files
@@ -120,9 +144,13 @@ file, if any of those changes.  So, keep in mind that these samples in the repos
 used for testing/demo purposes, and are not necessarily up-to-date with the latest MeSH
 release.
 
-Finally, either of the scripts *convert-samples.sh* (for Unix) or *convert-samples.bat*
-(for Windows) can be used to convert the sample XML files into RDF, the final output
-being *samples.nt*.
+Finally, the script *convert-samples.sh* can be used to convert the sample XML files into 
+RDF, the final output being *samples.nt*.
+
+***Note that the generated RDF will be missing a lot of meshv:parentTreeNumber 
+relationships, because those are generated from the tree node identifiers to link between 
+various records. Since the sample files contain only a subset of the records, most of 
+these cannot be generated.***
 
 
 ## Project directory structure
@@ -157,7 +185,7 @@ Decide on a directory where you will install virtuoso, and set the $VIRTUOSO_HOM
 
 Checkout source from github:
 
-    git clone git://github.com/openlink/virtuoso-opensource.git
+    git clone https://github.com/openlink/virtuoso-opensource.git
     cd virtuoso-opensource
     git checkout develop/7   # should say already on develop/7
 
@@ -180,6 +208,7 @@ documentation](http://data-gov.tw.rpi.edu/wiki/How_to_install_virtuoso_sparql_en
 
     $VIRTUOSO_HOME/bin/isql 1111 dba <password>
     SQL> shutdown();
+
 
 ## Technical documentation on GitHub pages
 

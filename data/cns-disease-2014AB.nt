@@ -1,0 +1,15 @@
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "nemoci centr\u00E1ln\u00EDho nervov\u00E9ho syst\u00E9mu"@cs .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "Ziekte, centraalzenuwstelsel-"@nl .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "Central Nervous System Diseases"@en .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "Keskushermoston sairaudet"@fi .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "Maladie du syst\u00E8me nerveux central"@fr .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "Zentralnervensystemkrankheiten"@de .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "Malattie del sistema nervoso centrale"@it .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "\u4E2D\u67A2\u795E\u7D4C\u7CFB\u75BE\u60A3"@ja .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "Sykdommer i sentralnervesystemet"@no .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "Choroby OUN"@pl .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "Doen\u00E7as do Sistema Nervoso Central"@pt .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "\u041D\u0415\u0420\u0412\u041D\u041E\u0419 \u0421\u0418\u0421\u0422\u0415\u041C\u042B \u0426\u0415\u041D\u0422\u0420\u0410\u041B\u042C\u041D\u041E\u0419 \u0411\u041E\u041B\u0415\u0417\u041D\u0418"@ru .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "SREDI\u0160NJI \u017DIV\u010CANI SUSTAV, BOLESTI"@hr .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "Enfermedades del Sistema Nervioso Central"@es .
+<http://id.nlm.nih.gov/mesh/D002493> <http://www.w3.org/2000/01/rdf-schema#label> "Centrala nervsystemets sjukdomar"@sv .

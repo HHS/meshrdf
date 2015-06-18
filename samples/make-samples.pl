@@ -1,8 +1,13 @@
 #! /usr/bin/env perl
+#
 # This script will create subsets of the main MeSH XML files, with just a discrete set of
 # sample records.  The input XML files are assumed to be in the `data` subdirectory of the
 # directory pointed to by the $MESHRDF_HOME environment variable.  The list of records to
 # extract are listed in the samples-list.txt file.
+#
+# NOTE:  The resultant RDF will not include many meshv:broader relationships, because those
+# are generated from links between various records, and since the sample files contain only
+# a subset of the records, these cannot be generated.
 #
 # This should be run from the samples directory of the repository, and it will overrite the
 # *-samples.xml files.
@@ -14,6 +19,8 @@ use strict;
 
 my $meshrdf_home = $ENV{MESHRDF_HOME};
 die "You must first define the environment variables MESHRDF_HOME." if !$meshrdf_home;
+
+my $meshrdf_year = ($ENV{MESHRDF_YEAR} || 2015);
 
 my @sets = qw( qual desc supp );
 
@@ -70,7 +77,7 @@ close $SAMPLE_LIST;
 foreach my $set (@sets) {
     my $set_data = $set_info{$set};
     my $sample_list = $set_data->{sample_list};
-    my $xml_file = "$meshrdf_home/data/$set" . "2014.xml";
+    my $xml_file = "$meshrdf_home/data/$set" . "$meshrdf_year.xml";
     my $sample_file = "$set-samples.xml";
 
     my $state = 0;   # init

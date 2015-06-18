@@ -11,16 +11,21 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="common.xsl"/>
-  <xsl:output method="text"/>
+  <xsl:output method="text" encoding="UTF-8"/>
 
 
   <xsl:template match="/">
+    <xsl:message>
+      <xsl:text>mesh-prefix = '</xsl:text>
+      <xsl:value-of select="$mesh-prefix"/>
+      <xsl:text>'</xsl:text>
+    </xsl:message>
 
     <!-- triples for Qualifier Records -->
 
     <xsl:for-each select="QualifierRecordSet/QualifierRecord">
       <xsl:variable name='qualifier_uri'>
-        <uri prefix='&mesh;'>
+        <uri prefix='{$mesh-prefix}'>
           <xsl:value-of select="QualifierUI"/>
         </uri>
       </xsl:variable>
@@ -85,7 +90,7 @@
         <xsl:with-param name='spec'>
           <xsl:copy-of select="$qualifier_uri"/>
           <uri prefix='&rdfs;'>label</uri>
-          <literal>
+          <literal lang='en'>
             <xsl:value-of select="QualifierName/String"/>
           </literal>
         </xsl:with-param>
@@ -93,7 +98,7 @@
 
       <!--
         Transformation rule: allowedTreeNode
-      -->
+        Removed:  see https://github.com/HHS/mesh-rdf/issues/119
       <xsl:for-each select="TreeNodeAllowedList/TreeNodeAllowed">
         <xsl:call-template name='triple'>
           <xsl:with-param name="doc">
@@ -102,12 +107,13 @@
           <xsl:with-param name='spec'>
             <xsl:copy-of select="$qualifier_uri"/>
             <uri prefix='&meshv;'>allowedTreeNode</uri>
-            <uri prefix='&mesh;'>
+            <uri prefix='{$mesh-prefix}'>
               <xsl:value-of select="."/>
             </uri>
           </xsl:with-param>
         </xsl:call-template>
       </xsl:for-each>
+      -->
 
       <xsl:call-template name='CommonKids'>
         <xsl:with-param name="parent" select="$qualifier_uri"/>
