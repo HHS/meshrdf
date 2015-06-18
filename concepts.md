@@ -204,16 +204,3 @@ The MeSH RDF was derived from non-RDF MeSH XML. Compare the RDF graph diagram an
   </ConceptList>
 </DescriptorRecord>
 ```
-
-### Notes
-
-* RelationAttributes (see the [MeSH
-  documentation](http://www.nlm.nih.gov/mesh/xml_data_elements.html#RelationAttribute)) are not
-  modelled in the RDF.
-
-* \<ConceptRelations> (see the [documentation on the XML
-  elements](http://www.nlm.nih.gov/mesh/xml_data_elements.html#ConceptRelation)) are converted into
-  simple triples on the basis of the @RelationName attribute:
-    * BRD - meshv:broader
-    * NRW - meshv:narrower
-    * REL - meshv:related
