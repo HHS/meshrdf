@@ -47,8 +47,8 @@
      ?s ?p mesh:D015242 .
    }
 
-- name:  Find the MeSH headings and labels of Pharmacologic Actions for 'Ofloxacin'
-  notes: Show the MeSH headings and labels of Pharmacologic Actions for Ofloxacin.
+- name:  Find the MeSH headings and labels of Pharmacological Actions for 'Ofloxacin'
+  notes: Show the MeSH headings and labels of Pharmacological Actions for Ofloxacin.
   type: Getting Started
   string: |+
    
@@ -64,8 +64,8 @@
      ?pa rdfs:label ?paLabel
    }
    
-- name: Descriptors and SCRs that have the Pharmacologic Action 'Anti-Bacterial Agents'
-  notes: A filter query of MeSH predicates based on a certain type of Pharmacologic Action
+- name: Descriptors and SCRs that have the Pharmacological Action 'Anti-Bacterial Agents'
+  notes: A filter query of MeSH predicates based on a certain type of Pharmacological Action
   type: Predicate
   string: |+
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
