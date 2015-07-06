@@ -2,6 +2,9 @@
 #
 # This script will convert all of the MeSH XML to RDF, assuming that your machine has
 # enough memory and resources.  It will also copy over the vocabulary and void files.
+# It should be run from the root directory of the clone of the hhs/meshrdf repository.
+# The environment variable $MESHRDF_HOME is used to determine the `data` and `out`
+# directories. 
 #
 # It is parameterized according to the following environment variables:
 # - MESHRDF_YEAR - default is "2015". Set this to override the *source* data. In other
@@ -20,7 +23,6 @@ if [ -z "$MESHRDF_HOME" ]; then
     echo "Please define MESHRDF_HOME environment variable" 1>&2
     exit 1
 fi
-cd $MESHRDF_HOME
 
 if [ -z "$SAXON_JAR" ]; then
     echo "Please define SAXON_JAR environment variable" 1>&2
@@ -85,8 +87,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-cp $MESHRDF_HOME/meta/vocabulary.ttl $OUTDIR
-cp $MESHRDF_HOME/meta/void.ttl $OUTDIR
+cp meta/vocabulary.ttl $OUTDIR
+cp meta/void.ttl $OUTDIR
 
 cd $OUTDIR
 
