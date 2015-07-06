@@ -117,8 +117,8 @@ generate the data that has RDF URIs that include the year:
 
     MESHRDF_YEAR=2014 MESHRDF_URI_YEAR=yes bin/mesh-xml2rdf.sh
 
-In this case, the output data files will be written to *out/mesh-2014.nt* and
-*out/mesh-2014.nt.gz*.
+In this case, the output data files will be written to *out/2014/mesh2014.nt* and
+*out/2014/mesh2014.nt.gz*.
 
 
 ### Generating and converting the sample files
