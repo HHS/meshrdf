@@ -1,7 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 #
 # This script will convert all of the MeSH XML to RDF, assuming that your machine has
 # enough memory and resources.  It will also copy over the vocabulary and void files.
+# This script assumes that it is in the `bin` subdirectory of the clone of the 
+# hhs/meshrdf repository, and it looks for some other files accordingly.
+#
+# The environment variable $MESHRDF_HOME is used to determine the `data` and `out`
+# directories. 
 #
 # It is parameterized according to the following environment variables:
 # - MESHRDF_YEAR - default is "2015". Set this to override the *source* data. In other
@@ -16,11 +21,20 @@
 #     - the output file will be have the name meshYYYY.nt, and
 #     - it will be put into the output directory $MESHRDF_HOME/out/YYYY
 
+
+# Change directory to the repository root
+if hash greadlink 2>/dev/null; then
+    READLINK=greadlink
+else
+    READLINK=readlink
+fi
+cd $($READLINK -e `dirname $0`/..)
+
+# Check for some needed environment variables
 if [ -z "$MESHRDF_HOME" ]; then
     echo "Please define MESHRDF_HOME environment variable" 1>&2
     exit 1
 fi
-cd $MESHRDF_HOME
 
 if [ -z "$SAXON_JAR" ]; then
     echo "Please define SAXON_JAR environment variable" 1>&2
@@ -44,6 +58,8 @@ else
     URI_PREFIX="http://id.nlm.nih.gov/mesh"
 fi
 
+
+# Do the conversions
 
 mkdir -p $OUTDIR
 
@@ -85,9 +101,11 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-cp $MESHRDF_HOME/meta/vocabulary.ttl $OUTDIR
-cp $MESHRDF_HOME/meta/void.ttl $OUTDIR
+# Copy the meta files
+cp meta/vocabulary.ttl $OUTDIR
+cp meta/void.ttl $OUTDIR
 
+# Set up hard links to version-specific vocabulary and void 
 cd $OUTDIR
 
 vocab_version=`awk '$1~/versionInfo/ { gsub(/"/, "", $2); print $2 }' vocabulary.ttl`

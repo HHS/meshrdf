@@ -1,7 +1,5 @@
 # MeSH® RDF
 
-[![Join the chat at https://gitter.im/HHS/meshrdf](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/HHS/meshrdf?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 ***Status:  Beta.  Feedback is [welcome](https://github.com/HHS/meshrdf/issues).***
 
 This repository contains a set of XSLT files that transform MeSH XML into RDF, and also contains
@@ -11,7 +9,7 @@ the content for the technical documentation pages, deployed as a set of GitHub p
 Please see that technical documentation for details about the data model, and how this new
 RDF version of MeSH relates to the XML from which it derives.
 
-The rest of this README describes how to set up a development environment, perform the
+The rest of this README describes how to set up a development environment and perform the
 transformations yourself, if you are interested in doing that.  
 
 All the instructions assume
@@ -42,28 +40,29 @@ $MESHRDF_HOME to point to that location.  For example,
     export MESHRDF_HOME=/var/data/mesh-rdf
 
 You can run the script *bin/fetch-mesh-xml.sh*, which downloads all the XML and corresponding
-DTD files from the NLM FTP server.  It saves them to the *data* subdirectory of $MESHRDF_HOME.
+DTD files from the NLM FTP server. For now, run it with the following command:
+
+    MESHRDF_URI=ftp://ftp.nlm.nih.gov/online/mesh/.xmlmesh bin/fetch-mesh-xml.sh
+
+This saves the XML files to the *data* subdirectory of $MESHRDF_HOME.
 
 By default, it downloads the following:
 
-* desc2014.dtd
-* desc2014.xml
-* pa2014.dtd
-* pa2014.xml
-* qual2014.dtd
-* qual2014.xml
-* supp2014.dtd
-* supp2014.xml
+* desc2015.dtd
+* desc2015.xml
+* pa2015.dtd
+* pa2015.xml
+* qual2015.dtd
+* qual2015.xml
+* supp2015.dtd
+* supp2015.xml
 
 If you want to download a different year's data, set the MESHRDF_YEAR environment variable
 before executing the script. For example,
 
-    MESHRDF_YEAR=2015 bin/fetch-mesh-xml.sh
-
-***Note that at the time of this writing, the 2015 MeSH XML files have not yet been deployed
-to that location.*** To specify the actual location for these files, use this command line:
-
-    MESHRDF_YEAR=2015 MESHRDF_URI=ftp://ftp.nlm.nih.gov/online/mesh/.xmlmesh bin/fetch-mesh-xml.sh
+    MESHRDF_YEAR=2014 \
+    MESHRDF_URI=ftp://ftp.nlm.nih.gov/online/mesh/.xmlmesh \
+    bin/fetch-mesh-xml.sh
 
 
 ### Getting Saxon
@@ -99,7 +98,7 @@ The conversion script is *mesh-xml2rdf.sh*. This shell script will run the XSLTs
 the three main MeSH XML files into RDF N-Triples format, and put the results into the 
 *$MESHRDF_HOME/out* directory. 
 
-By default, it looks for 2014 data files, and will produce *mesh.nt*, which is the 
+By default, it looks for 2015 data files, and will produce *mesh.nt*, which is the 
 RDF in N-triples format, and *mesh.nt.gz*, a gzipped version. Also by default, these 
 data files will have RDF URIs that do not include the year. For example, the descriptor for 
 Ofloxacin would have the URI http://id.nlm.nih.gov/mesh/D015242.
@@ -107,19 +106,19 @@ Ofloxacin would have the URI http://id.nlm.nih.gov/mesh/D015242.
 As with the fetch script, described above, you can use the MESHRDF_YEAR environment variable
 to specify that it convert a different set of data files. For example:
 
-    MESHRDF_YEAR=2015 bin/mesh-xml2rdf.sh
+    MESHRDF_YEAR=2014 bin/mesh-xml2rdf.sh
 
-This uses the 2015 data files to produce the "current" RDF output files *out/mesh.nt*
+This uses the 2014 data files to produce the "current" RDF output files *out/mesh.nt*
 and *out/mesh.nt.gz*.
 
 To produce RDF data that has URIs with the year, then you should also set the
-MESHRDF_URI_YEAR variable to "yes".  Thus, the following uses the 2015 MeSH XML files to
+MESHRDF_URI_YEAR variable to "yes".  Thus, the following uses the 2014 MeSH XML files to
 generate the data that has RDF URIs that include the year:
 
-    MESHRDF_YEAR=2015 MESHRDF_URI_YEAR=yes bin/mesh-xml2rdf.sh
+    MESHRDF_YEAR=2014 MESHRDF_URI_YEAR=yes bin/mesh-xml2rdf.sh
 
-In this case, the output data files will be written to *out/mesh-2015.nt* and
-*out/mesh-2015.nt.gz*.
+In this case, the output data files will be written to *out/2014/mesh2014.nt* and
+*out/2014/mesh2014.nt.gz*.
 
 
 ### Generating and converting the sample files
