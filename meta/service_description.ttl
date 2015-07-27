@@ -1,0 +1,12 @@
+<http://id.nlm.nih.gov/mesh/sparql>
+        a       <http://www.w3.org/ns/sparql-service-description#Service> ;
+        <http://www.w3.org/ns/sparql-service-description#endpoint>
+                <http://id.nlm.nih.gov/mesh/sparql> ;
+        <http://www.w3.org/ns/sparql-service-description#feature>
+                <http://www.w3.org/ns/sparql-service-description#UnionDefaultGraph> , <http://www.w3.org/ns/sparql-service-description#DereferencesURIs> ;
+        <http://www.w3.org/ns/sparql-service-description#resultFormat>
+                <http://www.w3.org/ns/formats/N-Triples> , <http://www.w3.org/ns/formats/RDF_XML> , <http://www.w3.org/ns/formats/Turtle> , <http://www.w3.org/ns/formats/N3> , <http://www.w3.org/ns/formats/RDFa> , <http://www.w3.org/ns/formats/SPARQL_Results_JSON> , <http://www.w3.org/ns/formats/SPARQL_Results_CSV> , <http://www.w3.org/ns/formats/SPARQL_Results_XML> ;
+        <http://www.w3.org/ns/sparql-service-description#supportedLanguage>
+                <http://www.w3.org/ns/sparql-service-description#SPARQL10Query> ;
+        <http://www.w3.org/ns/sparql-service-description#url>
+                <http://id.nlm.nih.gov/mesh/sparql> .
