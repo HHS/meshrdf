@@ -718,105 +718,6 @@
   <AllowableQualifiersList>
    <AllowableQualifier>
     <QualifierReferredTo>
-     <QualifierUI>Q000032</QualifierUI>
-      <QualifierName>
-      <String>analysis</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>AN</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000037</QualifierUI>
-      <QualifierName>
-      <String>antagonists &amp; inhibitors</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>AI</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000145</QualifierUI>
-      <QualifierName>
-      <String>classification</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>CL</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000191</QualifierUI>
-      <QualifierName>
-      <String>economics</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>EC</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000276</QualifierUI>
-      <QualifierName>
-      <String>immunology</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>IM</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000302</QualifierUI>
-      <QualifierName>
-      <String>isolation &amp; purification</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>IP</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000378</QualifierUI>
-      <QualifierName>
-      <String>metabolism</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>ME</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000494</QualifierUI>
-      <QualifierName>
-      <String>pharmacology</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>PD</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000592</QualifierUI>
-      <QualifierName>
-      <String>standards</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>ST</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000600</QualifierUI>
-      <QualifierName>
-      <String>supply &amp; distribution</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>SD</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
-     <QualifierUI>Q000493</QualifierUI>
-      <QualifierName>
-      <String>pharmacokinetics</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>PK</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
      <QualifierUI>Q000627</QualifierUI>
       <QualifierName>
       <String>therapeutic use</String>
@@ -958,6 +859,105 @@
       </QualifierName>
     </QualifierReferredTo>
     <Abbreviation>AA</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000032</QualifierUI>
+      <QualifierName>
+      <String>analysis</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>AN</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000037</QualifierUI>
+      <QualifierName>
+      <String>antagonists &amp; inhibitors</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>AI</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000145</QualifierUI>
+      <QualifierName>
+      <String>classification</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>CL</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000191</QualifierUI>
+      <QualifierName>
+      <String>economics</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>EC</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000276</QualifierUI>
+      <QualifierName>
+      <String>immunology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>IM</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000302</QualifierUI>
+      <QualifierName>
+      <String>isolation &amp; purification</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>IP</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000378</QualifierUI>
+      <QualifierName>
+      <String>metabolism</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>ME</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000494</QualifierUI>
+      <QualifierName>
+      <String>pharmacology</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>PD</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000592</QualifierUI>
+      <QualifierName>
+      <String>standards</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>ST</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000600</QualifierUI>
+      <QualifierName>
+      <String>supply &amp; distribution</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>SD</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000493</QualifierUI>
+      <QualifierName>
+      <String>pharmacokinetics</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>PK</Abbreviation>
    </AllowableQualifier>
   </AllowableQualifiersList>
   <HistoryNote>1965; for ACEPHEN use MECLOFENOXATE 1990-2002
@@ -11334,15 +11334,6 @@
   <AllowableQualifiersList>
    <AllowableQualifier>
     <QualifierReferredTo>
-     <QualifierUI>Q000331</QualifierUI>
-      <QualifierName>
-      <String>legislation &amp; jurisprudence</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>LJ</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
      <QualifierUI>Q000941</QualifierUI>
       <QualifierName>
       <String>ethics</String>
@@ -11484,6 +11475,15 @@
       </QualifierName>
     </QualifierReferredTo>
     <Abbreviation>ST</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000331</QualifierUI>
+      <QualifierName>
+      <String>legislation &amp; jurisprudence</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>LJ</Abbreviation>
    </AllowableQualifier>
   </AllowableQualifiersList>
   <Annotation>for general design, methodology, economics, etc. of randomized controlled trials; a different heading RANDOMIZED CONTROLLED TRIAL is used for reports of a specific randomized trial
@@ -12645,15 +12645,6 @@
   <AllowableQualifiersList>
    <AllowableQualifier>
     <QualifierReferredTo>
-     <QualifierUI>Q000534</QualifierUI>
-      <QualifierName>
-      <String>rehabilitation</String>
-      </QualifierName>
-    </QualifierReferredTo>
-    <Abbreviation>RH</Abbreviation>
-   </AllowableQualifier>
-   <AllowableQualifier>
-    <QualifierReferredTo>
      <QualifierUI>Q000145</QualifierUI>
       <QualifierName>
       <String>classification</String>
@@ -12696,6 +12687,15 @@
       </QualifierName>
     </QualifierReferredTo>
     <Abbreviation>SN</Abbreviation>
+   </AllowableQualifier>
+   <AllowableQualifier>
+    <QualifierReferredTo>
+     <QualifierUI>Q000534</QualifierUI>
+      <QualifierName>
+      <String>rehabilitation</String>
+      </QualifierName>
+    </QualifierReferredTo>
+    <Abbreviation>RH</Abbreviation>
    </AllowableQualifier>
   </AllowableQualifiersList>
   <HistoryNote>98
