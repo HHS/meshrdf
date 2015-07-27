@@ -87,6 +87,7 @@ fi
 
 cp $MESHRDF_HOME/meta/vocabulary.ttl $OUTDIR
 cp $MESHRDF_HOME/meta/void.ttl $OUTDIR
+cp $MESHRDF_HOME/meta/service_description.ttl $OUTDIR
 
 cd $OUTDIR
 
