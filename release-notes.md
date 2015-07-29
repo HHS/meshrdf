@@ -7,7 +7,9 @@ resource: false
 
 {:#archived-content}
 
-The 2015 version of MeSH RDF will go live the afternoon of June 18th, 2015. The previous graph of http://id.nlm.nih.gov/mesh2014 will no longer be available after June 18th, 2015. Users must update their SPARQL queries to use http://id.nlm.nih.gov/mesh.
+The 2015 version of MeSH RDF is now live.
+The previous graph of http://id.nlm.nih.gov/mesh2014 is no longer available.
+Users must update their SPARQL queries to use the non-versioned graph (http://id.nlm.nih.gov/mesh) or the versioned graph (http://id.nlm.nih.gov/mesh/2015).
 {: style="color: red"}
 
 ### Graph Changes
