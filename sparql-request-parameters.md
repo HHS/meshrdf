@@ -6,7 +6,7 @@ categories:
 - Cheat Sheets
 ---
 
-SPARQL queries from our [SPARQL endpoint](http://id.nlm.nih.gov/mesh/sparql) will produce persistent, shareable URLs. SPARQL request parameters expressed in SPARQL query URLs are described below.
+SPARQL queries from our [SPARQL endpoint](http://id.nlm.nih.gov/mesh/query) will produce persistent, shareable URLs. SPARQL request parameters expressed in SPARQL query URLs are described below.
 
 {:.data-table-standard .row-border .hover}
 Parameter | Valid Values (SELECT Queries) | Valid Values (CONSTRUCT Queries) | Default Value | Use Case
