@@ -7,7 +7,7 @@ categories:
 ---
 ### SPARQL Endpoint Requests
 
-Our SPARQL endpoint has the following base URL: http://id.nlm.nih.gov/sparql. All SPARQL query requests for data should be sent to the SPARQL endpoint. We also offer a [SPARQL query editor](http://id.nlm.nih.gov/query) for writing and running SPARQL queries in a web browser. Queries run from either our SPARQL endpoint or our SPARQL query editor will produce persistent, shareable URLs. Build SPARQL endpoint requests by appending the following parameters to the base URL: http://id.nlm.nih.gov/sparql. 
+Our SPARQL endpoint has the following base URL: http://id.nlm.nih.gov/sparql. All SPARQL query requests for data should be sent to the SPARQL endpoint. We also offer a [SPARQL query editor](http://id.nlm.nih.gov/query) for writing and running SPARQL queries in a web browser. Queries run against our SPARQL endpoint or from our SPARQL query editor will produce persistent, shareable URLs. Build SPARQL endpoint requests by appending the following parameters to the base URL: http://id.nlm.nih.gov/sparql. 
 
 {:.data-table-standard .row-border .hover}
 Parameter | Valid Values (SELECT Queries) | Valid Values (CONSTRUCT Queries) | Default Value | Use Case
