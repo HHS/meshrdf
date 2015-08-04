@@ -7,7 +7,7 @@ categories:
 ---
 ### SPARQL Endpoint Requests
 
-Our SPARQL endpoint has the following base URL: http://id.nlm.nih.gov/sparql. All SPARQL query requests for data should be sent to the SPARQL endpoint. We also offer a SPARQL query editor for writing and running SPARQL queries in a web browser. It is located here: http://id.nlm.nih.gov/query. Queries run from either our SPARQL endpoint of SPARQL query editor will produce persistent, shareable URLs. Build SPARQL endpoint requests by appending the following parameters to the base URL: http://id.nlm.nih.gov/sparql. 
+Our SPARQL endpoint has the following base URL: http://id.nlm.nih.gov/sparql. All SPARQL query requests for data should be sent to the SPARQL endpoint. We also offer a [SPARQL query editor](http://id.nlm.nih.gov/query) for writing and running SPARQL queries in a web browser. Queries run from either our SPARQL endpoint of SPARQL query editor will produce persistent, shareable URLs. Build SPARQL endpoint requests by appending the following parameters to the base URL: http://id.nlm.nih.gov/sparql. 
 
 {:.data-table-standard .row-border .hover}
 Parameter | Valid Values (SELECT Queries) | Valid Values (CONSTRUCT Queries) | Default Value | Use Case
@@ -17,7 +17,7 @@ offset | Accepts positive integers | N/A | 0 | When offset=n, this parameter wil
 inference | Accepts true or false | Accepts true or false | false | Running a query with inference set to "true" will return results for all subclasses and subproperties of those classes and properties you specify in your query. For example, there are no direct instances of meshv:Descriptor, but if you run a query with inference and look for rdf:type meshv:Descriptor, you will get all instances of meshv:Descriptor's subclasses - meshv:TopicalDescriptor, meshv:GeographicalDescriptor, meshv:PublicationType and meshv:CheckTag. Running a query with inference=true may affect performance.
 format | Accepts HTML*, XML, CSV, TSV or JSON | Accepts HTML*, XML, RDF/JSON, RDF/XML, TURTLE or N3 | HTML* | Returns a file with the specified syntax. 
 year | Accepts "current" or a year. | Accepts "current" or a year. | current |Queries either the current MeSH graph (<http://id.nlm.nih.gov/mesh>) or a versioned MeSH graph, for example: (<http://id.nlm.nih.gov/mesh/2015>). 
-query | Accepts a SELECT SPARQL query | Accepts a CONSTRUCT SPARQL query | This parameter is required and must contain a SPARQL query. For an example of how these are formatted, run a query from http://id.nlm.nih.gov/query and view the resulting URL. 
+query | Accepts a SELECT SPARQL query | Accepts a CONSTRUCT SPARQL query | N/A | This parameter is required and must contain a SPARQL query. For an example of how these are formatted, run a query from http://id.nlm.nih.gov/query and view the resulting URL. 
 
 *Note that only the SPARQL query editor (http://id.nlm.nih.gov/query) will accept HTML as a format. The SPARQL endpoint will return an error if you request format=HTML. 
 
