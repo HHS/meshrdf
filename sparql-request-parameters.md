@@ -1,7 +1,7 @@
 ---
 title: SPARQL Request Parameters
 layout: page
-resource: true
+resource: false
 categories:
 - Cheat Sheets
 ---
