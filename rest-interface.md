@@ -1,7 +1,7 @@
 ---
 title: REST URL Examples
 layout: page
-resource: true
+resource: false
 categories:
 - Cheat Sheets
 ---

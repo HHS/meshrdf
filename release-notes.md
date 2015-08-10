@@ -12,6 +12,10 @@ The previous graph of http://id.nlm.nih.gov/mesh2014 is no longer available.
 Users must update their SPARQL queries to use the non-versioned graph (http://id.nlm.nih.gov/mesh) or the versioned graph (http://id.nlm.nih.gov/mesh/2015).
 {: style="color: red"}
 
+### SPARQL Endpoint Changes
+
+As of August 10, 2015, we have made changes to the base URL used for HTML and non-HTML query requests. To request HTML query results, use our query editor: http://id.nlm.nih.gov/mesh/query/. To request any other format, use our SPARQL endpoint with base URL http://id.nlm.nih.gov/mesh/sparql. Note that the SPARQL endpoint will no longer return HTML, so links to some queries may break. For more information, see our [SPARQL and URI Requests page](sparql-and-uri-requests.html). 
+
 ### Graph Changes
 
 MeSH RDF will follow established versioning practices, but MeSH RDF will be expressed in non-versioned and versioned URIs. For example, the Descriptor for Ofloxacin will have the following URIs:

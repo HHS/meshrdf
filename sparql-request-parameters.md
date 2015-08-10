@@ -1,7 +1,7 @@
 ---
 title: SPARQL Request Parameters
 layout: page
-resource: true
+resource: false
 categories:
 - Cheat Sheets
 ---
@@ -15,3 +15,4 @@ limit | Accepts positive integers up to 1000 | N/A | 1000 | Limits the number of
 offset | Accepts positive integers | N/A | 0 | When offset=n, this parameter will return results starting with the nth result. Use this parameter to loop through multiple requests for large result sets.
 inference | Accepts true or false | Accepts true or false | false | Running a query with inference set to "true" will return results for all subclasses and subproperties of those classes and properties you specify in your query. For example, there are no direct instances of meshv:Descriptor, but if you run a query with inference and look for rdf:type meshv:Descriptor, you will get all instances of meshv:Descriptor's subclasses - meshv:TopicalDescriptor, meshv:GeographicalDescriptor, meshv:PublicationType and meshv:CheckTag. Running a query with inference=true may affect performance.
 format | Accepts HTML, XML, CSV, TSV or JSON | Accepts XML, JSON, RDF/XML, TURTLE or N3 | HTML | Returns a file with the specified syntax. 
+year | Accepts "current" or a year. | Accepts "current" or a year. | current |Queries either the current MeSH graph (<http://id.nlm.nih.gov/mesh>) or a versioned MeSH graph, for example: (<http://id.nlm.nih.gov/mesh/2015>). 
