@@ -104,7 +104,7 @@ fi
 # Copy the meta files
 cp meta/vocabulary.ttl $OUTDIR
 cp meta/void.ttl $OUTDIR
-cp /meta/service_description.ttl $OUTDIR
+cp meta/service_description.ttl $OUTDIR
 
 # Set up hard links to version-specific vocabulary and void 
 cd $OUTDIR
