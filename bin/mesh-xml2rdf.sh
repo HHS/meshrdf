@@ -30,6 +30,17 @@ else
 fi
 cd $($READLINK -e `dirname $0`/..)
 
+while getopts "h:j:y:u" opt; do
+  case $opt in
+    h) export MESHRDF_HOME=$OPTARG ;;
+    j) export SAXON_JAR=$OPTARG ;;
+    y) export MESHRDF_YEAR=$OPTARG ;; 
+    u) export MESHRDF_URI_YEAR="yes" ;;
+    *) echo "Usage: $0 [-h mesh-rdf-home] [-j saxon-jar-path] [-y year ]" 1>&2 ; exit 1 ;;
+  esac
+done
+shift $(($OPTIND - 1))
+
 # Check for some needed environment variables
 if [ -z "$MESHRDF_HOME" ]; then
     echo "Please define MESHRDF_HOME environment variable" 1>&2
