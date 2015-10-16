@@ -18,6 +18,7 @@
     <xsl:for-each select="DescriptorRecordSet/DescriptorRecord">
 
       <xsl:variable name='descriptor_id' select='DescriptorUI'/>
+      <xsl:variable name='descriptor_label' select='DescriptorName/String'/>
       
       <!--
         Transformation rule: meshv:identifier
@@ -27,7 +28,7 @@
           <xsl:value-of select="$descriptor_id"/>
         </uri>
       </xsl:variable>
-      
+
       <xsl:call-template name='triple'>
         <xsl:with-param name="doc">
           <desc>This relation states that a descriptor record has a unique identifier.</desc>
@@ -82,7 +83,7 @@
           <xsl:copy-of select="$descriptor_uri"/>
           <uri prefix='&rdfs;'>label</uri>
           <literal lang='en'>
-            <xsl:value-of select="DescriptorName/String"/>
+            <xsl:value-of select='$descriptor_label'/>
           </literal>
         </xsl:with-param>
       </xsl:call-template>
@@ -126,6 +127,22 @@
             <xsl:copy-of select='$dqpair_uri'/>
             <uri prefix='&rdf;'>type</uri>
             <uri prefix='&meshv;'>AllowedDescriptorQualifierPair</uri>
+          </xsl:with-param>
+        </xsl:call-template>
+
+        <!--
+          Give it a label
+        -->
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>Provide a name for the AllowedDescriptorQualifierPair</desc>
+          </xsl:with-param>
+          <xsl:with-param name="spec">
+            <xsl:copy-of select='$dqpair_uri'/>
+            <uri prefix='&rdfs;'>label</uri>
+            <literal lang='en'>
+              <xsl:value-of select="concat($descriptor_label, '/', QualifierReferredTo/QualifierName/String)"/>
+            </literal>
           </xsl:with-param>
         </xsl:call-template>
 
@@ -200,6 +217,22 @@
           </xsl:with-param>
         </xsl:call-template>
         
+        <!-- 
+          Give it a label
+        -->
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>Provide a label for the DisallowedDescriptorQualifierPair.</desc>
+          </xsl:with-param>
+          <xsl:with-param name="spec">
+            <xsl:copy-of select='$ecin_uri'/>
+            <uri prefix='&rdfs;'>label</uri>
+            <literal lang='en'>
+              <xsl:value-of select="concat(ECIN/DescriptorReferredTo/DescriptorName/String,
+                                           '/', ECIN/QualifierReferredTo/QualifierName/String)"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
         <!-- 
           Link it back to the descriptor
         -->
