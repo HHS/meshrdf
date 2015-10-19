@@ -174,7 +174,25 @@
           </xsl:with-param>
         </xsl:call-template>        
       </xsl:for-each>
-      
+
+      <!--
+        NLMClassificationNumber
+      -->
+      <xsl:if test="NLMClassificationNumber">
+        <xsl:call-template name='triple'>
+          <xsl:with-param name="doc">
+            <desc>Each descriptor may have an NLMClassificationNumber.</desc>
+          </xsl:with-param>
+          <xsl:with-param name='spec'>
+            <xsl:copy-of select="$descriptor_uri"/>
+            <uri prefix='&meshv;'>nlmClassificationNumber</uri>
+            <literal>
+              <xsl:value-of select="NLMClassificationNumber"/>
+            </literal>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:if>
+
       <!--
         Transformation rule: publicMeSHNote
       -->
@@ -193,7 +211,7 @@
           </xsl:with-param>
         </xsl:call-template>
       </xsl:if>
-      
+
       <xsl:for-each select="EntryCombinationList/EntryCombination">
 
         <xsl:variable name='ecin_uri'>
