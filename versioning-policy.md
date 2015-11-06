@@ -35,7 +35,7 @@ Predicate names are expressed in camel case. Class names have initial letters ca
 
 #### Deprecated URIs
 
-NLM occasionally deletes or revises MeSH content. NLM uses the boolean-typed meshv:active predicate to indicate whether content is active or not. A "true" value indicates that content is active. A "false" value indicates that content is obsolete. For obsolete content, the word "OBSOLETE" will be prepended to the rdfs:label, but the URI will remain active in most cases. The predicate meshv:lastActive will indicate the most recent year in which the content was active. 
+NLM occasionally deletes or revises MeSH content. NLM uses the boolean-typed meshv:active predicate to indicate whether content is active or not. A "1" value indicates that content is active. A "0" value indicates that content is obsolete. For obsolete content, the word "OBSOLETE" will be prepended to the rdfs:label, but the URI will remain active in most cases. The predicate meshv:lastActive will indicate the most recent year in which the content was active. 
 
 Requests for deprecated URIs will still return an HTTP 200 status code, but no data will be available. We intend to address this in a future release. Additionally, some non-existing URIs will return HTTP 200 status codes? Any URI that fits a pattern expressed in our [URL rewrite document](https://github.com/HHS/lodestar/blob/meshrdf/web-ui/src/main/webapp/WEB-INF/urlrewrite.xml) will return an HTTP 200 status code, whether it is a valid URI or not. Keep this in mind when making requests based on URI patterns. 
 
