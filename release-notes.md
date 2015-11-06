@@ -9,7 +9,7 @@ resource: false
 
 ## Latest Release
 
-November 20, 2015
+### November 20, 2015
 
 * MeSH RDF has been updated to include the 2016 MeSH data. See [MeSH vocabulary changes for 2016](https://www.nlm.nih.gov/mesh/introduction.html#changes).
 * NLM has introduced two new predicates to MeSH RDF to handle obsolete content:
