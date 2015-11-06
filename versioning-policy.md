@@ -49,7 +49,7 @@ MeSH RDF data are expressed in a current, versionless graph and versioned graphs
 * http://id.nlm.nih.gov/mesh/2016 (2016)
 * http://id.nlm.nih.gov/mesh/2015 (2015)
 
-Use these graphs to run SPARQL queries on MeSH RDF data. NLM plans retain no more than three years of versioned graphs, and NLM will not produced versioned graphs for data prior to 2015 MeSH. 
+Use these graphs to run SPARQL queries on MeSH RDF data. NLM plans to retain no more than three years of versioned graphs, and NLM will not produced versioned graphs for data prior to 2015 MeSH. 
 
 #### Vocabulary Graph
 
