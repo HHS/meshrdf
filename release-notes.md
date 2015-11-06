@@ -7,7 +7,7 @@ resource: false
 
 {:#archived-content}
 
-### Latest Release
+## Latest Release
 
 November 20, 2015
 
@@ -17,21 +17,21 @@ November 20, 2015
   * meshv:lastActive - this will indicate the last year in which MeSH content was active.
 * NLM has added NLM Classification Numbers to MeSH. A new predicate, meshv:nlmClassificationNumber, relates Descriptors to NLM Classification Numbers. 
 
-### Prior Releases
+## Prior Releases
 
-#### August 10, 2015
+### August 10, 2015
 
-##### SPARQL Endpoint Changes
+#### SPARQL Endpoint Changes
 
 As of August 10, 2015, we have made changes to the base URL used for HTML and non-HTML query requests. To request HTML query results, use our query editor: http://id.nlm.nih.gov/mesh/query/. To request any other format, use our SPARQL endpoint with base URL http://id.nlm.nih.gov/mesh/sparql. Note that the SPARQL endpoint will no longer return HTML, so links to some queries may break. For more information, see our [SPARQL and URI Requests page](sparql-and-uri-requests.html). 
 
-#### June 18, 2015
+### June 18, 2015
 
 The 2015 version of MeSH RDF is now live.
 The previous graph of http://id.nlm.nih.gov/mesh2014 is no longer available.
 Users must update their SPARQL queries to use the non-versioned graph (http://id.nlm.nih.gov/mesh) or the versioned graph (http://id.nlm.nih.gov/mesh/2015).
 
-##### Graph Changes
+#### Graph Changes
 
 MeSH RDF will follow established versioning practices, but MeSH RDF will be expressed in non-versioned and versioned URIs. For example, the Descriptor for Ofloxacin will have the following URIs:
 
@@ -40,7 +40,7 @@ MeSH RDF will follow established versioning practices, but MeSH RDF will be expr
 
 The non-versioned URI reflects the current state of MeSH at any given time. The versioned URI for the current year will mirror the non-versioned URI until NLM releases the next year's MeSH data. Once NLM begins using the next year's MeSH data, the next year's versioned URI will mirror the non-versioned URI, and the current year's data will become static and archived. Current year MeSH is dynamic until archived. NLM will retain no more than three years of versioned URIs, and NLM will not produce versioned URIs for data prior to 2015 MeSH.
 
-##### Daily Updates
+#### Daily Updates
 Starting June 18, 2015, MeSH RDF data will update on a daily basis in sync with MeSH XML.
 Supplementary Concept Records (SCRs) are added throughout the year on a daily basis.
 Changes to MeSH Descriptors and Qualifiers are typically done only on an annual basis at the end of the year,
@@ -48,15 +48,15 @@ but may occasionally occur at other times.
 NLM will load daily SCR data so that users have the benefit of new SCR URIs, but we will not protect against deleted URIs at this time.
 However, these deleted URIs **will not** return an HTTP status 404 code.  This will be remedied in future updates.
 
-##### Language Tags
+#### Language Tags
 Users now must specify the language tag '@en' when searching rdfs:label or any other string literal.  See the [sample queries page](sample-queries.html) (queries #5 and #6) for examples.
 One preferred MeSH Heading, Central Nervous System which is D002493, has non-English strings as a proof-of-concept example.  This sample will remain in the beta version but may not be included in the production MeSH RDF version.
 
-##### New Classes
+#### New Classes
 
 none
 
-##### New Predicates
+#### New Predicates
 
 {:.data-table-standard .row-border .hover}
 Name | Domain | Range | Description
@@ -69,7 +69,7 @@ meshv:parentTreeNumber | meshv:TreeNumber | meshv:TreeNumber | Relates one TreeN
 meshv:preferredTerm | meshv:Concept<br/>meshv:Descriptor<br/>meshv:Qualifier<br/>meshv:SupplementaryConceptRecord | meshv:Term | Relates Concepts, Descriptors, Qualifiers or SupplementaryConceptRecords to Terms. Indicates that the Term is the preferred term for a Concept, Descriptor, Qualifier, or SupplementaryConceptRecord.
 meshv:relatedConcept | meshv:Concept | meshv:Concept | Relates one Concept to another. A semantic relationship between two Concepts, usually between the preferred Concept and subordinate Concept(s) where one is neither broader nor narrower in meaning. Example: M0000562 is related to M0000561
 
-##### Removals
+#### Removals
 
 {:.data-table-standard .row-border .hover}
 Data Type | Data Element | Change Type | Additonal Information
