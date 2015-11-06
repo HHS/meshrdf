@@ -36,6 +36,7 @@ This table includes all the sub-classes of the meshv:DescriptorQualifierPairs cl
 
 *  [Relations to other classes (as subject)](#tabs-1)
 *  [Relations to other classes (as object)](#tabs-2)
+*  [meshv:DescriptorQualifierPair properties](#tabs-3)
 
 {: #tabs-1}
 <div>
@@ -95,6 +96,24 @@ meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:AllowedDescri
 meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
 
 </div>
+
+{: #tabs-3}
+<div>
+{:.data-table-long .row-border .hover}
+Subject | Predicate
+------- | ---------
+meshv:AllowedDescriptorQualifierPair | meshv:active
+meshv:AllowedDescriptorQualifierPair | meshv:lastActive
+meshv:AllowedDescriptorQualifierPair | rdfs:label
+meshv:DisallowedDescriptorQualifierPair | meshv:active
+meshv:DisallowedDescriptorQualifierPair | meshv:lastActive
+meshv:DisallowedDescriptorQualifierPair | rdfs:label
+meshv:DescriptorQualifierPair | meshv:active
+meshv:DescriptorQualifierPair | meshv:lastActive
+meshv:DescriptorQualifierPair | rdfs:label
+
+</div>
+
 </div>
 
 ### SPARQL

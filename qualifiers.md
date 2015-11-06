@@ -60,12 +60,14 @@ meshv:TopicalDescriptor | meshv:allowableQualifier | meshv:Qualifier
 {:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
+meshv:Qualifier | meshv:active
 meshv:Qualifier | meshv:annotation
 meshv:Qualifier | meshv:dateCreated
 meshv:Qualifier | meshv:dateEstablished
 meshv:Qualifier | meshv:dateRevised
 meshv:Qualifier | meshv:historyNote
 meshv:Qualifier | meshv:identifier
+meshv:Qualifier | meshv:lastActive
 meshv:Qualifier | meshv:onlineNote
 meshv:Qualifier | rdfs:label
 

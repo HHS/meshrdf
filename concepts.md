@@ -77,12 +77,15 @@ meshv:TopicalDescriptor | meshv:preferredConcept | meshv:Concept
 {:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:Concept | meshv:casn1_label
+meshv:Concept | meshv:active
 meshv:Concept | meshv:identifier
+meshv:Concept | meshv:lastActive
+meshv:Concept | meshv:casn1_label
 meshv:Concept | meshv:registryNumber
 meshv:Concept | meshv:relatedRegistryNumber
 meshv:Concept | meshv:scopeNote
 meshv:Concept | rdfs:label
+
 
 </div>
 </div>
