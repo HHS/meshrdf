@@ -16,12 +16,12 @@ meshv:CheckTag | meshv:dateCreated
 meshv:CheckTag | meshv:dateRevised
 meshv:CheckTag | meshv:historyNote
 meshv:CheckTag | meshv:identifier
-meshv:CheckTag | meshv:lastActive
+meshv:CheckTag | meshv:lastActiveYear
 meshv:CheckTag | rdfs:label
 meshv:CheckTag | meshv:active
 meshv:Concept | meshv:casn1_label
 meshv:Concept | meshv:identifier
-meshv:Concept | meshv:lastActive
+meshv:Concept | meshv:lastActiveYear
 meshv:Concept | meshv:registryNumber
 meshv:Concept | meshv:relatedRegistryNumber
 meshv:Concept | meshv:scopeNote
@@ -34,7 +34,7 @@ meshv:GeographicalDescriptor | meshv:dateEstablished
 meshv:GeographicalDescriptor | meshv:dateRevised
 meshv:GeographicalDescriptor | meshv:historyNote
 meshv:GeographicalDescriptor | meshv:identifier
-meshv:GeographicalDescriptor | meshv:lastActive
+meshv:GeographicalDescriptor | meshv:lastActiveYear
 meshv:GeographicalDescriptor | meshv:onlineNote
 meshv:GeographicalDescriptor | meshv:previousIndexing
 meshv:GeographicalDescriptor | rdfs:label
@@ -45,7 +45,7 @@ meshv:PublicationType | meshv:dateEstablished
 meshv:PublicationType | meshv:dateRevised
 meshv:PublicationType | meshv:historyNote
 meshv:PublicationType | meshv:identifier
-meshv:PublicationType | meshv:lastActive
+meshv:PublicationType | meshv:lastActiveYear
 meshv:PublicationType | meshv:previousIndexing
 meshv:PublicationType | rdfs:label
 meshv:Qualifier | meshv:active
@@ -55,7 +55,7 @@ meshv:Qualifier | meshv:dateEstablished
 meshv:Qualifier | meshv:dateRevised
 meshv:Qualifier | meshv:historyNote
 meshv:Qualifier | meshv:identifier
-meshv:Qualifier | meshv:lastActive
+meshv:Qualifier | meshv:lastActiveYear
 meshv:Qualifier | meshv:onlineNote
 meshv:Qualifier | rdfs:label
 meshv:SCR_Chemical | meshv:active
@@ -63,7 +63,7 @@ meshv:SCR_Chemical | meshv:dateCreated
 meshv:SCR_Chemical | meshv:dateRevised
 meshv:SCR_Chemical | meshv:frequency
 meshv:SCR_Chemical | meshv:identifier
-meshv:SCR_Chemical | meshv:lastActive
+meshv:SCR_Chemical | meshv:lastActiveYear
 meshv:SCR_Chemical | meshv:note
 meshv:SCR_Chemical | meshv:previousIndexing
 meshv:SCR_Chemical | meshv:source
@@ -73,7 +73,7 @@ meshv:SCR_Disease | meshv:dateCreated
 meshv:SCR_Disease | meshv:dateRevised
 meshv:SCR_Disease | meshv:frequency
 meshv:SCR_Disease | meshv:identifier
-meshv:SCR_Disease | meshv:lastActive
+meshv:SCR_Disease | meshv:lastActiveYear
 meshv:SCR_Disease | meshv:note
 meshv:SCR_Disease | meshv:previousIndexing
 meshv:SCR_Disease | meshv:source
@@ -83,7 +83,7 @@ meshv:SCR_Protocol | meshv:dateCreated
 meshv:SCR_Protocol | meshv:dateRevised
 meshv:SCR_Protocol | meshv:frequency
 meshv:SCR_Protocol | meshv:identifier
-meshv:SCR_Protocol | meshv:lastActive
+meshv:SCR_Protocol | meshv:lastActiveYear
 meshv:SCR_Protocol | meshv:note
 meshv:SCR_Protocol | meshv:previousIndexing
 meshv:SCR_Protocol | meshv:source
@@ -94,7 +94,7 @@ meshv:Term | meshv:altLabel
 meshv:Term | meshv:dateCreated
 meshv:Term | meshv:entryVersion
 meshv:Term | meshv:identifier
-meshv:Term | meshv:lastActive
+meshv:Term | meshv:lastActiveYear
 meshv:Term | meshv:lexicalTag
 meshv:Term | meshv:prefLabel
 meshv:Term | meshv:sortVersion
@@ -107,11 +107,11 @@ meshv:TopicalDescriptor | meshv:dateEstablished
 meshv:TopicalDescriptor | meshv:dateRevised
 meshv:TopicalDescriptor | meshv:historyNote
 meshv:TopicalDescriptor | meshv:identifier
-meshv:TopicalDescriptor | meshv:lastActive
+meshv:TopicalDescriptor | meshv:lastActiveYear
 meshv:TopicalDescriptor | meshv:onlineNote
 meshv:TopicalDescriptor | meshv:previousIndexing
 meshv:TopicalDescriptor | meshv:publicMeSHNote
 meshv:TopicalDescriptor | rdfs:label
 meshv:TreeNumber | meshv:active
-meshv:TreeNumber | meshv:lastActive
+meshv:TreeNumber | meshv:lastActiveYear
 meshv:TreeNumber | rdfs:label

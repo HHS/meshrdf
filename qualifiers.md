@@ -67,7 +67,7 @@ meshv:Qualifier | meshv:dateEstablished
 meshv:Qualifier | meshv:dateRevised
 meshv:Qualifier | meshv:historyNote
 meshv:Qualifier | meshv:identifier
-meshv:Qualifier | meshv:lastActive
+meshv:Qualifier | meshv:lastActiveYear
 meshv:Qualifier | meshv:onlineNote
 meshv:Qualifier | rdfs:label
 

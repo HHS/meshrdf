@@ -103,13 +103,13 @@ meshv:SupplementaryConceptRecord | meshv:preferredMappedTo | meshv:DescriptorQua
 Subject | Predicate
 ------- | ---------
 meshv:AllowedDescriptorQualifierPair | meshv:active
-meshv:AllowedDescriptorQualifierPair | meshv:lastActive
+meshv:AllowedDescriptorQualifierPair | meshv:lastActiveYear
 meshv:AllowedDescriptorQualifierPair | rdfs:label
 meshv:DisallowedDescriptorQualifierPair | meshv:active
-meshv:DisallowedDescriptorQualifierPair | meshv:lastActive
+meshv:DisallowedDescriptorQualifierPair | meshv:lastActiveYear
 meshv:DisallowedDescriptorQualifierPair | rdfs:label
 meshv:DescriptorQualifierPair | meshv:active
-meshv:DescriptorQualifierPair | meshv:lastActive
+meshv:DescriptorQualifierPair | meshv:lastActiveYear
 meshv:DescriptorQualifierPair | rdfs:label
 
 </div>

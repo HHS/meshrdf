@@ -118,7 +118,7 @@ meshv:SCR_Chemical | meshv:dateCreated
 meshv:SCR_Chemical | meshv:dateRevised
 meshv:SCR_Chemical | meshv:frequency
 meshv:SCR_Chemical | meshv:identifier
-meshv:SCR_Chemical | meshv:lastActive
+meshv:SCR_Chemical | meshv:lastActiveYear
 meshv:SCR_Chemical | meshv:note
 meshv:SCR_Chemical | meshv:previousIndexing
 meshv:SCR_Chemical | meshv:source
@@ -128,7 +128,7 @@ meshv:SCR_Disease | meshv:dateCreated
 meshv:SCR_Disease | meshv:dateRevised
 meshv:SCR_Disease | meshv:frequency
 meshv:SCR_Disease | meshv:identifier
-meshv:SCR_Disease | meshv:lastActive
+meshv:SCR_Disease | meshv:lastActiveYear
 meshv:SCR_Disease | meshv:note
 meshv:SCR_Disease | meshv:previousIndexing
 meshv:SCR_Disease | meshv:source
@@ -138,7 +138,7 @@ meshv:SCR_Protocol | meshv:dateCreated
 meshv:SCR_Protocol | meshv:dateRevised
 meshv:SCR_Protocol | meshv:frequency
 meshv:SCR_Protocol | meshv:identifier
-meshv:SCR_Protocol | meshv:lastActive
+meshv:SCR_Protocol | meshv:lastActiveYear
 meshv:SCR_Protocol | meshv:note
 meshv:SCR_Protocol | meshv:previousIndexing
 meshv:SCR_Protocol | meshv:source
@@ -148,7 +148,7 @@ meshv:SupplementaryConceptRecord | meshv:dateCreated
 meshv:SupplementaryConceptRecord | meshv:dateRevised
 meshv:SupplementaryConceptRecord | meshv:frequency
 meshv:SupplementaryConceptRecord | meshv:identifier
-meshv:SupplementaryConceptRecord | meshv:lastActive
+meshv:SupplementaryConceptRecord | meshv:lastActiveYear
 meshv:SupplementaryConceptRecord | meshv:note
 meshv:SupplementaryConceptRecord | meshv:previousIndexing
 meshv:SupplementaryConceptRecord | meshv:source

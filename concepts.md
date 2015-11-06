@@ -79,7 +79,7 @@ Subject | Predicate
 ------- | ---------
 meshv:Concept | meshv:active
 meshv:Concept | meshv:identifier
-meshv:Concept | meshv:lastActive
+meshv:Concept | meshv:lastActiveYear
 meshv:Concept | meshv:casn1_label
 meshv:Concept | meshv:registryNumber
 meshv:Concept | meshv:relatedRegistryNumber

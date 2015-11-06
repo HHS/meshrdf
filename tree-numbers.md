@@ -102,7 +102,7 @@ meshv:TreeNumber | meshv:parentTreeNumber | meshv:TreeNumber
 Subject | Predicate
 ------- | ---------
 meshv:TreeNumber | meshv:active
-meshv:TreeNumber | meshv:lastActive
+meshv:TreeNumber | meshv:lastActiveYear
 meshv:TreeNumber | rdfs:label
 
 </div>

@@ -16,7 +16,7 @@ resource: false
 * The graph for 2015 MeSH data, http://id.nlm.nih.gov/mesh/2015/, is now static. 
 * NLM has introduced two new predicates to MeSH RDF to handle obsolete content:
   * meshv:active - active content will have a value of 1, while inactive (obsolete) content will have a value of 0. 
-  * meshv:lastActive - this will indicate the last year in which MeSH content was active.
+  * meshv:lastActiveYear - this will indicate the last year in which MeSH content was active.
 * NLM has added NLM Classification Numbers to MeSH. A new predicate, meshv:nlmClassificationNumber, relates Descriptors to NLM Classification Numbers. 
 * meshv:DescriptorQualifierPairs now have labels. 
 

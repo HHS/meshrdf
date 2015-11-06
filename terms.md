@@ -121,7 +121,7 @@ meshv:Term | meshv:altLabel
 meshv:Term | meshv:dateCreated
 meshv:Term | meshv:entryVersion
 meshv:Term | meshv:identifier
-meshv:Term | meshv:lastActive
+meshv:Term | meshv:lastActiveYear
 meshv:Term | meshv:lexicalTag
 meshv:Term | meshv:prefLabel
 meshv:Term | meshv:sortVersion
