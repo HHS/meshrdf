@@ -15,9 +15,9 @@ MeSH RDF is updated nightly. In producing MeSH RDF, we have attempted to remain 
 
 [SPARQL Query Editor](http://id.nlm.nih.gov/mesh/query) 
 
-[SPARQL and URI Requests] (./sparql-and-uri-requests.html)
+[SPARQL and URI Requests](./sparql-and-uri-requests.html)
 
-[Download MeSH RDF Data] (ftp://ftp.nlm.nih.gov/online/mesh/)
+[Download MeSH RDF Data](ftp://ftp.nlm.nih.gov/online/mesh/)
 
 [Release Notes](./release-notes.html) 
 
