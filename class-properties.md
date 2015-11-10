@@ -19,6 +19,7 @@ meshv:CheckTag | meshv:identifier
 meshv:CheckTag | meshv:lastActiveYear
 meshv:CheckTag | rdfs:label
 meshv:CheckTag | meshv:active
+meshv:CheckTag | meshv:nlmClassificationNumber
 meshv:Concept | meshv:casn1_label
 meshv:Concept | meshv:identifier
 meshv:Concept | meshv:lastActiveYear
@@ -38,6 +39,7 @@ meshv:GeographicalDescriptor | meshv:lastActiveYear
 meshv:GeographicalDescriptor | meshv:onlineNote
 meshv:GeographicalDescriptor | meshv:previousIndexing
 meshv:GeographicalDescriptor | rdfs:label
+meshv:GeographicalDescriptor | meshv:nlmClassificationNumber
 meshv:PublicationType | meshv:active
 meshv:PublicationType | meshv:annotation
 meshv:PublicationType | meshv:dateCreated
@@ -48,6 +50,7 @@ meshv:PublicationType | meshv:identifier
 meshv:PublicationType | meshv:lastActiveYear
 meshv:PublicationType | meshv:previousIndexing
 meshv:PublicationType | rdfs:label
+meshv:PublicationType | meshv:nlmClassificationNumber
 meshv:Qualifier | meshv:active
 meshv:Qualifier | meshv:annotation
 meshv:Qualifier | meshv:dateCreated
@@ -112,6 +115,7 @@ meshv:TopicalDescriptor | meshv:onlineNote
 meshv:TopicalDescriptor | meshv:previousIndexing
 meshv:TopicalDescriptor | meshv:publicMeSHNote
 meshv:TopicalDescriptor | rdfs:label
+meshv:TopicalDescriptor | meshv:nlmClassificationNumber
 meshv:TreeNumber | meshv:active
 meshv:TreeNumber | meshv:lastActiveYear
 meshv:TreeNumber | rdfs:label
