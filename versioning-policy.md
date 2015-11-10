@@ -35,9 +35,9 @@ Predicate names are expressed in camel case. Class names have initial letters ca
 
 #### Deprecated URIs
 
-NLM occasionally deletes or revises MeSH content. NLM uses the boolean-typed meshv:active predicate to indicate whether content is active or not. A "1" value indicates that content is active. A "0" value indicates that content is obsolete. For obsolete content, the word "OBSOLETE" will be prepended to the rdfs:label, but the URI will remain active in most cases. The predicate meshv:lastActiveYear will indicate the most recent year in which the content was active. 
+NLM occasionally deletes or revises MeSH content. NLM uses the Boolean-typed meshv:active predicate to indicate whether content is active or not. A "1" value indicates that content is active. A "0" value indicates that content is obsolete. For obsolete content, the word "OBSOLETE" will be prepended to the rdfs:label, but the URI will remain active in most cases. The predicate meshv:lastActiveYear will indicate the most recent year in which the content was active. 
 
-Requests for deprecated URIs will still return an HTTP 200 status code, but no data will be available. We intend to address this in a future release. Additionally, some non-existing URIs will return HTTP 200 status codes? Any URI that fits a pattern expressed in our [URL rewrite document](https://github.com/HHS/lodestar/blob/meshrdf/web-ui/src/main/webapp/WEB-INF/urlrewrite.xml) will return an HTTP 200 status code, whether it is a valid URI or not. Keep this in mind when making requests based on URI patterns. 
+Requests for deprecated URIs will still return an HTTP 200 status code, but no data will be available. We intend to address this in a future release. Additionally, some non-existing URIs will return HTTP 200 status codes. Any URI that fits a pattern expressed in our [URL rewrite document](https://github.com/HHS/lodestar/blob/meshrdf/web-ui/src/main/webapp/WEB-INF/urlrewrite.xml) will return an HTTP 200 status code, whether it is a valid URI or not. Keep this in mind when making requests based on URI patterns. 
 
 ### Graphs
 
@@ -49,11 +49,11 @@ MeSH RDF data are expressed in a current, versionless graph and versioned graphs
 * http://id.nlm.nih.gov/mesh/2016 (2016)
 * http://id.nlm.nih.gov/mesh/2015 (2015)
 
-Use these graphs to run SPARQL queries on MeSH RDF data. NLM plans to retain no more than three years of versioned graphs, and NLM will not produced versioned graphs for data prior to 2015 MeSH. 
+Use these graphs to run SPARQL queries on MeSH RDF data. NLM plans to retain no more than three years of versioned graphs, and NLM will not produce versioned graphs for data prior to 2015 MeSH. 
 
 #### Vocabulary Graph
 
-MeSH RDF's vocabulary is expressed in a versionless graph:
+The MeSH RDF vocabulary is expressed in a versionless graph:
 
 * http://id.nlm.nih.gov/mesh/vocab 
 
@@ -84,12 +84,12 @@ Current MeSH RDF data are available for download in .nt (N-Triples format).
 * Filename: mesh.nt 
 * Location: ftp://ftp.nlm.nih.gov/online/mesh/
 
-Versioned MeSH data are available in subdirectories labeled by year. MeSH XML and DTDs are also available without restriction. Note that MeSH RDF data are expressed in a single file (for example, mesh2015.nt), while the XML data are grouped into files for Descriptors, Qualifiers and Supplementary Concept Records.
+Versioned MeSH data are available in subdirectories labeled by year. MeSH XML and DTDs are also available without restriction. Note that MeSH RDF data are expressed in a single file (for example, mesh2016.nt), while the XML data are grouped into files for Descriptors, Qualifiers and Supplementary Concept Records. For example:
 
-* 2015 MeSH RDF Filename: mesh2015.nt 
-* 2015 XML Data Filenames: desc2015.xml, qual2015.xml, supp2015.xml
-* 2015 XML DTD Filenames: desc2015.dtd, qual2015.dtd, supp2015.dtd
-* 2015 Data Location: ftp://ftp.nlm.nih.gov/online/mesh/2015/
+* 2016 MeSH RDF Filename: mesh2016.nt 
+* 2016 XML Data Filenames: desc2016.xml, qual2016.xml, supp2016.xml
+* 2016 XML DTD Filenames: desc2016.dtd, qual2016.dtd, supp2016.dtd
+* 2016 Data Location: ftp://ftp.nlm.nih.gov/online/mesh/2016/
 
 #### Vocabulary Files
 
