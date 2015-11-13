@@ -17,6 +17,7 @@ resource: false
 * NLM has introduced two new predicates to MeSH RDF to handle obsolete content:
   * meshv:active - active content will have a value of 1, while inactive (obsolete) content will have a value of 0. 
   * meshv:lastActiveYear - this will indicate the last year in which MeSH content was active.
+* Labels for inactive content will have the word "OBSOLETE" prepended to them. 
 * NLM has added NLM Classification Numbers to MeSH. A new predicate, meshv:nlmClassificationNumber, relates Descriptors to NLM Classification Numbers. 
 * meshv:DescriptorQualifierPairs now have labels. 
 
