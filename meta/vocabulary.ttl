@@ -310,7 +310,7 @@ dct:description rdf:type :AnnotationProperty .
                                           
                                           rdfs:label "active" ;
                                           
-                                          dct:description "A property of things indicating whether they still appear in the most recently released MeSH year" ;
+                                          dct:description "A property of MeSH objects indicating whether they still appear in the current version of the most recently released MeSH year" ;
                                           
                                           rdfs:range xsd:boolean .
 
@@ -432,13 +432,13 @@ dct:description rdf:type :AnnotationProperty .
 
 ###  http://id.nlm.nih.gov/mesh/vocab#lastActive
 
-<http://id.nlm.nih.gov/mesh/vocab#lastActive> rdf:type :DatatypeProperty ;
+<http://id.nlm.nih.gov/mesh/vocab#lastActiveYear> rdf:type :DatatypeProperty ;
                                               
-                                              rdfs:label "lastActive" ;
+                                              rdfs:label "lastActiveYear" ;
                                               
-                                              dct:description "The lastActive property value is the IRI for the last years graph that contained the hierarchy." ;
+                                              dct:description "The lastActiveYear property value is the year in which the subject last appeared.  If that year is still hosted, a new URI can be constructed." ;
                                               
-                                              rdfs:range xsd:anyURI .
+                                              rdfs:range xsd:string .
 
 
 
