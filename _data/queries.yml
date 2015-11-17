@@ -6,6 +6,8 @@
   string: |+
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+   PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
    
    SELECT DISTINCT ?p
    FROM <http://id.nlm.nih.gov/mesh>
@@ -22,6 +24,8 @@
   string: |+
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+   PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
    
    SELECT DISTINCT ?class
@@ -38,6 +42,8 @@
   type: Getting Started
   string: |+
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+   PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    
    SELECT *
@@ -53,6 +59,8 @@
   string: |+
    
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+   PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
@@ -70,6 +78,8 @@
   string: |+
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+   PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
    SELECT ?d ?dLabel
@@ -89,6 +99,8 @@
   string: |+
      PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
      PREFIX meshv:  <http://id.nlm.nih.gov/mesh/vocab#>
+     PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+     PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
      
      SELECT distinct ?d ?dLabel  
@@ -105,6 +117,8 @@
   type: Transitive
   string: |+
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+   PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
@@ -125,6 +139,8 @@
   type: Transitive
   string: |+
     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
@@ -145,6 +161,8 @@
   type: String
   string: |+
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+   PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
    
@@ -162,11 +180,13 @@
     }
     ORDER BY ?d
   
-- name: Find all MeSH Descriptors created for 2015 MeSH that are treed under diseases.
+- name: Find all MeSH Descriptors created for 2016 MeSH that are treed under diseases.
   notes: This query leverages the MeSH 'C' tree to find new diseases in MeSH.
   type: Aggregation
   string: |+
     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -180,7 +200,7 @@
     ?d rdfs:label ?name .
     ?d meshv:treeNumber ?tn .
     ?d meshv:dateEstablished ?dateEstablished
-    FILTER(?dateEstablished = xsd::date("2015-01-01"))
+    FILTER(?dateEstablished = xsd::date("2016-01-01"))
     FILTER(REGEX(?tn,"C"))
    
     }
@@ -195,6 +215,8 @@
      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
      PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
      PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+     PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+     PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
      
      SELECT ?t ?pred ?label
      
@@ -215,6 +237,8 @@
     PREFIX owl: <http://www.w3.org/2002/07/owl#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
     
     SELECT ?qualifier ?baseTreeNum (count(?baseTreeNum) AS ?count) WHERE {
     SELECT ?qualifier (SUBSTR(?tnLabel,1,3) AS ?baseTreeNum)
@@ -234,4 +258,24 @@
     }
     GROUP BY ?qualifier ?baseTreeNum
     ORDER BY ?baseTreeNum
+
+- name: Retrieve a list of descriptors that are no longer active in current MeSH.
+  string: |+
+     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+     PREFIX owl: <http://www.w3.org/2002/07/owl#>
+     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+     PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+     PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+     
+          SELECT *
+          FROM <http://id.nlm.nih.gov/mesh>
+          WHERE { 
+             ?d meshv:active ?status .
+             ?d rdfs:label ?name .
+             ?d a meshv:Descriptor
+             FILTER(?status=0)
+ 
+            }
 
