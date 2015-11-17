@@ -103,8 +103,6 @@ meshv:TreeNumber | meshv:parentTreeNumber | meshv:TreeNumber
 {:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:TreeNumber | meshv:active
-meshv:TreeNumber | meshv:lastActiveYear
 meshv:TreeNumber | rdfs:label
 
 </div>
@@ -179,4 +177,3 @@ where {
   }
 }
 ```
-
