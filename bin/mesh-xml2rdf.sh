@@ -30,12 +30,13 @@ else
 fi
 cd $($READLINK -e `dirname $0`/..)
 
-while getopts "h:j:y:u" opt; do
+while getopts "h:j:y:o:u" opt; do
   case $opt in
     h) export MESHRDF_HOME=$OPTARG ;;
     j) export SAXON_JAR=$OPTARG ;;
     y) export MESHRDF_YEAR=$OPTARG ;; 
     u) export MESHRDF_URI_YEAR="yes" ;;
+    o) export OUTFILE_FORCE=$OPTARG ;;
     *) echo "Usage: $0 [-h mesh-rdf-home] [-j saxon-jar-path] [-y year ]" 1>&2 ; exit 1 ;;
   esac
 done
@@ -67,6 +68,10 @@ else
     OUTFILE=$OUTDIR/mesh
     URI_YEAR_PARAM=
     URI_PREFIX="http://id.nlm.nih.gov/mesh"
+fi
+
+if [ -n "$OUTFILE_FORCE" ]; then
+    OUTFILE=$OUTFILE_FORCE
 fi
 
 
