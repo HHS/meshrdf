@@ -87,13 +87,14 @@
    
    WHERE {
     ?d meshv:pharmacologicalAction ?pa.
+    ?d meshv:status 0
     ?d rdfs:label ?dLabel .
     ?pa rdfs:label "Anti-Bacterial Agents"@en
    }
    
    ORDER BY ASC (?dLabel)
    
-- name: Find all MeSH descriptors with an allowable qualifier of 'adverse effects'
+- name: Find all active MeSH descriptors with an allowable qualifier of 'adverse effects'
   notes: MeSH has rules that govern which qualifiers can be used with which MeSH Headings.
   type: Descriptors and Qualifiers
   string: |+
@@ -107,7 +108,8 @@
      FROM  <http://id.nlm.nih.gov/mesh>
      
      WHERE {  
-        ?d meshv:allowableQualifier ?q .  
+        ?d meshv:allowableQualifier ?q .
+        ?d meshv:active 1 .
         ?q rdfs:label "adverse effects"@en .  
         ?d rdfs:label ?dLabel  
      }
@@ -172,6 +174,7 @@
     WHERE {
       
     ?d a meshv:Descriptor .
+    ?d meshv:active 1 .
     ?d meshv:concept ?c .
     ?d rdfs:label ?dName .
     ?c rdfs:label ?cName
@@ -272,10 +275,9 @@
           SELECT *
           FROM <http://id.nlm.nih.gov/mesh>
           WHERE { 
-             ?d meshv:active ?status .
-             ?d rdfs:label ?name .
-             ?d a meshv:Descriptor
-             FILTER(?status=0)
+             ?d a meshv:Descriptor .
+             ?d meshv:active 0 .
+             ?d rdfs:label ?name
  
             }
 
