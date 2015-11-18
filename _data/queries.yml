@@ -87,7 +87,7 @@
    
    WHERE {
     ?d meshv:pharmacologicalAction ?pa.
-    ?d meshv:status 0
+    ?d meshv:active 1 .
     ?d rdfs:label ?dLabel .
     ?pa rdfs:label "Anti-Bacterial Agents"@en
    }
