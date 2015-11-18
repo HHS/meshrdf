@@ -37,7 +37,7 @@ Predicate names are expressed in camel case. Class names have initial letters ca
 
 NLM occasionally deletes or revises MeSH content. NLM uses the Boolean-typed meshv:active predicate to indicate whether content is active or not. A "1" value indicates that content is active. A "0" value indicates that content is obsolete. For obsolete content, the word "OBSOLETE" will be prepended to the rdfs:label, but the URI will remain active in most cases. The predicate meshv:lastActiveYear will indicate the most recent year in which the content was active. 
 
-Requests for deprecated URIs will still return an HTTP 200 status code, but no data will be available. We intend to address this in a future release. Additionally, some non-existing URIs will return HTTP 200 status codes. Any URI that fits a pattern expressed in our [URL rewrite document](https://github.com/HHS/lodestar/blob/meshrdf/web-ui/src/main/webapp/WEB-INF/urlrewrite.xml) will return an HTTP 200 status code, whether it is a valid URI or not. Keep this in mind when making requests based on URI patterns. 
+Requests for deprecated URIs will still return an HTTP 200 status code, but no data will be available. We intend to address this in a future release. Additionally, some non-existing URIs will return HTTP 200 status codes, even if they are not valid URIs. Keep this in mind when making requests based on URI patterns. 
 
 ### Graphs
 
@@ -88,7 +88,10 @@ Versioned MeSH data are available in subdirectories labeled by year. MeSH XML an
 
 * 2016 MeSH RDF Filename: mesh2016.nt 
 * 2016 XML Data Filenames: desc2016.xml, qual2016.xml, supp2016.xml
-* 2016 XML DTD Filenames: desc2016.dtd, qual2016.dtd, supp2016.dtd
+* 2016 XML DTD Filenames: 
+   * [nlmdescriptorrecordset_20160101.dtd](https://www.nlm.nih.gov/databases/dtd/nlmdescriptorrecordset_20160101.dtd)
+   * [nlmqualifierrecordset_20160101.dtd](https://www.nlm.nih.gov/databases/dtd/nlmqualifierrecordset_20160101.dtd)
+   * [nlmsupplementalrecordset_20160101.dtd](https://www.nlm.nih.gov/databases/dtd/nlmsupplementalrecordset_20160101.dtd)
 * 2016 Data Location: ftp://ftp.nlm.nih.gov/online/mesh/2016/
 
 #### Vocabulary Files
