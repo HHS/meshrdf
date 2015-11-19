@@ -458,7 +458,9 @@ dct:description rdf:type :AnnotationProperty .
                                                            
                                                            rdfs:label "nlmClassificationNumber" ;
                                                            
-                                                           dct:description "Each MeSH Descriptor has a corresponding class number in the NLM Classification.  This classification is similar to the Library of Congress Classification (LCC)." .
+                                                           dct:description "Each MeSH Descriptor has a corresponding class number in the NLM Classification.  This classification is similar to the Library of Congress Classification (LCC).";
+
+                                                           rdfs:range xsd:string .
 
 
 
