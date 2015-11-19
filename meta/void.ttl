@@ -57,15 +57,7 @@
     void:exampleResource <http://id.nlm.nih.gov/mesh/D000001> ;
 
 # FTP dump file
-    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2014/desc2014.nt" ;
-    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2014/qual2014.nt" ;
-    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2014/supp2014.nt" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/mesh.nt" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2016/mesh2016.nt" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2015/mesh2015.nt" .
 
-# triple count
-    void:triples "16644674"^^xsd:long ;
-
-# entity count
-    void:entities "1925662"^^xsd:long ;
-
-# distinct subject
-    void:distinctSubjects "1925662"^^xsd:long .
