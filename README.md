@@ -48,9 +48,9 @@ This saves the XML files to the `data` subdirectory of `$MESHRDF_HOME`.
 
 By default, it downloads the following:
 
-* desc2016.xml
-* qual2016.xml
-* supp2016.xml
+* `desc2016.xml`
+* `qual2016.xml`
+* `supp2016.xml`
 
 If you want to download a different year's data, use the `-y` argument when executing the script.
 For example: 
@@ -60,9 +60,9 @@ For example:
 When downloading a year less than or equal to 2015, `bin/fetch-mesh-xml.sh` will also download the DTDs.
 For example:
 
-* desc2015.dtd
-* qual2015.dtd
-* supp2015.dtd
+* `desc2015.xml` and `desc2015.dtd`
+* `qual2015.xml` and `qual2015.dtd`
+* `supp2015.xml` and `supp2015.dtd`
 
 
 ### Getting Saxon
