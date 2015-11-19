@@ -30,6 +30,17 @@ else
 fi
 cd $($READLINK -e `dirname $0`/..)
 
+while getopts "h:j:y:u" opt; do
+  case $opt in
+    h) export MESHRDF_HOME=$OPTARG ;;
+    j) export SAXON_JAR=$OPTARG ;;
+    y) export MESHRDF_YEAR=$OPTARG ;; 
+    u) export MESHRDF_URI_YEAR="yes" ;;
+    *) echo "Usage: $0 [-h mesh-rdf-home] [-j saxon-jar-path] [-y year ]" 1>&2 ; exit 1 ;;
+  esac
+done
+shift $(($OPTIND - 1))
+
 # Check for some needed environment variables
 if [ -z "$MESHRDF_HOME" ]; then
     echo "Please define MESHRDF_HOME environment variable" 1>&2
@@ -42,7 +53,7 @@ if [ -z "$SAXON_JAR" ]; then
 fi
 
 # Can override default year with MESHRDF_YEAR environment variable
-YEAR=${MESHRDF_YEAR:-2015}
+YEAR=${MESHRDF_YEAR:-2016}
 
 # Set the output file name, and the parameter that controls the RDF URIs,
 # according to whether or not MESHRDF_URI_YEAR is "yes"

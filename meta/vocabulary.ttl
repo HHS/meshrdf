@@ -9,7 +9,7 @@
 
 <http://id.nlm.nih.gov/mesh/vocab#> rdf:type :Ontology ;
                                     
-                                    :versionInfo "0.9" .
+                                    :versionInfo "0.9.3" .
 
 
 #################################################################
@@ -304,6 +304,18 @@ dct:description rdf:type :AnnotationProperty .
 
 
 
+###  http://id.nlm.nih.gov/mesh/vocab#active
+
+<http://id.nlm.nih.gov/mesh/vocab#active> rdf:type :DatatypeProperty ;
+                                          
+                                          rdfs:label "active" ;
+                                          
+                                          dct:description "A property of MeSH objects indicating whether they still appear in the current version of the most recently released MeSH year" ;
+                                          
+                                          rdfs:range xsd:boolean .
+
+
+
 ###  http://id.nlm.nih.gov/mesh/vocab#altLabel
 
 <http://id.nlm.nih.gov/mesh/vocab#altLabel> rdf:type :DatatypeProperty ;
@@ -418,6 +430,18 @@ dct:description rdf:type :AnnotationProperty .
 
 
 
+###  http://id.nlm.nih.gov/mesh/vocab#lastActive
+
+<http://id.nlm.nih.gov/mesh/vocab#lastActiveYear> rdf:type :DatatypeProperty ;
+                                              
+                                              rdfs:label "lastActiveYear" ;
+                                              
+                                              dct:description "The lastActiveYear property value is the year in which the subject last appeared.  If that year is still hosted, a new URI can be constructed." ;
+                                              
+                                              rdfs:range xsd:string .
+
+
+
 ###  http://id.nlm.nih.gov/mesh/vocab#lexicalTag
 
 <http://id.nlm.nih.gov/mesh/vocab#lexicalTag> rdf:type :DatatypeProperty ;
@@ -425,6 +449,18 @@ dct:description rdf:type :AnnotationProperty .
                                               rdfs:label "lexicalTag" ;
                                               
                                               dct:description "A property of Terms. A 3-letter value that indicates the lexical category. Valid values with their meanings in parentheses are: ABB (Abbreviation); ABX (Embedded abbreviation); ACR (Acronym); ACX (Embedded acronym); EPO (Eponym); LAB (Lab number); NAM (Proper name); NON (None); and TRD (Trade name). Note that in the XML, a Permuted Term will always have the same Lexical Tag value as the term from which it is generated." .
+
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#nlmClassificationNumber
+
+<http://id.nlm.nih.gov/mesh/vocab#nlmClassificationNumber> rdf:type :DatatypeProperty ;
+                                                           
+                                                           rdfs:label "nlmClassificationNumber" ;
+                                                           
+                                                           dct:description "Each MeSH Descriptor has a corresponding class number in the NLM Classification.  This classification is similar to the Library of Congress Classification (LCC).";
+
+                                                           rdfs:range xsd:string .
 
 
 
