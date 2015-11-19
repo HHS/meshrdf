@@ -17,8 +17,6 @@ resource: false
 
 ## Prior Releases
 
-Visit the [documentation archives](archives/index.html) for a snapshot of documentation from prior years.
-
 ### August 10, 2015
 
 #### SPARQL Endpoint Changes
