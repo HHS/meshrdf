@@ -35,34 +35,34 @@ MeSH XML files from the NLM server.  The latter option is described first.
 
 Since the complete MeSH data files are quite large, we assume that they'll be kept
 location on the filesystem that is separate from this GitHub repository.  Set the environment variable
-$MESHRDF_HOME to point to that location.  For example,
+`$MESHRDF_HOME` to point to that location.  For example,
 
     export MESHRDF_HOME=/var/data/mesh-rdf
 
-You can run the script *bin/fetch-mesh-xml.sh*, which downloads all the XML and corresponding
-DTD files from the NLM FTP server. For now, run it with the following command:
+You can run the script `bin/fetch-mesh-xml.sh`, which downloads all the XML and corresponding
+DTD files from the NLM FTP server.
 
-    MESHRDF_URI=ftp://ftp.nlm.nih.gov/online/mesh/.xmlmesh bin/fetch-mesh-xml.sh
+    bin/fetch-mesh-xml.sh
 
-This saves the XML files to the *data* subdirectory of $MESHRDF_HOME.
+This saves the XML files to the `data` subdirectory of `$MESHRDF_HOME`.
 
 By default, it downloads the following:
 
+* desc2016.xml
+* qual2016.xml
+* supp2016.xml
+
+If you want to download a different year's data, use the `-y` argument when executing the script.
+For example: 
+
+    bin/fetch-mesh-xml.sh -y 2015
+
+When downloading a year less than or equal to 2015, `bin/fetch-mesh-xml.sh` will also download the DTDs.
+For example:
+
 * desc2015.dtd
-* desc2015.xml
-* pa2015.dtd
-* pa2015.xml
 * qual2015.dtd
-* qual2015.xml
 * supp2015.dtd
-* supp2015.xml
-
-If you want to download a different year's data, set the MESHRDF_YEAR environment variable
-before executing the script. For example,
-
-    MESHRDF_YEAR=2014 \
-    MESHRDF_URI=ftp://ftp.nlm.nih.gov/online/mesh/.xmlmesh \
-    bin/fetch-mesh-xml.sh
 
 
 ### Getting Saxon
@@ -79,11 +79,11 @@ download version 9.5 (which is known to work with these XSLTs) from the command 
 
     wget http://sourceforge.net/projects/saxon/files/Saxon-HE/9.5/SaxonHE9-5-1-5J.zip
 
-Unzip that into the *saxon9he* subdirectory.  For example:
+Unzip that into the `saxon9he` subdirectory.  For example:
 
     unzip -d saxon9he SaxonHE9-5-1-5J.zip
 
-Set an environment variable SAXON_JAR to point to the executable Jar file:
+Set an environment variable `SAXON_JAR` to point to the executable Jar file:
 
     export SAXON_JAR=*repository-dir*/saxon9he/saxon9he.jar
 
@@ -94,40 +94,39 @@ appropriately.
 
 ### Converting the complete MeSH data set
 
-The conversion script is *mesh-xml2rdf.sh*. This shell script will run the XSLTs to convert each of 
+The conversion script is `bin/mesh-xml2rdf.sh`. This shell script will run the XSLTs to convert each of 
 the three main MeSH XML files into RDF N-Triples format, and put the results into the 
-*$MESHRDF_HOME/out* directory. 
+`$MESHRDF_HOME/out` directory. 
 
-By default, it looks for 2015 data files, and will produce *mesh.nt*, which is the 
-RDF in N-triples format, and *mesh.nt.gz*, a gzipped version. Also by default, these 
+By default, it looks for 2016 data files, and will produce `mesh.nt`, which is the 
+RDF in N-triples format, and `mesh.nt.gz`, a gzipped version. Also by default, these 
 data files will have RDF URIs that do not include the year. For example, the descriptor for 
-Ofloxacin would have the URI http://id.nlm.nih.gov/mesh/D015242.
+Ofloxacin would have the URI `http://id.nlm.nih.gov/mesh/D015242`.
 
-As with the fetch script, described above, you can use the MESHRDF_YEAR environment variable
-to specify that it convert a different set of data files. For example:
+As with the fetch script, described above, you can use the `-y` argument to 
+specify that it convert a different set of data files. For example:
 
-    MESHRDF_YEAR=2014 bin/mesh-xml2rdf.sh
+    bin/mesh-xml2rdf.sh -y 2015
 
-This uses the 2014 data files to produce the "current" RDF output files *out/mesh.nt*
-and *out/mesh.nt.gz*.
+This uses the 2015 data files to produce the "current" RDF output files `out/mesh.nt`
+and `out/mesh.nt.gz`.
 
-To produce RDF data that has URIs with the year, then you should also set the
-MESHRDF_URI_YEAR variable to "yes".  Thus, the following uses the 2014 MeSH XML files to
-generate the data that has RDF URIs that include the year:
+To produce RDF data that has URIs with the year, then you should also use the `-u` argument.
+Thus, the following uses the 2015 MeSH XML files to generate the data that has RDF URIs that include the year:
 
-    MESHRDF_YEAR=2014 MESHRDF_URI_YEAR=yes bin/mesh-xml2rdf.sh
+    bin/mesh-xml2rdf.sh -y 2015 -u
 
-In this case, the output data files will be written to *out/2014/mesh2014.nt* and
-*out/2014/mesh2014.nt.gz*.
+In this case, the output data files will be written to `out/2014/mesh2014.nt` and
+`out/2014/mesh2014.nt.gz`.
 
 
 ### Generating and converting the sample files
 
-In the *samples* subdirectory are a number of sample files that can be used for testing.
+In the `samples` subdirectory are a number of sample files that can be used for testing.
 The XML files here are generated from the full MeSH XML files, but are included in the
 repository so that anyone can get up and running, and try things out, very easily.
 
-The *sample-list.txt* file has the list of items from each of the three main XML
+The `sample-list.txt` file has the list of items from each of the three main XML
 files that provide a fairly good coverage of the variation of data found within MeSH.
 
 These three sample files, corresponding to that list and the three main XML files,
@@ -137,14 +136,14 @@ are included in the repository:
 * qual-samples.xml
 * supp-samples.xml
 
-The Perl script *make-samples.pl* can be used to regenerate these sample files from the
-master XML files, extracting just those items that are listed in the *sample-list.txt*
+The Perl script `make-samples.pl` can be used to regenerate these sample files from the
+master XML files, extracting just those items that are listed in the `sample-list.txt`
 file, if any of those changes.  So, keep in mind that these samples in the repository are
 used for testing/demo purposes, and are not necessarily up-to-date with the latest MeSH
 release.
 
-Finally, the script *convert-samples.sh* can be used to convert the sample XML files into 
-RDF, the final output being *samples.nt*.
+Finally, the script `convert-samples.sh` can be used to convert the sample XML files into 
+RDF, the final output being `samples.nt`.
 
 ***Note that the generated RDF will be missing a lot of meshv:parentTreeNumber 
 relationships, because those are generated from the tree node identifiers to link between 
@@ -159,17 +158,19 @@ These are the subdirectories of this project -- either part of the repository, o
 * *bin* - Scripts for fetching the XML and running the conversions
 * *meta* - Schema for the RDF, and other documentation
 * *rnc* - Relax NG Compact version of the MeSH XML file schema (experimental, not normative)
-* *samples* - XML data files for testing and demo purposes, which each contain a small subset
+* *samples* - XML data files and scripts for testing and demo purposes, which each contain a small subset
   of the items from the real XML data files, as described above.
 * *xslt* - The main XSLT processor files that convert the XML into RDF.
+* *data* - an NTriples files containing rdfs:label for Central Nervous System diseases in 14 languages.  This is included as an example.
+         
 
-These are the subdirectories of the $MESHRDF_HOME directory, which typically (but not necessarily)
+These are the subdirectories of the `$MESHRDF_HOME` directory, which typically (but not necessarily)
 is set to some separate location:
 
-* *data* - Source MeSH XML and DTD files. These files are quite large, and change often,
+* *data* - Source MeSH XML files. These files are moderately large, and change often,
   so they are not part of the repository, but should be downloaded separately, as described above.
 * *out* - Product RDF files, in n-triples format.  The conversion scripts write these product
-  files here.
+  files here.  Copies of the data files may also appear here.
 
 
 ## Virtuoso setup
@@ -193,7 +194,7 @@ Build:
     ./autogen.sh
     CFLAGS="-O2 -m64"
     export CFLAGS
-    ./configure --prefix=$VIRTUOSO_HOME
+    ./configure --prefix=$VIRTUOSO_HOME --with-readline
     make
     make install
 
@@ -205,9 +206,7 @@ Start up of server:
 Shutdown of server (see [the Virtuoso
 documentation](http://data-gov.tw.rpi.edu/wiki/How_to_install_virtuoso_sparql_endpoint#Manual_Shutdown)):
 
-    $VIRTUOSO_HOME/bin/isql 1111 dba <password>
-    SQL> shutdown();
-
+    kill -s SIGTERM `cut -d= -f2 $VIRTUOSO_HOME/virtuoso/var/lib/virtuoso/db/virtuoso.lck` 
 
 ## Technical documentation on GitHub pages
 
