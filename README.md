@@ -111,20 +111,13 @@ specify that it convert a different set of data files. For example:
 This uses the 2015 data files to produce the "current" RDF output files `out/mesh.nt`
 and `out/mesh.nt.gz`.
 
-To produce RDF data that has URIs with the year, then you should also use the `-u` argument.
-Thus, the following uses the 2015 MeSH XML files to generate the data that has RDF URIs that include the year:
+To produce RDF data that has URIs with the year, you should also use the `-u` argument.
+For example, the following generates RDF URIs that include the year:
 
     bin/mesh-xml2rdf.sh -y 2015 -u
 
 In this case, the output data files will be written to `out/2015/mesh2015.nt` and
 `out/2015/mesh2015.nt.gz`.   
-
-If you wish to explicitly control the location of these output files, you can use the `-o` argument.
-For example:
-
-    bin/mesh-xml2rdf.sh -y 2015 -o mesh2015-current
-
-In this case the output files will be written to `mesh2015-noyear.nt` and `mesh2015-noyear.nt.gz`.
 
 ### IRI preservation and versioning
 
