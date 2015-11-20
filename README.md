@@ -1,4 +1,4 @@
-# MeSH® RDF
+# MeSHÂ® RDF
 
 ***Status:  Beta.  Feedback is [welcome](https://github.com/HHS/meshrdf/issues).***
 
@@ -123,12 +123,10 @@ In this case, the output data files will be written to `out/2015/mesh2015.nt` an
 
 The vocabulary, `meta/vocabulary.ttl`, includes data proprerties used to indicate
 which entities are still present in MeSH XmL, and which are no longer present.
+However, these scripts produce N-triples files that are inputs to the data
+processing that preserves URIs and adds these properties.
 
-The scripts described here produce N-triples files that are inputs to the data
-processing that preserves URis and adds these properties.
-
-Once this data processing is released, you can
-obtain N-triples files preserving IRIs for these entities from
+You can get N-triples files preserving URIs from
 [mesh.nt.gz](ftp://ftp.nlm.nih.gov/online/mesh/mesh.nt.gz) and
 [mesh.nt](ftp://ftp.nlm.nih.gov/online/mesh/mesh.nt) online.
 
