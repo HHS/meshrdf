@@ -32,9 +32,5 @@ if [ $YEAR -le 2015 ]; then
     wget "$URI/desc$YEAR.dtd" -O "$MESHRDF_HOME/data/desc$YEAR.dtd"
     wget "$URI/qual$YEAR.dtd" -O "$MESHRDF_HOME/data/qual$YEAR.dtd"
     wget "$URI/supp$YEAR.dtd" -O "$MESHRDF_HOME/data/supp$YEAR.dtd"
-else
-    echo "running sed for supp$YEAR.xml DTD problem"
-    sed -i -e "s,supp$YEAR.dtd,https://www.nlm.nih.gov/databases/dtd/nlmsupplementalrecordset_20160101.dtd," "$MESHRDF_HOME/data/supp$YEAR.xml"
-    echo "completed sed or supp$YEAR.xml DTD problem"
 fi
 
