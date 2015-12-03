@@ -51,26 +51,6 @@ MeSH RDF data are expressed in a current, versionless graph and versioned graphs
 
 Use these graphs to run SPARQL queries on MeSH RDF data. NLM plans to retain no more than three years of versioned graphs, and NLM will not produce versioned graphs for data prior to 2015 MeSH. 
 
-#### Vocabulary Graph
-
-The MeSH RDF vocabulary is expressed in a versionless graph:
-
-* http://id.nlm.nih.gov/mesh/vocab 
-
-This graph expresses the MeSH vocabulary schema, which describes and relates the various predicates and classes in MeSH RDF. 
-
-* Types of classes and properties (expressed by rdf:type)
-* Class and property labels (rdfs:label)
-* Subproperty and subclass relationships (rdfs:subClassOf)
-* Disjoint relationships between classes or properties (owl:disjointWith, owl:propertyDisjointWith)
-* Descriptions of classes and properties (dct:description)
-
-#### VoID Graph
-
-The VoID graph is versionless and contains metadata about MeSH RDF:
-
-* http://id.nlm.nih.gov/mesh/void
-
 ### FTP Download Files
 
 NLM makes available MeSH RDF files for download:
