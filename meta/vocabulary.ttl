@@ -458,7 +458,9 @@ dct:description rdf:type :AnnotationProperty .
                                                            
                                                            rdfs:label "nlmClassificationNumber" ;
                                                            
-                                                           dct:description "A property of Descriptors. Most MeSH Descriptors have a corresponding NLM Classification (the system for the organization of literature). Descriptors that lack an NLM Classification Number include those that point to more than one number, those in the Z Tree (Geographicals), and many of those in the V Tree (Publication Characteristics). This NLM classification is similar to the Library of Congress Classification (LCC)." .
+                                                           dct:description "A property of Descriptors. Most MeSH Descriptors have a corresponding NLM Classification (the system for the organization of literature). Descriptors that lack an NLM Classification Number include those that point to more than one number, those in the Z Tree (Geographicals), and many of those in the V Tree (Publication Characteristics). This NLM classification is similar to the Library of Congress Classification (LCC)." ;
+
+                                                           rdfs:range xsd:string .
 
 
 
