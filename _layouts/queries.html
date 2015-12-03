@@ -83,15 +83,15 @@
         <h2>{{page.title}}</h2>
         <select class = "form-control" onchange="location = this.options[this.selectedIndex].value;">
              {% for query in site.data.queries %}
-             <option value = "#sample-query-{{forloop.index}}">{{ query.name }}</option>
+             <option value = "#sample-queries-{{ query.name | downcase | replace: ' ', '-' }}">{{forloop.index}}: {{ query.name }}</option>
              {% endfor %}
         </select>
         <br/>
         {% for query in site.data.queries %}
-        <a name = "sample-query-{{forloop.index}}"/><h4 class = "inline-header">#{{forloop.index}}: {{ query.name }}</h4></a>
-        <div class = "sample-queries {{ query.name | downcase | replace: ' ', '-' }}">
+        <a name = "sample-queries-{{ query.name | downcase | replace: ' ', '-' }}"/><h4 class = "inline-header">#{{forloop.index}}: {{ query.name }}</h4></a>
+        <div class = "sample-queries-{{ query.name | downcase | replace: ' ', '-' }}">
         {{query.string | xml_escape | newline_to_br }}
-        <a role = "button" class = "btn btn-success" href = "{{query.string | cgi_escape | prepend: 'http://id.nlm.nih.gov/mesh/query?query=' | append: '&inference=true' }}" target = "_blank">Run This Query</a>
+        <a role = "button" class = "btn btn-success" href = "{{query.string | cgi_escape | prepend: 'http://iddev.nlm.nih.gov/mesh/query?query=' | append: '&inference=true' }}" target = "_blank">Run This Query</a>
         </div>
         {% if forloop.index > 1 %}
         <a href = "#top">return to top</a>

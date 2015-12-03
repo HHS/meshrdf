@@ -1,5 +1,25 @@
 #important - see _config.yml query-types for the list of allowable query types.
 
+- name: Retrieve a list of descriptors that are no longer active in current MeSH and when they were last active.
+  string: |+
+     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+     PREFIX owl: <http://www.w3.org/2002/07/owl#>
+     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+     PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+     PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+     
+          SELECT *
+          FROM <http://id.nlm.nih.gov/mesh>
+          WHERE { 
+             ?d a meshv:Descriptor .
+             ?d meshv:active 0 .
+             ?d meshv:lastActiveYear ?year .
+             ?d rdfs:label ?name
+ 
+            }
+
 - name: Retrieve a list of predicates in MeSH RDF
   notes: This query gives a complete list of MeSH RDF predicates
   type: Getting Started
@@ -261,23 +281,4 @@
     }
     GROUP BY ?qualifier ?baseTreeNum
     ORDER BY ?baseTreeNum
-
-- name: Retrieve a list of descriptors that are no longer active in current MeSH.
-  string: |+
-     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-     PREFIX owl: <http://www.w3.org/2002/07/owl#>
-     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-     PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
-     PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
-     
-          SELECT *
-          FROM <http://id.nlm.nih.gov/mesh>
-          WHERE { 
-             ?d a meshv:Descriptor .
-             ?d meshv:active 0 .
-             ?d rdfs:label ?name
- 
-            }
 
