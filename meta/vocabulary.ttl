@@ -310,7 +310,7 @@ dct:description rdf:type :AnnotationProperty .
                                           
                                           rdfs:label "active" ;
                                           
-                                          dct:description "A property of MeSH objects indicating whether they still appear in the current version of the most recently released MeSH year" ;
+                                          dct:description "A property of all classes. A Boolean-typed property that indicates whether MeSH content is active in the current MeSH year." ;
                                           
                                           rdfs:range xsd:boolean .
 
@@ -430,13 +430,13 @@ dct:description rdf:type :AnnotationProperty .
 
 
 
-###  http://id.nlm.nih.gov/mesh/vocab#lastActive
+###  http://id.nlm.nih.gov/mesh/vocab#lastActiveYear
 
 <http://id.nlm.nih.gov/mesh/vocab#lastActiveYear> rdf:type :DatatypeProperty ;
                                               
                                               rdfs:label "lastActiveYear" ;
                                               
-                                              dct:description "The lastActiveYear property value is the year in which the subject last appeared.  If that year is still hosted, a new URI can be constructed." ;
+                                              dct:description "A property of all classes. Indicates the most recent year in which inactive MeSH content was active." ;
                                               
                                               rdfs:range xsd:string .
 
@@ -458,9 +458,7 @@ dct:description rdf:type :AnnotationProperty .
                                                            
                                                            rdfs:label "nlmClassificationNumber" ;
                                                            
-                                                           dct:description "Each MeSH Descriptor has a corresponding class number in the NLM Classification.  This classification is similar to the Library of Congress Classification (LCC).";
-
-                                                           rdfs:range xsd:string .
+                                                           dct:description "A property of Descriptors. Most MeSH Descriptors have a corresponding NLM Classification (the system for the organization of literature). Descriptors that lack an NLM Classification Number include those that point to more than one number, those in the Z Tree (Geographicals), and many of those in the V Tree (Publication Characteristics). This NLM classification is similar to the Library of Congress Classification (LCC)." .
 
 
 
