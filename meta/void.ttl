@@ -15,7 +15,7 @@
     dcterms:creator "U.S. National Library of Medicine" ;
     dcterms:date "2014-11-01"^^xsd:date ;
     foaf:primaryTopic <http://id.nlm.nih.gov/mesh/void#MeSHRDF> ;
-    owl:versionInfo "0.9.3" .
+    owl:versionInfo "0.9.4-dev" .
 
 
 # Metadata description of the Dataset

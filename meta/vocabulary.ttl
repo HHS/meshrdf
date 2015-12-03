@@ -9,7 +9,7 @@
 
 <http://id.nlm.nih.gov/mesh/vocab#> rdf:type :Ontology ;
                                     
-                                    :versionInfo "0.9.3" .
+                                    :versionInfo "0.9.4-dev" .
 
 
 #################################################################
