@@ -82,8 +82,9 @@
   <div class = "container-fluid col-md-10 col-sm-10 col-xs-10 main-content">
         <h2>{{page.title}}</h2>
         <select class = "form-control" onchange="location = this.options[this.selectedIndex].value;">
+             <option label = "Select from a query below" value = "Select from a query below" disabled = "disabled" selected = "selected">Select from a query below</option>
              {% for query in site.data.queries %}
-             <option value = "#sample-queries-{{ query.name | downcase | replace: ' ', '-' }}">{{forloop.index}}: {{ query.name }}</option>
+             <option label = "{{ query.name }}" value = "#sample-queries-{{ query.name | downcase | replace: ' ', '-' }}">{{forloop.index}}: {{ query.name }}</option>
              {% endfor %}
         </select>
         <br/>
