@@ -23,7 +23,7 @@ query | Accepts a SELECT SPARQL query | Accepts a CONSTRUCT SPARQL query | N/A |
 
 ### URI Data Requests
 
-The table below describes URL patterns and Accept Headers that applications can use to retrieve MeSH linked data from URIs in various formats. Users can also append the format to the end of the URI (e.g. D000900.html) to specify the desired return format.
+The table below describes URL patterns and Accept Headers that applications can use to retrieve MeSH linked data from URIs in various formats. Users can also append the format to the end of the URI (e.g.: D000900.html) to specify the desired return format.
 
 All URLs assume the prefix http://id.nlm.nih.gov/
 

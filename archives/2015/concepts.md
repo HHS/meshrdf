@@ -2,6 +2,8 @@
 title: Concepts
 layout: page
 resource: true
+archived: true
+mesh-year: 2015
 categories:
 - Data Model
 ---
@@ -77,15 +79,12 @@ meshv:TopicalDescriptor | meshv:preferredConcept | meshv:Concept
 {:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:Concept | meshv:active
-meshv:Concept | meshv:identifier
-meshv:Concept | meshv:lastActiveYear
 meshv:Concept | meshv:casn1_label
+meshv:Concept | meshv:identifier
 meshv:Concept | meshv:registryNumber
 meshv:Concept | meshv:relatedRegistryNumber
 meshv:Concept | meshv:scopeNote
 meshv:Concept | rdfs:label
-
 
 </div>
 </div>
@@ -109,4 +108,3 @@ where {
     ?prefcon ?p ?o .
 }
 ```
-

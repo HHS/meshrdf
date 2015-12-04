@@ -36,15 +36,10 @@ body {
 }
 
 
-.btn:hover, .btn:active{
+.btn:hover, .btn:active .btn a:active{
  background-color: #F06018;
  color:white;
  text-decoration: none;
-}
-
-.navbar-btn > .btn-group  > a.btn {
-  
-  color:white;
 }
 
 .dropdown-menu li a:hover{

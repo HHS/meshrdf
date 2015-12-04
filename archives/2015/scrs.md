@@ -2,6 +2,8 @@
 title: Supplementary Concept Records
 layout: page
 resource: true
+archived: true
+mesh-year: 2015
 categories:
 - Data Model
 ---

@@ -9,13 +9,22 @@ resource: false
 
 ## Latest Release
 
+### December 3, 2015
+
+* NLM has introduced two new predicates to MeSH RDF to handle obsolete content:
+  * meshv:active - active content will have a value of 1, while inactive (obsolete) content will have a value of 0. 
+  * meshv:lastActiveYear - this will indicate the last year in which MeSH content was active. That year can be used to construct a versioned URI to retrieve data about that content. 
+* Labels for inactive content will have the string "[OBSOLETE]" prepended to them. 
+
+## Prior Releases
+
 ### November 19, 2015
 
 * MeSH RDF has been updated to include the 2016 MeSH data. See [MeSH vocabulary changes for 2016](https://www.nlm.nih.gov/mesh/introduction.html#changes).
 * NLM has minted a new graph, http://id.nlm.nih.gov/mesh/2016/. This graph will stay in sync with the http://id.nlm.nih.gov/mesh/ graph until 2017 MeSH data is released.
 * The graph for 2015 MeSH data, http://id.nlm.nih.gov/mesh/2015/, is now static. 
-
-## Prior Releases
+* NLM has added NLM Classification Numbers to MeSH. A new predicate, meshv:nlmClassificationNumber, relates Descriptors to NLM Classification Numbers. 
+* meshv:DescriptorQualifierPairs now have labels. 
 
 ### August 10, 2015
 
@@ -86,3 +95,9 @@ predicate | meshv:related | Removed | Replaced by meshv:relatedConcept
 predicate | meshv:runningHead | Removed |
 class | meshv:SemanticType | Removed |
 predicate | meshv:semanticType | Removed |
+
+
+
+
+
+

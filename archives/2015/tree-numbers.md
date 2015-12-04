@@ -2,6 +2,8 @@
 title: Tree Numbers
 layout: page
 resource: true
+archived: true
+mesh-year: 2015
 categories:
 - Data Model
 ---
@@ -101,8 +103,6 @@ meshv:TreeNumber | meshv:parentTreeNumber | meshv:TreeNumber
 {:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
-meshv:TreeNumber | meshv:active
-meshv:TreeNumber | meshv:lastActiveYear
 meshv:TreeNumber | rdfs:label
 
 </div>
@@ -177,4 +177,3 @@ where {
   }
 }
 ```
-
