@@ -3,6 +3,4 @@ saxon9*
 /data/*.xml
 /data/*.dtd
 /data/readme*
-/lodestar-overlay/target
-/lodestar-overlay/test-output
 /out
