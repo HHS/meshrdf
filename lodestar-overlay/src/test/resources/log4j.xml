@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+  <!-- Console Appender -->
+  <appender name="console" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%-5p: [%d{MMM-dd HH:mm:ss,SSS}][%t] %c{3} - %m%n"/>
+    </layout>
+  </appender>
+  <!-- File Appender -->
+  <appender name="file" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="lode-tests.log"/>
+    <param name="MaxFileSize" value="10000KB"/>
+    <param name="MaxBackupIndex" value="20"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%-5p: [%d{MMM-dd HH:mm:ss,SSS}][%t] %c{3} - %m%n"/>
+    </layout>
+  </appender>
+  <logger name="gov.nih.nlm.occs.selenium">
+    <level value="debug"/>
+  </logger>
+  <!-- Root Logger -->
+  <root>
+    <level value="info"/>
+    <appender-ref ref="console"/>
+    <appender-ref ref="file"/>
+  </root>
+</log4j:configuration>

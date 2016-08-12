@@ -1,6 +1,8 @@
-Saxon*.zip
-saxon9he
-data/*.xml
-data/*.dtd
-data/readme*
-out
+/Saxon*.zip
+saxon9*
+/data/*.xml
+/data/*.dtd
+/data/readme*
+/lodestar-overlay/target
+/lodestar-overlay/test-output
+/out

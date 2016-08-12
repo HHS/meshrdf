@@ -1,0 +1,21 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@ page import="javax.servlet.jsp.ErrorData" %>
+    <%
+      String rp = request.getParameter("resource_prefix");
+      if (rp == null) {
+          String requestURI = request.getRequestURI();
+          ErrorData errorData = pageContext.getErrorData();
+          if (errorData != null && errorData.getRequestURI() != null) {
+              requestURI = errorData.getRequestURI();
+          }
+          String components[] = requestURI.split("/+");
+          int ncomps = (components.length >= 2 ? components.length - 2 : 0);
+          if (components[0].isEmpty()) ncomps -= 1;
+          rp = "";
+          for (int i = 0; i < ncomps; i++) {
+              rp += "../";
+          }
+      }
+      String resourcePrefix = rp == null ? "" : rp;
+    %>
+    <!-- resourcePrefix = '<%= resourcePrefix %>' -->

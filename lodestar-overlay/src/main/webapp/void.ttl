@@ -1,0 +1,63 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix freq: <http://purl.org/cld/freq/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://id.nlm.nih.gov/mesh/void#> .
+
+# Metadata about this VoID description
+<http://id.nlm.nih.gov/mesh/void> rdf:type void:DatasetDescription ;
+    dcterms:title "Medical Subject Headings (MeSH) RDF Dataset Description";
+    dcterms:description "This is the VoID description for MeSH RDF datasets.";
+    dcterms:creator "U.S. National Library of Medicine" ;
+    dcterms:date "2014-11-01"^^xsd:date ;
+    foaf:primaryTopic <http://id.nlm.nih.gov/mesh/void#MeSHRDF> ;
+    owl:versionInfo "0.9.4-dev" .
+
+
+# Metadata description of the Dataset
+
+:MeSHRDF a void:Dataset ;
+    foaf:homepage <http://id.nlm.nih.gov/mesh/> ;
+    foaf:page <http://www.nlm.nih.gov/mesh/filelist.html> ;
+    dcterms:title "Medical Subject Headings (MeSH) RDF"^^xsd:string ;
+    dcterms:description "The Medical Subject Headings (MeSH) vocabulary as a Linked Data service." ;
+    void:uriSpace "http://id.nlm.nih.gov/mesh/" ;
+    void:uriLookupEndpoint <http://id.nlm.nih.gov/mesh/> ;
+
+# License
+    dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+
+# Provenance
+    dcterms:creator "U.S. National Library of Medicine" ;
+    dcterms:publisher "U.S. National Library of Medicine" ;
+    dcterms:created "2014-11-01"^^xsd:date ;
+
+# Vocabularies, topics, resources
+    void:vocabulary <http://www.w3.org/2000/01/rdf-schema#> ,
+                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ,
+                    <http://www.w3.org/2001/XMLSchema#> ,
+                    <http://purl.org/dc/terms/> ,
+                    <http://www.w3.org/2004/02/skos/core#> ,
+                    <http://id.nlm.nih.gov/mesh/vocab#> ;
+
+# Database Access
+    void:sparqlEndpoint <http://id.nlm.nih.gov/mesh/sparql> ;
+
+# Major Topic in DBpedia
+    dcterms:subject <http://dbpedia.org/page/Medical_Subject_Headings> ;
+
+# other metadata
+    void:feature <http://www.w3.org/ns/formats/N3> ;
+
+# Example URI
+    void:exampleResource <http://id.nlm.nih.gov/mesh/D000001> ;
+
+# FTP dump file
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/mesh.nt" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2016/mesh2016.nt" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2015/mesh2015.nt" .
+

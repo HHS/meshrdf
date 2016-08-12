@@ -1,0 +1,97 @@
+
+/*
+ * Copyright (c) 2013 EMBL - European Bioinformatics Institute
+ * Licensed under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software distributed under the
+ * License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific language governing permissions
+ * and limitations under the License.
+ */
+
+a.externallink {
+    border-bottom-style: none;
+}
+
+#loadstar-results-table tbody {
+    vertical-align: top;
+    font-size: 0.9em;
+}
+
+#loadstar-results-table th,
+#loadstar-results-table td
+{
+    padding: 0.3em;
+}
+
+a.pag {
+    color: #A67325;
+}
+
+a.prev {
+    float:left;
+    padding-left: 4px;
+}
+
+a.next {
+    float:right;
+    padding-right: 4px;
+}
+
+span.pagmes {
+    color: #A67325;
+    padding-left: 40%;
+}
+
+.side {
+    display:inline }
+
+.topObjectDiv {
+    padding: 10px;
+    margin-left: 5px;
+    border: #d3d3d3 solid 1px;
+    min-height: 200px;
+}
+
+#app-details {
+    text-align:center;font-size:smaller;color: #d3d3d3;
+}
+
+#lodestar-sparql-form {
+    font-size: 100%;
+    font-family: Helvetica,sans-serif;
+    color: #444;
+}
+
+#lodestar-sparql-form fieldset{
+    border: 2px solid #eee;
+    padding: 0.5em 0.5em 0.5em 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: inherit;
+}
+
+#lodestar-sparql-form label {
+    margin-right: 1em;
+}
+
+.lodestar-grid12 {
+    width: 49.0%;
+    display: inline;
+    float: left;
+    position: relative;
+
+}
+
+#error-div {
+  border: 2px solid red;
+  background-color: #FDD;
+  border-radius: 10px;
+}
+#error-div .alert {
+  color: #600;
+  font-style: italic;
+  font-size: 110%;
+}
