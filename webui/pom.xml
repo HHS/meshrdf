@@ -20,8 +20,17 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
-                    <packagingExcludes>
-                    </packagingExcludes>
+                    <overlays>
+                        <overlay>
+                            <groupId>ebi-lode</groupId>
+                            <artifactId>web-ui</artifactId>
+                            <excludes>
+                                <exclude>index.html</exclude>
+                                <exclude>query.html</exclude>
+                                <exclude>explore.html</exclude>
+                            </excludes>
+                        </overlay>
+                    </overlays>
                 </configuration>
             </plugin>
             <plugin>
@@ -72,7 +81,7 @@
             <artifactId>web-ui</artifactId>
             <version>1.4-SNAPSHOT</version>
             <type>war</type>
-            <scope>compile</scope>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- NOTE: Tomcat is providing JSP API 3.0; be careful -->
@@ -89,6 +98,13 @@
             <artifactId>jsp-api</artifactId>
             <version>2.0</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- But Tomcat won't provide JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
         </dependency>
 
         <dependency>

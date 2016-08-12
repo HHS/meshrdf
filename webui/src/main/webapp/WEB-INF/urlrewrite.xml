@@ -58,49 +58,49 @@
   <rule>
     <name>token-html-to-explore-jsp</name>
     <from casesensitive="true">^/([DQMCT].*)\.html$</from>
-    <to>/servlet/explore/jsp?id=$1</to>
+    <to>/servlet/explore/jsp?uri=$1</to>
   </rule>
 
   <!-- mesh/2015/D065609.html -->
   <rule>
     <name>token-html-to-explore-jsp-2</name>
     <from casesensitive="true">^/(\d{4,4}/[DQMCT]\d{4,}(Q\d{4,})?)\.html$</from>
-    <to>/servlet/explore/jsp?id=$1&amp;resource_prefix=..%2F</to>
+    <to>/servlet/explore/jsp?uri=$1&amp;resource_prefix=..%2F</to>
   </rule>
 
   <rule>
     <name>token-to-explore-servlet-1</name>
     <condition name="Accept" type="header" operator="notequal">(text/html|\*/\*)</condition>
     <from casesensitive="true">^/([DQMCT]\d{4,}(Q\d{4,})?)$</from>
-    <to>/servlet/explore?id=$1</to>
+    <to>/servlet/explore?uri=$1</to>
   </rule>
 
   <!-- mesh/D015242.rdf, etc. - we have to make sure $2 is the extension -->
   <rule>
     <name>token-to-explore-servlet-2</name>
     <from casesensitive="true">^/([DQMCT]\d{4,})\.(.*)$</from>
-    <to>/servlet/explore?id=$1&amp;format=$2</to>
+    <to>/servlet/explore?uri=$1&amp;format=$2</to>
   </rule>
 
   <!-- mesh/2015/D015242.rdf, etc. - we have to make sure $2 is the extension -->
   <rule>
     <name>token-to-explore-servlet-3</name>
     <from casesensitive="true">^/(\d{4,4}\/[DQMCT]\d{4,})\.(.*)$</from>
-    <to>/servlet/explore?id=$1&amp;format=$2</to>
+    <to>/servlet/explore?uri=$1&amp;format=$2</to>
   </rule>
 
   <!-- mesh/D015242Q000378.rdf, etc. - we have to make sure $2 is the extension -->
   <rule>
     <name>descqual-to-explore-servlet-1</name>
     <from casesensitive="true">^/([DQMCT]\d{4,}Q\d{4,})\.(.*)$</from>
-    <to>/servlet/explore?id=$1&amp;format=$2</to>
+    <to>/servlet/explore?uri=$1&amp;format=$2</to>
   </rule>
 
   <!-- mesh/2015/D015242Q000378.rdf, etc. - we have to make sure $2 is the extension -->
   <rule>
     <name>descqual-to-explore-servlet-2</name>
     <from casesensitive="true">^/(\d{4,4}\/[DQMCT]\d{4,}Q\d{4,})\.(.*)$</from>
-    <to>/servlet/explore?id=$1&amp;format=$2</to>
+    <to>/servlet/explore?uri=$1&amp;format=$2</to>
   </rule>
 
   <!-- 
@@ -117,13 +117,13 @@
       <name>describe-token-2</name>
       <condition name="Accept" type="header" operator="notequal">(text/html|\*/\*)</condition>
       <from casesensitive="true">^/([ABCDEFGHIJKLMNVZ]\d{2}(?:\.\d+)*)$</from>
-      <to>/servlet/explore?id=$1</to>
+      <to>/servlet/explore?uri=$1</to>
   </rule>
 
   <rule>
       <name>describe-token-3</name>
       <from casesensitive="true">^/([ABCDEFGHIJKLMNVZ]\d{2}(?:\.\d+)*)\.(.*)$</from>
-      <to>/servlet/explore?id=$1&amp;format=$2</to>
+      <to>/servlet/explore?uri=$1&amp;format=$2</to>
   </rule>
 
   <rule>
@@ -226,7 +226,7 @@
     <rule>
       <name>commented-8</name>
       <from casesensitive="true">/depict/(.*)\.(.*)$</from>
-      <to>/servlet/explore?id=$1&amp;format=$2</to>
+      <to>/servlet/explore?uri=$1&amp;format=$2</to>
     </rule>
     -->
 
