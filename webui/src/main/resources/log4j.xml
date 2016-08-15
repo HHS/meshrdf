@@ -15,13 +15,17 @@
         </layout>
     </appender>
 
-
     <logger name="org.springframework" additivity="false">
         <level value="INFO"/>
         <appender-ref ref="console"/>
     </logger>
 
     <logger name="uk.ac.ebi.fgpt" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="file"/>
+    </logger>
+
+    <logger name="gov.nih.nlm.lode" additivity="false">
         <level value="INFO"/>
         <appender-ref ref="file"/>
     </logger>

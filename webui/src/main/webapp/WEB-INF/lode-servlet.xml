@@ -11,6 +11,9 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
+    <!-- Load properties from lode.properties -->
+    <context:property-placeholder location="classpath:lode.properties"/>
+
     <!-- autowire this context only (just controllers, not services) based on annotations -->
     <context:annotation-config />
 

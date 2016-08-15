@@ -16,7 +16,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            WEB-INF/ebi-lode-service.xml
+            /WEB-INF/ebi-lode-service.xml
         </param-value>
     </context-param>
 
@@ -74,6 +74,7 @@
       <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
       <init-param>
         <param-name>logLevel</param-name>
+        <!-- Can set to sysout:DEBUG to get information -->
         <param-value>INFO</param-value>
       </init-param>
     </filter>

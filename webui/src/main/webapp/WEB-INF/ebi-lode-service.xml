@@ -12,10 +12,12 @@
 
     <bean name="explorerConfig" class="uk.ac.ebi.fgpt.lode.impl.DefaultExplorerViewConfigImpl"/>
 
+    <!-- The Explorer Servlet is auto-wired by the lode-servlet.xml, this code is not really used -->
     <bean id="serviceServlet" class="uk.ac.ebi.fgpt.lode.servlet.ExplorerServlet">
         <property name="sparqlService" ref="jenaSparqlService"/>
         <property name="configuration" ref="explorerConfig"/>
         <property name="service" ref="explorerServiceImpl"/>
+        <property name="baseUri" value="${lode.explorer.service.baseuri}"/>
     </bean>
 
     <!--Uncomment these two beans for virtuoso connection pooling-->
