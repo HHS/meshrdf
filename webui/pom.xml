@@ -39,7 +39,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.18.1</version>
                 <configuration>
-                    <reportsDirectory>test-output</reportsDirectory>
                     <skipTests>${skipWebTests}</skipTests>
                     <groups>${testGroups}</groups>
                 </configuration>
