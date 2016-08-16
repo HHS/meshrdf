@@ -68,7 +68,7 @@ public class QueryTest extends LodeBaseTest {
         { "mesh:D000193", "Actinomycetales Infections", "mesh:M0000289", "Actinomycetales Infections" },
         { "mesh:D000258", "Adenovirus Infections, Human", "mesh:M0000406", "Pharyngo-Conjunctival Fever" },
         { "mesh:D003699", "Hepatitis D", "mesh:M0005791", "Superinfection, Delta" },
-        { "mesh:D005490", "Focal Infection", "mesh:M0008656", "Focal Infection" },
+        { "mesh:D004889", "Erysipelothrix Infections", "mesh:M0007678", "Erysipelothrix Infections" },
     };
 
     public void clickSubmitQuery() {
@@ -143,7 +143,7 @@ public class QueryTest extends LodeBaseTest {
 
         int numMatched = 0;
         List<WebElement> rows = findElements(By.xpath(FOR_LODESTAR_RESULT_ROWS));
-        assertEquals(rows.size(), 46);
+        assertEquals(rows.size(), 49);
         for (WebElement row : rows) {
             WebElement link = row.findElement(By.xpath("td[1]/span/a"));
             String linktext = link.getText();

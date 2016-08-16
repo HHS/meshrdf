@@ -22,7 +22,7 @@ public class ServiceDescriptionTest extends LodeBaseTest {
   public void testDefaultServiceDescription() {
     LinkChecker vocablink = new LinkChecker();
     vocablink.add(getEndpoint());
-    vocablink.shouldMatchContentType("^text/plain");
+    vocablink.shouldMatchContentType("^text/plain;charset=utf-8");
     vocablink.shouldBeValid();
   }
   
@@ -31,7 +31,7 @@ public class ServiceDescriptionTest extends LodeBaseTest {
     LinkChecker vocablink = new LinkChecker();
     vocablink.add(getEndpoint());
     vocablink.addRequestHeader("Accept", "text/turtle");
-    vocablink.shouldMatchContentType("^text/turtle");
+    vocablink.shouldMatchContentType("^text/turtle;charset=utf-8");
     vocablink.shouldBeValid();
   }
   
@@ -40,7 +40,7 @@ public class ServiceDescriptionTest extends LodeBaseTest {
     LinkChecker vocablink = new LinkChecker();
     vocablink.add(getEndpoint());
     vocablink.addRequestHeader("Accept", "application/rdf+json");
-    vocablink.shouldMatchContentType("^application/rdf\\+json");
+    vocablink.shouldMatchContentType("^application/rdf\\+json;charset=utf-8");
     vocablink.shouldBeValid();
   }
   
@@ -48,7 +48,7 @@ public class ServiceDescriptionTest extends LodeBaseTest {
   public void testServiceDescriptionByFormat() {
     LinkChecker vocablink = new LinkChecker();
     vocablink.add(getEndpoint()+"?format=TURTLE");
-    vocablink.shouldMatchContentType("^text/turtle");
+    vocablink.shouldMatchContentType("^text/turtle;charset=utf-8");
     vocablink.shouldBeValid();
   }
 }
