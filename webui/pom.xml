@@ -8,6 +8,7 @@
     <name>NLM Overlay for EBI Lodestar web-ui</name>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <skipWebTests>true</skipWebTests>
         <groups></groups>
     </properties>
