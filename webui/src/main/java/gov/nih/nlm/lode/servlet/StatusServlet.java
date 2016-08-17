@@ -1,4 +1,4 @@
-package gov.nih.nlm.servlet;
+package gov.nih.nlm.lode.servlet;
 
 import java.util.HashMap;
 import javax.naming.Context;

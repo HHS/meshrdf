@@ -9,7 +9,7 @@
   </appender>
   <!-- File Appender -->
   <appender name="file" class="org.apache.log4j.RollingFileAppender">
-    <param name="File" value="lode-tests.log"/>
+    <param name="File" value="target/lode-tests.log"/>
     <param name="MaxFileSize" value="10000KB"/>
     <param name="MaxBackupIndex" value="20"/>
     <layout class="org.apache.log4j.PatternLayout">

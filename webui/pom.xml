@@ -43,22 +43,6 @@
                     <groups>${testGroups}</groups>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.0.0</version>
-                <configuration>
-                    <filesets>
-                        <fileset>
-                            <directory>.</directory>
-                            <includes>
-                                <include>test-output/**</include>
-                                <include>lode-tests.log</include>
-                            </includes>
-                        </fileset>
-                    </filesets>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
@@ -122,29 +106,12 @@
 
     </dependencies>
 
-    <profiles>
-        <profile>
-            <!-- Dev Tools has no commercial license, and so isn't deployed on prod.  Yuck. -->
-            <id>devtools</id>
-            <repositories>
-                <repository>
-                    <id>artifactory-release-repo</id>
-                    <name>Dev Tools Artifactory Releases</name>
-                    <url>https://tools.nlm.nih.gov/artifactory/libs-release-local</url>
-                </repository>
-            </repositories>
-        </profile>
-        <profile>
-            <!-- MLB's repository runs on a Windows desktop, not a server.  Yuck. -->
-            <id>mlbbuild</id>
-            <repositories>
-                <repository>
-                    <id>mlbbuild-nlm</id>
-                    <name>OCCS/MLB Nexus NLM</name>
-                    <url>http://mlbbuild.nlm.nih.gov:8081/nexus/content/repositories/nlm/</url>
-                </repository>
-            </repositories>
-        </profile>
-    </profiles>
+    <repositories>
+        <repository>
+            <id>mlbbuild-nlm</id>
+            <name>OCCS/MLB Nexus NLM</name>
+            <url>http://mlbbuild.nlm.nih.gov:8081/nexus/content/repositories/nlm/</url>
+        </repository>
+    </repositories>
 
 </project>
