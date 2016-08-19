@@ -1,160 +1,4 @@
 <SupplementalRecordSet LanguageCode = "eng">
-<SupplementalRecord SCRClass = "3">
-  <SupplementalRecordUI>C564417</SupplementalRecordUI>
-  <SupplementalRecordName>
-   <String>Granulomatous Disease, Chronic, X-Linked</String>
-  </SupplementalRecordName>
-  <DateCreated>
-   <Year>2012</Year>
-   <Month>11</Month>
-   <Day>05</Day>
-  </DateCreated>
-  <DateRevised>
-   <Year>2012</Year>
-   <Month>11</Month>
-   <Day>16</Day>
-  </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2013</Year>
-   <Year>2013A</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
-  <Frequency>15</Frequency>
-  <HeadingMappedToList>
-   <HeadingMappedTo>
-    <DescriptorReferredTo>
-     <DescriptorUI>*D006105</DescriptorUI>
-     <DescriptorName>
-      <String>Granulomatous Disease, Chronic</String>
-     </DescriptorName>
-    </DescriptorReferredTo>
-   </HeadingMappedTo>
-  </HeadingMappedToList>
-  <RecordOriginatorsList>
-   <RecordOriginator>jarnotm</RecordOriginator>
-   <RecordMaintainer>chodan</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
-  <ConceptList>
-   <Concept PreferredConceptYN="Y">
-    <ConceptUI>M0564717</ConceptUI>
-    <ConceptName>
-     <String>Granulomatous Disease, Chronic, X-Linked</String>
-    </ConceptName>
-    <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T047</SemanticTypeUI>
-      <SemanticTypeName>Disease or Syndrome</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="REL">
-     <Concept1UI>M0564717</Concept1UI>
-     <Concept2UI>M0564718</Concept2UI>
-     <RelationAttribute>306400</RelationAttribute>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
-      <TermUI>T804835</TermUI>
-      <String>Granulomatous Disease, Chronic, X-Linked</String>
-      <DateCreated>
-       <Year>2011</Year>
-       <Month>11</Month>
-       <Day>15</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>OMIM (2013)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T804836</TermUI>
-      <String>Chronic Granulomatous Disease, X-Linked</String>
-      <DateCreated>
-       <Year>2011</Year>
-       <Month>11</Month>
-       <Day>15</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>OMIM (2013)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T804837</TermUI>
-      <String>Cytochrome B-Negative Granulomatous Disease, Chronic, X-Linked</String>
-      <DateCreated>
-       <Year>2011</Year>
-       <Month>11</Month>
-       <Day>15</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>OMIM (2013)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-   <Concept PreferredConceptYN="N">
-    <ConceptUI>M0564718</ConceptUI>
-    <ConceptName>
-     <String>Cytochrome B-Positive Granulomatous Disease, Chronic, X-Linked</String>
-    </ConceptName>
-    <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T047</SemanticTypeUI>
-      <SemanticTypeName>Disease or Syndrome</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
-    <ConceptRelationList>
-     <ConceptRelation RelationName="REL">
-     <Concept1UI>M0564717</Concept1UI>
-     <Concept2UI>M0564718</Concept2UI>
-     <RelationAttribute>306400</RelationAttribute>
-     </ConceptRelation>
-    </ConceptRelationList>
-    <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T804838</TermUI>
-      <String>Cytochrome B-Positive Granulomatous Disease, Chronic, X-Linked</String>
-      <DateCreated>
-       <Year>2011</Year>
-       <Month>11</Month>
-       <Day>15</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>OMIM (2013)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T804839</TermUI>
-      <String>Granulomatous Disease, Chronic, X-Linked, Variant</String>
-      <DateCreated>
-       <Year>2011</Year>
-       <Month>11</Month>
-       <Day>15</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>OMIM (2013)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
-      <TermUI>T804840</TermUI>
-      <String>Chronic Granulomatous Disease, Atypical</String>
-      <DateCreated>
-       <Year>2011</Year>
-       <Month>11</Month>
-       <Day>15</Day>
-      </DateCreated>
-      <ThesaurusIDlist>
-       <ThesaurusID>OMIM (2013)</ThesaurusID>
-      </ThesaurusIDlist>
-     </Term>
-    </TermList>
-   </Concept>
-  </ConceptList>
- </SupplementalRecord>
 <SupplementalRecord SCRClass = "1">
   <SupplementalRecordUI>C025735</SupplementalRecordUI>
   <SupplementalRecordName>
@@ -170,38 +14,9 @@
    <Month>04</Month>
    <Day>03</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>1989</Year>
-   <Year>1990</Year>
-   <Year>1991</Year>
-   <Year>1992</Year>
-   <Year>1993</Year>
-   <Year>1994</Year>
-   <Year>1995</Year>
-   <Year>1996</Year>
-   <Year>1997</Year>
-   <Year>1998</Year>
-   <Year>1999</Year>
-   <Year>2000</Year>
-   <Year>2001</Year>
-   <Year>2002</Year>
-   <Year>2003</Year>
-   <Year>2004</Year>
-   <Year>2005</Year>
-   <Year>2006</Year>
-   <Year>2007</Year>
-   <Year>2008</Year>
-   <Year>2009</Year>
-   <Year>2010</Year>
-   <Year>2011</Year>
-   <Year>2012</Year>
-   <Year>2013</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>contains scopolamine camphorate mixture with (-)-atropine camphorate
   </Note>
-  <Frequency>4</Frequency>
+  <Frequency>5</Frequency>
   <PreviousIndexingList>
    <PreviousIndexing>ATROPINE/*analogs (81-86)</PreviousIndexing>
   </PreviousIndexingList>
@@ -248,11 +63,6 @@
   <SourceList>
    <Source>Vrach Delo 1980;(7):55</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>nbm</RecordOriginator>
-   <RecordMaintainer>standardr</RecordMaintainer>
-   <RecordAuthorizer>nlm</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0085468</ConceptUI>
@@ -261,7 +71,7 @@
     </ConceptName>
     <RegistryNumber>72539-79-8</RegistryNumber>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T115471</TermUI>
       <String>Aeron</String>
       <ThesaurusIDlist>
@@ -287,35 +97,6 @@
    <Month>11</Month>
    <Day>30</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>1989</Year>
-   <Year>1990</Year>
-   <Year>1991</Year>
-   <Year>1992</Year>
-   <Year>1993</Year>
-   <Year>1994</Year>
-   <Year>1995</Year>
-   <Year>1996</Year>
-   <Year>1997</Year>
-   <Year>1998</Year>
-   <Year>1999</Year>
-   <Year>2000</Year>
-   <Year>2001</Year>
-   <Year>2002</Year>
-   <Year>2003</Year>
-   <Year>2004</Year>
-   <Year>2005</Year>
-   <Year>2006</Year>
-   <Year>2007</Year>
-   <Year>2008</Year>
-   <Year>2009</Year>
-   <Year>2010</Year>
-   <Year>2011</Year>
-   <Year>2012</Year>
-   <Year>2013</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>chemotherapy protocol consisting of above cpds
   </Note>
   <Frequency>1</Frequency>
@@ -361,11 +142,6 @@
   <SourceList>
    <Source>Med Pediatr Oncol 1983;11(3):151</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>meg</RecordOriginator>
-   <RecordMaintainer>ayerst</RecordMaintainer>
-   <RecordAuthorizer>nlm</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0115628</ConceptUI>
@@ -374,7 +150,7 @@
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T145632</TermUI>
       <String>ABC protocol</String>
       <ThesaurusIDlist>
@@ -400,36 +176,6 @@
    <Month>01</Month>
    <Day>27</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>1989</Year>
-   <Year>1990</Year>
-   <Year>1991</Year>
-   <Year>1992</Year>
-   <Year>1993</Year>
-   <Year>1994</Year>
-   <Year>1995</Year>
-   <Year>1996</Year>
-   <Year>1997</Year>
-   <Year>1998</Year>
-   <Year>1999</Year>
-   <Year>2000</Year>
-   <Year>2001</Year>
-   <Year>2001A</Year>
-   <Year>2002</Year>
-   <Year>2003</Year>
-   <Year>2004</Year>
-   <Year>2005</Year>
-   <Year>2006</Year>
-   <Year>2007</Year>
-   <Year>2008</Year>
-   <Year>2009</Year>
-   <Year>2010</Year>
-   <Year>2011</Year>
-   <Year>2012</Year>
-   <Year>2013</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>mixture of derivs of 2-hydroxyethylrutoside
   </Note>
   <Frequency>0</Frequency>
@@ -464,11 +210,6 @@
   <SourceList>
    <Source>C R Soc Biol (Paris) 163(6):1467;1969</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>nlm</RecordOriginator>
-   <RecordMaintainer>twd</RecordMaintainer>
-   <RecordAuthorizer>twd</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0044934</ConceptUI>
@@ -477,14 +218,14 @@
     </ConceptName>
     <RegistryNumber>11100-47-3</RegistryNumber>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T074937</TermUI>
       <String>Z 4000</String>
       <ThesaurusIDlist>
        <ThesaurusID>NLM (1972)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T074936</TermUI>
       <String>Z-4000</String>
       <ThesaurusIDlist>
@@ -510,29 +251,6 @@
    <Month>02</Month>
    <Day>12</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>1998</Year>
-   <Year>1999</Year>
-   <Year>2000</Year>
-   <Year>2001</Year>
-   <Year>2001A</Year>
-   <Year>2002</Year>
-   <Year>2003</Year>
-   <Year>2004</Year>
-   <Year>2005</Year>
-   <Year>2006</Year>
-   <Year>2007</Year>
-   <Year>2008</Year>
-   <Year>2009</Year>
-   <Year>2010</Year>
-   <Year>2011</Year>
-   <Year>2012</Year>
-   <Year>2013</Year>
-   <Year>2013A</Year>
-   <Year>2013B</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Frequency>18</Frequency>
   <HeadingMappedToList>
    <HeadingMappedTo>
@@ -563,11 +281,6 @@
   <SourceList>
    <Source>Cell 1997 Jun 13;89(6):951-61</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>vanlenb</RecordOriginator>
-   <RecordMaintainer>benjersb</RecordMaintainer>
-   <RecordAuthorizer>benjersb</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0287822</ConceptUI>
@@ -575,12 +288,6 @@
      <String>7-methylguanosine 5'-diphosphate</String>
     </ConceptName>
     <RegistryNumber>104809-16-7</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T114</SemanticTypeUI>
-      <SemanticTypeName>Nucleic Acid, Nucleoside, or Nucleotide</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0287822</Concept1UI>
@@ -588,14 +295,14 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T317827</TermUI>
       <String>7-methylguanosine 5'-diphosphate</String>
       <ThesaurusIDlist>
        <ThesaurusID>NLM (1998)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T837273</TermUI>
       <String>m(7)GDP</String>
       <DateCreated>
@@ -607,14 +314,14 @@
        <ThesaurusID>NLM (2013)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T317826</TermUI>
       <String>7-methyl-GDP</String>
       <ThesaurusIDlist>
        <ThesaurusID>NLM (1998)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T835181</TermUI>
       <String>7-methylguanosine diphosphate</String>
       <DateCreated>
@@ -634,12 +341,6 @@
      <String>RNA,delta messenger(7)GDP</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T114</SemanticTypeUI>
-      <SemanticTypeName>Nucleic Acid, Nucleoside, or Nucleotide</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0287822</Concept1UI>
@@ -647,7 +348,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T098365</TermUI>
       <String>RNA,delta messenger(7)GDP</String>
       <ThesaurusIDlist>
@@ -673,14 +374,9 @@
    <Month>11</Month>
    <Day>05</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2013</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>growth inhibitor; RN given refers to ((L-Leu)-(S-(R*,S*)))-isomer; structure
   </Note>
-  <Frequency>752</Frequency>
+  <Frequency>768</Frequency>
   <PreviousIndexingList>
    <PreviousIndexing>DIPEPTIDES (76-79)</PreviousIndexing>
   </PreviousIndexingList>
@@ -781,11 +477,6 @@
    <Source>Lloydia 40(1):67;1977</Source>
    <Source>Prog Biochem Pharmacol 11:24;1976</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>nlm</RecordOriginator>
-   <RecordMaintainer>pashj</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0059108</ConceptUI>
@@ -794,16 +485,6 @@
     </ConceptName>
     <CASN1Name>(3-amino-2-hydroxy-4-phenylbutanoyl)-L-leucine</CASN1Name>
     <RegistryNumber>I0J33N5627</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T116</SemanticTypeUI>
-      <SemanticTypeName>Amino Acid, Peptide, or Protein</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <RelatedRegistryNumberList>
      <RelatedRegistryNumber>58970-76-6 (bestatin)</RelatedRegistryNumber>
      <RelatedRegistryNumber>61046-20-6 ((D-Leu)-(S-(R*,S*))-isomer)</RelatedRegistryNumber>
@@ -845,7 +526,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T089110</TermUI>
       <String>ubenimex</String>
       <ThesaurusIDlist>
@@ -854,14 +535,14 @@
        <ThesaurusID>NLM (1976)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T089109</TermUI>
       <String>3-amino-2-hydroxy-4-phenylbutyryl-L-leucine</String>
       <ThesaurusIDlist>
        <ThesaurusID>NLM (1976)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T089111</TermUI>
       <String>bestatin</String>
       <ThesaurusIDlist>
@@ -876,16 +557,6 @@
      <String>bestatin, (D-Leu)-(R-(R*,S*))-isomer</String>
     </ConceptName>
     <RegistryNumber>61046-26-2</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T116</SemanticTypeUI>
-      <SemanticTypeName>Amino Acid, Peptide, or Protein</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0059108</Concept1UI>
@@ -893,7 +564,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T341788</TermUI>
       <String>bestatin, (D-Leu)-(R-(R*,S*))-isomer</String>
       <DateCreated>
@@ -913,16 +584,6 @@
      <String>bestatin, (L-Leu)-(S-(R*,S*))-isomer, hydrochloride</String>
     </ConceptName>
     <RegistryNumber>65391-42-6</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T116</SemanticTypeUI>
-      <SemanticTypeName>Amino Acid, Peptide, or Protein</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0059108</Concept1UI>
@@ -930,7 +591,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T341789</TermUI>
       <String>bestatin, (L-Leu)-(S-(R*,S*))-isomer, hydrochloride</String>
       <DateCreated>
@@ -950,16 +611,6 @@
      <String>bestatin, (L-Leu)-(R-(R*,R*))-isomer</String>
     </ConceptName>
     <RegistryNumber>61046-23-9</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T116</SemanticTypeUI>
-      <SemanticTypeName>Amino Acid, Peptide, or Protein</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0059108</Concept1UI>
@@ -967,7 +618,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T341785</TermUI>
       <String>bestatin, (L-Leu)-(R-(R*,R*))-isomer</String>
       <DateCreated>
@@ -987,16 +638,6 @@
      <String>bestatin, (L-Leu)-(R-(R*,S*))-isomer</String>
     </ConceptName>
     <RegistryNumber>61046-25-1</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T116</SemanticTypeUI>
-      <SemanticTypeName>Amino Acid, Peptide, or Protein</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0059108</Concept1UI>
@@ -1004,7 +645,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T341787</TermUI>
       <String>bestatin, (L-Leu)-(R-(R*,S*))-isomer</String>
       <DateCreated>
@@ -1024,16 +665,6 @@
      <String>bestatin, (L-Leu)-(S-(R*,R*))-isomer</String>
     </ConceptName>
     <RegistryNumber>61046-21-7</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T116</SemanticTypeUI>
-      <SemanticTypeName>Amino Acid, Peptide, or Protein</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0059108</Concept1UI>
@@ -1041,7 +672,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T341784</TermUI>
       <String>bestatin, (L-Leu)-(S-(R*,R*))-isomer</String>
       <DateCreated>
@@ -1061,16 +692,6 @@
      <String>bestatin, (D-Leu)-(R-(R*,R*))-isomer</String>
     </ConceptName>
     <RegistryNumber>61046-24-0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T116</SemanticTypeUI>
-      <SemanticTypeName>Amino Acid, Peptide, or Protein</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0059108</Concept1UI>
@@ -1078,7 +699,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T341786</TermUI>
       <String>bestatin, (D-Leu)-(R-(R*,R*))-isomer</String>
       <DateCreated>
@@ -1098,16 +719,6 @@
      <String>bestatin, (D-Leu)-(S-(R*,S*))-isomer</String>
     </ConceptName>
     <RegistryNumber>61046-20-6</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T116</SemanticTypeUI>
-      <SemanticTypeName>Amino Acid, Peptide, or Protein</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0059108</Concept1UI>
@@ -1115,7 +726,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T341783</TermUI>
       <String>bestatin, (D-Leu)-(S-(R*,S*))-isomer</String>
       <DateCreated>
@@ -1141,14 +752,7 @@
    <Month>08</Month>
    <Day>25</Day>
   </DateCreated>
-  <ActiveMeSHYearList>
-   <Year>2011</Year>
-   <Year>2012</Year>
-   <Year>2013</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
-  <Frequency>1</Frequency>
+  <Frequency>2</Frequency>
   <HeadingMappedToList>
    <HeadingMappedTo>
     <DescriptorReferredTo>
@@ -1175,10 +779,6 @@
     </DescriptorReferredTo>
    </HeadingMappedTo>
   </HeadingMappedToList>
-  <RecordOriginatorsList>
-   <RecordOriginator>chodan</RecordOriginator>
-   <RecordAuthorizer>nelsons</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0532108</ConceptUI>
@@ -1186,14 +786,8 @@
      <String>Chromosome 5, monosomy 5q35</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T049</SemanticTypeUI>
-      <SemanticTypeName>Cell or Molecular Dysfunction</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T743286</TermUI>
       <String>Chromosome 5, monosomy 5q35</String>
       <DateCreated>
@@ -1205,7 +799,7 @@
        <ThesaurusID>ORD (2010)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T743287</TermUI>
       <String>Monosomy 5q35</String>
       <DateCreated>
@@ -1217,7 +811,7 @@
        <ThesaurusID>ORD (2010)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T743288</TermUI>
       <String>Deletion 5q35</String>
       <DateCreated>
@@ -1248,19 +842,6 @@
    <Month>11</Month>
    <Day>02</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2006</Year>
-   <Year>2007</Year>
-   <Year>2008</Year>
-   <Year>2009</Year>
-   <Year>2009A</Year>
-   <Year>2010</Year>
-   <Year>2011</Year>
-   <Year>2012</Year>
-   <Year>2013</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>Russian drug, geriatric preparation
   </Note>
   <Frequency>1</Frequency>
@@ -1321,11 +902,6 @@
    <Source>Vrach Delo 11:76;1977</Source>
    <Source>Vrach Delo 12:10;1975</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>nlm</RecordOriginator>
-   <RecordMaintainer>pashj</RecordMaintainer>
-   <RecordAuthorizer>pashj</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0059992</ConceptUI>
@@ -1333,18 +909,8 @@
      <String>ampevit</String>
     </ConceptName>
     <RegistryNumber>65666-64-0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T089995</TermUI>
       <String>ampevit</String>
       <ThesaurusIDlist>
@@ -1370,31 +936,6 @@
    <Month>10</Month>
    <Day>29</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>1998</Year>
-   <Year>1999</Year>
-   <Year>2000</Year>
-   <Year>2000A</Year>
-   <Year>2000B</Year>
-   <Year>2001</Year>
-   <Year>2002</Year>
-   <Year>2003</Year>
-   <Year>2004</Year>
-   <Year>2005</Year>
-   <Year>2006</Year>
-   <Year>2007</Year>
-   <Year>2008</Year>
-   <Year>2009</Year>
-   <Year>2009A</Year>
-   <Year>2009B</Year>
-   <Year>2009C</Year>
-   <Year>2010</Year>
-   <Year>2011</Year>
-   <Year>2012</Year>
-   <Year>2013</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Frequency>11</Frequency>
   <HeadingMappedToList>
    <HeadingMappedTo>
@@ -1443,11 +984,6 @@
   <SourceList>
    <Source>J Pharm Pharmacol 1997 Dec;49(12):1260</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>ayerst</RecordOriginator>
-   <RecordMaintainer>pashj</RecordMaintainer>
-   <RecordAuthorizer>pashj</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0539722</ConceptUI>
@@ -1455,16 +991,6 @@
      <String>acetaminophen, aspirin, caffeine drug combination</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0539722</Concept1UI>
@@ -1480,7 +1006,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T758884</TermUI>
       <String>acetaminophen, aspirin, caffeine drug combination</String>
       <DateCreated>
@@ -1492,7 +1018,7 @@
        <ThesaurusID>NLM (2009)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T760094</TermUI>
       <String>acetaminophen - aspirin - caffeine</String>
       <DateCreated>
@@ -1512,16 +1038,6 @@
      <String>Excedrin extra strength</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0539722</Concept1UI>
@@ -1529,7 +1045,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  RecordPreferredTermYN="N">
       <TermUI>T317195</TermUI>
       <String>Excedrin extra strength</String>
       <ThesaurusIDlist>
@@ -1544,16 +1060,6 @@
      <String>Chap Kaki Tiga</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0539722</Concept1UI>
@@ -1561,7 +1067,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T424363</TermUI>
       <String>Chap Kaki Tiga</String>
       <DateCreated>
@@ -1573,7 +1079,7 @@
        <ThesaurusID>NLM (2000)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T424364</TermUI>
       <String>CKT analgesic powder</String>
       <DateCreated>
@@ -1593,16 +1099,6 @@
      <String>Dikalm</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0539722</Concept1UI>
@@ -1610,7 +1106,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  RecordPreferredTermYN="N">
       <TermUI>T317193</TermUI>
       <String>Dikalm</String>
       <ThesaurusIDlist>
@@ -1636,11 +1132,6 @@
    <Month>11</Month>
    <Day>05</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2013</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>cpd is acetaminophen acetate
   </Note>
   <Frequency>2</Frequency>
@@ -1663,11 +1154,6 @@
   <SourceList>
    <Source>Yakugaku Zasshi 1980;100(10):1043</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>nbm</RecordOriginator>
-   <RecordMaintainer>system</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0092874</ConceptUI>
@@ -1675,21 +1161,11 @@
      <String>diacetamate</String>
     </ConceptName>
     <RegistryNumber>BFG1TY61BG</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <RelatedRegistryNumberList>
      <RelatedRegistryNumber>2623-33-8 (diacetamate)</RelatedRegistryNumber>
     </RelatedRegistryNumberList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T122877</TermUI>
       <String>diacetamate</String>
       <ThesaurusIDlist>
@@ -1699,21 +1175,21 @@
        <ThesaurusID>USAN (1981)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T122876</TermUI>
       <String>N,O-diacetyl-para-aminophenol</String>
       <ThesaurusIDlist>
        <ThesaurusID>NLM (1981)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T122874</TermUI>
       <String>DAPAP</String>
       <ThesaurusIDlist>
        <ThesaurusID>NLM (1981)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T122875</TermUI>
       <String>N,O-diacetyl-p-aminophenol</String>
       <ThesaurusIDlist>
@@ -1739,11 +1215,7 @@
    <Month>11</Month>
    <Day>06</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
-  <Frequency>0</Frequency>
+  <Frequency>3</Frequency>
   <HeadingMappedToList>
    <HeadingMappedTo>
     <DescriptorReferredTo>
@@ -1760,11 +1232,6 @@
     </QualifierReferredTo>
    </HeadingMappedTo>
   </HeadingMappedToList>
-  <RecordOriginatorsList>
-   <RecordOriginator>jarnotm</RecordOriginator>
-   <RecordMaintainer>system</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0564478</ConceptUI>
@@ -1772,14 +1239,8 @@
      <String>Horner Syndrome, Congenital</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T047</SemanticTypeUI>
-      <SemanticTypeName>Disease or Syndrome</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T804348</TermUI>
       <String>Horner Syndrome, Congenital</String>
       <DateCreated>
@@ -1810,10 +1271,6 @@
    <Month>11</Month>
    <Day>06</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>Familial Dandy-Walker malformation associated with macrocephaly, facial anomalies, developmental delay, and brain stem dysgenesis.
   </Note>
   <Frequency>0</Frequency>
@@ -1849,11 +1306,6 @@
     </QualifierReferredTo>
    </HeadingMappedTo>
   </HeadingMappedToList>
-  <RecordOriginatorsList>
-   <RecordOriginator>chodan</RecordOriginator>
-   <RecordMaintainer>system</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0530388</ConceptUI>
@@ -1861,14 +1313,8 @@
      <String>Chitayat Moore Del Bigio syndrome</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T047</SemanticTypeUI>
-      <SemanticTypeName>Disease or Syndrome</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T737688</TermUI>
       <String>Chitayat Moore Del Bigio syndrome</String>
       <DateCreated>
@@ -1899,10 +1345,6 @@
    <Month>05</Month>
    <Day>21</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>alkaloid from Fritillaria shuchengensis; structure in first source
   </Note>
   <Frequency>1</Frequency>
@@ -1919,11 +1361,6 @@
   <SourceList>
    <Source>J\J Nat Med. 2013 Jul;67(3):647-51</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>benjersb</RecordOriginator>
-   <RecordMaintainer>benjersb</RecordMaintainer>
-   <RecordAuthorizer>benjersb</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M000594430</ConceptUI>
@@ -1931,14 +1368,8 @@
      <String>suchengbeisine</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T110</SemanticTypeUI>
-      <SemanticTypeName>Steroid</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T000859942</TermUI>
       <String>suchengbeisine</String>
       <DateCreated>
@@ -1969,11 +1400,7 @@
    <Month>11</Month>
    <Day>06</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
-  <Frequency>1</Frequency>
+  <Frequency>2</Frequency>
   <HeadingMappedToList>
    <HeadingMappedTo>
     <DescriptorReferredTo>
@@ -1998,11 +1425,6 @@
     </QualifierReferredTo>
    </HeadingMappedTo>
   </HeadingMappedToList>
-  <RecordOriginatorsList>
-   <RecordOriginator>jarnotm</RecordOriginator>
-   <RecordMaintainer>system</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0563313</ConceptUI>
@@ -2010,14 +1432,8 @@
      <String>Membranous Obstruction of Inferior Vena Cava</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T047</SemanticTypeUI>
-      <SemanticTypeName>Disease or Syndrome</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T827617</TermUI>
       <String>Membranous Obstruction of Inferior Vena Cava</String>
       <DateCreated>
@@ -2048,13 +1464,9 @@
    <Month>11</Month>
    <Day>06</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>mutation in TYK2
   </Note>
-  <Frequency>1</Frequency>
+  <Frequency>3</Frequency>
   <HeadingMappedToList>
    <HeadingMappedTo>
     <DescriptorReferredTo>
@@ -2079,11 +1491,6 @@
     </QualifierReferredTo>
    </HeadingMappedTo>
   </HeadingMappedToList>
-  <RecordOriginatorsList>
-   <RecordOriginator>jarnotm</RecordOriginator>
-   <RecordMaintainer>system</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0567228</ConceptUI>
@@ -2091,14 +1498,8 @@
      <String>Tyrosine Kinase 2 Deficiency</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T047</SemanticTypeUI>
-      <SemanticTypeName>Disease or Syndrome</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T809419</TermUI>
       <String>Tyrosine Kinase 2 Deficiency</String>
       <DateCreated>
@@ -2110,7 +1511,7 @@
        <ThesaurusID>OMIM (2013)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T826459</TermUI>
       <String>Hyper-IgE Syndrome with Atypical Mycobacteriosis, Autosomal Recessive</String>
       <DateCreated>
@@ -2122,7 +1523,7 @@
        <ThesaurusID>OMIM (2013)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T826460</TermUI>
       <String>HIES with Atypical Mycobacteriosis, Autosomal Recessive</String>
       <DateCreated>
@@ -2134,7 +1535,7 @@
        <ThesaurusID>OMIM (2013)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T826458</TermUI>
       <String>TYK2 Deficiency</String>
       <DateCreated>
@@ -2165,10 +1566,6 @@
    <Month>06</Month>
    <Day>05</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>anti-inflammatory and cytotoxic sterol from Penicillium purpurogenum; structure in first source
   </Note>
   <Frequency>1</Frequency>
@@ -2185,11 +1582,6 @@
   <SourceList>
    <Source>Org Lett. 2014 Mar 7;16(5):1518-21</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>benjersb</RecordOriginator>
-   <RecordMaintainer>benjersb</RecordMaintainer>
-   <RecordAuthorizer>benjersb</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M000594738</ConceptUI>
@@ -2197,14 +1589,8 @@
      <String>penicillitone</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T110</SemanticTypeUI>
-      <SemanticTypeName>Steroid</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T000860372</TermUI>
       <String>penicillitone</String>
       <DateCreated>
@@ -2235,11 +1621,6 @@
    <Month>10</Month>
    <Day>27</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2013</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>RN given refers to parent cpd(2S-(2alpha,5alpha,6beta(S*)))-isomer
   </Note>
   <Frequency>4</Frequency>
@@ -2281,11 +1662,6 @@
    <Source>Pathol Biol 25(10):699;1977</Source>
    <Source>Rev Fran Gyn Obskt 71(12):775;1976</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>nlm</RecordOriginator>
-   <RecordMaintainer>pashj</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0046566</ConceptUI>
@@ -2293,16 +1669,6 @@
      <String>methampicillin</String>
     </ConceptName>
     <RegistryNumber>G0H6U7VSTK</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <RelatedRegistryNumberList>
      <RelatedRegistryNumber>59130-14-2</RelatedRegistryNumber>
      <RelatedRegistryNumber>6489-61-8</RelatedRegistryNumber>
@@ -2339,21 +1705,21 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T076569</TermUI>
       <String>methampicillin</String>
       <ThesaurusIDlist>
        <ThesaurusID>NLM (1970)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T076565</TermUI>
       <String>6-(2-methyleneamino-2-phenylacetamido)penicillanic acid</String>
       <ThesaurusIDlist>
        <ThesaurusID>NLM (1970)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T076567</TermUI>
       <String>metampicillin</String>
       <ThesaurusIDlist>
@@ -2370,16 +1736,6 @@
      <String>Metakes</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0046566</Concept1UI>
@@ -2387,7 +1743,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  RecordPreferredTermYN="N">
       <TermUI>T613920</TermUI>
       <String>Metakes</String>
       <DateCreated>
@@ -2407,16 +1763,6 @@
      <String>Suvipen</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0046566</Concept1UI>
@@ -2424,7 +1770,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  RecordPreferredTermYN="N">
       <TermUI>T076568</TermUI>
       <String>Suvipen</String>
       <ThesaurusIDlist>
@@ -2439,16 +1785,6 @@
      <String>methampicillin, monosodium salt, (2S-(2alpha,5alpha,6beta(S*)))-isomer</String>
     </ConceptName>
     <RegistryNumber>6489-61-8</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0046566</Concept1UI>
@@ -2456,7 +1792,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T338944</TermUI>
       <String>methampicillin, monosodium salt, (2S-(2alpha,5alpha,6beta(S*)))-isomer</String>
       <DateCreated>
@@ -2476,16 +1812,6 @@
      <String>methampicillin, sodium salt</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0046566</Concept1UI>
@@ -2493,7 +1819,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T613919</TermUI>
       <String>methampicillin, sodium salt</String>
       <DateCreated>
@@ -2505,7 +1831,7 @@
        <ThesaurusID>NLM (2004)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T760054</TermUI>
       <String>metampicillin sodium</String>
       <DateCreated>
@@ -2525,16 +1851,6 @@
      <String>Serfabiotic</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0046566</Concept1UI>
@@ -2542,7 +1858,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  RecordPreferredTermYN="N">
       <TermUI>T613922</TermUI>
       <String>Serfabiotic</String>
       <DateCreated>
@@ -2562,16 +1878,6 @@
      <String>Magnipen</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0046566</Concept1UI>
@@ -2579,7 +1885,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  RecordPreferredTermYN="N">
       <TermUI>T076566</TermUI>
       <String>Magnipen</String>
       <ThesaurusIDlist>
@@ -2594,16 +1900,6 @@
      <String>methampicillin, calcium salt (2:1), (2S-(2alpha,5alpha,6beta(S*)))-isomer</String>
     </ConceptName>
     <RegistryNumber>59130-14-2</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T195</SemanticTypeUI>
-      <SemanticTypeName>Antibiotic</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0046566</Concept1UI>
@@ -2611,7 +1907,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T338943</TermUI>
       <String>methampicillin, calcium salt (2:1), (2S-(2alpha,5alpha,6beta(S*)))-isomer</String>
       <DateCreated>
@@ -2642,11 +1938,6 @@
    <Month>10</Month>
    <Day>28</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>2013</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>RN given refers to cpd without isomeric designation; structure
   </Note>
   <Frequency>62</Frequency>
@@ -2715,11 +2006,6 @@
    <Source>Med Welt 30(23):897;1979</Source>
    <Source>Respiration 1979;38(5):280</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>nlm</RecordOriginator>
-   <RecordMaintainer>pbutler</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0063597</ConceptUI>
@@ -2727,16 +2013,6 @@
      <String>reproterol</String>
     </ConceptName>
     <RegistryNumber>11941YC6RN</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <RelatedRegistryNumberList>
      <RelatedRegistryNumber>13055-82-8 (mono-HCl)</RelatedRegistryNumber>
      <RelatedRegistryNumber>54063-54-6 (reproterol)</RelatedRegistryNumber>
@@ -2761,7 +2037,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T093600</TermUI>
       <String>reproterol</String>
       <ThesaurusIDlist>
@@ -2778,16 +2054,6 @@
      <String>reproterol, (-)-isomer</String>
     </ConceptName>
     <RegistryNumber>62401-83-6</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0063597</Concept1UI>
@@ -2795,7 +2061,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T342623</TermUI>
       <String>reproterol, (-)-isomer</String>
       <DateCreated>
@@ -2815,16 +2081,6 @@
      <String>Bronchospasmin</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0063597</Concept1UI>
@@ -2832,7 +2088,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  RecordPreferredTermYN="N">
       <TermUI>T093599</TermUI>
       <String>Bronchospasmin</String>
       <ThesaurusIDlist>
@@ -2847,16 +2103,6 @@
      <String>reproterol monohydrochloride</String>
     </ConceptName>
     <RegistryNumber>13055-82-8</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0063597</Concept1UI>
@@ -2864,7 +2110,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T342622</TermUI>
       <String>reproterol monohydrochloride</String>
       <DateCreated>
@@ -2884,16 +2130,6 @@
      <String>Epiferol</String>
     </ConceptName>
     <RegistryNumber>0</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0063597</Concept1UI>
@@ -2901,7 +2137,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  RecordPreferredTermYN="N">
       <TermUI>T616842</TermUI>
       <String>Epiferol</String>
       <DateCreated>
@@ -2932,38 +2168,6 @@
    <Month>11</Month>
    <Day>02</Day>
   </DateRevised>
-  <ActiveMeSHYearList>
-   <Year>1989</Year>
-   <Year>1990</Year>
-   <Year>1991</Year>
-   <Year>1992</Year>
-   <Year>1993</Year>
-   <Year>1994</Year>
-   <Year>1995</Year>
-   <Year>1996</Year>
-   <Year>1997</Year>
-   <Year>1998</Year>
-   <Year>1999</Year>
-   <Year>2000</Year>
-   <Year>2001</Year>
-   <Year>2001A</Year>
-   <Year>2002</Year>
-   <Year>2003</Year>
-   <Year>2004</Year>
-   <Year>2004A</Year>
-   <Year>2005</Year>
-   <Year>2006</Year>
-   <Year>2007</Year>
-   <Year>2007A</Year>
-   <Year>2008</Year>
-   <Year>2009</Year>
-   <Year>2010</Year>
-   <Year>2011</Year>
-   <Year>2012</Year>
-   <Year>2013</Year>
-   <Year>2014</Year>
-   <Year>2015</Year>
-  </ActiveMeSHYearList>
   <Note>RN given refers to parent cpd
   </Note>
   <Frequency>33</Frequency>
@@ -3003,11 +2207,6 @@
   <SourceList>
    <Source>Z Rheumatol 37(7-8):254;1978</Source>
   </SourceList>
-  <RecordOriginatorsList>
-   <RecordOriginator>nlm</RecordOriginator>
-   <RecordMaintainer>pashj</RecordMaintainer>
-   <RecordAuthorizer>chodan</RecordAuthorizer>
-  </RecordOriginatorsList>
   <ConceptList>
    <Concept PreferredConceptYN="Y">
     <ConceptUI>M0068239</ConceptUI>
@@ -3015,16 +2214,6 @@
      <String>lonazolac</String>
     </ConceptName>
     <RegistryNumber>13097143QI</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <RelatedRegistryNumberList>
      <RelatedRegistryNumber>53808-88-1</RelatedRegistryNumber>
      <RelatedRegistryNumber>75821-71-5 (Ca salt)</RelatedRegistryNumber>
@@ -3044,7 +2233,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="Y"  RecordPreferredTermYN="Y">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
       <TermUI>T098242</TermUI>
       <String>lonazolac</String>
       <ThesaurusIDlist>
@@ -3054,7 +2243,7 @@
        <ThesaurusID>USAN (19XX)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T098239</TermUI>
       <String>3-(4-chlorophenyl)-1-phenylpyrazole-4-acetic acid</String>
       <ThesaurusIDlist>
@@ -3069,16 +2258,6 @@
      <String>lonazolac calcium salt</String>
     </ConceptName>
     <RegistryNumber>75821-71-5</RegistryNumber>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0068239</Concept1UI>
@@ -3086,7 +2265,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T343426</TermUI>
       <String>lonazolac calcium salt</String>
       <DateCreated>
@@ -3105,16 +2284,6 @@
     <ConceptName>
      <String>Argun</String>
     </ConceptName>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0068239</Concept1UI>
@@ -3122,7 +2291,7 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  RecordPreferredTermYN="N">
       <TermUI>T581962</TermUI>
       <String>Argun</String>
       <DateCreated>
@@ -3134,7 +2303,7 @@
        <ThesaurusID>DE</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
-     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
       <TermUI>T581963</TermUI>
       <String>Merckle Brand of Lonazolac Calcium Salt</String>
       <DateCreated>
@@ -3153,16 +2322,6 @@
     <ConceptName>
      <String>Irriten</String>
     </ConceptName>
-    <SemanticTypeList>
-     <SemanticType>
-      <SemanticTypeUI>T109</SemanticTypeUI>
-      <SemanticTypeName>Organic Chemical</SemanticTypeName>
-     </SemanticType>
-     <SemanticType>
-      <SemanticTypeUI>T121</SemanticTypeUI>
-      <SemanticTypeName>Pharmacologic Substance</SemanticTypeName>
-     </SemanticType>
-    </SemanticTypeList>
     <ConceptRelationList>
      <ConceptRelation RelationName="NRW">
      <Concept1UI>M0068239</Concept1UI>
@@ -3170,11 +2329,144 @@
      </ConceptRelation>
     </ConceptRelationList>
     <TermList>
-     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  PrintFlagYN="N"  RecordPreferredTermYN="N">
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="TRD"  RecordPreferredTermYN="N">
       <TermUI>T098240</TermUI>
       <String>Irriten</String>
       <ThesaurusIDlist>
        <ThesaurusID>NLM (1979)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+  </ConceptList>
+ </SupplementalRecord>
+<SupplementalRecord SCRClass = "3">
+  <SupplementalRecordUI>C564417</SupplementalRecordUI>
+  <SupplementalRecordName>
+   <String>Granulomatous Disease, Chronic, X-Linked</String>
+  </SupplementalRecordName>
+  <DateCreated>
+   <Year>2012</Year>
+   <Month>11</Month>
+   <Day>05</Day>
+  </DateCreated>
+  <DateRevised>
+   <Year>2015</Year>
+   <Month>08</Month>
+   <Day>18</Day>
+  </DateRevised>
+  <Note>A genetically heterogeneous X-linked recessive immunodeficiency disorder resulting from an inability of PHAGOCYTES to kill microbes that they have ingested. This impairment in killing is caused by any of several defects in the phagocyte NADPH OXIDASE (phox) complex. Affected individuals may experience recurrent infections, HEPATIC ABCESSES; HEPATOMEGALY; SPLENOMEGALY and IMPETIGO. Mild cases or carriers may experience DISCOID LUPUS ERYTHEMATOSUS. Mutations in the CYBB gene have been identified. OMIM: 306400
+  </Note>
+  <Frequency>29</Frequency>
+  <HeadingMappedToList>
+   <HeadingMappedTo>
+    <DescriptorReferredTo>
+     <DescriptorUI>*D006105</DescriptorUI>
+     <DescriptorName>
+      <String>Granulomatous Disease, Chronic</String>
+     </DescriptorName>
+    </DescriptorReferredTo>
+   </HeadingMappedTo>
+  </HeadingMappedToList>
+  <ConceptList>
+   <Concept PreferredConceptYN="Y">
+    <ConceptUI>M0564717</ConceptUI>
+    <ConceptName>
+     <String>Granulomatous Disease, Chronic, X-Linked</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="REL">
+     <Concept1UI>M0564717</Concept1UI>
+     <Concept2UI>M0564718</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="Y">
+      <TermUI>T804835</TermUI>
+      <String>Granulomatous Disease, Chronic, X-Linked</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
+      <TermUI>T804837</TermUI>
+      <String>Cytochrome B-Negative Granulomatous Disease, Chronic, X-Linked</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
+      <TermUI>T804836</TermUI>
+      <String>Chronic Granulomatous Disease, X-Linked</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+    </TermList>
+   </Concept>
+   <Concept PreferredConceptYN="N">
+    <ConceptUI>M0564718</ConceptUI>
+    <ConceptName>
+     <String>Cytochrome B-Positive Granulomatous Disease, Chronic, X-Linked</String>
+    </ConceptName>
+    <RegistryNumber>0</RegistryNumber>
+    <ConceptRelationList>
+     <ConceptRelation RelationName="REL">
+     <Concept1UI>M0564717</Concept1UI>
+     <Concept2UI>M0564718</Concept2UI>
+     </ConceptRelation>
+    </ConceptRelationList>
+    <TermList>
+     <Term  ConceptPreferredTermYN="Y"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
+      <TermUI>T804838</TermUI>
+      <String>Cytochrome B-Positive Granulomatous Disease, Chronic, X-Linked</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
+      <TermUI>T804840</TermUI>
+      <String>Chronic Granulomatous Disease, Atypical</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
+      </ThesaurusIDlist>
+     </Term>
+     <Term  ConceptPreferredTermYN="N"  IsPermutedTermYN="N"  LexicalTag="NON"  RecordPreferredTermYN="N">
+      <TermUI>T804839</TermUI>
+      <String>Granulomatous Disease, Chronic, X-Linked, Variant</String>
+      <DateCreated>
+       <Year>2011</Year>
+       <Month>11</Month>
+       <Day>15</Day>
+      </DateCreated>
+      <ThesaurusIDlist>
+       <ThesaurusID>OMIM (2013)</ThesaurusID>
       </ThesaurusIDlist>
      </Term>
     </TermList>
