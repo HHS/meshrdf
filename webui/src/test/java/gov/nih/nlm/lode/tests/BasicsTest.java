@@ -10,8 +10,6 @@ import static org.testng.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import gov.nih.nlm.occs.selenium.SeleniumTest;
-
 public class BasicsTest extends LodeBaseTest {
 
   @Test(groups = "basics")

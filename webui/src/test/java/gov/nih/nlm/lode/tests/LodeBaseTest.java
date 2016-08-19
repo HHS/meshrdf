@@ -1,17 +1,11 @@
 package gov.nih.nlm.lode.tests;
 
 import java.util.List;
-import java.net.URL;
-import java.net.MalformedURLException;
-import java.net.HttpURLConnection;
-import java.net.URLConnection;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.By;
-import org.testng.Reporter;
 
-import static org.testng.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 

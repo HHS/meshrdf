@@ -209,7 +209,6 @@ public class LinkChecker {
                 } else {
                     // should have correct values for expected response headers
                     for (LinkChecker.ResponseCallback callback : responseCallbacks) {
-                        // TODO: catch AssertionError?
                         callback.withResponse(response);
                     }
                 }

@@ -33,7 +33,9 @@ import org.slf4j.LoggerFactory;
  */
 public class StatusServlet extends HttpServlet {
 
-    private static final int SC_ENGINEERED_FAILCODE = 524;
+	private static final long serialVersionUID = 1L;
+
+	private static final int SC_ENGINEERED_FAILCODE = 524;
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
