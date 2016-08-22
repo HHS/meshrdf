@@ -52,16 +52,16 @@
 
   <!-- mesh/D065609.html -->
   <rule>
-    <name>token-html-to-explore-jsp</name>
+    <name>token-html-to-explore-html</name>
     <from casesensitive="true">^/([DQMCT].*)\.html$</from>
-    <to>/servlet/explore/jsp?uri=$1</to>
+    <to>/servlet/explore/html?uri=$1</to>
   </rule>
 
   <!-- mesh/2015/D065609.html -->
   <rule>
-    <name>token-html-to-explore-jsp-2</name>
+    <name>token-html-to-explore-html-2</name>
     <from casesensitive="true">^/(\d{4,4}/[DQMCT]\d{4,}(Q\d{4,})?)\.html$</from>
-    <to>/servlet/explore/jsp?uri=$1&amp;resource_prefix=..%2F</to>
+    <to>/servlet/explore/html?uri=$1&amp;resource_prefix=..%2F</to>
   </rule>
 
   <rule>
