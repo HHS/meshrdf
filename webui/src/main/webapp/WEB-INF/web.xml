@@ -4,8 +4,7 @@
          http://java.sun.com/xml/ns/javaee
          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
-    <display-name>EBI - Linked Data Explorer</display-name>
-
+    <display-name>NLM - Linked Data Explorer</display-name>
 
     <description>
         SPARQL endpoint and Linked Data Browser
@@ -47,6 +46,7 @@
         </listener-class>
     </listener>
 
+
     <!-- enable cors -->
     <filter>
         <filter-name>cors</filter-name>
@@ -66,6 +66,23 @@
         <filter-name>validation</filter-name>
         <url-pattern>*.jsp</url-pattern>
     </filter-mapping>
+
+    <!-- Provide monitoring before URLRewriteFilter, after other filters, 
+         but *after* ContextLoaderListener.   Not sure why. -->
+    <filter>
+        <filter-name>javamelody</filter-name>
+        <filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
+        <async-supported>true</async-supported>
+    </filter>
+    <filter-mapping>
+        <filter-name>javamelody</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>ASYNC</dispatcher>
+    </filter-mapping>
+    <listener>
+        <listener-class>net.bull.javamelody.SessionListener</listener-class>
+    </listener>
 
     <!-- Tuckey URL rewrite filters -->
     <filter>

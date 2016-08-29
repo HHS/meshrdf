@@ -29,6 +29,9 @@
                                 <exclude>index.html</exclude>
                                 <exclude>query.html</exclude>
                                 <exclude>explore.html</exclude>
+                                <exclude>WEB-INF/lib/httpclient-4.2.6.jar</exclude>
+                                <exclude>WEB-INF/lib/httpcore-4.2.5.jar</exclude>
+                                <exclude>WEB-INF/lib/commons-codec-1.6.jar</exclude>
                             </excludes>
                         </overlay>
                     </overlays>
@@ -98,6 +101,12 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.bull.javamelody</groupId>
+            <artifactId>javamelody-core</artifactId>
+            <version>1.60.0</version>
         </dependency>
 
         <dependency>
