@@ -1,0 +1,44 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="/WEB-INF/lodestar-tags.tld" prefix="lodestar" %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MeSH RDF Explorer (beta)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <%@ include file="internal/head.jspf" %>
+    <lodestar:dapscript></lodestar:dapscript>
+  </head>
+
+  <body onload="$('#data-explorer-content').explore({
+      resource_prefix : '<%= resourcePrefix %>',
+      namespaces : lodeNamespacePrefixes
+    });">
+    <div class="skipnav"><a href="#skip" class="skipnav">Skip Navigation</a></div>
+    <div class="header">
+      <%@ include file="internal/header.html" %>
+    </div>
+    <div class="container-fluid">
+      <div id="meshTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="home">
+          <div class="navi">
+            <%@ include file="internal/nav.jspf" %>
+          </div>
+
+          <a name="skip"> </a>
+          <h1>Medical Subject Headings (MeSH) RDF Linked Data (beta)</h1>
+
+          <div class="grid_24" id="data-explorer-content">
+          </div>
+
+          <div class="footer">
+            <%@ include file="internal/footer.html" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

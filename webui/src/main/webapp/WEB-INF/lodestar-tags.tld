@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+
+    <description>Custom Tags for NLM's Lodestar Implementation</description>
+    <tlib-version>0.9</tlib-version>
+    <short-name>lodestar</short-name>
+    <tag>
+        <name>dapscript</name>
+        <tag-class>gov.nih.nlm.lode.servlet.DAPScriptTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+</taglib>

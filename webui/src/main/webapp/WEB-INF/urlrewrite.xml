@@ -1,0 +1,233 @@
+<!--
+  Configuration file for UrlRewriteFilter.
+  http://tuckey.org/urlrewrite/
+-->
+
+<urlrewrite>
+
+  <!--
+    Note:  "from" patterns, by default, match anywhere in the URL.  So, for example, if you write
+      <from>/sparql</from>
+    then that would match "/scripts/sparql.js".
+    So, in general, always anchor your "from" patterns with "^/" and "$".
+  -->
+
+  <!-- for testing
+  <rule>
+    <name>foo-example</name>
+    <from casesensitive="true">^/foo$</from>
+    <to>/servlet/explore</to>
+  </rule>
+-->
+
+  <rule>
+    <name>sparql-to-servlet</name>
+    <from casesensitive="true">^/sparql(.*)$</from>
+    <to>/servlet/query$1</to>
+  </rule>
+
+  <rule>
+    <name>query-to-jsp</name>
+    <from casesensitive="true">^/query$</from>
+    <to last='true'>/query.jsp</to>
+  </rule>
+
+  <!--
+    FIXME: I can't figure out how to do this with 303 instead of 302.  It might be
+    better to do in the servlet.
+  -->
+  <rule>
+    <name>token-redirect-html-1</name>
+    <condition name="Accept" type="header">(text/html|\*/\*)</condition>
+    <from casesensitive="true">^/([DQMCT]\d{4,}(Q\d{4,})?)$</from>
+    <to type="redirect" qsappend="false">$1.html</to>
+  </rule>
+
+  <rule>
+    <name>token-redirect-html-2</name>
+    <condition name="Accept" type="header">(text/html|\*/\*)</condition>
+    <from casesensitive="true">^/\d{4,4}/([DQMCT]\d{4,}(Q\d{4,})?)$</from>
+    <to type="redirect" qsappend="false">$1.html</to>
+  </rule>
+
+  <!-- mesh/D065609.html -->
+  <rule>
+    <name>token-html-to-explore-html</name>
+    <from casesensitive="true">^/([DQMCT].*)\.html$</from>
+    <to>/servlet/explore/html?uri=$1</to>
+  </rule>
+
+  <!-- mesh/2015/D065609.html -->
+  <rule>
+    <name>token-html-to-explore-html-2</name>
+    <from casesensitive="true">^/(\d{4,4}/[DQMCT]\d{4,}(Q\d{4,})?)\.html$</from>
+    <to>/servlet/explore/html?uri=$1&amp;resource_prefix=..%2F</to>
+  </rule>
+
+  <rule>
+    <name>token-to-explore-servlet-1</name>
+    <condition name="Accept" type="header" operator="notequal">(text/html|\*/\*)</condition>
+    <from casesensitive="true">^/([DQMCT]\d{4,}(Q\d{4,})?)$</from>
+    <to>/servlet/explore?uri=$1</to>
+  </rule>
+
+  <!-- mesh/D015242.rdf, etc. - we have to make sure $2 is the extension -->
+  <rule>
+    <name>token-to-explore-servlet-2</name>
+    <from casesensitive="true">^/([DQMCT]\d{4,})\.(.*)$</from>
+    <to>/servlet/explore?uri=$1&amp;format=$2</to>
+  </rule>
+
+  <!-- mesh/2015/D015242.rdf, etc. - we have to make sure $2 is the extension -->
+  <rule>
+    <name>token-to-explore-servlet-3</name>
+    <from casesensitive="true">^/(\d{4,4}\/[DQMCT]\d{4,})\.(.*)$</from>
+    <to>/servlet/explore?uri=$1&amp;format=$2</to>
+  </rule>
+
+  <!-- mesh/D015242Q000378.rdf, etc. - we have to make sure $2 is the extension -->
+  <rule>
+    <name>descqual-to-explore-servlet-1</name>
+    <from casesensitive="true">^/([DQMCT]\d{4,}Q\d{4,})\.(.*)$</from>
+    <to>/servlet/explore?uri=$1&amp;format=$2</to>
+  </rule>
+
+  <!-- mesh/2015/D015242Q000378.rdf, etc. - we have to make sure $2 is the extension -->
+  <rule>
+    <name>descqual-to-explore-servlet-2</name>
+    <from casesensitive="true">^/(\d{4,4}\/[DQMCT]\d{4,}Q\d{4,})\.(.*)$</from>
+    <to>/servlet/explore?uri=$1&amp;format=$2</to>
+  </rule>
+
+  <!-- 
+    to be fixed tree number
+  -->
+  <rule>
+      <name>describe-token-1</name>
+      <condition name="Accept" type="header">(text/html|\*|\*)</condition>
+      <from casesensitive="true">^/([ABCDEFGHIJKLMNVZ]\d{2}(?:\.\d+)*)(?:\.html|\.htm)?$</from>
+      <to type="redirect">http://id.nlm.nih.gov/mesh/describe?uri=http://id.nlm.nih.gov/mesh/$1</to>
+  </rule>
+
+  <rule>
+      <name>describe-token-2</name>
+      <condition name="Accept" type="header" operator="notequal">(text/html|\*/\*)</condition>
+      <from casesensitive="true">^/([ABCDEFGHIJKLMNVZ]\d{2}(?:\.\d+)*)$</from>
+      <to>/servlet/explore?uri=$1</to>
+  </rule>
+
+  <rule>
+      <name>describe-token-3</name>
+      <from casesensitive="true">^/([ABCDEFGHIJKLMNVZ]\d{2}(?:\.\d+)*)\.(.*)$</from>
+      <to>/servlet/explore?uri=$1&amp;format=$2</to>
+  </rule>
+
+  <rule>
+      <name>vocab-to-ttl-file</name>
+      <from casesensitive="true">^/vocab(#.*)?$</from>
+      <to type="redirect">vocabulary.ttl</to>
+  </rule>
+
+<!--
+    <rule>
+      <name>commented-1</name>
+      <condition type="method" operator='equal'>POST</condition>
+      <from casesensitive="true">/sparql$</from>
+      <to last="true">/servlet/query$1</to>
+    </rule>
+-->
+
+
+<!--
+    <rule>
+        <name>commented-2</name>
+        <condition name="Accept" type="header">application/sparql.*</condition>
+        <from casesensitive="true">/sparql(.*)$</from>
+        <to>/servlet/query$1</to>
+    </rule>
+
+    <rule>
+        <name>commented-3</name>
+        <condition name="Accept" type="header">text/*</condition>
+        <from casesensitive="true">/sparql(.*)$</from>
+        <to>/servlet/query$1</to>
+    </rule>
+-->
+
+  <!-- explore service rewriting -->
+
+
+  <rule>
+    <name>describe-to-explore-jsp-1</name>
+    <condition name="Accept" type="header">(text/html|\*/\*)</condition>
+    <from casesensitive="true">/describe$</from>
+    <to>/explore.jsp</to>
+  </rule>
+
+
+  <rule>
+    <name>describe-to-explore-servlet-1</name>
+    <condition name="Accept" type="header" operator="notequal">(text/html|\*/\*)</condition>
+    <from casesensitive="true">/describe(.*)$</from>
+    <to>/servlet/explore$1</to>
+  </rule>
+
+<!--
+    <rule>
+        <name>commented-4</name>
+        <condition name="Accept" type="header">application/rdf.*</condition>
+        <from casesensitive="true">/describe(.*)$</from>
+        <to>/servlet/explore$1</to>
+    </rule>
+  -->
+
+
+
+
+    <!-- depict; which right now is a copy/hack of describe/explore -->
+
+    <!--
+      The first set of rules does the content-negotiation.  If the user gives us a URL without a
+      filename extension, then we will redirect him to the same URL, but with a filename extension
+      added.  The extension depends on the value of the "Accept" header.
+
+    <rule>
+      <name>commented-5</name>
+      <condition name="Accept" type="header">application/rdf+xml</condition>
+      <from casesensitive="true">/depict/([^.]*)$</from>
+      <to type="redirect" qsappend="false">$1.rdf</to>
+    </rule>
+
+    <rule>
+      <name>commented-6</name>
+      <condition name="Accept" type="header">application/json</condition>
+      <from casesensitive="true">/depict/([^.]*)$</from>
+      <to type="redirect" qsappend="false">$1.json</to>
+    </rule>
+    -->
+
+    <!--
+      Now handle the URLs that have extensions.  First, ".html" - it is special, because it's
+      handled by the static html page, which then uses JS to make a pretty display.
+    <rule>
+      <name>commented-7</name>
+      <from casesensitive="true">/depict/(.*).html</from>
+      <to>/depict.html</to>
+    </rule>
+    -->
+
+    <!--
+      Next, any other URL that has an extension will get passed to the depict servlet for
+      processing.
+    <rule>
+      <name>commented-8</name>
+      <from casesensitive="true">/depict/(.*)\.(.*)$</from>
+      <to>/servlet/explore?uri=$1&amp;format=$2</to>
+    </rule>
+    -->
+
+
+
+
+
+</urlrewrite>

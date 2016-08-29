@@ -2,20 +2,21 @@
 
 ***Status:  Beta.  Feedback is [welcome](https://github.com/HHS/meshrdf/issues).***
 
-This repository contains a set of XSLT files that transform MeSH XML into RDF, and also contains
-the content for the technical documentation pages, deployed as a set of GitHub pages, at
-[http://hhs.github.io/meshrdf](http://hhs.github.io/meshrdf).
+This directory contains two modules for MeSH in RDF:
+
+* A set of XSLT files that transform MeSH XML into RDF
+* A Java-based user interface, based on EBI's Lodestar.
+
+The GitHub repository also contains the content for the technical documentation pages, deployed as a set of GitHub pages, at [http://hhs.github.io/meshrdf](http://hhs.github.io/meshrdf).
 
 Please see that technical documentation for details about the data model, and how this new
 RDF version of MeSH relates to the XML from which it derives.
 
-The rest of this README describes how to set up a development environment and perform the
-transformations yourself, if you are interested in doing that.  
+The rest of this README describes:
+* How to set up a development environment and perform the transformations yourself, if you are interested in doing that.
+* How to build the Java UI as a front-end for OpenLink Virtuoso, if you are interested in doing that.
 
-All the instructions assume
-that you're running on a Unix-like operating system, in a bash shell. If you have a Windows
-machine, we recommend that you install [cygwin](https://www.cygwin.com/). Please let us know
-(by opening a GitHub issue here) if you have problems.
+All the instructions assume that you're running on a Unix-like operating system, in a bash shell. If you have a Windows machine, we recommend that you install [cygwin](https://www.cygwin.com/) or [Git for Windows](https://git-scm.com/download) Please let us know (by opening a GitHub issue) if you have problems.
 
 
 ## Quick start

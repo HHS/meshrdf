@@ -1,0 +1,74 @@
+body {
+  margin: 0px;
+  background: #20558a;
+}
+
+/* Accessibility labels */
+.skipnav {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.query-label {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Header */
+.logo-container {
+  width:700px;
+}
+
+/* Tabs */
+.nav-tabs {
+  margin-left: 25px;
+  padding: 0;
+  border: 0;
+}
+
+.nav-tabs > li > a,
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus,
+.nav-tabs > li.open > a,
+.nav-tabs > li.open > a:hover,
+.nav-tabs > li.open > a:focus,
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border-radius: 8px 8px 0 0;
+  background: #5e7ba3;
+  box-shadow: -1px -1px 1px -1px rgba(0,0,0,.4);
+  border-bottom: 0;
+  border-color: white;
+  color: white;
+}
+
+.tab-pane {
+  background: white;
+  box-shadow: 1px -1px 1px -1px rgba(0,0,0,.4);
+  padding: 10px;
+  border: 1px solid #5e7ba3;
+  border-radius: 10px;
+}
+
+/* Misc */
+.mr50 {
+  margin-right: 50px;
+}
+
+a.white-strong:hover,
+a.white-strong:focus,
+a.white-strong,
+.white-strong {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+

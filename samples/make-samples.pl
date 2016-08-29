@@ -20,7 +20,7 @@ use strict;
 my $meshrdf_home = $ENV{MESHRDF_HOME};
 die "You must first define the environment variables MESHRDF_HOME." if !$meshrdf_home;
 
-my $meshrdf_year = ($ENV{MESHRDF_YEAR} || 2015);
+my $meshrdf_year = ($ENV{MESHRDF_YEAR} || 2016);
 
 my @sets = qw( qual desc supp );
 
