@@ -14,10 +14,6 @@ public class LinkCheckerTest {
 
     public static final String BADLINK = "http://www.nlm.nih.gov/google11111111.html";
 
-    public static final String USAJOBS_RESTFUL_URI = "https://data.usajobs.gov/api/jobs?OrganizationID=HE38";
-
-    public static final String REASONABLE_USER_AGENT="Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B)";
-
     @Test(groups = "linkcheck") 
     public void testBasicAbsURL() {
         LinkChecker links = new LinkChecker();
@@ -69,23 +65,5 @@ public class LinkCheckerTest {
         LinkChecker links = new LinkChecker(NLM_NEWS_BASE_URI);
         links.add("ftp://ftp.nlm.nih.gov/online/mesh");
         links.shouldBeValid(); 
-    }
-
-    @Test(groups = "linkcheck") 
-    public void testSendUserAgent() {
-        LinkChecker links = new LinkChecker();
-        links.add(USAJOBS_RESTFUL_URI);
-        links.addRequestHeader("User-Agent", REASONABLE_USER_AGENT);
-        links.shouldBeValid();
-    }
-
-    @Test(groups = "linkcheck", dependsOnMethods={"testSendUserAgent"})
-    public void testValidateContentType() {
-        LinkChecker links = new LinkChecker();
-        links.add(USAJOBS_RESTFUL_URI);
-        links.addRequestHeader("User-Agent", REASONABLE_USER_AGENT);
-        links.addRequestHeader("Accept", "application/xml");
-        links.shouldMatchContentType("application/xml.*");
-        links.shouldBeValid();
     }
 }
