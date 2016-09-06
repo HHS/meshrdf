@@ -67,12 +67,24 @@
         <url-pattern>*.jsp</url-pattern>
     </filter-mapping>
 
-    <!-- Provide monitoring before URLRewriteFilter, after other filters, 
+    <!-- Provide monitoring before URLRewriteFilter, after other filters,
          but *after* ContextLoaderListener.   Not sure why. -->
     <filter>
         <filter-name>javamelody</filter-name>
         <filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
         <async-supported>true</async-supported>
+        <init-param>
+            <param-name>no-database</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>displayed-counters</param-name>
+            <param-value>http,error,log</param-value>
+        </init-param>
+        <init-param>
+            <param-name>system-actions-enabled</param-name>
+            <param-value>false</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>javamelody</filter-name>
