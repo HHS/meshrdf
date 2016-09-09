@@ -1,14 +1,14 @@
 <job>
-  <name>transform</name>
-    <description>Transform desc2016.xml to mesh-desc.nt</description>
+  <name>primary</name>
+    <description/>
     <extended_description/>
-    <job_version>0.1</job_version>
-    <job_status>1</job_status>
+    <job_version/>
+    <job_status>0</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;09&#x2f;08 17&#x3a;43&#x3a;45.635</created_date>
+  <created_date>2016&#x2f;09&#x2f;09 16&#x3a;56&#x3a;55.938</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;09&#x2f;09 17&#x3a;27&#x3a;52.303</modified_date>
+  <modified_date>2016&#x2f;09&#x2f;09 17&#x3a;28&#x3a;49.873</modified_date>
     <parameters>
     </parameters>
     <slaveservers>
@@ -34,27 +34,6 @@
    <shared_objects_file/>
   <entries>
     <entry>
-      <name>Transform Qualifiers</name>
-      <description/>
-      <type>XSLT</type>
-      <xmlfilename>&#x24;&#x7b;meshrdf.datadir&#x7d;&#x2f;qual&#x24;&#x7b;meshrdf.year&#x7d;.xml</xmlfilename>
-      <xslfilename>&#x24;&#x7b;meshrdf.home&#x7d;&#x2f;xslt&#x2f;qual-simple.xsl</xslfilename>
-      <outputfilename>&#x24;&#x7b;meshrdf.home&#x7d;&#x2f;out&#x2f;qual&#x24;&#x7b;meshrdf.year&#x7d;.nt</outputfilename>
-      <iffileexists>2</iffileexists>
-      <addfiletoresult>N</addfiletoresult>
-      <filenamesfromprevious>N</filenamesfromprevious>
-      <xsltfactory>SAXON</xsltfactory>
-    <parameters>
-    </parameters>
-    <outputproperties>
-    </outputproperties>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>448</xloc>
-      <yloc>96</yloc>
-      </entry>
-    <entry>
       <name>START</name>
       <description/>
       <type>SPECIAL</type>
@@ -71,8 +50,72 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>64</xloc>
-      <yloc>96</yloc>
+      <xloc>96</xloc>
+      <yloc>48</yloc>
+      </entry>
+    <entry>
+      <name>download</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>rep_name</specification_method>
+      <job_object_id/>
+      <filename/>
+      <jobname>download</jobname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>224</xloc>
+      <yloc>48</yloc>
+      </entry>
+    <entry>
+      <name>transform</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>rep_name</specification_method>
+      <job_object_id/>
+      <filename/>
+      <jobname>transform</jobname>
+      <directory>&#x2f;</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>384</xloc>
+      <yloc>48</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -81,88 +124,14 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>576</xloc>
-      <yloc>96</yloc>
-      </entry>
-    <entry>
-      <name>Check for MeSH XML files</name>
-      <description/>
-      <type>FILES_EXIST</type>
-      <filename/>
-      <fields>
-        <field>
-          <name>&#x24;&#x7b;meshrdf.datadir&#x7d;&#x2f;desc&#x24;&#x7b;meshrdf.year&#x7d;.xml</name>
-        </field>
-        <field>
-          <name>&#x24;&#x7b;meshrdf.datadir&#x7d;&#x2f;qual&#x24;&#x7b;meshrdf.year&#x7d;.xml</name>
-        </field>
-        <field>
-          <name>&#x24;&#x7b;meshrdf.datadir&#x7d;&#x2f;supp&#x24;&#x7b;meshrdf.year&#x7d;.xml</name>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>304</xloc>
-      <yloc>96</yloc>
-      </entry>
-    <entry>
-      <name>load-properties</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>load-properties</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>176</xloc>
-      <yloc>96</yloc>
+      <xloc>512</xloc>
+      <yloc>48</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
-      <from>Transform Qualifiers</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Check for MeSH XML files</from>
-      <to>Transform Qualifiers</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>START</from>
-      <to>load-properties</to>
+      <to>download</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -170,8 +139,17 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>load-properties</from>
-      <to>Check for MeSH XML files</to>
+      <from>download</from>
+      <to>transform</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>transform</from>
+      <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
