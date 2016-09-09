@@ -8,38 +8,8 @@
   <created_user>-</created_user>
   <created_date>2016&#x2f;09&#x2f;08 15&#x3a;10&#x3a;10.110</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;09&#x2f;08 17&#x3a;49&#x3a;07.899</modified_date>
+  <modified_date>2016&#x2f;09&#x2f;09 11&#x3a;50&#x3a;36.749</modified_date>
     <parameters>
-        <parameter>
-            <name>ftp.path</name>
-            <default_value>&#x2f;online&#x2f;mesh&#x2f;.xmlmesh</default_value>
-            <description>directory</description>
-        </parameter>
-        <parameter>
-            <name>ftp.server</name>
-            <default_value>ftp.nlm.nih.gov</default_value>
-            <description>Server to contact</description>
-        </parameter>
-        <parameter>
-            <name>meshrdf.datadir</name>
-            <default_value>&#x24;&#x7b;meshrdf.home&#x7d;&#x2f;data</default_value>
-            <description>Directory to download XML</description>
-        </parameter>
-        <parameter>
-            <name>meshrdf.home</name>
-            <default_value>&#x24;&#x7b;user.home&#x7d;</default_value>
-            <description>Directory where to place the data</description>
-        </parameter>
-        <parameter>
-            <name>meshrdf.outdir</name>
-            <default_value>&#x24;&#x7b;meshrdf.home&#x7d;&#x2f;out</default_value>
-            <description>Directory where to place outputs</description>
-        </parameter>
-        <parameter>
-            <name>meshrdf.year</name>
-            <default_value>2016</default_value>
-            <description>Year which to retrieve</description>
-        </parameter>
     </parameters>
     <slaveservers>
     </slaveservers>
@@ -72,7 +42,7 @@
       <username>anonymous</username>
       <password>Encrypted 64616e6bdbf481ac0bd19b978b17a7789095a0cc</password>
       <ftpdirectory>&#x24;&#x7b;ftp.path&#x7d;</ftpdirectory>
-      <targetdirectory>&#x24;&#x7b;meshrdf.outdir&#x7d;</targetdirectory>
+      <targetdirectory>&#x24;&#x7b;meshrdf.datadir&#x7d;</targetdirectory>
       <wildcard>&#x28;desc&#x7c;qual&#x7c;supp&#x29;&#x24;&#x7b;meshrdf.year&#x7d;.xml</wildcard>
       <binary>Y</binary>
       <timeout>0</timeout>
@@ -98,12 +68,12 @@
       <socksproxy_username/>
       <socksproxy_password>Encrypted </socksproxy_password>
       <ifFileExists>ifFileExistsSkip</ifFileExists>
-      <nr_limit>10</nr_limit>
-      <success_condition>success_if_no_errors</success_condition>
+      <nr_limit>3</nr_limit>
+      <success_condition>success_when_at_least</success_condition>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>176</xloc>
+      <xloc>336</xloc>
       <yloc>64</yloc>
       </entry>
     <entry>
@@ -133,14 +103,57 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>288</xloc>
+      <xloc>480</xloc>
+      <yloc>64</yloc>
+      </entry>
+    <entry>
+      <name>load-prpoperties</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>load-prpoperties</transname>
+      <directory>&#x2f;transforms</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>192</xloc>
       <yloc>64</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
+      <from>Get MeSH XML from FTP</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
       <from>START</from>
-      <to>Get MeSH XML from FTP</to>
+      <to>load-prpoperties</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -148,8 +161,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Get MeSH XML from FTP</from>
-      <to>Success</to>
+      <from>load-prpoperties</from>
+      <to>Get MeSH XML from FTP</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

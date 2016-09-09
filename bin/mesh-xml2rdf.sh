@@ -2,11 +2,11 @@
 #
 # This script will convert all of the MeSH XML to RDF, assuming that your machine has
 # enough memory and resources.  It will also copy over the vocabulary and void files.
-# This script assumes that it is in the `bin` subdirectory of the clone of the 
+# This script assumes that it is in the `bin` subdirectory of the clone of the
 # hhs/meshrdf repository, and it looks for some other files accordingly.
 #
 # The environment variable $MESHRDF_HOME is used to determine the `data` and `out`
-# directories. 
+# directories.
 #
 # It is parameterized according to the following environment variables:
 # - MESHRDF_YEAR - default is "2015". Set this to override the *source* data. In other
@@ -30,13 +30,13 @@ else
 fi
 cd $($READLINK -e `dirname $0`/..)
 
-MESH_JAVA_OPTS="-Xms4g -Xmx4g"
+MESH_JAVA_OPTS="-Xmx4g"
 
 while getopts "h:j:y:x:o:u" opt; do
   case $opt in
     h) export MESHRDF_HOME=$OPTARG ;;
     j) export SAXON_JAR=$OPTARG ;;
-    y) export MESHRDF_YEAR=$OPTARG ;; 
+    y) export MESHRDF_YEAR=$OPTARG ;;
     u) export MESHRDF_URI_YEAR="yes" ;;
     o) export OUTFILE_FORCE=$OPTARG ;;
     x) export MESH_JAVA_OPTS=$OPTARG ;;
@@ -69,7 +69,7 @@ if [ "$MESHRDF_URI_YEAR" = "yes" ]; then
 else
     OUTDIR=$MESHRDF_HOME/out
     OUTFILE=$OUTDIR/mesh
-    URI_YEAR_PARAM=
+    URI_YEAR_PARAM=uri-year-segment=
     URI_PREFIX="http://id.nlm.nih.gov/mesh"
 fi
 
@@ -109,7 +109,7 @@ if [ -f "$MESHRDF_HOME/data/cns-disease-2014AB.nt" ]; then
 fi
 
 sort -u -T"$OUTDIR" "$OUTFILE-dups.nt" > "$OUTFILE.nt"
-if [ $? -ne 0 ]; then 
+if [ $? -ne 0 ]; then
     echo "Error deduplicating $OUTFILE-dups.nt" 1>&2
     exit 1
 fi
@@ -125,17 +125,17 @@ cp meta/vocabulary.ttl $OUTDIR
 cp meta/void.ttl $OUTDIR
 cp meta/service_description.ttl $OUTDIR
 
-# Set up hard links to version-specific vocabulary and void 
+# Set up hard links to version-specific vocabulary and void
 cd $OUTDIR
 
 vocab_version=`awk '$1~/versionInfo/ { gsub(/"/, "", $2); print $2 }' vocabulary.ttl`
-if [ -z "$vocab_version" ]; then 
+if [ -z "$vocab_version" ]; then
     echo "Unable to determine vocabulary.ttl version" 1>&2
     exit 1
 fi
 
 void_version=`awk '$1~/versionInfo/ { gsub(/"/, "", $2); print $2 }' void.ttl`
-if [ -z "$void_version" ]; then 
+if [ -z "$void_version" ]; then
     echo "Unable to determine void.ttl version" 1>&2
 fi
 
