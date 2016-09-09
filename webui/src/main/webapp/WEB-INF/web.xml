@@ -39,6 +39,30 @@
         <url-pattern>/servlet/*</url-pattern>
     </servlet-mapping>
 
+    <!-- Provide monitoringvia JavaMelody before ContextLoaderListener -->
+    <filter>
+        <filter-name>javamelody</filter-name>
+        <filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
+        <async-supported>true</async-supported>
+        <init-param>
+            <param-name>system-actions-enabled</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <param-name>displayed-counters</param-name>
+            <param-value>http,sql,error,jsp,log</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>javamelody</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>ASYNC</dispatcher>
+    </filter-mapping>
+    <listener>
+        <listener-class>net.bull.javamelody.SessionListener</listener-class>
+    </listener>
+
     <!-- listener to load context at startup -->
     <listener>
         <listener-class>
@@ -66,23 +90,6 @@
         <filter-name>validation</filter-name>
         <url-pattern>*.jsp</url-pattern>
     </filter-mapping>
-
-    <!-- Provide monitoring before URLRewriteFilter, after other filters, 
-         but *after* ContextLoaderListener.   Not sure why. -->
-    <filter>
-        <filter-name>javamelody</filter-name>
-        <filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
-        <async-supported>true</async-supported>
-    </filter>
-    <filter-mapping>
-        <filter-name>javamelody</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>ASYNC</dispatcher>
-    </filter-mapping>
-    <listener>
-        <listener-class>net.bull.javamelody.SessionListener</listener-class>
-    </listener>
 
     <!-- Tuckey URL rewrite filters -->
     <filter>

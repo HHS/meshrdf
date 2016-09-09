@@ -60,12 +60,7 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>ebi-lode</groupId>
-            <artifactId>lode-core-servlet</artifactId>
-            <version>1.4-SNAPSHOT</version>
-        </dependency>
-
+        <!-- NOTE: Both lode-core-servlet and lode-core-api will be enabled transitively -->
         <dependency>
             <groupId>ebi-lode</groupId>
             <artifactId>lode-virtuoso-impl</artifactId>
@@ -107,12 +102,22 @@
             <groupId>net.bull.javamelody</groupId>
             <artifactId>javamelody-core</artifactId>
             <version>1.60.0</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Needed by JavaMelody to enable XML/JSON responses -->
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.2</version>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
             <groupId>org.tuckey</groupId>
             <artifactId>urlrewritefilter</artifactId>
             <version>4.0.3</version>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
