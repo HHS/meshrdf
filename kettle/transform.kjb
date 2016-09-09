@@ -4,11 +4,11 @@
     <extended_description/>
     <job_version>0.1</job_version>
     <job_status>1</job_status>
-  <directory>&#x2f;jobs</directory>
+  <directory>&#x2f;</directory>
   <created_user>-</created_user>
   <created_date>2016&#x2f;09&#x2f;08 17&#x3a;43&#x3a;45.635</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;09&#x2f;09 11&#x3a;54&#x3a;52.509</modified_date>
+  <modified_date>2016&#x2f;09&#x2f;09 12&#x3a;27&#x3a;34.945</modified_date>
     <parameters>
     </parameters>
     <slaveservers>
@@ -107,14 +107,14 @@
       <yloc>96</yloc>
       </entry>
     <entry>
-      <name>load-prpoperties</name>
+      <name>load-properties</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>load-prpoperties</transname>
-      <directory>&#x2f;transforms</directory>
+      <transname>load-properties</transname>
+      <directory>&#x2f;</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -162,7 +162,7 @@
     </hop>
     <hop>
       <from>START</from>
-      <to>load-prpoperties</to>
+      <to>load-properties</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -170,7 +170,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>load-prpoperties</from>
+      <from>load-properties</from>
       <to>Check for MeSH XML files</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
