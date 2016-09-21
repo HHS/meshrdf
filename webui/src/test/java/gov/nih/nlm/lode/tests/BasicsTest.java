@@ -10,9 +10,10 @@ import static org.testng.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+@Test(groups = "basics")
 public class BasicsTest extends LodeBaseTest {
 
-  @Test(groups = "basics")
+  @Test
   public void testHomePage() {
     openHomePage();
     titleShouldBe("MeSH Linked Data (beta)");
@@ -21,7 +22,7 @@ public class BasicsTest extends LodeBaseTest {
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
   }
 
-  @Test(groups = "basics")
+  @Test
   public void testQueryPagce() {
     openQueryPage();
     titleShouldBe("MeSH SPARQL Explorer (beta)");
@@ -30,7 +31,7 @@ public class BasicsTest extends LodeBaseTest {
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
   }
 
-  @Test(groups = "basics")
+  @Test
   public void testExplorerPage() {
     openExplorerPage(false);
     titleShouldBe("MeSH RDF Explorer (beta)");
@@ -39,7 +40,7 @@ public class BasicsTest extends LodeBaseTest {
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
   }
 
-  @Test(groups = "basics")
+  @Test
   public void testExplorerYearPage() {
     openExplorerPage(true);
     titleShouldBe("MeSH RDF Explorer (beta)");
@@ -48,7 +49,7 @@ public class BasicsTest extends LodeBaseTest {
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
   }
 
-  @Test(groups = "basics")
+  @Test
   public void testVocabularyFile() {
     LinkChecker vocablink = new LinkChecker();
     vocablink.add(getLodeBaseUrl()+"/vocabulary.ttl");
@@ -56,7 +57,7 @@ public class BasicsTest extends LodeBaseTest {
     vocablink.shouldBeValid();
   }
 
-  @Test(groups = "basics")
+  @Test
   public void testVocabularyRedirect() {
     LinkChecker vocablink = new LinkChecker();
     vocablink.add(getLodeBaseUrl()+"/vocab#CheckTag");
