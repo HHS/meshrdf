@@ -1,0 +1,184 @@
+package gov.nih.nlm.lode.servlet;
+
+import java.io.File;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.sql.DataSource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import uk.ac.ebi.fgpt.lode.utils.DatasourceProvider;
+
+public class MeshStatus {
+
+    private DatasourceProvider datasourceProvider;
+
+    private String updatesPath;
+
+    private long updateMaxSeconds;
+
+    private boolean httpdOK = true;
+    private boolean tomcatOK = true;
+    private boolean virtuosoOK = true;
+    private boolean meshdataOK = true;
+    private boolean updating = false;
+
+    private Logger log = LoggerFactory.getLogger(getClass());
+
+
+    public MeshStatus(DatasourceProvider datasourceProvider, String updatesPath, long updateMaxSeconds) {
+        this.datasourceProvider = datasourceProvider;
+        this.updatesPath = updatesPath;
+        this.updateMaxSeconds = updateMaxSeconds;
+    }
+
+    public MeshStatus(DatasourceProvider datasourceProvider) {
+        this(datasourceProvider, null, 3*60*60);
+    }
+
+    private Connection getVirtuosoConnection() {
+        Connection connection = null;
+        try {
+            DataSource datasource = datasourceProvider.getDataSource();
+            connection = datasource.getConnection();
+        } catch (SQLException e) {
+            log.error("Unable to connect to Virtuoso", e);
+        }
+        return connection;
+    }
+
+    private Boolean virtuosoHasData(Connection connection) {
+        if (null == connection) {
+            return false;
+        }
+        boolean successful = false;
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rset = stmt.executeQuery("SPARQL"
+                    + " PREFIX mesh: <http://id.nlm.nih.gov/mesh/>"
+                    + " PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>"
+                    + " SELECT COUNT(?pa)"
+                    + " FROM <http://id.nlm.nih.gov/mesh>"
+                    + " WHERE { mesh:D015242 meshv:pharmacologicalAction ?pa . }");
+            if (rset.next()) {
+                Integer count = rset.getInt(1);
+                if (null != count && count == 4) {
+                    successful = true;
+                }
+            }
+            rset.close();
+            stmt.close();
+        }
+        catch (SQLException e) {
+            log.error("SPARQL query failed", e);
+        }
+        return successful;
+    }
+
+    private Boolean currentlyUpdating() {
+        if (updatesPath != null) {
+            File updatesFile = new File(updatesPath);
+            if (updatesFile.exists()) {
+                long now = System.currentTimeMillis();
+                long maxMillis = (updateMaxSeconds * 1000);
+                if ((now - updatesFile.lastModified()) < maxMillis) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void check() {
+        // We assume httpd and Tomcat are OK
+        setHttpdOK(true);
+        setTomcatOK(true);
+
+        // Check status of Virtuoso DB server
+        Connection connection = getVirtuosoConnection();
+        if (null != connection) {
+            setVirtuosoOK(true);
+        } else {
+            setVirtuosoOK(false);
+        }
+
+        // Check Virtuoso data
+        if (virtuosoHasData(connection)) {
+            setMeshdataOK(true);
+        } else {
+            setMeshdataOK(false);
+        }
+
+        // close the connection
+        if (null != connection) {
+            try { connection.close(); } catch (SQLException e) { }
+        }
+
+        // Check whether we are currently updating
+        boolean updateInProgress = currentlyUpdating();
+        if (updateInProgress) {
+            setUpdating(true);
+        } else {
+            setUpdating(false);
+        }
+    }
+
+    public boolean isHttpdOK() {
+        return httpdOK;
+    }
+
+    public void setHttpdOK(boolean httpdOK) {
+        this.httpdOK = httpdOK;
+    }
+
+    public boolean isTomcatOK() {
+        return tomcatOK;
+    }
+
+    public void setTomcatOK(boolean tomcatOK) {
+        this.tomcatOK = tomcatOK;
+    }
+
+    public boolean isVirtuosoOK() {
+        return virtuosoOK;
+    }
+
+    public void setVirtuosoOK(boolean virtuosoOK) {
+        this.virtuosoOK = virtuosoOK;
+    }
+
+    public boolean isMeshdataOK() {
+        return meshdataOK;
+    }
+
+    public void setMeshdataOK(boolean meshdataOK) {
+        this.meshdataOK = meshdataOK;
+    }
+
+    public boolean isUpdating() {
+        return updating;
+    }
+
+    public void setUpdating(boolean updating) {
+        this.updating = updating;
+    }
+
+    public boolean isAllOK() {
+        return (this.isHttpdOK() && this.isTomcatOK() && this.isVirtuosoOK() && this.isMeshdataOK() && !this.isUpdating());
+    }
+
+    public String getMessage() {
+        String message = "Status: OK";
+        if (!isAllOK()) {
+            if (isVirtuosoOK() && isUpdating()) {
+                message = "Status: Updating";
+            } else {
+                message = "Status: Error";
+            }
+        }
+        return message;
+    }
+}

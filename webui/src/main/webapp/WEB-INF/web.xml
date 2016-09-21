@@ -128,21 +128,6 @@
         <url-pattern>/labels</url-pattern>
     </servlet-mapping> -->
 
-    <!-- health status monitoring -->
-
-    <!-- Status check servlet (NLM specific) -->
-    <servlet>
-        <description>Status Servlet</description>
-        <servlet-name>StatusServlet</servlet-name>
-        <servlet-class>gov.nih.nlm.lode.servlet.StatusServlet</servlet-class>
-    </servlet>
-
-    <!-- Point requests to /status to StatusServlet: E.S. need to know the URL (/status) and the response ("OK" if live) -->
-    <servlet-mapping>
-        <servlet-name>StatusServlet</servlet-name>
-        <url-pattern>/status</url-pattern>
-    </servlet-mapping>
-
     <!-- Health check filter, suppresses logging of health-check requests from load balancer -->
     <filter>
         <filter-name>HealthFilter</filter-name>
