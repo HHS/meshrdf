@@ -19,9 +19,19 @@
         <virtuosoServerName>localhost</virtuosoServerName>
         <virtuosoUserName>dba</virtuosoUserName>
         <virtuosoPassword>dba</virtuosoPassword>
+
+        <!-- Production parameters -->
+        <updatesPath>/usr/nlm/meshlocal/state/updating</updatesPath>
+        <updateMaxSeconds>10800</updateMaxSeconds>
     </properties>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <testResources>
             <testResource>
                 <directory>src/test/resources</directory>

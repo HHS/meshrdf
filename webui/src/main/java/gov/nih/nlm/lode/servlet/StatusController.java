@@ -1,10 +1,19 @@
 package gov.nih.nlm.lode.servlet;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import uk.ac.ebi.fgpt.lode.utils.DatasourceProvider;
 
@@ -27,12 +36,34 @@ public class StatusController {
     @Value("${meshrdf.update.maxseconds}")
     long updateMaxSeconds;
 
-    @RequestMapping
-    public @ResponseBody
-    MeshStatus checkStatus() {
-        MeshStatus status = new MeshStatus(datasourceProvider, updatesPath, updateMaxSeconds);
-        status.check();
-        return status;
+    @RequestMapping(method = RequestMethod.GET)
+    public void checkStatus(HttpServletResponse resp) throws IOException {
+        PrintWriter out = null;
+        ObjectMapper mapper = null;
+        try {
+            MeshStatus status = new MeshStatus(datasourceProvider, updatesPath, updateMaxSeconds);
+            status.check();
+
+            resp.setContentType("application/json; charset=UTF-8");
+            if (status.getStatusCode() != MeshStatus.STATUS_OK) {
+                resp.setStatus(status.getStatusCode());
+                if (status.isUpdating()) {
+                    resp.addHeader("Retry-After", "300");
+                }
+            }
+
+            out = resp.getWriter();
+            mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            mapper.enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS);
+            mapper.writeValue(out, status);
+            out.println();
+        } finally {
+            if (null != out) {
+                out.flush();
+                out.close();
+            }
+        }
     }
 
 }

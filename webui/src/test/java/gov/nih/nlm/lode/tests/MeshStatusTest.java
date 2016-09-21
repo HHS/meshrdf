@@ -52,8 +52,8 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
         assertThat(status.isVirtuosoOK(), is(true));
         assertThat(status.isMeshdataOK(), is(true));
         assertThat(status.isUpdating(), is(false));
-        assertThat(status.isAllOK(), is(true));
-        assertThat(status.getMessage(), is(equalTo("Status: OK")));
+        assertThat(status.isUpdateError(), is(false));
+        assertThat(status.getStatus(), is(equalTo("Status: OK")));
     }
 
     @Test(groups={"unit"})
@@ -65,11 +65,11 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
         assertThat(status.isVirtuosoOK(), is(true));
         assertThat(status.isMeshdataOK(), is(true));
         assertThat(status.isUpdating(), is(true));
-        assertThat(status.isAllOK(), is(false));
-        assertThat(status.getMessage(), is(equalTo("Status: Updating")));
+        assertThat(status.isUpdateError(), is(false));
+        assertThat(status.getStatus(), is(equalTo("Status: Updating")));
     }
 
-    @Test(enabled=false, groups={"unit"})
+    @Test(groups={"unit"})
     public void testMeshUpdatingTooLong() throws IOException {
         MeshStatus status = new MeshStatus(datasourceProvider, tempfilePath, 30*60);
         status.check();
@@ -77,9 +77,9 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
         assertThat(status.isTomcatOK(), is(true));
         assertThat(status.isVirtuosoOK(), is(true));
         assertThat(status.isMeshdataOK(), is(true));
-        assertThat(status.isUpdating(), is(false));
-        assertThat(status.isAllOK(), is(false));
-        assertThat(status.getMessage(), is(equalTo("Status: Error")));
+        assertThat(status.isUpdating(), is(true));
+        assertThat(status.isUpdateError(), is(true));
+        assertThat(status.getStatus(), is(equalTo("Status: Error")));
     }
 
     // This test must be last - we set priority
@@ -92,7 +92,7 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
         assertThat(status.isVirtuosoOK(), is(false));
         assertThat(status.isMeshdataOK(), is(false));
         assertThat(status.isUpdating(), is(false));
-        assertThat(status.isAllOK(), is(false));
-        assertThat(status.getMessage(), is(equalTo("Status: Error")));
+        assertThat(status.isUpdateError(), is(false));
+        assertThat(status.getStatus(), is(equalTo("Status: Error")));
     }
 }

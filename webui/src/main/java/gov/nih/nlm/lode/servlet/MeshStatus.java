@@ -25,6 +25,12 @@ public class MeshStatus {
     private boolean virtuosoOK = true;
     private boolean meshdataOK = true;
     private boolean updating = false;
+    private boolean updateError = false;
+
+    // These are also used as response codes
+    public static final int STATUS_OK = 200;
+    public static final int STATUS_UPDATING = 503;
+    public static final int STATUS_ERROR = 524;
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
@@ -78,20 +84,6 @@ public class MeshStatus {
         return successful;
     }
 
-    private Boolean currentlyUpdating() {
-        if (updatesPath != null) {
-            File updatesFile = new File(updatesPath);
-            if (updatesFile.exists()) {
-                long now = System.currentTimeMillis();
-                long maxMillis = (updateMaxSeconds * 1000);
-                if ((now - updatesFile.lastModified()) < maxMillis) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     public void check() {
         // We assume httpd and Tomcat are OK
         setHttpdOK(true);
@@ -118,11 +110,17 @@ public class MeshStatus {
         }
 
         // Check whether we are currently updating
-        boolean updateInProgress = currentlyUpdating();
-        if (updateInProgress) {
-            setUpdating(true);
-        } else {
-            setUpdating(false);
+        if (updatesPath != null) {
+            File updatesFile = new File(updatesPath);
+            if (updatesFile.exists()) {
+                setUpdating(true);
+                setUpdateError(false);
+                long now = System.currentTimeMillis();
+                long maxMillis = (updateMaxSeconds * 1000);
+                if ((now - updatesFile.lastModified()) > maxMillis) {
+                    setUpdateError(true);
+                }
+            }
         }
     }
 
@@ -166,18 +164,36 @@ public class MeshStatus {
         this.updating = updating;
     }
 
-    public boolean isAllOK() {
-        return (this.isHttpdOK() && this.isTomcatOK() && this.isVirtuosoOK() && this.isMeshdataOK() && !this.isUpdating());
+    public boolean isUpdateError() {
+        return updateError;
     }
 
-    public String getMessage() {
-        String message = "Status: OK";
-        if (!isAllOK()) {
-            if (isVirtuosoOK() && isUpdating()) {
-                message = "Status: Updating";
-            } else {
-                message = "Status: Error";
-            }
+    public void setUpdateError(boolean updateError) {
+        this.updateError = updateError;
+    }
+
+    protected int getStatusCode() {
+        if (isVirtuosoOK() && isMeshdataOK() && !isUpdating() && !isUpdateError()) {
+            return STATUS_OK;
+        } else if (isVirtuosoOK() && this.isUpdating() && !isUpdateError()) {
+            return STATUS_UPDATING;
+        } else {
+            return STATUS_ERROR;
+        }
+    }
+
+    public String getStatus() {
+        String message = null;
+        switch (getStatusCode()) {
+        case STATUS_OK:
+            message = "Status: OK";
+            break;
+        case STATUS_UPDATING:
+            message = "Status: Updating";
+            break;
+        default:
+            message = "Status: Error";
+            break;
         }
         return message;
     }
