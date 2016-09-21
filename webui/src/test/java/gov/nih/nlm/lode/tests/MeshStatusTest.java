@@ -19,6 +19,7 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import uk.ac.ebi.fgpt.lode.utils.DatasourceProvider;
 
 @ContextConfiguration(locations = {"classpath:spring-test-context.xml"})
+@Test(groups = "unit")
 public class MeshStatusTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
@@ -43,7 +44,7 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
         tempfile.delete();
     }
 
-    @Test(groups={"unit"})
+    @Test
     public void testMeshStatus() {
         MeshStatus status = new MeshStatus(datasourceProvider);
         status.check();
@@ -56,7 +57,7 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
         assertThat(status.getStatus(), is(equalTo("Status: OK")));
     }
 
-    @Test(groups={"unit"})
+    @Test
     public void testMeshStatusUpdating() throws IOException {
         MeshStatus status = new MeshStatus(datasourceProvider, tempfilePath, 3*60*60);
         status.check();
@@ -69,7 +70,7 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
         assertThat(status.getStatus(), is(equalTo("Status: Updating")));
     }
 
-    @Test(groups={"unit"})
+    @Test
     public void testMeshUpdatingTooLong() throws IOException {
         MeshStatus status = new MeshStatus(datasourceProvider, tempfilePath, 30*60);
         status.check();
@@ -82,8 +83,7 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
         assertThat(status.getStatus(), is(equalTo("Status: Error")));
     }
 
-    // This test must be last - we set priority
-    @Test(groups={"unit"})
+    @Test
     public void testMeshVirtuosoConnectError() {
         MeshStatus status = new MeshStatus(brokenProvider);
         status.check();
