@@ -11,7 +11,11 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
+    <context:property-placeholder location="classpath:test.properties" ignore-unresolvable="true" ignore-resource-not-found="true" />
+
     <context:annotation-config/>
+
+    <!-- <context:component-scan base-package="uk.ac.ebi.fgpt.lode.servlet, gov.nih.nlm.lode.servlet" /> -->
 
     <!-- Provide a hard-coded DataSource provider -->
     <bean id="testProvider" class="gov.nih.nlm.lode.tests.VirtuosoTestDatasourceProvider">

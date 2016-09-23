@@ -3,7 +3,8 @@ package gov.nih.nlm.lode.tests;
 import java.io.File;
 import java.io.IOException;
 
-import org.testng.annotations.AfterGroups;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import gov.nih.nlm.lode.servlet.MeshStatus;
@@ -33,13 +34,14 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
     private File tempfile;
     private String tempfilePath;
 
-    public MeshStatusTest() throws IOException {
+    @BeforeClass(alwaysRun=true)
+    public void setUp() throws IOException {
         tempfile = File.createTempFile("meshrdftest-", ".txt");
         tempfile.setLastModified(System.currentTimeMillis() - 35*60*1000);
         tempfilePath = tempfile.getCanonicalPath();
     }
 
-    @AfterGroups(groups={"unit"})
+    @AfterClass(alwaysRun=true)
     public void cleanUp() {
         tempfile.delete();
     }
