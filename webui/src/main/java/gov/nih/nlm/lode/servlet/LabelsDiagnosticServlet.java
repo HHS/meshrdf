@@ -9,6 +9,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+import java.util.regex.Matcher;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,10 +25,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LabelsDiagnosticServlet extends HttpServlet {
-  
+
   private static final long serialVersionUID = 1L;
-  
+
   private Logger log = LoggerFactory.getLogger(getClass());
+
+  private Pattern idpattern;
+  private Pattern relpattern;
+
+  public LabelsDiagnosticServlet() {
+      try {
+          idpattern = Pattern.compile("^(\\d{4,4}/)?[DQMCT\\d]+$");
+      } catch (PatternSyntaxException e) {
+          log.error("idpattern regex syntax", e);
+      }
+      try {
+          relpattern = Pattern.compile("^([a-z]+):([a-z]+)$");
+      } catch (PatternSyntaxException e) {
+          log.error("relpattern regex syntax", e);
+      }
+  }
 
   private Connection getVirtuosoConnection() {
     Connection connection = null;
@@ -43,11 +62,11 @@ public class LabelsDiagnosticServlet extends HttpServlet {
     }
     return connection;
   }
-  
+
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
           throws ServletException, IOException {
-    
+
       resp.setContentType("text/plain");
       resp.setCharacterEncoding("utf-8");
       PrintWriter out = resp.getWriter();
@@ -56,25 +75,39 @@ public class LabelsDiagnosticServlet extends HttpServlet {
         String id = req.getParameter("id");
         if (id == null || id.isEmpty()) {
           id = "T504747";
+        } else {
+          Matcher m = idpattern.matcher(id);
+          if (!m.matches()) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "invalid request parameter");
+            return;
+          }
+          id = m.group(1);
         }
-        
+
         String relation = req.getParameter("rel");
         if (relation == null || relation.isEmpty()) {
-          relation = "rdfs:label"; 
+          relation = "rdfs:label";
+        } else {
+          Matcher m = relpattern.matcher(relation);
+          if (!m.matches()) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "invalid request parameter");
+            return;
+          }
+          relation = m.group(1);
         }
-        
+
         // Get Virtuoso DB connection
         Connection connection = getVirtuosoConnection();
         if (null == connection) {
           return;
         }
-        
+
         out.println(String.format("Results for %s %s are:", id, relation));
         out.println();
-          
+
         Statement stmt = connection.createStatement();
-          
-        String queryFormat  = "SPARQL" 
+
+        String queryFormat  = "SPARQL"
             + " define input:inference \"http://id.nlm.nih.gov/mesh/vocab\""
             + " PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
             + " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
@@ -104,12 +137,12 @@ public class LabelsDiagnosticServlet extends HttpServlet {
         out.println();
         rset.close();
         stmt.close();
-          
+
         // close the connection
         if (null != connection) {
           connection.close();
         }
-      } 
+      }
       catch (SQLException e) {
         log.error("sparql query SQL error", e);
       }
