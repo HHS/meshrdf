@@ -15,6 +15,9 @@
         <!-- Requires that virtuoso lodestar be similarly built -->
         <org.springframework.version>4.3.3.RELEASE</org.springframework.version>
 
+        <!-- When do we move to 1.10? -->        
+        <org.mockito.version>1.9.5</org.mockito.version>
+
         <!-- These are default values expected to be overridden -->
         <virtuosoServerName>localhost</virtuosoServerName>
         <virtuosoUserName>dba</virtuosoUserName>
@@ -110,19 +113,17 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- NOTE: Tomcat is providing JSP API 3.0; be careful -->
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
 
-        <!-- NOTE: Tomcat is providing JSP API 2.2; be careful -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.0</version>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.2.1</version>
             <scope>provided</scope>
         </dependency>
 
