@@ -60,4 +60,22 @@ public class ValidationFilterTest {
         assertThat(response.getStatus(), is(equalTo(422)));
         assertThat(response.getErrorMessage(), containsString("resource_prefix"));
     }
+
+    public void testBadUri() throws ServletException, IOException {
+        ValidationFilter filter = new ValidationFilter();
+
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+
+        request.addParameter("resource_prefix", "../..");
+        request.addParameter("uri", "http://id.nlm.nih.gov/mesh/!letsdoit");
+
+        filter.init(filterConfig);
+        filter.doFilter(request, response, filterChain);
+        filter.destroy();
+
+        assertThat(response.getStatus(), is(equalTo(422)));
+        assertThat(response.getErrorMessage(), containsString("uri"));
+
+    }
 }
