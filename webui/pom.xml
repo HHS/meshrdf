@@ -113,6 +113,39 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Override Spring version used by Lodestar -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
+        <!-- ... and add spring-test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>2.2.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--
+        Build and test requires the servlet and JSP API.
+        We use the version for Tomcat 7, even though we
+        deploy on Tomcat 8.
+        -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -127,13 +160,14 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- But Tomcat won't provide JSTL -->
+        <!-- Tomcat does not provide the Java Standard Template Library (JSTL) -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
 
+        <!-- We want Java melody in the WAR for monitoring -->
         <dependency>
             <groupId>net.bull.javamelody</groupId>
             <artifactId>javamelody-core</artifactId>
@@ -162,14 +196,6 @@
             <version>2.0.8</version>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${org.springframework.version}</version>
-            <scope>test</scope>
-        </dependency>
-
     </dependencies>
 
     <repositories>

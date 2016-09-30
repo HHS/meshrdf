@@ -50,7 +50,7 @@ public class LabelsDiagControllerTest extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testValidParms() throws Exception {
-        mvc.perform(get("/labels?id=T504748&rel=meshv:prefLabel"))
+        mvc.perform(get("/labels?id=T504748&prop=meshv:prefLabel"))
             .andExpect(content().contentType("text/plain; charset=utf-8"))
             .andExpect(content().string(containsString("T504748")))
             .andExpect(content().string(containsString("Acebutolol Hydrochloride")))
@@ -65,7 +65,7 @@ public class LabelsDiagControllerTest extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testValidatesRelation() throws Exception {
-        mvc.perform(get("/labels?id=T504748&rel=meshv:identifier"))
+        mvc.perform(get("/labels?id=T504748&prop=meshv:identifier"))
             .andExpect(status().isBadRequest());
     }
 }

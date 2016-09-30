@@ -15,20 +15,59 @@
 
     <context:annotation-config/>
 
-    <!-- <context:component-scan base-package="uk.ac.ebi.fgpt.lode.servlet, gov.nih.nlm.lode.servlet" /> -->
+    <context:component-scan base-package="gov.nih.nlm.lode.servlet" />
 
-    <!-- Provide a hard-coded DataSource provider -->
-    <bean id="testProvider" class="gov.nih.nlm.lode.tests.VirtuosoTestDatasourceProvider">
+    <bean name="explorerConfig" class="uk.ac.ebi.fgpt.lode.impl.DefaultExplorerViewConfigImpl"/>
+
+    <!-- The Explorer Servlet is auto-wired by the lode-servlet.xml, this code is not really used -->
+    <bean id="serviceServlet" class="uk.ac.ebi.fgpt.lode.servlet.ExplorerServlet">
+        <property name="sparqlService" ref="jenaSparqlService"/>
+        <property name="configuration" ref="explorerConfig"/>
+        <property name="service" ref="explorerServiceImpl"/>
+        <property name="baseUri" value="${lode.explorer.service.baseuri}"/>
+    </bean>
+
+    <!--Uncomment these two beans for virtuoso connection pooling-->
+    <bean id="jenaVirtuosoConnectionPoolService" class="uk.ac.ebi.fgpt.lode.impl.JenaVirtuosoConnectionPoolService">
+        <constructor-arg ref="virtuosoDataSourceProvider"/>
+    </bean>
+
+    <!-- During testing, we use a different provider than in the web application -->
+    <bean id="virtuosoDataSourceProvider" class="gov.nih.nlm.lode.tests.VirtuosoTestDatasourceProvider">
         <property name="serverName" value="${virtuosoServerName}"/>
         <property name="userName" value="${virtuosoUserName}"/>
         <property name="password" value="${virtuosoPassword}"/>
     </bean>
 
-    <!-- Provide a hard-coded DataSource provider -->
-    <bean id="brokenProvider" class="gov.nih.nlm.lode.tests.VirtuosoTestDatasourceProvider">
-        <property name="serverName" value="${virtuosoServerName}"/>
-        <property name="userName" value="notrealuser"/>
-        <property name="password" value="notrealpassword"/>
+    <!--
+       A basic HTTP service bean for connecting to SPARQL endpoint
+    -->
+    <bean id="jenaHttpExecutorService" class="uk.ac.ebi.fgpt.lode.impl.JenaHttpExecutorService">
+    </bean>
+
+
+    <bean id="jenaSparqlService" class="uk.ac.ebi.fgpt.lode.impl.JenaSparqlService">
+        <property name="maxQueryLimit" value="${lode.sparql.query.maxlimit}"/>
+        <property name="queryExecutionService" ref="jenaVirtuosoConnectionPoolService"/>
+    </bean>
+
+    <bean name="explorerServiceImpl" class="uk.ac.ebi.fgpt.lode.impl.JenaExploreService">
+        <property name="queryReader" ref="queryReader"/>
+        <property name="queryExecutionService" ref="jenaVirtuosoConnectionPoolService"/>
+    </bean>
+
+    <bean id="sparqlServlet" class="uk.ac.ebi.fgpt.lode.servlet.SparqlServlet">
+        <property name="sparqlService" ref="jenaSparqlService"/>
+    </bean>
+
+    <bean id="queryReader" class="uk.ac.ebi.fgpt.lode.utils.SparqlQueryReader" init-method="init">
+        <property name="sparqlQueryResource" value="classpath:sparql-queries.txt" />
+    </bean>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
 </beans>

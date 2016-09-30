@@ -53,6 +53,8 @@ public class StatusController {
 
             out = resp.getWriter();
             mapper = new ObjectMapper();
+            // These serialization features make the result easier to read.
+            // It is for these reasons that we serialize ourselves rather than let Spring do it.
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
             mapper.enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS);
             mapper.writeValue(out, status);

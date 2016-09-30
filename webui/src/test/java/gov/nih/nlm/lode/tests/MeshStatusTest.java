@@ -24,12 +24,8 @@ import uk.ac.ebi.fgpt.lode.utils.DatasourceProvider;
 public class MeshStatusTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
-    @Qualifier("testProvider")
+    @Qualifier("virtuosoDataSourceProvider")
     private DatasourceProvider datasourceProvider;
-
-    @Autowired
-    @Qualifier("brokenProvider")
-    private DatasourceProvider brokenProvider;
 
     private File tempfile;
     private String tempfilePath;
@@ -43,13 +39,16 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
 
     @AfterClass(alwaysRun=true)
     public void cleanUp() {
-        tempfile.delete();
+        if (tempfile != null) {
+            tempfile.delete();
+        }
     }
 
     @Test
     public void testMeshStatus() {
         MeshStatus status = new MeshStatus(datasourceProvider);
         status.check();
+
         assertThat(status.isHttpdOK(), is(true));
         assertThat(status.isTomcatOK(), is(true));
         assertThat(status.isVirtuosoOK(), is(true));
@@ -63,6 +62,7 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
     public void testMeshStatusUpdating() throws IOException {
         MeshStatus status = new MeshStatus(datasourceProvider, tempfilePath, 3*60*60);
         status.check();
+
         assertThat(status.isHttpdOK(), is(true));
         assertThat(status.isTomcatOK(), is(true));
         assertThat(status.isVirtuosoOK(), is(true));
@@ -76,6 +76,7 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
     public void testMeshUpdatingTooLong() throws IOException {
         MeshStatus status = new MeshStatus(datasourceProvider, tempfilePath, 30*60);
         status.check();
+
         assertThat(status.isHttpdOK(), is(true));
         assertThat(status.isTomcatOK(), is(true));
         assertThat(status.isVirtuosoOK(), is(true));
@@ -87,8 +88,16 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testMeshVirtuosoConnectError() {
+        // not real connection parameters
+        VirtuosoTestDatasourceProvider brokenProvider = new VirtuosoTestDatasourceProvider();
+        brokenProvider.setServerName("localhost");
+        brokenProvider.setUserName("notrealuser");
+        brokenProvider.setPassword("notrealpassword");
+
+        //build a mesh status and check status
         MeshStatus status = new MeshStatus(brokenProvider);
         status.check();
+
         assertThat(status.isHttpdOK(), is(true));
         assertThat(status.isTomcatOK(), is(true));
         assertThat(status.isVirtuosoOK(), is(false));

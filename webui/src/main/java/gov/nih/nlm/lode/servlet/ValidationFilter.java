@@ -36,12 +36,12 @@ import org.slf4j.LoggerFactory;
 public class ValidationFilter extends OncePerRequestFilter {
 
     private Logger log = LoggerFactory.getLogger(getClass());
-    private static Pattern _uri_pattern = null; 
+    private static Pattern _uri_pattern = null;
 
     private synchronized Pattern getPatternForUri() {
         if (null == _uri_pattern ) {
             try {
-                _uri_pattern = Pattern.compile("^http://id.nlm.nih.gov/mesh/(\\d{4,4}/)?[DQMC\\d]+$");
+                _uri_pattern = Pattern.compile("^http://id.nlm.nih.gov/mesh/(\\d{4,4}/)?[DQMCT\\d]+$");
             } catch (PatternSyntaxException e) {
                 log.error("regex syntax", e);
             }

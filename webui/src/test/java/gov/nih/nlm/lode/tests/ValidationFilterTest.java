@@ -28,6 +28,7 @@ public class ValidationFilterTest {
         filterConfig = new MockFilterConfig();
     }
 
+    @Test
     public void testOK() throws ServletException, IOException {
         ValidationFilter filter = new ValidationFilter();
 
@@ -44,6 +45,7 @@ public class ValidationFilterTest {
         assertThat(response.getStatus(), is(equalTo(200)));
     }
 
+    @Test
     public void testBadPrefix() throws ServletException, IOException {
         ValidationFilter filter = new ValidationFilter();
 
@@ -61,6 +63,7 @@ public class ValidationFilterTest {
         assertThat(response.getErrorMessage(), containsString("resource_prefix"));
     }
 
+    @Test
     public void testBadUri() throws ServletException, IOException {
         ValidationFilter filter = new ValidationFilter();
 
