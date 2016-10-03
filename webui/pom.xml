@@ -80,6 +80,7 @@
                 <configuration>
                     <skipTests>${skipTests}</skipTests>
                     <groups>${groups}</groups>
+                    <forkCount>1</forkCount>
                 </configuration>
             </plugin>
             <plugin>
