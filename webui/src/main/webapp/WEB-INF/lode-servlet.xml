@@ -17,8 +17,8 @@
     <!-- autowire this context only (just controllers, not services) based on annotations -->
     <context:annotation-config />
 
-    <!-- scan for controllers in uk.ac.ebi.fgpt.zooma and autowires them -->
-    <context:component-scan base-package="uk.ac.ebi.fgpt.lode.servlet" />
+    <!-- Add also gov.nih.nlm.lode.servlet -->
+    <context:component-scan base-package="uk.ac.ebi.fgpt.lode.servlet, gov.nih.nlm.lode.servlet" />
 
     <!-- drive MVC setup based on @Controller, @RequestMapping annotations etc -->
     <mvc:annotation-driven />

@@ -13,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import gov.nih.nlm.occs.selenium.SeleniumTest;
 
 public class ServiceDescriptionTest extends LodeBaseTest {
-  
+
   public String getEndpoint() {
     return getLodeBaseUrl()+"/sparql";
   }
@@ -25,7 +25,7 @@ public class ServiceDescriptionTest extends LodeBaseTest {
     vocablink.shouldMatchContentType("^text/plain;charset=utf-8");
     vocablink.shouldBeValid();
   }
-  
+
   @Test
   public void testTurtleServiceDescription() {
     LinkChecker vocablink = new LinkChecker();
@@ -34,7 +34,7 @@ public class ServiceDescriptionTest extends LodeBaseTest {
     vocablink.shouldMatchContentType("^text/turtle;charset=utf-8");
     vocablink.shouldBeValid();
   }
-  
+
   @Test
   public void testJSONLDServiceDescription() {
     LinkChecker vocablink = new LinkChecker();
@@ -43,7 +43,7 @@ public class ServiceDescriptionTest extends LodeBaseTest {
     vocablink.shouldMatchContentType("^application/rdf\\+json;charset=utf-8");
     vocablink.shouldBeValid();
   }
-  
+
   @Test
   public void testServiceDescriptionByFormat() {
     LinkChecker vocablink = new LinkChecker();

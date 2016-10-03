@@ -18,6 +18,7 @@ import uk.ac.ebi.fgpt.lode.impl.JenaSparqlService;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
 
+@Test(groups = "unit")
 public class ModelMapTest {
 
 	private Model model;
@@ -31,7 +32,7 @@ public class ModelMapTest {
 		this.model = RDFDataMgr.loadModel(url.toString());
 	}
 
-	@Test(groups={"unit"}, description="Verify model loaded successfully")
+	@Test(description="Verify model loaded successfully")
 	public void testAllStatements() {
         StmtIterator iterator = model.listStatements();
         int count = 0;
@@ -42,7 +43,7 @@ public class ModelMapTest {
 		assertThat(count, is(equalTo(7001)));
 	}
 
-	@Test(groups={"unit"}, description="Verify URI is present in model")
+	@Test(description="Verify URI is present in model")
 	public void testConceptPresent() {
         Resource resource = model.getResource(CONCEPT_URI);
         assertThat(resource, is(notNullValue()));
@@ -55,7 +56,7 @@ public class ModelMapTest {
         assertThat(count, is(equalTo(18)));
 	}
 
-	@Test(groups={"unit"}, description="Verify that we can use unit tests")
+	@Test(description="Verify that we can use unit tests")
 	public void testDescribeQueries() throws LodeException {
 		JenaSparqlService service = new JenaSparqlService();
 		service.setQueryExecutionService(new JenaModelExecutorService(model));

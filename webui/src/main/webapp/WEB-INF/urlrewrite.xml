@@ -12,13 +12,11 @@
     So, in general, always anchor your "from" patterns with "^/" and "$".
   -->
 
-  <!-- for testing
   <rule>
-    <name>foo-example</name>
-    <from casesensitive="true">^/foo$</from>
-    <to>/servlet/explore</to>
+    <name>status-to-servlet</name>
+    <from casesensitive="true">^/status$</from>
+    <to>/servlet/status</to>
   </rule>
--->
 
   <rule>
     <name>sparql-to-servlet</name>

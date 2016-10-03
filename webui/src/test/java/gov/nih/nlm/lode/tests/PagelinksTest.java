@@ -13,44 +13,45 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import gov.nih.nlm.occs.selenium.SeleniumTest;
 
+@Test(groups = "pagelinks")
 public class PagelinksTest extends LodeBaseTest {
 
-  @Test(groups = "pagelinks")
+  @Test
   public void testHomeScriptTags() {
     openHomePage();
     List<WebElement> links = driver.findElements(By.xpath("//script[@src]"));
     shouldBeValidLinks(links);
   }
 
-  @Test(groups = "pagelinks")
+  @Test
   public void testHomeLinkTags() {
     openHomePage();
     List<WebElement> links = driver.findElements(By.xpath("//head/link[@src]"));
     shouldBeValidLinks(links);
   }
 
-  @Test(groups = "pagelinks")
+  @Test
   public void testHomeBodyLinks() {
     openHomePage();
     List<WebElement> links = driver.findElements(By.xpath("//a[@href!='#']"));
     shouldBeValidLinks(links);
   }
 
-  @Test(groups="pagelinks")
+  @Test
   public void testExplorerScriptTags() {
     openExplorerPage(false);
     List<WebElement> links = driver.findElements(By.xpath("//script[@src]"));
     shouldBeValidLinks(links);
   }
 
-  @Test(groups="pagelinks")
+  @Test
   public void testExplorerlinkTags() {
     openExplorerPage(false);
     List<WebElement> links = driver.findElements(By.xpath("//head/link[@src]"));
-    shouldBeValidLinks(links);   
+    shouldBeValidLinks(links);
   }
 
-  @Test(groups="pagelinks")
+  @Test
   public void testExplorerLodestarLinks() {
     openExplorerPage(false);
 
@@ -62,7 +63,7 @@ public class PagelinksTest extends LodeBaseTest {
     shouldBeValidLinks(lodeExploreLinks);
   }
 
-  @Test(groups="pagelinks")
+  @Test
   public void testExplorer2015LodestarLinks() {
     openExplorerPage(true);
 
