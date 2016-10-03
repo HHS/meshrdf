@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+import java.util.regex.Matcher;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
@@ -67,7 +69,6 @@ public class LabelsDiagnosticController {
       PrintWriter out = resp.getWriter();
 
       try {
-        // verify arguments
         // Get Virtuoso DB connection
         Connection connection = getVirtuosoConnection();
         if (null == connection) {
