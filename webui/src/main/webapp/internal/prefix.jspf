@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ page import="javax.servlet.jsp.ErrorData" %>
+<%@ page import="org.owasp.encoder.Encode" %>
     <%
       String rp = request.getParameter("resource_prefix");
       if (rp == null) {
@@ -18,4 +19,4 @@
       }
       String resourcePrefix = rp == null ? "" : rp;
     %>
-    <!-- resourcePrefix = '<%= resourcePrefix %>' -->
+    <!-- resourcePrefix = '<%= Encode.forHtml(resourcePrefix) %>' -->
