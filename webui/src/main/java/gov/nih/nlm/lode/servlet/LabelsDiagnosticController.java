@@ -48,13 +48,21 @@ public class LabelsDiagnosticController {
   @RequestMapping(method = RequestMethod.GET)
   protected void getLabels(
           @RequestParam(value="id", defaultValue="T504747") String id,
-          @RequestParam(value="prop", defaultValue="rdfs:label") String prop,
+          @RequestParam(value="prop", defaultValue="rdfs:label") String propin,
           HttpServletResponse resp)
           throws ServletException, IOException {
 
       resp.setContentType("text/plain; charset=utf-8");
       resp.setCharacterEncoding("utf-8");
-      if (!(prop.equals("rdfs:label") || prop.equals("meshv:prefLabel") || prop.equals("meshv:altLabel"))) {
+
+      String prop = "rdfs:label";
+      if (propin.equals("rdfs:label")) {
+          prop = "rdfs:label";
+      } else if (propin.equals("meshv:prefLabel")) {
+          prop = "meshv:prefLabel";
+      } else if (propin.equals("meshv:altLabel")) {
+          prop = "meshv:altLabel";
+      } else {
           resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
                   "label property must be one of \"rdfs:label\", \"meshv:prefLabel\", or \"meshv:altLabel\"");
           return;
