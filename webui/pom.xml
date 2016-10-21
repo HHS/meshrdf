@@ -168,6 +168,13 @@
             <version>1.2</version>
         </dependency>
 
+        <!-- Checkmarx will beat us up without this -->
+        <dependency>
+            <groupId>org.owasp.encoder</groupId>
+            <artifactId>encoder</artifactId>
+            <version>1.2</version>
+        </dependency>
+
         <!-- We want Java melody in the WAR for monitoring -->
         <dependency>
             <groupId>net.bull.javamelody</groupId>

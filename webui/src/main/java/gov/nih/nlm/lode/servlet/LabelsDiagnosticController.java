@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
-import java.util.regex.Matcher;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.owasp.encoder.Encode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,7 +104,11 @@ public class LabelsDiagnosticController {
               b.append(String.format("%s%X", delim, c));
               delim = ", ";
             }
-            out.println("\""+label+"\" codepoints ["+b.toString()+"]");
+            out.println("\""+
+                    Encode.forHtml(label)+
+                    "\" codepoints ["
+                    +b.toString()
+                    +"]");
           }
         }
         out.println();
