@@ -2,9 +2,11 @@ package gov.nih.nlm.lode.servlet;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
@@ -48,30 +50,33 @@ public class LabelsDiagnosticController {
   @RequestMapping(method = RequestMethod.GET)
   protected void getLabels(
           @RequestParam(value="id", defaultValue="T504747") String id,
-          @RequestParam(value="prop", defaultValue="rdfs:label") String propin,
+          @RequestParam(value="prop", defaultValue="rdfs:label") String prop,
           HttpServletResponse resp)
           throws ServletException, IOException {
 
       resp.setContentType("text/plain; charset=utf-8");
       resp.setCharacterEncoding("utf-8");
 
-      String prop = "rdfs:label";
-      if (propin.equals("rdfs:label")) {
-          prop = "rdfs:label";
-      } else if (propin.equals("meshv:prefLabel")) {
-          prop = "meshv:prefLabel";
-      } else if (propin.equals("meshv:altLabel")) {
-          prop = "meshv:altLabel";
+      String safeprop = "rdfs:label";
+      if (prop.equals("rdfs:label")) {
+          safeprop = "rdfs:label";
+      } else if (prop.equals("meshv:prefLabel")) {
+          safeprop = "meshv:prefLabel";
+      } else if (prop.equals("meshv:altLabel")) {
+          safeprop = "meshv:altLabel";
       } else {
           resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
                   "label property must be one of \"rdfs:label\", \"meshv:prefLabel\", or \"meshv:altLabel\"");
           return;
       }
 
-      if (!Pattern.matches("^[DQMCT\\d]+$", id)) {
+      Pattern expr = Pattern.compile("^[DQMCT\\d]+$");
+      Matcher idm = expr.matcher(id);
+      if (!idm.matches()) {
           resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "id must be a meshv identifier");
           return;
       }
+      id = idm.group();
 
       PrintWriter out = resp.getWriter();
 
@@ -83,12 +88,10 @@ public class LabelsDiagnosticController {
           return;
         }
 
-        out.println(String.format("Results for %s %s are:", id, prop));
+        out.println(String.format("Results for %s %s are:", Encode.forHtml(id), safeprop));
         out.println();
 
-        Statement stmt = connection.createStatement();
-
-        String queryFormat  = "SPARQL"
+        String queryFormat = "SPARQL"
             + " define input:inference \"http://id.nlm.nih.gov/mesh/vocab\""
             + " PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
             + " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
@@ -99,8 +102,9 @@ public class LabelsDiagnosticController {
             + " SELECT ?l"
             + " FROM <http://id.nlm.nih.gov/mesh>"
             + " WHERE { mesh:%s %s ?l }";
-        String query = String.format(queryFormat, id, prop);
+        String query = String.format(queryFormat, id, safeprop);
         log.info(query);
+        Statement stmt = connection.createStatement();
         ResultSet rset = stmt.executeQuery(query);
         while (rset.next()) {
           String label = rset.getNString(1);
@@ -109,14 +113,10 @@ public class LabelsDiagnosticController {
             StringBuilder b = new StringBuilder(label.length()*2);
             for (int i = 0; i < label.length(); i++) {
               int c = label.codePointAt(i);
-              b.append(String.format("%s%X", delim, c));
+              b.append(Encode.forHtml(String.format("%s%X", delim, c)));
               delim = ", ";
             }
-            out.println("\""+
-                    Encode.forHtml(label)+
-                    "\" codepoints ["
-                    +b.toString()
-                    +"]");
+            out.println("\""+Encode.forHtml(label)+"\" codepoints ["+b.toString()+"]");
           }
         }
         out.println();
