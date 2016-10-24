@@ -57,14 +57,7 @@ public class LabelsDiagnosticController {
       resp.setContentType("text/plain; charset=utf-8");
       resp.setCharacterEncoding("utf-8");
 
-      String safeprop = "rdfs:label";
-      if (prop.equals("rdfs:label")) {
-          safeprop = "rdfs:label";
-      } else if (prop.equals("meshv:prefLabel")) {
-          safeprop = "meshv:prefLabel";
-      } else if (prop.equals("meshv:altLabel")) {
-          safeprop = "meshv:altLabel";
-      } else {
+      if (!(prop.equals("rdfs:label") || prop.equals("meshv:prefLabel") || prop.equals("meshv:altLabel"))) {
           resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
                   "label property must be one of \"rdfs:label\", \"meshv:prefLabel\", or \"meshv:altLabel\"");
           return;
@@ -76,6 +69,7 @@ public class LabelsDiagnosticController {
           resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "id must be a meshv identifier");
           return;
       }
+      // Extracting the match is added protection.
       id = idm.group();
 
       PrintWriter out = resp.getWriter();
@@ -88,7 +82,7 @@ public class LabelsDiagnosticController {
           return;
         }
 
-        out.println(String.format("Results for %s %s are:", Encode.forHtml(id), safeprop));
+        out.println(String.format("Results for %s %s are:", Encode.forHtml(id), prop));
         out.println();
 
         String queryFormat = "SPARQL"
@@ -102,7 +96,7 @@ public class LabelsDiagnosticController {
             + " SELECT ?l"
             + " FROM <http://id.nlm.nih.gov/mesh>"
             + " WHERE { mesh:%s %s ?l }";
-        String query = String.format(queryFormat, id, safeprop);
+        String query = String.format(queryFormat, id, prop);
         log.info(query);
         Statement stmt = connection.createStatement();
         ResultSet rset = stmt.executeQuery(query);
