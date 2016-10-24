@@ -39,7 +39,14 @@
         <url-pattern>/servlet/*</url-pattern>
     </servlet-mapping>
 
-    <!-- Provide monitoringvia JavaMelody before ContextLoaderListener -->
+    <!-- listener to load context at startup -->
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+    <!-- Provide monitoring via JavaMelody after ContextLoaderListener -->
     <filter>
         <filter-name>javamelody</filter-name>
         <filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
@@ -62,14 +69,6 @@
     <listener>
         <listener-class>net.bull.javamelody.SessionListener</listener-class>
     </listener>
-
-    <!-- listener to load context at startup -->
-    <listener>
-        <listener-class>
-            org.springframework.web.context.ContextLoaderListener
-        </listener-class>
-    </listener>
-
 
     <!-- enable cors -->
     <filter>
@@ -108,7 +107,6 @@
       <dispatcher>REQUEST</dispatcher>
       <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
-
 
     <resource-ref>
         <description>Virtuoso Datasource</description>
