@@ -2,6 +2,7 @@ package gov.nih.nlm.lode.servlet;
 
 import java.io.File;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -62,13 +63,13 @@ public class MeshStatus {
         }
         boolean successful = false;
         try {
-            Statement stmt = connection.createStatement();
-            ResultSet rset = stmt.executeQuery("SPARQL"
+            PreparedStatement stmt = connection.prepareStatement("SPARQL"
                     + " PREFIX mesh: <http://id.nlm.nih.gov/mesh/>"
                     + " PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>"
                     + " SELECT COUNT(?pa)"
                     + " FROM <http://id.nlm.nih.gov/mesh>"
                     + " WHERE { mesh:D015242 meshv:pharmacologicalAction ?pa . }");
+            ResultSet rset = stmt.executeQuery();
             if (rset.next()) {
                 Integer count = rset.getInt(1);
                 if (null != count && count == 4) {
