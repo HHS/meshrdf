@@ -82,10 +82,11 @@ public class LabelsDiagnosticController {
       id = idm.group();
 
       PrintWriter out = resp.getWriter();
+      Connection connection = null;
 
       try {
         // Get Virtuoso DB connection
-        Connection connection = getVirtuosoConnection();
+        connection = getVirtuosoConnection();
         if (null == connection) {
           resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database connection error");
           return;
@@ -125,20 +126,20 @@ public class LabelsDiagnosticController {
         out.println();
         rset.close();
         stmt.close();
-
-        // close the connection
-        if (null != connection) {
-          connection.close();
-        }
       }
       catch (SQLException e) {
         log.error("sparql query SQL error", e);
       }
       finally {
-          if (null != out) {
-              out.flush();
-              out.close();
-          }
+        // close the print writer
+        if (null != out) {
+          out.flush();
+          out.close();
+        }
+        // close the connection
+        if (null != connection) {
+          try { connection.close(); } catch (SQLException e) { }
+        }
       }
   }
 }

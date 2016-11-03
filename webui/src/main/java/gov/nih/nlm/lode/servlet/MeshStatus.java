@@ -105,12 +105,9 @@ public class MeshStatus {
             setMeshdataOK(false);
         }
 
-        /**
-         * NOTE: do not close the connection, it is pooled
         if (null != connection) {
             try { connection.close(); } catch (SQLException e) { }
         }
-        */
 
         // Check whether we are currently updating
         if (updatesPath != null) {
