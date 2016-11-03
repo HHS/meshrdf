@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import uk.ac.ebi.fgpt.lode.utils.DatasourceProvider;
 
+// NOTE:
+//   This is diagnostic code, please comment in if you want to run it.
 @Controller
 @RequestMapping("/labels")
 public class LabelsDiagnosticController {
@@ -57,7 +59,14 @@ public class LabelsDiagnosticController {
       resp.setContentType("text/plain; charset=utf-8");
       resp.setCharacterEncoding("utf-8");
 
-      if (!(prop.equals("rdfs:label") || prop.equals("meshv:prefLabel") || prop.equals("meshv:altLabel"))) {
+      String safeprop = null;
+      if (prop.equals("rdfs:label")) {
+          safeprop = "rdfs:label";
+      } else if (prop.equals("meshv:prefLabel")) {
+          safeprop = "meshv:prefLabel";
+      } else if (prop.equals("meshv:altLabel")) {
+          safeprop = "meshv:altLabel";
+      } else {
           resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
                   "label property must be one of \"rdfs:label\", \"meshv:prefLabel\", or \"meshv:altLabel\"");
           return;
@@ -82,7 +91,7 @@ public class LabelsDiagnosticController {
           return;
         }
 
-        out.println(String.format("Results for %s %s are:", Encode.forHtml(id), prop));
+        out.println(String.format("Results for %s %s are:", Encode.forHtml(id), safeprop));
         out.println();
 
         String queryFormat = "SPARQL"
@@ -96,7 +105,7 @@ public class LabelsDiagnosticController {
             + " SELECT ?l"
             + " FROM <http://id.nlm.nih.gov/mesh>"
             + " WHERE { mesh:%s %s ?l }";
-        String query = String.format(queryFormat, id, prop);
+        String query = String.format(queryFormat, id, safeprop);
         log.info(query);
         Statement stmt = connection.createStatement();
         ResultSet rset = stmt.executeQuery(query);
