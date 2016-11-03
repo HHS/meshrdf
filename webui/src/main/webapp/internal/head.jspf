@@ -6,18 +6,16 @@
     <!--[if lt IE 9]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script data-require="jquery" data-semver="2.1.1" 
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!--
       Bootstrap CSS.  Question [from klortho]: do we need both of these, or is one a minified version of the other?  
       Note these have to be loaded before codemirror, otherwise codemirror gets confused when placing the cursor.
     -->
-    <link data-require="bootstrap-css" data-semver="3.2.0" rel="stylesheet" 
+    <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-    <link data-require="bootstrap@*" data-semver="3.2.0" rel="stylesheet" 
+    <link rel="stylesheet" 
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
-    <script data-require="bootstrap" data-semver="3.2.0" 
-            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
     <%@ include file="prefix.jspf" %>
     <link rel="stylesheet" href="<%= resourcePrefix %>css/lode-style.css"/>
     <link rel="stylesheet" href="<%= resourcePrefix %>codemirror/codemirror.css"/>
@@ -27,6 +25,6 @@
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/namespaces.js"></script>
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/queries.js"></script>
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/lode.js"></script>
-    <link data-require="font-awesome@*" data-semver="4.2.0" rel="stylesheet" 
+    <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css"/>
     <!-- END internal/head.jspf -->
