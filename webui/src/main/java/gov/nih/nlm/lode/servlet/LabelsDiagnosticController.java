@@ -44,7 +44,6 @@ public class LabelsDiagnosticController {
           connection = ds.getConnection();
       } catch (SQLException e) {
           log.error("Unable to connect to Virtuoso", e);
-          return null;
       }
       return connection;
   }
