@@ -53,6 +53,11 @@ public class MeshStatus {
             connection = datasource.getConnection();
         } catch (SQLException e) {
             log.error("Unable to connect to Virtuoso", e);
+            // This overkill is for Checkmarx
+            if (null != connection) {
+                try { connection.close(); } catch (SQLException ignored) { }
+            }
+            return null;
         }
         return connection;
     }
