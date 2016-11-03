@@ -13,7 +13,7 @@
     -->
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" 
+    <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
     <%@ include file="prefix.jspf" %>
@@ -25,6 +25,6 @@
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/namespaces.js"></script>
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/queries.js"></script>
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/lode.js"></script>
-    <link rel="stylesheet"
+    <link rel="stylesheet" 
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css"/>
     <!-- END internal/head.jspf -->
