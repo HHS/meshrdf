@@ -17,6 +17,7 @@ MeSH RDF will use the following conventions for URIs, graphs and filenames:
 MeSH RDF will follow established MeSH versioning practices, but MeSH RDF will be expressed in non-versioned and versioned URIs. Unless there is a specific use case for using the versioned data, NLM recommends using the current, non-versioned URIs and graph. For example, the Descriptor for Ofloxacin will have the following URIs:
 
 * http://id.nlm.nih.gov/mesh/D015242 (current, non-versioned)
+* http://id.nlm.nih.gov/mesh/2017/D015242 (2017, versioned)
 * http://id.nlm.nih.gov/mesh/2016/D015242 (2016, versioned)
 * http://id.nlm.nih.gov/mesh/2015/D015242 (2015, versioned)
 
@@ -46,6 +47,7 @@ Requests for deprecated URIs will still return an HTTP 200 status code, but no d
 MeSH RDF data are expressed in a current, versionless graph and versioned graphs:
 
 * http://id.nlm.nih.gov/mesh (current)
+* http://id.nlm.nih.gov/mesh/2016 (2017)
 * http://id.nlm.nih.gov/mesh/2016 (2016)
 * http://id.nlm.nih.gov/mesh/2015 (2015)
 
@@ -64,19 +66,15 @@ Current MeSH RDF data are available for download in .nt (N-Triples format).
 * Filename: mesh.nt 
 * Location: ftp://ftp.nlm.nih.gov/online/mesh/
 
-Versioned MeSH data are available in subdirectories labeled by year. MeSH XML and DTDs are also available without restriction. Note that MeSH RDF data are expressed in a single file (for example, mesh2016.nt), while the XML data are grouped into files for Descriptors, Qualifiers and Supplementary Concept Records. For example:
+Versioned MeSH data are available in subdirectories labeled by year. MeSH XML and DTDs are also available without restriction. Note that MeSH RDF data are expressed in a single file (for example, mesh2017.nt), while the XML data are grouped into files for Descriptors, Qualifiers and Supplementary Concept Records. For example:
 
-* 2016 MeSH RDF Filename: mesh2016.nt 
-* 2016 XML Data Filenames: desc2016.xml, qual2016.xml, supp2016.xml
-* 2016 XML DTD Filenames: 
-   * [nlmdescriptorrecordset_20160101.dtd](https://www.nlm.nih.gov/databases/dtd/nlmdescriptorrecordset_20160101.dtd)
-   * [nlmqualifierrecordset_20160101.dtd](https://www.nlm.nih.gov/databases/dtd/nlmqualifierrecordset_20160101.dtd)
-   * [nlmsupplementalrecordset_20160101.dtd](https://www.nlm.nih.gov/databases/dtd/nlmsupplementalrecordset_20160101.dtd)
-* 2016 Data Location: ftp://ftp.nlm.nih.gov/online/mesh/2016/
+* 2017 MeSH RDF Filename: mesh2017.nt 
+* 2017 XML Data Filenames: desc2017.xml, qual2017.xml, supp2017.xml
+* 2017 Data Location: ftp://ftp.nlm.nih.gov/online/mesh/2017/
 
-#### Vocabulary Files
+#### Schema File
 
 The MeSH vocabulary schema is expressed in a .ttl (TURTLE) file on the FTP site. This file has a version number that will increment upon changes to the vocabulary schema. 
 
-* Filename: vocabulary_X.X.ttl 
+* Filename: vocabulary_X.X.X.ttl 
 * Location: ftp://ftp.nlm.nih.gov/online/mesh/
