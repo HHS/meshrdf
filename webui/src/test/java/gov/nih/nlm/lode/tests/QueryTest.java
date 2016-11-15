@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.ArrayList;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import org.testng.Reporter;
 
@@ -74,19 +76,18 @@ public class QueryTest extends LodeBaseTest {
     public void clickSubmitQuery() {
         // submit the query form
         WebElement button = findElement(By.xpath("//input[@type='button'][@value='Submit Query']"));
-        button.click();  
+        button.click();
     }
 
     public void clickResetQuery() {
         // submit the query form
         WebElement button = findElement(By.xpath("//input[@type='button'][@value='Reset']"));
-        button.click();  
+        button.click();
     }
 
     public void clickOptionWithinSelect(String selectId, String optionValue) {
-        String expression = String.format("//select[@id='%s']/option[@value='%s']", selectId, optionValue);
-        WebElement option = findElement(By.xpath(expression));
-        option.click();
+        Select dropdown = new Select(findElement(By.id(selectId)));
+        dropdown.selectByValue(optionValue);
     }
 
     public void clickOnExampleQuery(int whichQuery) {
@@ -218,7 +219,9 @@ public class QueryTest extends LodeBaseTest {
         clickSubmitQuery();
 
         // verify results without depending on order
+        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(FOR_LODESTAR_RESULT_ROWS), 50));
         int numMatched = 0;
+
         List<WebElement> rows = findElements(By.xpath(FOR_LODESTAR_RESULT_ROWS));
         assertEquals(rows.size(), 50);
         for (WebElement row : rows) {
@@ -281,7 +284,7 @@ public class QueryTest extends LodeBaseTest {
                     assertEquals(dlabel.getText(), expectedCol2Text);
                     page2matched++;
                 }
-            }           
+            }
         }
         assertEquals(page2matched, EX3_PAGE2_CHECKED_RESULTS.length);
 
@@ -357,7 +360,7 @@ public class QueryTest extends LodeBaseTest {
         assertEquals(numMatched, EX3_PAGE1_CHECKED_RESULTS.length - 1);
     }
 
-    @Test(groups="query", dependsOnMethods={"testDefaults"}) 
+    @Test(groups="query", dependsOnMethods={"testDefaults"})
     public void testExample4() {
         openQueryPage();
         clickOnExampleQuery(4);
