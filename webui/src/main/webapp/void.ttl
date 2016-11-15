@@ -58,6 +58,7 @@
 
 # FTP dump file
     void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/mesh.nt" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2017/mesh2017.nt" ;
     void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2016/mesh2016.nt" ;
     void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2015/mesh2015.nt" .
 
