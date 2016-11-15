@@ -1,21 +1,12 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ page import="javax.servlet.jsp.ErrorData" %>
-    <%
-      String rp = request.getParameter("resource_prefix");
-      if (rp == null) {
-          String requestURI = request.getRequestURI();
-          ErrorData errorData = pageContext.getErrorData();
-          if (errorData != null && errorData.getRequestURI() != null) {
-              requestURI = errorData.getRequestURI();
-          }
-          String components[] = requestURI.split("/+");
-          int ncomps = (components.length >= 2 ? components.length - 2 : 0);
-          if (components[0].isEmpty()) ncomps -= 1;
-          rp = "";
-          for (int i = 0; i < ncomps; i++) {
-              rp += "../";
-          }
-      }
-      String resourcePrefix = rp == null ? "" : rp;
-    %>
-    <!-- resourcePrefix = '<%= resourcePrefix %>' -->
+<%@ page import="org.owasp.encoder.Encode" %>
+<%-- 
+  Resource prefix is an old concept from when developers ran on /danizen, /klortho, and so on.
+  The main webapp was called /lodestar, but served from /mesh.
+  Now, we preserve this so we can easily change the expected prefix in code.
+--%>
+<%
+  String resourcePrefix = "/mesh/";
+%>
+<!-- resourcePrefix = '<%= Encode.forHtml(resourcePrefix) %>' -->

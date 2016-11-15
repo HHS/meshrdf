@@ -22,11 +22,11 @@
 
     <!--Uncomment these two beans for virtuoso connection pooling-->
     <bean id="jenaVirtuosoConnectionPoolService" class="uk.ac.ebi.fgpt.lode.impl.JenaVirtuosoConnectionPoolService">
-        <constructor-arg ref="virtuosoDataSourceProvider"/>
+        <constructor-arg ref="datasourceProvider"/>
     </bean>
 
     <!-- At NLM, we derive the serverName/portNumber for Virtuoso from the JNDI resource -->
-    <bean id="virtuosoDataSourceProvider" class="uk.ac.ebi.fgpt.lode.impl.VirtuosoDatasourceProvider"/>
+    <bean id="datasourceProvider" class="uk.ac.ebi.fgpt.lode.impl.VirtuosoDatasourceProvider"/>
 
     <!-- An alterate datasource provider that doesn't require JNDI -->
     <!--<bean id="virtuosoDataSourceProvider" class="uk.ac.ebi.fgpt.lode.impl.VirtuosoConnectionPoolDataSourceFactory">-->

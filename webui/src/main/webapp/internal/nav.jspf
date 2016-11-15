@@ -1,8 +1,9 @@
+<%@ page import="org.owasp.encoder.Encode" %>
 <!-- BEGIN internal/nav.jspf -->
 <ul class="nav nav-pills pull-right">
-  <li role="presentation"><a href="<%= resourcePrefix %>query">SPARQL Query</a></li>
+  <li role="presentation"><a href="<%= Encode.forHtmlAttribute(resourcePrefix) %>query">SPARQL Query</a></li>
   <li role="presentation"><a href="https://hhs.github.io/meshrdf/">Technical Docs</a></li>
-  <li role="presentation"><a href="<%= resourcePrefix.isEmpty() ? "./" : resourcePrefix %>">MeSH RDF Home</a></li>
+  <li role="presentation"><a href="<%= resourcePrefix.isEmpty() ? "./" : Encode.forHtmlAttribute(resourcePrefix) %>">MeSH RDF Home</a></li>
   <li role="presentation"><a href="https://www.nlm.nih.gov/mesh/">MeSH Home</a></li>
 </ul>
 <!-- END internal/nav.jspf -->

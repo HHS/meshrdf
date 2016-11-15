@@ -85,7 +85,7 @@ var sparqlQueryTextArea;
 function _parseOptions(options) {
 
     var _options = $.extend({
-        'resource_prefix': '',
+        'resource_prefix': '/mesh/',
         'servlet_base': 'servlet',
         'query_servlet_name': 'sparql',
         'explore_servlet_name': 'explore',

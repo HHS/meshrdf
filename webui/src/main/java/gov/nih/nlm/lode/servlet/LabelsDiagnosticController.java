@@ -2,12 +2,12 @@ package gov.nih.nlm.lode.servlet;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.owasp.encoder.Encode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import uk.ac.ebi.fgpt.lode.utils.DatasourceProvider;
 
+// NOTE:
+//   This is diagnostic code, please comment in if you want to run it.
 @Controller
 @RequestMapping("/labels")
 public class LabelsDiagnosticController {
@@ -41,6 +44,10 @@ public class LabelsDiagnosticController {
           connection = ds.getConnection();
       } catch (SQLException e) {
           log.error("Unable to connect to Virtuoso", e);
+          // This overkill is for Checkmarx
+          if (null != connection) {
+              try { connection.close(); } catch (SQLException ignored) { }
+          }
           return null;
       }
       return connection;
@@ -55,33 +62,44 @@ public class LabelsDiagnosticController {
 
       resp.setContentType("text/plain; charset=utf-8");
       resp.setCharacterEncoding("utf-8");
-      if (!(prop.equals("rdfs:label") || prop.equals("meshv:prefLabel") || prop.equals("meshv:altLabel"))) {
+
+      String safeprop = null;
+      if (prop.equals("rdfs:label")) {
+          safeprop = "rdfs:label";
+      } else if (prop.equals("meshv:prefLabel")) {
+          safeprop = "meshv:prefLabel";
+      } else if (prop.equals("meshv:altLabel")) {
+          safeprop = "meshv:altLabel";
+      } else {
           resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
                   "label property must be one of \"rdfs:label\", \"meshv:prefLabel\", or \"meshv:altLabel\"");
           return;
       }
 
-      if (!Pattern.matches("^[DQMCT\\d]+$", id)) {
+      Pattern expr = Pattern.compile("^[DQMCT\\d]+$");
+      Matcher idm = expr.matcher(id);
+      if (!idm.matches()) {
           resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "id must be a meshv identifier");
           return;
       }
+      // Extracting the match is added protection.
+      id = idm.group();
 
       PrintWriter out = resp.getWriter();
+      Connection connection = null;
 
       try {
         // Get Virtuoso DB connection
-        Connection connection = getVirtuosoConnection();
+        connection = getVirtuosoConnection();
         if (null == connection) {
           resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database connection error");
           return;
         }
 
-        out.println(String.format("Results for %s %s are:", id, prop));
+        out.println(String.format("Results for %s %s are:", Encode.forHtml(id), safeprop));
         out.println();
 
-        Statement stmt = connection.createStatement();
-
-        String queryFormat  = "SPARQL"
+        String queryFormat = "SPARQL"
             + " define input:inference \"http://id.nlm.nih.gov/mesh/vocab\""
             + " PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
             + " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
@@ -92,8 +110,9 @@ public class LabelsDiagnosticController {
             + " SELECT ?l"
             + " FROM <http://id.nlm.nih.gov/mesh>"
             + " WHERE { mesh:%s %s ?l }";
-        String query = String.format(queryFormat, id, prop);
+        String query = String.format(queryFormat, id, safeprop);
         log.info(query);
+        Statement stmt = connection.createStatement();
         ResultSet rset = stmt.executeQuery(query);
         while (rset.next()) {
           String label = rset.getNString(1);
@@ -102,29 +121,29 @@ public class LabelsDiagnosticController {
             StringBuilder b = new StringBuilder(label.length()*2);
             for (int i = 0; i < label.length(); i++) {
               int c = label.codePointAt(i);
-              b.append(String.format("%s%X", delim, c));
+              b.append(Encode.forHtml(String.format("%s%X", delim, c)));
               delim = ", ";
             }
-            out.println("\""+label+"\" codepoints ["+b.toString()+"]");
+            out.println("\""+Encode.forHtml(label)+"\" codepoints ["+b.toString()+"]");
           }
         }
         out.println();
         rset.close();
         stmt.close();
-
-        // close the connection
-        if (null != connection) {
-          connection.close();
-        }
       }
       catch (SQLException e) {
         log.error("sparql query SQL error", e);
       }
       finally {
-          if (null != out) {
-              out.flush();
-              out.close();
-          }
+        // close the print writer
+        if (null != out) {
+          out.flush();
+          out.close();
+        }
+        // close the connection
+        if (null != connection) {
+          try { connection.close(); } catch (SQLException e) { }
+        }
       }
   }
 }
