@@ -265,10 +265,10 @@
     ?d a meshv:Descriptor .
     ?d rdfs:label ?name .
     ?d meshv:treeNumber ?tn .
+    ?d meshv:dateEstablished "2017-01-01"^^xsd:dateTime .
     ?d meshv:dateEstablished ?dateEstablished
-    FILTER (?dateEstablished >= xsd:date("2015-12-31"))
     FILTER(REGEX(?tn,"C"))
-
+      
     }
 
     ORDER BY ?name
