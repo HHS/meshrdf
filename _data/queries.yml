@@ -264,9 +264,9 @@
 
     ?d a meshv:Descriptor .
     ?d rdfs:label ?name .
-    ?d meshv:treeNumber ?tn .
-    FILTER(regex(?dateEstablished, "2016-01-01"))
+    ?d meshv:treeNumber ?tn .    
     ?d meshv:dateEstablished ?dateEstablished
+    FILTER(regex(?dateEstablished, "2017-01-01"))
     FILTER(REGEX(?tn,"C"))
       
     }
