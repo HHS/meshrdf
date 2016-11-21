@@ -247,14 +247,17 @@
   notes: This query leverages the MeSH 'C' tree to find new diseases in MeSH.
   type: Aggregation
   string: |+
-    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
-    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
-    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+   PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+   PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
 
-    SELECT DISTINCT *
+    SELECT DISTINCT ?d ?name ?dateEstablished
     FROM <http://id.nlm.nih.gov/mesh>
 
     WHERE {
@@ -262,13 +265,13 @@
     ?d a meshv:Descriptor .
     ?d rdfs:label ?name .
     ?d meshv:treeNumber ?tn .
+    FILTER(regex(?dateEstablished, "2016-01-01"))
     ?d meshv:dateEstablished ?dateEstablished
-    FILTER(regex(?dateEstablished, "2017-01-01"))
-    FILTER(regex(?tn, "C"))
+    FILTER(REGEX(?tn,"C"))
+      
+    }
 
-}
-
-ORDER BY ?name
+    ORDER BY ?name
     
 - name: Retrieve all terms that belong to Descriptor D009369 'Neoplasm'.
   notes: The query uses inferencing to get all meshv:term labels and their altLabels (lexical variants)
