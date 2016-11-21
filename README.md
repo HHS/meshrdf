@@ -48,14 +48,14 @@ This saves the XML files to the `data` subdirectory of `$MESHRDF_HOME`.
 
 By default, it downloads the following:
 
-* `desc2016.xml`
-* `qual2016.xml`
-* `supp2016.xml`
+* `desc2017.xml`
+* `qual2017.xml`
+* `supp2017.xml`
 
 If you want to download a different year's data, use the `-y` argument when executing the script.
-For example: 
+For example:
 
-    bin/fetch-mesh-xml.sh -y 2015
+    bin/fetch-mesh-xml.sh -y 2016
 
 When downloading a year less than or equal to 2015, `bin/fetch-mesh-xml.sh` will also download the DTDs.
 For example:
@@ -94,30 +94,30 @@ appropriately.
 
 ### Converting the complete MeSH data set
 
-The conversion script is `bin/mesh-xml2rdf.sh`. This shell script will run the XSLTs to convert each of 
-the three main MeSH XML files into RDF N-Triples format, and put the results into the 
-`$MESHRDF_HOME/out` directory. 
+The conversion script is `bin/mesh-xml2rdf.sh`. This shell script will run the XSLTs to convert each of
+the three main MeSH XML files into RDF N-Triples format, and put the results into the
+`$MESHRDF_HOME/out` directory.
 
-By default, it looks for 2016 data files, and will produce `mesh.nt`, which is the 
-RDF in N-triples format, and `mesh.nt.gz`, a gzipped version. Also by default, these 
-data files will have RDF URIs that do not include the year. For example, the descriptor for 
+By default, it looks for 2017 data files, and will produce `mesh.nt`, which is the
+RDF in N-triples format, and `mesh.nt.gz`, a gzipped version. Also by default, these
+data files will have RDF URIs that do not include the year. For example, the descriptor for
 Ofloxacin would have the URI `http://id.nlm.nih.gov/mesh/D015242`.
 
-As with the fetch script, described above, you can use the `-y` argument to 
+As with the fetch script, described above, you can use the `-y` argument to
 specify that it convert a different set of data files. For example:
 
-    bin/mesh-xml2rdf.sh -y 2015
+    bin/mesh-xml2rdf.sh -y 2016
 
-This uses the 2015 data files to produce the "current" RDF output files `out/mesh.nt`
+This uses the 2016 data files to produce the "current" RDF output files `out/mesh.nt`
 and `out/mesh.nt.gz`.
 
 To produce RDF data that has URIs with the year, you should also use the `-u` argument.
 For example, the following generates RDF URIs that include the year:
 
-    bin/mesh-xml2rdf.sh -y 2015 -u
+    bin/mesh-xml2rdf.sh -y 2016 -u
 
-In this case, the output data files will be written to `out/2015/mesh2015.nt` and
-`out/2015/mesh2015.nt.gz`.   
+In this case, the output data files will be written to `out/2016/mesh2016.nt` and
+`out/2015/mesh2016.nt.gz`.
 
 ### URI preservation and versioning
 
@@ -153,12 +153,12 @@ file, if any of those changes.  So, keep in mind that these samples in the repos
 used for testing/demo purposes, and are not necessarily up-to-date with the latest MeSH
 release.
 
-Finally, the script `convert-samples.sh` can be used to convert the sample XML files into 
+Finally, the script `convert-samples.sh` can be used to convert the sample XML files into
 RDF, the final output being `samples.nt`.
 
-***Note that the generated RDF will be missing a lot of meshv:parentTreeNumber 
-relationships, because those are generated from the tree node identifiers to link between 
-various records. Since the sample files contain only a subset of the records, most of 
+***Note that the generated RDF will be missing a lot of meshv:parentTreeNumber
+relationships, because those are generated from the tree node identifiers to link between
+various records. Since the sample files contain only a subset of the records, most of
 these cannot be generated.***
 
 
@@ -173,7 +173,7 @@ These are the subdirectories of this project -- either part of the repository, o
   of the items from the real XML data files, as described above.
 * *xslt* - The main XSLT processor files that convert the XML into RDF.
 * *data* - an NTriples files containing rdfs:label for Central Nervous System diseases in 14 languages.  This is included as an example.
-         
+
 
 These are the subdirectories of the `$MESHRDF_HOME` directory, which typically (but not necessarily)
 is set to some separate location:
@@ -217,7 +217,7 @@ Start up of server:
 Shutdown of server (see [the Virtuoso
 documentation](http://data-gov.tw.rpi.edu/wiki/How_to_install_virtuoso_sparql_endpoint#Manual_Shutdown)):
 
-    kill -s SIGTERM `cut -d= -f2 $VIRTUOSO_HOME/virtuoso/var/lib/virtuoso/db/virtuoso.lck` 
+    kill -s SIGTERM `cut -d= -f2 $VIRTUOSO_HOME/virtuoso/var/lib/virtuoso/db/virtuoso.lck`
 
 ## Technical documentation on GitHub pages
 
