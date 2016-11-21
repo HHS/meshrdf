@@ -2,13 +2,15 @@
 
 - name: Retrieve a list of descriptors that are no longer active in current MeSH and when they were last active.
   string: |+
-     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-     PREFIX owl: <http://www.w3.org/2002/07/owl#>
-     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-     PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
-     PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+    PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
      
           SELECT *
           FROM <http://id.nlm.nih.gov/mesh>
@@ -24,10 +26,15 @@
   notes: This query gives a complete list of MeSH RDF predicates
   type: Getting Started
   string: |+
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+   PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
    
    SELECT DISTINCT ?p
    FROM <http://id.nlm.nih.gov/mesh>
@@ -42,11 +49,15 @@
   notes: This query gives a unique list of all MeSH classes
   type: Getting Started
   string: |+
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
-   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
    
    SELECT DISTINCT ?class
    FROM <http://id.nlm.nih.gov/mesh>
@@ -61,10 +72,15 @@
   notes: A basic subject, predicate, object triple in MeSH RDF.
   type: Getting Started
   string: |+
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
-   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
    
    SELECT *
    FROM <http://id.nlm.nih.gov/mesh>
@@ -78,11 +94,15 @@
   type: Getting Started
   string: |+
    
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
-   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
    
    SELECT *
    FROM <http://id.nlm.nih.gov/mesh>
@@ -96,11 +116,15 @@
   notes: A filter query of MeSH predicates based on a certain type of Pharmacological Action
   type: Predicate
   string: |+
-   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
-   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
    
    SELECT ?d ?dLabel
    FROM <http://id.nlm.nih.gov/mesh>
@@ -118,31 +142,39 @@
   notes: MeSH has rules that govern which qualifiers can be used with which MeSH Headings.
   type: Descriptors and Qualifiers
   string: |+
-     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-     PREFIX meshv:  <http://id.nlm.nih.gov/mesh/vocab#>
-     PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
-     PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
-     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+   PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+   PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
      
-     SELECT distinct ?d ?dLabel  
-     FROM  <http://id.nlm.nih.gov/mesh>
+   SELECT distinct ?d ?dLabel  
+   FROM  <http://id.nlm.nih.gov/mesh>
      
-     WHERE {  
-        ?d meshv:allowableQualifier ?q .
-        ?d meshv:active 1 .
-        ?q rdfs:label "adverse effects"@en .  
-        ?d rdfs:label ?dLabel  
-     }
+   WHERE {  
+      ?d meshv:allowableQualifier ?q .
+      ?d meshv:active 1 .
+      ?q rdfs:label "adverse effects"@en .  
+      ?d rdfs:label ?dLabel  
+   }
      
 - name: Find all MeSH descriptors that are ancestors of MeSH descriptor D005138 'Eyebrow'
   notes: The MeSH heading for 'Eybrow' can be retrieved through various paths in the MeSH tree.  This query demonstrates how to 'explode up' the MeSH tree to find all ancestors.
   type: Transitive
   string: |+
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
-   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
    
    SELECT ?treeNum ?ancestorTreeNum ?ancestor ?alabel
    FROM <http://id.nlm.nih.gov/mesh>
@@ -160,11 +192,15 @@
   notes: Find all descendants (not just immediate children) of 'Neoplasm'.  This query 'explodes down' the MeSH tree.
   type: Transitive
   string: |+
-    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
-    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
-    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+   PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+   PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
    
     SELECT DISTINCT ?descriptor ?label
     FROM <http://id.nlm.nih.gov/mesh>
@@ -182,11 +218,15 @@
   notes: Find MeSH descriptors or sub-concepts based on string.
   type: String
   string: |+
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
-   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
    
     SELECT ?d ?dName ?c ?cName
     FROM <http://id.nlm.nih.gov/mesh>
@@ -214,7 +254,7 @@
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-    SELECT DISTINCT ?d ?name ?dateEstablished
+    SELECT DISTINCT *
     FROM <http://id.nlm.nih.gov/mesh>
 
     WHERE {
@@ -223,23 +263,26 @@
     ?d rdfs:label ?name .
     ?d meshv:treeNumber ?tn .
     ?d meshv:dateEstablished ?dateEstablished
-    FILTER (?dateEstablished >= xsd:date("2015-12-31"))
-    FILTER(REGEX(?tn,"C"))
+    FILTER(regex(?dateEstablished, "2017-01-01"))
+    FILTER(regex(?tn, "C"))
 
-    }
+}
 
-    ORDER BY ?name
+ORDER BY ?name
     
 - name: Retrieve all terms that belong to Descriptor D009369 'Neoplasm'.
   notes: The query uses inferencing to get all meshv:term labels and their altLabels (lexical variants)
   type: Lexical Variation
   string: |+
-     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-     PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-     PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
-     PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+   PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+   PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
      
      SELECT ?t ?pred ?label
      
@@ -254,14 +297,15 @@
     
 - name: Display MeSH Qualifiers grouped by the their descriptors' base tree numbers.
   string: |+
-    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-    PREFIX owl: <http://www.w3.org/2002/07/owl#>
-    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-    PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
-    PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+   PREFIX owl: <http://www.w3.org/2002/07/owl#>
+   PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+   PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+   PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+   PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+   PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
     
     SELECT ?qualifier ?baseTreeNum (count(?baseTreeNum) AS ?count) WHERE {
     SELECT ?qualifier (SUBSTR(?tnLabel,1,3) AS ?baseTreeNum)
