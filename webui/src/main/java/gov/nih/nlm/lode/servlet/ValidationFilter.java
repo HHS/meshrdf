@@ -70,6 +70,14 @@ public class ValidationFilter extends OncePerRequestFilter {
                 return;
             }
         }
+
+        /**
+         *  The code below does not work. Why not?
+         *  http://mtyurt.net/2015/07/20/spring-modify-response-headers-after-processing/
+        response.addHeader("X-XSS-Protection", "1; mode=block");
+        response.setHeader("Cache-Control", "no-cache, no-store");
+         */
+
         filterChain.doFilter(request, response);
     }
 }
