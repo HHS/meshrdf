@@ -77,7 +77,10 @@
     </filter>
     <filter-mapping>
         <filter-name>cors</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/sparql</url-pattern>
+        <url-pattern>/status</url-pattern>
+        <url-pattern>*.json</url-pattern>
+        <url-pattern>*.json-ld</url-pattern>
     </filter-mapping>
 
     <!-- Do validation -->
