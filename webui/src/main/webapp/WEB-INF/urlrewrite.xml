@@ -20,7 +20,7 @@
 
   <rule>
     <name>sparql-to-servlet</name>
-    <from casesensitive="true">^/sparql(.*)$</from>
+    <from casesensitive="true">^/sparql$</from>
     <to>/servlet/query$1</to>
   </rule>
 
