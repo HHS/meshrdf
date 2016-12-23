@@ -65,8 +65,8 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
 
         assertThat(status.isHttpdOK(), is(true));
         assertThat(status.isTomcatOK(), is(true));
-        assertThat(status.isVirtuosoOK(), is(true));
-        assertThat(status.isMeshdataOK(), is(true));
+        assertThat(status.isVirtuosoOK(), is(false));
+        assertThat(status.isMeshdataOK(), is(false));
         assertThat(status.isUpdating(), is(true));
         assertThat(status.isUpdateError(), is(false));
         assertThat(status.getStatus(), is(equalTo("Status: Updating")));
@@ -79,8 +79,8 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
 
         assertThat(status.isHttpdOK(), is(true));
         assertThat(status.isTomcatOK(), is(true));
-        assertThat(status.isVirtuosoOK(), is(true));
-        assertThat(status.isMeshdataOK(), is(true));
+        assertThat(status.isVirtuosoOK(), is(false));
+        assertThat(status.isMeshdataOK(), is(false));
         assertThat(status.isUpdating(), is(true));
         assertThat(status.isUpdateError(), is(true));
         assertThat(status.getStatus(), is(equalTo("Status: Error")));

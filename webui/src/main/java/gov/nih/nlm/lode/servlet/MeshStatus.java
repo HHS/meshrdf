@@ -95,25 +95,6 @@ public class MeshStatus {
         setHttpdOK(true);
         setTomcatOK(true);
 
-        // Check status of Virtuoso DB server
-        Connection connection = getVirtuosoConnection();
-        if (null != connection) {
-            setVirtuosoOK(true);
-        } else {
-            setVirtuosoOK(false);
-        }
-
-        // Check Virtuoso data
-        if (virtuosoHasData(connection)) {
-            setMeshdataOK(true);
-        } else {
-            setMeshdataOK(false);
-        }
-
-        if (null != connection) {
-            try { connection.close(); } catch (SQLException e) { }
-        }
-
         // Check whether we are currently updating
         if (updatesPath != null) {
             File updatesFile = new File(updatesPath);
@@ -125,6 +106,30 @@ public class MeshStatus {
                 if ((now - updatesFile.lastModified()) > maxMillis) {
                     setUpdateError(true);
                 }
+            }
+        }
+
+        if (isUpdating()) {
+            setVirtuosoOK(false);
+            setMeshdataOK(false);
+        } else {
+            // Check status of Virtuoso DB server
+            Connection connection = getVirtuosoConnection();
+            if (null != connection) {
+                setVirtuosoOK(true);
+            } else {
+                setVirtuosoOK(false);
+            }
+
+            // Check Virtuoso data
+            if (virtuosoHasData(connection)) {
+                setMeshdataOK(true);
+            } else {
+                setMeshdataOK(false);
+            }
+
+            if (null != connection) {
+                try { connection.close(); } catch (SQLException e) { }
             }
         }
     }
@@ -180,7 +185,7 @@ public class MeshStatus {
     protected int getStatusCode() {
         if (isVirtuosoOK() && isMeshdataOK() && !isUpdating() && !isUpdateError()) {
             return STATUS_OK;
-        } else if (isVirtuosoOK() && this.isUpdating() && !isUpdateError()) {
+        } else if (this.isUpdating() && !isUpdateError()) {
             return STATUS_UPDATING;
         } else {
             return STATUS_ERROR;
