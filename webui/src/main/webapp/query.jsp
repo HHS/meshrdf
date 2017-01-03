@@ -9,10 +9,11 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <%@ include file="internal/head.jspf" %>
-    <lodestar:dapscript></lodestar:dapscript>
+    <lodestar:gtmscript/>
   </head>
 
   <body onload="$('#sparql-content').sparql({namespaces : lodeNamespacePrefixes, inference: true});">
+    <lodestar:gtmnoscript/>
     <div class="skipnav"><a href="#skip" class="skipnav">Skip Navigation</a></div>
     <div class="header">
       <%@ include file="/internal/header.html" %>
