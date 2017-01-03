@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
-
     <script type="text/javascript">var switchTo5x=true;</script>
     <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">
@@ -42,10 +41,11 @@
         <%@ include file="css/style.css" %>
         <%@ include file="css/lode-style.css" %>
     </style>
-    <lodestar:dapscript></lodestar:dapscript>
+    <lodestar:gtmscript/>
   </head>
 
   <body>
+    <lodestar:gtmnoscript/>
     <div class="skipnav"><a href="#skip" class="skipnav">Skip Navigation</a></div>
     <div class="header">
       <%@ include file="internal/header.html" %>

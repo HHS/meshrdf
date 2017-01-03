@@ -8,8 +8,14 @@
     <tlib-version>0.9</tlib-version>
     <short-name>lodestar</short-name>
     <tag>
-        <name>dapscript</name>
-        <tag-class>gov.nih.nlm.lode.servlet.DAPScriptTag</tag-class>
+        <name>gtmscript</name>
+        <tag-class>gov.nih.nlm.lode.servlet.GTMScriptTag</tag-class>
         <body-content>empty</body-content>
     </tag>
+    <tag>
+        <name>gtmnoscript</name>
+        <tag-class>gov.nih.nlm.lode.servlet.GTMNoScriptTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    
 </taglib>

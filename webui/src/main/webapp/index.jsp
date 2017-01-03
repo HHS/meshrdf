@@ -19,10 +19,11 @@
         hashAddressBar: false, 
         shorten:false});
     </script>
-    <lodestar:dapscript></lodestar:dapscript>
+    <lodestar:gtmscript/>
   </head>
 
   <body>
+    <lodestar:gtmnoscript/>
     <div class="skipnav"><a href="#skip" class="skipnav">Skip Navigation</a></div>
     <div class="header">
       <%@ include file="internal/header.html" %>
