@@ -224,12 +224,4 @@
         </dependency>
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>mlbbuild-nlm</id>
-            <name>OCCS/MLB Nexus NLM</name>
-            <url>http://mlbbuild.nlm.nih.gov:8081/nexus/content/repositories/nlm/</url>
-        </repository>
-    </repositories>
-
 </project>
