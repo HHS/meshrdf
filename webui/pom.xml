@@ -13,7 +13,7 @@
         <skipTests>false</skipTests>
 
         <!-- Lodestar version -->
-        <lodestar.version>1.4.1-SNAPSHOT</lodestar.version>
+        <lodestar.version>1.4-SNAPSHOT</lodestar.version>
 
         <!-- Requires that virtuoso lodestar be similarly built -->
         <org.springframework.version>4.3.3.RELEASE</org.springframework.version>
@@ -118,6 +118,13 @@
     </build>
 
     <dependencies>
+
+        <!-- Will pull in the other requirements -->
+        <dependency>
+            <groupId>ebi-lode</groupId>
+            <artifactId>lode-virtuoso-impl</artifactId>
+            <version>${lodestar.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>ebi-lode</groupId>
