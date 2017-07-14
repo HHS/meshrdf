@@ -3,3 +3,5 @@
 /test-output
 /.settings/
 /.springBeans
+/.project
+/.classpath
