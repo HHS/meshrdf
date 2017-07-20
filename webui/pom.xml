@@ -4,13 +4,21 @@
     <groupId>gov.nih.nlm.lode</groupId>
     <artifactId>mesh</artifactId>
     <packaging>war</packaging>
-    <version>1.0</version>
     <name>NLM Overlay for EBI Lodestar web-ui</name>
+
+    <parent>
+        <groupId>gov.nih.nlm.lode</groupId>
+        <artifactId>meshrdf</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <groups>unit</groups>
         <skipTests>false</skipTests>
+
+        <!-- Lodestar version -->
+        <lodestar.version>1.4-SNAPSHOT</lodestar.version>
 
         <!-- Requires that virtuoso lodestar be similarly built -->
         <org.springframework.version>4.3.3.RELEASE</org.springframework.version>
@@ -111,17 +119,17 @@
 
     <dependencies>
 
-        <!-- NOTE: Both lode-core-servlet and lode-core-api will be enabled transitively -->
+        <!-- Will pull in the other requirements -->
         <dependency>
             <groupId>ebi-lode</groupId>
             <artifactId>lode-virtuoso-impl</artifactId>
-            <version>1.4-SNAPSHOT</version>
+            <version>${lodestar.version}</version>
         </dependency>
 
         <dependency>
             <groupId>ebi-lode</groupId>
             <artifactId>web-ui</artifactId>
-            <version>1.4-SNAPSHOT</version>
+            <version>${lodestar.version}</version>
             <type>war</type>
             <scope>runtime</scope>
         </dependency>
@@ -223,5 +231,18 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>release-local</id>
+            <name>Repository for MeSH RDF releases</name>
+            <url>${release.repo.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot-local</id>
+            <name>Repository for MeSH RDF snapshots</name>
+            <url>${snapshot.repo.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
