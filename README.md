@@ -162,7 +162,6 @@ relationships, because those are generated from the tree node identifiers to lin
 various records. Since the sample files contain only a subset of the records, most of
 these cannot be generated.***
 
-
 ## Project directory structure
 
 These are the subdirectories of this project -- either part of the repository, or created:
@@ -174,6 +173,8 @@ These are the subdirectories of this project -- either part of the repository, o
   of the items from the real XML data files, as described above.
 * *xslt* - The main XSLT processor files that convert the XML into RDF.
 * *data* - an NTriples files containing rdfs:label for Central Nervous System diseases in 14 languages.  This is included as an example.
+* *webui* - Java overlay for lodestar (https://github.com/EBISPOT/lodestar)
+* *pom.xml.template* - Template for a parent pom that is needed to build the webui
 
 
 These are the subdirectories of the `$MESHRDF_HOME` directory, which typically (but not necessarily)
@@ -183,7 +184,6 @@ is set to some separate location:
   so they are not part of the repository, but should be downloaded separately, as described above.
 * *out* - Product RDF files, in n-triples format.  The conversion scripts write these product
   files here.  Copies of the data files may also appear here.
-
 
 ## Virtuoso setup
 
@@ -219,6 +219,24 @@ Shutdown of server (see [the Virtuoso
 documentation](http://data-gov.tw.rpi.edu/wiki/How_to_install_virtuoso_sparql_endpoint#Manual_Shutdown)):
 
     kill -s SIGTERM `cut -d= -f2 $VIRTUOSO_HOME/virtuoso/var/lib/virtuoso/db/virtuoso.lck`
+
+## Building the webui
+
+The webui depends on a parent pom.xml that contains local properties.  This is to avoid too many changes in settings.xml for our CI/CD environment.  Follow these instructions to build the webui: 
+
+* Copy the `pom.xml.template` to `pom.xml` and make any local changes needed
+    - To run unit tests, you may need to override the following properties:
+        - `virtuosoServerName`
+        - `virtuosoUserName`
+        - `virtuosoPassword`
+        - `updatesPath` - the path must be in a directory where the unit tests can write 
+    - To deploy artifacts to a Maven repository, you may need to override the following properties:
+        - `release.repo.url`
+        - `snapshot.repo.url`
+        - Make sure the servers mentioned in `webui/pom.xml` appear in your local `settings.xml`
+* Build with maven
+
+        mvn clean package
 
 ## Technical documentation on GitHub pages
 
