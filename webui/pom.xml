@@ -26,15 +26,6 @@
         <!-- NOTE: match version built from lodestar repository -->
         <lodestar.version>1.4-SNAPSHOT</lodestar.version>
 
-        <!-- NOTE: default values are needed only for unittest, override in parent POM -->
-        <virtuosoServerName>localhost</virtuosoServerName>
-        <virtuosoUserName>dba</virtuosoUserName>
-        <virtuosoPassword>dba</virtuosoPassword>
-
-        <!-- NOTE: default values are needed only for deploy to Artifactory/Nexxus -->
-        <release.repo.url>http://localhost:8081/libs-release</release.repo.url>
-        <release.snapshot.url>http://localhost:8081/libs-snapshot</release.snapshot.url>
-
         <updatesPath>/usr/nlm/meshlocal/state/updating</updatesPath>
         <updateMaxSeconds>10800</updateMaxSeconds>
     </properties>

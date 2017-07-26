@@ -12,20 +12,14 @@
     </modules>
 
     <properties>
-        <!-- FQDN of Virtuoso server -->
+        <!-- May need to be changed to run unit tests  -->
         <virtuosoServerName>localhost</virtuosoServerName>
-
-        <!-- Virtuoso username and password -->
         <virtuosoUserName>dba</virtuosoUserName>
         <virtuosoPassword>dba</virtuosoPassword>
 
-        <!-- Maven local repository urls - only needed for deploy plugin -->
+        <!-- May need to be changed to deploy to Maven repository  -->
         <release.repo.url>http://localhost:8081/nexus/libs-release-local</release.repo.url>
         <snapshot.repo.url>http://localhost:8081/nexus/libs-snapshot-local</snapshot.repo.url>
-
-        <!-- Directories and update timeout on server -->
-        <updatesPath>/usr/nlm/meshlocal/state/updating</updatesPath>
-        <updateMaxSeconds>10800</updateMaxSeconds>
     </properties>
 
 </project>
