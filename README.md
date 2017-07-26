@@ -174,7 +174,6 @@ These are the subdirectories of this project -- either part of the repository, o
 * *xslt* - The main XSLT processor files that convert the XML into RDF.
 * *data* - an NTriples files containing rdfs:label for Central Nervous System diseases in 14 languages.  This is included as an example.
 * *webui* - Java overlay for lodestar (https://github.com/EBISPOT/lodestar)
-* *pom.xml.template* - Template for a parent pom that is needed to build the webui
 
 
 These are the subdirectories of the `$MESHRDF_HOME` directory, which typically (but not necessarily)
@@ -220,23 +219,29 @@ documentation](http://data-gov.tw.rpi.edu/wiki/How_to_install_virtuoso_sparql_en
 
     kill -s SIGTERM `cut -d= -f2 $VIRTUOSO_HOME/virtuoso/var/lib/virtuoso/db/virtuoso.lck`
 
-## Building the webui
+## Building the webui with Maven
 
-The webui depends on a parent pom.xml that contains local properties.  This is to avoid too many changes in settings.xml for our CI/CD environment.  Follow these instructions to build the webui: 
+The webui depends on a parent pom.xml that contains local properties.  This is
+to avoid placing passwords in the clear into git.  If you do a build with
+virtuoso running on the localhost, without changing the default dba password,
+and you have loaded the MeSH RDF data, the build should work.
 
-* Copy the `pom.xml.template` to `pom.xml` and make any local changes needed
-    - To run unit tests, you may need to override the following properties:
-        - `virtuosoServerName`
-        - `virtuosoUserName`
-        - `virtuosoPassword`
-        - `updatesPath` - the path must be in a directory where the unit tests can write 
-    - To deploy artifacts to a Maven repository, you may need to override the following properties:
-        - `release.repo.url`
-        - `snapshot.repo.url`
-        - Make sure the servers mentioned in `webui/pom.xml` appear in your local `settings.xml`
-* Build with maven
+However, in a real world scenario, you should edit your local Maven
+configuration file, `$HOME/.m2/settings.xml`, to add a profile that overrides
+some properties.
 
-        mvn clean package
+* To run unit tests, you may need to override the following properties:
+    - `virtuosoServerName`
+    - `virtuosoUserName`
+    - `virtuosoPassword`
+* To deploy artifacts to a Maven repository, you may need to override the following properties:
+    - `release.repo.url`
+    - `snapshot.repo.url`
+    - Make sure the servers mentioned in `webui/pom.xml` appear in your local `settings.xml`
+
+Here's an example command-line with profile `meshrdf`:
+
+    mvn -D meshrdf clean package
 
 ## Technical documentation on GitHub pages
 
