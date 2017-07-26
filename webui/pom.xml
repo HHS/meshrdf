@@ -23,12 +23,18 @@
         <!-- Requires that virtuoso lodestar be similarly built -->
         <org.springframework.version>4.3.3.RELEASE</org.springframework.version>
 
-        <!-- These are default values expected to be overridden -->
+        <!-- NOTE: match version built from lodestar repository -->
+        <lodestar.version>1.4-SNAPSHOT</lodestar.version>
+
+        <!-- NOTE: default values are needed only for unittest, override in parent POM -->
         <virtuosoServerName>localhost</virtuosoServerName>
         <virtuosoUserName>dba</virtuosoUserName>
         <virtuosoPassword>dba</virtuosoPassword>
 
-        <!-- Production parameters -->
+        <!-- NOTE: default values are needed only for deploy to Artifactory/Nexxus -->
+        <release.repo.url>http://localhost:8081/libs-release</release.repo.url>
+        <release.snapshot.url>http://localhost:8081/libs-snapshot</release.snapshot.url>
+
         <updatesPath>/usr/nlm/meshlocal/state/updating</updatesPath>
         <updateMaxSeconds>10800</updateMaxSeconds>
     </properties>
@@ -110,6 +116,27 @@
                     <execution>
                         <goals>
                             <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/dist.xml</descriptor>
+                    </descriptors>
+                    <finalName>meshrdf-dist-${project.version}</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
                         </goals>
                     </execution>
                 </executions>

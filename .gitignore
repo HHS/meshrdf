@@ -4,3 +4,4 @@ saxon9*
 /data/*.dtd
 /data/readme*
 /out
+/pom.xml
