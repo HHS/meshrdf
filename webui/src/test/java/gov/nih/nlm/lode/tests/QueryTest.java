@@ -70,7 +70,7 @@ public class QueryTest extends LodeBaseTest {
         { "mesh:D000193", "Actinomycetales Infections", "mesh:M0000289", "Actinomycetales Infections" },
         { "mesh:D000258", "Adenovirus Infections, Human", "mesh:M0000406", "Pharyngo-Conjunctival Fever" },
         { "mesh:D003699", "Hepatitis D", "mesh:M0005791", "Superinfection, Delta" },
-        { "mesh:D004889", "Erysipelothrix Infections", "mesh:M0007678", "Erysipelothrix Infections" },
+        { "mesh:D004769", "Enterovirus Infections", "mesh:M0007488", "Enterovirus Infections" },
     };
 
     public void clickSubmitQuery() {
