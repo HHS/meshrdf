@@ -1,5 +1,5 @@
 body {
-  margin: 0px;
+  margin: 0;
   background: #20558a;
 }
 
@@ -72,3 +72,32 @@ a.white-strong,
   text-decoration: none;
 }
 
+.search-under {
+  float: right;
+  margin: 0;
+  width: 340px;
+}
+
+.social-home img {
+  height: 25px;
+}
+
+.social-home {
+  float: right;
+  overflow: hidden;
+  width: 146px;
+}
+
+.contact-us {
+  float: left;
+  text-shadow: none;
+  font-weight: bold;
+  color: #FFF;
+  font-size: .9em;
+  padding: 7px 5px 0 0;
+}
+
+.contact-us a {
+  color: #FFF;
+  text-decoration: none;
+}
