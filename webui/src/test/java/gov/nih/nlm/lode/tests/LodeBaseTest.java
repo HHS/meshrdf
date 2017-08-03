@@ -35,7 +35,7 @@ public class LodeBaseTest extends SeleniumTest {
       if (null != basetag) {
         href = basetag.getAttribute("href");
       }
-    } catch (NoSuchElementException e) { 
+    } catch (NoSuchElementException e) {
       // DO NOTHiNG
     }
     if (null == href) {
@@ -70,6 +70,8 @@ public class LodeBaseTest extends SeleniumTest {
 
   public void shouldBeValidLinks(List<WebElement> links) {
     LinkChecker linkcheck = new LinkChecker(getCurrentBaseUrl());
+    linkcheck.setConnectTimeout(5);
+    linkcheck.setSocketTimeout(10);
     linkcheck.addRequestHeader("Accept", "text/html, text/plain, text/turtle");
     linkcheck.addRequestHeader("Upgrade-Insecure-Requests", "1");
     for (WebElement link : links) {
@@ -80,10 +82,10 @@ public class LodeBaseTest extends SeleniumTest {
     linkcheck.shouldBeValid();
   }
 
-  public void openHomePage() {   
+  public void openHomePage() {
     driver.get(getLodeBaseUrl());
   }
- 
+
   public void openQueryPage() {
     driver.get(getLodeBaseUrl() + "/query");
   }

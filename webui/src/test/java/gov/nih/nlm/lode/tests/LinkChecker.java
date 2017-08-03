@@ -13,6 +13,7 @@ import java.io.IOException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -44,6 +45,8 @@ public class LinkChecker {
     private boolean followRedirects;
     private long delay;
     private static long defaultDelay = -1;
+    private Integer connectTimeout;
+    private Integer socketTimeout;
 
     private List<URI> links = new ArrayList<URI>();
     private List<LinkChecker.RequestCallback> requestCallbacks = new ArrayList<LinkChecker.RequestCallback>();
@@ -79,9 +82,9 @@ public class LinkChecker {
         if (defaultDelay < 0) {
             String delay = System.getenv("LINKCHECK_DELAY");
             if (delay != null) {
-                try { 
+                try {
                     defaultDelay = Long.parseLong(delay);
-                } catch (NumberFormatException e) { 
+                } catch (NumberFormatException e) {
                     System.err.println("warning: LINKCHECK_DELAY should be a positive, long integer\n");
                 }
                 if (defaultDelay < 0) {
@@ -99,6 +102,22 @@ public class LinkChecker {
 
     public long getDelay() {
         return delay;
+    }
+
+    public void setConnectTimeout(Integer seconds) {
+        this.connectTimeout = seconds;
+    }
+
+    public Integer getConnectTimeout() {
+        return connectTimeout;
+    }
+
+    public void setSocketTimeout(Integer seconds) {
+        this.socketTimeout = seconds;
+    }
+
+    public Integer getSocketTimeout() {
+        return socketTimeout;
     }
 
     public void addRequestCallback(LinkChecker.RequestCallback callback) {
@@ -125,14 +144,14 @@ public class LinkChecker {
         shouldMatchResponseHeader("Content-Type", contentTypeExpr);
     }
 
-    public void shouldMatchResponseHeader(final String name, final String valueExpr) {       
+    public void shouldMatchResponseHeader(final String name, final String valueExpr) {
         try {
-            final Pattern pattern = Pattern.compile(valueExpr);            
+            final Pattern pattern = Pattern.compile(valueExpr);
             addResponseCallback(new LinkChecker.ResponseCallback() {
                 public void withResponse(HttpResponse response) {
                     Header header = response.getFirstHeader(name);
                     assertNotNull(header);
-                    assertTrue( pattern.matcher( header.getValue() ).matches(), 
+                    assertTrue( pattern.matcher( header.getValue() ).matches(),
                         String.format("%s response header '%s' should match '%s'", name, header.getValue(), valueExpr));
                 }
             });
@@ -147,7 +166,7 @@ public class LinkChecker {
             try {
                 links.add(url.toURI());
             } catch(URISyntaxException e) {
-                fail("url '"+url.toString()+"' is not valid");    
+                fail("url '"+url.toString()+"' is not valid");
             }
         } else {
             Reporter.log(String.format("<b>warning:</b> cannot check %s<br>", url.toString()));
@@ -165,7 +184,7 @@ public class LinkChecker {
 
     public void add(String contextspec, String urlspec) {
         URL localContext = null;
-        try { 
+        try {
             localContext = new URL(contextspec);
         } catch (MalformedURLException e) {
             fail("context "+contextspec+" is not a valid URL");
@@ -180,7 +199,13 @@ public class LinkChecker {
 
     public void shouldBeValid() {
         URI lastbadlink = null;
+        RequestConfig.Builder config = RequestConfig.custom();
+        if (connectTimeout != null)
+            config.setConnectTimeout((int)connectTimeout * 1000);
+        if (socketTimeout != null)
+            config.setSocketTimeout((int)socketTimeout * 1000);
         HttpClientBuilder builder = HttpClients.custom();
+        builder.setDefaultRequestConfig(config.build());
         if (!followRedirects)
             builder.disableRedirectHandling();
         CloseableHttpClient client = builder.build();
