@@ -1,19 +1,26 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ page import="org.owasp.encoder.Encode" %>
 <%@ taglib uri="/WEB-INF/lodestar-tags.tld" prefix="lodestar" %>
-    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="devide-width, initial-scale=1.0" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MeSH Linked Data" />
+    <meta property="og:url" content="https://id.nlm.nih.gov/mesh/" />
+    <meta property="og:description" content="Persistent URLs, Ontology, and SPARQL endpoint about Medical Subject Headings for semantic web researchers and developers."/>
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@nlm_news" />
+    <meta property="twitter:title" content="MeSH Linked Data" />
+    <meta property="twitter:description" content="Persistent URLs, Ontology, and SPARQL endpoint about Medical Subject Headings for semantic web researchers and developers."/>
+
     <!--[if lt IE 9]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <!--
-      Bootstrap CSS.  Question [from klortho]: do we need both of these, or is one a minified version of the other?  
-      Note these have to be loaded before codemirror, otherwise codemirror gets confused when placing the cursor.
-    -->
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
     <%@ include file="prefix.jspf" %>
     <link rel="stylesheet" href="<%= resourcePrefix %>css/lode-style.css"/>
@@ -24,5 +31,5 @@
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/namespaces.js"></script>
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/queries.js"></script>
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/lode.js"></script>
-    <link rel="stylesheet" 
+    <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css"/>

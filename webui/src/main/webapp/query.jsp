@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>MeSH SPARQL Explorer (beta)</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MeSH SPARQL Explorer</title>
     <meta name="description" content="" />
     <meta name="author" content="" />
     <%@ include file="internal/head.jspf" %>
@@ -26,7 +25,7 @@
           </div>
 
           <a name="skip"> </a>
-          <h1>Medical Subject Headings (MeSH) RDF Linked Data (beta)</h1>
+          <h1>Medical Subject Headings (MeSH) RDF Linked Data</h1>
 
 	      <div class="grid_24" id="sparql-content">
 	      </div>

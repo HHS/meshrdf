@@ -5,35 +5,26 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>MeSH Linked Data (beta)</title>
+    <title>MeSH Linked Data</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-    <!--
-      Bootstrap CSS.  Question [from klortho]: do we need both of these, or is one a
-      minified version of the other?
-      Note these have to be loaded before codemirror, otherwise codemirror gets 
-      confused when placing the cursor.
-    -->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
     <script type="text/javascript">var switchTo5x=true;</script>
     <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">
       stLight.options({
-        publisher: "e9b3d8ae-cb2a-4d2b-b8a6-a3c03949ec62", 
-        doNotHash: false, 
-        doNotCopy: false, 
-        hashAddressBar: false, 
+        publisher: "e9b3d8ae-cb2a-4d2b-b8a6-a3c03949ec62",
+        doNotHash: false,
+        doNotCopy: false,
+        hashAddressBar: false,
         shorten:false});
     </script>
     <%@ include file="internal/prefix.jspf" %>
