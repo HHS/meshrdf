@@ -6,7 +6,7 @@ __Welcome to MeSH RDF Technical Documentation.__ MeSH RDF is a linked data repre
 
 ---
 
-### Mesh RDF Services
+### Mesh RDF Resources
 
 [__Download__](ftp://ftp.nlm.nih.gov/online/mesh/): Download MeSH in N-Triples format (mesh.nt.gz).
 
