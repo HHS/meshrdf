@@ -3,7 +3,7 @@ title: Versioning Policy
 layout: page
 resource: true
 categories:
-- Policy
+- Policies
 ---
 
 MeSH is versioned on a yearly basis. NLM releases provisional MeSH data for the following year each September. Changes to MeSH are implemented in PubMed the following December. Most changes made in September of each year involve the addition of new Descriptors and changes to existing Descriptors. Supplementary Concept Records are added throughout the year, and those changes are reflected in daily updates to MeSH. MeSH is updated annually, and users are encouraged to obtain the new year's data. 
