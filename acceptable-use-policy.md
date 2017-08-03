@@ -3,7 +3,7 @@ title: Acceptable Use Policy
 layout: page
 resource: true
 categories:
-- Policy
+- Policies
 ---
 
 To avoid overloading the servers, NLM requires that users of the MeSH RDF beta SPARQL endpoint service send no more than 500 requests per minute per IP address. Requests that exceed this limit will not be serviced, and service to that IP address will not be restored until 30 seconds time has elapsed.
