@@ -66,7 +66,7 @@
 
           <p>Join us on <a href="https://github.com/HHS/meshrdf/issues/">GitHub</a> for a collaborative discussion about MeSH RDF. Your use cases and comments, suggestions, and questions are welcome. Your participation will help us refine the MeSH RDF and develop future RDF releases.</p>
                 
-          <p>You may also direct questions and comments to the <a target="_blank" href="http://apps.nlm.nih.gov/mainweb/siebel/nlm/index.cfm">NLM Customer Service form</a>; please use NLM Linked Data in the subject line.</p>
+          <p>You may also direct questions and comments to the <a target="_blank" href="https://support.nlm.nih.gov/ics/support/default.asp?deptID=28054&from=https://id.nlm.nih.gov/mesh/">NLM Customer Service form</a>; please use NLM Linked Data in the subject line.</p>
                 
           <p>Commentary via social media is another option; use the icons on our pages. Comment on Twitter using <a target="_blank" href="https://twitter.com/intent/tweet?text=MeSH%20Linked%20Data%20(beta)%20%23NLMLD%20%40nlm_news&source=sharethiscom&related=sharethis&url=http://id.nlm.nih.gov/mesh/#sthash.Yqn2yh5c.uxfs">#NLMLD and @nlm_news.</a></p>
                 
