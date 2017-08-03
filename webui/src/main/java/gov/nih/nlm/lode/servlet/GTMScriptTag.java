@@ -31,7 +31,7 @@ public class GTMScriptTag extends TagSupport {
         try {
             out.print("<!-- Google Tag Manager -->\n");
             String gtmcode = System.getProperty("meshrdf.gtmcode");
-            if (null != gtmcode) {
+            if (null != gtmcode && gtmcode.length() > 0) {
                 out.print(String.format(TAG_FORMAT, gtmcode));
             }
             out.print("<!-- End Google Tag Manager -->\n");

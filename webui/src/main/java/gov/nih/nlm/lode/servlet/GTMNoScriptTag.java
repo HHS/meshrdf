@@ -22,7 +22,7 @@ public class GTMNoScriptTag extends TagSupport {
         try {
             out.print("<!-- Google Tag Manager (noscript) -->\n");
             String gtmcode = System.getProperty("meshrdf.gtmcode");
-            if (null != gtmcode) {
+            if (null != gtmcode && gtmcode.length() > 0) {
                 out.print(String.format(TAG_FORMAT, gtmcode));
             }
             out.print("<!-- End Google Tag Manager (noscript) -->\n");
