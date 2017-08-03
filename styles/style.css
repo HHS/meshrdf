@@ -26,7 +26,6 @@ body {
 }
 
 #archived-content > p {
-  
   color:white;
   font-size:1.4em;
 }
@@ -35,16 +34,27 @@ body {
     color:white;
 }
 
-
-.btn:hover, .btn:active{
+.btn:hover, .btn:active {
  background-color: #F06018;
  color:white;
  text-decoration: none;
 }
 
+.btn a:link {
+  color:#000000;
+}
+
+.btn a:visited {
+   color:#000000; 
+}
+
+.btn a:hover {
+  color:FFFFFF;
+  text-decoration:none!important;
+}
+
 .navbar-btn > .btn-group  > a.btn {
-  
-  color:white;
+  color:black;
 }
 
 .dropdown-menu li a:hover{
@@ -53,16 +63,14 @@ body {
 
 }
 
-h1, h2, h3, h4 {
-    
-  color: #105981 !important;
-  
+#meshrdf-header h1 {
+  margin-top: 5px;
+  color:#FFFFFF!important;
 }
 
 h1 {
     
     text-align:left;
-    margin-left: 1.0em;
 
 }
 
@@ -76,8 +84,7 @@ h1 {
 .main-content {
     
   box-shadow: -2px 0px 10px 1px #777;
-  margin-left:3em;
-  margin-top: .5em;
+  margin-left: 20px;
   padding: 1em 2em 2em 2em;
   background-color:white;
     
