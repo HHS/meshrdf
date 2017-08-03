@@ -1,5 +1,5 @@
 ---
-title: MeSH RDF (beta) Release Notes
+title: MeSH RDF Release Notes
 layout: page
 resource: false
 ---
@@ -101,9 +101,3 @@ predicate | meshv:related | Removed | Replaced by meshv:relatedConcept
 predicate | meshv:runningHead | Removed |
 class | meshv:SemanticType | Removed |
 predicate | meshv:semanticType | Removed |
-
-
-
-
-
-
