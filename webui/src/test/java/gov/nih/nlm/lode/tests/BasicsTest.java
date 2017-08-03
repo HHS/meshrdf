@@ -16,8 +16,8 @@ public class BasicsTest extends LodeBaseTest {
   @Test
   public void testHomePage() {
     openHomePage();
-    titleShouldBe("MeSH Linked Data (beta)");
-    elementShouldContain(By.cssSelector("#home > h1"), "Linked Data (beta)");
+    titleShouldBe("MeSH Linked Data");
+    elementShouldContain(By.cssSelector("#home > h1"), "Linked Data");
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
   }
@@ -25,8 +25,8 @@ public class BasicsTest extends LodeBaseTest {
   @Test
   public void testQueryPagce() {
     openQueryPage();
-    titleShouldBe("MeSH SPARQL Explorer (beta)");
-    elementShouldContain(By.cssSelector("#home > h1"), "Linked Data (beta)");
+    titleShouldBe("MeSH SPARQL Explorer");
+    elementShouldContain(By.cssSelector("#home > h1"), "Linked Data");
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
   }
@@ -34,8 +34,8 @@ public class BasicsTest extends LodeBaseTest {
   @Test
   public void testExplorerPage() {
     openExplorerPage(false);
-    titleShouldBe("MeSH RDF Explorer (beta)");
-    elementShouldContain(By.cssSelector("#home > h1"), "Linked Data (beta)");
+    titleShouldBe("MeSH RDF Explorer");
+    elementShouldContain(By.cssSelector("#home > h1"), "Linked Data");
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
   }
@@ -43,8 +43,8 @@ public class BasicsTest extends LodeBaseTest {
   @Test
   public void testExplorerYearPage() {
     openExplorerPage(true);
-    titleShouldBe("MeSH RDF Explorer (beta)");
-    elementShouldContain(By.cssSelector("#home > h1"), "Linked Data (beta)");
+    titleShouldBe("MeSH RDF Explorer");
+    elementShouldContain(By.cssSelector("#home > h1"), "Linked Data");
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
   }
