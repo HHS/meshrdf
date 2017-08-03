@@ -76,7 +76,7 @@
       </div>
    </div>
  {% endif %}   
-<!-- breadcrumbs but don't put them on the technical docs landing page -->
+<!-- breadcrumbs (removed)
     {% if page.url != "/index.html" and page.archived != true %}
     <ol class = "breadcrumb col-md-6 col-sm-6 col-xs-10">
         <li><a href = "{{site.baseurl}}/index.html">Documentation Home</a></li>
@@ -90,15 +90,8 @@
         <li><a href = "{{site.baseurl}}/archives/index.html">Documentation Archives</a></li>
         <li class = "active">{{page.title}} <i>(MeSH Year {{page.mesh-year}})</i></li>
     </ol>
-    {% endif %}
+    {% endif %}-->
 <!-- //end breadcrumbs -->
-    {% if page.url != "/index.html"  %}
-    <div class = "row">
-        <div class = "container-fluid col-md-10 col-sm-10 col-xs-12">
-             <h1>MeSH RDF Technical Documentation</h1>
-        </div>
-    </div>
-    {% endif %}
     <div class = "row">
       <div class = "container-fluid col-md-10 col-sm-10 col-xs-10 main-content">
         <h2>{{page.title}}</h2>
