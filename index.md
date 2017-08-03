@@ -10,7 +10,7 @@ __Welcome to MeSH RDF Technical Documentation.__ MeSH RDF is a linked data repre
 
 [__Download__](ftp://ftp.nlm.nih.gov/online/mesh/): Download MeSH in N-Triples format (mesh.nt.gz).
 
-[__Query__](https://id.nlm.nih.gov/mesh/query): Use the SPARQL editor to construct queries. For help, see our list of [sample queries](sample-queries).
+[__Query__](https://id.nlm.nih.gov/mesh/query): Use the SPARQL editor to query MeSH. For help, see our list of [sample queries](sample-queries).
 
 [__API__](sparql-and-uri-requests): Request data for a specific MeSH identifier or via SPARQL query.
 
