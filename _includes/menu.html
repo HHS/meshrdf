@@ -1,4 +1,11 @@
+<div id="meshrdf-header"><h1>MeSH RDF Technical Documentation</h1></div>
 <div class = "btn-group navbar-btn visible-lg visible-md" role = "group">
+<div class = "btn-group" role = "group">
+<button type = "button" class = "btn btn-md"><a href = "{{site.baseurl}}/index.html">Home</a></button>
+<button type = "button" class = "btn btn-md"><a href = "ftp://ftp.nlm.nih.gov/online/mesh/">Download</a></button>
+<button type = "button" class = "btn btn-md"><a href = "https://id.nlm.nih.gov/mesh/query">Query</a></button>
+<button type = "button" class = "btn btn-md"><a href = "{{site.baseurl}}/sparql-and-uri-requests.html">API</a></button>
+ </div>
 {% for cat in site.category-list %}
 <div class = "btn-group" role = "group">
  <button type="button" class="btn btn-md dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{cat}}<span class = "caret"/></button>    
@@ -13,22 +20,27 @@
     {% endif %}  
    {% endfor %}
   </ul>
-</div>
+ </div>
 {% endfor %}
 <div class = "btn-group" role = "group">
- <button type="button" class="btn btn-md dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Linked Data Links<span class = "caret"/></button>    
+ <button type="button" class="btn btn-md dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Support<span class = "caret"/></button>    
   <ul class = "dropdown-menu" role = "menu">
-    <li><a href = "http://id.nlm.nih.gov/">Linked Data Home</a></li>
-    <li><a href = "http://id.nlm.nih.gov/mesh/query">SPARQL Endpoint</a></li>
-    <li><a href = "http://github.com/hhs/meshrdf">Github Project</a></li>
-    <li><a href = "http://apps.nlm.nih.gov/mainweb/siebel/nlm/index.cfm">Support</a></li>   
+    <li><a href = "http://github.com/hhs/meshrdf">GitHub</a></li>
+    <li><a href = "https://support.nlm.nih.gov/ics/support/ticketnewwizard.asp?style=classic&amp;deptID=28054&amp;from=http://hhs.github.io/meshrdf/">Contact</a></li>   
   </ul>
-<a class = "btn btn-md" role = "button" href = "{{site.baseurl}}/release-notes.html">Release Notes</a>
+ </div>
+ <div class = "btn-group" role = "group">
+<button type = "button" class = "btn btn-md"><a class="menuitem" href = "{{site.baseurl}}/release-notes">Release Notes</a></button>
 </div>
 </div>
-
 
 <div class = "btn-group navbar-btn visible-xs visible-sm" role = "group">
+<div class = "btn-group" role = "group">
+<button type = "button" class = "btn btn-sm"><a href = "https://id.nlm.nih.gov/mesh">Home</a></button>
+<button type = "button" class = "btn btn-sm"><a href = "ftp://ftp.nlm.nih.gov/online/mesh/">Download</a></button>
+<button type = "button" class = "btn btn-sm"><a href = "https://id.nlm.nih.gov/mesh/query">Query</a></button>
+<button type = "button" class = "btn btn-sm"><a href = "{{site.baseurl}}/sparql-and-uri-requests">API</a></button>
+ </div>
 {% for cat in site.category-list %}
 <div class = "btn-group" role = "group">
  <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{cat}}<span class = "caret"/></button>    
@@ -43,16 +55,16 @@
     {% endif %}  
    {% endfor %}
   </ul>
-</div>
+ </div>
 {% endfor %}
 <div class = "btn-group" role = "group">
- <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Linked Data Links<span class = "caret"/></button>    
+ <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Support<span class = "caret"/></button>    
   <ul class = "dropdown-menu" role = "menu">
-    <li><a href = "http://id.nlm.nih.gov/">Linked Data Home</a></li>
-    <li><a href = "http://id.nlm.nih.gov/mesh/sparql">SPARQL Endpoint</a></li>
-    <li><a href = "http://github.com/hhs/meshrdf">Github Project</a></li>
-    <li><a href = "http://apps.nlm.nih.gov/mainweb/siebel/nlm/index.cfm">Support</a></li>   
+    <li><a href = "http://github.com/hhs/meshrdf">GitHub</a></li>
+    <li><a href = "https://support.nlm.nih.gov/ics/support/ticketnewwizard.asp?style=classic&amp;deptID=28054&amp;from=http://hhs.github.io/meshrdf/">Contact</a></li>   
   </ul>
-  <a class = "btn btn-md" role = "button" href = "{{site.baseurl}}/release-notes.html">Release Notes</a>
+ </div>
+ <div class = "btn-group" role = "group">
+<button type = "button" class = "btn btn-sm"><a class="menuitem" href = "{{site.baseurl}}/release-notes">Release Notes</a></button>
 </div>
 </div>
