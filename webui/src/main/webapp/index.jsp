@@ -51,7 +51,7 @@
       <h3 class="meshrdf-resources-header">MeSH RDF Resources</h3>
       <div class="row meshrdf-resource-item">
         <div class="col-md-6">
-          <h4><a href="">Download</a></h4>
+          <h4><a href="ftp://ftp.nlm.nih.gov/online/mesh/mesh.nt.gz">Download</a></h4>
         </div>
         <div class="col-md-6">
           <p>Download MeSH in RDF N-Triples format (mesh.nt.gz).</p>
@@ -59,15 +59,15 @@
       </div>
       <div class="row meshrdf-resource-item">
         <div class="col-md-6">
-          <h4><a href="">SPARQL Query Editor</a></h4>
+          <h4><a href="<%= Encode.forHtmlAttribute(resourcePrefix) %>query">SPARQL Query Editor</a></h4>
         </div>
         <div class="col-md-6">
-          <p>Query MeSH using SPARQL. See our <a href="">sample queries</a>.</p>
+          <p>Query MeSH using SPARQL. See our <a href="https://hhs.github.io/meshrdf/sample-queries">sample queries</a>.</p>
         </div>
       </div>
       <div class="row meshrdf-resource-item">
         <div class="col-md-6">
-          <h4><a href="">API / SPARQL Endpoint</a></h4>
+          <h4><a href="https://hhs.github.io/meshrdf/sparql-and-uri-requests">API / SPARQL Endpoint</a></h4>
         </div>
         <div class="col-md-6">
           <p>Request data for specific MeSH identifiers or using SPARQL queries.</p>
@@ -75,18 +75,18 @@
       </div>
             <div class="row meshrdf-resource-item">
         <div class="col-md-6">
-          <h4><a href="">Documentation</a></h4>
+          <h4><a href="https://hhs.github.io/meshrdf/">Documentation</a></h4>
         </div>
         <div class="col-md-6">
-          <p>Documentation includes <a href="">sample queries</a>, MeSH data model diagrams and more.</p>
+          <p>Documentation includes <a href="https://hhs.github.io/meshrdf/sample-queries">sample queries</a>, MeSH data model diagrams and more.</p>
         </div>
       </div>
       <div class="row meshrdf-resource-item">
         <div class="col-md-6">
-          <h4><a href="">Support</a></h4>
+          <h4><a href="https://support.nlm.nih.gov/ics/support/ticketnewwizard.asp?style=classic&amp;deptID=28054&amp;from=https://id.nlm.nih.gov/mesh/">Support</a></h4>
         </div>
         <div class="col-md-6">
-          <p>Visit our <a href="">GitHub</a> repository and submit an issue or contact <a href="">NLM Customer Support</a>.</p>
+          <p>Visit our <a href="https://github.com/HHS/meshrdf/issues">GitHub</a> repository and submit an issue or contact <a href="https://support.nlm.nih.gov/ics/support/ticketnewwizard.asp?style=classic&amp;deptID=28054&amp;from=https://id.nlm.nih.gov/mesh/">NLM Customer Support</a>.</p>
         </div>
       </div>
     </div>
