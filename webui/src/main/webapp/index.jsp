@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>MeSH Linked Data</title>
+    <title>Medical Subject Headings RDF</title>
     <meta name="description" content="" />
     <meta name="author" content="" />
     <%@ include file="internal/head.jspf" %>
@@ -28,15 +28,11 @@
       <%@ include file="internal/header.html" %>
     </div>
     <div class="container-fluid">
-      <div id="meshTabContent" class="tab-content">
-        <div class="tab-pane fade in active" id="home">
-          <div class="navi">
-            <%@ include file="internal/nav.jspf" %>
-          </div>
-
+          <%@ include file="internal/nav.jspf" %>
+       <div class="row content meshrdf-row1">
+         <div class="col-md-4 col-sm-4 meshrdf-description">
           <a name="skip"> </a>
-          <h1>Medical Subject Headings (MeSH) RDF Linked Data</h1>
-
+           <p>**** TEXT BELOW WILL BE REVISED**** </p>
           <p>The National Library of Medicine (NLM) is now offering a beta version of the Medical Subject Headings (MeSH&#174;) data in RDF (Resource Description Framework). RDF is a well-known standard for representing structured data on the Web. Systems that use RDF are often called Linked Data because of RDF emphasis on well-described links between resources.</p>
 
           <p>During this beta release, NLM is seeking stakeholder input and feedback as part of a broader effort to evaluate the creation of an NLM Linked Data Service. NLM hopes that users will help us refine MeSH RDF and contribute use cases for future linked data services.</p>
@@ -49,28 +45,54 @@
 
           <p>Many national libraries have published authoritative terminologies as Linked Data. Other organizations have already demonstrated a need for MeSH RDF by producing their own versions of the data. NLM will provide the official beta MeSH RDF release.</p>
 
-          <h3>Access MeSH RDF</h3>
+         </div>
+    <div class="col-md-6 col-sm-8" >
 
-          <p>The latest release of MeSH RDF includes the 2016 MeSH data. See the <a href="https://hhs.github.io/meshrdf/release-notes.html">release notes</a> for more details. The data will update nightly. The page will change when I commit.</p>
-
-          <ul>
-            <li>Read about <a href="http://hhs.github.io/meshrdf/">MeSH RDF</a>. Documentation includes data model diagrams, sample queries and policy statements.</li>
-            <li>Search MeSH RDF directly using the <a href="./query">SPARQL Query</a> interface.&nbsp;&nbsp;&nbsp;*Note - some versions of Internet Explorer may not be supported.</li>
-            <li>Integrate MeSH RDF into your programs and services using the <a href="./sparql">SPARQL Endpoint</a>.</li>
-            <li>Review <a href="https://hhs.github.io/meshrdf/sample-queries.html">sample queries</a> to get you started.</li>
-            <li><a href="ftp://ftp.nlm.nih.gov/online/mesh/">Download</a> the MeSH RDF data.</li>
-          </ul>
-
-          <h3>Feedback</h3>
-
-          <p>Join us on <a href="https://github.com/HHS/meshrdf/issues/">GitHub</a> for a collaborative discussion about MeSH RDF. Your use cases and comments, suggestions, and questions are welcome. Your participation will help us refine the MeSH RDF and develop future RDF releases.</p>
-
-          <p>You may also direct questions and comments to the <a target="_blank" href="https://support.nlm.nih.gov/ics/support/default.asp?deptID=28054&from=https://id.nlm.nih.gov/mesh/">NLM Customer Service form</a>; please use NLM Linked Data in the subject line.</p>
-
-          <p>Commentary via social media is another option; use the icons on our pages. Comment on Twitter using <a target="_blank" href="https://twitter.com/intent/tweet?text=MeSH%20Linked%20Data%20(beta)%20%23NLMLD%20%40nlm_news&source=sharethiscom&related=sharethis&url=http://id.nlm.nih.gov/mesh/#sthash.Yqn2yh5c.uxfs">#NLMLD and @nlm_news.</a></p>
-
-          <span class='st_twitter_large' st_url="http://id.nlm.nih.gov/mesh/" st_title="MeSH Linked Data (beta) #NLMLD @nlm_news" st_via="" displayText='Tweet'></span>
-          <span class='st_facebook_large' st_url="http://id.nlm.nih.gov/mesh/" st_summary="MeSH Linked Data" displayText='Facebook'></span>
+      <h3 class="meshrdf-resources-header">MeSH RDF Resources</h3>
+      <div class="row meshrdf-resource-item">
+        <div class="col-md-6">
+          <h4><a href="">Download</a></h4>
+        </div>
+        <div class="col-md-6">
+          <p>Download MeSH in RDF N-Triples format (mesh.nt.gz).</p>
+        </div>
+      </div>
+      <div class="row meshrdf-resource-item">
+        <div class="col-md-6">
+          <h4><a href="">SPARQL Query Editor</a></h4>
+        </div>
+        <div class="col-md-6">
+          <p>Query MeSH using SPARQL. See our <a href="">sample queries</a>.</p>
+        </div>
+      </div>
+      <div class="row meshrdf-resource-item">
+        <div class="col-md-6">
+          <h4><a href="">API / SPARQL Endpoint</a></h4>
+        </div>
+        <div class="col-md-6">
+          <p>Request data for specific MeSH identifiers or using SPARQL queries.</p>
+        </div>
+      </div>
+            <div class="row meshrdf-resource-item">
+        <div class="col-md-6">
+          <h4><a href="">Documentation</a></h4>
+        </div>
+        <div class="col-md-6">
+          <p>Documentation includes <a href="">sample queries</a>, MeSH data model diagrams and more.</p>
+        </div>
+      </div>
+      <div class="row meshrdf-resource-item">
+        <div class="col-md-6">
+          <h4><a href="">Support</a></h4>
+        </div>
+        <div class="col-md-6">
+          <p>Visit our <a href="">GitHub</a> repository and submit an issue or contact <a href="">NLM Customer Support</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
           <div class="footer">
             <%@ include file="internal/footer.html" %>
