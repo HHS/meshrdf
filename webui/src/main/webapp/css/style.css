@@ -101,3 +101,46 @@ a.white-strong,
   color: #FFF;
   text-decoration: none;
 }
+
+.meshrdf-content {
+  margin-left: 60px;
+}
+
+.meshrdf-heading {
+  float: left;
+}
+
+.meshrdf-heading h1 {
+  margin-top: 0;
+  font-family: "Georgia", serif;
+  margin-right: 50px;
+}
+
+.rdf {
+  color: #911f17;
+}
+
+.menu-and-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #DCDCDC;
+}
+
+.meshrdf-description {
+  margin-bottom: 20px;
+}
+
+.meshrdf-resource-item {
+  border-top: 1px solid #DCDCDC;
+  padding: 15px 15px 0 0;
+  min-height: 30px;
+  vertical-align: middle;
+}
+
+.meshrdf-resources-header {
+  margin-top: 5px;
+}
+
+.meshrdf-row1 {
+  border-bottom: 1px solid #DCDCDC;
+}
