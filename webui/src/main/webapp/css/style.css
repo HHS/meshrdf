@@ -103,7 +103,8 @@ a.white-strong,
 }
 
 .meshrdf-content {
-  margin-left: 60px;
+   margin-left: 30px;
+   background: white;
 }
 
 .meshrdf-heading {
