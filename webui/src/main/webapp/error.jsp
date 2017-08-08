@@ -44,13 +44,8 @@
     <div class="container-fluid">
       <div id="meshTabContent" class="tab-content">
         <div class="tab-pane fade in active" id="home">
-          <div class="navi">
             <%@ include file="internal/nav.jspf" %>
-          </div>
-
           <a name="skip"> </a>
-          <h1>Medical Subject Headings (MeSH) RDF Linked Data (beta)</h1>
-
           <div class="grid_24" id="error-content">
             <div id="lodestar-main" class="ui-widget ui-corner-all">
               <div id="error-div" class="ui-state-error">
