@@ -25,8 +25,6 @@
           </div>
 
           <a name="skip"> </a>
-          <h1>Medical Subject Headings (MeSH) RDF Linked Data</h1>
-
 	      <div class="grid_24" id="sparql-content">
 	      </div>
 
