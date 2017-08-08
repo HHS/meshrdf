@@ -1,28 +1,29 @@
-<%@ page pageEncoding="UTF-8" %><%@ taglib uri="/WEB-INF/lodestar-tags.tld" prefix="lodestar" %>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="/WEB-INF/lodestar-tags.tld" prefix="lodestar" %>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Medical Subject Headings RDF</title>
-  <meta content="" name="description">
-  <meta content="" name="author"><%@ include file="internal/head.jspf" %>
-  <script type="text/javascript">
-  var switchTo5x=true;
-  </script>
-  <script src="https://ws.sharethis.com/button/buttons.js" type="text/javascript">
-  </script>
-  <script type="text/javascript">
+  <head>
+    <meta charset="utf-8" />
+    <title>Medical Subject Headings RDF</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <%@ include file="internal/head.jspf" %>
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
       stLight.options({
         publisher: "e9b3d8ae-cb2a-4d2b-b8a6-a3c03949ec62",
         doNotHash: false,
         doNotCopy: false,
         hashAddressBar: false,
         shorten:false});
-  </script>
-</head>
-<body>
-  <div class="skipnav">
-    <a class="skipnav" href="#skip">Skip Navigation</a>
+    </script>
+    <lodestar:gtmscript/>
+  </head>
+
+  <body>
+    <lodestar:gtmnoscript/>
+  <div class="skipnav"><a class="skipnav" href="#skip">Skip Navigation</a>
   </div>
   <div class="header">
     <%@ include file="internal/header.html" %>
