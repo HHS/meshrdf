@@ -16,17 +16,17 @@ public class BasicsTest extends LodeBaseTest {
   @Test
   public void testHomePage() {
     openHomePage();
-    titleShouldBe("MeSH Linked Data");
-    elementShouldContain(By.cssSelector("#home > h1"), "Linked Data");
+    titleShouldBe("Medical Subject Headings RDF");
+    elementShouldContain(By.cssSelector(".meshrdf-heading > h1"), "Medical Subject Headings");
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
   }
 
   @Test
-  public void testQueryPagce() {
+  public void testQueryPage() {
     openQueryPage();
     titleShouldBe("MeSH SPARQL Explorer");
-    elementShouldContain(By.cssSelector("#home > h1"), "Linked Data");
+    elementShouldContain(By.cssSelector(".meshrdf-heading > h1"), "Medical Subject Headings");
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
   }
@@ -35,7 +35,7 @@ public class BasicsTest extends LodeBaseTest {
   public void testExplorerPage() {
     openExplorerPage(false);
     titleShouldBe("MeSH RDF Explorer");
-    elementShouldContain(By.cssSelector("#home > h1"), "Linked Data");
+    elementShouldContain(By.cssSelector(".meshrdf-heading > h1"), "Medical Subject Headings");
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
   }
@@ -44,7 +44,7 @@ public class BasicsTest extends LodeBaseTest {
   public void testExplorerYearPage() {
     openExplorerPage(true);
     titleShouldBe("MeSH RDF Explorer");
-    elementShouldContain(By.cssSelector("#home > h1"), "Linked Data");
+    elementShouldContain(By.cssSelector(".meshrdf-heading > h1"), "Medical Subject Headings");
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
   }

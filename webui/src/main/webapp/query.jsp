@@ -20,7 +20,9 @@
     <div class="container-fluid">
       <div id="meshTabContent" class="tab-content">
         <div class="tab-pane fade in active" id="home">
+          <div class="navi">
             <%@ include file="/internal/nav.jspf" %>
+          </div>
           <a name="skip"> </a>
 	      <div class="grid_24" id="sparql-content">
 	      </div>

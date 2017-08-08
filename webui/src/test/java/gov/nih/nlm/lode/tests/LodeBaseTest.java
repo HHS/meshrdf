@@ -46,22 +46,31 @@ public class LodeBaseTest extends SeleniumTest {
 
   public WebElement navigationShouldBeValid() {
 
-    WebElement navi = findElement(By.cssSelector("#home > .navi > ul"));
+    WebElement navi = findElement(By.cssSelector("#home > .navi ul"));
     elementShouldBeEnabled(navi);
 
-    WebElement query = navi.findElement(By.xpath("li[1]/a"));
-    elementTextShouldBe(query, "SPARQL Query");
-    assertThat(query.getAttribute("href"), endsWith("query"));
-    assertThat(query.getAttribute("href"), startsWith(getLodeBaseUrl()));
-
-    WebElement techdocs = navi.findElement(By.xpath("li[2]/a"));
-    elementTextShouldBe(techdocs, "Technical Docs");
-
-    WebElement rdfhome  = navi.findElement(By.xpath("li[3]/a"));
-    elementTextShouldBe(rdfhome, "MeSH RDF Home");
+    WebElement rdfhome  = navi.findElement(By.xpath("li[1]/a"));
+    elementTextShouldBe(rdfhome, "Home");
     assertThat(rdfhome.getAttribute("href"), startsWith(getLodeBaseUrl()));
 
-    WebElement meshhome = navi.findElement(By.xpath("li[4]/a"));
+    WebElement query = navi.findElement(By.xpath("li[2]/a"));
+    elementTextShouldBe(query, "SPARQL Query Editor");
+    assertThat(query.getAttribute("href"), endsWith("/query"));
+    assertThat(query.getAttribute("href"), startsWith(getLodeBaseUrl()));
+
+    WebElement techdocs = navi.findElement(By.xpath("li[3]/a"));
+    elementTextShouldBe(techdocs, "Documentation");
+
+    WebElement samples = navi.findElement(By.xpath("li[4]/a"));
+    elementTextShouldBe(samples, "Sample Queries");
+
+    WebElement download = navi.findElement(By.xpath("li[5]/a"));
+    elementTextShouldBe(download, "Download");
+
+    WebElement apidoc = navi.findElement(By.xpath("li[6]/a"));
+    elementTextShouldBe(apidoc, "API");
+
+    WebElement meshhome = navi.findElement(By.xpath("li[7]/a"));
     elementTextShouldBe(meshhome, "MeSH Home");
     assertThat(meshhome.getAttribute("href"), endsWith("://www.nlm.nih.gov/mesh/"));
 
