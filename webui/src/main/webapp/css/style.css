@@ -53,7 +53,7 @@ body {
 .tab-pane {
   background: white;
   box-shadow: 1px -1px 1px -1px rgba(0,0,0,.4);
-  padding: 10px;
+  padding: 10px 10px 10px 30px;
   border: 1px solid #5e7ba3;
   border-radius: 10px;
 }
