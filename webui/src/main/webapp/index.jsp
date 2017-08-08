@@ -32,13 +32,16 @@
     <div class="row content meshrdf-row1">
       <div class="col-md-4 col-sm-4 meshrdf-description">
         <a id="skip" name="skip"></a>
-        <p>**** TEXT BELOW WILL BE REVISED****</p>
-        <p>The National Library of Medicine (NLM) is now offering a beta version of the Medical Subject Headings (MeSH&#174;) data in RDF (Resource Description Framework). RDF is a well-known standard for representing structured data on the Web. Systems that use RDF are often called Linked Data because of RDF emphasis on well-described links between resources.</p>
-        <p>During this beta release, NLM is seeking stakeholder input and feedback as part of a broader effort to evaluate the creation of an NLM Linked Data Service. NLM hopes that users will help us refine MeSH RDF and contribute use cases for future linked data services.</p>
-        <p>Once beta testing is finished, NLM will evaluate the results of the testing and the impact of the service for current stakeholders and potential future users.</p>
-        <h3>Why MeSH as Linked Data?</h3>
-        <p>The MeSH thesaurus is a controlled vocabulary produced by NLM since 1960. NLM uses MeSH in our products and systems for indexing, cataloging, and searching for biomedical and health-related information and documents. It includes Descriptors (main headings), Qualifiers (subheadings), Descriptor/Qualifier pairs, and Supplementary Concept Records (SCRs for controlled terms that are not main headings). The hierarchical structure of the vocabulary permits use at various levels of specificity. MeSH is also widely used by libraries and other organizations around the world. Visit the <a href="http://www.nlm.nih.gov/mesh/">MeSH homepage</a> for additional information.</p>
-        <p>Many national libraries have published authoritative terminologies as Linked Data. Other organizations have already demonstrated a need for MeSH RDF by producing their own versions of the data. NLM will provide the official beta MeSH RDF release.</p>
+        <p>Medical Subject Headings (MeSH) RDF is a linked data representation of the MeSH biomedical vocabulary produced by the National Library of Medicine. MeSH RDF includes a downloadable file in RDF N-Triples format, a SPARQL query editor, a SPARQL endpoint (API), and a RESTful interface for retrieving MeSH data.</p>
+        <p>MeSH RDF supports the following use cases:
+          <ul>
+            <li>Perform highly granular queries on the MeSH vocabulary. For example, <a href="https://id.nlm.nih.gov/mesh/query?query=PREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+owl%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0D%0APREFIX+meshv%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2Fvocab%23%3E%0D%0APREFIX+mesh%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F%3E%0D%0APREFIX+mesh2015%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F2015%2F%3E%0D%0APREFIX+mesh2016%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F2016%2F%3E%0D%0APREFIX+mesh2017%3A+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%2F2017%2F%3E%0D%0A%0D%0ASELECT+*+%0D%0AFROM+%3Chttp%3A%2F%2Fid.nlm.nih.gov%2Fmesh%3E%0D%0AWHERE+%7B%0D%0A++mesh%3AD015242+meshv%3ApharmacologicalAction+%3Fpa+.%0D%0A++%3Fpa+rdfs%3Alabel+%3FpaLabel+.%0D%0A%7D+%0D%0A&format=HTML&inference=true&year=current&limit=50&offset=0#lodestart-sparql-results">get all of the pharmacological actions for a given substance</a>.</li>
+            <li>Get data for a particular MeSH identifier. For example, this URL will provide json data for the descriptor for Ofloxacin: <a href="https://id.nlm.nih.gov/mesh/D015242.json">https://id.nlm.nih.gov/mesh/D015242.json</a></li>
+            <li>Download any subset of the MeSH vocabulary using SPARQL queries. For instance, get all descriptor labels and identifiers.</li>
+            <li>Make ad hoc queries to get entry terms, definitions, parents and children.</li>
+        </ul>
+        </p>
+      <p>Another paragraph goes here.</p>
       </div>
       <div class="col-md-6 col-sm-8">
         <h3 class="meshrdf-resources-header">MeSH RDF Resources</h3>
