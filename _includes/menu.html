@@ -1,70 +1,19 @@
-<div id="meshrdf-header"><h1>MeSH RDF Technical Documentation</h1></div>
-<div class = "btn-group navbar-btn visible-lg visible-md" role = "group">
-<div class = "btn-group" role = "group">
-<button type = "button" class = "btn btn-md"><a href = "{{site.baseurl}}/index.html">Home</a></button>
-<button type = "button" class = "btn btn-md"><a href = "ftp://ftp.nlm.nih.gov/online/mesh/">Download</a></button>
-<button type = "button" class = "btn btn-md"><a href = "https://id.nlm.nih.gov/mesh/query">Query</a></button>
-<button type = "button" class = "btn btn-md"><a href = "{{site.baseurl}}/sparql-and-uri-requests.html">API</a></button>
- </div>
-{% for cat in site.category-list %}
-<div class = "btn-group" role = "group">
- <button type="button" class="btn btn-md dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{cat}}<span class = "caret"/></button>    
-  <ul class = "dropdown-menu" role = "menu">
-   {% for page in site.pages %}
-    {% if page.resource == true and page.archived != true %}
-     {% for pc in page.categories %}
-      {% if pc == cat %}
+<div id="meshrdf-header">
+  <h1>MeSH RDF Technical Documentation</h1></div>
+<ul class="nav navbar-nav">
+  <li><a href="{{site.baseurl}}/index.html">Home</a></li>
+  <li><a href="ftp://ftp.nlm.nih.gov/online/mesh/">Download</a></li>
+  <li><a href="https://id.nlm.nih.gov/mesh/query">Query</a></li>
+  <li><a href="{{site.baseurl}}/sparql-and-uri-requests.html">API</a></li>
+  {% for cat in site.category-list %}
+  <li class="dropdown">
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{cat}}<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      {% for page in site.pages %} {% if page.resource == true and page.archived != true %} {% for pc in page.categories %} {% if pc == cat %}
       <li><a href="{{site.baseurl}}{{ page.url }}">{{ page.title }}</a></li>
-      {% endif %}
-     {% endfor %}
-    {% endif %}  
-   {% endfor %}
-  </ul>
- </div>
-{% endfor %}
-<div class = "btn-group" role = "group">
- <button type="button" class="btn btn-md dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Support<span class = "caret"/></button>    
-  <ul class = "dropdown-menu" role = "menu">
-    <li><a href = "http://github.com/hhs/meshrdf">GitHub</a></li>
-    <li><a href = "https://support.nlm.nih.gov/ics/support/ticketnewwizard.asp?style=classic&amp;deptID=28054&amp;from=http://hhs.github.io/meshrdf/">Contact</a></li>   
-  </ul>
- </div>
- <div class = "btn-group" role = "group">
-<button type = "button" class = "btn btn-md"><a class="menuitem" href = "{{site.baseurl}}/release-notes">Release Notes</a></button>
-</div>
-</div>
-
-<div class = "btn-group navbar-btn visible-xs visible-sm" role = "group">
-<div class = "btn-group" role = "group">
-<button type = "button" class = "btn btn-sm"><a href = "https://id.nlm.nih.gov/mesh">Home</a></button>
-<button type = "button" class = "btn btn-sm"><a href = "ftp://ftp.nlm.nih.gov/online/mesh/">Download</a></button>
-<button type = "button" class = "btn btn-sm"><a href = "https://id.nlm.nih.gov/mesh/query">Query</a></button>
-<button type = "button" class = "btn btn-sm"><a href = "{{site.baseurl}}/sparql-and-uri-requests">API</a></button>
- </div>
-{% for cat in site.category-list %}
-<div class = "btn-group" role = "group">
- <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{cat}}<span class = "caret"/></button>    
-  <ul class = "dropdown-menu" role = "menu">
-   {% for page in site.pages %}
-    {% if page.resource == true and page.archived != true %}
-     {% for pc in page.categories %}
-      {% if pc == cat %}
-      <li><a href="{{site.baseurl}}{{ page.url }}">{{ page.title }}</a></li>
-      {% endif %}
-     {% endfor %}
-    {% endif %}  
-   {% endfor %}
-  </ul>
- </div>
-{% endfor %}
-<div class = "btn-group" role = "group">
- <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Support<span class = "caret"/></button>    
-  <ul class = "dropdown-menu" role = "menu">
-    <li><a href = "http://github.com/hhs/meshrdf">GitHub</a></li>
-    <li><a href = "https://support.nlm.nih.gov/ics/support/ticketnewwizard.asp?style=classic&amp;deptID=28054&amp;from=http://hhs.github.io/meshrdf/">Contact</a></li>   
-  </ul>
- </div>
- <div class = "btn-group" role = "group">
-<button type = "button" class = "btn btn-sm"><a class="menuitem" href = "{{site.baseurl}}/release-notes">Release Notes</a></button>
-</div>
-</div>
+      {% endif %} {% endfor %} {% endif %} {% endfor %}
+    </ul>
+  </li>
+  {% endfor %}
+  <li><a href="{{site.baseurl}}/release-notes">Release Notes</a></li>
+</ul>
