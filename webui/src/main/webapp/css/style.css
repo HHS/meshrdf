@@ -150,3 +150,12 @@ a.white-strong,
 .meshrdf-row1 {
   border-bottom: 1px solid #DCDCDC;
 }
+
+ul#queries_list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#example_queries h3 {
+  margin-top: 0
+}
