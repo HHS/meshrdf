@@ -4,9 +4,14 @@ import java.io.IOException;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.tagext.TagSupport;
 
-public class GTMNoScriptTag extends TagSupport {
+
+/**
+ * This class inherits the definition of getGTMCode from the other class.
+ *
+ * @author davisda4
+ */
+public class GTMNoScriptTag extends GTMScriptTag {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,8 +26,8 @@ public class GTMNoScriptTag extends TagSupport {
         JspWriter out = pageContext.getOut();
         try {
             out.print("<!-- Google Tag Manager (noscript) -->\n");
-            String gtmcode = System.getProperty("meshrdf.gtmcode");
-            if (null != gtmcode && gtmcode.length() > 0) {
+            String gtmcode = getGTMCode();
+            if (null != gtmcode) {
                 out.print(String.format(TAG_FORMAT, gtmcode));
             }
             out.print("<!-- End Google Tag Manager (noscript) -->\n");
