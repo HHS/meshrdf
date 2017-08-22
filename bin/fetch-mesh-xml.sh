@@ -24,13 +24,19 @@ YEAR=${MESHRDF_YEAR:-2017}
 # Can override default URI with MESHRDF_URI environment variable
 URI=${MESHRDF_URI:-ftp://ftp.nlm.nih.gov/online/mesh/$YEAR}
 
+echo "curl \"$URI/desc$YEAR.xml\" -o \"$MESHRDF_HOME/data/desc$YEAR.xml\""
 curl "$URI/desc$YEAR.xml" -o "$MESHRDF_HOME/data/desc$YEAR.xml"
+echo "curl \"$URI/qual$YEAR.xml\" -o \"$MESHRDF_HOME/data/qual$YEAR.xml\""
 curl "$URI/qual$YEAR.xml" -o "$MESHRDF_HOME/data/qual$YEAR.xml"
+echo "curl \"$URI/supp$YEAR.xml\" -o \"$MESHRDF_HOME/data/supp$YEAR.xml\""
 curl "$URI/supp$YEAR.xml" -o "$MESHRDF_HOME/data/supp$YEAR.xml"
 
 if [ $YEAR -le 2015 ]; then
+    echo "curl \"$URI/desc$YEAR.dtd\" -o \"$MESHRDF_HOME/data/desc$YEAR.dtd\""
     curl "$URI/desc$YEAR.dtd" -o "$MESHRDF_HOME/data/desc$YEAR.dtd"
+    echo "curl \"$URI/qual$YEAR.dtd\" -o \"$MESHRDF_HOME/data/qual$YEAR.dtd\""
     curl "$URI/qual$YEAR.dtd" -o "$MESHRDF_HOME/data/qual$YEAR.dtd"
+    echo "curl \"$URI/supp$YEAR.dtd\" -o \"$MESHRDF_HOME/data/supp$YEAR.dtd\""
     curl "$URI/supp$YEAR.dtd" -o "$MESHRDF_HOME/data/supp$YEAR.dtd"
 fi
 

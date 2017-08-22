@@ -1,10 +1,13 @@
 #!/bin/bash 
 
 
+# Can override the year with the -y argument
+YEAR="current"
+
 while getopts "h:y:u:" opt; do
     case $opt in 
         h) export MESHRDF_HOME=$OPTARG ;;
-        y) export MESHRDF_YEAR=$OPTARG ;;
+        y) export YEAR=$OPTARG ;;
         u) export MESHRDF_URI=$OPTARG ;;
         *) echo "Usage: $0 [-h meshrdf-home] [-y year] [-u uri] [-i]" 1>&2 ; exit 1 ;;
     esac
@@ -17,9 +20,6 @@ if [ -z "$MESHRDF_HOME" ]; then
 fi
 
 mkdir -p "$MESHRDF_HOME/out"
-
-# CAn override default year with MESHRDF_YEAR environment variable
-YEAR=${MESHRDF_YEAR:-current}
 
 # Can override default URI with MESHRDF_URI environment variable
 
@@ -34,6 +34,12 @@ fi
 
 
 mkdir "$OUTDIR" >& /dev/null
+
+echo ""
+echo "curl \"$URI/mesh${YEAR}.nt.gz\" -o \"$OUTDIR/mesh${YEAR}.nt.gz\""
 curl "$URI/mesh${YEAR}.nt.gz" -o "$OUTDIR/mesh${YEAR}.nt.gz"
+
+echo ""
+echo "gunzip -c \"$OUTDIR/mesh${YEAR}.nt.gz\" > \"$OUTDIR/mesh${YEAR}.nt\""
 gunzip -c "$OUTDIR/mesh${YEAR}.nt.gz" > "$OUTDIR/mesh${YEAR}.nt"
 
