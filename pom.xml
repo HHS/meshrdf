@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>gov.nih.nlm.lode</groupId>
+    <artifactId>meshrdf</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>NLM MeSH RDF parent project</name>
+
+    <modules>
+        <module>webui</module>
+    </modules>
+
+    <properties>
+        <!-- May need to be changed to run unit tests  -->
+        <virtuosoServerName>localhost</virtuosoServerName>
+        <virtuosoUserName>dba</virtuosoUserName>
+        <virtuosoPassword>dba</virtuosoPassword>
+
+        <!-- May need to be changed to deploy to Maven repository  -->
+        <release.repo.url>http://localhost:8081/nexus/libs-release-local</release.repo.url>
+        <snapshot.repo.url>http://localhost:8081/nexus/libs-snapshot-local</snapshot.repo.url>
+    </properties>
+
+</project>

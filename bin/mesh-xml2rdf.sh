@@ -30,14 +30,17 @@ else
 fi
 cd $($READLINK -e `dirname $0`/..)
 
-while getopts "h:j:y:o:u" opt; do
+MESH_JAVA_OPTS="-Xms4g -Xmx4g"
+
+while getopts "h:j:y:x:o:u" opt; do
   case $opt in
     h) export MESHRDF_HOME=$OPTARG ;;
     j) export SAXON_JAR=$OPTARG ;;
     y) export MESHRDF_YEAR=$OPTARG ;; 
     u) export MESHRDF_URI_YEAR="yes" ;;
     o) export OUTFILE_FORCE=$OPTARG ;;
-    *) echo "Usage: $0 [-h mesh-rdf-home] [-j saxon-jar-path] [-y year ]" 1>&2 ; exit 1 ;;
+    x) export MESH_JAVA_OPTS=$OPTARG ;;
+    *) echo "Usage: $0 [-h mesh-rdf-home] [-j saxon-jar-path] [-x mesh_java_opts] [-y year ]" 1>&2 ; exit 1 ;;
   esac
 done
 shift $(($OPTIND - 1))
@@ -79,21 +82,21 @@ fi
 
 mkdir -p $OUTDIR
 
-java -Xmx4G -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/qual$YEAR.xml" \
+java $MESH_JAVA_OPTS -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/qual$YEAR.xml" \
     -xsl:xslt/qual.xsl $URI_YEAR_PARAM > "$OUTFILE-dups.nt"
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/qual$YEAR.xml" 1>&2
     exit 1
 fi
 
-java -Xmx4G -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/desc$YEAR.xml" \
+java $MESH_JAVA_OPTS -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/desc$YEAR.xml" \
     -xsl:xslt/desc.xsl $URI_YEAR_PARAM >> "$OUTFILE-dups.nt"
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/desc$YEAR.xml" 1>&2
     exit 1
 fi
 
-java -Xmx4G -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/supp$YEAR.xml" \
+java $MESH_JAVA_OPTS -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/supp$YEAR.xml" \
     -xsl:xslt/supp.xsl $URI_YEAR_PARAM >> "$OUTFILE-dups.nt"
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/supp$YEAR.xml" 1>&2

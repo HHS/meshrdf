@@ -1,0 +1,12 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@ page import="javax.servlet.jsp.ErrorData" %>
+<%@ page import="org.owasp.encoder.Encode" %>
+<%-- 
+  Resource prefix is an old concept from when developers ran on /danizen, /klortho, and so on.
+  The main webapp was called /lodestar, but served from /mesh.
+  Now, we preserve this so we can easily change the expected prefix in code.
+--%>
+<%
+  String resourcePrefix = "/mesh/";
+%>
+<!-- resourcePrefix = '<%= Encode.forHtml(resourcePrefix) %>' -->

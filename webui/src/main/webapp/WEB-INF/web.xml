@@ -1,0 +1,148 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+         http://java.sun.com/xml/ns/javaee
+         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <display-name>NLM - Linked Data Explorer</display-name>
+
+    <description>
+        SPARQL endpoint and Linked Data Browser
+    </description>
+
+    <!--Define configuration to load-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/ebi-lode-service.xml
+        </param-value>
+    </context-param>
+
+    <!-- Make sure JSESSIONID is secure-only -->
+    <session-config>
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>true</secure>
+        </cookie-config>
+    </session-config>
+
+    <!--Define Servlets -->
+    <servlet>
+        <servlet-name>lode</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!--Define servlet mappings -->
+    <servlet-mapping>
+        <servlet-name>lode</servlet-name>
+        <url-pattern>/servlet/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- listener to load context at startup -->
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+    <!-- Provide monitoring via JavaMelody after ContextLoaderListener -->
+    <filter>
+        <filter-name>javamelody</filter-name>
+        <filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
+        <async-supported>true</async-supported>
+        <init-param>
+            <param-name>system-actions-enabled</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <param-name>displayed-counters</param-name>
+            <param-value>http,sql,error,jsp,log</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>javamelody</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>ASYNC</dispatcher>
+    </filter-mapping>
+    <listener>
+        <listener-class>net.bull.javamelody.SessionListener</listener-class>
+    </listener>
+
+    <!-- enable cors -->
+    <filter>
+        <filter-name>cors</filter-name>
+        <filter-class>uk.ac.ebi.fgpt.lode.servlet.CorsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>cors</filter-name>
+        <url-pattern>/sparql</url-pattern>
+        <url-pattern>/status</url-pattern>
+        <url-pattern>*.json</url-pattern>
+        <url-pattern>*.json-ld</url-pattern>
+    </filter-mapping>
+
+    <!-- Do validation -->
+    <filter>
+        <filter-name>validation</filter-name>
+        <filter-class>gov.nih.nlm.lode.servlet.ValidationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>validation</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+
+    <!-- Tuckey URL rewrite filters -->
+    <filter>
+      <filter-name>UrlRewriteFilter</filter-name>
+      <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+      <init-param>
+        <param-name>logLevel</param-name>
+        <!-- Can set to sysout:DEBUG to get information -->
+        <param-value>INFO</param-value>
+      </init-param>
+    </filter>
+
+    <filter-mapping>
+      <filter-name>UrlRewriteFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+      <dispatcher>REQUEST</dispatcher>
+      <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <resource-ref>
+        <description>Virtuoso Datasource</description>
+        <res-ref-name>jdbc/virtuoso</res-ref-name>
+        <res-type>virtuoso.jdbc4.VirtuosoDataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
+    <!-- Health check filter, suppresses logging of health-check requests from load balancer -->
+    <filter>
+        <filter-name>HealthFilter</filter-name>
+        <filter-class>uk.ac.ebi.fgpt.lode.servlet.health.HealthFilter</filter-class>
+    </filter>
+
+    <!-- FILTER MAPPINGS -->
+    <filter-mapping>
+        <filter-name>HealthFilter</filter-name>
+        <url-pattern>/status</url-pattern>
+    </filter-mapping>
+
+    <!-- Prevent serving of internal content -->
+    <security-constraint>
+        <display-name>excluded</display-name>
+        <web-resource-collection>
+            <web-resource-name>No Access</web-resource-name>
+            <url-pattern>/internal/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint />
+    </security-constraint>
+
+    <!-- NOTE: setting a default error page requires servlet 3.0, therefore Tomcat 7+ -->
+    <error-page>
+        <location>/error.jsp</location>
+    </error-page>
+
+</web-app>

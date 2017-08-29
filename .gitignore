@@ -1,6 +1,7 @@
-Saxon*.zip
-saxon9he
-data/*.xml
-data/*.dtd
-data/readme*
-out
+/Saxon*.zip
+saxon9*
+/data/*.xml
+/data/*.dtd
+/data/readme*
+/out
+/pom.xml

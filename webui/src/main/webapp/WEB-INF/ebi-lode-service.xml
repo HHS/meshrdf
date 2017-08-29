@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+    <context:property-placeholder location="classpath:lode.properties" ignore-unresolvable="true" ignore-resource-not-found="true" />
+
+    <context:annotation-config/>
+
+    <bean name="explorerConfig" class="uk.ac.ebi.fgpt.lode.impl.DefaultExplorerViewConfigImpl"/>
+
+    <!-- The Explorer Servlet is auto-wired by the lode-servlet.xml, this code is not really used -->
+    <bean id="serviceServlet" class="uk.ac.ebi.fgpt.lode.servlet.ExplorerServlet">
+        <property name="sparqlService" ref="jenaSparqlService"/>
+        <property name="configuration" ref="explorerConfig"/>
+        <property name="service" ref="explorerServiceImpl"/>
+        <property name="baseUri" value="${lode.explorer.service.baseuri}"/>
+    </bean>
+
+    <!--Uncomment these two beans for virtuoso connection pooling-->
+    <bean id="jenaVirtuosoConnectionPoolService" class="uk.ac.ebi.fgpt.lode.impl.JenaVirtuosoConnectionPoolService">
+        <constructor-arg ref="datasourceProvider"/>
+    </bean>
+
+    <!-- At NLM, we derive the serverName/portNumber for Virtuoso from the JNDI resource -->
+    <bean id="datasourceProvider" class="uk.ac.ebi.fgpt.lode.impl.VirtuosoDatasourceProvider"/>
+
+    <!-- An alterate datasource provider that doesn't require JNDI -->
+    <!--<bean id="virtuosoDataSourceProvider" class="uk.ac.ebi.fgpt.lode.impl.VirtuosoConnectionPoolDataSourceFactory">-->
+        <!--<constructor-arg name="endpointUrl" value="${lode.sparqlendpoint.url}"/>-->
+        <!--<constructor-arg name="port" value="${lode.sparqlendpoint.port}"/>-->
+        <!--<property name="user" value="${lode.explorer.virtuoso.user}"/>-->
+        <!--<property name="password" value="${lode.explorer.virtuoso.password}"/>-->
+        <!--<property name="maxPoolSize" value="10"/>-->
+    <!--</bean>-->
+
+     <!--For direct virtuoso JDBC connection, use this service-->
+    <!--<bean id="jenaVirtuosoExecutorService" class="uk.ac.ebi.fgpt.lode.impl.JenaVirtuosoExecutorService">-->
+        <!--<property name="endpointURL" value="jdbc:virtuoso://${lode.sparqlendpoint.url}:${lode.sparqlendpoint.port}" />-->
+    <!--</bean>-->
+
+
+    <!--
+       A basic HTTP service bean for connecting to SPARQL endpoint
+    -->
+    <bean id="jenaHttpExecutorService" class="uk.ac.ebi.fgpt.lode.impl.JenaHttpExecutorService">
+    </bean>
+
+
+    <bean id="jenaSparqlService" class="uk.ac.ebi.fgpt.lode.impl.JenaSparqlService">
+        <property name="maxQueryLimit" value="${lode.sparql.query.maxlimit}"/>
+        <property name="queryExecutionService" ref="jenaVirtuosoConnectionPoolService"/>
+    </bean>
+
+    <bean name="explorerServiceImpl" class="uk.ac.ebi.fgpt.lode.impl.JenaExploreService">
+        <property name="queryReader" ref="queryReader"/>
+        <property name="queryExecutionService" ref="jenaVirtuosoConnectionPoolService"/>
+    </bean>
+
+    <bean id="sparqlServlet" class="uk.ac.ebi.fgpt.lode.servlet.SparqlServlet">
+        <property name="sparqlService" ref="jenaSparqlService"/>
+    </bean>
+
+    <bean id="queryReader" class="uk.ac.ebi.fgpt.lode.utils.SparqlQueryReader" init-method="init">
+        <property name="sparqlQueryResource" value="classpath:sparql-queries.txt" />
+    </bean>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>

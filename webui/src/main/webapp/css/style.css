@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  background: #20558a;
+}
+
+/* Accessibility labels */
+.skipnav {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.query-label {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Header */
+.logo-container {
+  width:700px;
+}
+
+/* Tabs */
+.nav-tabs {
+  margin-left: 25px;
+  padding: 0;
+  border: 0;
+}
+
+.nav-tabs > li > a,
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus,
+.nav-tabs > li.open > a,
+.nav-tabs > li.open > a:hover,
+.nav-tabs > li.open > a:focus,
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border-radius: 8px 8px 0 0;
+  background: #5e7ba3;
+  box-shadow: -1px -1px 1px -1px rgba(0,0,0,.4);
+  border-bottom: 0;
+  border-color: white;
+  color: white;
+}
+
+.tab-pane {
+  background: white;
+  box-shadow: 1px -1px 1px -1px rgba(0,0,0,.4);
+  padding: 10px 10px 10px 30px;
+  border: 1px solid #5e7ba3;
+  border-radius: 10px;
+}
+
+/* Misc */
+.mr50 {
+  margin-right: 50px;
+}
+
+a.white-strong:hover,
+a.white-strong:focus,
+a.white-strong,
+.white-strong {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.search-under {
+  float: right;
+  margin: 0;
+  width: 340px;
+}
+
+.social-home img {
+  height: 25px;
+}
+
+.social-home {
+  float: right;
+  overflow: hidden;
+  width: 146px;
+}
+
+.contact-us {
+  float: left;
+  text-shadow: none;
+  font-weight: bold;
+  color: #FFF;
+  font-size: .9em;
+  padding: 7px 5px 0 0;
+}
+
+.contact-us a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.meshrdf-content {
+  margin-left: 30px;
+  margin-right: 30px;
+  background: white;
+  box-shadow: 1px -1px 1px -1px rgba(0,0,0,.4);
+  padding: 20px;
+  border: 1px solid #5e7ba3;
+  border-radius: 10px;
+}
+
+.meshrdf-heading {
+  float: left;
+}
+
+.meshrdf-heading h1 {
+  margin-top: 0;
+  font-family: "Georgia", serif;
+  margin-right: 50px;
+}
+
+.rdf {
+  color: #911f17;
+}
+
+.menu-and-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #DCDCDC;
+}
+
+.meshrdf-description {
+  margin-bottom: 20px;
+}
+
+.meshrdf-resource-item {
+  border-top: 1px solid #DCDCDC;
+  padding: 15px 15px 0 0;
+  min-height: 30px;
+  vertical-align: middle;
+}
+
+.meshrdf-resources-header {
+  margin-top: 5px;
+}
+
+.meshrdf-row1 {
+  border-bottom: 1px solid #DCDCDC;
+}
+
+ul#queries_list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#example_queries h3 {
+  margin-top: 0;
+}

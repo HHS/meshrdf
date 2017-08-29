@@ -2,20 +2,21 @@
 
 ***Status:  Beta.  Feedback is [welcome](https://github.com/HHS/meshrdf/issues).***
 
-This repository contains a set of XSLT files that transform MeSH XML into RDF, and also contains
-the content for the technical documentation pages, deployed as a set of GitHub pages, at
-[http://hhs.github.io/meshrdf](http://hhs.github.io/meshrdf).
+This directory contains two modules for MeSH in RDF:
+
+* A set of XSLT files that transform MeSH XML into RDF
+* A Java-based user interface, based on EBI's Lodestar.
+
+The GitHub repository also contains the content for the technical documentation pages, deployed as a set of GitHub pages, at [http://hhs.github.io/meshrdf](http://hhs.github.io/meshrdf).
 
 Please see that technical documentation for details about the data model, and how this new
 RDF version of MeSH relates to the XML from which it derives.
 
-The rest of this README describes how to set up a development environment and perform the
-transformations yourself, if you are interested in doing that.  
+The rest of this README describes:
+* How to set up a development environment and perform the transformations yourself, if you are interested in doing that.
+* How to build the Java UI as a front-end for OpenLink Virtuoso, if you are interested in doing that.
 
-All the instructions assume
-that you're running on a Unix-like operating system, in a bash shell. If you have a Windows
-machine, we recommend that you install [cygwin](https://www.cygwin.com/). Please let us know
-(by opening a GitHub issue here) if you have problems.
+All the instructions assume that you're running on a Unix-like operating system, in a bash shell. If you have a Windows machine, we recommend that you install [cygwin](https://www.cygwin.com/) or [Git for Windows](https://git-scm.com/download) Please let us know (by opening a GitHub issue) if you have problems.
 
 
 ## Quick start
@@ -161,7 +162,6 @@ relationships, because those are generated from the tree node identifiers to lin
 various records. Since the sample files contain only a subset of the records, most of
 these cannot be generated.***
 
-
 ## Project directory structure
 
 These are the subdirectories of this project -- either part of the repository, or created:
@@ -173,6 +173,7 @@ These are the subdirectories of this project -- either part of the repository, o
   of the items from the real XML data files, as described above.
 * *xslt* - The main XSLT processor files that convert the XML into RDF.
 * *data* - an NTriples files containing rdfs:label for Central Nervous System diseases in 14 languages.  This is included as an example.
+* *webui* - Java overlay for lodestar (https://github.com/EBISPOT/lodestar)
 
 
 These are the subdirectories of the `$MESHRDF_HOME` directory, which typically (but not necessarily)
@@ -182,7 +183,6 @@ is set to some separate location:
   so they are not part of the repository, but should be downloaded separately, as described above.
 * *out* - Product RDF files, in n-triples format.  The conversion scripts write these product
   files here.  Copies of the data files may also appear here.
-
 
 ## Virtuoso setup
 
@@ -218,6 +218,30 @@ Shutdown of server (see [the Virtuoso
 documentation](http://data-gov.tw.rpi.edu/wiki/How_to_install_virtuoso_sparql_endpoint#Manual_Shutdown)):
 
     kill -s SIGTERM `cut -d= -f2 $VIRTUOSO_HOME/virtuoso/var/lib/virtuoso/db/virtuoso.lck`
+
+## Building the webui with Maven
+
+The webui depends on a parent pom.xml that contains local properties.  This is
+to avoid placing passwords in the clear into git.  If you do a build with
+virtuoso running on the localhost, without changing the default dba password,
+and you have loaded the MeSH RDF data, the build should work.
+
+However, in a real world scenario, you should edit your local Maven
+configuration file, `$HOME/.m2/settings.xml`, to add a profile that overrides
+some properties.
+
+* To run unit tests, you may need to override the following properties:
+    - `virtuosoServerName`
+    - `virtuosoUserName`
+    - `virtuosoPassword`
+* To deploy artifacts to a Maven repository, you may need to override the following properties:
+    - `release.repo.url`
+    - `snapshot.repo.url`
+    - Make sure the servers mentioned in `webui/pom.xml` appear in your local `settings.xml`
+
+Here's an example command-line with profile `meshrdf`:
+
+    mvn -D meshrdf clean package
 
 ## Technical documentation on GitHub pages
 
