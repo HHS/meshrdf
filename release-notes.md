@@ -9,13 +9,18 @@ resource: false
 
 ## Latest Release
 
+### September 7, 2017
+
+* MeSH RDF is no longer in beta. 
+* MeSH RDF files have been moved to ftp://ftp.nlm.nih.gov/online/mesh/rdf/.
+
+## Prior Releases
+
 ### November 21, 2016
 
 * MeSH RDF has been updated to include the 2017 MeSH data. See [MeSH vocabulary changes for 2017](https://www.nlm.nih.gov/mesh/introduction.html#changes).
 * NLM has minted a new graph, http://id.nlm.nih.gov/mesh/2017/. This graph will stay in sync with the http://id.nlm.nih.gov/mesh/ graph until 2018 MeSH data is released.
 * The graph for 2016 MeSH data, http://id.nlm.nih.gov/mesh/2016/, is now static. 
-
-## Prior Releases
 
 ### December 3, 2015
 
