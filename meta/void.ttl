@@ -15,7 +15,7 @@
     dcterms:creator "U.S. National Library of Medicine" ;
     dcterms:date "2014-11-01"^^xsd:date ;
     foaf:primaryTopic <http://id.nlm.nih.gov/mesh/void#MeSHRDF> ;
-    owl:versionInfo "0.9.4-dev" .
+    owl:versionInfo "0.9.4" .
 
 
 # Metadata description of the Dataset
@@ -57,8 +57,8 @@
     void:exampleResource <http://id.nlm.nih.gov/mesh/D000001> ;
 
 # FTP dump file
-    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/mesh.nt" ;
-    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2017/mesh2017.nt" ;
-    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2016/mesh2016.nt" ;
-    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/2015/mesh2015.nt" .
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/rdf/mesh.nt" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/rdf/2017/mesh2017.nt" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/rdf/2016/mesh2016.nt" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/rdf/2015/mesh2015.nt" .
 

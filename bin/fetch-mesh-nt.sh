@@ -25,11 +25,11 @@ mkdir -p "$MESHRDF_HOME/out"
 
 if [[ $YEAR = 'current' ]]; then
     OUTDIR=$MESHRDF_HOME/out
-    URI=${MESHRDF_URI:-ftp://ftp.nlm.nih.gov/online/mesh}
+    URI=${MESHRDF_URI:-ftp://ftp.nlm.nih.gov/online/mesh/rdf}
     YEAR=""
 else
     OUTDIR=$MESHRDF_HOME/out/$YEAR
-    URI=${MESHRDF_URI:-ftp://ftp.nlm.nih.gov/online/mesh/$YEAR}
+    URI=${MESHRDF_URI:-ftp://ftp.nlm.nih.gov/online/mesh/rdf/$YEAR}
 fi
 
 

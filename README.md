@@ -128,8 +128,8 @@ However, these scripts produce N-triples files that are inputs to the data
 processing that preserves URIs and adds these properties.
 
 You can get N-triples files preserving URIs from
-[mesh.nt.gz](ftp://ftp.nlm.nih.gov/online/mesh/mesh.nt.gz) and
-[mesh.nt](ftp://ftp.nlm.nih.gov/online/mesh/mesh.nt) online.
+[mesh.nt.gz](ftp://ftp.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz) and
+[mesh.nt](ftp://ftp.nlm.nih.gov/online/mesh/rdf/mesh.nt) online.
 
 
 ### Generating and converting the sample files
