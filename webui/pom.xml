@@ -9,7 +9,7 @@
     <parent>
         <groupId>gov.nih.nlm.lode</groupId>
         <artifactId>meshrdf</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <properties>
@@ -17,14 +17,11 @@
         <groups>unit</groups>
         <skipTests>false</skipTests>
 
-        <!-- Lodestar version -->
-        <lodestar.version>1.4-SNAPSHOT</lodestar.version>
-
         <!-- Requires that virtuoso lodestar be similarly built -->
         <org.springframework.version>4.3.3.RELEASE</org.springframework.version>
 
         <!-- NOTE: match version built from lodestar repository -->
-        <lodestar.version>1.4-SNAPSHOT</lodestar.version>
+        <lodestar.version>1.4.1</lodestar.version>
 
         <updatesPath>/usr/nlm/meshlocal/state/updating</updatesPath>
         <updateMaxSeconds>10800</updateMaxSeconds>
@@ -210,13 +207,13 @@
         <dependency>
             <groupId>org.owasp.encoder</groupId>
             <artifactId>encoder</artifactId>
-            <version>1.2</version>
+            <version>1.2.1</version>
         </dependency>
 
         <dependency>
             <groupId>org.owasp.encoder</groupId>
             <artifactId>encoder-jsp</artifactId>
-            <version>1.2</version>
+            <version>1.2.1</version>
         </dependency>
 
         <!-- We want Java melody in the WAR for monitoring -->
