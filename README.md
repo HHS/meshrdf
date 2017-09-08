@@ -1,7 +1,5 @@
 # MeSH® RDF
 
-***Status:  Beta.  Feedback is [welcome](https://github.com/HHS/meshrdf/issues).***
-
 This directory contains two modules for MeSH in RDF:
 
 * A set of XSLT files that transform MeSH XML into RDF
@@ -18,10 +16,25 @@ The rest of this README describes:
 
 All the instructions assume that you're running on a Unix-like operating system, in a bash shell. If you have a Windows machine, we recommend that you install [cygwin](https://www.cygwin.com/) or [Git for Windows](https://git-scm.com/download) Please let us know (by opening a GitHub issue) if you have problems.
 
+## RDF Download
+
+The RDF files in N-Triples format can be downloaded from
+
+    ftp://ftp.nlm.nih.gov/online/mesh/rdf/
+
+You will find there two main files:
+
+* mesh.nt - N-Triples files for the current MeSH year
+* mesh.nt.gz - Gzip compresesd files
+* SHA-1 checksums for both of these
+
+Sub-directories contain N-Triples files where the subject URIs are prefixed with the year.
 
 ## Quick start
 
-First, clone this repository:
+Follow these steps convert MeSH XML to RDF yourself.
+
+First, clone this repository.
 
     git clone https://github.com/HHS/meshrdf.git
     cd meshrdf
@@ -131,6 +144,7 @@ You can get N-triples files preserving URIs from
 [mesh.nt.gz](ftp://ftp.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz) and
 [mesh.nt](ftp://ftp.nlm.nih.gov/online/mesh/rdf/mesh.nt) online.
 
+There are also SHA-1 checksums on the FTP server.
 
 ### Generating and converting the sample files
 
