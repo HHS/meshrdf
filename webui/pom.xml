@@ -58,6 +58,7 @@
                                 <exclude>WEB-INF/lib/httpclient-4.2.6.jar</exclude>
                                 <exclude>WEB-INF/lib/httpcore-4.2.5.jar</exclude>
                                 <exclude>WEB-INF/lib/commons-codec-1.6.jar</exclude>
+                                <exclude>WEB-INF/lib/lode-*.jar</exclude>
                             </excludes>
                         </overlay>
                     </overlays>
