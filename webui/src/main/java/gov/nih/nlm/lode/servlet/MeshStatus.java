@@ -30,7 +30,7 @@ public class MeshStatus {
 
     // These are also used as response codes
     public static final int STATUS_OK = 200;
-    public static final int STATUS_UPDATING = 503;
+    public static final int STATUS_UPDATING = 224;
     public static final int STATUS_ERROR = 524;
 
     private Logger log = LoggerFactory.getLogger(getClass());
