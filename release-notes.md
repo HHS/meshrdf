@@ -12,7 +12,7 @@ resource: false
 ### September 13, 2017
 
 * MeSH RDF is no longer in beta. 
-* MeSH RDF files have been moved to [ftp://ftp.nlm.nih.gov/online/mesh/rdf/](ftp://ftp.nlm.nih.gov/online/mesh/rdf/].
+* MeSH RDF files have been moved to [ftp://ftp.nlm.nih.gov/online/mesh/rdf/](ftp://ftp.nlm.nih.gov/online/mesh/rdf/).
 
 ## Prior Releases
 
