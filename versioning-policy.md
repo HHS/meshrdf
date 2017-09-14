@@ -25,7 +25,7 @@ The non-versioned URI reflects the current state of MeSH at any given time. Requ
 
 #### Vocabulary URIs
 
-MeSH RDF vocabulary URIs will be versionless, though they will be derived from versioned schema files (see below). All predicate and class URIs will have the following prefix, regardless of MeSH year or schema version: 
+MeSH RDF vocabulary URIs are versionless. All predicate and class URIs will have the following prefix, regardless of MeSH year or schema version: 
 
 http://id.nlm.nih.gov/mesh/vocab#
 
@@ -38,13 +38,13 @@ Predicate names are expressed in camel case. Class names have initial letters ca
 
 NLM occasionally deletes or revises MeSH content. NLM uses the Boolean-typed meshv:active predicate to indicate whether content is active or not. A "1" value indicates that content is active. A "0" value indicates that content is obsolete. For obsolete content, the string "[OBSOLETE]" will be prepended to the rdfs:label, but the URI will remain active in most cases. The predicate meshv:lastActiveYear will indicate the most recent year in which the content was active. 
 
-Requests for deprecated URIs will still return an HTTP 200 status code, but no data will be available. We intend to address this in a future release. Additionally, some non-existing URIs will return HTTP 200 status codes, even if they are not valid URIs. Keep this in mind when making requests based on URI patterns. 
+Requests for deprecated URIs will still return an HTTP 200 status code, but no data will be available. Additionally, some non-existing URIs will return HTTP 200 status codes, even if they are not valid URIs. Keep this in mind when making requests based on URI patterns. 
 
 ### Graphs
 
 #### Data Graphs
 
-MeSH RDF data are expressed in a current, versionless graph and versioned graphs:
+MeSH RDF data is represented in a current, versionless graph and versioned graphs:
 
 * http://id.nlm.nih.gov/mesh (current)
 * http://id.nlm.nih.gov/mesh/2016 (2017)
@@ -57,24 +57,18 @@ Use these graphs to run SPARQL queries on MeSH RDF data. NLM plans to retain no 
 
 NLM makes available MeSH RDF files for download:
 
-* ftp://ftp.nlm.nih.gov/online/mesh/
+* ftp://ftp.nlm.nih.gov/online/mesh/rdf/
 
 #### Data Files
 
-Current MeSH RDF data are available for download in .nt (N-Triples format). 
+Current MeSH RDF data is available for download in .nt (N-Triples format). 
 
 * Filename: mesh.nt 
-* Location: ftp://ftp.nlm.nih.gov/online/mesh/
-
-Versioned MeSH data are available in subdirectories labeled by year. MeSH XML and DTDs are also available without restriction. Note that MeSH RDF data are expressed in a single file (for example, mesh2017.nt), while the XML data are grouped into files for Descriptors, Qualifiers and Supplementary Concept Records. For example:
-
-* 2017 MeSH RDF Filename: mesh2017.nt 
-* 2017 XML Data Filenames: desc2017.xml, qual2017.xml, supp2017.xml
-* 2017 Data Location: ftp://ftp.nlm.nih.gov/online/mesh/2017/
+* Location: ftp://ftp.nlm.nih.gov/online/mesh/rdf/
 
 #### Schema File
 
-The MeSH vocabulary schema is expressed in a .ttl (TURTLE) file on the FTP site. This file has a version number that will increment upon changes to the vocabulary schema. 
+The MeSH vocabulary schema is expressed in a .ttl (TURTLE) file on the FTP site. 
 
 * Filename: vocabulary_X.X.X.ttl 
-* Location: ftp://ftp.nlm.nih.gov/online/mesh/
+* Location: ftp://ftp.nlm.nih.gov/online/mesh/rdf/
