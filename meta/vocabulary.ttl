@@ -741,7 +741,8 @@ rdfs:label rdf:type :DatatypeProperty .
                                                 rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ;
 
                                                 :disjointWith <http://id.nlm.nih.gov/mesh/vocab#SCR_Disease> ,
-                                                              <http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol> ;
+                                                              <http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol> ,
+                                                              <http://id.nlm.nih.gov/mesh/vocab#SCR_Organism>;
 
                                                 dct:description "These are chemicals, drugs, enzymes, vitamins, etc." .
 
@@ -755,7 +756,8 @@ rdfs:label rdf:type :DatatypeProperty .
 
                                                rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ;
 
-                                               :disjointWith <http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol> ;
+                                               :disjointWith <http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol> ,
+                                                             <http://id.nlm.nih.gov/mesh/vocab#SCR_Organism>;
 
                                                dct:description "SCR Diseases were originally brought into MeSH from a list maintained by the Office of Rare Diseases Research." .
 
@@ -769,7 +771,20 @@ rdfs:label rdf:type :DatatypeProperty .
 
                                                 rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ;
 
+                                                :disjointWith <http://id.nlm.nih.gov/mesh/vocab#SCR_Organism>;
+
                                                 dct:description "MeSH protocols are therapies in the domain of cancer treatment." .
+
+
+###  http://id.nlm.nih.gov/mesh/vocab#SCR_Organism
+
+<http://id.nlm.nih.gov/mesh/vocab#SCR_Organism> rdf:type :Class ;
+
+                                                rdfs:label "MeSH SCR Organism" ;
+
+                                                rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ;
+
+                                                dct:description "SCR Organisms includes viruses and more broadly organisms (B cat)." .
 
 
 

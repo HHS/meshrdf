@@ -59,6 +59,9 @@
             <xsl:when test='@SCRClass = "3"'>
               <uri prefix='&meshv;'>SCR_Disease</uri>
             </xsl:when>
+            <xsl:when test='@SCRClass = "4"'>
+              <uri prefix='&meshv;'>SCR_Organism</uri>
+            </xsl:when>
           </xsl:choose>
         </xsl:with-param>
       </xsl:call-template>
