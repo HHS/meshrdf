@@ -346,6 +346,7 @@ function _buildSparqlPage(element) {
               .append("<option value='2015'>2015</option>")
               .append("<option value='2016'>2016</option>")
               .append("<option value='2017'>2017</option>")
+              .append("<option value='2018'>2018</option>")
               .on("change", _fixQueryYear)
       );
 
