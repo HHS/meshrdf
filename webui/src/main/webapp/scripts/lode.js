@@ -78,8 +78,7 @@ var sparqlQueryTextArea;
         var $this = $(this);
         _parseOptions(options);
         _buildVoid ($this);
-    }
-
+    };
 })(jQuery);
 
 function _parseOptions(options) {
@@ -106,7 +105,7 @@ function _parseOptions(options) {
 
     lodestarResourcePrefix = _options.resource_prefix;
     lodestarQueryService = _options.resource_prefix + _options.query_servlet_name;
-    lodestarExploreService = _options.resource_prefix + _options.servlet_base + "/" + 
+    lodestarExploreService = _options.resource_prefix + _options.servlet_base + "/" +
         _options.explore_servlet_name;
     lodestarResultsPerPage = _options.results_per_page;
     lodestarIslogging = _options.logging;
@@ -171,7 +170,7 @@ function _buildVoid(element) {
             div.append(")");
             element.append(div);
 
-            var table = $("<table cellpadding='0' cellspacing='0' width='100%'></table>")
+            var table = $("<table cellpadding='0' cellspacing='0' width='100%'></table>");
             element.append(table);
 
             var row1 =$('<tr />');
@@ -217,7 +216,7 @@ function _buildVoid(element) {
         error: function (request, status, error) {
             displayError(request.responseText);
         }
-    })
+    });
 
 }
 
@@ -250,7 +249,7 @@ function _buildExplorerPage(element) {
     $("#" + id).append('<div id="' + relatedFromSubjects + '"/>');
     renderRelatedFromSubjects($("#" + relatedFromSubjects));
 
-    $("#" + id).append('<hr/>')
+    $("#" + id).append('<hr/>');
     var downloadsSpan  = $("<span style='padding-left: 5px;'/>");
 
     var relid = getRelativeIdentifier(document.location.href);
@@ -266,7 +265,7 @@ function _buildExplorerPage(element) {
     n3img.attr('src', lodestarResourcePrefix + 'images/file_RDF_N3_small.gif');
     n3img.attr('alt', 'RDF/N3');
     n3img.attr('title', 'Show RDF/N3 for this resource');
-    n3img.attr('style','cursor:pointer')
+    n3img.attr('style','cursor:pointer');
     n3link.append(n3img);
 
     var jsonlink = $('<a href="'+relid+'.json-ld" />');
@@ -274,7 +273,7 @@ function _buildExplorerPage(element) {
     jsonimg.attr('src', lodestarResourcePrefix + 'images/file_RDF_JSONLD_small.jpg');
     jsonimg.attr('alt', 'RDF/JSON');
     jsonimg.attr('title', 'Show RDF/JSON for this resource');
-    jsonimg.attr('style','cursor:pointer')
+    jsonimg.attr('style','cursor:pointer');
     jsonlink.append(jsonimg);
 
     downloadsSpan.append(xmllink);
@@ -530,19 +529,19 @@ function querySparql () {
                 };
             }
             else if (rendering.match(/^XML/)) {
-                location.href = lodestarQueryService + "?query=" + 
+                location.href = lodestarQueryService + "?query=" +
                   encodeURIComponent(querytext) + "&format=XML&limit=" + limit + "&offset=" + offset + "&inference=" + rdfs;
             }
             else if (rendering.match(/JSON$/)) {
-                location.href = lodestarQueryService + "?query=" + 
+                location.href = lodestarQueryService + "?query=" +
                   encodeURIComponent(querytext) + "&format=JSON&limit=" + limit + "&offset=" + offset+ "&inference=" + rdfs;
             }
             else if (rendering.match(/CSV/)) {
-                location.href = lodestarQueryService + "?query=" + 
+                location.href = lodestarQueryService + "?query=" +
                   encodeURIComponent(querytext) + "&format=CSV&limit=" + limit + "&offset=" + offset+ "&inference=" + rdfs;
             }
             else if (rendering.match(/TSV/)) {
-                location.href = lodestarQueryService + "?query=" + 
+                location.href = lodestarQueryService + "?query=" +
                   encodeURIComponent(querytext) + "&format=TSV&limit=" + limit + "&offset=" + offset+ "&inference=" + rdfs;
             }
             else  {
@@ -573,7 +572,7 @@ function setNextPrevUrl (queryString, limit, offset, rdfs) {
     var _offset = parseInt(offset);
     var results_per_page = parseInt(lodestarResultsPerPage);
 
-    var qs_base = "query=" + encodeURIComponent(queryString) + "&limit=" + limit + 
+    var qs_base = "query=" + encodeURIComponent(queryString) + "&limit=" + limit +
                   "&inference=" + rdfs;
 
     lodestarNextUrl = qs_base + "&offset=" + (_offset + results_per_page);
@@ -697,19 +696,19 @@ function renderSparqlResultJsonAsTable (json, tableid) {
             if (_json.results) {
                 if (_json.results.bindings) {
                     var _results = _json.results.bindings;
-        
+
                     if (_results.length ==0) {
                         alert("No results for query")
                     }
                     else {
                         var _variables = _json.head.vars;
-              
+
                         var header = createTableHeader(_variables);
-              
+
                         $("#" + tableid).append(header);
-              
+
                         displayPagination();
-              
+
                         for (var i = 0; i < _results.length; i++) {
                             var row =$('<tr />');
                             var binding = _results[i];
@@ -794,7 +793,7 @@ function _formatURI (node, varName) {
             href = lodestarDescribeUrl + "?uri=" + encodeURIComponent(node.value);
         }
         else {
-            href = node.value.replace(/https?:\/\/id.nlm.nih.gov/, "");            
+            href = node.value.replace(/https?:\/\/id.nlm.nih.gov/, "");
         }
         a.attr('href', href);
         a.text(text);
@@ -1139,17 +1138,17 @@ function getIdentifier(href) {
         if (uriMatch) {
             return uriMatch[1];
         }
-    } 
+    }
     else if (formMatch) {
         return lodestarDefaultUriBase + formMatch[1];
-    } 
+    }
     else {
         return null;
     }
 }
 
 /**
- * This returns a relative identifier based on the url of this page and the uri.   
+ * This returns a relative identifier based on the url of this page and the uri.
  * It goes farther than getIdentifier() in that it should stay within the current system.
  */
 function getRelativeIdentifier(href) {
@@ -1164,10 +1163,10 @@ function getRelativeIdentifier(href) {
             var canonical = uriMatch[1].replace(/%3A/g, ':').replace(/%2F/g, '/');
             return canonical.replace(/^https?:\/\/[^\/]+\/[^\/]+/, '/'+relpath[2]);
         }
-    } 
+    }
     else if (relpath) {
         return '/'+relpath[2]+'/'+relpath[3];
-    } 
+    }
     else {
         return null;
     }
@@ -1234,7 +1233,7 @@ function renderShortDescription (element) {
 
                 }
                 if (data.datasetUri) {
-                    var propertyP = $("<a style='font-weight: bold;' title='http://rdfs.org/ns/void#inDataset' href='"+loadstarDescribeUrl+"?uri=" + 
+                    var propertyP = $("<a style='font-weight: bold;' title='http://rdfs.org/ns/void#inDataset' href='"+loadstarDescribeUrl+"?uri=" +
                         encodeURIComponent("http://rdfs.org/ns/void#inDataset") + "'>Dataset</a>");
                     p.append(propertyP);
                     p.append(" : ");
@@ -1524,13 +1523,13 @@ function renderXML(uri) {
     var idString = match_id ? match_id[1] : '';
     if ( idString ) {
         location.href = lodestarExploreService + "?id=" + idString + "&format=rdf";
-    } 
+    }
     else {
         var match_query = document.location.href.match(/\?(.*)/);
         var queryString = match_query ? match_query[1] : '';
         if (queryString.match(/uri=/)) {
             var param = this._betterUnescape(queryString.match(/uri=([^&]*)/)[1]);
-            location.href = lodestarQueryService + "?query=" + lodestarDescribeUrl + 
+            location.href = lodestarQueryService + "?query=" + lodestarDescribeUrl +
                 encodeURIComponent("<" + param + ">") + "&format=RDF/XML";
         }
     }
@@ -1541,13 +1540,13 @@ function renderN3(uri) {
     var idString = match_id ? match_id[1] : '';
     if ( idString ) {
         location.href = lodestarExploreService + "?id=" + idString + "&format=n3";
-    } 
+    }
     else {
         var match_query = document.location.href.match(/\?(.*)/);
         var queryString = match_query ? match_query[1] : '';
         if (queryString.match(/uri=/)) {
             var param = this._betterUnescape(queryString.match(/uri=([^&]*)/)[1]);
-            location.href = lodestarQueryService + "?query=" + lodestarDescribeUrl + 
+            location.href = lodestarQueryService + "?query=" + lodestarDescribeUrl +
                 encodeURIComponent("<" + param + ">") + "&format=N3";
         }
     }
@@ -1558,7 +1557,7 @@ function renderJson(uri) {
     var idString = match_id ? match_id[1] : '';
     if ( idString ) {
         location.href = lodestarExploreService + "?id=" + idString + "&format=json";
-    } 
+    }
     else {
         var match_query = document.location.href.match(/\?(.*)/);
         var queryString = match_query ? match_query[1] : '';
