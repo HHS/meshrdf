@@ -31,6 +31,7 @@ public class QueryTest extends LodeBaseTest {
         "meshv:Qualifier",
         "meshv:SCR_Chemical",
         "meshv:SCR_Disease",
+        "meshv:SCR_Organism",
         "meshv:SCR_Protocol",
         "meshv:Term",
         "meshv:TopicalDescriptor",
@@ -69,8 +70,8 @@ public class QueryTest extends LodeBaseTest {
         { "mesh:D000151", "Acinetobacter Infections", "mesh:M0000230", "Acinetobacter Infections" },
         { "mesh:D000193", "Actinomycetales Infections", "mesh:M0000289", "Actinomycetales Infections" },
         { "mesh:D000258", "Adenovirus Infections, Human", "mesh:M0000406", "Pharyngo-Conjunctival Fever" },
-        { "mesh:D003699", "Hepatitis D", "mesh:M0005791", "Superinfection, Delta" },
-        { "mesh:D004769", "Enterovirus Infections", "mesh:M0007488", "Enterovirus Infections" },
+        { "mesh:D002694", "Chlamydiaceae Infections", "mesh:M0004111", "Chlamydiaceae Infections" },
+        { "mesh:D003015", "Clostridium Infections", "mesh:M000622571", "Clostridium sordellii Infection" },
     };
 
     public void clickSubmitQuery() {

@@ -74,6 +74,7 @@
     <xsl:param name='spec'/>
     <xsl:if test='count($spec/*) != 3'>
       <xsl:message terminate="yes">
+        <!-- <xsl:value-of select="concat('at line ', saxon:line-number())"/> -->
         <xsl:text>Wrong number of element children of spec param of triple template</xsl:text>
       </xsl:message>
     </xsl:if>
