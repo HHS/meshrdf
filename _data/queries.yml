@@ -243,7 +243,7 @@
     }
     ORDER BY ?d
   
-- name: Find all MeSH Descriptors created for 2016 MeSH that are treed under diseases.
+- name: Find all MeSH Descriptors created for 2018 MeSH that are treed under diseases.
   notes: This query leverages the MeSH 'C' tree to find new diseases in MeSH.
   type: Aggregation
   string: |+
@@ -266,7 +266,7 @@
     ?d rdfs:label ?name .
     ?d meshv:treeNumber ?tn .    
     ?d meshv:dateEstablished ?dateEstablished
-    FILTER(regex(?dateEstablished, "2017-01-01"))
+    FILTER(regex(?dateEstablished, "2018-01-01"))
     FILTER(REGEX(?tn,"C"))
       
     }
