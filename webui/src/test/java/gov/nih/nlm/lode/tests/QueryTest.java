@@ -258,6 +258,9 @@ public class QueryTest extends LodeBaseTest {
 
         clickSubmitQuery();
 
+        // make sure we have enough results
+        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(FOR_LODESTAR_RESULT_ROWS), 50));
+
         // Make sure next link also returns 50 results
         WebElement nextLink = findElement(By.xpath("//div[@id='pagination']/a[@class='pag next']"));
         nextLink.click();
