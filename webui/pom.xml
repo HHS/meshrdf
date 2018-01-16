@@ -4,11 +4,15 @@
     <artifactId>mesh</artifactId>
     <packaging>war</packaging>
     <name>NLM Overlay for EBI Lodestar web-ui</name>
+    <url>https://id.nlm.nih.gov/mesh/</url>
+    <scm>
+        <url>https://github.com/HHS/meshrdf</url>
+    </scm>
 
     <parent>
         <groupId>gov.nih.nlm.lode</groupId>
         <artifactId>meshrdf</artifactId>
-        <version>1.0.1_SNAPSHOT</version>
+        <version>1.0.1</version>
     </parent>
 
     <properties>
@@ -259,5 +263,4 @@
             <url>${snapshot.repo.url}</url>
         </snapshotRepository>
     </distributionManagement>
-
 </project>
