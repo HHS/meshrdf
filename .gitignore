@@ -3,5 +3,7 @@ saxon9*
 /data/*.xml
 /data/*.dtd
 /data/readme*
+/.project
+/.settings/
 /out
 /pom.xml

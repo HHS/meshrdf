@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>gov.nih.nlm.lode</groupId>
     <artifactId>mesh</artifactId>
     <packaging>war</packaging>
     <name>NLM Overlay for EBI Lodestar web-ui</name>
+    <url>https://id.nlm.nih.gov/mesh/</url>
+    <scm>
+        <url>https://github.com/HHS/meshrdf</url>
+    </scm>
 
     <parent>
         <groupId>gov.nih.nlm.lode</groupId>
         <artifactId>meshrdf</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <properties>
@@ -243,7 +246,7 @@
         <dependency>
             <groupId>gov.nih.nlm.occs</groupId>
             <artifactId>nlm-test-framework</artifactId>
-            <version>2.1.1</version>
+            <version>2.1.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -260,5 +263,4 @@
             <url>${snapshot.repo.url}</url>
         </snapshotRepository>
     </distributionManagement>
-
 </project>

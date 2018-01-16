@@ -4,7 +4,7 @@
     <groupId>gov.nih.nlm.lode</groupId>
     <artifactId>meshrdf</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>NLM MeSH RDF parent project</name>
 
     <modules>
@@ -22,4 +22,8 @@
         <snapshot.repo.url>http://localhost:8081/nexus/libs-snapshot-local</snapshot.repo.url>
     </properties>
 
+    <scm>
+        <url>https://github.com/HHS/meshrdf</url>
+    </scm>
+    <url>https://id.nlm.nih.gov/mesh/</url>
 </project>
