@@ -17,7 +17,7 @@ import gov.nih.nlm.occs.selenium.SeleniumTest;
 
 public class QueryTest extends LodeBaseTest {
 
-    public static final String FOR_LODESTAR_RESULT_ROWS = "//table[@id='lodestar-results-table']/tbody/tr";
+    public static final String FOR_LODESTAR_RESULT_ROWS = "#lodestar-results-table > tr";
 
     public static final String FOR_LODESTAR_RESULT_LINKS = "#lodestar-results-table a";
 
@@ -103,7 +103,7 @@ public class QueryTest extends LodeBaseTest {
         openQueryPage();
         clickSubmitQuery();
 
-        List<WebElement> rows = findElements(By.xpath(FOR_LODESTAR_RESULT_ROWS));
+        List<WebElement> rows = findElements(By.cssSelector(FOR_LODESTAR_RESULT_ROWS));
         assertEquals(rows.size(), MESH_VOCAB_CLASSES.length);
         for (int i = 0; i < rows.size(); i++) {
             WebElement row = rows.get(i);
@@ -123,7 +123,7 @@ public class QueryTest extends LodeBaseTest {
         clickOnExampleQuery(0);
         clickSubmitQuery();
 
-        List<WebElement> rows = findElements(By.xpath(FOR_LODESTAR_RESULT_ROWS));
+        List<WebElement> rows = findElements(By.cssSelector(FOR_LODESTAR_RESULT_ROWS));
         assertEquals(rows.size(), MESH_VOCAB_CLASSES.length);
         for (int i = 0; i < rows.size(); i++) {
             WebElement row = rows.get(i);
@@ -144,7 +144,7 @@ public class QueryTest extends LodeBaseTest {
         clickSubmitQuery();
 
         int numMatched = 0;
-        List<WebElement> rows = findElements(By.xpath(FOR_LODESTAR_RESULT_ROWS));
+        List<WebElement> rows = findElements(By.cssSelector(FOR_LODESTAR_RESULT_ROWS));
         assertEquals(rows.size(), 49);
         for (WebElement row : rows) {
             WebElement link = row.findElement(By.xpath("td[1]/span/a"));
@@ -182,7 +182,7 @@ public class QueryTest extends LodeBaseTest {
 
         // verify selected results without depending on order
         int numMatched = 0;
-        List<WebElement> rows = findElements(By.xpath(FOR_LODESTAR_RESULT_ROWS));
+        List<WebElement> rows = findElements(By.cssSelector(FOR_LODESTAR_RESULT_ROWS));
         assertEquals(rows.size(), 4);
         for (WebElement row : rows) {
             WebElement link = row.findElement(By.xpath("td[1]/span/a"));
@@ -220,10 +220,10 @@ public class QueryTest extends LodeBaseTest {
         clickSubmitQuery();
 
         // verify results without depending on order
-        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(FOR_LODESTAR_RESULT_ROWS), 50));
+        wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector(FOR_LODESTAR_RESULT_ROWS), 50));
         int numMatched = 0;
 
-        List<WebElement> rows = findElements(By.xpath(FOR_LODESTAR_RESULT_ROWS));
+        List<WebElement> rows = findElements(By.cssSelector(FOR_LODESTAR_RESULT_ROWS));
         assertEquals(rows.size(), 50);
         for (WebElement row : rows) {
             WebElement desc = row.findElement(By.xpath("td[1]/span/a"));
@@ -259,7 +259,7 @@ public class QueryTest extends LodeBaseTest {
         clickSubmitQuery();
 
         // make sure we have enough results
-        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(FOR_LODESTAR_RESULT_ROWS), 50));
+        wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector(FOR_LODESTAR_RESULT_ROWS), 50));
 
         // Make sure next link also returns 50 results
         WebElement nextLink = findElement(By.xpath("//div[@id='pagination']/a[@class='pag next']"));
@@ -271,7 +271,7 @@ public class QueryTest extends LodeBaseTest {
 
         // should again be 50 results (which we verify selectively)
         int page2matched = 0;
-        List<WebElement> page2rows = findElements(By.xpath(FOR_LODESTAR_RESULT_ROWS));
+        List<WebElement> page2rows = findElements(By.cssSelector(FOR_LODESTAR_RESULT_ROWS));
         assertEquals(page2rows.size(), 50);
         for (WebElement row : page2rows) {
             WebElement desc = row.findElement(By.xpath("td[1]/span/a"));
@@ -301,7 +301,7 @@ public class QueryTest extends LodeBaseTest {
         pagemes = findElement(By.xpath("//div[@id='pagination']/span[@class='pag pagmes']"));
         assertEquals(pagemes.getText(), "50 results per page (offset 0)");
 
-        List<WebElement> page1rows = findElements(By.xpath(FOR_LODESTAR_RESULT_ROWS));
+        List<WebElement> page1rows = findElements(By.cssSelector(FOR_LODESTAR_RESULT_ROWS));
         assertEquals(page1rows.size(), 50);
         for (WebElement row : page1rows) {
             WebElement desc = row.findElement(By.xpath("td[1]/span/a"));
@@ -340,7 +340,7 @@ public class QueryTest extends LodeBaseTest {
 
         // verify results without depending on order
         int numMatched = 0;
-        List<WebElement> rows = findElements(By.xpath(FOR_LODESTAR_RESULT_ROWS));
+        List<WebElement> rows = findElements(By.cssSelector(FOR_LODESTAR_RESULT_ROWS));
         assertEquals(rows.size(), 25);
         for (WebElement row : rows) {
             WebElement desc = row.findElement(By.xpath("td[1]/span/a"));
@@ -371,7 +371,7 @@ public class QueryTest extends LodeBaseTest {
         clickSubmitQuery();
 
         int numMatched = 0;
-        List<WebElement> rows = findElements(By.xpath(FOR_LODESTAR_RESULT_ROWS));
+        List<WebElement> rows = findElements(By.cssSelector(FOR_LODESTAR_RESULT_ROWS));
         assertEquals(rows.size(), 50);
         for (WebElement row : rows) {
             WebElement col1 = row.findElement(By.xpath("td[1]/span/a"));
