@@ -40,6 +40,7 @@ var lodestarPrevUrl;
 
 var sparqlQueryTextArea;
 
+
 // Declares a lodestar
 (function($) {
 
@@ -64,6 +65,7 @@ var sparqlQueryTextArea;
         $this.append(lodestarDiv);
         _parseOptions(options);
         _buildExplorerPage (contentsDiv);
+        return this;
     };
 
     $.fn.sparql = function(options) {
@@ -72,12 +74,14 @@ var sparqlQueryTextArea;
         _parseOptions(options);
         _buildSparqlPage (contentsDiv);
         initSparql();
+        return this;
     };
 
     $.fn.voiddesc = function(options) {
         var $this = $(this);
         _parseOptions(options);
         _buildVoid ($this);
+        returrn this;
     };
 })(jQuery);
 
@@ -285,7 +289,7 @@ function _buildExplorerPage(element) {
 }
 
 function _buildSparqlPage(element) {
-
+    Handlebars.template.
 
     var sparqlForm = $(
        "<form id='lodestar-sparql-form' class='ui-widget ui-corner-all'"+
