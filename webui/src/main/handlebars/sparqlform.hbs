@@ -1,0 +1,58 @@
+<form id="lodestar-sparql-form" class="ui-widget ui-corner-all"
+      name="lodestar-sparql-form" action="#lodestart-sparql-results" method='GET'>
+    <fieldset>
+        <legend>Enter SPARQL Query</legend>
+        <section class="lodestar-grid12 grid_12 alpha">
+            <p>
+                <label class="query-label" for="textarea">SPARQL Query Text</label>
+                <textarea  name="query" id="textarea" rows="20" style="width:100%"></textarea>
+            </p>
+            <p style="float: right;">
+                <select name="format" id="format">
+                    <option value="HTML">HTML</option>
+                    <optgroup label="SELECT">
+                        {{#each resultformats}}
+                            <option value="{{this}}">{{this}}</option>
+                        {{/each}}
+                    </optgroup>
+                    <optgroup label="DESCRIBE or CONSTRUCT">
+                        {{#each graphformats}}
+                            <option value="{{this}}">{{this}}</option>
+                        {{/each}}
+                    </optgroup>
+                </select>
+            </p>
+            <p>
+                {{#if showInference }}
+                    <label for='inference'>RDFS inference? </label>
+                    <input type='checkbox' id='inference' name='inference' value='true'/>
+                    &#160;&#160;&#160;
+                {{/if}}
+                <label for='year'>Year</label>
+                <select name='year' id='year'>
+                    {{#each years}}
+                        <option value='{{this}}'>{{this}}</option>
+                    {{/each}}
+                </select>
+            </p>
+            <p>
+                <label for='limit'>Results per page: </label>
+                <select name='limit' id='limit'>
+                    {{#each limits}}
+                        <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+            </p>
+            <input id='offset' name='offset' type='hidden' value='0' />
+            <p>
+                <input type='button' class='submit ui-button ui-widget ui-corner-all'
+                       style='display: inline;'  onclick='submitQuery()' value='Submit Query'/>
+                <input type='button' class='submit  ui-button ui-widget ui-corner-all'
+                       style='display: inline;' onclick='reloadPage()' value='Reset'/>
+            </p>
+        </section>
+        <section id='example_queries' class='lodestar-grid12 grid_12 alpha'>
+        </section>
+    </fieldset>
+</form>
+

@@ -5,3 +5,5 @@
 /.springBeans
 /.project
 /.classpath
+/node_modules/
+/package-lock.json
