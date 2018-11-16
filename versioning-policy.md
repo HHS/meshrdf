@@ -47,7 +47,7 @@ Requests for deprecated URIs will still return an HTTP 200 status code, but no d
 MeSH RDF data is represented in a current, versionless graph and versioned graphs:
 
 * http://id.nlm.nih.gov/mesh (current)
-* http://id.nlm.nih.gov/mesh/2016 (2017)
+* http://id.nlm.nih.gov/mesh/2017 (2017)
 * http://id.nlm.nih.gov/mesh/2016 (2016)
 * http://id.nlm.nih.gov/mesh/2015 (2015)
 
