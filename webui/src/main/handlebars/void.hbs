@@ -1,0 +1,41 @@
+<div>
+	<span style="font-weight:bold;">Dataset description</span>
+	<br/>
+	(<a href="{{ uri }}">{{ uri }}</a>)
+	<table cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td align="left">Title</td>
+				<td align="right">{{ title }}</td>
+			</tr>
+			<tr>
+				<td align="left">Description</td>
+				<td align="right">{{ description }}</td>
+			</tr>
+			<tr>
+				<td align="left">Version</td>
+				<td align="right">{{ version }}</td>
+			</tr>
+			<tr>
+				<td align="left">Issued</td>
+				<td align="right">{{ created }}</td>
+			</tr>
+			<tr>
+				<td align="left">Number of triples</td>
+				<td align="right">{{ triples }}</td>
+			</tr>
+			{{#if previous }}
+				<tr>
+					<td align="left">Previous versions</td>
+					<td align="right">
+						<ul>
+							{{#each previous}}
+								<li>{{ this }}</li>
+							{{/each}}
+						</ul>
+					</td>
+				</tr>
+			{{/if}}
+		</tbody>
+	</table>
+</div>

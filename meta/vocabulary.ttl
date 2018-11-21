@@ -40,6 +40,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                                       rdfs:label "allowableQualifier" ;
 
+                                                      rdfs:comment "Relates Descriptors to Qualifiers. A specific Qualifier allowed in combination with the Descriptor." ;
+
                                                       dct:description "Relates Descriptors to Qualifiers. A specific Qualifier allowed in combination with the Descriptor." ;
 
                                                       rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Qualifier> .
@@ -58,6 +60,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                                   rdfs:label "broaderConcept" ;
 
+                                                  rdfs:comment "Relates one Concept to another. A semantic relationship between two Concepts, usually between the preferred concept and subordinate concept(s) where one is broader in meaning. Example: M0024816 is broader than M0024811." ;
+
                                                   dct:description "Relates one Concept to another. A semantic relationship between two Concepts, usually between the preferred concept and subordinate concept(s) where one is broader in meaning. Example: M0024816 is broader than M0024811." ;
 
                                                   rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Concept> ;
@@ -73,6 +77,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#broaderDescriptor> rdf:type :ObjectProperty ;
 
                                                      rdfs:label "broaderDescriptor" ;
+
+                                                     rdfs:comment "Relates one Descriptor to another. The immediate parent Descriptor(s) of a given Descriptor based on the TreeNumber hierarchy. Example: both DUI D007254 (Information Science) and DUI D008491 (Medical Informatics Applications) are parents of DUI D016247 (Information Storage and Retrieval)." ;
 
                                                      dct:description "Relates one Descriptor to another. The immediate parent Descriptor(s) of a given Descriptor based on the TreeNumber hierarchy. Example: both DUI D007254 (Information Science) and DUI D008491 (Medical Informatics Applications) are parents of DUI D016247 (Information Storage and Retrieval)." ;
 
@@ -90,6 +96,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                                     rdfs:label "broaderQualifier" ;
 
+                                                    rdfs:comment "Relates one Qualifier to another. The immediate parent Qualifier(s) of a given Qualifier based on the TreeNumber hierarchy. Example: QUI Q000458 (organization & administration) is a parent of QUI Q000592 (standards)." ;
+
                                                     dct:description "Relates one Qualifier to another. The immediate parent Qualifier(s) of a given Qualifier based on the TreeNumber hierarchy. Example: QUI Q000458 (organization & administration) is a parent of QUI Q000592 (standards)." ;
 
                                                     rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Qualifier> ;
@@ -106,8 +114,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                            rdfs:label "concept" ;
 
-                                           dct:description "Relates Descriptors, Qualifiers or SupplementaryConceptRecords to Concepts. Designates a member of a collection of Concepts for a Descriptor, Qualifier or SCR." .
+                                           rdfs:comment "Relates Descriptors, Qualifiers or SupplementaryConceptRecords to Concepts. Designates a member of a collection of Concepts for a Descriptor, Qualifier or SCR." ;
 
+                                           dct:description "Relates Descriptors, Qualifiers or SupplementaryConceptRecords to Concepts. Designates a member of a collection of Concepts for a Descriptor, Qualifier or SCR." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#hasDescriptor
@@ -115,6 +124,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#hasDescriptor> rdf:type :ObjectProperty ;
 
                                                  rdfs:label "hasDescriptor" ;
+
+                                                 rdfs:comment "Relates DescriptorQualifierPairs to Descriptors." ;
 
                                                  dct:description "Relates DescriptorQualifierPairs to Descriptors." ;
 
@@ -128,6 +139,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                                 rdfs:label "hasQualifier" ;
 
+                                                rdfs:comment "Relates DescriptorQualifierPairs to Qualifiers." ;
+
                                                 dct:description "Relates DescriptorQualifierPairs to Qualifiers." ;
 
                                                 rdfs:range <http://id.nlm.nih.gov/mesh/vocab#Qualifier> .
@@ -140,6 +153,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                                        rdfs:label "indexerConsiderAlso" ;
 
+                                                       rdfs:comment "Relates SupplementaryConceptRecords to Descriptors or DescriptorQualifierPairs. A Descriptor or DescriptorQualifierPair that is usually broader than the SupplementaryConceptRecord, and which is suggested as an indexing guideline for addition to the citation if pertinent to the article being indexed." ;
+
                                                        dct:description "Relates SupplementaryConceptRecords to Descriptors or DescriptorQualifierPairs. A Descriptor or DescriptorQualifierPair that is usually broader than the SupplementaryConceptRecord, and which is suggested as an indexing guideline for addition to the citation if pertinent to the article being indexed." .
 
 
@@ -150,6 +165,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                             rdfs:label "mappedTo" ;
 
+                                            rdfs:comment "Relates SupplementaryConceptRecords to Descriptors or DescriptorQualifierPairs. A Descriptor or DescriptorQualifierPair that is a parent (not the main parent; lacks an asterisk designation in the Source XML) for the SupplementaryConceptRecord and that is automatically added to the journal citation for which the SupplementaryConceptRecord is indexed. See also meshv:preferredMappedTo." ;
+
                                             dct:description "Relates SupplementaryConceptRecords to Descriptors or DescriptorQualifierPairs. A Descriptor or DescriptorQualifierPair that is a parent (not the main parent; lacks an asterisk designation in the Source XML) for the SupplementaryConceptRecord and that is automatically added to the journal citation for which the SupplementaryConceptRecord is indexed. See also meshv:preferredMappedTo." .
 
 
@@ -159,6 +176,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#narrowerConcept> rdf:type :ObjectProperty ;
 
                                                    rdfs:label "narrowerConcept" ;
+
+                                                   rdfs:comment "Relates one Concept to another. A semantic relationship between the preferred concept and subordinate concept(s) where one is narrower in meaning. Example: M0353609 is narrower with respect to M0000001." ;
 
                                                    dct:description "Relates one Concept to another. A semantic relationship between the preferred concept and subordinate concept(s) where one is narrower in meaning. Example: M0353609 is narrower with respect to M0000001." ;
 
@@ -175,6 +194,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                                     rdfs:label "parentTreeNumber" ;
 
+                                                    rdfs:comment "Relates one TreeNumber to another. Immediate “parent” TreeNumber, meaning one level higher in the TreeNumber hierarchy. Example: D03.438.221 is a parent of D03.438.221.173." ;
+
                                                     dct:description "Relates one TreeNumber to another. Immediate “parent” TreeNumber, meaning one level higher in the TreeNumber hierarchy. Example: D03.438.221 is a parent of D03.438.221.173." ;
 
                                                     rdfs:range <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
@@ -189,8 +210,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                                          rdfs:label "pharmacologicalAction" ;
 
-                                                         dct:description "Relates Descriptors or SupplementaryConceptRecords to Descriptors. Reference to a Descriptor describing observed biological activity of an exogenously administered chemical represented by a Descriptor or SupplementaryConceptRecord." .
+                                                         rdfs:comment "Relates Descriptors or SupplementaryConceptRecords to Descriptors. Reference to a Descriptor describing observed biological activity of an exogenously administered chemical represented by a Descriptor or SupplementaryConceptRecord." ;
 
+                                                         dct:description "Relates Descriptors or SupplementaryConceptRecords to Descriptors. Reference to a Descriptor describing observed biological activity of an exogenously administered chemical represented by a Descriptor or SupplementaryConceptRecord." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#preferredConcept
@@ -198,6 +220,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#preferredConcept> rdf:type :ObjectProperty ;
 
                                                     rdfs:label "preferredConcept" ;
+
+                                                    rdfs:comment "Relates Descriptors or Supplementary Concept Records to Concepts. The preferred concept is frequently a broader concept that includes narrower sub-concepts, but may also be one among several distinct concepts. The preferred concept is selected as the primary or most prominent representation among the concepts in the literature. meshv:preferredConcept is a subproperty of meshv:concept." ;
 
                                                     dct:description "Relates Descriptors or Supplementary Concept Records to Concepts. The preferred concept is frequently a broader concept that includes narrower sub-concepts, but may also be one among several distinct concepts. The preferred concept is selected as the primary or most prominent representation among the concepts in the literature. meshv:preferredConcept is a subproperty of meshv:concept." ;
 
@@ -211,6 +235,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                                      rdfs:label "preferredMappedTo" ;
 
+                                                     rdfs:comment "Relates SupplementaryConceptRecords to Descriptors or DescriptorQualifierPairs. Designates a Descriptor or DescriptorQualifierPair that is a main parent (includes an asterisk designation in the Source XML) for the SupplementaryConceptRecord and that is automatically added to the journal citation for which the SupplementaryConceptRecord is indexed. meshv:preferredMappedTo is a subproperty of meshv:mappedTo." ;
+
                                                      dct:description "Relates SupplementaryConceptRecords to Descriptors or DescriptorQualifierPairs. Designates a Descriptor or DescriptorQualifierPair that is a main parent (includes an asterisk designation in the Source XML) for the SupplementaryConceptRecord and that is automatically added to the journal citation for which the SupplementaryConceptRecord is indexed. meshv:preferredMappedTo is a subproperty of meshv:mappedTo." ;
 
                                                      rdfs:subPropertyOf <http://id.nlm.nih.gov/mesh/vocab#mappedTo> .
@@ -223,6 +249,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                                  rdfs:label "preferredTerm" ;
 
+                                                 rdfs:comment "Relates Concepts, Descriptors, Qualifiers or SupplementaryConceptRecords to Terms. Indicates that the Term is the preferred term for a Concept, Descriptor, Qualifier, or SupplementaryConceptRecord." ;
+
                                                  dct:description "Relates Concepts, Descriptors, Qualifiers or SupplementaryConceptRecords to Terms. Indicates that the Term is the preferred term for a Concept, Descriptor, Qualifier, or SupplementaryConceptRecord." ;
 
                                                  rdfs:subPropertyOf <http://id.nlm.nih.gov/mesh/vocab#term> .
@@ -234,6 +262,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#relatedConcept> rdf:type :ObjectProperty ;
 
                                                   rdfs:label "relatedConcept" ;
+
+                                                  rdfs:comment "Relates one Concept to another. A semantic relationship between two Concepts, usually between the preferred Concept and subordinate Concept(s) where one is neither broader nor narrower in meaning. Example: M0000562 is related to M0000561" ;
 
                                                   dct:description "Relates one Concept to another. A semantic relationship between two Concepts, usually between the preferred Concept and subordinate Concept(s) where one is neither broader nor narrower in meaning. Example: M0000562 is related to M0000561" ;
 
@@ -249,8 +279,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                            rdfs:label "seeAlso" ;
 
-                                           dct:description "Relates one Descriptor to another. Reference to a specific Descriptor to which a user is referred by a 'see related' cross-reference." .
+                                           rdfs:comment "Relates one Descriptor to another. Reference to a specific Descriptor to which a user is referred by a 'see related' cross-reference." ;
 
+                                           dct:description "Relates one Descriptor to another. Reference to a specific Descriptor to which a user is referred by a 'see related' cross-reference." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#term
@@ -258,6 +289,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#term> rdf:type :ObjectProperty ;
 
                                         rdfs:label "term" ;
+
+                                        rdfs:comment "Relates Concepts to Terms. Each Concept has a set of entry terms and a preferred term that are related to the Concept." ;
 
                                         dct:description "Relates Concepts to Terms. Each Concept has a set of entry terms and a preferred term that are related to the Concept." .
 
@@ -268,6 +301,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#treeNumber> rdf:type :ObjectProperty ;
 
                                               rdfs:label "treeNumber" ;
+
+                                              rdfs:comment "Relates Descriptors or Qualifiers to TreeNumbers. Alpha-numeric string referring to location within a Descriptor or Qualifier hierarchy. Used for browsing the MeSH vocabulary and for inclusive searches by retrieval systems using MeSH. (Note that the Trees hierarchy is not represented using subelements. The hierarchy is represented by the TreeNumber itself.) Up to thirteen hierarchical levels." ;
 
                                               dct:description "Relates Descriptors or Qualifiers to TreeNumbers. Alpha-numeric string referring to location within a Descriptor or Qualifier hierarchy. Used for browsing the MeSH vocabulary and for inclusive searches by retrieval systems using MeSH. (Note that the Trees hierarchy is not represented using subelements. The hierarchy is represented by the TreeNumber itself.) Up to thirteen hierarchical levels." ;
 
@@ -281,9 +316,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                               rdfs:label "useInstead" ;
 
+                                              rdfs:comment "Relates DisallowedDescriptorQualifierPairs to Descriptors or AllowedDescriptorQualifierPairs. Descriptor or DescriptorQualifierPair recommended in place of the prohibited combination." ;
+
                                               dct:description "Relates DisallowedDescriptorQualifierPairs to Descriptors or AllowedDescriptorQualifierPairs. Descriptor or DescriptorQualifierPair recommended in place of the prohibited combination." .
-
-
 
 
 
@@ -300,8 +335,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                                 rdfs:label "abbreviation" ;
 
-                                                dct:description "A property of Terms. Two-letter, uppercase abbreviation for a Qualifier term." .
+                                                rdfs:comment "A property of Terms. Two-letter, uppercase abbreviation for a Qualifier term." ;
 
+                                                dct:description "A property of Terms. Two-letter, uppercase abbreviation for a Qualifier term." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#active
@@ -309,6 +345,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#active> rdf:type :DatatypeProperty ;
 
                                           rdfs:label "active" ;
+
+                                          rdfs:comment "A property of all classes. A Boolean-typed property that indicates whether MeSH content is active in the current MeSH year." ;
 
                                           dct:description "A property of all classes. A Boolean-typed property that indicates whether MeSH content is active in the current MeSH year." ;
 
@@ -321,6 +359,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#altLabel> rdf:type :DatatypeProperty ;
 
                                             rdfs:label "altLabel" ;
+
+                                            rdfs:comment "A property of Terms. A lexical variant for a Term’s prefLabel. meshv:altLabel is a subproperty of rdfs:label" ;
 
                                             dct:description "A property of Terms. A lexical variant for a Term’s prefLabel. meshv:altLabel is a subproperty of rdfs:label" ;
 
@@ -336,6 +376,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                               rdfs:label "annotation" ;
 
+                                              rdfs:comment "A property of Descriptors or Qualifiers. Free-text information for indexers and catalogers concerning the use of the Descriptor or Qualifier." ;
+
                                               dct:description "A property of Descriptors or Qualifiers. Free-text information for indexers and catalogers concerning the use of the Descriptor or Qualifier." .
 
 
@@ -345,6 +387,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#casn1_label> rdf:type :DatatypeProperty ;
 
                                                rdfs:label "casn1_label" ;
+
+                                               rdfs:comment "A property of Concepts. Free-text of the Chemical Abstracts Type N1 Name which is the systematic name used in the Chemical Abstracts Chemical Substance and Formula Indexes. The systematic name is a unique name assigned to a chemical substance to represent its structure. First available in 1995." ;
 
                                                dct:description "A property of Concepts. Free-text of the Chemical Abstracts Type N1 Name which is the systematic name used in the Chemical Abstracts Chemical Substance and Formula Indexes. The systematic name is a unique name assigned to a chemical substance to represent its structure. First available in 1995." .
 
@@ -356,6 +400,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                                 rdfs:label "considerAlso" ;
 
+                                                rdfs:comment "A property of Descriptors. Free-text information that refers a user from a Descriptor to other terms which have related roots." ;
+
                                                 dct:description "A property of Descriptors. Free-text information that refers a user from a Descriptor to other terms which have related roots." .
 
 
@@ -365,6 +411,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#dateCreated> rdf:type :DatatypeProperty ;
 
                                                rdfs:label "dateCreated" ;
+
+                                               rdfs:comment "A property of Descriptors, Qualifiers, SupplementaryConceptRecords or Terms. Date in YYYY-MM-DD format when a Descriptor, Qualifer, SupplementaryConceptRecord or Term was first added to MeSH provisionally. This timestamp may be a year behind the dateEstablished. Upon conversion to a new MeSH maintenance system in 1999, a default value of 1999-01-01 was supplied." ;
 
                                                dct:description "A property of Descriptors, Qualifiers, SupplementaryConceptRecords or Terms. Date in YYYY-MM-DD format when a Descriptor, Qualifer, SupplementaryConceptRecord or Term was first added to MeSH provisionally. This timestamp may be a year behind the dateEstablished. Upon conversion to a new MeSH maintenance system in 1999, a default value of 1999-01-01 was supplied." .
 
@@ -376,6 +424,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                                    rdfs:label "dateEstablished" ;
 
+                                                   rdfs:comment "A property of Descriptors or Qualifiers. Date in YYYY-MM-DD format when the Descriptor or Qualifier became effective for use; set to YYYY-01-01 where YYYY = year of introduction to MeSH." ;
+
                                                    dct:description "A property of Descriptors or Qualifiers. Date in YYYY-MM-DD format when the Descriptor or Qualifier became effective for use; set to YYYY-01-01 where YYYY = year of introduction to MeSH." .
 
 
@@ -385,6 +435,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#dateRevised> rdf:type :DatatypeProperty ;
 
                                                rdfs:label "dateRevised" ;
+
+                                               rdfs:comment "A property of Descriptors, Qualifiers, or SupplementaryConceptRecords. Indicates that a revision was made to Descriptor, Qualifier, or SupplementaryConceptRecord data in YYYY-MM-DD format." ;
 
                                                dct:description "A property of Descriptors, Qualifiers, or SupplementaryConceptRecords. Indicates that a revision was made to Descriptor, Qualifier, or SupplementaryConceptRecord data in YYYY-MM-DD format." .
 
@@ -396,8 +448,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                                 rdfs:label "entryVersion" ;
 
-                                                dct:description "A property of Terms. Used for internal NLM processing only." .
+                                                rdfs:comment "A property of Terms. Used for internal NLM processing only." ;
 
+                                                dct:description "A property of Terms. Used for internal NLM processing only." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#frequency
@@ -406,8 +459,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                              rdfs:label "frequency" ;
 
-                                             dct:description "A property of SupplementaryConceptRecords. Number of citations indexed with a SupplementaryConceptRecord in MEDLINE/PubMed. Automatically updated monthly in the XML. See also meshv:source definition." .
+                                             rdfs:comment "A property of SupplementaryConceptRecords. Number of citations indexed with a SupplementaryConceptRecord in MEDLINE/PubMed. Automatically updated monthly in the XML. See also meshv:source definition." ;
 
+                                             dct:description "A property of SupplementaryConceptRecords. Number of citations indexed with a SupplementaryConceptRecord in MEDLINE/PubMed. Automatically updated monthly in the XML. See also meshv:source definition." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#historyNote
@@ -416,8 +470,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                                rdfs:label "historyNote" ;
 
-                                               dct:description "A property of Descriptors or Qualifiers. Free-text information that traces the concept in MeSH and is deemed helpful for the online searcher. Headings and entry terms are entered in upper case. Initial characters refer to the year in which the Descriptor or Qualifier was created in MeSH in its current form (i.e., with the same preferred term). A date in parentheses indicates the oldest creation date of terms, provisional headings (before 1975), or minor headings (before 1991), which are reflected in bibliographic citations. Entries without a year date were created between 1963 and 1966." .
+                                               rdfs:comment "A property of Descriptors or Qualifiers. Free-text information that traces the concept in MeSH and is deemed helpful for the online searcher. Headings and entry terms are entered in upper case. Initial characters refer to the year in which the Descriptor or Qualifier was created in MeSH in its current form (i.e., with the same preferred term). A date in parentheses indicates the oldest creation date of terms, provisional headings (before 1975), or minor headings (before 1991), which are reflected in bibliographic citations. Entries without a year date were created between 1963 and 1966." ;
 
+                                               dct:description "A property of Descriptors or Qualifiers. Free-text information that traces the concept in MeSH and is deemed helpful for the online searcher. Headings and entry terms are entered in upper case. Initial characters refer to the year in which the Descriptor or Qualifier was created in MeSH in its current form (i.e., with the same preferred term). A date in parentheses indicates the oldest creation date of terms, provisional headings (before 1975), or minor headings (before 1991), which are reflected in bibliographic citations. Entries without a year date were created between 1963 and 1966." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#identifier
@@ -426,8 +481,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                               rdfs:label "identifier" ;
 
-                                              dct:description "A property of Descriptors, Qualifiers, SupplementaryConceptRecords, Concepts and Terms. Descriptor identifier is a 7 or 10 alphanumeric starting with the letter D. Qualifier identifier is a 7 or 10 alphanumeric starting with the letter Q. SupplementaryConceptRecord identifier is a 7 or 10 alphanumeric starting with the letter C. Concept identifier is an 8 or 10 alphanumeric starting with the letter M. Term identifier is a 7 or 10 alphanumeric starting with the letter T. The 10 alphanumeric format was implemented for new identifiers created on or after about May 19, 2014." .
+                                              rdfs:comment "A property of Descriptors, Qualifiers, SupplementaryConceptRecords, Concepts and Terms. Descriptor identifier is a 7 or 10 alphanumeric starting with the letter D. Qualifier identifier is a 7 or 10 alphanumeric starting with the letter Q. SupplementaryConceptRecord identifier is a 7 or 10 alphanumeric starting with the letter C. Concept identifier is an 8 or 10 alphanumeric starting with the letter M. Term identifier is a 7 or 10 alphanumeric starting with the letter T. The 10 alphanumeric format was implemented for new identifiers created on or after about May 19, 2014." ;
 
+                                              dct:description "A property of Descriptors, Qualifiers, SupplementaryConceptRecords, Concepts and Terms. Descriptor identifier is a 7 or 10 alphanumeric starting with the letter D. Qualifier identifier is a 7 or 10 alphanumeric starting with the letter Q. SupplementaryConceptRecord identifier is a 7 or 10 alphanumeric starting with the letter C. Concept identifier is an 8 or 10 alphanumeric starting with the letter M. Term identifier is a 7 or 10 alphanumeric starting with the letter T. The 10 alphanumeric format was implemented for new identifiers created on or after about May 19, 2014." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#lastActiveYear
@@ -435,6 +491,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#lastActiveYear> rdf:type :DatatypeProperty ;
 
                                               rdfs:label "lastActiveYear" ;
+
+                                              rdfs:comment "A property of all classes. Indicates the most recent year in which inactive MeSH content was active." ;
 
                                               dct:description "A property of all classes. Indicates the most recent year in which inactive MeSH content was active." ;
 
@@ -448,8 +506,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                               rdfs:label "lexicalTag" ;
 
-                                              dct:description "A property of Terms. A 3-letter value that indicates the lexical category. Valid values with their meanings in parentheses are: ABB (Abbreviation); ABX (Embedded abbreviation); ACR (Acronym); ACX (Embedded acronym); EPO (Eponym); LAB (Lab number); NAM (Proper name); NON (None); and TRD (Trade name). Note that in the XML, a Permuted Term will always have the same Lexical Tag value as the term from which it is generated." .
+                                              rdfs:comment "A property of Terms. A 3-letter value that indicates the lexical category. Valid values with their meanings in parentheses are: ABB (Abbreviation); ABX (Embedded abbreviation); ACR (Acronym); ACX (Embedded acronym); EPO (Eponym); LAB (Lab number); NAM (Proper name); NON (None); and TRD (Trade name). Note that in the XML, a Permuted Term will always have the same Lexical Tag value as the term from which it is generated." ;
 
+                                              dct:description "A property of Terms. A 3-letter value that indicates the lexical category. Valid values with their meanings in parentheses are: ABB (Abbreviation); ABX (Embedded abbreviation); ACR (Acronym); ACX (Embedded acronym); EPO (Eponym); LAB (Lab number); NAM (Proper name); NON (None); and TRD (Trade name). Note that in the XML, a Permuted Term will always have the same Lexical Tag value as the term from which it is generated." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#nlmClassificationNumber
@@ -457,6 +516,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#nlmClassificationNumber> rdf:type :DatatypeProperty ;
 
                                                            rdfs:label "nlmClassificationNumber" ;
+
+                                                           rdfs:comment "A property of Descriptors. Most MeSH Descriptors have a corresponding NLM Classification (the system for the organization of literature). Descriptors that lack an NLM Classification Number include those that point to more than one number, those in the Z Tree (Geographicals), and many of those in the V Tree (Publication Characteristics). This NLM classification is similar to the Library of Congress Classification (LCC)." ;
 
                                                            dct:description "A property of Descriptors. Most MeSH Descriptors have a corresponding NLM Classification (the system for the organization of literature). Descriptors that lack an NLM Classification Number include those that point to more than one number, those in the Z Tree (Geographicals), and many of those in the V Tree (Publication Characteristics). This NLM classification is similar to the Library of Congress Classification (LCC)." ;
 
@@ -470,8 +531,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                         rdfs:label "note" ;
 
-                                        dct:description "A property of SupplementaryConceptRecords. Free-text narrative giving information about the SupplementaryConceptRecord, and may include information such as the registryNumber." .
+                                        rdfs:comment "A property of SupplementaryConceptRecords. Free-text narrative giving information about the SupplementaryConceptRecord, and may include information such as the registryNumber." ;
 
+                                        dct:description "A property of SupplementaryConceptRecords. Free-text narrative giving information about the SupplementaryConceptRecord, and may include information such as the registryNumber." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#onlineNote
@@ -480,8 +542,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                               rdfs:label "onlineNote" ;
 
-                                              dct:description "A property of Descriptors and Qualifiers. Free-text information intended to direct the MeSH online searcher to alternate search terms. Superseded by a more detailed historyNote when onlineNote is not present." .
+                                              rdfs:comment "A property of Descriptors and Qualifiers. Free-text information intended to direct the MeSH online searcher to alternate search terms. Superseded by a more detailed historyNote when onlineNote is not present." ;
 
+                                              dct:description "A property of Descriptors and Qualifiers. Free-text information intended to direct the MeSH online searcher to alternate search terms. Superseded by a more detailed historyNote when onlineNote is not present." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#prefLabel
@@ -490,10 +553,11 @@ dct:description rdf:type :AnnotationProperty .
 
                                              rdfs:label "prefLabel" ;
 
+                                             rdfs:comment "A property of Terms. The preferred string for the term. meshv:prefLabel is a subproperty of rdfs:label." ;
+
                                              dct:description "A property of Terms. The preferred string for the term. meshv:prefLabel is a subproperty of rdfs:label." ;
 
                                              rdfs:subPropertyOf rdfs:label .
-
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#previousIndexing
@@ -501,6 +565,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#previousIndexing> rdf:type :DatatypeProperty ;
 
                                                     rdfs:label "previousIndexing" ;
+
+                                                    rdfs:comment "A property of Descriptors and Supplementary Concept Records. Free-text information referring to Descriptors or DescriptorQualifierPairs that were used to index the concept in MEDLINE before the Descriptor was created. Intended to enable users of new Descriptors to find similar concepts indexed before the Descriptor was created. Includes a date or date range. May include descriptive text referring to a group of Descriptors as “specifics”. Data are not maintained when a Descriptor or Qualifier name changes. DUI D005290 example: Iron (1966-1974). Also used for SupplementaryConceptRecords to refer to the Descriptor or DescriptorQualifierPair to which the SupplementaryConceptRecord was previously mapped." ;
 
                                                     dct:description "A property of Descriptors and Supplementary Concept Records. Free-text information referring to Descriptors or DescriptorQualifierPairs that were used to index the concept in MEDLINE before the Descriptor was created. Intended to enable users of new Descriptors to find similar concepts indexed before the Descriptor was created. Includes a date or date range. May include descriptive text referring to a group of Descriptors as “specifics”. Data are not maintained when a Descriptor or Qualifier name changes. DUI D005290 example: Iron (1966-1974). Also used for SupplementaryConceptRecords to refer to the Descriptor or DescriptorQualifierPair to which the SupplementaryConceptRecord was previously mapped." .
 
@@ -512,6 +578,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                                   rdfs:label "publicMeSHNote" ;
 
+                                                  rdfs:comment "A property of Descriptors. Free-text information about the history of changes to the Descriptor that may be helpful to the user of the printed Index Medicus publication (ceased in 2005). This includes the date the Descriptor was created in MeSH, changes in the preferred term, earlier status as an SupplementaryConceptRecord, etc. Unlike the History Note, this note reflects the MeSH vocabulary printed at that point in time, not as updated for online databases. Applies only to TopicalDescriptors. MeSH Descriptor labels are in upper case." ;
+
                                                   dct:description "A property of Descriptors. Free-text information about the history of changes to the Descriptor that may be helpful to the user of the printed Index Medicus publication (ceased in 2005). This includes the date the Descriptor was created in MeSH, changes in the preferred term, earlier status as an SupplementaryConceptRecord, etc. Unlike the History Note, this note reflects the MeSH vocabulary printed at that point in time, not as updated for online databases. Applies only to TopicalDescriptors. MeSH Descriptor labels are in upper case." .
 
 
@@ -522,8 +590,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                                   rdfs:label "registryNumber" ;
 
-                                                  dct:description "A property of Concepts. A unique identifier from one of these sources: Enzyme Commission (Example: EC 2.4.2.17; Example for Partial enzyme number: EC 1.4.3.-); Chemical Abstracts Service (CAS) (Example: 7004-12-8); FDA Substance Registration System Unique Identifier (UNII) in 10-character format (Example: R16CO5Y76E); or the value of 0 if no match is available from the previous sources. A single MeSH Concept can only have one Registry Number. Used for Concepts related to Descriptors in the D Category Drugs and Chemicals and for SupplementaryConceptRecords." .
+                                                  rdfs:comment "A property of Concepts. A unique identifier from one of these sources: Enzyme Commission (Example: EC 2.4.2.17; Example for Partial enzyme number: EC 1.4.3.-); Chemical Abstracts Service (CAS) (Example: 7004-12-8); FDA Substance Registration System Unique Identifier (UNII) in 10-character format (Example: R16CO5Y76E); or the value of 0 if no match is available from the previous sources. A single MeSH Concept can only have one Registry Number. Used for Concepts related to Descriptors in the D Category Drugs and Chemicals and for SupplementaryConceptRecords." ;
 
+                                                  dct:description "A property of Concepts. A unique identifier from one of these sources: Enzyme Commission (Example: EC 2.4.2.17; Example for Partial enzyme number: EC 1.4.3.-); Chemical Abstracts Service (CAS) (Example: 7004-12-8); FDA Substance Registration System Unique Identifier (UNII) in 10-character format (Example: R16CO5Y76E); or the value of 0 if no match is available from the previous sources. A single MeSH Concept can only have one Registry Number. Used for Concepts related to Descriptors in the D Category Drugs and Chemicals and for SupplementaryConceptRecords." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#relatedRegistryNumber
@@ -531,6 +600,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#relatedRegistryNumber> rdf:type :DatatypeProperty ;
 
                                                          rdfs:label "relatedRegistryNumber" ;
+
+                                                         rdfs:comment "A property of Concepts. An additional unique identifier for chemicals, which is sometimes followed by a label in parentheses. Multiple Related Registry Numbers are allowed for each Concept. For example, these might be salts and/or stereoisomers of the parent compound. Used for Concepts related to Descriptors in the D Category Drugs and Chemicals and for SupplementaryConceptRecords." ;
 
                                                          dct:description "A property of Concepts. An additional unique identifier for chemicals, which is sometimes followed by a label in parentheses. Multiple Related Registry Numbers are allowed for each Concept. For example, these might be salts and/or stereoisomers of the parent compound. Used for Concepts related to Descriptors in the D Category Drugs and Chemicals and for SupplementaryConceptRecords." .
 
@@ -542,6 +613,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                              rdfs:label "scopeNote" ;
 
+                                             rdfs:comment "A property of Concepts. Free-text narrative giving the scope and meaning (definition) of a Concept." ;
+
                                              dct:description "A property of Concepts. Free-text narrative giving the scope and meaning (definition) of a Concept." .
 
 
@@ -551,6 +624,8 @@ dct:description rdf:type :AnnotationProperty .
 <http://id.nlm.nih.gov/mesh/vocab#sortVersion> rdf:type :DatatypeProperty ;
 
                                                rdfs:label "sortVersion" ;
+
+                                               rdfs:comment "A property of Terms. Custom version of a Term label used to sort properly in a print product; format is all uppercase." ;
 
                                                dct:description "A property of Terms. Custom version of a Term label used to sort properly in a print product; format is all uppercase." .
 
@@ -562,6 +637,8 @@ dct:description rdf:type :AnnotationProperty .
 
                                           rdfs:label "source" ;
 
+                                          rdfs:comment "A property of SupplementaryConceptRecords. Citation reference string in which the SupplementaryConceptRecord was first found. Single occurrence if SupplementaryConceptRecord created since 1980; frequency reports total citations indexed with the term in MEDLINE/PubMed. Possible multiple occurrences if SupplementaryConceptRecord created prior to 1980; term not found on those citations in MEDLINE/PubMed. Number of multiple Source occurrences need to be added to Frequency count for grand total of citations to articles discussing the SCR." ;
+
                                           dct:description "A property of SupplementaryConceptRecords. Citation reference string in which the SupplementaryConceptRecord was first found. Single occurrence if SupplementaryConceptRecord created since 1980; frequency reports total citations indexed with the term in MEDLINE/PubMed. Possible multiple occurrences if SupplementaryConceptRecord created prior to 1980; term not found on those citations in MEDLINE/PubMed. Number of multiple Source occurrences need to be added to Frequency count for grand total of citations to articles discussing the SCR." .
 
 
@@ -572,8 +649,9 @@ dct:description rdf:type :AnnotationProperty .
 
                                                rdfs:label "thesaurusID" ;
 
-                                               dct:description "A property of Terms. Name of a Thesaurus in which the term occurs. The value 'NLM' is equivalent to MeSH." .
+                                               rdfs:comment "A property of Terms. Name of a Thesaurus in which the term occurs. The value 'NLM' is equivalent to MeSH." ;
 
+                                               dct:description "A property of Terms. Name of a Thesaurus in which the term occurs. The value 'NLM' is equivalent to MeSH." .
 
 
 ###  http://www.w3.org/2000/01/rdf-schema#label
@@ -601,6 +679,8 @@ rdfs:label rdf:type :DatatypeProperty .
 
                                                                   :disjointWith <http://id.nlm.nih.gov/mesh/vocab#DisallowedDescriptorQualifierPair> ;
 
+                                                                  rdfs:comment "A combined MeSH descriptor and qualifier, where the pairing is allowed by MeSH rules. These URIs are a mash up of the descriptor and qualifier identifiers, such as D000236Q000235." ;
+
                                                                   dct:description "A combined MeSH descriptor and qualifier, where the pairing is allowed by MeSH rules. These URIs are a mash up of the descriptor and qualifier identifiers, such as D000236Q000235." .
 
 
@@ -617,8 +697,9 @@ rdfs:label rdf:type :DatatypeProperty .
                                                           <http://id.nlm.nih.gov/mesh/vocab#PublicationType> ,
                                                           <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> ;
 
-                                            dct:description "A special class of descriptor singled out because they are so frequently applied to biomedical literature. There are only 2 Descriptors that are members of the class meshv:CheckTag: D005260 (Male) and D008297 (Female). These two Descriptors do not have tree numbers. " .
+                                            rdfs:comment "A special class of descriptor singled out because they are so frequently applied to biomedical literature. There are only 2 Descriptors that are members of the class meshv:CheckTag: D005260 (Male) and D008297 (Female). These two Descriptors do not have tree numbers. " ;
 
+                                            dct:description "A special class of descriptor singled out because they are so frequently applied to biomedical literature. There are only 2 Descriptors that are members of the class meshv:CheckTag: D005260 (Male) and D008297 (Female). These two Descriptors do not have tree numbers. " .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#Concept
@@ -635,6 +716,8 @@ rdfs:label rdf:type :DatatypeProperty .
                                                          <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ,
                                                          <http://id.nlm.nih.gov/mesh/vocab#Term> ,
                                                          <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
+
+                                           rdfs:comment "MeSH concepts are meanings. Many MeSH concepts contain synonymous terms. meshv:Concept identifiers begin with 'M' such as M0000013,  'Congenital Abnormalities'." ;
 
                                            dct:description "MeSH concepts are meanings. Many MeSH concepts contain synonymous terms. meshv:Concept identifiers begin with 'M' such as M0000013,  'Congenital Abnormalities'." .
 
@@ -654,6 +737,8 @@ rdfs:label rdf:type :DatatypeProperty .
                                                             <http://id.nlm.nih.gov/mesh/vocab#Term> ,
                                                             <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
 
+                                              rdfs:comment "MeSH Descriptors are a cluster of one or more concepts used to describe what a publication is about. meshv:Descriptor is the parent class of meshv:TopicalDescriptor, meshv:GeographicDescriptor, meshv:PublicationType, and meshv:CheckTag." ;
+
                                               dct:description "MeSH Descriptors are a cluster of one or more concepts used to describe what a publication is about. meshv:Descriptor is the parent class of meshv:TopicalDescriptor, meshv:GeographicDescriptor, meshv:PublicationType, and meshv:CheckTag." .
 
 
@@ -671,6 +756,8 @@ rdfs:label rdf:type :DatatypeProperty .
                                                                          <http://id.nlm.nih.gov/mesh/vocab#Term> ,
                                                                          <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
 
+                                                           rdfs:comment "A combined MeSH descriptor and qualifier pair. Allowed pairs (according to MeSH rules) belong to the class meshv:AllowedDescriptorQualifierPair. Disallowed pairs belong to the class meshv:DisallowedDescriptorQualifierPair." ;
+
                                                            dct:description "A combined MeSH descriptor and qualifier pair. Allowed pairs (according to MeSH rules) belong to the class meshv:AllowedDescriptorQualifierPair. Disallowed pairs belong to the class meshv:DisallowedDescriptorQualifierPair." .
 
 
@@ -682,6 +769,8 @@ rdfs:label rdf:type :DatatypeProperty .
                                                                      rdfs:label "MeSH DisallowedDescriptorQualifierPair" ;
 
                                                                      rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair> ;
+
+                                                                     rdfs:comment "A combined MeSH descriptor and qualifier where the pairing is not allowed by MeSH rules, such as Abdomen/radiography." ;
 
                                                                      dct:description "A combined MeSH descriptor and qualifier where the pairing is not allowed by MeSH rules, such as Abdomen/radiography." .
 
@@ -698,6 +787,8 @@ rdfs:label rdf:type :DatatypeProperty .
                                                           :disjointWith <http://id.nlm.nih.gov/mesh/vocab#PublicationType> ,
                                                                         <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> ;
 
+                                                          rdfs:comment "A descriptor that references places or regions of the world, such as D001061, 'Appalachian Region'." ;
+
                                                           dct:description "A descriptor that references places or regions of the world, such as D001061, 'Appalachian Region'." .
 
 
@@ -711,6 +802,8 @@ rdfs:label rdf:type :DatatypeProperty .
                                                    rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#Descriptor> ;
 
                                                    :disjointWith <http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor> ;
+
+                                                   rdfs:comment "A special class of descriptor that describes what type of publication a resource is as opposed to what it is about. All MeSH Publication Types are in the V tree." ;
 
                                                    dct:description "A special class of descriptor that describes what type of publication a resource is as opposed to what it is about. All MeSH Publication Types are in the V tree." .
 
@@ -728,6 +821,8 @@ rdfs:label rdf:type :DatatypeProperty .
                                                            <http://id.nlm.nih.gov/mesh/vocab#Term> ,
                                                            <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
 
+                                             rdfs:comment "Also known as Subheadings, these provide context to the use of a MeSH Heading." ;
+
                                              dct:description "Also known as Subheadings, these provide context to the use of a MeSH Heading." .
 
 
@@ -744,6 +839,8 @@ rdfs:label rdf:type :DatatypeProperty .
                                                               <http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol> ,
                                                               <http://id.nlm.nih.gov/mesh/vocab#SCR_Organism>;
 
+                                                rdfs:comment "These are chemicals, drugs, enzymes, vitamins, etc." ;
+
                                                 dct:description "These are chemicals, drugs, enzymes, vitamins, etc." .
 
 
@@ -759,6 +856,8 @@ rdfs:label rdf:type :DatatypeProperty .
                                                :disjointWith <http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol> ,
                                                              <http://id.nlm.nih.gov/mesh/vocab#SCR_Organism>;
 
+                                               rdfs:comment "SCR Diseases were originally brought into MeSH from a list maintained by the Office of Rare Diseases Research." ;
+
                                                dct:description "SCR Diseases were originally brought into MeSH from a list maintained by the Office of Rare Diseases Research." .
 
 
@@ -773,6 +872,8 @@ rdfs:label rdf:type :DatatypeProperty .
 
                                                 :disjointWith <http://id.nlm.nih.gov/mesh/vocab#SCR_Organism>;
 
+                                                rdfs:comment "MeSH protocols are therapies in the domain of cancer treatment." ;
+
                                                 dct:description "MeSH protocols are therapies in the domain of cancer treatment." .
 
 
@@ -783,6 +884,8 @@ rdfs:label rdf:type :DatatypeProperty .
                                                 rdfs:label "MeSH SCR Organism" ;
 
                                                 rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord> ;
+
+                                                rdfs:comment "SCR Organisms includes viruses and more broadly organisms (B cat)." ;
 
                                                 dct:description "SCR Organisms includes viruses and more broadly organisms (B cat)." .
 
@@ -799,8 +902,9 @@ rdfs:label rdf:type :DatatypeProperty .
                                                               :disjointWith <http://id.nlm.nih.gov/mesh/vocab#Term> ,
                                                                             <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
 
-                                                              dct:description "Supplementary Concepts are created in MeSH to aid in searching the large volume of mainly chemicals and drugs. meshv:SupplementaryConceptRecord has three sub-classes: meshv:RegularSubstance, meshv:SCR_Protocol, and meshv:SCR_Disease." .
+                                                              rdfs:comment "Supplementary Concepts are created in MeSH to aid in searching the large volume of mainly chemicals and drugs. meshv:SupplementaryConceptRecord has three sub-classes: meshv:RegularSubstance, meshv:SCR_Protocol, and meshv:SCR_Disease." ;
 
+                                                              dct:description "Supplementary Concepts are created in MeSH to aid in searching the large volume of mainly chemicals and drugs. meshv:SupplementaryConceptRecord has three sub-classes: meshv:RegularSubstance, meshv:SCR_Protocol, and meshv:SCR_Disease." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#Term
@@ -813,8 +917,9 @@ rdfs:label rdf:type :DatatypeProperty .
 
                                         :disjointWith <http://id.nlm.nih.gov/mesh/vocab#TreeNumber> ;
 
-                                        dct:description "MeSH terms provide synonymous names for MeSH concepts. Terms have 'T' identifiers, and are considered either preferred or lexical variants, such as 'Congenital Abnormalities' as opposed to 'Abnormality, Congenital'." .
+                                        rdfs:comment "MeSH terms provide synonymous names for MeSH concepts. Terms have 'T' identifiers, and are considered either preferred or lexical variants, such as 'Congenital Abnormalities' as opposed to 'Abnormality, Congenital'." ;
 
+                                        dct:description "MeSH terms provide synonymous names for MeSH concepts. Terms have 'T' identifiers, and are considered either preferred or lexical variants, such as 'Congenital Abnormalities' as opposed to 'Abnormality, Congenital'." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor
@@ -825,8 +930,9 @@ rdfs:label rdf:type :DatatypeProperty .
 
                                                      rdfs:subClassOf <http://id.nlm.nih.gov/mesh/vocab#Descriptor> ;
 
-                                                     dct:description "Topical Descriptors indicate the subject of an indexed item such as a journal article. See D063926, 'Drug Hypersensitivity Syndrome', for an example." .
+                                                     rdfs:comment "Topical Descriptors indicate the subject of an indexed item such as a journal article. See D063926, 'Drug Hypersensitivity Syndrome', for an example." ;
 
+                                                     dct:description "Topical Descriptors indicate the subject of an indexed item such as a journal article. See D063926, 'Drug Hypersensitivity Syndrome', for an example." .
 
 
 ###  http://id.nlm.nih.gov/mesh/vocab#TreeNumber
@@ -836,6 +942,8 @@ rdfs:label rdf:type :DatatypeProperty .
                                               rdfs:label "MeSH TreeNumber" ;
 
                                               rdfs:subClassOf :Thing ;
+
+                                              rdfs:comment "Tree Numbers are used to organize MeSH Descriptors in a broader-than/narrower-than manner." ;
 
                                               dct:description "Tree Numbers are used to organize MeSH Descriptors in a broader-than/narrower-than manner." .
 

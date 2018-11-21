@@ -40,6 +40,7 @@ var lodestarPrevUrl;
 
 var sparqlQueryTextArea;
 
+
 // Declares a lodestar
 (function($) {
 
@@ -285,8 +286,6 @@ function _buildExplorerPage(element) {
 }
 
 function _buildSparqlPage(element) {
-
-
     var sparqlForm = $(
        "<form id='lodestar-sparql-form' class='ui-widget ui-corner-all'"+
        " name='lode-star-sparql form' action='#lodestart-sparql-results' method='GET'></form>");
@@ -342,10 +341,11 @@ function _buildSparqlPage(element) {
       .append(
           $("<select name='year' id='year'></select>")
               .append("<option value='current'>Current</option>")
-              .append("<option value='2015'>2015</option>")
-              .append("<option value='2016'>2016</option>")
+              .append("<option value='2019'>2019</option>")
+              .append("<option value='2018'>2019</option>")
               .append("<option value='2017'>2017</option>")
-              .append("<option value='2018'>2018</option>")
+              .append("<option value='2016'>2016</option>")
+              .append("<option value='2015'>2015</option>")
               .on("change", _fixQueryYear)
       );
 

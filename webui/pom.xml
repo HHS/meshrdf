@@ -12,7 +12,7 @@
     <parent>
         <groupId>gov.nih.nlm.lode</groupId>
         <artifactId>meshrdf</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
     </parent>
 
     <properties>
@@ -21,7 +21,7 @@
         <skipTests>false</skipTests>
 
         <!-- Requires that virtuoso lodestar be similarly built -->
-        <org.springframework.version>4.3.3.RELEASE</org.springframework.version>
+        <org.springframework.version>4.3.20.RELEASE</org.springframework.version>
 
         <!-- NOTE: match version built from lodestar repository -->
         <lodestar.version>1.4.1</lodestar.version>
@@ -62,6 +62,19 @@
                                 <exclude>WEB-INF/lib/httpcore-4.2.5.jar</exclude>
                                 <exclude>WEB-INF/lib/commons-codec-1.6.jar</exclude>
                                 <exclude>WEB-INF/lib/lode-*.jar</exclude>
+                                <exculde>WEB-INF/lib/xercesImpl-*.jar</exculde>
+                                <exclude>WEB-INF/lib/jackson-databind-*.jar</exclude>
+                                <exclude>WEB-INF/lib/jackson-core-*.jar</exclude>
+                                <exclude>WEB-INF/lib/jackson-mapper-asl-*.jar</exclude>
+                                <exclude>WEB-INF/lib/jackson-core-asl-*.jar</exclude>                               
+                                <exclude>WEB-INF/lib/jackson-annotations-*.jar</exclude>
+                                <exclude>WEB-INF/lib/spring-core-*.jar</exclude>
+                                <exclude>WEB-INF/lib/spring-expression-*.jar</exclude>
+                                <exclude>WEB-INF/lib/spring-beans-*.jar</exclude>
+                                <exclude>WEB-INF/lib/spring-web-*.jar</exclude>
+                                <exclude>WEB-INF/lib/spring-aop-*.jar</exclude>
+                                <exclude>WEB-INF/lib/spring-context-*.jar</exclude>
+                                <exclude>WEB-INF/lib/spring-webmvc-*.jar</exclude>
                             </excludes>
                         </overlay>
                     </overlays>
@@ -70,7 +83,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -79,7 +92,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.21.0</version>
+                <version>2.22.1</version>
                 <configuration>
                     <skipTests>${skipTests}</skipTests>
                     <groups>${groups}</groups>
@@ -100,7 +113,7 @@
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>3.1.2</version>
+                <version>4.0.0</version>
                 <configuration>
                     <cveValidForHours>12</cveValidForHours>
                 </configuration>
@@ -177,7 +190,7 @@
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>
-            <version>2.2.0</version>
+            <version>2.4.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -189,14 +202,14 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
+            <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>javax.servlet.jsp-api</artifactId>
-            <version>2.2.1</version>
+            <version>2.3.3</version>
             <scope>provided</scope>
         </dependency>
 
@@ -211,20 +224,20 @@
         <dependency>
             <groupId>org.owasp.encoder</groupId>
             <artifactId>encoder</artifactId>
-            <version>1.2.1</version>
+            <version>1.2.2</version>
         </dependency>
 
         <dependency>
             <groupId>org.owasp.encoder</groupId>
             <artifactId>encoder-jsp</artifactId>
-            <version>1.2.1</version>
+            <version>1.2.2</version>
         </dependency>
 
         <!-- We want Java melody in the WAR for monitoring -->
         <dependency>
             <groupId>net.bull.javamelody</groupId>
             <artifactId>javamelody-core</artifactId>
-            <version>1.60.0</version>
+            <version>1.74.0</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -232,21 +245,37 @@
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
-            <version>1.4.2</version>
+            <version>1.4.11.1</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <!-- Update to the latest version for security -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.7</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Update to the latest version for security -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>org.tuckey</groupId>
             <artifactId>urlrewritefilter</artifactId>
-            <version>4.0.3</version>
+            <version>4.0.4</version>
             <scope>runtime</scope>
         </dependency>
 
         <dependency>
             <groupId>gov.nih.nlm.occs</groupId>
             <artifactId>nlm-test-framework</artifactId>
-            <version>2.1.2</version>
+            <version>2.1.4</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

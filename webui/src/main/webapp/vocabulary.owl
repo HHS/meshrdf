@@ -1,0 +1,487 @@
+<rdf:RDF
+    xmlns:dct="http://purl.org/dc/terms/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#" > 
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#broaderDescriptor">
+    <rdfs:subPropertyOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#broader"/>
+    <rdfs:range rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Descriptor"/>
+    <rdfs:domain rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Descriptor"/>
+    <dct:description>Relates one Descriptor to another. The immediate parent Descriptor(s) of a given Descriptor based on the TreeNumber hierarchy. Example: both DUI D007254 (Information Science) and DUI D008491 (Medical Informatics Applications) are parents of DUI D016247 (Information Storage and Retrieval).</dct:description>
+    <rdfs:comment>Relates one Descriptor to another. The immediate parent Descriptor(s) of a given Descriptor based on the TreeNumber hierarchy. Example: both DUI D007254 (Information Science) and DUI D008491 (Medical Informatics Applications) are parents of DUI D016247 (Information Storage and Retrieval).</rdfs:comment>
+    <rdfs:label>broaderDescriptor</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#pharmacologicalAction">
+    <dct:description>Relates Descriptors or SupplementaryConceptRecords to Descriptors. Reference to a Descriptor describing observed biological activity of an exogenously administered chemical represented by a Descriptor or SupplementaryConceptRecord.</dct:description>
+    <rdfs:comment>Relates Descriptors or SupplementaryConceptRecords to Descriptors. Reference to a Descriptor describing observed biological activity of an exogenously administered chemical represented by a Descriptor or SupplementaryConceptRecord.</rdfs:comment>
+    <rdfs:label>pharmacologicalAction</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#broaderConcept">
+    <rdfs:subPropertyOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#broader"/>
+    <rdfs:domain rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Concept"/>
+    <rdfs:range rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Concept"/>
+    <dct:description>Relates one Concept to another. A semantic relationship between two Concepts, usually between the preferred concept and subordinate concept(s) where one is broader in meaning. Example: M0024816 is broader than M0024811.</dct:description>
+    <rdfs:comment>Relates one Concept to another. A semantic relationship between two Concepts, usually between the preferred concept and subordinate concept(s) where one is broader in meaning. Example: M0024816 is broader than M0024811.</rdfs:comment>
+    <rdfs:label>broaderConcept</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#broader">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#casn1_label">
+    <dct:description>A property of Concepts. Free-text of the Chemical Abstracts Type N1 Name which is the systematic name used in the Chemical Abstracts Chemical Substance and Formula Indexes. The systematic name is a unique name assigned to a chemical substance to represent its structure. First available in 1995.</dct:description>
+    <rdfs:comment>A property of Concepts. Free-text of the Chemical Abstracts Type N1 Name which is the systematic name used in the Chemical Abstracts Chemical Substance and Formula Indexes. The systematic name is a unique name assigned to a chemical substance to represent its structure. First available in 1995.</rdfs:comment>
+    <rdfs:label>casn1_label</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#lexicalTag">
+    <dct:description>A property of Terms. A 3-letter value that indicates the lexical category. Valid values with their meanings in parentheses are: ABB (Abbreviation); ABX (Embedded abbreviation); ACR (Acronym); ACX (Embedded acronym); EPO (Eponym); LAB (Lab number); NAM (Proper name); NON (None); and TRD (Trade name). Note that in the XML, a Permuted Term will always have the same Lexical Tag value as the term from which it is generated.</dct:description>
+    <rdfs:comment>A property of Terms. A 3-letter value that indicates the lexical category. Valid values with their meanings in parentheses are: ABB (Abbreviation); ABX (Embedded abbreviation); ACR (Acronym); ACX (Embedded acronym); EPO (Eponym); LAB (Lab number); NAM (Proper name); NON (None); and TRD (Trade name). Note that in the XML, a Permuted Term will always have the same Lexical Tag value as the term from which it is generated.</rdfs:comment>
+    <rdfs:label>lexicalTag</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#nlmClassificationNumber">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <dct:description>A property of Descriptors. Most MeSH Descriptors have a corresponding NLM Classification (the system for the organization of literature). Descriptors that lack an NLM Classification Number include those that point to more than one number, those in the Z Tree (Geographicals), and many of those in the V Tree (Publication Characteristics). This NLM classification is similar to the Library of Congress Classification (LCC).</dct:description>
+    <rdfs:comment>A property of Descriptors. Most MeSH Descriptors have a corresponding NLM Classification (the system for the organization of literature). Descriptors that lack an NLM Classification Number include those that point to more than one number, those in the Z Tree (Geographicals), and many of those in the V Tree (Publication Characteristics). This NLM classification is similar to the Library of Congress Classification (LCC).</rdfs:comment>
+    <rdfs:label>nlmClassificationNumber</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#relatedConcept">
+    <rdfs:domain rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Concept"/>
+    <rdfs:range rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Concept"/>
+    <dct:description>Relates one Concept to another. A semantic relationship between two Concepts, usually between the preferred Concept and subordinate Concept(s) where one is neither broader nor narrower in meaning. Example: M0000562 is related to M0000561</dct:description>
+    <rdfs:comment>Relates one Concept to another. A semantic relationship between two Concepts, usually between the preferred Concept and subordinate Concept(s) where one is neither broader nor narrower in meaning. Example: M0000562 is related to M0000561</rdfs:comment>
+    <rdfs:label>relatedConcept</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#PublicationType">
+    <dct:description>A special class of descriptor that describes what type of publication a resource is as opposed to what it is about. All MeSH Publication Types are in the V tree.</dct:description>
+    <rdfs:comment>A special class of descriptor that describes what type of publication a resource is as opposed to what it is about. All MeSH Publication Types are in the V tree.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor"/>
+    <rdfs:subClassOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Descriptor"/>
+    <rdfs:label>MeSH PublicationType</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#indexerConsiderAlso">
+    <dct:description>Relates SupplementaryConceptRecords to Descriptors or DescriptorQualifierPairs. A Descriptor or DescriptorQualifierPair that is usually broader than the SupplementaryConceptRecord, and which is suggested as an indexing guideline for addition to the citation if pertinent to the article being indexed.</dct:description>
+    <rdfs:comment>Relates SupplementaryConceptRecords to Descriptors or DescriptorQualifierPairs. A Descriptor or DescriptorQualifierPair that is usually broader than the SupplementaryConceptRecord, and which is suggested as an indexing guideline for addition to the citation if pertinent to the article being indexed.</rdfs:comment>
+    <rdfs:label>indexerConsiderAlso</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#Concept">
+    <rdfs:comment>MeSH concepts are meanings. Many MeSH concepts contain synonymous terms. meshv:Concept identifiers begin with 'M' such as M0000013,  'Congenital Abnormalities'.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#TreeNumber"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Term"/>
+    <dct:description>MeSH concepts are meanings. Many MeSH concepts contain synonymous terms. meshv:Concept identifiers begin with 'M' such as M0000013,  'Congenital Abnormalities'.</dct:description>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Qualifier"/>
+    <rdfs:label>MeSH Concept</rdfs:label>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Descriptor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#Descriptor">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Term"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Qualifier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#TreeNumber"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord"/>
+    <rdfs:comment>MeSH Descriptors are a cluster of one or more concepts used to describe what a publication is about. meshv:Descriptor is the parent class of meshv:TopicalDescriptor, meshv:GeographicDescriptor, meshv:PublicationType, and meshv:CheckTag.</rdfs:comment>
+    <rdfs:label>MeSH Descriptor</rdfs:label>
+    <dct:description>MeSH Descriptors are a cluster of one or more concepts used to describe what a publication is about. meshv:Descriptor is the parent class of meshv:TopicalDescriptor, meshv:GeographicDescriptor, meshv:PublicationType, and meshv:CheckTag.</dct:description>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor">
+    <dct:description>Topical Descriptors indicate the subject of an indexed item such as a journal article. See D063926, 'Drug Hypersensitivity Syndrome', for an example.</dct:description>
+    <rdfs:comment>Topical Descriptors indicate the subject of an indexed item such as a journal article. See D063926, 'Drug Hypersensitivity Syndrome', for an example.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Descriptor"/>
+    <rdfs:label>MeSH TopicalDescriptor</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#broaderQualifier">
+    <rdfs:subPropertyOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#broader"/>
+    <rdfs:domain rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Qualifier"/>
+    <rdfs:range rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Qualifier"/>
+    <dct:description>Relates one Qualifier to another. The immediate parent Qualifier(s) of a given Qualifier based on the TreeNumber hierarchy. Example: QUI Q000458 (organization &amp; administration) is a parent of QUI Q000592 (standards).</dct:description>
+    <rdfs:comment>Relates one Qualifier to another. The immediate parent Qualifier(s) of a given Qualifier based on the TreeNumber hierarchy. Example: QUI Q000458 (organization &amp; administration) is a parent of QUI Q000592 (standards).</rdfs:comment>
+    <rdfs:label>broaderQualifier</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#AllowedDescriptorQualifierPair">
+    <dct:description>A combined MeSH descriptor and qualifier, where the pairing is allowed by MeSH rules. These URIs are a mash up of the descriptor and qualifier identifiers, such as D000236Q000235.</dct:description>
+    <rdfs:comment>A combined MeSH descriptor and qualifier, where the pairing is allowed by MeSH rules. These URIs are a mash up of the descriptor and qualifier identifiers, such as D000236Q000235.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#DisallowedDescriptorQualifierPair"/>
+    <rdfs:subClassOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair"/>
+    <rdfs:label>MeSH AllowedDescriptorQualifierPair</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#considerAlso">
+    <dct:description>A property of Descriptors. Free-text information that refers a user from a Descriptor to other terms which have related roots.</dct:description>
+    <rdfs:comment>A property of Descriptors. Free-text information that refers a user from a Descriptor to other terms which have related roots.</rdfs:comment>
+    <rdfs:label>considerAlso</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#source">
+    <dct:description>A property of SupplementaryConceptRecords. Citation reference string in which the SupplementaryConceptRecord was first found. Single occurrence if SupplementaryConceptRecord created since 1980; frequency reports total citations indexed with the term in MEDLINE/PubMed. Possible multiple occurrences if SupplementaryConceptRecord created prior to 1980; term not found on those citations in MEDLINE/PubMed. Number of multiple Source occurrences need to be added to Frequency count for grand total of citations to articles discussing the SCR.</dct:description>
+    <rdfs:comment>A property of SupplementaryConceptRecords. Citation reference string in which the SupplementaryConceptRecord was first found. Single occurrence if SupplementaryConceptRecord created since 1980; frequency reports total citations indexed with the term in MEDLINE/PubMed. Possible multiple occurrences if SupplementaryConceptRecord created prior to 1980; term not found on those citations in MEDLINE/PubMed. Number of multiple Source occurrences need to be added to Frequency count for grand total of citations to articles discussing the SCR.</rdfs:comment>
+    <rdfs:label>source</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#historyNote">
+    <dct:description>A property of Descriptors or Qualifiers. Free-text information that traces the concept in MeSH and is deemed helpful for the online searcher. Headings and entry terms are entered in upper case. Initial characters refer to the year in which the Descriptor or Qualifier was created in MeSH in its current form (i.e., with the same preferred term). A date in parentheses indicates the oldest creation date of terms, provisional headings (before 1975), or minor headings (before 1991), which are reflected in bibliographic citations. Entries without a year date were created between 1963 and 1966.</dct:description>
+    <rdfs:comment>A property of Descriptors or Qualifiers. Free-text information that traces the concept in MeSH and is deemed helpful for the online searcher. Headings and entry terms are entered in upper case. Initial characters refer to the year in which the Descriptor or Qualifier was created in MeSH in its current form (i.e., with the same preferred term). A date in parentheses indicates the oldest creation date of terms, provisional headings (before 1975), or minor headings (before 1991), which are reflected in bibliographic citations. Entries without a year date were created between 1963 and 1966.</rdfs:comment>
+    <rdfs:label>historyNote</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#scopeNote">
+    <dct:description>A property of Concepts. Free-text narrative giving the scope and meaning (definition) of a Concept.</dct:description>
+    <rdfs:comment>A property of Concepts. Free-text narrative giving the scope and meaning (definition) of a Concept.</rdfs:comment>
+    <rdfs:label>scopeNote</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#hasDescriptor">
+    <rdfs:range rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Descriptor"/>
+    <dct:description>Relates DescriptorQualifierPairs to Descriptors.</dct:description>
+    <rdfs:comment>Relates DescriptorQualifierPairs to Descriptors.</rdfs:comment>
+    <rdfs:label>hasDescriptor</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#term">
+    <dct:description>Relates Concepts to Terms. Each Concept has a set of entry terms and a preferred term that are related to the Concept.</dct:description>
+    <rdfs:comment>Relates Concepts to Terms. Each Concept has a set of entry terms and a preferred term that are related to the Concept.</rdfs:comment>
+    <rdfs:label>term</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#SCR_Chemical">
+    <dct:description>These are chemicals, drugs, enzymes, vitamins, etc.</dct:description>
+    <rdfs:comment>These are chemicals, drugs, enzymes, vitamins, etc.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SCR_Organism"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SCR_Disease"/>
+    <rdfs:subClassOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord"/>
+    <rdfs:label>MeSH SCR Chemical</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#note">
+    <dct:description>A property of SupplementaryConceptRecords. Free-text narrative giving information about the SupplementaryConceptRecord, and may include information such as the registryNumber.</dct:description>
+    <rdfs:comment>A property of SupplementaryConceptRecords. Free-text narrative giving information about the SupplementaryConceptRecord, and may include information such as the registryNumber.</rdfs:comment>
+    <rdfs:label>note</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#preferredConcept">
+    <rdfs:subPropertyOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#concept"/>
+    <dct:description>Relates Descriptors or Supplementary Concept Records to Concepts. The preferred concept is frequently a broader concept that includes narrower sub-concepts, but may also be one among several distinct concepts. The preferred concept is selected as the primary or most prominent representation among the concepts in the literature. meshv:preferredConcept is a subproperty of meshv:concept.</dct:description>
+    <rdfs:comment>Relates Descriptors or Supplementary Concept Records to Concepts. The preferred concept is frequently a broader concept that includes narrower sub-concepts, but may also be one among several distinct concepts. The preferred concept is selected as the primary or most prominent representation among the concepts in the literature. meshv:preferredConcept is a subproperty of meshv:concept.</rdfs:comment>
+    <rdfs:label>preferredConcept</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#prefLabel">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+    <dct:description>A property of Terms. The preferred string for the term. meshv:prefLabel is a subproperty of rdfs:label.</dct:description>
+    <rdfs:comment>A property of Terms. The preferred string for the term. meshv:prefLabel is a subproperty of rdfs:label.</rdfs:comment>
+    <rdfs:label>prefLabel</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#mappedTo">
+    <dct:description>Relates SupplementaryConceptRecords to Descriptors or DescriptorQualifierPairs. A Descriptor or DescriptorQualifierPair that is a parent (not the main parent; lacks an asterisk designation in the Source XML) for the SupplementaryConceptRecord and that is automatically added to the journal citation for which the SupplementaryConceptRecord is indexed. See also meshv:preferredMappedTo.</dct:description>
+    <rdfs:comment>Relates SupplementaryConceptRecords to Descriptors or DescriptorQualifierPairs. A Descriptor or DescriptorQualifierPair that is a parent (not the main parent; lacks an asterisk designation in the Source XML) for the SupplementaryConceptRecord and that is automatically added to the journal citation for which the SupplementaryConceptRecord is indexed. See also meshv:preferredMappedTo.</rdfs:comment>
+    <rdfs:label>mappedTo</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair">
+    <dct:description>A combined MeSH descriptor and qualifier pair. Allowed pairs (according to MeSH rules) belong to the class meshv:AllowedDescriptorQualifierPair. Disallowed pairs belong to the class meshv:DisallowedDescriptorQualifierPair.</dct:description>
+    <rdfs:comment>A combined MeSH descriptor and qualifier pair. Allowed pairs (according to MeSH rules) belong to the class meshv:AllowedDescriptorQualifierPair. Disallowed pairs belong to the class meshv:DisallowedDescriptorQualifierPair.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#TreeNumber"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Term"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Qualifier"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label>MeSH DescriptorQualifierPair</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#annotation">
+    <dct:description>A property of Descriptors or Qualifiers. Free-text information for indexers and catalogers concerning the use of the Descriptor or Qualifier.</dct:description>
+    <rdfs:comment>A property of Descriptors or Qualifiers. Free-text information for indexers and catalogers concerning the use of the Descriptor or Qualifier.</rdfs:comment>
+    <rdfs:label>annotation</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#lastActiveYear">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <dct:description>A property of all classes. Indicates the most recent year in which inactive MeSH content was active.</dct:description>
+    <rdfs:comment>A property of all classes. Indicates the most recent year in which inactive MeSH content was active.</rdfs:comment>
+    <rdfs:label>lastActiveYear</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#preferredTerm">
+    <rdfs:subPropertyOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#term"/>
+    <dct:description>Relates Concepts, Descriptors, Qualifiers or SupplementaryConceptRecords to Terms. Indicates that the Term is the preferred term for a Concept, Descriptor, Qualifier, or SupplementaryConceptRecord.</dct:description>
+    <rdfs:comment>Relates Concepts, Descriptors, Qualifiers or SupplementaryConceptRecords to Terms. Indicates that the Term is the preferred term for a Concept, Descriptor, Qualifier, or SupplementaryConceptRecord.</rdfs:comment>
+    <rdfs:label>preferredTerm</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#sortVersion">
+    <dct:description>A property of Terms. Custom version of a Term label used to sort properly in a print product; format is all uppercase.</dct:description>
+    <rdfs:comment>A property of Terms. Custom version of a Term label used to sort properly in a print product; format is all uppercase.</rdfs:comment>
+    <rdfs:label>sortVersion</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#abbreviation">
+    <dct:description>A property of Terms. Two-letter, uppercase abbreviation for a Qualifier term.</dct:description>
+    <rdfs:comment>A property of Terms. Two-letter, uppercase abbreviation for a Qualifier term.</rdfs:comment>
+    <rdfs:label>abbreviation</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#TreeNumber">
+    <dct:description>Tree Numbers are used to organize MeSH Descriptors in a broader-than/narrower-than manner.</dct:description>
+    <rdfs:comment>Tree Numbers are used to organize MeSH Descriptors in a broader-than/narrower-than manner.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label>MeSH TreeNumber</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#parentTreeNumber">
+    <rdfs:domain rdf:resource="http://id.nlm.nih.gov/mesh/vocab#TreeNumber"/>
+    <rdfs:range rdf:resource="http://id.nlm.nih.gov/mesh/vocab#TreeNumber"/>
+    <dct:description>Relates one TreeNumber to another. Immediate “parent” TreeNumber, meaning one level higher in the TreeNumber hierarchy. Example: D03.438.221 is a parent of D03.438.221.173.</dct:description>
+    <rdfs:comment>Relates one TreeNumber to another. Immediate “parent” TreeNumber, meaning one level higher in the TreeNumber hierarchy. Example: D03.438.221 is a parent of D03.438.221.173.</rdfs:comment>
+    <rdfs:label>parentTreeNumber</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#dateCreated">
+    <dct:description>A property of Descriptors, Qualifiers, SupplementaryConceptRecords or Terms. Date in YYYY-MM-DD format when a Descriptor, Qualifer, SupplementaryConceptRecord or Term was first added to MeSH provisionally. This timestamp may be a year behind the dateEstablished. Upon conversion to a new MeSH maintenance system in 1999, a default value of 1999-01-01 was supplied.</dct:description>
+    <rdfs:comment>A property of Descriptors, Qualifiers, SupplementaryConceptRecords or Terms. Date in YYYY-MM-DD format when a Descriptor, Qualifer, SupplementaryConceptRecord or Term was first added to MeSH provisionally. This timestamp may be a year behind the dateEstablished. Upon conversion to a new MeSH maintenance system in 1999, a default value of 1999-01-01 was supplied.</rdfs:comment>
+    <rdfs:label>dateCreated</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#relatedRegistryNumber">
+    <dct:description>A property of Concepts. An additional unique identifier for chemicals, which is sometimes followed by a label in parentheses. Multiple Related Registry Numbers are allowed for each Concept. For example, these might be salts and/or stereoisomers of the parent compound. Used for Concepts related to Descriptors in the D Category Drugs and Chemicals and for SupplementaryConceptRecords.</dct:description>
+    <rdfs:comment>A property of Concepts. An additional unique identifier for chemicals, which is sometimes followed by a label in parentheses. Multiple Related Registry Numbers are allowed for each Concept. For example, these might be salts and/or stereoisomers of the parent compound. Used for Concepts related to Descriptors in the D Category Drugs and Chemicals and for SupplementaryConceptRecords.</rdfs:comment>
+    <rdfs:label>relatedRegistryNumber</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#Term">
+    <dct:description>MeSH terms provide synonymous names for MeSH concepts. Terms have 'T' identifiers, and are considered either preferred or lexical variants, such as 'Congenital Abnormalities' as opposed to 'Abnormality, Congenital'.</dct:description>
+    <rdfs:comment>MeSH terms provide synonymous names for MeSH concepts. Terms have 'T' identifiers, and are considered either preferred or lexical variants, such as 'Congenital Abnormalities' as opposed to 'Abnormality, Congenital'.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#TreeNumber"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label>MeSH Term</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#SCR_Organism">
+    <dct:description>SCR Organisms includes viruses and more broadly organisms (B cat).</dct:description>
+    <rdfs:comment>SCR Organisms includes viruses and more broadly organisms (B cat).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord"/>
+    <rdfs:label>MeSH SCR Organism</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#CheckTag">
+    <dct:description>A special class of descriptor singled out because they are so frequently applied to biomedical literature. There are only 2 Descriptors that are members of the class meshv:CheckTag: D005260 (Male) and D008297 (Female). These two Descriptors do not have tree numbers. </dct:description>
+    <rdfs:comment>A special class of descriptor singled out because they are so frequently applied to biomedical literature. There are only 2 Descriptors that are members of the class meshv:CheckTag: D005260 (Male) and D008297 (Female). These two Descriptors do not have tree numbers. </rdfs:comment>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#PublicationType"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#GeographicalDescriptor"/>
+    <rdfs:subClassOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Descriptor"/>
+    <rdfs:label>MeSH CheckTag</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#thesaurusID">
+    <dct:description>A property of Terms. Name of a Thesaurus in which the term occurs. The value 'NLM' is equivalent to MeSH.</dct:description>
+    <rdfs:comment>A property of Terms. Name of a Thesaurus in which the term occurs. The value 'NLM' is equivalent to MeSH.</rdfs:comment>
+    <rdfs:label>thesaurusID</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#identifier">
+    <dct:description>A property of Descriptors, Qualifiers, SupplementaryConceptRecords, Concepts and Terms. Descriptor identifier is a 7 or 10 alphanumeric starting with the letter D. Qualifier identifier is a 7 or 10 alphanumeric starting with the letter Q. SupplementaryConceptRecord identifier is a 7 or 10 alphanumeric starting with the letter C. Concept identifier is an 8 or 10 alphanumeric starting with the letter M. Term identifier is a 7 or 10 alphanumeric starting with the letter T. The 10 alphanumeric format was implemented for new identifiers created on or after about May 19, 2014.</dct:description>
+    <rdfs:comment>A property of Descriptors, Qualifiers, SupplementaryConceptRecords, Concepts and Terms. Descriptor identifier is a 7 or 10 alphanumeric starting with the letter D. Qualifier identifier is a 7 or 10 alphanumeric starting with the letter Q. SupplementaryConceptRecord identifier is a 7 or 10 alphanumeric starting with the letter C. Concept identifier is an 8 or 10 alphanumeric starting with the letter M. Term identifier is a 7 or 10 alphanumeric starting with the letter T. The 10 alphanumeric format was implemented for new identifiers created on or after about May 19, 2014.</rdfs:comment>
+    <rdfs:label>identifier</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord">
+    <dct:description>Supplementary Concepts are created in MeSH to aid in searching the large volume of mainly chemicals and drugs. meshv:SupplementaryConceptRecord has three sub-classes: meshv:RegularSubstance, meshv:SCR_Protocol, and meshv:SCR_Disease.</dct:description>
+    <rdfs:comment>Supplementary Concepts are created in MeSH to aid in searching the large volume of mainly chemicals and drugs. meshv:SupplementaryConceptRecord has three sub-classes: meshv:RegularSubstance, meshv:SCR_Protocol, and meshv:SCR_Disease.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#TreeNumber"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Term"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label>MeSH SupplementaryConceptRecord </rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#entryVersion">
+    <dct:description>A property of Terms. Used for internal NLM processing only.</dct:description>
+    <rdfs:comment>A property of Terms. Used for internal NLM processing only.</rdfs:comment>
+    <rdfs:label>entryVersion</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#dateRevised">
+    <dct:description>A property of Descriptors, Qualifiers, or SupplementaryConceptRecords. Indicates that a revision was made to Descriptor, Qualifier, or SupplementaryConceptRecord data in YYYY-MM-DD format.</dct:description>
+    <rdfs:comment>A property of Descriptors, Qualifiers, or SupplementaryConceptRecords. Indicates that a revision was made to Descriptor, Qualifier, or SupplementaryConceptRecord data in YYYY-MM-DD format.</rdfs:comment>
+    <rdfs:label>dateRevised</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#hasQualifier">
+    <rdfs:range rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Qualifier"/>
+    <dct:description>Relates DescriptorQualifierPairs to Qualifiers.</dct:description>
+    <rdfs:comment>Relates DescriptorQualifierPairs to Qualifiers.</rdfs:comment>
+    <rdfs:label>hasQualifier</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#Qualifier">
+    <dct:description>Also known as Subheadings, these provide context to the use of a MeSH Heading.</dct:description>
+    <rdfs:comment>Also known as Subheadings, these provide context to the use of a MeSH Heading.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#TreeNumber"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Term"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label>MeSH Qualifier</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol">
+    <dct:description>MeSH protocols are therapies in the domain of cancer treatment.</dct:description>
+    <rdfs:comment>MeSH protocols are therapies in the domain of cancer treatment.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SCR_Organism"/>
+    <rdfs:subClassOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord"/>
+    <rdfs:label>MeSH SCR Protocol</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#active">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <dct:description>A property of all classes. A Boolean-typed property that indicates whether MeSH content is active in the current MeSH year.</dct:description>
+    <rdfs:comment>A property of all classes. A Boolean-typed property that indicates whether MeSH content is active in the current MeSH year.</rdfs:comment>
+    <rdfs:label>active</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#concept">
+    <dct:description>Relates Descriptors, Qualifiers or SupplementaryConceptRecords to Concepts. Designates a member of a collection of Concepts for a Descriptor, Qualifier or SCR.</dct:description>
+    <rdfs:comment>Relates Descriptors, Qualifiers or SupplementaryConceptRecords to Concepts. Designates a member of a collection of Concepts for a Descriptor, Qualifier or SCR.</rdfs:comment>
+    <rdfs:label>concept</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#GeographicalDescriptor">
+    <dct:description>A descriptor that references places or regions of the world, such as D001061, 'Appalachian Region'.</dct:description>
+    <rdfs:comment>A descriptor that references places or regions of the world, such as D001061, 'Appalachian Region'.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#TopicalDescriptor"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#PublicationType"/>
+    <rdfs:subClassOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Descriptor"/>
+    <rdfs:label>MeSH GeographicalDescriptor</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#seeAlso">
+    <dct:description>Relates one Descriptor to another. Reference to a specific Descriptor to which a user is referred by a 'see related' cross-reference.</dct:description>
+    <rdfs:comment>Relates one Descriptor to another. Reference to a specific Descriptor to which a user is referred by a 'see related' cross-reference.</rdfs:comment>
+    <rdfs:label>seeAlso</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#onlineNote">
+    <dct:description>A property of Descriptors and Qualifiers. Free-text information intended to direct the MeSH online searcher to alternate search terms. Superseded by a more detailed historyNote when onlineNote is not present.</dct:description>
+    <rdfs:comment>A property of Descriptors and Qualifiers. Free-text information intended to direct the MeSH online searcher to alternate search terms. Superseded by a more detailed historyNote when onlineNote is not present.</rdfs:comment>
+    <rdfs:label>onlineNote</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#altLabel">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+    <owl:propertyDisjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#prefLabel"/>
+    <dct:description>A property of Terms. A lexical variant for a Term’s prefLabel. meshv:altLabel is a subproperty of rdfs:label</dct:description>
+    <rdfs:comment>A property of Terms. A lexical variant for a Term’s prefLabel. meshv:altLabel is a subproperty of rdfs:label</rdfs:comment>
+    <rdfs:label>altLabel</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#DisallowedDescriptorQualifierPair">
+    <dct:description>A combined MeSH descriptor and qualifier where the pairing is not allowed by MeSH rules, such as Abdomen/radiography.</dct:description>
+    <rdfs:comment>A combined MeSH descriptor and qualifier where the pairing is not allowed by MeSH rules, such as Abdomen/radiography.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#DescriptorQualifierPair"/>
+    <rdfs:label>MeSH DisallowedDescriptorQualifierPair</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#treeNumber">
+    <rdfs:range rdf:resource="http://id.nlm.nih.gov/mesh/vocab#TreeNumber"/>
+    <dct:description>Relates Descriptors or Qualifiers to TreeNumbers. Alpha-numeric string referring to location within a Descriptor or Qualifier hierarchy. Used for browsing the MeSH vocabulary and for inclusive searches by retrieval systems using MeSH. (Note that the Trees hierarchy is not represented using subelements. The hierarchy is represented by the TreeNumber itself.) Up to thirteen hierarchical levels.</dct:description>
+    <rdfs:comment>Relates Descriptors or Qualifiers to TreeNumbers. Alpha-numeric string referring to location within a Descriptor or Qualifier hierarchy. Used for browsing the MeSH vocabulary and for inclusive searches by retrieval systems using MeSH. (Note that the Trees hierarchy is not represented using subelements. The hierarchy is represented by the TreeNumber itself.) Up to thirteen hierarchical levels.</rdfs:comment>
+    <rdfs:label>treeNumber</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#SCR_Disease">
+    <dct:description>SCR Diseases were originally brought into MeSH from a list maintained by the Office of Rare Diseases Research.</dct:description>
+    <rdfs:comment>SCR Diseases were originally brought into MeSH from a list maintained by the Office of Rare Diseases Research.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SCR_Organism"/>
+    <owl:disjointWith rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SCR_Protocol"/>
+    <rdfs:subClassOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord"/>
+    <rdfs:label>MeSH SCR Disease</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#preferredMappedTo">
+    <rdfs:subPropertyOf rdf:resource="http://id.nlm.nih.gov/mesh/vocab#mappedTo"/>
+    <dct:description>Relates SupplementaryConceptRecords to Descriptors or DescriptorQualifierPairs. Designates a Descriptor or DescriptorQualifierPair that is a main parent (includes an asterisk designation in the Source XML) for the SupplementaryConceptRecord and that is automatically added to the journal citation for which the SupplementaryConceptRecord is indexed. meshv:preferredMappedTo is a subproperty of meshv:mappedTo.</dct:description>
+    <rdfs:comment>Relates SupplementaryConceptRecords to Descriptors or DescriptorQualifierPairs. Designates a Descriptor or DescriptorQualifierPair that is a main parent (includes an asterisk designation in the Source XML) for the SupplementaryConceptRecord and that is automatically added to the journal citation for which the SupplementaryConceptRecord is indexed. meshv:preferredMappedTo is a subproperty of meshv:mappedTo.</rdfs:comment>
+    <rdfs:label>preferredMappedTo</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#">
+    <owl:versionInfo>1.0.0</owl:versionInfo>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#dateEstablished">
+    <dct:description>A property of Descriptors or Qualifiers. Date in YYYY-MM-DD format when the Descriptor or Qualifier became effective for use; set to YYYY-01-01 where YYYY = year of introduction to MeSH.</dct:description>
+    <rdfs:comment>A property of Descriptors or Qualifiers. Date in YYYY-MM-DD format when the Descriptor or Qualifier became effective for use; set to YYYY-01-01 where YYYY = year of introduction to MeSH.</rdfs:comment>
+    <rdfs:label>dateEstablished</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#useInstead">
+    <dct:description>Relates DisallowedDescriptorQualifierPairs to Descriptors or AllowedDescriptorQualifierPairs. Descriptor or DescriptorQualifierPair recommended in place of the prohibited combination.</dct:description>
+    <rdfs:comment>Relates DisallowedDescriptorQualifierPairs to Descriptors or AllowedDescriptorQualifierPairs. Descriptor or DescriptorQualifierPair recommended in place of the prohibited combination.</rdfs:comment>
+    <rdfs:label>useInstead</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#previousIndexing">
+    <dct:description>A property of Descriptors and Supplementary Concept Records. Free-text information referring to Descriptors or DescriptorQualifierPairs that were used to index the concept in MEDLINE before the Descriptor was created. Intended to enable users of new Descriptors to find similar concepts indexed before the Descriptor was created. Includes a date or date range. May include descriptive text referring to a group of Descriptors as “specifics”. Data are not maintained when a Descriptor or Qualifier name changes. DUI D005290 example: Iron (1966-1974). Also used for SupplementaryConceptRecords to refer to the Descriptor or DescriptorQualifierPair to which the SupplementaryConceptRecord was previously mapped.</dct:description>
+    <rdfs:comment>A property of Descriptors and Supplementary Concept Records. Free-text information referring to Descriptors or DescriptorQualifierPairs that were used to index the concept in MEDLINE before the Descriptor was created. Intended to enable users of new Descriptors to find similar concepts indexed before the Descriptor was created. Includes a date or date range. May include descriptive text referring to a group of Descriptors as “specifics”. Data are not maintained when a Descriptor or Qualifier name changes. DUI D005290 example: Iron (1966-1974). Also used for SupplementaryConceptRecords to refer to the Descriptor or DescriptorQualifierPair to which the SupplementaryConceptRecord was previously mapped.</rdfs:comment>
+    <rdfs:label>previousIndexing</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#registryNumber">
+    <dct:description>A property of Concepts. A unique identifier from one of these sources: Enzyme Commission (Example: EC 2.4.2.17; Example for Partial enzyme number: EC 1.4.3.-); Chemical Abstracts Service (CAS) (Example: 7004-12-8); FDA Substance Registration System Unique Identifier (UNII) in 10-character format (Example: R16CO5Y76E); or the value of 0 if no match is available from the previous sources. A single MeSH Concept can only have one Registry Number. Used for Concepts related to Descriptors in the D Category Drugs and Chemicals and for SupplementaryConceptRecords.</dct:description>
+    <rdfs:comment>A property of Concepts. A unique identifier from one of these sources: Enzyme Commission (Example: EC 2.4.2.17; Example for Partial enzyme number: EC 1.4.3.-); Chemical Abstracts Service (CAS) (Example: 7004-12-8); FDA Substance Registration System Unique Identifier (UNII) in 10-character format (Example: R16CO5Y76E); or the value of 0 if no match is available from the previous sources. A single MeSH Concept can only have one Registry Number. Used for Concepts related to Descriptors in the D Category Drugs and Chemicals and for SupplementaryConceptRecords.</rdfs:comment>
+    <rdfs:label>registryNumber</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#frequency">
+    <dct:description>A property of SupplementaryConceptRecords. Number of citations indexed with a SupplementaryConceptRecord in MEDLINE/PubMed. Automatically updated monthly in the XML. See also meshv:source definition.</dct:description>
+    <rdfs:comment>A property of SupplementaryConceptRecords. Number of citations indexed with a SupplementaryConceptRecord in MEDLINE/PubMed. Automatically updated monthly in the XML. See also meshv:source definition.</rdfs:comment>
+    <rdfs:label>frequency</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#publicMeSHNote">
+    <dct:description>A property of Descriptors. Free-text information about the history of changes to the Descriptor that may be helpful to the user of the printed Index Medicus publication (ceased in 2005). This includes the date the Descriptor was created in MeSH, changes in the preferred term, earlier status as an SupplementaryConceptRecord, etc. Unlike the History Note, this note reflects the MeSH vocabulary printed at that point in time, not as updated for online databases. Applies only to TopicalDescriptors. MeSH Descriptor labels are in upper case.</dct:description>
+    <rdfs:comment>A property of Descriptors. Free-text information about the history of changes to the Descriptor that may be helpful to the user of the printed Index Medicus publication (ceased in 2005). This includes the date the Descriptor was created in MeSH, changes in the preferred term, earlier status as an SupplementaryConceptRecord, etc. Unlike the History Note, this note reflects the MeSH vocabulary printed at that point in time, not as updated for online databases. Applies only to TopicalDescriptors. MeSH Descriptor labels are in upper case.</rdfs:comment>
+    <rdfs:label>publicMeSHNote</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#narrowerConcept">
+    <rdfs:range rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Concept"/>
+    <rdfs:domain rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Concept"/>
+    <dct:description>Relates one Concept to another. A semantic relationship between the preferred concept and subordinate concept(s) where one is narrower in meaning. Example: M0353609 is narrower with respect to M0000001.</dct:description>
+    <rdfs:comment>Relates one Concept to another. A semantic relationship between the preferred concept and subordinate concept(s) where one is narrower in meaning. Example: M0353609 is narrower with respect to M0000001.</rdfs:comment>
+    <rdfs:label>narrowerConcept</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://id.nlm.nih.gov/mesh/vocab#allowableQualifier">
+    <rdfs:range rdf:resource="http://id.nlm.nih.gov/mesh/vocab#Qualifier"/>
+    <dct:description>Relates Descriptors to Qualifiers. A specific Qualifier allowed in combination with the Descriptor.</dct:description>
+    <rdfs:comment>Relates Descriptors to Qualifiers. A specific Qualifier allowed in combination with the Descriptor.</rdfs:comment>
+    <rdfs:label>allowableQualifier</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,25 @@
+{
+  "name": "nlm-meshrdf-lodestar",
+  "version": "1.0.0",
+  "description": "A version of Lodestar customized by NLM for MeSH RDF",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/HHS/meshrdf",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "4.0.12"
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-declare": "^0.3.0",
+    "gulp-handlebars": "^5.0.2",
+    "gulp-merge": "^0.1.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-wrap": "^0.14.0"
+  }
+}

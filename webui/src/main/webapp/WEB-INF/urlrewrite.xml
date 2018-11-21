@@ -121,9 +121,9 @@
   </rule>
 
   <rule>
-      <name>vocab-to-ttl-file</name>
+      <name>vocab-to-owl-file</name>
       <from casesensitive="true">^/vocab(#.*)?$</from>
-      <to type="redirect">vocabulary.ttl</to>
+      <to type="redirect">vocabulary.owl</to>
   </rule>
 
 <!--
@@ -223,9 +223,4 @@
       <to>/servlet/explore?uri=$1&amp;format=$2</to>
     </rule>
     -->
-
-
-
-
-
 </urlrewrite>
