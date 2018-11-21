@@ -65,7 +65,6 @@ var sparqlQueryTextArea;
         $this.append(lodestarDiv);
         _parseOptions(options);
         _buildExplorerPage (contentsDiv);
-        return this;
     };
 
     $.fn.sparql = function(options) {
@@ -74,14 +73,12 @@ var sparqlQueryTextArea;
         _parseOptions(options);
         _buildSparqlPage (contentsDiv);
         initSparql();
-        return this;
     };
 
     $.fn.voiddesc = function(options) {
         var $this = $(this);
         _parseOptions(options);
         _buildVoid ($this);
-        returrn this;
     };
 })(jQuery);
 
@@ -289,8 +286,6 @@ function _buildExplorerPage(element) {
 }
 
 function _buildSparqlPage(element) {
-    Handlebars.template.
-
     var sparqlForm = $(
        "<form id='lodestar-sparql-form' class='ui-widget ui-corner-all'"+
        " name='lode-star-sparql form' action='#lodestart-sparql-results' method='GET'></form>");
@@ -346,11 +341,11 @@ function _buildSparqlPage(element) {
       .append(
           $("<select name='year' id='year'></select>")
               .append("<option value='current'>Current</option>")
-              .append("<option value='2015'>2015</option>")
-              .append("<option value='2016'>2016</option>")
-              .append("<option value='2017'>2017</option>")
-              .append("<option value='2018'>2018</option>")
+              .append("<option value='2019'>2019</option>")
               .append("<option value='2018'>2019</option>")
+              .append("<option value='2017'>2017</option>")
+              .append("<option value='2016'>2016</option>")
+              .append("<option value='2015'>2015</option>")
               .on("change", _fixQueryYear)
       );
 

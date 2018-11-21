@@ -46,6 +46,17 @@
         </listener-class>
     </listener>
 
+    <!-- Make sure we have mime mappings in place for static vocabulary and void-->
+    <mime-mapping>
+        <extension>ttl</extension>
+        <mime-type>text/turtle</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>owl</extension>
+        <mime-type>application/rdf+xml</mime-type>
+    </mime-mapping>
+
     <!-- Provide monitoring via JavaMelody after ContextLoaderListener -->
     <filter>
         <filter-name>javamelody</filter-name>

@@ -50,7 +50,7 @@ public class BasicsTest extends LodeBaseTest {
   }
 
   @Test
-  public void testVocabularyFile() {
+  public void testVocabularyTurtle() {
     LinkChecker vocablink = new LinkChecker();
     vocablink.add(getLodeBaseUrl()+"/vocabulary.ttl");
     vocablink.shouldMatchContentType("^text/turtle");
@@ -58,12 +58,20 @@ public class BasicsTest extends LodeBaseTest {
   }
 
   @Test
+  public void testVocabularyOwl() {
+    LinkChecker vocablink = new LinkChecker();
+    vocablink.add(getLodeBaseUrl()+"/vocabulary.owl");
+    vocablink.shouldMatchContentType("^application/rdf\\+xml");
+    vocablink.shouldBeValid();   
+  }
+
+  @Test
   public void testVocabularyRedirect() {
     LinkChecker vocablink = new LinkChecker();
     vocablink.add(getLodeBaseUrl()+"/vocab#CheckTag");
-    vocablink.shouldMatchContentType("^text/turtle");
+    // NOTE: link points to production, always, so don't check Content-Type
+    //   vocablink.shouldMatchContentType("^text/turtle");
     vocablink.shouldBeValid();
   }
-
 
 }

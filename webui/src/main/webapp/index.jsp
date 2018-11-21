@@ -95,10 +95,10 @@
                 </div>
                 <div class="row meshrdf-resource-item">
                   <div class="col-md-6">
-                    <h4><a href="https://support.nlm.nih.gov/ics/support/ticketnewwizard.asp?style=classic&amp;deptID=28054&amp;from=https://id.nlm.nih.gov/mesh/">Support</a></h4>
+                    <h4><a href="https://support.nlm.nih.gov/?category=MeSH&amp;from=https://id.nlm.nih.gov/mesh/">Support</a></h4>
                   </div>
                   <div class="col-md-6">
-                    <p>Visit our <a href="https://github.com/HHS/meshrdf/issues">GitHub</a> repository and submit an issue or contact <a href="https://support.nlm.nih.gov/ics/support/ticketnewwizard.asp?style=classic&amp;deptID=28054&amp;from=https://id.nlm.nih.gov/mesh/">NLM Customer Support</a>.</p>
+                    <p>Visit our <a href="https://github.com/HHS/meshrdf/issues">GitHub</a> repository and submit an issue or contact <a href="https://support.nlm.nih.gov/?category=MeSH&amp;from=https://id.nlm.nih.gov/mesh/">NLM Customer Support</a>.</p>
                   </div>
                 </div>
               </div>
