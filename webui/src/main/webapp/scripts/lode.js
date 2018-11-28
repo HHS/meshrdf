@@ -342,7 +342,7 @@ function _buildSparqlPage(element) {
           $("<select name='year' id='year'></select>")
               .append("<option value='current'>Current</option>")
               .append("<option value='2019'>2019</option>")
-              .append("<option value='2018'>2019</option>")
+              .append("<option value='2018'>2018</option>")
               .append("<option value='2017'>2017</option>")
               .append("<option value='2016'>2016</option>")
               .append("<option value='2015'>2015</option>")
