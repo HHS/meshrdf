@@ -1,5 +1,7 @@
 _site
 .DS_Store
+.project
+/.settings/
 /data
 /out
 SaxonHE9-5-1-5J.zip
