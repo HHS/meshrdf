@@ -17,9 +17,9 @@ MeSH RDF will use the following conventions for URIs, graphs and filenames:
 MeSH RDF will follow established MeSH versioning practices, but MeSH RDF will be expressed in non-versioned and versioned URIs. Unless there is a specific use case for using the versioned data, NLM recommends using the current, non-versioned URIs and graph. For example, the Descriptor for Ofloxacin will have the following URIs:
 
 * http://id.nlm.nih.gov/mesh/D015242 (current, non-versioned)
+* http://id.nlm.nih.gov/mesh/2019/D015242 (2019, versioned)
+* http://id.nlm.nih.gov/mesh/2018/D015242 (2018, versioned)
 * http://id.nlm.nih.gov/mesh/2017/D015242 (2017, versioned)
-* http://id.nlm.nih.gov/mesh/2016/D015242 (2016, versioned)
-* http://id.nlm.nih.gov/mesh/2015/D015242 (2015, versioned)
 
 The non-versioned URI reflects the current state of MeSH at any given time. Requesting data from versioned URIs will return the most recent snapshot of the data from that year. For the current year, versioned data will mirror non-versioned data until NLM archives the versioned data in November. At that point, the versioned data will become static. NLM plans to retain no more than three years of versioned URIs, and NLM will not produce versioned URIs for data prior to 2015 MeSH. 
 
@@ -47,9 +47,9 @@ Requests for deprecated URIs will still return an HTTP 200 status code, but no d
 MeSH RDF data is represented in a current, versionless graph and versioned graphs:
 
 * http://id.nlm.nih.gov/mesh (current)
+* http://id.nlm.nih.gov/mesh/2019 (2019)
+* http://id.nlm.nih.gov/mesh/2018 (2018)
 * http://id.nlm.nih.gov/mesh/2017 (2017)
-* http://id.nlm.nih.gov/mesh/2016 (2016)
-* http://id.nlm.nih.gov/mesh/2015 (2015)
 
 Use these graphs to run SPARQL queries on MeSH RDF data. NLM plans to retain no more than three years of versioned graphs, and NLM will not produce versioned graphs for data prior to 2015 MeSH. 
 
