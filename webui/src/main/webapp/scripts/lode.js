@@ -123,8 +123,8 @@ function _parseOptions(options) {
         log("Parsed options...");
         log(_options)
     }
-
 }
+
 
 function _buildVoid(element) {
 

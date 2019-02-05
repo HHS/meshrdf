@@ -1,19 +1,19 @@
 package gov.nih.nlm.lode.tests;
 
 import java.util.List;
-import java.util.ArrayList;
+import java.time.LocalDate;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
-import org.testng.Reporter;
+import org.testng.annotations.BeforeTest;
 
 import static org.testng.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import gov.nih.nlm.occs.selenium.SeleniumTest;
 
 public class QueryTest extends LodeBaseTest {
 
@@ -55,13 +55,15 @@ public class QueryTest extends LodeBaseTest {
         { "mesh:D065609", "/D065609", "Cytochrome P-450 CYP1A2 Inhibitors" },
     };
 
-    public static final String[][] EX3_PAGE1_CHECKED_RESULTS = {
+    public String pastYear = "2015";
+
+    public String[][] EX3_PAGE1_CHECKED_RESULTS = {
         { "mesh2015:D019813", "/2015/D019813", "1,2-Dimethylhydrazine" },
         { "mesh2015:D020001", "/2015/D020001", "1-Butanol" },
         { "mesh2015:D015068", "/2015/D015068", "17-Ketosteroids" },
     };
 
-    public static final String[][] EX3_PAGE2_CHECKED_RESULTS = {
+    public String[][] EX3_PAGE2_CHECKED_RESULTS = {
         { "mesh2015:D008456", "/2015/D008456", "2-Methyl-4-chlorophenoxyacetic Acid" },
         { "mesh2015:D019840", "/2015/D019840", "2-Propanol" },
     };
@@ -73,6 +75,26 @@ public class QueryTest extends LodeBaseTest {
         { "mesh:D002694", "Chlamydiaceae Infections", "mesh:M0004111", "Chlamydiaceae Infections" },
         { "mesh:D003015", "Clostridium Infections", "mesh:M000622571", "Clostridium sordellii Infection" },
     };
+
+    @BeforeTest
+    public void setUpPastYear() {
+        /* This calculation works because if we have rolled it, then the year maybe 2019, but the Mesh Year is 2020,
+         * so 2018 is the oldest can be counted on.   However, through most of the year of 2019, 2017 will be there
+         * as well. What we want to assure is that we can select a past year and it appears in the form and works.
+         */
+        int thisYear = LocalDate.now().getYear();
+        this.pastYear = Integer.toString(thisYear - 1);
+
+        for (String[] result : this.EX3_PAGE1_CHECKED_RESULTS) {
+            result[0] = result[0].replace("2015", this.pastYear);
+            result[1] = result[1].replace("2015", this.pastYear);
+        }
+
+        for (String[] result : this.EX3_PAGE2_CHECKED_RESULTS) {
+            result[0] = result[0].replace("2015", this.pastYear);
+            result[1] = result[1].replace("2015", this.pastYear);
+        }
+    }
 
     public void clickSubmitQuery() {
         // submit the query form
@@ -209,11 +231,12 @@ public class QueryTest extends LodeBaseTest {
     }
 
     @Test(groups="query", dependsOnMethods={"testDefaults"})
-    public void testExample3with2015() {
+    public void testExample3withPastYear() {
+
         openQueryPage();
 
         clickOnExampleQuery(3);
-        clickOptionWithinSelect("year", "2015");
+        clickOptionWithinSelect("year", this.pastYear);
         clickOptionWithinSelect("format", "HTML");
         clickOptionWithinSelect("limit", "50");
 
@@ -247,12 +270,12 @@ public class QueryTest extends LodeBaseTest {
         shouldBeValidLinks(driver.findElements(By.cssSelector(FOR_LODESTAR_RESULT_LINKS)));
     }
 
-    @Test(groups="query", dependsOnMethods={"testExample3with2015"})
+    @Test(groups="query", dependsOnMethods={"testExample3withPastYear"})
     public void testPagination() {
         openQueryPage();
 
         clickOnExampleQuery(3);
-        clickOptionWithinSelect("year", "2015");
+        clickOptionWithinSelect("year", this.pastYear);
         clickOptionWithinSelect("format", "HTML");
         clickOptionWithinSelect("limit", "50");
 
@@ -323,12 +346,12 @@ public class QueryTest extends LodeBaseTest {
         assertEquals(page1matched, EX3_PAGE1_CHECKED_RESULTS.length);
     }
 
-    @Test(groups="query", dependsOnMethods={"testExample3with2015"})
+    @Test(groups="query", dependsOnMethods={"testExample3withPastYear"})
     public void testLimitRows() {
         openQueryPage();
 
         clickOnExampleQuery(3);
-        clickOptionWithinSelect("year", "2015");
+        clickOptionWithinSelect("year", this.pastYear);
         clickOptionWithinSelect("format", "HTML");
         clickOptionWithinSelect("limit", "25");
 

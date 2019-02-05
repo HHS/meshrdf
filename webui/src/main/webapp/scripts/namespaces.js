@@ -21,4 +21,3 @@ var lodeNamespacePrefixes = {
     mesh2018: 'http://id.nlm.nih.gov/mesh/2018/',
     mesh2019: 'http://id.nlm.nih.gov/mesh/2019/',
 };
-
