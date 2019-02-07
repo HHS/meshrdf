@@ -1,12 +1,8 @@
 package gov.nih.nlm.lode.servlet;
 
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 
 import javax.servlet.jsp.JspWriter;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
@@ -35,16 +31,7 @@ public class GTMScriptTag extends TagSupport {
      * @return gtmcode - validated gtmcode property
      */
     public static String getGTMCode() {
-        String checkedcode = null;
-        String rawcode = System.getProperty("meshrdf.gtmcode");
-        if (null != rawcode && rawcode.length() != 0) {
-            Pattern expr = Pattern.compile("^GTM-[A-Z0-9]+$");
-            Matcher idm = expr.matcher(rawcode);
-            if (idm.matches()) {
-                checkedcode = idm.group();
-            }
-        }
-        return checkedcode;
+        return SafeProperty.getProperty("meshrdf.gtmcode", "GTM-[A-Z0-9]+");
     }
 
     @Override

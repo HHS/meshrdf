@@ -336,16 +336,17 @@ function _buildSparqlPage(element) {
           .append("&#160;&#160;&#160;");
     }
 
+    select = $("<select name='year' id='year'></select>")
+              .append("<option value='current'>Current</option>");
+    for (var i in [0, 1, 2]) {
+        var year = NLM.meshYear - i;
+        select.append("<option value='"+year+"'>"+year+"</option>");
+    }
+    select.on("change", _fixQueryYear);
+
     control_p
       .append( $("<label for='year'>Year</label>") )
-      .append(
-          $("<select name='year' id='year'></select>")
-              .append("<option value='current'>Current</option>")
-              .append("<option value='2019'>2019</option>")
-              .append("<option value='2018'>2018</option>")
-              .append("<option value='2017'>2017</option>")
-              .on("change", _fixQueryYear)
-      );
+      .append(select);
 
     section1.append(
         $("<p></p>").append(

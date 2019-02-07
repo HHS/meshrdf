@@ -10,14 +10,22 @@
  * and limitations under the License.
  */
 
-var lodeNamespacePrefixes = {
-    rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
-    rdfs: 'http://www.w3.org/2000/01/rdf-schema#',
-    xsd: 'http://www.w3.org/2001/XMLSchema#',
-    owl: 'http://www.w3.org/2002/07/owl#',
-    meshv: 'http://id.nlm.nih.gov/mesh/vocab#',
-    mesh: 'http://id.nlm.nih.gov/mesh/',
-    mesh2017: 'http://id.nlm.nih.gov/mesh/2017/',
-    mesh2018: 'http://id.nlm.nih.gov/mesh/2018/',
-    mesh2019: 'http://id.nlm.nih.gov/mesh/2019/',
-};
+var lodeNamespacePrefixes = (function() {
+	var namespaces = {
+	    rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+	    rdfs: 'http://www.w3.org/2000/01/rdf-schema#',
+	    xsd: 'http://www.w3.org/2001/XMLSchema#',
+	    owl: 'http://www.w3.org/2002/07/owl#',
+	    meshv: 'http://id.nlm.nih.gov/mesh/vocab#',
+	    mesh: 'http://id.nlm.nih.gov/mesh/',
+	};
+
+	/* Enhancement by NLM - we include the last 3 years of MeSH as prefixes */
+	for (var i in [0, 1, 2]) {
+		var year = NLM.meshYear - i;
+		var prefix = 'mesh'+year;
+		var expansion = 'http://id.nlm.nih.gov/mesh/'+year+'/';
+		namespaces[prefix] = expansion;
+	}
+	return namespaces;
+})();
