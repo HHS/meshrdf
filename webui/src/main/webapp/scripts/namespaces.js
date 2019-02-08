@@ -10,7 +10,7 @@
  * and limitations under the License.
  */
 
-var lodeNamespacePrefixes = (function() {
+function buildNamespaces(year, minYear) {
 	var namespaces = {
 	    rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
 	    rdfs: 'http://www.w3.org/2000/01/rdf-schema#',
@@ -21,11 +21,13 @@ var lodeNamespacePrefixes = (function() {
 	};
 
 	/* Enhancement by NLM - we include the last 3 years of MeSH as prefixes */
-	for (var i in [0, 1, 2]) {
-		var year = NLM.meshYear - i;
+	while (year >= minYear) {
 		var prefix = 'mesh'+year;
 		var expansion = 'http://id.nlm.nih.gov/mesh/'+year+'/';
 		namespaces[prefix] = expansion;
+		year = year - 1;
 	}
 	return namespaces;
-})();
+}
+
+var lodeNamespacePrefixes = buildNamespaces(NLM.meshYear, NLM.minYear);

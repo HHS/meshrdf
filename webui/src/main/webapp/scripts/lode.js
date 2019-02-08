@@ -1572,8 +1572,11 @@ function renderJson(uri) {
 
 function _getPrefixes () {
     var prefixes = '';
-    for (prefix in this.lodestarNamespaces) {
-        var uri = this.lodestarNamespaces[prefix];
+    if (this.queryNamespaces === undefined) {
+        this.queryNamespaces = buildNamespaces(NLM.meshYear, NLM.meshYear - 2);
+    }
+    for (prefix in this.queryNamespaces) {
+        var uri = this.queryNamespaces[prefix];
         prefixes = prefixes + 'PREFIX ' + prefix + ': <' + uri + '>\n';
     }
     return prefixes;

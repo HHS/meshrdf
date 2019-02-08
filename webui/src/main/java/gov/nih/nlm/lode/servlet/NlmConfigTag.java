@@ -18,11 +18,13 @@ public class NlmConfigTag extends TagSupport {
     private static final long serialVersionUID = 1L;
 
     public static final String MESHRDF_YEAR = "meshrdf.year";
+    public static final int MESHRDF_MINYEAR = 2015;
 
     private static final String TAG_FORMAT = "<script>"
             + "var NLM = (function() {"
             + "  return {"
             + "    meshYear: %d,"
+            + "    minYear: %d,"
             + "  }"
             + "})();"
             + "</script>\n";
@@ -43,7 +45,7 @@ public class NlmConfigTag extends TagSupport {
     public int doStartTag() throws JspException {
         JspWriter out = pageContext.getOut();
         try {
-            out.print(String.format(TAG_FORMAT, getMeshYear()));
+            out.print(String.format(TAG_FORMAT, getMeshYear(), MESHRDF_MINYEAR));
         } catch (IOException e) {
             throw new JspException("IOException", e);
         }

@@ -21,6 +21,7 @@ import gov.nih.nlm.lode.servlet.NlmConfigTag;
 
 public class NlmConfigTest {
     private static final String MESHRDF_YEAR = NlmConfigTag.MESHRDF_YEAR;
+    private static final int MESHRDF_MINYEAR = NlmConfigTag.MESHRDF_MINYEAR;
 
     private String origMeshYear = null;
     private Integer defaultYear = null;
@@ -63,9 +64,12 @@ public class NlmConfigTest {
         tag.setPageContext(pageContext);
         tag.doStartTag();
 
-        String expectedValue = String.format("meshYear: %d", defaultYear);
+        String currentYear = String.format("meshYear: %d", defaultYear);
+        String minYear = String.format("minYear: %d", MESHRDF_MINYEAR);
+
         String content = response.getContentAsString();
-        assertThat(content, containsString(expectedValue));
+        assertThat(content, containsString(currentYear));
+        assertThat(content, containsString(minYear));
     }
 
     @Test(groups="unit")
@@ -78,9 +82,11 @@ public class NlmConfigTest {
         tag.setPageContext(pageContext);
         tag.doStartTag();
 
-        String expectedValue = String.format("meshYear: %d", defaultYear);
+        String currentYear = String.format("meshYear: %d", defaultYear);
+        String minYear = String.format("minYear: %d", MESHRDF_MINYEAR);
         String content = response.getContentAsString();
-        assertThat(content, containsString(expectedValue));
+        assertThat(content, containsString(currentYear));
+        assertThat(content, containsString(minYear));
     }
 
     @Test(groups="unit")
@@ -93,8 +99,10 @@ public class NlmConfigTest {
         tag.setPageContext(pageContext);
         tag.doStartTag();
 
-        String expectedValue = "meshYear: 2136";
+        String currentYear = "meshYear: 2136";
+        String minYear = String.format("minYear: %d", MESHRDF_MINYEAR);
         String content = response.getContentAsString();
-        assertThat(content, containsString(expectedValue));
+        assertThat(content, containsString(currentYear));
+        assertThat(content, containsString(minYear));
     }
 }
