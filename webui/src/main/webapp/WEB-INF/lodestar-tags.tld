@@ -17,5 +17,9 @@
         <tag-class>gov.nih.nlm.lode.servlet.GTMNoScriptTag</tag-class>
         <body-content>empty</body-content>
     </tag>
-    
+    <tag>
+        <name>nlmconfig</name>
+        <tag-class>gov.nih.nlm.lode.servlet.NlmConfigTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
 </taglib>

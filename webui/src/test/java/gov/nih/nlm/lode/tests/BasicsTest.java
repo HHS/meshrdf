@@ -20,6 +20,7 @@ public class BasicsTest extends LodeBaseTest {
     elementShouldContain(By.cssSelector(".meshrdf-heading > h1"), "Medical Subject Headings");
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
+    noPageErrors();
   }
 
   @Test
@@ -29,6 +30,7 @@ public class BasicsTest extends LodeBaseTest {
     elementShouldContain(By.cssSelector(".meshrdf-heading > h1"), "Medical Subject Headings");
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
+    noPageErrors();
   }
 
   @Test
@@ -38,6 +40,7 @@ public class BasicsTest extends LodeBaseTest {
     elementShouldContain(By.cssSelector(".meshrdf-heading > h1"), "Medical Subject Headings");
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
+    noPageErrors();
   }
 
   @Test
@@ -47,6 +50,7 @@ public class BasicsTest extends LodeBaseTest {
     elementShouldContain(By.cssSelector(".meshrdf-heading > h1"), "Medical Subject Headings");
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
+    noPageErrors();
   }
 
   @Test
@@ -62,7 +66,7 @@ public class BasicsTest extends LodeBaseTest {
     LinkChecker vocablink = new LinkChecker();
     vocablink.add(getLodeBaseUrl()+"/vocabulary.owl");
     vocablink.shouldMatchContentType("^application/rdf\\+xml");
-    vocablink.shouldBeValid();   
+    vocablink.shouldBeValid();
   }
 
   @Test

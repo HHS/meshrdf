@@ -7,6 +7,7 @@
     <title>MeSH SPARQL Explorer</title>
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <lodestar:nlmconfig/>
     <%@ include file="internal/head.jspf" %>
     <lodestar:gtmscript/>
   </head>

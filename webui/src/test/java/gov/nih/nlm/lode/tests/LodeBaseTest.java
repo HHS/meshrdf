@@ -19,6 +19,7 @@ public class LodeBaseTest extends SeleniumTest {
 
   public static final String OFLAXIN_RELURI = "/D015242";
   public static final String YEAR_PREFIX = "/2015";
+  public static final String CANONICAL_PREFIX = "http://id.nlm.nih.gov/mesh";
 
   public String getLodeBaseUrl() {
     if (baseUrl == null || baseUrl.equals("")) {
@@ -83,9 +84,14 @@ public class LodeBaseTest extends SeleniumTest {
     linkcheck.setSocketTimeout(10);
     linkcheck.addRequestHeader("Accept", "text/html, text/plain, text/turtle");
     linkcheck.addRequestHeader("Upgrade-Insecure-Requests", "1");
+
+    String lodebaseUrl = getLodeBaseUrl();
     for (WebElement link : links) {
       String tag = link.getTagName();
       String href = (tag.equalsIgnoreCase("script") || tag.equalsIgnoreCase("img") ? link.getAttribute("src") : link.getAttribute("href"));
+      if (href.startsWith(CANONICAL_PREFIX)) {
+          href = href.replace(CANONICAL_PREFIX, lodebaseUrl);
+      }
       linkcheck.add(href);
     }
     linkcheck.shouldBeValid();
@@ -103,6 +109,14 @@ public class LodeBaseTest extends SeleniumTest {
     String prefix = (useprefix ? YEAR_PREFIX : "");
     String uri = getLodeBaseUrl() + prefix + OFLAXIN_RELURI;
     driver.get(uri);
+  }
+
+  public void noPageErrors() {
+      WebElement javascriptErrorPre = driver.findElement(By.cssSelector("#jserr pre"));
+      assertThat(javascriptErrorPre, not(nullValue()));
+
+      String javascriptErrorText = javascriptErrorPre.getText().trim();
+      assertThat(javascriptErrorText, equalTo(""));
   }
 
 }
