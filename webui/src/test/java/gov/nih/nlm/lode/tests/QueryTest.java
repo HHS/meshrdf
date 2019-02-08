@@ -157,6 +157,7 @@ public class QueryTest extends LodeBaseTest {
         }
 
         shouldBeValidLinks(driver.findElements(By.cssSelector(FOR_LODESTAR_RESULT_LINKS)));
+        noPageErrors();
     }
 
     @Test(groups="query", dependsOnMethods={"testDefaults"})
@@ -185,6 +186,7 @@ public class QueryTest extends LodeBaseTest {
         assertEquals(numMatched, EX1_CHECKED_RESULTS.length);
 
         shouldBeValidLinks(driver.findElements(By.cssSelector(FOR_LODESTAR_RESULT_LINKS)));
+        noPageErrors();
     }
 
     @Test(groups="query", dependsOnMethods={"testDefaults"})
@@ -228,6 +230,7 @@ public class QueryTest extends LodeBaseTest {
         assertEquals(numMatched, EX2_CHECKED_RESULTS.length);
 
         shouldBeValidLinks(driver.findElements(By.cssSelector(FOR_LODESTAR_RESULT_LINKS)));
+        noPageErrors();
     }
 
     @Test(groups="query", dependsOnMethods={"testDefaults"})
@@ -268,6 +271,7 @@ public class QueryTest extends LodeBaseTest {
         assertEquals(numMatched, EX3_PAGE1_CHECKED_RESULTS.length);
 
         shouldBeValidLinks(driver.findElements(By.cssSelector(FOR_LODESTAR_RESULT_LINKS)));
+        noPageErrors();
     }
 
     @Test(groups="query", dependsOnMethods={"testExample3withPastYear"})
@@ -344,6 +348,7 @@ public class QueryTest extends LodeBaseTest {
             }
         }
         assertEquals(page1matched, EX3_PAGE1_CHECKED_RESULTS.length);
+        noPageErrors();
     }
 
     @Test(groups="query", dependsOnMethods={"testExample3withPastYear"})
@@ -385,6 +390,7 @@ public class QueryTest extends LodeBaseTest {
 
         // NOTE: One of these checked results is passed row 25
         assertEquals(numMatched, EX3_PAGE1_CHECKED_RESULTS.length - 1);
+        noPageErrors();
     }
 
     @Test(groups="query", dependsOnMethods={"testDefaults"})
@@ -425,5 +431,6 @@ public class QueryTest extends LodeBaseTest {
         assertEquals(numMatched, EX4_CHECKED_RESULTS.length);
 
         shouldBeValidLinks(driver.findElements(By.cssSelector(FOR_LODESTAR_RESULT_LINKS)));
+        noPageErrors();
     }
 }

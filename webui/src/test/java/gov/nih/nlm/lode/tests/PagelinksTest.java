@@ -1,17 +1,11 @@
 package gov.nih.nlm.lode.tests;
 
 import java.util.List;
-import java.util.ArrayList;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import gov.nih.nlm.occs.selenium.SeleniumTest;
 
 @Test(groups = "pagelinks")
 public class PagelinksTest extends LodeBaseTest {
@@ -21,6 +15,7 @@ public class PagelinksTest extends LodeBaseTest {
     openHomePage();
     List<WebElement> links = driver.findElements(By.xpath("//script[@src]"));
     shouldBeValidLinks(links);
+    noPageErrors();
   }
 
   @Test
@@ -28,6 +23,7 @@ public class PagelinksTest extends LodeBaseTest {
     openHomePage();
     List<WebElement> links = driver.findElements(By.xpath("//head/link[@src]"));
     shouldBeValidLinks(links);
+    noPageErrors();
   }
 
   @Test
@@ -66,6 +62,7 @@ public class PagelinksTest extends LodeBaseTest {
 
     List<WebElement> lodeExploreLinks = driver.findElements(By.cssSelector("#lodestar-contents_lode_explore a"));
     shouldBeValidLinks(lodeExploreLinks);
+    noPageErrors();
   }
 
   @Test
@@ -78,5 +75,6 @@ public class PagelinksTest extends LodeBaseTest {
 
     List<WebElement> lodeExploreLinks = driver.findElements(By.cssSelector("#lodestar-contents_lode_explore a"));
     shouldBeValidLinks(lodeExploreLinks);
+    noPageErrors();
   }
 }
