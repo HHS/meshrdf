@@ -1000,6 +1000,31 @@ function createTableHeader (names) {
     return htmlString;
 }
 
+function getResourceTypePriority(uri) {
+    var priority = 1;
+    var specials = {
+        "http://id.nlm.nih.gov/mesh/vocab#SupplementaryConceptRecord": 2,
+        "http://id.nlm.nih.gov/mesh/vocab#Descriptor": 2,
+    };
+    if (NLM.uriMatchesPrefix("meshv", uri)) {
+        priority = specials[uri] || 10;
+    }
+    return priority;
+}
+
+function getResourceType(relatedObjects) {
+    var bestType = relatedObjects[0];
+    var bestPriority = getResourceTypePriority(bestType.uri);
+    for (var i = 1; i < relatedObjects.length; i++) {
+        var candidateType = relatedObjects[i];
+        var candidatePriority = getResourceTypePriority(candidateType.uri);
+        if (candidatePriority > bestPriority) {
+            bestType = candidateType;
+            bestPriority = candidatePriority;
+        }
+    }
+    return bestType;
+}
 
 function renderResourceTypes(element) {
     var identifier = getIdentifier(document.location.href);
@@ -1018,16 +1043,16 @@ function renderResourceTypes(element) {
             type: 'GET',
             url: lodestarExploreService + "/resourceTypes?uri=" + identifier,
             success: function (data){
-
                 loading.empty();
                 if (data.length > 0) {
-                    var div = element;
+                    var div = element
                     if (data[0].relatedObjects.length > 0) {
+                        var resourceType = getResourceType(data[0].relatedObjects);
                         var about = $("<h3 class='side'>Type: </h3>");
                         var span = $("<span style='font-size:larger'></span>");
                         var uriset = {};
-                        uriset[data[0].relatedObjects[0].uri] = true;
-                        span.append (_hrefBuilder(data[0].relatedObjects[0].uri, data[0].relatedObjects[0].label, true));
+                        uriset[resourceType.uri] = true;
+                        span.append (_hrefBuilder(resourceType.uri, resourceType.label, true));
                         div.append(about);
                         div.append(span);
                         var p = $("<p></p>");

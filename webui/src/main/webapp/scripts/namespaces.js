@@ -31,3 +31,15 @@ function buildNamespaces(year, minYear) {
 }
 
 var lodeNamespacePrefixes = buildNamespaces(NLM.meshYear, NLM.minYear);
+
+NLM.uriMatchesNamespace = function(namespace, uri) {
+	return uri.indexOf(namespace) == 0;
+}
+
+NLM.uriMatchesPrefix = function(prefix, uri) {
+	var namespace = lodeNamespacePrefixes[prefix];
+	if (namespace !== undefined) {
+		return NLM.uriMatchesNamespace(namespace, uri);
+	}
+	return false;
+}
