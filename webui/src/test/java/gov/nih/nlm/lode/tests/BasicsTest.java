@@ -66,9 +66,16 @@ public class BasicsTest extends LodeBaseTest {
   public void testVocabularyRedirect() {
     LinkChecker vocablink = new LinkChecker();
     vocablink.add(getLodeBaseUrl()+"/vocab#CheckTag");
-    // NOTE: link points to production, always, so don't check Content-Type
-    //   vocablink.shouldMatchContentType("^text/turtle");
+    vocablink.shouldMatchContentType("^application/rdf\\+xml");
     vocablink.shouldBeValid();
   }
 
+  @Test
+  public void testVoidRedirect() {
+    LinkChecker voidlink = new LinkChecker();
+    voidlink.add(getLodeBaseUrl()+"/void#MeSHRDF");
+    voidlink.add(getLodeBaseUrl()+"/void");
+    voidlink.shouldMatchContentType("^text/turtle");
+    voidlink.shouldBeValid();
+  }
 }
