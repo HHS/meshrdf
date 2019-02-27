@@ -126,6 +126,12 @@
       <to type="redirect">vocabulary.owl</to>
   </rule>
 
+  <rule>
+      <name>void-to-ttl-file</name>
+      <from casesensitive="true">^/void(#.*)?$</from>
+      <to type="redirect">void.ttl</to>
+  </rule>
+
 <!--
     <rule>
       <name>commented-1</name>
