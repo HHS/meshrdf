@@ -20,16 +20,11 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.Header;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
 import org.apache.http.message.BasicHeader;
 
-import org.apache.commons.lang3.tuple.Pair;
-
 import org.testng.Reporter;
-
 import static org.testng.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
+
 
 public class LinkChecker {
 
@@ -134,6 +129,7 @@ public class LinkChecker {
 
     public void addRequestHeader(final Header header) {
         addRequestCallback(new LinkChecker.RequestCallback() {
+            @Override
             public void withRequest(HttpRequest request) {
                 request.setHeader(header);
             }
@@ -148,6 +144,7 @@ public class LinkChecker {
         try {
             final Pattern pattern = Pattern.compile(valueExpr);
             addResponseCallback(new LinkChecker.ResponseCallback() {
+                @Override
                 public void withResponse(HttpResponse response) {
                     Header header = response.getFirstHeader(name);
                     assertNotNull(header);
@@ -201,9 +198,9 @@ public class LinkChecker {
         URI lastbadlink = null;
         RequestConfig.Builder config = RequestConfig.custom();
         if (connectTimeout != null)
-            config.setConnectTimeout((int)connectTimeout * 1000);
+            config.setConnectTimeout(connectTimeout * 1000);
         if (socketTimeout != null)
-            config.setSocketTimeout((int)socketTimeout * 1000);
+            config.setSocketTimeout(socketTimeout * 1000);
         HttpClientBuilder builder = HttpClients.custom();
         builder.setDefaultRequestConfig(config.build());
         if (!followRedirects)

@@ -12,7 +12,7 @@
     <parent>
         <groupId>gov.nih.nlm.lode</groupId>
         <artifactId>meshrdf</artifactId>
-        <version>1.0.6</version>
+        <version>1.0.7</version>
     </parent>
 
     <properties>
@@ -50,10 +50,22 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/webapp</directory>
+                        </resource>
+                        <resource>
+                            <directory>../meta</directory>
+                            <includes>
+                                <include>*.ttl</include>
+                                <include>*.owl</include>
+                            </includes>
+                        </resource>
+                    </webResources>
                     <overlays>
                         <overlay>
                             <groupId>ebi-lode</groupId>
-                            <artifactId>web-ui</artifactId>
+                            <artifactId>web-ui</artifactId>                        
                             <excludes>
                                 <exclude>index.html</exclude>
                                 <exclude>query.html</exclude>
