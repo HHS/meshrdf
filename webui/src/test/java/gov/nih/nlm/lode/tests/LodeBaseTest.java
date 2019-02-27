@@ -97,6 +97,25 @@ public class LodeBaseTest extends SeleniumTest {
     linkcheck.shouldBeValid();
   }
 
+  public void shouldBeExplorerPage() {
+      titleShouldBe("MeSH RDF Explorer");
+      elementShouldContain(By.cssSelector(".meshrdf-heading > h1"), "Medical Subject Headings");
+  }
+
+  public void shouldBeResourceType(String expectedTypeLabel) {
+      WebElement typeElement = findElement(By.cssSelector("#lodestar-contents_lode_explore_resourceType a.graph-link"));
+      assertThat(typeElement, not(nullValue()));
+      String actualTypeLabel = typeElement.getText().trim();
+      assertThat(actualTypeLabel, equalTo(expectedTypeLabel));
+  }
+
+  public void shouldBeAbout(String expectedAboutLabel) {
+      WebElement aboutElement = findElement(By.cssSelector("#lodestar-contents_lode_explore_resourceTopObject a.graph-link"));
+      assertThat(aboutElement, not(nullValue()));
+      String actualAboutLabel = aboutElement.getText().trim();
+      assertThat(actualAboutLabel, equalTo(expectedAboutLabel));
+  }
+
   public void openHomePage() {
     driver.get(getLodeBaseUrl());
   }
@@ -105,10 +124,25 @@ public class LodeBaseTest extends SeleniumTest {
     driver.get(getLodeBaseUrl() + "/query");
   }
 
-  public void openExplorerPage(Boolean useprefix) {
-    String prefix = (useprefix ? YEAR_PREFIX : "");
-    String uri = getLodeBaseUrl() + prefix + OFLAXIN_RELURI;
-    driver.get(uri);
+  public void openExplorerPage(String relativeUri, boolean usePrefix) {
+      if (relativeUri == null || relativeUri.length() == 0) {
+          relativeUri = OFLAXIN_RELURI;
+      }
+      if (relativeUri.charAt(0) != '/') {
+          relativeUri = '/'+relativeUri;
+      }
+      String prefix = (usePrefix ? YEAR_PREFIX : "");
+      String uri = getLodeBaseUrl() + prefix + relativeUri;
+      driver.get(uri);
+  }
+  public void openExplorerPage(String relativeUri) {
+      openExplorerPage(relativeUri, false);
+  }
+  public void openExplorerPage(Boolean usePrefix) {
+      openExplorerPage(null, usePrefix);
+  }
+  public void openExplorerPage() {
+      openExplorerPage(null, false);
   }
 
   public void noPageErrors() {

@@ -1000,7 +1000,6 @@ function createTableHeader (names) {
     return htmlString;
 }
 
-
 function renderResourceTypes(element) {
     var identifier = getIdentifier(document.location.href);
 
@@ -1069,6 +1068,7 @@ function renderResourceTypes(element) {
         })
     }
 }
+
 
 function renderAllResourceTypes(element, exclude) {
     var match = document.location.href.match(/\?(.*)/);
