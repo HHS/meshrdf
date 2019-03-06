@@ -10,10 +10,7 @@
 
     <appender name="file" class="org.apache.log4j.FileAppender">
         <param name="file" value="${lodestar.log.prefix}lodestar.log" />
-        <param name="append" value="false" />
-        <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
-        </layout>
+        <layout class="net.logstash.log4j.JSONEventLayoutV1" />
     </appender>
 
     <logger name="org.springframework" additivity="false">

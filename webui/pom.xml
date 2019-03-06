@@ -210,6 +210,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!--  Enable JSON Logging -->
+        <dependency>
+            <groupId>net.logstash.log4j</groupId>
+            <artifactId>jsonevent-layout</artifactId>
+            <version>1.7</version>
+        </dependency>
+
         <!--
         Build and test requires the servlet and JSP API.
         We use the version for Tomcat 7, even though we
