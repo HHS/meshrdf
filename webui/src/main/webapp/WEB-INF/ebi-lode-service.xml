@@ -12,13 +12,15 @@
 
     <bean name="explorerConfig" class="uk.ac.ebi.fgpt.lode.impl.DefaultExplorerViewConfigImpl"/>
 
-    <!-- The Explorer Servlet is auto-wired by the lode-servlet.xml, this code is not really used -->
-    <bean id="serviceServlet" class="uk.ac.ebi.fgpt.lode.servlet.ExplorerServlet">
+    <!-- The Explorer Servlet is auto-wired by the lode-servlet.xml so that this bean
+         wiring is provided for completeness.
+    <bean id="serviceServlet" class="uk.ak.ebi.fgpt.servlet.ExplorerServlet">
         <property name="sparqlService" ref="jenaSparqlService"/>
         <property name="configuration" ref="explorerConfig"/>
         <property name="service" ref="explorerServiceImpl"/>
         <property name="baseUri" value="${lode.explorer.service.baseuri}"/>
     </bean>
+    -->
 
     <!--Uncomment these two beans for virtuoso connection pooling-->
     <bean id="jenaVirtuosoConnectionPoolService" class="uk.ac.ebi.fgpt.lode.impl.JenaVirtuosoConnectionPoolService">
@@ -37,11 +39,10 @@
         <!--<property name="maxPoolSize" value="10"/>-->
     <!--</bean>-->
 
-     <!--For direct virtuoso JDBC connection, use this service-->
+    <!--For direct virtuoso JDBC connection, use this service-->
     <!--<bean id="jenaVirtuosoExecutorService" class="uk.ac.ebi.fgpt.lode.impl.JenaVirtuosoExecutorService">-->
         <!--<property name="endpointURL" value="jdbc:virtuoso://${lode.sparqlendpoint.url}:${lode.sparqlendpoint.port}" />-->
     <!--</bean>-->
-
 
     <!--
        A basic HTTP service bean for connecting to SPARQL endpoint
@@ -60,9 +61,12 @@
         <property name="queryExecutionService" ref="jenaVirtuosoConnectionPoolService"/>
     </bean>
 
-    <bean id="sparqlServlet" class="uk.ac.ebi.fgpt.lode.servlet.SparqlServlet">
+    <!-- This bean is wired by lode-servlet.xml, at the dispacher context level, but
+         is included here for completeness.
+    <bean id="sparqlServlet" class="gov.nih.nlm.lode.servlet.SparqlController">
         <property name="sparqlService" ref="jenaSparqlService"/>
     </bean>
+    -->
 
     <bean id="queryReader" class="uk.ac.ebi.fgpt.lode.utils.SparqlQueryReader" init-method="init">
         <property name="sparqlQueryResource" value="classpath:sparql-queries.txt" />
