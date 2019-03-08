@@ -8,9 +8,14 @@
         </layout>
     </appender>
 
-    <appender name="file" class="org.apache.log4j.FileAppender">
+    <appender name="file" class="org.apache.log4j.RollingFileAppender">
         <param name="file" value="${lodestar.log.prefix}lodestar.jsonl" />
         <layout name="file-layout" class="net.logstash.log4j.JSONEventLayoutV1" />
+    </appender>
+
+    <appender name="apilog" class="org.apache.log4j.FileAppender">
+        <param name="file" value="${lodestar.log.prefix}apilog.jsonl" />
+        <layout name="apilog-layout" class="net.logstash.log4j.JSONEventLayoutV1" />
     </appender>
 
     <logger name="org.springframework" additivity="false">
@@ -26,6 +31,11 @@
     <logger name="gov.nih.nlm.lode" additivity="false">
         <level value="INFO"/>
         <appender-ref ref="file"/>
+    </logger>
+
+    <logger name="gov.nih.nlm.lode.api" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="apilog"/>
     </logger>
 
     <root>

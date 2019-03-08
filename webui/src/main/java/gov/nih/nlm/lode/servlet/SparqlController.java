@@ -41,14 +41,15 @@ public class SparqlController extends SparqlServlet {
             @RequestParam(value = "inference", required = false) boolean inference,
             HttpServletRequest request,
             HttpServletResponse response) throws QueryParseException, LodeException, IOException {
-        super.query(query, format, offset, limit, inference, request, response);
         String v;
-        v = request.getHeader("Referer");
-        MDC.put("webui", v != null && v.contains("/mesh/query"));
         if ((v = request.getHeader("User-Agent")) != null)
             MDC.put("ua", v);
         if ((v = ServletUtils.getClientAddress(request)) != null)
             MDC.put("cliaddr", v);
+        if ((v = request.getRequestedSessionId()) != null)
+            MDC.put("requestedsession", v);
+        v = request.getHeader("Referer");
+        MDC.put("webui", v != null && v.contains("/mesh/query"));
         if (query != null)
             MDC.put("query", query);
         if (format != null)
@@ -58,8 +59,6 @@ public class SparqlController extends SparqlServlet {
         if (offset != null)
             MDC.put("offset", offset);
         MDC.put("inference", inference);
-        if ((v = request.getRequestedSessionId()) != null)
-            MDC.put("session-requested", v);
         HttpSession session = request.getSession();
         if (session != null) {
             // Convert session datetime into a zoned date time
@@ -68,9 +67,13 @@ public class SparqlController extends SparqlServlet {
                     ZoneId.systemDefault()
             );
             // print that as ISO8601 formatted timestamp
-            MDC.put("session-time", zdt.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
-            MDC.put("session-id", session.getId());
+            MDC.put("sessiontime", zdt.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+            MDC.put("sessionid", session.getId());
         }
+        DiagnosticHttpServletResponseWrapper wrappedResponse = new DiagnosticHttpServletResponseWrapper(response);
+        super.query(query, format, offset, limit, inference, request, wrappedResponse);
+        MDC.put("responsesize", wrappedResponse.getCount());
+        MDC.put("responsetime", wrappedResponse.getResponseTime());
         apilog.info("sparql query");
         MDC.clear();
     }
