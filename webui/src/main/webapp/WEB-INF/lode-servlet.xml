@@ -17,8 +17,13 @@
     <!-- autowire this context only (just controllers, not services) based on annotations -->
     <context:annotation-config />
 
-    <!-- Add also gov.nih.nlm.lode.servlet -->
-    <context:component-scan base-package="uk.ac.ebi.fgpt.lode.servlet, gov.nih.nlm.lode.servlet" />
+    <!-- Allow our sparqlServlet to override lodestar's base servlet -->
+    <context:component-scan base-package="uk.ac.ebi.fgpt.lode.servlet">
+        <context:exclude-filter type="regex" expression="uk\.ac\.ebi\.fgpt\.lode\.servlet\.SparqlServlet"/>
+    </context:component-scan>
+
+    <!-- Scan our own packages -->
+    <context:component-scan base-package="gov.nih.nlm.lode.servlet"/>
 
     <!-- drive MVC setup based on @Controller, @RequestMapping annotations etc -->
     <mvc:annotation-driven />
