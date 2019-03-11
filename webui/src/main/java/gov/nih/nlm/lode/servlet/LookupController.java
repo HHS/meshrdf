@@ -20,9 +20,9 @@ import gov.nih.nlm.lode.model.DescriptorCriteria;
 import gov.nih.nlm.lode.model.QualifierCriteria;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
+@Validated
 @RestController
 @RequestMapping("lookup")
-@Validated
 public class LookupController {
 
     private Logger log = LoggerFactory.getLogger(getClass());
