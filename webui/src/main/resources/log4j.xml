@@ -10,7 +10,7 @@
 
     <appender name="file" class="org.apache.log4j.RollingFileAppender">
         <param name="file" value="${lodestar.log.prefix}lodestar.jsonl" />
-        <param name="MaxFileSize" value="100KB"/>
+        <param name="MaxFileSize" value="32MB"/>
         <param name="MaxBackupIndex" value="5"/>
         <layout name="file-layout" class="net.logstash.log4j.JSONEventLayoutV1" />
     </appender>
