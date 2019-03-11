@@ -19,5 +19,10 @@
         <img src="https://www.nlm.nih.gov/images/usagov_logo.gif" alt="USA.gov logo"/>
       </a>
     </div>
+    <div class="col-md-5 small">
+      <span class="version">
+        Version <%@ include file="/internal/about.html" %>
+      </span>
+    </div>
   </div>
 </footer>

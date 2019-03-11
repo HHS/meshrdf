@@ -1,18 +1,21 @@
 package gov.nih.nlm.lode.tests;
 
-import java.util.List;
-import java.time.LocalDate;
+import static org.hamcrest.CoreMatchers.endsWith;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
-import org.openqa.selenium.WebElement;
+import java.time.LocalDate;
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
-
-import static org.testng.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
+import org.testng.annotations.Test;
 
 
 public class QueryTest extends LodeBaseTest {
@@ -184,8 +187,6 @@ public class QueryTest extends LodeBaseTest {
             }
         }
         assertEquals(numMatched, EX1_CHECKED_RESULTS.length);
-
-        shouldBeValidLinks(driver.findElements(By.cssSelector(FOR_LODESTAR_RESULT_LINKS)));
         noPageErrors();
     }
 

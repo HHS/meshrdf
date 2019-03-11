@@ -19,7 +19,7 @@
 
     <bean name="explorerConfig" class="uk.ac.ebi.fgpt.lode.impl.DefaultExplorerViewConfigImpl"/>
 
-    <!-- The Explorer Servlet is auto-wired by the lode-servlet.xml, this code is not really used -->
+    <!-- The Explorer Servlet is auto-wired by the component scan above, so this code is not really used -->
     <bean id="serviceServlet" class="uk.ac.ebi.fgpt.lode.servlet.ExplorerServlet">
         <property name="sparqlService" ref="jenaSparqlService"/>
         <property name="configuration" ref="explorerConfig"/>
@@ -56,9 +56,11 @@
         <property name="queryExecutionService" ref="jenaVirtuosoConnectionPoolService"/>
     </bean>
 
-    <bean id="sparqlServlet" class="uk.ac.ebi.fgpt.lode.servlet.SparqlServlet">
+    <!-- The Sparql Controller is auto-wired by the component scan above, so this code is not really used
+    <bean id="sparqlServlet" class="gov.nih.nlm.lode.servlet.SparqlController">
         <property name="sparqlService" ref="jenaSparqlService"/>
     </bean>
+    -->
 
     <bean id="queryReader" class="uk.ac.ebi.fgpt.lode.utils.SparqlQueryReader" init-method="init">
         <property name="sparqlQueryResource" value="classpath:sparql-queries.txt" />

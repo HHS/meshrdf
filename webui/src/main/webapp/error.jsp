@@ -58,7 +58,7 @@
           </div>
 
           <div class="footer">
-            <%@ include file="internal/footer.html" %>
+            <%@ include file="internal/footer.jspf" %>
           </div>
         </div>
       </div>
