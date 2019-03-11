@@ -159,3 +159,8 @@ ul#queries_list {
 #example_queries h3 {
   margin-top: 0;
 }
+
+.version {
+  float: right;
+  padding-right: 15px;
+}
