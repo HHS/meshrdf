@@ -6,29 +6,32 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 
 
-public class DescriptorCriteria {
+public class LookupCriteria {
 
     @NotEmpty()
-    private String name;
+    private String label;
 
-    private String relation = "exact";
+    private Relation relation = Relation.EXACT;
 
     @Positive
-    @Max(100)
+    @Max(50)
     private int limit = 10;
 
-    public String getName() {
-        return name;
+    public String getLabel() {
+        return label;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
-    public String getRelation() {
+    public Relation getRelation() {
         return relation;
     }
-    public void setRelation(String relation) {
+    public void setRelation(Relation relation) {
         this.relation = relation;
+    }
+    public void setRelation(String relation) {
+        setRelation(Relation.valueOf(relation.toUpperCase()));
     }
 
     public int getLimit() {
