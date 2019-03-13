@@ -256,6 +256,19 @@
             <version>1.2.2</version>
         </dependency>
 
+        <!-- We need to validate our inputs  -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.15.Final</version>
+        </dependency>
+
         <!-- We want Java melody in the WAR for monitoring -->
         <dependency>
             <groupId>net.bull.javamelody</groupId>
@@ -264,13 +277,6 @@
             <scope>runtime</scope>
         </dependency>
         
-        <!-- We need to validate our inputs  -->
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
-        </dependency>
-
         <!-- Needed by JavaMelody to enable XML/JSON responses -->
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
