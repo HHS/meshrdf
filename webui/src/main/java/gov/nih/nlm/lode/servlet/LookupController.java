@@ -1,9 +1,8 @@
 package gov.nih.nlm.lode.servlet;
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -12,6 +11,7 @@ import javax.validation.Valid;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -34,6 +34,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.hp.hpl.jena.query.QueryParseException;
 
 import gov.nih.nlm.lode.model.LookupCriteria;
+import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.Relation;
 import gov.nih.nlm.lode.model.RelationEditor;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
@@ -45,6 +46,17 @@ public class LookupController {
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
+    private LookupService service;
+
+    public LookupService getService() {
+        return service;
+    }
+
+    @Autowired
+    public void setService(LookupService service) {
+        this.service = service;
+    }
+
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(Relation.class, new RelationEditor());
@@ -52,32 +64,30 @@ public class LookupController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/descriptor", produces="application/json", method=RequestMethod.GET)
-    public List<String> getLookupDescriptors(@Valid LookupCriteria criteria) throws QueryParseException, LodeException, IOException {
+    public Collection<String> lookupDescriptors(@Valid LookupCriteria criteria) throws QueryParseException, LodeException, IOException {
         log.info(String.format("get descriptor criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
-        return Arrays.asList(new String[] {
-            "http://id.nlm.nih.gov/mesh/D01882",
-            "http://id.nlm.nih.gov/mesh/D01883",
-        });
+        return getService().lookupDescriptors(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/descriptor", produces="application/json", consumes="application/json", method=RequestMethod.POST)
-    public List<String> lookupDescriptorsViaPost(@Valid @RequestBody LookupCriteria criteria) {
+    public Collection<String> lookupDescriptorsPost(@Valid @RequestBody LookupCriteria criteria) {
         log.info(String.format("post descriptor criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
-        return Arrays.asList(new String[] {
-            "http://id.nlm.nih.gov/mesh/D01882",
-            "http://id.nlm.nih.gov/mesh/D01883",
-        });
+        return getService().lookupDescriptors(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(path="/pair", produces="application/json")
-    public List<String> lookupPair(@Valid LookupCriteria criteria) throws IOException {
-        log.info(String.format("pair criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
-        return Arrays.asList(new String[] {
-                "http://id.nlm.nih.gov/mesh/Q01882",
-                "http://id.nlm.nih.gov/mesh/Q01883",
-          });
+    @RequestMapping(path="/pair", produces="application/json", method=RequestMethod.GET)
+    public Collection<String> lookupPair(@Valid LookupCriteria criteria) throws IOException {
+        log.info(String.format("get pair criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
+        return getService().lookupPairs(criteria);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path="/pair", produces="application/json", consumes="application/json", method=RequestMethod.POST)
+    public Collection<String> lookupPaiPostr(@Valid @RequestBody LookupCriteria criteria) throws IOException {
+        log.info(String.format("post pair criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
+        return getService().lookupPairs(criteria);
     }
 
     @ResponseBody

@@ -40,7 +40,7 @@ public class TestLookupController extends AbstractTestNGSpringContextTests {
     }
 
     @Test
-    public void testGetOk() throws Exception {
+    public void testGetDescriptors() throws Exception {
         MockHttpServletRequestBuilder request =
                 get("/lookup/descriptor")
                 .param("label",  "fubar")
@@ -53,11 +53,10 @@ public class TestLookupController extends AbstractTestNGSpringContextTests {
     }
 
     @Test
-    public void testPostOk() throws Exception {
-
+    public void testPostDescriptors() throws Exception {
         String body = "{\"label\": \"fubar\"}";
         MockHttpServletRequestBuilder request =
-                post("/lookup/descriptor?label=fubar")
+                post("/lookup/descriptor")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(body);
@@ -68,4 +67,32 @@ public class TestLookupController extends AbstractTestNGSpringContextTests {
             .andExpect(jsonPath("$[1]").value("http://id.nlm.nih.gov/mesh/D01883"));
     }
 
+    @Test
+    public void testGetPairs() throws Exception {
+        MockHttpServletRequestBuilder request =
+                get("/lookup/pair")
+                .param("label",  "fubar")
+                .accept(MediaType.APPLICATION_JSON);
+        mvc.perform(request)
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$[0]").value("http://id.nlm.nih.gov/mesh/Q01882"))
+            .andExpect(jsonPath("$[1]").value("http://id.nlm.nih.gov/mesh/Q01883"));
+
+    }
+
+    @Test
+    public void testPostPairs() throws Exception {
+        String body = "{\"label\": \"fubar\"}";
+        MockHttpServletRequestBuilder request =
+                post("/lookup/pair")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body);
+        mvc.perform(request)
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$[0]").value("http://id.nlm.nih.gov/mesh/Q01882"))
+            .andExpect(jsonPath("$[1]").value("http://id.nlm.nih.gov/mesh/Q01883"));
+    }
 }
