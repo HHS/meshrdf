@@ -71,21 +71,21 @@ public class LookupController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/descriptor", produces="application/json", consumes="application/json", method=RequestMethod.POST)
-    public Collection<String> lookupDescriptorsPost(@Valid @RequestBody LookupCriteria criteria) {
+    public Collection<String> lookupDescriptorsPost(@Valid @RequestBody LookupCriteria criteria) throws LodeException {
         log.info(String.format("post descriptor criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/pair", produces="application/json", method=RequestMethod.GET)
-    public Collection<String> lookupPair(@Valid LookupCriteria criteria) throws IOException {
+    public Collection<String> lookupPair(@Valid LookupCriteria criteria) throws IOException, LodeException {
         log.info(String.format("get pair criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
         return getService().lookupPairs(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/pair", produces="application/json", consumes="application/json", method=RequestMethod.POST)
-    public Collection<String> lookupPaiPostr(@Valid @RequestBody LookupCriteria criteria) throws IOException {
+    public Collection<String> lookupPaiPostr(@Valid @RequestBody LookupCriteria criteria) throws IOException, LodeException {
         log.info(String.format("post pair criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
         return getService().lookupPairs(criteria);
     }

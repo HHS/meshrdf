@@ -197,6 +197,12 @@
             <type>war</type>
             <scope>runtime</scope>
         </dependency>
+        
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.21</version>            
+        </dependency>
 
         <!-- Override Spring version used by Lodestar -->
         <dependency>

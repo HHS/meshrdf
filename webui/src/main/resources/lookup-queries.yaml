@@ -1,0 +1,51 @@
+descriptor.exact: |
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    
+    SELECT ?resource ?label
+    FROM <http://id.nlm.nih.gov/mesh> 
+    WHERE {
+      ?resource a meshv:Descriptor .
+      ?resource rdfs:label ?label .
+      ?resource rdfs:label "%s" .
+    } ORDER BY ?label
+
+descriptor.contains: | 
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX bif: <bif:>
+    
+    SELECT ?resource ?label
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?resource a meshv:Descriptor .
+      ?resource rdfs:label ?label .
+      ?label bif:contains "%s" .
+    } ORDER BY ?label
+
+descriptor.startswith: |
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX bif: <bif:>
+    
+    SELECT ?resource ?label
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?resource a meshv:Descriptor .
+      ?resource rdfs:label ?label .
+      ?label bif:contains "%s" .
+      FILTER(STRSTARTS(?label, "%s"))
+    } ORDER BY ?label
+    
+
+pair.exact: |
+    
+
+pair.contains: |
+    abc
+
+pair.startswith: |
+    abc
+
+allowed.qualifiers: |
+    abc    

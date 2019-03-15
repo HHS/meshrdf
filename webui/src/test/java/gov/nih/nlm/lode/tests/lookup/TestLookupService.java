@@ -1,5 +1,6 @@
 package gov.nih.nlm.lode.tests.lookup;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
@@ -17,6 +18,7 @@ import org.testng.annotations.Test;
 
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.Relation;
+import gov.nih.nlm.lode.servlet.LookupServiceImpl;
 
 /**
  * Test the content type and error handling of the LookupController
@@ -29,24 +31,30 @@ import gov.nih.nlm.lode.model.Relation;
 public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Autowired
-    private LookupService service;
+    private LookupService serviceIntf;
 
     @Test
-    private void testServiceAndQueriesWired() throws IOException {
+    public void testWiring() throws IOException {
+        assertThat(serviceIntf, notNullValue());
+        assertThat(serviceIntf, instanceOf(LookupServiceImpl.class));
+        LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
         assertThat(service, notNullValue());
-        assertThat(service.getExtraQueries(), notNullValue());
+        assertThat(service.getQueryResource(), notNullValue());
 
-        InputStream is = service.getExtraQueries().getInputStream();
+        InputStream is = service.getQueryResource().getInputStream();
         String extras = IOUtils.toString(is, Charset.forName("UTF-8"));
         assertThat(extras, notNullValue());
         assertThat(extras.length(), greaterThan(20));
+
+        assertThat(service.getResourceService(), notNullValue());
     }
 
     @Test
-    private void testDescriptorQueriesExist() throws Exception {
+    public void testDescriptorQueriesExist() throws Exception {
+        LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
         for (Relation rel : Relation.values()) {
-            String queryKey = LookupService.DESCRIPTOR_QUERY_PREFIX+rel.toString();
-            String query = service.getQueryReader().getSparqlQuery(queryKey);
+            String queryKey = LookupServiceImpl.DESCRIPTOR_QUERY_PREFIX+rel.toString().toLowerCase();
+            String query = service.getQuery(queryKey);
             assertThat(
                 queryKey+" query is not null",
                 query, notNullValue());
@@ -57,10 +65,11 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
     }
 
     @Test
-    private void testPairQueriesExist() throws Exception {
+    public void testPairQueriesExist() throws Exception {
+        LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
         for (Relation rel : Relation.values()) {
-            String queryKey = LookupService.PAIR_QUERY_PREFIX+rel.toString();
-            String query = service.getQueryReader().getSparqlQuery(queryKey);
+            String queryKey = LookupServiceImpl.PAIR_QUERY_PREFIX+rel.toString().toLowerCase();
+            String query = service.getQuery(queryKey);
             assertThat(
                 queryKey+" query is not null",
                 query, notNullValue());
@@ -71,9 +80,10 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
     }
 
     @Test
-    private void testQualifierQueriesExist() throws Exception {
-        String queryKey = LookupService.ALLOWED_QUALIFERS_ID;
-        String query = service.getQueryReader().getSparqlQuery(queryKey);
+    public void testQualifierQueriesExist() throws Exception {
+        LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
+        String queryKey = LookupServiceImpl.ALLOWED_QUALIFERS_ID;
+        String query = service.getQuery(queryKey);
         assertThat(
             queryKey+" query is not null",
             query, notNullValue());

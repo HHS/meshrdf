@@ -1,15 +1,21 @@
 package gov.nih.nlm.lode.servlet;
 
-import java.util.Arrays;
+import java.io.IOException;
 import java.util.Collection;
+import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import org.yaml.snakeyaml.Yaml;
 
+import gov.nih.nlm.lode.model.JenaResourceService;
 import gov.nih.nlm.lode.model.LookupCriteria;
 import gov.nih.nlm.lode.model.LookupService;
-import uk.ac.ebi.fgpt.lode.utils.SparqlQueryReader;
+import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
 
 /**
@@ -20,42 +26,67 @@ import uk.ac.ebi.fgpt.lode.utils.SparqlQueryReader;
 @Service
 public class LookupServiceImpl implements LookupService {
 
-    private Resource extraQueries;
-    private SparqlQueryReader queryReader;
+    private Logger log = LoggerFactory.getLogger(getClass());
+
+    public static final String DESCRIPTOR_QUERY_PREFIX = "descriptor.";
+    public static final String PAIR_QUERY_PREFIX = "pair.";
+    public static final String ALLOWED_QUALIFERS_ID = "allowed.qualifiers";
+
+    private Resource queryResource;
+    private Map<String,Object> queryMap;
+    private JenaResourceService resourceService;
+
 
     @Override
-    public Collection<String> lookupDescriptors(LookupCriteria criteria) {
-        return Arrays.asList(new String[] {
-            "http://id.nlm.nih.gov/mesh/D01882",
-            "http://id.nlm.nih.gov/mesh/D01883",
-        });
+    public Collection<String> lookupDescriptors(LookupCriteria criteria) throws LodeException {
+        String queryId = DESCRIPTOR_QUERY_PREFIX + criteria.getRelation().toString().toLowerCase();
+        return getResourceService().getResourcesFromLabel(getQuery(queryId), criteria.getLabel(), criteria.getLimit());
     }
 
     @Override
-    public Collection<String> lookupPairs(LookupCriteria criteria) {
-        return Arrays.asList(new String[] {
-            "http://id.nlm.nih.gov/mesh/Q01882",
-            "http://id.nlm.nih.gov/mesh/Q01883",
-        });
+    public Collection<String> lookupPairs(LookupCriteria criteria) throws LodeException {
+        String queryId = PAIR_QUERY_PREFIX + criteria.getRelation().toString().toLowerCase();
+        return getResourceService().getResourcesFromLabel(getQuery(queryId), criteria.getLabel(), criteria.getLimit());
     }
 
-    @Override
-    public Resource getExtraQueries() {
-        return extraQueries;
+    public Resource getQueryResource() {
+        return queryResource;
     }
 
-    @Value("${lode.lookup.extra.queries:classpath:extra-queries.txt}")
-    public void setExtraQueries(Resource extraQueries) {
-        this.extraQueries = extraQueries;
+    @Value("${lode.lookup.queries:classpath:lookup-queries.yaml}")
+    public void setQueryResource(Resource resource) {
+        this.queryResource = resource;
     }
 
-    @Override
-    public synchronized SparqlQueryReader getQueryReader() {
-        if (queryReader == null) {
-            queryReader = new SparqlQueryReader();
-            queryReader.setSparqlQueryResource(extraQueries);
-            queryReader.init();
+    public synchronized String getQuery(final String queryId) throws LodeException {
+        Object query = getQueryMap().get(queryId);
+        if (query == null) {
+            throw new LodeException(String.format("%s: query not found", queryId));
+        } else if (!(query instanceof String)) {
+            throw new LodeException(String.format("%s: query not a String", queryId));
         }
-        return queryReader;
+        return (String) query;
+    }
+
+    public synchronized final Map<String,Object> getQueryMap() throws LodeException {
+        if (queryMap == null) {
+            Yaml yaml = new Yaml();
+            try {
+                queryMap = yaml.load(getQueryResource().getInputStream());
+            } catch (IOException ex) {
+                log.error("Unable to load lookup queries from queryResource", ex);
+                throw new LodeException("Unable to load lookup queries from queryReource");
+            }
+        }
+        return queryMap;
+    }
+
+    public JenaResourceService getResourceService() {
+        return resourceService;
+    }
+
+    @Autowired
+    public void setResourceService(JenaResourceService resourceService) {
+        this.resourceService = resourceService;
     }
  }
