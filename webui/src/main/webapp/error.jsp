@@ -37,7 +37,7 @@
 
   <body>
     <lodestar:gtmnoscript/>
-    <div class="skipnav"><a href="#skip" class="skipnav">Skip Navigation</a></div>
+    <div class="skipnav"><a href="#error-div" class="skipnav">Skip Navigation</a></div>
     <div class="header">
       <%@ include file="internal/header.html" %>
     </div>
@@ -45,7 +45,6 @@
       <div id="meshTabContent" class="tab-content">
         <div class="tab-pane fade in active" id="home">
             <%@ include file="internal/nav.jspf" %>
-          <a name="skip"> </a>
           <div class="grid_24" id="error-content">
             <div id="lodestar-main" class="ui-widget ui-corner-all">
               <div id="error-div" class="ui-state-error">

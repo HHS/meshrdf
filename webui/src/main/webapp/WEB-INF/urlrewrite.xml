@@ -30,6 +30,12 @@
     <to last='true'>/query.jsp</to>
   </rule>
 
+  <rule>
+    <name>lookup-form</name>
+    <from casesensitive="true">^/lookup/?$</from>
+    <to last='true'>/lookup.jsp</to>
+  </rule>
+
   <!--
     FIXME: I can't figure out how to do this with 303 instead of 302.  It might be
     better to do in the servlet.

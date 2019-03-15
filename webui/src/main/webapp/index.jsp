@@ -27,7 +27,7 @@
 
     <body>
       <lodestar:gtmnoscript/>
-      <div class="skipnav"><a class="skipnav" href="#skip">Skip Navigation</a>
+      <div class="skipnav"><a class="skipnav" href="#main">Skip Navigation</a>
       </div>
       <div class="header">
         <%@ include file="internal/header.html" %>
@@ -40,8 +40,7 @@
             </div>
 
             <div class="row content">
-              <div class="col-md-4 col-sm-4 meshrdf-description">
-                <a id="skip" name="skip"></a>
+              <div id="main" class="col-md-4 col-sm-4 meshrdf-description">
                 <p>Medical Subject Headings (MeSH) RDF is a linked data representation of the <a href="https://www.nlm.nih.gov/mesh/">MeSH</a> biomedical vocabulary produced by the National Library of Medicine. MeSH RDF includes a downloadable file in
                   <a
                     href="ftp://ftp.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz">RDF N-Triples format</a>, a <a href="/mesh/query">SPARQL query editor</a>, a <a href="http://hhs.github.io/meshrdf/sparql-and-uri-requests">SPARQL endpoint (API)</a>, and a RESTful interface for retrieving MeSH data.</p>
@@ -108,6 +107,7 @@
             </div>
           </div>
         </div>
+      </div>
     </body>
 
     </html>

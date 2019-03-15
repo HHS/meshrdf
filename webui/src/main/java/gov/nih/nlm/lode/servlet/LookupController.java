@@ -28,7 +28,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -61,16 +60,6 @@ public class LookupController {
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(Relation.class, new RelationEditor());
-    }
-
-    @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(path="/form", produces="text/html", method=RequestMethod.GET)
-    public ModelAndView lookup() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("lookup");
-        mv.addObject("criteria", new LookupCriteria());
-        mv.addObject("resource_prefix", "");
-        return mv;
     }
 
     @ResponseStatus(HttpStatus.OK)

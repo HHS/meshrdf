@@ -14,7 +14,7 @@
 
   <body>
     <lodestar:gtmnoscript/>
-    <div class="skipnav"><a href="#skip" class="skipnav">Skip Navigation</a></div>
+    <div class="skipnav"><a href="#main" class="skipnav">Skip Navigation</a></div>
     <div class="header">
       <%@ include file="/internal/header.html" %>
     </div>
@@ -24,8 +24,7 @@
           <div class="navi">
             <%@ include file="/internal/nav.jspf" %>
           </div>
-          <a name="skip"> </a>
-          <div class="grid_24" id="sparql-content">
+          <div id="main" class="grid_24" id="sparql-content">
             <h1>Lookup Form</h1>
           </div>
           <div class="footer">
