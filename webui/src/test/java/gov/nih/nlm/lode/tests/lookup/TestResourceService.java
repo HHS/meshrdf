@@ -76,4 +76,21 @@ public class TestResourceService extends AbstractTestNGSpringContextTests {
         Collection<String> actual = service.getResourcesFromLabel(query, DESCRIPTOR_LABEL, 10);
         assertThat(actual, equalTo(expected));
     }
+
+    @Test
+    public void testBifBinding() throws LodeException {
+        String query = String.join("\n", new String[] {
+                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
+                "PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>",
+                "SELECT ?resource ?label ",
+                "FROM <http://id.nlm.nih.gov/mesh>",
+                "WHERE {",
+                "  ?resource a meshv:TopicalDescriptor .",
+                "  ?resource rdfs:label ?label .",
+                "  ?resource bif:contains ?bound .",
+                "} ORDER BY ?label"
+        });
+
+
+    }
 }
