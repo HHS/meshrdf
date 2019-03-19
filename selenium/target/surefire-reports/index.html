@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-Surefire_suite" class="navigator-link">
+              <span class="suite-name border-failed">Surefire suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-Surefire_suite" class="navigator-link ">
+                    <span>[unset file name]</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-Surefire_suite" class="navigator-link ">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-Surefire_suite" class="navigator-link ">
+                    <span>4 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-Surefire_suite" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-Surefire_suite" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-Surefire_suite" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-Surefire_suite" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">33 methods, 1 failed,   32 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods failed suite-Surefire_suite"> (hide)</a> <!-- hide-methods failed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods failed suite-Surefire_suite"> (show)</a> <!-- show-methods failed suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Surefire_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.BasicsTest" class="method navigator-link" hash-for-method="testExplorerPage">testExplorerPage</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Surefire_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods passed suite-Surefire_suite"> (hide)</a> <!-- hide-methods passed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods passed suite-Surefire_suite"> (show)</a> <!-- show-methods passed suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Surefire_suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.LinkCheckerTest" class="method navigator-link" hash-for-method="testBadLink">testBadLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.LinkCheckerTest" class="method navigator-link" hash-for-method="testBasicAbsURL">testBasicAbsURL</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.LinkCheckerTest" class="method navigator-link" hash-for-method="testBasicLinkCheckerContext">testBasicLinkCheckerContext</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.LinkCheckerTest" class="method navigator-link" hash-for-method="testBasicURLWithContext">testBasicURLWithContext</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.ServiceDescriptionTest" class="method navigator-link" hash-for-method="testDefaultServiceDescription">testDefaultServiceDescription</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.QueryTest" class="method navigator-link" hash-for-method="testDefaults">testDefaults</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.QueryTest" class="method navigator-link" hash-for-method="testExample0">testExample0</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.QueryTest" class="method navigator-link" hash-for-method="testExample1">testExample1</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.QueryTest" class="method navigator-link" hash-for-method="testExample2">testExample2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.QueryTest" class="method navigator-link" hash-for-method="testExample3withPastYear">testExample3withPastYear</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.QueryTest" class="method navigator-link" hash-for-method="testExample4">testExample4</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.PagelinksTest" class="method navigator-link" hash-for-method="testExplorer2015LodestarLinks">testExplorer2015LodestarLinks</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.PagelinksTest" class="method navigator-link" hash-for-method="testExplorerLodestarLinks">testExplorerLodestarLinks</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.PagelinksTest" class="method navigator-link" hash-for-method="testExplorerScriptTags">testExplorerScriptTags</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.PagelinksTest" class="method navigator-link" hash-for-method="testExplorerlinkTags">testExplorerlinkTags</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.PagelinksTest" class="method navigator-link" hash-for-method="testHomeBodyLinks">testHomeBodyLinks</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.PagelinksTest" class="method navigator-link" hash-for-method="testHomeLinkTags">testHomeLinkTags</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.BasicsTest" class="method navigator-link" hash-for-method="testHomePage">testHomePage</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.PagelinksTest" class="method navigator-link" hash-for-method="testHomeScriptTags">testHomeScriptTags</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.ServiceDescriptionTest" class="method navigator-link" hash-for-method="testJSONLDServiceDescription">testJSONLDServiceDescription</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.QueryTest" class="method navigator-link" hash-for-method="testLimitRows">testLimitRows</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.LinkCheckerTest" class="method navigator-link" hash-for-method="testMultipleLinks">testMultipleLinks</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.QueryTest" class="method navigator-link" hash-for-method="testPagination">testPagination</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.BasicsTest" class="method navigator-link" hash-for-method="testQueryPage">testQueryPage</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.ServiceDescriptionTest" class="method navigator-link" hash-for-method="testServiceDescriptionByFormat">testServiceDescriptionByFormat</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.LinkCheckerTest" class="method navigator-link" hash-for-method="testSkipsFtpLinks">testSkipsFtpLinks</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.ServiceDescriptionTest" class="method navigator-link" hash-for-method="testTurtleServiceDescription">testTurtleServiceDescription</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.BasicsTest" class="method navigator-link" hash-for-method="testVocabularyOwl">testVocabularyOwl</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.BasicsTest" class="method navigator-link" hash-for-method="testVocabularyRedirect">testVocabularyRedirect</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.BasicsTest" class="method navigator-link" hash-for-method="testVocabularyTurtle">testVocabularyTurtle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.BasicsTest" class="method navigator-link" hash-for-method="testVoidRedirect">testVoidRedirect</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="gov.nih.nlm.lode.tests.BasicsTest" class="method navigator-link" hash-for-method="testVoidTurtle">testVoidTurtle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Surefire_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Surefire_suite" class="panel Surefire_suite">
+          <div class="suite-Surefire_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">gov.nih.nlm.lode.tests.BasicsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testExplorerPage">
+                  </a> <!-- testExplorerPage -->
+                  <span class="method-name">testExplorerPage</span>
+                  <div class="stack-trace">java.lang.AssertionError: one or more bad links, last bad link https://www.nlm.nih.gov/mesh/
+	at gov.nih.nlm.lode.tests.LinkChecker.shouldBeValid(LinkChecker.java:256)
+	at gov.nih.nlm.lode.tests.LodeBaseTest.shouldBeValidLinks(LodeBaseTest.java:97)
+	at gov.nih.nlm.lode.tests.BasicsTest.testExplorerPage(BasicsTest.java:37)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">gov.nih.nlm.lode.tests.BasicsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testHomePage">
+                  </a> <!-- testHomePage -->
+                  <span class="method-name">testHomePage</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testQueryPage">
+                  </a> <!-- testQueryPage -->
+                  <span class="method-name">testQueryPage</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testVocabularyOwl">
+                  </a> <!-- testVocabularyOwl -->
+                  <span class="method-name">testVocabularyOwl</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testVocabularyRedirect">
+                  </a> <!-- testVocabularyRedirect -->
+                  <span class="method-name">testVocabularyRedirect</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testVocabularyTurtle">
+                  </a> <!-- testVocabularyTurtle -->
+                  <span class="method-name">testVocabularyTurtle</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testVoidRedirect">
+                  </a> <!-- testVoidRedirect -->
+                  <span class="method-name">testVoidRedirect</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testVoidTurtle">
+                  </a> <!-- testVoidTurtle -->
+                  <span class="method-name">testVoidTurtle</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-passed -->
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">gov.nih.nlm.lode.tests.LinkCheckerTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testBadLink">
+                  </a> <!-- testBadLink -->
+                  <span class="method-name">testBadLink</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testBasicAbsURL">
+                  </a> <!-- testBasicAbsURL -->
+                  <span class="method-name">testBasicAbsURL</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testBasicLinkCheckerContext">
+                  </a> <!-- testBasicLinkCheckerContext -->
+                  <span class="method-name">testBasicLinkCheckerContext</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testBasicURLWithContext">
+                  </a> <!-- testBasicURLWithContext -->
+                  <span class="method-name">testBasicURLWithContext</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testMultipleLinks">
+                  </a> <!-- testMultipleLinks -->
+                  <span class="method-name">testMultipleLinks</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSkipsFtpLinks">
+                  </a> <!-- testSkipsFtpLinks -->
+                  <span class="method-name">testSkipsFtpLinks</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-passed -->
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">gov.nih.nlm.lode.tests.PagelinksTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testExplorer2015LodestarLinks">
+                  </a> <!-- testExplorer2015LodestarLinks -->
+                  <span class="method-name">testExplorer2015LodestarLinks</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testExplorerLodestarLinks">
+                  </a> <!-- testExplorerLodestarLinks -->
+                  <span class="method-name">testExplorerLodestarLinks</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testExplorerScriptTags">
+                  </a> <!-- testExplorerScriptTags -->
+                  <span class="method-name">testExplorerScriptTags</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testExplorerlinkTags">
+                  </a> <!-- testExplorerlinkTags -->
+                  <span class="method-name">testExplorerlinkTags</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testHomeBodyLinks">
+                  </a> <!-- testHomeBodyLinks -->
+                  <span class="method-name">testHomeBodyLinks</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testHomeLinkTags">
+                  </a> <!-- testHomeLinkTags -->
+                  <span class="method-name">testHomeLinkTags</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testHomeScriptTags">
+                  </a> <!-- testHomeScriptTags -->
+                  <span class="method-name">testHomeScriptTags</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-passed -->
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">gov.nih.nlm.lode.tests.ServiceDescriptionTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDefaultServiceDescription">
+                  </a> <!-- testDefaultServiceDescription -->
+                  <span class="method-name">testDefaultServiceDescription</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testJSONLDServiceDescription">
+                  </a> <!-- testJSONLDServiceDescription -->
+                  <span class="method-name">testJSONLDServiceDescription</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testServiceDescriptionByFormat">
+                  </a> <!-- testServiceDescriptionByFormat -->
+                  <span class="method-name">testServiceDescriptionByFormat</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTurtleServiceDescription">
+                  </a> <!-- testTurtleServiceDescription -->
+                  <span class="method-name">testTurtleServiceDescription</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-passed -->
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">gov.nih.nlm.lode.tests.QueryTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDefaults">
+                  </a> <!-- testDefaults -->
+                  <span class="method-name">testDefaults</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testExample0">
+                  </a> <!-- testExample0 -->
+                  <span class="method-name">testExample0</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testExample1">
+                  </a> <!-- testExample1 -->
+                  <span class="method-name">testExample1</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testExample2">
+                  </a> <!-- testExample2 -->
+                  <span class="method-name">testExample2</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testExample3withPastYear">
+                  </a> <!-- testExample3withPastYear -->
+                  <span class="method-name">testExample3withPastYear</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testExample4">
+                  </a> <!-- testExample4 -->
+                  <span class="method-name">testExample4</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testLimitRows">
+                  </a> <!-- testLimitRows -->
+                  <span class="method-name">testLimitRows</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testPagination">
+                  </a> <!-- testPagination -->
+                  <span class="method-name">testPagination</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-passed -->
+        </div> <!-- panel Surefire_suite -->
+        <div panel-name="test-xml-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite configfailurepolicy=&quot;continue&quot; thread-count=&quot;1&quot; name=&quot;Surefire suite&quot; verbose=&quot;0&quot;&gt;
+  &lt;parameter name=&quot;webdrivers.download.policy&quot; value=&quot;ALWAYS&quot;/&gt;
+  &lt;parameter name=&quot;progress.report.url&quot; value=&quot;https://cis.nlm.nih.gov/selenium-test-viewer&quot;/&gt;
+  &lt;parameter name=&quot;selenium.browser&quot; value=&quot;firefox&quot;/&gt;
+  &lt;test name=&quot;Surefire test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;gov.nih.nlm.lode.tests.BasicsTest&quot;&gt;
+        &lt;parameter name=&quot;webdrivers.download.policy&quot; value=&quot;ALWAYS&quot;/&gt;
+        &lt;parameter name=&quot;progress.report.url&quot; value=&quot;https://cis.nlm.nih.gov/selenium-test-viewer&quot;/&gt;
+        &lt;parameter name=&quot;selenium.browser&quot; value=&quot;firefox&quot;/&gt;
+      &lt;/class&gt; &lt;!-- gov.nih.nlm.lode.tests.BasicsTest --&gt;
+      &lt;class name=&quot;gov.nih.nlm.lode.tests.LinkCheckerTest&quot;/&gt;
+      &lt;class name=&quot;gov.nih.nlm.lode.tests.LodeBaseTest&quot;&gt;
+        &lt;parameter name=&quot;webdrivers.download.policy&quot; value=&quot;ALWAYS&quot;/&gt;
+        &lt;parameter name=&quot;progress.report.url&quot; value=&quot;https://cis.nlm.nih.gov/selenium-test-viewer&quot;/&gt;
+        &lt;parameter name=&quot;selenium.browser&quot; value=&quot;firefox&quot;/&gt;
+      &lt;/class&gt; &lt;!-- gov.nih.nlm.lode.tests.LodeBaseTest --&gt;
+      &lt;class name=&quot;gov.nih.nlm.lode.tests.PagelinksTest&quot;&gt;
+        &lt;parameter name=&quot;webdrivers.download.policy&quot; value=&quot;ALWAYS&quot;/&gt;
+        &lt;parameter name=&quot;progress.report.url&quot; value=&quot;https://cis.nlm.nih.gov/selenium-test-viewer&quot;/&gt;
+        &lt;parameter name=&quot;selenium.browser&quot; value=&quot;firefox&quot;/&gt;
+      &lt;/class&gt; &lt;!-- gov.nih.nlm.lode.tests.PagelinksTest --&gt;
+      &lt;class name=&quot;gov.nih.nlm.lode.tests.QueryTest&quot;&gt;
+        &lt;parameter name=&quot;webdrivers.download.policy&quot; value=&quot;ALWAYS&quot;/&gt;
+        &lt;parameter name=&quot;progress.report.url&quot; value=&quot;https://cis.nlm.nih.gov/selenium-test-viewer&quot;/&gt;
+        &lt;parameter name=&quot;selenium.browser&quot; value=&quot;firefox&quot;/&gt;
+      &lt;/class&gt; &lt;!-- gov.nih.nlm.lode.tests.QueryTest --&gt;
+      &lt;class name=&quot;gov.nih.nlm.lode.tests.ServiceDescriptionTest&quot;&gt;
+        &lt;parameter name=&quot;webdrivers.download.policy&quot; value=&quot;ALWAYS&quot;/&gt;
+        &lt;parameter name=&quot;progress.report.url&quot; value=&quot;https://cis.nlm.nih.gov/selenium-test-viewer&quot;/&gt;
+        &lt;parameter name=&quot;selenium.browser&quot; value=&quot;firefox&quot;/&gt;
+      &lt;/class&gt; &lt;!-- gov.nih.nlm.lode.tests.ServiceDescriptionTest --&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Surefire test --&gt;
+&lt;/suite&gt; &lt;!-- Surefire suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Surefire suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Surefire test (6 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Surefire suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">basics</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">testExplorerPage</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testHomePage</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testQueryPage</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testVocabularyOwl</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testVocabularyRedirect</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testVocabularyTurtle</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testVoidRedirect</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testVoidTurtle</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">linkcheck</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">testBadLink</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testBasicAbsURL</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testBasicLinkCheckerContext</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testBasicURLWithContext</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testMultipleLinks</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testSkipsFtpLinks</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">pagelinks</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">testExplorer2015LodestarLinks</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testExplorerLodestarLinks</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testExplorerScriptTags</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testExplorerlinkTags</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testHomeBodyLinks</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testHomeLinkTags</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testHomeScriptTags</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">query</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">testDefaults</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testExample0</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testExample1</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testExample2</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testExample3withPastYear</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testExample4</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testLimitRows</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testPagination</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Surefire suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Surefire_suite');
+function tableData_Surefire_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(33);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'testExplorerPage')
+data.setCell(0, 2, 'gov.nih.nlm.lode.tests.BasicsTest')
+data.setCell(0, 3, 20584);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'testHomeBodyLinks')
+data.setCell(1, 2, 'gov.nih.nlm.lode.tests.PagelinksTest')
+data.setCell(1, 3, 15376);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testExample4')
+data.setCell(2, 2, 'gov.nih.nlm.lode.tests.QueryTest')
+data.setCell(2, 3, 11166);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testPagination')
+data.setCell(3, 2, 'gov.nih.nlm.lode.tests.QueryTest')
+data.setCell(3, 3, 10287);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testExplorer2015LodestarLinks')
+data.setCell(4, 2, 'gov.nih.nlm.lode.tests.PagelinksTest')
+data.setCell(4, 3, 7788);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'testExample3withPastYear')
+data.setCell(5, 2, 'gov.nih.nlm.lode.tests.QueryTest')
+data.setCell(5, 3, 7725);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'testExplorerLodestarLinks')
+data.setCell(6, 2, 'gov.nih.nlm.lode.tests.PagelinksTest')
+data.setCell(6, 3, 4723);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'testExample1')
+data.setCell(7, 2, 'gov.nih.nlm.lode.tests.QueryTest')
+data.setCell(7, 3, 4717);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'testDefaults')
+data.setCell(8, 2, 'gov.nih.nlm.lode.tests.QueryTest')
+data.setCell(8, 3, 4004);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'testLimitRows')
+data.setCell(9, 2, 'gov.nih.nlm.lode.tests.QueryTest')
+data.setCell(9, 3, 3892);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'testExample0')
+data.setCell(10, 2, 'gov.nih.nlm.lode.tests.QueryTest')
+data.setCell(10, 3, 3176);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'testHomePage')
+data.setCell(11, 2, 'gov.nih.nlm.lode.tests.BasicsTest')
+data.setCell(11, 3, 2441);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'testHomeScriptTags')
+data.setCell(12, 2, 'gov.nih.nlm.lode.tests.PagelinksTest')
+data.setCell(12, 3, 2332);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'testExplorerScriptTags')
+data.setCell(13, 2, 'gov.nih.nlm.lode.tests.PagelinksTest')
+data.setCell(13, 3, 2281);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'testExample2')
+data.setCell(14, 2, 'gov.nih.nlm.lode.tests.QueryTest')
+data.setCell(14, 3, 2061);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'testQueryPage')
+data.setCell(15, 2, 'gov.nih.nlm.lode.tests.BasicsTest')
+data.setCell(15, 3, 1193);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'testHomeLinkTags')
+data.setCell(16, 2, 'gov.nih.nlm.lode.tests.PagelinksTest')
+data.setCell(16, 3, 428);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'testExplorerlinkTags')
+data.setCell(17, 2, 'gov.nih.nlm.lode.tests.PagelinksTest')
+data.setCell(17, 3, 328);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'testDefaultServiceDescription')
+data.setCell(18, 2, 'gov.nih.nlm.lode.tests.ServiceDescriptionTest')
+data.setCell(18, 3, 297);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'testJSONLDServiceDescription')
+data.setCell(19, 2, 'gov.nih.nlm.lode.tests.ServiceDescriptionTest')
+data.setCell(19, 3, 296);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'testMultipleLinks')
+data.setCell(20, 2, 'gov.nih.nlm.lode.tests.LinkCheckerTest')
+data.setCell(20, 3, 93);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'testServiceDescriptionByFormat')
+data.setCell(21, 2, 'gov.nih.nlm.lode.tests.ServiceDescriptionTest')
+data.setCell(21, 3, 63);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'testVoidRedirect')
+data.setCell(22, 2, 'gov.nih.nlm.lode.tests.BasicsTest')
+data.setCell(22, 3, 62);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'testBadLink')
+data.setCell(23, 2, 'gov.nih.nlm.lode.tests.LinkCheckerTest')
+data.setCell(23, 3, 62);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'testVocabularyRedirect')
+data.setCell(24, 2, 'gov.nih.nlm.lode.tests.BasicsTest')
+data.setCell(24, 3, 47);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'testVocabularyOwl')
+data.setCell(25, 2, 'gov.nih.nlm.lode.tests.BasicsTest')
+data.setCell(25, 3, 32);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'testBasicURLWithContext')
+data.setCell(26, 2, 'gov.nih.nlm.lode.tests.LinkCheckerTest')
+data.setCell(26, 3, 32);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'testBasicAbsURL')
+data.setCell(27, 2, 'gov.nih.nlm.lode.tests.LinkCheckerTest')
+data.setCell(27, 3, 32);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'testTurtleServiceDescription')
+data.setCell(28, 2, 'gov.nih.nlm.lode.tests.ServiceDescriptionTest')
+data.setCell(28, 3, 31);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'testVoidTurtle')
+data.setCell(29, 2, 'gov.nih.nlm.lode.tests.BasicsTest')
+data.setCell(29, 3, 31);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'testVocabularyTurtle')
+data.setCell(30, 2, 'gov.nih.nlm.lode.tests.BasicsTest')
+data.setCell(30, 3, 31);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'testBasicLinkCheckerContext')
+data.setCell(31, 2, 'gov.nih.nlm.lode.tests.LinkCheckerTest')
+data.setCell(31, 3, 15);
+data.setCell(32, 0, 32)
+data.setCell(32, 1, 'testSkipsFtpLinks')
+data.setCell(32, 2, 'gov.nih.nlm.lode.tests.LinkCheckerTest')
+data.setCell(32, 3, 0);
+window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <div id="times-div-Surefire_suite">
+              </div> <!-- times-div-Surefire_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Surefire suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">testQueryPage</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b>warning:</b> cannot check ftp://ftp.nlm.nih.gov/online/mesh/rdf/<br></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">testHomePage</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b>warning:</b> cannot check ftp://ftp.nlm.nih.gov/online/mesh/rdf/<br></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">testSkipsFtpLinks</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b>warning:</b> cannot check ftp://ftp.nlm.nih.gov/online/mesh<br></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">testBadLink</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">http://www.nlm.nih.gov/google11111111.html: status code 404, not successful<br></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">testHomeBodyLinks</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b>warning:</b> cannot check ftp://ftp.nlm.nih.gov/online/mesh/rdf/<br></span>
+                <span class="reporter-method-output"><b>warning:</b> cannot check ftp://ftp.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz<br></span>
+                <span class="reporter-method-output"><b>warning:</b> cannot check ftp://ftp.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz<br></span>
+                <span class="reporter-method-output"><b>warning:</b> cannot check ftp://ftp.nlm.nih.gov/online/mesh/rdf/<br></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">testExplorerPage</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><b>warning:</b> cannot check ftp://ftp.nlm.nih.gov/online/mesh/rdf/<br></span>
+                <span class="reporter-method-output">https://www.nlm.nih.gov/mesh/: IOException Read timed out<br></span>
+                <span class="reporter-method-output"><a href='../failed-screenshots/error Firefox gov.nih.nlm.lode.tests.BasicsTest.testExplorerPage 2019-03-19 15-37-09.png'>Open the screenshot</a></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">4 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">gov.nih.nlm.lode.tests.PagelinksTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">globalTearDown</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">gov.nih.nlm.lode.tests.LodeBaseTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">globalTearDown</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">gov.nih.nlm.lode.tests.QueryTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">globalTearDown</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">gov.nih.nlm.lode.tests.ServiceDescriptionTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">globalTearDown</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Surefire_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">gov.nih.nlm.lode.tests.QueryTest</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUpPastYear</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-test before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">gov.nih.nlm.lode.tests.BasicsTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">16 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testExplorerPage</span>
+                <span class="method-start">4033 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testHomePage</span>
+                <span class="method-start">24898 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testQueryPage</span>
+                <span class="method-start">27355 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testVocabularyOwl</span>
+                <span class="method-start">28563 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testVocabularyRedirect</span>
+                <span class="method-start">28610 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testVocabularyTurtle</span>
+                <span class="method-start">28673 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testVoidRedirect</span>
+                <span class="method-start">28720 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testVoidTurtle</span>
+                <span class="method-start">28798 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">28845 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">gov.nih.nlm.lode.tests.PagelinksTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">30176 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">testExplorer2015LodestarLinks</span>
+                <span class="method-start">33144 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testExplorerLodestarLinks</span>
+                <span class="method-start">40948 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testExplorerScriptTags</span>
+                <span class="method-start">45702 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testExplorerlinkTags</span>
+                <span class="method-start">47999 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testHomeBodyLinks</span>
+                <span class="method-start">48342 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testHomeLinkTags</span>
+                <span class="method-start">63733 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testHomeScriptTags</span>
+                <span class="method-start">64167 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">66514 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">gov.nih.nlm.lode.tests.QueryTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">68001 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">testDefaults</span>
+                <span class="method-start">71393 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">gov.nih.nlm.lode.tests.LinkCheckerTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testBadLink</span>
+                <span class="method-start">75428 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testBasicAbsURL</span>
+                <span class="method-start">75490 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testBasicLinkCheckerContext</span>
+                <span class="method-start">75522 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testBasicURLWithContext</span>
+                <span class="method-start">75537 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testMultipleLinks</span>
+                <span class="method-start">75569 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testSkipsFtpLinks</span>
+                <span class="method-start">75662 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">gov.nih.nlm.lode.tests.QueryTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testExample0</span>
+                <span class="method-start">75662 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testExample1</span>
+                <span class="method-start">78844 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testExample2</span>
+                <span class="method-start">83577 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testExample3withPastYear</span>
+                <span class="method-start">85653 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testExample4</span>
+                <span class="method-start">93394 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testLimitRows</span>
+                <span class="method-start">104575 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testPagination</span>
+                <span class="method-start">108483 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">118786 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">gov.nih.nlm.lode.tests.ServiceDescriptionTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">120036 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">testDefaultServiceDescription</span>
+                <span class="method-start">122961 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testJSONLDServiceDescription</span>
+                <span class="method-start">123274 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testServiceDescriptionByFormat</span>
+                <span class="method-start">123586 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testTurtleServiceDescription</span>
+                <span class="method-start">123664 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">123711 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">gov.nih.nlm.lode.tests.BasicsTest</div> <!-- chronological-class-name -->
+              <div class="configuration-suite after">
+                <span class="method-name">globalTearDown</span>
+                <span class="method-start">124820 ms</span>
+              </div> <!-- configuration-suite after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

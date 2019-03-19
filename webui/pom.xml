@@ -19,13 +19,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <groups>unit</groups>
         <skipTests>false</skipTests>
-
-        <!-- Requires that virtuoso lodestar be similarly built -->
-        <org.springframework.version>4.3.20.RELEASE</org.springframework.version>
-
-        <!-- NOTE: match version built from lodestar repository -->
-        <lodestar.version>1.4.1</lodestar.version>
-
         <updatesPath>/usr/nlm/meshlocal/state/updating</updatesPath>
         <updateMaxSeconds>10800</updateMaxSeconds>
     </properties>
@@ -187,13 +180,11 @@
         <dependency>
             <groupId>ebi-lode</groupId>
             <artifactId>lode-virtuoso-impl</artifactId>
-            <version>${lodestar.version}</version>
         </dependency>
 
         <dependency>
             <groupId>ebi-lode</groupId>
             <artifactId>web-ui</artifactId>
-            <version>${lodestar.version}</version>
             <type>war</type>
             <scope>runtime</scope>
         </dependency>
@@ -208,20 +199,17 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${org.springframework.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${org.springframework.version}</version>
         </dependency>
 
         <!-- ... and add spring-test -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${org.springframework.version}</version>
             <scope>test</scope>
         </dependency>
 

@@ -39,7 +39,7 @@ descriptor.startswith: |
     
 
 pair.exact: |
-    
+    abc
 
 pair.contains: |
     abc
