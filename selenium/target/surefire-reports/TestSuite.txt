@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: TestSuite
--------------------------------------------------------------------------------
-Tests run: 33, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 125.451 s <<< FAILURE! - in TestSuite
-Firefox(gov.nih.nlm.lode.tests.BasicsTest)  Time elapsed: 20.631 s  <<< FAILURE!
-java.lang.AssertionError: one or more bad links, last bad link https://www.nlm.nih.gov/mesh/
-	at gov.nih.nlm.lode.tests.BasicsTest.testExplorerPage(BasicsTest.java:37)
-
