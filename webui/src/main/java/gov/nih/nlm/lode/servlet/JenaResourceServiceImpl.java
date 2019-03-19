@@ -15,10 +15,12 @@ import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.QuerySolutionMap;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceFactory;
 
 import gov.nih.nlm.lode.model.JenaResourceService;
+import gov.nih.nlm.lode.model.ResourceAndLabel;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 import uk.ac.ebi.fgpt.lode.service.JenaQueryExecutionService;
 
@@ -35,23 +37,29 @@ public class JenaResourceServiceImpl implements JenaResourceService {
     private JenaQueryExecutionService executionService;
 
     @Override
-    public Collection<String> getResourcesFromLabel(String query, String label, int limit) throws LodeException {
+    public Collection<ResourceAndLabel> getResources(String query, String label, int limit, String parentUri) throws LodeException {
         QuerySolutionMap initialBinding = new QuerySolutionMap();
         initialBinding.add("bound", ResourceFactory.createLangLiteral(label, "en"));
-
+        if (parentUri != null) {
+            initialBinding.add("parent", ResourceFactory.createResource(parentUri));
+        }
+        if (limit > 0) {
+            query += " LIMIT "+limit;
+        }
         Graph g = getExecutionService().getDefaultGraph();
         QueryExecution endpoint = getExecutionService().getQueryExecution(g, query, initialBinding, true);
 
-        ArrayList<String> resultList = new ArrayList<String>();
+        ArrayList<ResourceAndLabel> resultList = new ArrayList<ResourceAndLabel>();
         try {
             ResultSet results = endpoint.execSelect();
             while (results.hasNext()) {
                 QuerySolution solution = results.next();
-                Resource res = solution.getResource("resource");
-                if (res.isAnon()) {
+                Resource rsuri = solution.getResource("resource");
+                if (rsuri.isAnon()) {
                     continue;
                 }
-                resultList.add(res.getURI());
+                Literal rslabel = solution.getLiteral("label");
+                resultList.add(new ResourceAndLabel(rsuri.getURI(), rslabel.getString()));
             }
         } catch (Exception ex) {
             log.error("Error retrieving results for " + query, ex);
@@ -67,8 +75,14 @@ public class JenaResourceServiceImpl implements JenaResourceService {
     }
 
     @Override
-    public Collection<String> getLabelsFromResource(String query, String resourceUri) {
-        return Arrays.asList(new String[] {});
+    public Collection<ResourceAndLabel> getResources(
+            String query, String label, int limit) throws LodeException {
+        return getResources(query, label, limit, null);
+    }
+
+    @Override
+    public Collection<ResourceAndLabel> getLabelsFromResource(String query, String resourceUri) {
+        return Arrays.asList(new ResourceAndLabel[] {});
     }
 
     public JenaQueryExecutionService getExecutionService() {
@@ -80,4 +94,5 @@ public class JenaResourceServiceImpl implements JenaResourceService {
     public void setExecutionService(JenaQueryExecutionService executionService) {
         this.executionService = executionService;
     }
+
 }

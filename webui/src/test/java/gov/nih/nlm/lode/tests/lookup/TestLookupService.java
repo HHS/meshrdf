@@ -1,5 +1,6 @@
 package gov.nih.nlm.lode.tests.lookup;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -8,6 +9,9 @@ import static org.hamcrest.Matchers.greaterThan;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +20,10 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.annotations.Test;
 
+import gov.nih.nlm.lode.model.DescriptorCriteria;
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.Relation;
+import gov.nih.nlm.lode.model.ResourceAndLabel;
 import gov.nih.nlm.lode.servlet.LookupServiceImpl;
 
 /**
@@ -90,5 +96,52 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
         assertThat(
             queryKey+" query is not empty",
             query.length(), greaterThan(0));
+    }
+
+    @Test
+    public void testDescriptorExact() throws Exception {
+        DescriptorCriteria criteria = new DescriptorCriteria();
+        criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
+        Collection<ResourceAndLabel> results = serviceIntf.lookupDescriptors(criteria);
+        Collection<String> expectedUris = Arrays.asList(Pyrin.EXACT_MATCH_URIS);
+        Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
+        assertThat(actualUris, equalTo(expectedUris));
+    }
+
+    @Test
+    public void testDescriptorContains() throws Exception {
+        DescriptorCriteria criteria = new DescriptorCriteria();
+        criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
+        criteria.setRelation(Relation.CONTAINS);
+
+        Collection<ResourceAndLabel> results = serviceIntf.lookupDescriptors(criteria);
+        Collection<String> expectedUris = Arrays.asList(Pyrin.CONTAINS_MATCH_URIS);
+        Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
+        assertThat(actualUris, equalTo(expectedUris));
+    }
+
+    @Test
+    public void testDescriptorStartsWith() throws Exception {
+        DescriptorCriteria criteria = new DescriptorCriteria();
+        criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
+        criteria.setRelation(Relation.STARTSWITH);
+
+        Collection<ResourceAndLabel> results = serviceIntf.lookupDescriptors(criteria);
+        Collection<String> expectedUris = Arrays.asList(Pyrin.STARTSWITH_MATCH_URIS);
+        Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
+        assertThat(actualUris, equalTo(expectedUris));
+    }
+
+    @Test
+    public void testDescriptorLimit() throws Exception {
+        DescriptorCriteria criteria = new DescriptorCriteria();
+        criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
+        criteria.setRelation(Relation.CONTAINS);
+        criteria.setLimit(2);
+
+        Collection<ResourceAndLabel> results = serviceIntf.lookupDescriptors(criteria);
+        Collection<String> expectedUris = Arrays.asList(Pyrin.CONTAINS_MATCH_URIS).subList(0,  2);
+        Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
+        assertThat(actualUris, equalTo(expectedUris));
     }
 }

@@ -6,7 +6,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 
 
-public class LookupCriteria {
+public class DescriptorCriteria {
 
     @NotEmpty()
     private String label;

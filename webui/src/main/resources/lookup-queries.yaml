@@ -7,7 +7,7 @@ descriptor.exact: |
     WHERE {
       ?resource a meshv:Descriptor .
       ?resource rdfs:label ?label .
-      ?resource rdfs:label "%s" .
+      ?resource rdfs:label ?bound .
     } ORDER BY ?label
 
 descriptor.contains: | 
@@ -20,7 +20,7 @@ descriptor.contains: |
     WHERE {
       ?resource a meshv:Descriptor .
       ?resource rdfs:label ?label .
-      ?label bif:contains "%s" .
+      ?label bif:contains ?bound .
     } ORDER BY ?label
 
 descriptor.startswith: |
@@ -33,8 +33,8 @@ descriptor.startswith: |
     WHERE {
       ?resource a meshv:Descriptor .
       ?resource rdfs:label ?label .
-      ?label bif:contains "%s" .
-      FILTER(STRSTARTS(?label, "%s"))
+      ?label bif:contains ?bound .
+      FILTER(STRSTARTS(?label, STR(?bound)))
     } ORDER BY ?label
     
 

@@ -12,9 +12,11 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 
+import gov.nih.nlm.lode.model.DescriptorCriteria;
 import gov.nih.nlm.lode.model.JenaResourceService;
-import gov.nih.nlm.lode.model.LookupCriteria;
 import gov.nih.nlm.lode.model.LookupService;
+import gov.nih.nlm.lode.model.PairCriteria;
+import gov.nih.nlm.lode.model.ResourceAndLabel;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
 
@@ -38,15 +40,15 @@ public class LookupServiceImpl implements LookupService {
 
 
     @Override
-    public Collection<String> lookupDescriptors(LookupCriteria criteria) throws LodeException {
+    public Collection<ResourceAndLabel> lookupDescriptors(DescriptorCriteria criteria) throws LodeException {
         String queryId = DESCRIPTOR_QUERY_PREFIX + criteria.getRelation().toString().toLowerCase();
-        return getResourceService().getResourcesFromLabel(getQuery(queryId), criteria.getLabel(), criteria.getLimit());
+        return getResourceService().getResources(getQuery(queryId), criteria.getLabel(), criteria.getLimit());
     }
 
     @Override
-    public Collection<String> lookupPairs(LookupCriteria criteria) throws LodeException {
+    public Collection<ResourceAndLabel> lookupPairs(PairCriteria criteria) throws LodeException {
         String queryId = PAIR_QUERY_PREFIX + criteria.getRelation().toString().toLowerCase();
-        return getResourceService().getResourcesFromLabel(getQuery(queryId), criteria.getLabel(), criteria.getLimit());
+        return getResourceService().getResources(getQuery(queryId), criteria.getLabel(), criteria.getLimit(), criteria.getDescriptor());
     }
 
     public Resource getQueryResource() {

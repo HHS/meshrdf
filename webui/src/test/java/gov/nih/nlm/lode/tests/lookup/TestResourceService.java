@@ -7,6 +7,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -15,6 +16,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.annotations.Test;
 
 import gov.nih.nlm.lode.model.JenaResourceService;
+import gov.nih.nlm.lode.model.ResourceAndLabel;
 import gov.nih.nlm.lode.servlet.JenaResourceServiceImpl;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
@@ -32,9 +34,6 @@ public class TestResourceService extends AbstractTestNGSpringContextTests {
     private JenaResourceService service;
 
 
-    private static String DESCRIPTOR_LABEL = "Pyrin";
-    private static String[] EXPECTED_DESCRIPTORS = new String[] { "http://id.nlm.nih.gov/mesh/D000071198" };
-
     @Test
     public void testWiring() {
         assertThat(service, notNullValue());
@@ -42,39 +41,25 @@ public class TestResourceService extends AbstractTestNGSpringContextTests {
     }
 
     @Test
-    public void testResourceQueryWithoutBinding() throws LodeException {
+    public void testDescriptorExactMatch() throws LodeException {
         String query = String.join("\n", new String[] {
                 "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
                 "PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>",
-                "SELECT ?resource",
+                "SELECT ?resource ?label",
                 "FROM <http://id.nlm.nih.gov/mesh>",
                 "WHERE {",
                 "  ?resource a meshv:TopicalDescriptor .",
-                "  ?resource rdfs:label \"Pyrin\"@en .",
-                "}"
-        });
-
-        Collection<String> expected = Arrays.asList(EXPECTED_DESCRIPTORS);
-        Collection<String> actual = service.getResourcesFromLabel(query, DESCRIPTOR_LABEL, 10);
-        assertThat(actual, equalTo(expected));
-    }
-
-    @Test
-    public void testResourceQueryWithBinding() throws LodeException {
-        String query = String.join("\n", new String[] {
-                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
-                "PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>",
-                "SELECT ?resource",
-                "FROM <http://id.nlm.nih.gov/mesh>",
-                "WHERE {",
-                "  ?resource a meshv:TopicalDescriptor .",
+                "  ?resource rdfs:label ?label .",
                 "  ?resource rdfs:label ?bound .",
-                "}"
+                "} ORDER BY ?label"
         });
 
-        Collection<String> expected = Arrays.asList(EXPECTED_DESCRIPTORS);
-        Collection<String> actual = service.getResourcesFromLabel(query, DESCRIPTOR_LABEL, 10);
-        assertThat(actual, equalTo(expected));
+        Collection<String> expectedUris = Arrays.asList(Pyrin.EXACT_MATCH_URIS);
+        Collection<ResourceAndLabel> actualList = service.getResources(query, Pyrin.DESCRIPTOR_LABEL, 10);
+        Collection<String> actualUris = actualList.stream()
+                .map(rs -> rs.getResource())
+                .collect(Collectors.toList());
+        assertThat(actualUris, equalTo(expectedUris));
     }
 
     @Test
@@ -82,15 +67,44 @@ public class TestResourceService extends AbstractTestNGSpringContextTests {
         String query = String.join("\n", new String[] {
                 "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
                 "PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>",
-                "SELECT ?resource ?label ",
+                "PREFIX bif: <bif:>",
+                "SELECT ?resource ?label",
                 "FROM <http://id.nlm.nih.gov/mesh>",
                 "WHERE {",
                 "  ?resource a meshv:TopicalDescriptor .",
                 "  ?resource rdfs:label ?label .",
-                "  ?resource bif:contains ?bound .",
+                "  ?label bif:contains ?bound .",
                 "} ORDER BY ?label"
         });
 
-
+        Collection<String> expectedUris = Arrays.asList(Pyrin.CONTAINS_MATCH_URIS);
+        Collection<ResourceAndLabel> actualList = service.getResources(query, Pyrin.DESCRIPTOR_LABEL, 10);
+        Collection<String> actualUris = actualList.stream()
+                .map(rs -> rs.getResource())
+                .collect(Collectors.toList());
+        assertThat(actualUris, equalTo(expectedUris));
     }
+
+    @Test
+    public void testBindingStrStarts() throws LodeException {
+        String query = String.join("\n", new String[] {
+                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>",
+                "PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>",
+                "SELECT ?resource ?label",
+                "FROM <http://id.nlm.nih.gov/mesh>",
+                "WHERE {",
+                "  ?resource a meshv:TopicalDescriptor .",
+                "  ?resource rdfs:label ?label .",
+                "  FILTER(STRSTARTS(?label, STR(?bound))) .",
+                "} ORDER BY ?label"
+        });
+
+        Collection<String> expectedUris = Arrays.asList(Pyrin.STARTSWITH_MATCH_URIS);
+        Collection<ResourceAndLabel> actualList = service.getResources(query, Pyrin.DESCRIPTOR_LABEL, 10);
+        Collection<String> actualUris = actualList.stream()
+                .map(rs -> rs.getResource())
+                .collect(Collectors.toList());
+        assertThat(actualUris, equalTo(expectedUris));
+    }
+
 }
