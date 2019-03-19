@@ -49,3 +49,23 @@ pair.startswith: |
 
 allowed.qualifiers: |
     abc    
+
+label.identifier: |
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+
+    SELECT ?label
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?resource meshv:identifier ?bound
+      ?resource rdfs:label ?label
+    }
+
+label.resource: |
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+    SELECT ?label
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?resource rdfs:label ?label
+    }
