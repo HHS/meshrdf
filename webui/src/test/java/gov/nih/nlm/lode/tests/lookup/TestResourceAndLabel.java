@@ -36,5 +36,4 @@ public class TestResourceAndLabel {
         String jsonString = mapper.writeValueAsString(obj);
         assertThat(jsonString, equalTo("{\"resource\":\"abc\",\"label\":\"def\"}"));
     }
-
 }

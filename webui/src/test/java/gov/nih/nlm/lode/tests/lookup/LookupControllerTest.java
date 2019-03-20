@@ -8,9 +8,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.util.Arrays;
-import java.util.Collection;
-
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -22,57 +19,22 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import gov.nih.nlm.lode.model.DescriptorCriteria;
-import gov.nih.nlm.lode.model.LookupService;
-import gov.nih.nlm.lode.model.PairCriteria;
 import gov.nih.nlm.lode.model.Relation;
-import gov.nih.nlm.lode.model.ResourceAndLabel;
 import gov.nih.nlm.lode.servlet.LookupController;
-import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
 
 /**
- * Test the content type and error handling of the LookupController,
+ * Test the content type and nominal processing of the LookupController,
  * using a LookupConttroller that has a mocked lookupService.
+ *
+ * These are all nominal tests that do not exercise validation.
  *
  * @author davisda4
  */
 @ContextConfiguration(locations={"classpath:spring-test-context.xml"})
 @WebAppConfiguration
 @Test(groups = "unit")
-public class TestLookupController extends AbstractTestNGSpringContextTests {
-
-    private class MockLookupService implements LookupService {
-        public DescriptorCriteria desc = null;
-        public PairCriteria pair = null;
-        public int count = 0;
-
-        @Override
-        public Collection<ResourceAndLabel> lookupDescriptors(DescriptorCriteria criteria) throws LodeException {
-            count++;
-            this.desc= criteria;
-            return Arrays.asList(new ResourceAndLabel[] {
-               new ResourceAndLabel("http://id.nlm.nih.gov/mesh/D1", "First label"),
-               new ResourceAndLabel("http://id.nlm.nih.gov/mesh/D2", "Later label")
-            });
-        }
-
-        @Override
-        public Collection<ResourceAndLabel> lookupPairs(PairCriteria criteria) throws LodeException {
-            count++;
-            this.pair = criteria;
-            return Arrays.asList(new ResourceAndLabel[] {
-                new ResourceAndLabel("http://id.nlm.nih.gov/mesh/DQ1", "First label"),
-                new ResourceAndLabel("http://id.nlm.nih.gov/mesh/DQ2", "Later label")
-             });
-        }
-
-        public void clear() {
-            count = 0;
-            desc = null;
-            pair = null;
-        }
-    }
+public class LookupControllerTest extends AbstractTestNGSpringContextTests {
 
     private MockLookupService mockService;
     private MockMvc mvc;
@@ -147,7 +109,13 @@ public class TestLookupController extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testPostPairs() throws Exception {
-        String body = "{\"label\": \"smoky\", \"limit\": 20}";
+        String body = String.join("\n",  new String[] {
+                "{",
+                "\"label\": \"smoky\",",
+                "\"descriptor\": \"http://id.nlm.nih.gov/nosuchthing\",",
+                "\"limit\": 20",
+                "}",
+        });
         MockHttpServletRequestBuilder request =
                 post("/lookup/pair")
                 .accept(MediaType.APPLICATION_JSON)
@@ -162,5 +130,58 @@ public class TestLookupController extends AbstractTestNGSpringContextTests {
         assertThat(mockService.pair.getLabel(), equalTo("smoky"));
         assertThat(mockService.pair.getRelation(), equalTo(Relation.EXACT));
         assertThat(mockService.pair.getLimit(), equalTo(20));
+    }
+
+    @Test
+    public void testDescriptorGetValidated() throws Exception {
+        /*
+         * This tests a couple of things:
+         *   - The get request is validated
+         *   - The label is required
+         *   - The limit must be positive
+         *   - When errors occur, JSON is returned in our approved format
+         */
+        MockHttpServletRequestBuilder request =
+                get("/lookup/descriptor")
+                .param("limit", "-4")
+                .accept(MediaType.APPLICATION_JSON);
+        mvc.perform(request)
+            .andExpect(status().isBadRequest())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.error.label[0]").value("must not be empty"))
+            .andExpect(jsonPath("$.error.limit[0]").value("must be greater than 0"));
+
+        // The service should not have been called, because there was an error before that
+        assertThat(mockService.count, equalTo(0));
+    }
+
+    @Test
+    public void testDescriptorPostValidated() throws Exception {
+        /*
+         * This tests a couple of things:
+         *   - The post request is validated
+         *   - The limit <= 50
+         *   - When errors occur, JSON is returned in our approved format
+         */
+        String body = String.join("\n",  new String[] {
+                "{",
+                "\"label\": null,",
+                "\"limit\": 71",
+                "}",
+        });
+        MockHttpServletRequestBuilder request =
+                post("/lookup/descriptor")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body);
+        mvc.perform(request)
+            .andExpect(status().isBadRequest())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.error.label[0]").value("must not be empty"))
+            .andExpect(jsonPath("$.error.limit[0]").value("must be less than or equal to 50"));
+
+        // The service should not have been called, because there was an error before that
+        assertThat(mockService.count, equalTo(0));
+
     }
 }

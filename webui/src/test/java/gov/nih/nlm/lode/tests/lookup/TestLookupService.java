@@ -27,7 +27,8 @@ import gov.nih.nlm.lode.model.ResourceAndLabel;
 import gov.nih.nlm.lode.servlet.LookupServiceImpl;
 
 /**
- * Test the content type and error handling of the LookupController
+ * Test the content type and error handling of the LookupService.
+ * Note that these tests depend on Virtuoso and so are data dependendent
  *
  * @author davisda4
  */

@@ -1,5 +1,12 @@
 package gov.nih.nlm.lode.tests.lookup;
 
+/**
+ * This is supporting software that holds constants for testing of matches
+ * on the string "Pyrin" for descriptor matching by Exact match,
+ * Contains match, and Starts with matching.
+ *
+ * @author davisda4
+ */
 public class Pyrin {
     public static String DESCRIPTOR_LABEL = "Pyrin";
 

@@ -19,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -107,6 +108,16 @@ public class LookupController {
     }
 
     @ResponseBody
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map> handleNotValidException(MethodArgumentNotValidException ex) {
+        return error(ex.getBindingResult().getFieldErrors()
+                .stream()
+                .map((f) -> Pair.of(f.getField(), f.getDefaultMessage()))
+                .collect(Collectors.groupingBy(Pair::getLeft,
+                        Collectors.mapping(Pair::getRight, Collectors.toList()))), HttpStatus.BAD_REQUEST);
+    }
+
+    @ResponseBody
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<Map> handlesJsonException(final HttpMessageNotReadableException ex) {
         final Throwable cause = ex.getCause();
@@ -140,4 +151,5 @@ public class LookupController {
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         return new ResponseEntity<Map>(Collections.singletonMap("error", message), headers, status);
     }
+
 }
