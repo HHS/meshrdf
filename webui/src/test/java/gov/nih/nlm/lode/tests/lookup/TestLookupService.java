@@ -145,4 +145,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
         Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
         assertThat(actualUris, equalTo(expectedUris));
     }
+
+    @Test
+    public void test
 }

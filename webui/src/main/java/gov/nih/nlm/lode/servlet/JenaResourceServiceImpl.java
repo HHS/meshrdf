@@ -1,13 +1,13 @@
 package gov.nih.nlm.lode.servlet;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.hp.hpl.jena.graph.Graph;
@@ -35,11 +35,22 @@ public class JenaResourceServiceImpl implements JenaResourceService {
 
     private Logger log = LoggerFactory.getLogger(getClass());
     private JenaQueryExecutionService executionService;
+    private int fulltextMinLength = 4;
 
     @Override
     public Collection<ResourceAndLabel> getResources(String query, String label, int limit, String parentUri) throws LodeException {
         QuerySolutionMap initialBinding = new QuerySolutionMap();
-        initialBinding.add("bound", ResourceFactory.createLangLiteral(label, "en"));
+        if (label != null) {
+            Literal boundstar;
+            if (label.length() >= fulltextMinLength) {
+                /* Transforms a label like "Chemi" to a literal like "'Chemi*'" for use with bif:contains */
+                boundstar = ResourceFactory.createPlainLiteral("'"+label+"*'");
+            } else {
+                boundstar = ResourceFactory.createPlainLiteral(label);
+            }
+            initialBinding.add("bound", ResourceFactory.createLangLiteral(label, "en"));
+            initialBinding.add("boundstar", boundstar);
+        }
         if (parentUri != null) {
             initialBinding.add("parent", ResourceFactory.createResource(parentUri));
         }
@@ -81,8 +92,30 @@ public class JenaResourceServiceImpl implements JenaResourceService {
     }
 
     @Override
-    public Collection<ResourceAndLabel> getLabelsFromResource(String query, String resourceUri) {
-        return Arrays.asList(new ResourceAndLabel[] {});
+    public Collection<String> getResourceLabels(String query, String resourceUri) throws LodeException {
+        QuerySolutionMap initialBinding = new QuerySolutionMap();
+        initialBinding.add("resource", ResourceFactory.createResource(resourceUri));
+
+        Graph g = getExecutionService().getDefaultGraph();
+        QueryExecution endpoint = getExecutionService().getQueryExecution(g, query, initialBinding, true);
+
+        ArrayList<String> resultList = new ArrayList<String>();
+        try {
+            ResultSet results = endpoint.execSelect();
+            while (results.hasNext()) {
+                QuerySolution solution = results.next();
+                Literal label = solution.getLiteral("label");
+                resultList.add(label.getString());
+            }
+        } finally {
+            if (endpoint != null) {
+                endpoint.close();
+            }
+            if (g != null) {
+                g.close();
+            }
+        }
+        return resultList;
     }
 
     public JenaQueryExecutionService getExecutionService() {
@@ -95,4 +128,12 @@ public class JenaResourceServiceImpl implements JenaResourceService {
         this.executionService = executionService;
     }
 
+    public int getFulltextMinLength() {
+        return fulltextMinLength;
+    }
+
+    @Value("${lode.fulltext.minlength:4}")
+    public void setFulltextMinLength(int fulltextMinLength) {
+        this.fulltextMinLength = fulltextMinLength;
+    }
 }

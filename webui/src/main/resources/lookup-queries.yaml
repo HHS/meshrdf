@@ -1,17 +1,20 @@
 descriptor.exact: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
     
     SELECT ?resource ?label
     FROM <http://id.nlm.nih.gov/mesh> 
     WHERE {
       ?resource a meshv:Descriptor .
+      ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
       ?resource rdfs:label ?bound .
     } ORDER BY ?label
 
 descriptor.contains: | 
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
     PREFIX bif: <bif:>
     
@@ -19,12 +22,14 @@ descriptor.contains: |
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
       ?resource a meshv:Descriptor .
+      ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
-      ?label bif:contains ?bound .
+      ?label bif:contains ?boundstar .
     } ORDER BY ?label
 
 descriptor.startswith: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
     PREFIX bif: <bif:>
     
@@ -32,40 +37,92 @@ descriptor.startswith: |
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
       ?resource a meshv:Descriptor .
+      ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
-      ?label bif:contains ?bound .
+      ?label bif:contains ?boundstar .
       FILTER(STRSTARTS(?label, STR(?bound)))
     } ORDER BY ?label
-    
 
 pair.exact: |
-    abc
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+
+    SELECT ?resource ?label
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?parent meshv:allowableQualifier ?q .
+      ?q rdfs:label ?bound .
+      ?resource a meshv:AllowedDescriptorQualifierPair .
+      ?resource meshv:hasDescriptor ?parent .
+      ?resource meshv:hasQualifier ?q .
+      ?resource meshv:active "true"^^xsd:boolean .
+      ?resource rdfs:label ?label .
+    } ORDER BY ?label
 
 pair.contains: |
-    abc
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX bif: <bif:>
+
+    SELECT ?resource ?label
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?parent meshv:allowableQualifier ?q .
+      ?q rdfs:label ?qlabel .
+      ?qlabel bif:contains ?boundstar .
+      ?resource a meshv:AllowedDescriptorQualifierPair .
+      ?resource meshv:hasDescriptor ?parent .
+      ?resource meshv:hasQualifier ?q .
+      ?resource meshv:active "true"^^xsd:boolean .
+      ?resource rdfs:label ?label .
+    } ORDER BY ?label
 
 pair.startswith: |
-    abc
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX bif: <bif:>
+
+    SELECT ?resource ?label
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?parent a meshv:Descriptor .
+      ?parent meshv:allowableQualifier ?q .
+      ?q rdfs:label ?qlabel .
+      ?qlabel bif:contains ?boundstar .
+      FILTER(STRSTARTS(?qlabel, STR(?bound)) .
+      ?resource a meshv:AllowedDescriptorQualifierPair .
+      ?resource meshv:hasDescriptor ?parent .
+      ?resource meshv:hasQualifier ?q .
+      ?resource meshv:active "true"^^xsd:boolean .
+      ?resource rdfs:label ?label .
+    } ORDER BY ?label
 
 allowed.qualifiers: |
-    abc    
-
-label.identifier: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+
+    SELECT ?resource ?label
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?parent a meshv:Descriptor .
+      ?parent meshv:active "true"^^xsd:boolean .
+      ?parent meshv:allowableQualifier ?resource .
+      ?resource meshv:active "true"^^xsd:boolean .
+      ?resource rdfs:label ?label .
+    } ORDER BY ?label
+
+label.for.resource: |
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 
     SELECT ?label
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
-      ?resource meshv:identifier ?bound
-      ?resource rdfs:label ?label
-    }
-
-label.resource: |
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-
-    SELECT ?label
-    FROM <http://id.nlm.nih.gov/mesh>
-    WHERE {
-      ?resource rdfs:label ?label
+      ?resource meshv:active "true"^^xsd:boolean .
+      ?resource rdfs:label ?label .
     }

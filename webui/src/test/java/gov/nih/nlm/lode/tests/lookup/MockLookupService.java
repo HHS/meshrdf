@@ -20,6 +20,8 @@ import uk.ac.ebi.fgpt.lode.exception.LodeException;
 public class MockLookupService implements LookupService {
     public DescriptorCriteria desc = null;
     public PairCriteria pair = null;
+    public String descriptorUri = null;
+    public String resourceUri = null;
     public int count = 0;
 
     @Override
@@ -42,9 +44,31 @@ public class MockLookupService implements LookupService {
          });
     }
 
+    @Override
+    public Collection<ResourceAndLabel> allowedQualifiers(String descriptorUri) throws LodeException {
+        count++;
+        this.descriptorUri = descriptorUri;
+        return Arrays.asList(new ResourceAndLabel[] {
+            new ResourceAndLabel("http://id.nlm.nih.gov/mesh/Q1", "Qualifier One"),
+            new ResourceAndLabel("http://id.nlm.nih.gov/mesh/Q2", "Qualifier Two")
+        });
+    }
+
+    @Override
+    public Collection<String> lookupLabel(String resourceUri) throws LodeException {
+        count++;
+        this.resourceUri = resourceUri;
+        return Arrays.asList(new String[] {
+            "Mean Older Sibling Syndrome"
+
+        });
+    }
+
     public void clear() {
         count = 0;
         desc = null;
         pair = null;
+        resourceUri = null;
+        descriptorUri = null;
     }
 }

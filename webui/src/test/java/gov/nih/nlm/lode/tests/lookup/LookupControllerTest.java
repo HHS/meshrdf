@@ -1,6 +1,7 @@
 package gov.nih.nlm.lode.tests.lookup;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -182,6 +183,68 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
 
         // The service should not have been called, because there was an error before that
         assertThat(mockService.count, equalTo(0));
-
     }
+
+    @Test
+    public void testDescriptorRelationValidationGet() throws Exception {
+        MockHttpServletRequestBuilder request =
+                get("/lookup/descriptor")
+                .param("label", "fubar")
+                .param("relation", "invalid_enum_value")
+                .accept(MediaType.APPLICATION_JSON);
+        mvc.perform(request)
+            .andExpect(status().isBadRequest())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.error.label").doesNotExist())
+            .andExpect(jsonPath("$.error.relation[0]").value("must be one of \"contains\", \"exact\", or \"startswith\""));
+
+        // The service should not have been called, because there was an error before that
+        assertThat(mockService.count, equalTo(0));
+    }
+
+    @Test
+    public void testDescriptorRelationValidationPost() throws Exception {
+        String body = String.join("\n",  new String[] {
+                "{",
+                "\"label\": \"fubar\",",
+                "\"relation\": \"invalid_enum_value\"",
+                "}",
+        });
+        MockHttpServletRequestBuilder request =
+                post("/lookup/descriptor")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body);
+        mvc.perform(request)
+            .andExpect(status().isBadRequest())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.error.label").doesNotExist())
+            .andExpect(jsonPath("$.error.relation[0]").value("must be one of \"contains\", \"exact\", or \"startswith\""));
+
+        // The service should not have been called, because there was an error before that
+        assertThat(mockService.count, equalTo(0));
+    }
+
+    @Test
+    public void testJSONParseError() throws Exception {
+        String body = String.join("\n",  new String[] {
+                "{",
+                "\"label\": \"fubar\",",
+                "bad json",
+                "}",
+        });
+        MockHttpServletRequestBuilder request =
+                post("/lookup/descriptor")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body);
+        mvc.perform(request)
+            .andExpect(status().isBadRequest())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.error.general[0]").value(startsWith("JSON Parse Error")));
+
+        // The service should not have been called, because there was an error before that
+        assertThat(mockService.count, equalTo(0));
+    }
+
 }
