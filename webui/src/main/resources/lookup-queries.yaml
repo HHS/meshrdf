@@ -92,7 +92,7 @@ pair.startswith: |
       ?parent meshv:allowableQualifier ?q .
       ?q rdfs:label ?qlabel .
       ?qlabel bif:contains ?boundstar .
-      FILTER(STRSTARTS(?qlabel, STR(?bound)) .
+      FILTER(STRSTARTS(?qlabel, STR(?bound))) .
       ?resource a meshv:AllowedDescriptorQualifierPair .
       ?resource meshv:hasDescriptor ?parent .
       ?resource meshv:hasQualifier ?q .
