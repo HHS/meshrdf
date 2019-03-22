@@ -37,7 +37,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.hp.hpl.jena.query.QueryParseException;
 
-import gov.nih.nlm.lode.model.DescriptorCriteria;
+import gov.nih.nlm.lode.model.SemanticSearchParams;
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.PairCriteria;
 import gov.nih.nlm.lode.model.Relation;
@@ -74,14 +74,14 @@ public class LookupController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/descriptor", produces="application/json", method=RequestMethod.GET)
-    public Collection<ResourceAndLabel> lookupDescriptors(@Valid DescriptorCriteria criteria) throws QueryParseException, LodeException, IOException {
+    public Collection<ResourceAndLabel> lookupDescriptors(@Valid SemanticSearchParams criteria) throws QueryParseException, LodeException, IOException {
         log.trace(String.format("get descriptor criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/descriptor", produces="application/json", consumes="application/json", method=RequestMethod.POST)
-    public Collection<ResourceAndLabel> lookupDescriptorsPost(@Valid @RequestBody DescriptorCriteria criteria) throws LodeException {
+    public Collection<ResourceAndLabel> lookupDescriptorsPost(@Valid @RequestBody SemanticSearchParams criteria) throws LodeException {
         log.trace(String.format("post descriptor criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
     }

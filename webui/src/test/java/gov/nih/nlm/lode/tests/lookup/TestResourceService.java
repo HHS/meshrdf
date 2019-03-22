@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 
 import gov.nih.nlm.lode.model.JenaResourceService;
 import gov.nih.nlm.lode.model.ResourceAndLabel;
-import gov.nih.nlm.lode.servlet.JenaResourceServiceImpl;
+import gov.nih.nlm.lode.service.JenaResourceServiceImpl;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
 /**

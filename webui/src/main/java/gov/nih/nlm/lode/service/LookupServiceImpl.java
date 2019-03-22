@@ -1,4 +1,4 @@
-package gov.nih.nlm.lode.servlet;
+package gov.nih.nlm.lode.service;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -12,7 +12,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 
-import gov.nih.nlm.lode.model.DescriptorCriteria;
+import gov.nih.nlm.lode.model.SemanticSearchParams;
 import gov.nih.nlm.lode.model.JenaResourceService;
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.PairCriteria;
@@ -41,7 +41,7 @@ public class LookupServiceImpl implements LookupService {
 
 
     @Override
-    public Collection<ResourceAndLabel> lookupDescriptors(DescriptorCriteria criteria) throws LodeException {
+    public Collection<ResourceAndLabel> lookupDescriptors(SemanticSearchParams criteria) throws LodeException {
         String queryId = DESCRIPTOR_QUERY_PREFIX + criteria.getRelation().toString().toLowerCase();
         return getResourceService().getResources(getQuery(queryId), criteria.getLabel(), criteria.getLimit());
     }

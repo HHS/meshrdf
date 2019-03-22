@@ -2,7 +2,7 @@ package gov.nih.nlm.lode.model;
 
 import javax.validation.constraints.NotEmpty;
 
-public class PairCriteria extends DescriptorCriteria {
+public class PairCriteria extends SemanticSearchParams {
 
     @NotEmpty()
     private String descriptor;

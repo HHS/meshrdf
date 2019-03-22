@@ -20,11 +20,11 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.annotations.Test;
 
-import gov.nih.nlm.lode.model.DescriptorCriteria;
+import gov.nih.nlm.lode.model.SemanticSearchParams;
+import gov.nih.nlm.lode.service.LookupServiceImpl;
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.Relation;
 import gov.nih.nlm.lode.model.ResourceAndLabel;
-import gov.nih.nlm.lode.servlet.LookupServiceImpl;
 
 /**
  * Test the content type and error handling of the LookupService.
@@ -101,7 +101,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testDescriptorExact() throws Exception {
-        DescriptorCriteria criteria = new DescriptorCriteria();
+        SemanticSearchParams criteria = new SemanticSearchParams();
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
         Collection<ResourceAndLabel> results = serviceIntf.lookupDescriptors(criteria);
         Collection<String> expectedUris = Arrays.asList(Pyrin.EXACT_MATCH_URIS);
@@ -111,7 +111,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testDescriptorContains() throws Exception {
-        DescriptorCriteria criteria = new DescriptorCriteria();
+        SemanticSearchParams criteria = new SemanticSearchParams();
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
         criteria.setRelation(Relation.CONTAINS);
 
@@ -123,7 +123,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testDescriptorStartsWith() throws Exception {
-        DescriptorCriteria criteria = new DescriptorCriteria();
+        SemanticSearchParams criteria = new SemanticSearchParams();
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
         criteria.setRelation(Relation.STARTSWITH);
 
@@ -135,7 +135,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testDescriptorLimit() throws Exception {
-        DescriptorCriteria criteria = new DescriptorCriteria();
+        SemanticSearchParams criteria = new SemanticSearchParams();
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
         criteria.setRelation(Relation.CONTAINS);
         criteria.setLimit(2);

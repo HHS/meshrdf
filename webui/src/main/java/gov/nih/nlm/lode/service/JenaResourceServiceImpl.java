@@ -1,4 +1,4 @@
-package gov.nih.nlm.lode.servlet;
+package gov.nih.nlm.lode.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
