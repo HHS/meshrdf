@@ -12,7 +12,7 @@ descriptor_exact: |
       ?resource rdfs:label ?bound .
     } ORDER BY ?label
 
-descriptor.contains: | 
+descriptor_contains: | 
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
@@ -27,7 +27,7 @@ descriptor.contains: |
       ?label bif:contains ?boundstar .
     } ORDER BY ?label
 
-descriptor.startswith: |
+descriptor_startswith: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
@@ -43,7 +43,7 @@ descriptor.startswith: |
       FILTER(STRSTARTS(?label, STR(?bound)))
     } ORDER BY ?label
 
-pair.exact: |
+pair_exact: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
@@ -60,7 +60,7 @@ pair.exact: |
       ?resource rdfs:label ?label .
     } ORDER BY ?label
 
-pair.contains: |
+pair_contains: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
@@ -79,7 +79,7 @@ pair.contains: |
       ?resource rdfs:label ?label .
     } ORDER BY ?label
 
-pair.startswith: |
+pair_startswith: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
@@ -100,7 +100,7 @@ pair.startswith: |
       ?resource rdfs:label ?label .
     } ORDER BY ?label
 
-allowed.qualifiers: |
+allowed_qualifiers: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
@@ -115,7 +115,7 @@ allowed.qualifiers: |
       ?resource rdfs:label ?label .
     } ORDER BY ?label
 
-label.for.resource: |
+label_for_resource: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>

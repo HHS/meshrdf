@@ -29,7 +29,8 @@
 
         <!-- Versions -->
         <springframework.version>4.3.22.RELEASE</springframework.version>
-        <lodestar.version>1.4.1</lodestar.version>
+        <lodestar.version>1.4.2-SNAPSHOT</lodestar.version>
+        <jena.version>3.10.0</jena.version>
 
         <maven.compiler.source.version>11</maven.compiler.source.version>
         <maven.compiler.target.version>11</maven.compiler.target.version>

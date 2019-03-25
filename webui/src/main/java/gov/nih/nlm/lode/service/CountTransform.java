@@ -1,8 +1,8 @@
 package gov.nih.nlm.lode.service;
 
-import com.hp.hpl.jena.sparql.algebra.Op;
-import com.hp.hpl.jena.sparql.algebra.TransformBase;
-import com.hp.hpl.jena.sparql.algebra.op.OpProject;
+import org.apache.jena.sparql.algebra.Op;
+import org.apache.jena.sparql.algebra.TransformBase;
+import org.apache.jena.sparql.algebra.op.OpProject;
 
 public class CountTransform extends TransformBase {
 

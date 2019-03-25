@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 
 import org.apache.commons.lang3.tuple.Pair;
+import org.apache.jena.query.QueryParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,14 +36,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.hp.hpl.jena.query.QueryParseException;
 
-import gov.nih.nlm.lode.model.SemanticSearchParams;
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.PairCriteria;
 import gov.nih.nlm.lode.model.Relation;
 import gov.nih.nlm.lode.model.RelationEditor;
 import gov.nih.nlm.lode.model.ResourceAndLabel;
+import gov.nih.nlm.lode.model.SemanticSearchParams;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
 @Validated

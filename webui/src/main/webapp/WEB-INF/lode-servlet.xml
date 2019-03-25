@@ -23,7 +23,7 @@
     </context:component-scan>
 
     <!-- Scan our own packages -->
-    <context:component-scan base-package="gov.nih.nlm.lode.servlet"/>
+    <context:component-scan base-package="gov.nih.nlm.lode.servlet, gov.nih.nlm.lode.service"/>
 
     <!-- drive MVC setup based on @Controller, @RequestMapping annotations etc -->
     <mvc:annotation-driven />

@@ -12,11 +12,11 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 
-import gov.nih.nlm.lode.model.SemanticSearchParams;
 import gov.nih.nlm.lode.model.JenaResourceService;
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.PairCriteria;
 import gov.nih.nlm.lode.model.ResourceAndLabel;
+import gov.nih.nlm.lode.model.SemanticSearchParams;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
 
@@ -30,10 +30,10 @@ public class LookupServiceImpl implements LookupService {
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
-    public static final String DESCRIPTOR_QUERY_PREFIX = "descriptor.";
-    public static final String PAIR_QUERY_PREFIX = "pair.";
-    public static final String ALLOWED_QUALIFERS_ID = "allowed.qualifiers";
-    public static final String RESOURCE_LABEL_ID = "label.for.resource";
+    public static final String DESCRIPTOR_QUERY_PREFIX = "descriptor_";
+    public static final String PAIR_QUERY_PREFIX = "pair_";
+    public static final String ALLOWED_QUALIFERS_ID = "allowed_qualifiers";
+    public static final String RESOURCE_LABEL_ID = "label_for_resource";
 
     private Resource queryResource;
     private Map<String,Object> queryMap;
