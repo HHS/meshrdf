@@ -23,10 +23,11 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.annotations.Test;
 
+import gov.nih.nlm.lode.model.DescriptorParams;
 import gov.nih.nlm.lode.model.LabelMatch;
 import gov.nih.nlm.lode.model.LookupService;
+import gov.nih.nlm.lode.model.PairParams;
 import gov.nih.nlm.lode.model.ResourceAndLabel;
-import gov.nih.nlm.lode.model.SemanticSearchParams;
 import gov.nih.nlm.lode.service.LookupServiceImpl;
 
 /**
@@ -104,7 +105,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testDescriptorExact() throws Exception {
-        SemanticSearchParams criteria = new SemanticSearchParams();
+        DescriptorParams criteria = new DescriptorParams();
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
         Collection<ResourceAndLabel> results = serviceIntf.lookupDescriptors(criteria);
         Collection<String> expectedUris = Arrays.asList(Pyrin.EXACT_MATCH_URIS);
@@ -114,7 +115,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testDescriptorContains() throws Exception {
-        SemanticSearchParams criteria = new SemanticSearchParams();
+        DescriptorParams criteria = new DescriptorParams();
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
         criteria.setMatch(LabelMatch.CONTAINS);
 
@@ -126,7 +127,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testDescriptorStartsWith() throws Exception {
-        SemanticSearchParams criteria = new SemanticSearchParams();
+        DescriptorParams criteria = new DescriptorParams();
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
         criteria.setMatch(LabelMatch.STARTSWITH);
 
@@ -138,7 +139,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testDescriptorLimit() throws Exception {
-        SemanticSearchParams criteria = new SemanticSearchParams();
+        DescriptorParams criteria = new DescriptorParams();
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
         criteria.setMatch(LabelMatch.CONTAINS);
         criteria.setLimit(2);
@@ -151,7 +152,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testPairExactNone() throws Exception {
-        SemanticSearchParams criteria = new SemanticSearchParams();
+        PairParams criteria = new PairParams();
         criteria.setDescriptor(Pyrin.EXACT_MATCH_URIS[0]);
         criteria.setLabel("chemical");
         criteria.setMatch(LabelMatch.EXACT);
@@ -162,7 +163,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testPairExact() throws Exception {
-        SemanticSearchParams criteria = new SemanticSearchParams();
+        PairParams criteria = new PairParams();
         criteria.setDescriptor(Pyrin.DESCRIPTOR_URI);
         criteria.setLabel("chemistry");
         criteria.setMatch(LabelMatch.EXACT);
@@ -178,7 +179,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testPairContains() throws Exception {
-        SemanticSearchParams criteria = new SemanticSearchParams();
+        PairParams criteria = new PairParams();
         criteria.setDescriptor(Pyrin.DESCRIPTOR_URI);
         criteria.setLabel("chemi");
         criteria.setMatch(LabelMatch.CONTAINS);
@@ -195,7 +196,7 @@ public class TestLookupService extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testPairStartswith() throws  Exception {
-        SemanticSearchParams criteria = new SemanticSearchParams();
+        PairParams criteria = new PairParams();
         criteria.setDescriptor(Pyrin.DESCRIPTOR_URI);
         criteria.setLabel("chemic");
         criteria.setMatch(LabelMatch.STARTSWITH);

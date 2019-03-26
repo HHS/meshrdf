@@ -14,16 +14,10 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 
 @JsonInclude(Include.NON_NULL)
-public class SemanticSearchParams {
+public class DescriptorParams {
 
     @NotEmpty()
     private String label;
-
-    private String type;
-
-    private String graph;
-
-    private String descriptor;
 
     private LabelMatch match = LabelMatch.EXACT;
 
@@ -38,12 +32,6 @@ public class SemanticSearchParams {
         this.label = label;
     }
 
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
-    }
     public LabelMatch getMatch() {
         return match;
     }
@@ -60,18 +48,6 @@ public class SemanticSearchParams {
     public void setLimit(int limit) {
         this.limit = limit;
     }
-    public String getGraph() {
-        return graph;
-    }
-    public void setGraph(String graph) {
-        this.graph = graph;
-    }
-    public String getDescriptor() {
-        return descriptor;
-    }
-    public void setDescriptor(String descriptor) {
-        this.descriptor = descriptor;
-    }
 
     @Override
     public boolean equals(Object obj) {
@@ -80,13 +56,10 @@ public class SemanticSearchParams {
         if (obj.getClass() != this.getClass()) {
             return false;
         }
-        SemanticSearchParams rhs = (SemanticSearchParams) obj;
+        DescriptorParams rhs = (DescriptorParams) obj;
         return new EqualsBuilder()
                 .appendSuper(super.equals(rhs))
                 .append(label, rhs.label)
-                .append(type, rhs.type)
-                .append(graph, rhs.graph)
-                .append(descriptor, rhs.descriptor)
                 .append(match, rhs.match)
                 .append(limit, rhs.limit)
                 .isEquals();
@@ -96,9 +69,6 @@ public class SemanticSearchParams {
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
                 .append("label", label)
-                .append("type", type)
-                .append("graph", graph)
-                .append("descriptor", descriptor)
                 .append("relation", match)
                 .append("limit", limit)
                 .toString();

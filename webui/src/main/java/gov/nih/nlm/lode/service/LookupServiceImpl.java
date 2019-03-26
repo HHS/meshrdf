@@ -12,10 +12,11 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 
+import gov.nih.nlm.lode.model.DescriptorParams;
 import gov.nih.nlm.lode.model.JenaResourceService;
 import gov.nih.nlm.lode.model.LookupService;
+import gov.nih.nlm.lode.model.PairParams;
 import gov.nih.nlm.lode.model.ResourceAndLabel;
-import gov.nih.nlm.lode.model.SemanticSearchParams;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
 
@@ -40,13 +41,13 @@ public class LookupServiceImpl implements LookupService {
 
 
     @Override
-    public Collection<ResourceAndLabel> lookupDescriptors(SemanticSearchParams criteria) throws LodeException {
+    public Collection<ResourceAndLabel> lookupDescriptors(DescriptorParams criteria) throws LodeException {
         String queryId = DESCRIPTOR_QUERY_PREFIX + criteria.getMatch().toString().toLowerCase();
         return getResourceService().getResources(getQuery(queryId), criteria.getLabel(), criteria.getLimit());
     }
 
     @Override
-    public Collection<ResourceAndLabel> lookupPairs(SemanticSearchParams criteria) throws LodeException {
+    public Collection<ResourceAndLabel> lookupPairs(PairParams criteria) throws LodeException {
         String queryId = PAIR_QUERY_PREFIX + criteria.getMatch().toString().toLowerCase();
         return getResourceService().getResources(getQuery(queryId), criteria.getLabel(), criteria.getLimit(), criteria.getDescriptor());
     }

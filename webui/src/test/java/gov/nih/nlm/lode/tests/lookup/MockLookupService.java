@@ -3,9 +3,10 @@ package gov.nih.nlm.lode.tests.lookup;
 import java.util.Arrays;
 import java.util.Collection;
 
+import gov.nih.nlm.lode.model.DescriptorParams;
 import gov.nih.nlm.lode.model.LookupService;
+import gov.nih.nlm.lode.model.PairParams;
 import gov.nih.nlm.lode.model.ResourceAndLabel;
-import gov.nih.nlm.lode.model.SemanticSearchParams;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
 
@@ -17,14 +18,14 @@ import uk.ac.ebi.fgpt.lode.exception.LodeException;
  *
  */
 public class MockLookupService implements LookupService {
-    public SemanticSearchParams desc = null;
-    public SemanticSearchParams pair = null;
+    public DescriptorParams desc = null;
+    public PairParams pair = null;
     public String descriptorUri = null;
     public String resourceUri = null;
     public int count = 0;
 
     @Override
-    public Collection<ResourceAndLabel> lookupDescriptors(SemanticSearchParams criteria) throws LodeException {
+    public Collection<ResourceAndLabel> lookupDescriptors(DescriptorParams criteria) throws LodeException {
         count++;
         this.desc= criteria;
         return Arrays.asList(new ResourceAndLabel[] {
@@ -34,7 +35,7 @@ public class MockLookupService implements LookupService {
     }
 
     @Override
-    public Collection<ResourceAndLabel> lookupPairs(SemanticSearchParams criteria) throws LodeException {
+    public Collection<ResourceAndLabel> lookupPairs(PairParams criteria) throws LodeException {
         count++;
         this.pair = criteria;
         return Arrays.asList(new ResourceAndLabel[] {
