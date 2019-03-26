@@ -9,6 +9,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
+
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -41,9 +45,11 @@ public class TestLookupController extends AbstractTestNGSpringContextTests {
     private MockMvc mvc;
 
     @BeforeClass
-    public void setUp() {
+    public void setUp() throws URISyntaxException {
         mockService = new MockLookupService();
-        mvc = MockMvcBuilders.standaloneSetup(new LookupController(mockService)).build();
+        LookupController controller = new LookupController(mockService);
+        controller.setBaseUri(new URI("http://id.nlm.nih.gov/mesh/"));
+        mvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 
     @AfterMethod(alwaysRun = true)
@@ -153,24 +159,25 @@ public class TestLookupController extends AbstractTestNGSpringContextTests {
         assertThat(mockService.pair.getDescriptor(), equalTo("http://id.nlm.nih.gov/nosuchthing"));
     }
 
-   @Test
+    @Test
     public void testPostPairForm() throws Exception {
-        String body = "label=smoky&limit=20&descriptor=should%20be%20decoded";
+        String descriptorParam = "http://should.be/decoded/";
+        String body = "label=smoky&limit=20&descriptor="+URLEncoder.encode(descriptorParam, "ascii");
         MockHttpServletRequestBuilder request =
                 post("/lookup/pair")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .content(body);
         mvc.perform(request)
-            .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
-            .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/DQ1"))
-            .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/DQ2"));
+           .andExpect(status().isOk())
+           .andExpect(content().contentType("application/json;charset=UTF-8"))
+           .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/DQ1"))
+           .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/DQ2"));
         assertThat(mockService.count, equalTo(1));
         assertThat(mockService.pair.getLabel(), equalTo("smoky"));
         assertThat(mockService.pair.getMatch(), equalTo(LabelMatch.EXACT));
         assertThat(mockService.pair.getLimit(), equalTo(20));
-        assertThat(mockService.pair.getDescriptor(), equalTo("should be decoded"));
+        assertThat(mockService.pair.getDescriptor(), equalTo(descriptorParam));
     }
 
     @Test
@@ -317,7 +324,7 @@ public class TestLookupController extends AbstractTestNGSpringContextTests {
     public void testAllowedQualifiers() throws Exception {
         MockHttpServletRequestBuilder request =
                 get("/lookup/qualifiers")
-                .param("descriptor", "something")
+                .param("descriptor", "/SOMETHING")
                .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isOk())
@@ -325,31 +332,32 @@ public class TestLookupController extends AbstractTestNGSpringContextTests {
             .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/Q1"))
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/Q2"));
         assertThat(mockService.count, equalTo(1));
-        assertThat(mockService.descriptorUri, equalTo("something"));
+        // NOTE: this is resolved relative to the main URI
+        assertThat(mockService.descriptorUri, equalTo("http://id.nlm.nih.gov/SOMETHING"));
     }
 
     @Test
-    public void testAllowedQualifiersDescriptorRequired() throws Exception {
+    public void testAllowedQualifiersDescriptorMissing() throws Exception {
         MockHttpServletRequestBuilder request =
                 get("/lookup/qualifiers")
                .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isBadRequest())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
-            .andExpect(jsonPath("$.error.descriptor").value("required parameter"));
+            .andExpect(jsonPath("$.error.descriptor").value("must not be empty"));
     }
 
-//    @Test
-//    public void testAllowedQualifiersDescriptorValidation() throws Exception {
-//        MockHttpServletRequestBuilder request =
-//                get("/lookup/qualifiers")
-//                .param("descriptor", "")
-//                .accept(MediaType.APPLICATION_JSON);
-//        mvc.perform(request)
-//            .andExpect(status().isBadRequest())
-//            .andExpect(content().contentType("application/json;charset=UTF-8"))
-//            .andExpect(jsonPath("$.error.descriptor").value("must not be empty"));
-//    }
+    @Test
+    public void testAllowedQualifiersDescriptorEmpty() throws Exception {
+        MockHttpServletRequestBuilder request =
+                get("/lookup/qualifiers")
+                .param("descriptor", "")
+                .accept(MediaType.APPLICATION_JSON);
+        mvc.perform(request)
+            .andExpect(status().isBadRequest())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.error.descriptor").value("must not be empty"));
+    }
 
     @Test
     public void testLabels() throws Exception {
@@ -362,30 +370,31 @@ public class TestLookupController extends AbstractTestNGSpringContextTests {
             .andExpect(content().contentType("application/json;charset=UTF-8"))
             .andExpect(jsonPath("$[0]").value("Mean Older Sibling Syndrome"));
         assertThat(mockService.count, equalTo(1));
-        assertThat(mockService.resourceUri, equalTo("MOSS"));
+
+        // NOTE: this test that URI is treated as relative
+        assertThat(mockService.resourceUri, equalTo("http://id.nlm.nih.gov/mesh/MOSS"));
     }
 
     @Test
-    public void testLabelsResourceRequired() throws Exception {
+    public void testLabelsResourceMissing() throws Exception {
         MockHttpServletRequestBuilder request =
                 get("/lookup/label")
                .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isBadRequest())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
-            .andExpect(jsonPath("$.error.resource").value("required parameter"));
+            .andExpect(jsonPath("$.error.resource").value("must not be empty"));
     }
 
-//    @Test
-//    public void testLabelsResourceValidation() throws Exception {
-//        MockHttpServletRequestBuilder request =
-//                get("/lookup/label")
-//                .param("resource", "")
-//                .accept(MediaType.APPLICATION_JSON);
-//        mvc.perform(request)
-//            .andExpect(status().isBadRequest())
-//            .andExpect(content().contentType("application/json;charset=UTF-8"))
-//            .andExpect(jsonPath("$.error.resource").value("must not be empty"));
-//    }
-
+    @Test
+    public void testLabelsResourceEmpty() throws Exception {
+        MockHttpServletRequestBuilder request =
+                get("/lookup/label")
+                .param("resource", "")
+                .accept(MediaType.APPLICATION_JSON);
+     mvc.perform(request)
+            .andExpect(status().isBadRequest())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.error.resource").value("must not be empty"));
+    }
 }

@@ -1,19 +1,20 @@
 package gov.nih.nlm.lode.servlet;
 
 import java.io.IOException;
+import java.net.URI;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
 
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.jena.query.QueryParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -31,7 +32,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,9 +39,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
+import gov.nih.nlm.lode.model.AllowedQualifierParams;
 import gov.nih.nlm.lode.model.DescriptorParams;
 import gov.nih.nlm.lode.model.LabelMatch;
 import gov.nih.nlm.lode.model.LabelMatchEditor;
+import gov.nih.nlm.lode.model.LabelParams;
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.PairParams;
 import gov.nih.nlm.lode.model.ResourceAndLabel;
@@ -56,6 +58,9 @@ public class LookupController {
 
     private LookupService service;
 
+    @Value("${lode.explorer.service.baseuri:}")
+    private URI baseUri = null;
+
     @Autowired
     public LookupController(LookupService service) {
         this.service = service;
@@ -69,6 +74,21 @@ public class LookupController {
         this.service = service;
     }
 
+    public URI getBaseUri() {
+        return this.baseUri;
+    }
+
+    public void setBaseUri(URI baseUri) {
+        this.baseUri = baseUri;
+    }
+
+    public String resolveUri(String uri) {
+        if (baseUri != null) {
+            uri = baseUri.resolve(uri).toString();
+        }
+        return uri;
+    }
+
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(LabelMatch.class, new LabelMatchEditor());
@@ -77,57 +97,66 @@ public class LookupController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/descriptor", produces="application/json")
     public Collection<ResourceAndLabel> lookupDescriptors(@Valid DescriptorParams criteria) throws QueryParseException, LodeException, IOException {
-        log.trace(String.format("get descriptor criteria label=%s, rel=%s, limit=%s", criteria.getMatch(), criteria.getMatch(), criteria.getLimit()));
+        log.trace(String.format("get descriptor criteria label=%s, rel=%s, limit=%s",
+                criteria.getMatch(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/descriptor", produces="application/json", consumes="application/json")
     public Collection<ResourceAndLabel> lookupDescriptorsJson(@Valid @RequestBody DescriptorParams criteria) throws LodeException {
-        log.trace(String.format("post descriptor criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
+        log.trace(String.format("post descriptor criteria label=%s, rel=%s, limit=%s",
+                criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/descriptor", produces="application/json", consumes="application/x-www-form-urlencoded")
     public Collection<ResourceAndLabel> lookupDescriptorsForm(@Valid DescriptorParams criteria) throws LodeException {
-        log.trace(String.format("post descriptor criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
+        log.trace(String.format("post descriptor criteria label=%s, rel=%s, limit=%s",
+                criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/pair", produces="application/json")
     public Collection<ResourceAndLabel> lookupPair(@Valid PairParams criteria) throws IOException, LodeException {
-        log.trace(String.format("get pair criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
+        log.trace(String.format("get pair criteria label=%s, rel=%s, limit=%s",
+                criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
+        criteria.setDescriptor(resolveUri(criteria.getDescriptor()));
         return getService().lookupPairs(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/pair", produces="application/json", consumes="application/json")
     public Collection<ResourceAndLabel> lookupPairJson(@Valid @RequestBody PairParams criteria) throws IOException, LodeException {
-        log.trace(String.format("post pair criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
+        log.trace(String.format("post pair criteria label=%s, rel=%s, limit=%s",
+                criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
+        criteria.setDescriptor(resolveUri(criteria.getDescriptor()));
         return getService().lookupPairs(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/pair", produces="application/json", consumes="application/x-www-form-urlencoded")
     public Collection<ResourceAndLabel> lookupPairForm(@Valid PairParams criteria) throws IOException, LodeException {
-        log.trace(String.format("post pair criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
+        log.trace(String.format("post pair criteria label=%s, rel=%s, limit=%s",
+                criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
+        criteria.setDescriptor(resolveUri(criteria.getDescriptor()));
         return getService().lookupPairs(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/qualifiers", produces="application/json")
-    public Collection<ResourceAndLabel> lookupQualifiers(@RequestParam("descriptor") @NotEmpty String descriptorUri) throws LodeException {
-        log.trace(String.format("get qualifiers descriptor=%s", descriptorUri));
-        return getService().allowedQualifiers(descriptorUri);
+    public Collection<ResourceAndLabel> lookupQualifiers(@Valid AllowedQualifierParams params) throws LodeException {
+        log.trace(String.format("get qualifiers descriptor=%s", params.getDescriptor()));
+        return getService().allowedQualifiers(resolveUri(params.getDescriptor()));
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/label", produces="application/json")
-    public Collection<String> lookupLabel(@RequestParam("resource") @NotEmpty String resourceUri) throws LodeException, BindException {
-        log.trace(String.format("get label resource=%s", resourceUri));
-        return getService().lookupLabel(resourceUri);
+    public Collection<String> lookupLabel(@Valid LabelParams params) throws LodeException {
+        log.trace(String.format("get label resource=%s", params.getResource()));
+        return getService().lookupLabel(resolveUri(params.getResource()));
     }
 
     @ResponseBody
