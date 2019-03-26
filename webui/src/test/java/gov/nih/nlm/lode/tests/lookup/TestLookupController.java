@@ -35,7 +35,7 @@ import gov.nih.nlm.lode.servlet.LookupController;
 @ContextConfiguration(locations={"classpath:spring-test-context.xml"})
 @WebAppConfiguration
 @Test(groups = "unit")
-public class LookupControllerTest extends AbstractTestNGSpringContextTests {
+public class TestLookupController extends AbstractTestNGSpringContextTests {
 
     private MockLookupService mockService;
     private MockMvc mvc;
@@ -226,7 +226,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
     }
 
     @Test
-    public void testJSONParseError() throws Exception {
+    public void testDescriptorJSONParseError() throws Exception {
         String body = String.join("\n",  new String[] {
                 "{",
                 "\"label\": \"fubar\",",
@@ -245,5 +245,79 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
 
         // The service should not have been called, because there was an error before that
         assertThat(mockService.count, equalTo(0));
+    }
+
+    @Test
+    public void testPairGet() throws Exception {
+        MockHttpServletRequestBuilder request =
+                get("/lookup/pair")
+                .param("label",  "fubar")
+                .param("descriptor", "something")
+                .param("match", "contains")
+               .accept(MediaType.APPLICATION_JSON);
+        mvc.perform(request)
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/DQ1"))
+            .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/DQ2"));
+        assertThat(mockService.count, equalTo(1));
+        assertThat(mockService.pair.getLabel(), equalTo("fubar"));
+        assertThat(mockService.pair.getDescriptor(), equalTo("something"));
+        assertThat(mockService.pair.getMatch(), equalTo(LabelMatch.CONTAINS));
+        assertThat(mockService.pair.getLimit(), equalTo(10));
+    }
+
+    @Test
+    public void testPairPost() throws Exception {
+        String body = String.join("\n",  new String[] {
+                "{",
+                "  \"label\": \"fubar\",",
+                "  \"descriptor\": \"something else\"",
+                "}",
+        });
+        MockHttpServletRequestBuilder request =
+                post("/lookup/pair")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body);
+        mvc.perform(request)
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/DQ1"))
+            .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/DQ2"));
+        assertThat(mockService.count, equalTo(1));
+        assertThat(mockService.pair.getLabel(), equalTo("fubar"));
+        assertThat(mockService.pair.getDescriptor(), equalTo("something else"));
+        assertThat(mockService.pair.getMatch(), equalTo(LabelMatch.EXACT));
+        assertThat(mockService.pair.getLimit(), equalTo(10));
+    }
+
+    @Test
+    public void testAllowedQualifiers() throws Exception {
+        MockHttpServletRequestBuilder request =
+                get("/lookup/qualifiers")
+                .param("descriptor", "something")
+               .accept(MediaType.APPLICATION_JSON);
+        mvc.perform(request)
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/Q1"))
+            .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/Q2"));
+        assertThat(mockService.count, equalTo(1));
+        assertThat(mockService.descriptorUri, equalTo("something"));
+    }
+
+    @Test
+    public void testLabels() throws Exception {
+        MockHttpServletRequestBuilder request =
+                get("/lookup/label")
+                .param("resource", "MOSS")
+               .accept(MediaType.APPLICATION_JSON);
+        mvc.perform(request)
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$[0]").value("Mean Older Sibling Syndrome"));
+        assertThat(mockService.count, equalTo(1));
+        assertThat(mockService.resourceUri, equalTo("MOSS"));
     }
 }
