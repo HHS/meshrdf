@@ -37,10 +37,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
+import gov.nih.nlm.lode.model.LabelMatch;
+import gov.nih.nlm.lode.model.LabelMatchEditor;
 import gov.nih.nlm.lode.model.LookupService;
-import gov.nih.nlm.lode.model.PairCriteria;
-import gov.nih.nlm.lode.model.Relation;
-import gov.nih.nlm.lode.model.RelationEditor;
 import gov.nih.nlm.lode.model.ResourceAndLabel;
 import gov.nih.nlm.lode.model.SemanticSearchParams;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
@@ -69,20 +68,20 @@ public class LookupController {
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        binder.registerCustomEditor(Relation.class, new RelationEditor());
+        binder.registerCustomEditor(LabelMatch.class, new LabelMatchEditor());
     }
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/descriptor", produces="application/json", method=RequestMethod.GET)
     public Collection<ResourceAndLabel> lookupDescriptors(@Valid SemanticSearchParams criteria) throws QueryParseException, LodeException, IOException {
-        log.trace(String.format("get descriptor criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
+        log.trace(String.format("get descriptor criteria label=%s, rel=%s, limit=%s", criteria.getMatch(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/descriptor", produces="application/json", consumes="application/json", method=RequestMethod.POST)
     public Collection<ResourceAndLabel> lookupDescriptorsPost(@Valid @RequestBody SemanticSearchParams criteria) throws LodeException {
-        log.trace(String.format("post descriptor criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
+        log.trace(String.format("post descriptor criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
     }
 
@@ -95,15 +94,15 @@ public class LookupController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/pair", produces="application/json", method=RequestMethod.GET)
-    public Collection<ResourceAndLabel> lookupPair(@Valid PairCriteria criteria) throws IOException, LodeException {
-        log.trace(String.format("get pair criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
+    public Collection<ResourceAndLabel> lookupPair(@Valid SemanticSearchParams criteria) throws IOException, LodeException {
+        log.trace(String.format("get pair criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupPairs(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path="/pair", produces="application/json", consumes="application/json", method=RequestMethod.POST)
-    public Collection<ResourceAndLabel> lookupPairPost(@Valid @RequestBody PairCriteria criteria) throws IOException, LodeException {
-        log.trace(String.format("post pair criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getRelation(), criteria.getLimit()));
+    public Collection<ResourceAndLabel> lookupPairPost(@Valid @RequestBody SemanticSearchParams criteria) throws IOException, LodeException {
+        log.trace(String.format("post pair criteria label=%s, rel=%s, limit=%s", criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupPairs(criteria);
     }
 
@@ -137,8 +136,8 @@ public class LookupController {
     }
 
     private String getFieldErrorMessage(final FieldError fieldError) {
-        if (fieldError.getField().equals("relation")) {
-            return RelationEditor.ERROR_MESSAGE;
+        if (fieldError.getField().equals("match")) {
+            return LabelMatchEditor.ERROR_MESSAGE;
         } else {
             return fieldError.getDefaultMessage();
         }
@@ -152,7 +151,7 @@ public class LookupController {
         if (cause == null) {
             return fieldError("general", ex.getMessage());
         } else if (cause instanceof JsonMappingException) {
-            return fieldError("relation", RelationEditor.ERROR_MESSAGE);
+            return fieldError("match", LabelMatchEditor.ERROR_MESSAGE);
         } else if (cause instanceof JsonParseException) {
             return fieldError("general", "JSON Parse Error: "+cause.getMessage());
         } else {

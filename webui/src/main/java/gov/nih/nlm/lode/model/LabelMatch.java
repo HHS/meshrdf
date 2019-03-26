@@ -1,6 +1,6 @@
 package gov.nih.nlm.lode.model;
 
-public enum Relation {
+public enum LabelMatch {
     EXACT,
     STARTSWITH,
     CONTAINS;

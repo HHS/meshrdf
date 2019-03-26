@@ -25,7 +25,7 @@ public class SemanticSearchParams {
 
     private String descriptor;
 
-    private Relation relation = Relation.EXACT;
+    private LabelMatch match = LabelMatch.EXACT;
 
     @Positive
     @Max(50)
@@ -44,14 +44,14 @@ public class SemanticSearchParams {
     public void setType(String type) {
         this.type = type;
     }
-    public Relation getRelation() {
-        return relation;
+    public LabelMatch getMatch() {
+        return match;
     }
-    public void setRelation(Relation relation) {
-        this.relation = relation;
+    public void setMatch(LabelMatch match) {
+        this.match = match;
     }
-    public void setRelation(String relation) {
-        setRelation(Relation.valueOf(relation.toUpperCase()));
+    public void setMatch(String match) {
+        setMatch(LabelMatch.valueOf(match.toUpperCase()));
     }
 
     public int getLimit() {
@@ -87,7 +87,7 @@ public class SemanticSearchParams {
                 .append(type, rhs.type)
                 .append(graph, rhs.graph)
                 .append(descriptor, rhs.descriptor)
-                .append(relation, rhs.relation)
+                .append(match, rhs.match)
                 .append(limit, rhs.limit)
                 .isEquals();
     }
@@ -99,7 +99,7 @@ public class SemanticSearchParams {
                 .append("type", type)
                 .append("graph", graph)
                 .append("descriptor", descriptor)
-                .append("relation", relation)
+                .append("relation", match)
                 .append("limit", limit)
                 .toString();
     }

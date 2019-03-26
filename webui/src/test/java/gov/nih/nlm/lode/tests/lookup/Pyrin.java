@@ -9,10 +9,10 @@ package gov.nih.nlm.lode.tests.lookup;
  */
 public class Pyrin {
     public static String DESCRIPTOR_LABEL = "Pyrin";
+    public static String IDENTIFIER = "D000071198";
+    public static String DESCRIPTOR_URI = "http://id.nlm.nih.gov/mesh/"+IDENTIFIER;
 
-    public static String[] EXACT_MATCH_URIS = new String[] {
-            "http://id.nlm.nih.gov/mesh/D000071198",
-    };
+    public static String[] EXACT_MATCH_URIS = new String[] { DESCRIPTOR_URI };
 
     public static String[] CONTAINS_MATCH_URIS = new String[] {
             "http://id.nlm.nih.gov/mesh/D000071199",
@@ -23,5 +23,14 @@ public class Pyrin {
     public static String[] STARTSWITH_MATCH_URIS = new String[] {
             "http://id.nlm.nih.gov/mesh/D000071198",
             "http://id.nlm.nih.gov/mesh/D000071196",
+    };
+
+    public static String[] CHEMI_QUALIFIER_LABELS = new String[] {
+            "Pyrin/chemical synthesis",
+            "Pyrin/chemistry",
+    };
+    public static String[] CHEMI_QUALIFIER_URIS = new String[] {
+            "http://id.nlm.nih.gov/mesh/D000071198Q000138",
+            "http://id.nlm.nih.gov/mesh/D000071198Q000737",
     };
 }

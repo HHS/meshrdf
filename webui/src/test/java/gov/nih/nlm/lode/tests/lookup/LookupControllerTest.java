@@ -20,7 +20,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import gov.nih.nlm.lode.model.Relation;
+import gov.nih.nlm.lode.model.LabelMatch;
 import gov.nih.nlm.lode.servlet.LookupController;
 
 
@@ -56,7 +56,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
         MockHttpServletRequestBuilder request =
                 get("/lookup/descriptor")
                 .param("label",  "fubar")
-                .param("relation", "contains")
+                .param("match", "contains")
                .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isOk())
@@ -65,7 +65,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/D2"));
         assertThat(mockService.count, equalTo(1));
         assertThat(mockService.desc.getLabel(), equalTo("fubar"));
-        assertThat(mockService.desc.getRelation(), equalTo(Relation.CONTAINS));
+        assertThat(mockService.desc.getMatch(), equalTo(LabelMatch.CONTAINS));
         assertThat(mockService.desc.getLimit(), equalTo(10));
     }
 
@@ -84,7 +84,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/D2"));
         assertThat(mockService.count, equalTo(1));
         assertThat(mockService.desc.getLabel(), equalTo("fubar"));
-        assertThat(mockService.desc.getRelation(), equalTo(Relation.EXACT));
+        assertThat(mockService.desc.getMatch(), equalTo(LabelMatch.EXACT));
         assertThat(mockService.desc.getLimit(), equalTo(10));
     }
 
@@ -94,7 +94,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                 get("/lookup/pair")
                 .param("descriptor", "http://id.nlm.nih.gov/nosuchthing")
                 .param("label",  "barfu")
-                .param("relation", "startswith")
+                .param("match", "startswith")
                 .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isOk())
@@ -103,7 +103,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/DQ2"));
         assertThat(mockService.count, equalTo(1));
         assertThat(mockService.pair.getLabel(), equalTo("barfu"));
-        assertThat(mockService.pair.getRelation(), equalTo(Relation.STARTSWITH));
+        assertThat(mockService.pair.getMatch(), equalTo(LabelMatch.STARTSWITH));
         assertThat(mockService.pair.getLimit(), equalTo(10));
         assertThat(mockService.pair.getDescriptor(), equalTo("http://id.nlm.nih.gov/nosuchthing"));
     }
@@ -129,7 +129,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/DQ2"));
         assertThat(mockService.count, equalTo(1));
         assertThat(mockService.pair.getLabel(), equalTo("smoky"));
-        assertThat(mockService.pair.getRelation(), equalTo(Relation.EXACT));
+        assertThat(mockService.pair.getMatch(), equalTo(LabelMatch.EXACT));
         assertThat(mockService.pair.getLimit(), equalTo(20));
     }
 
@@ -186,28 +186,28 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
     }
 
     @Test
-    public void testDescriptorRelationValidationGet() throws Exception {
+    public void testDescriptorMatchValidationGet() throws Exception {
         MockHttpServletRequestBuilder request =
                 get("/lookup/descriptor")
                 .param("label", "fubar")
-                .param("relation", "invalid_enum_value")
+                .param("match", "invalid_enum_value")
                 .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isBadRequest())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
             .andExpect(jsonPath("$.error.label").doesNotExist())
-            .andExpect(jsonPath("$.error.relation[0]").value("must be one of \"contains\", \"exact\", or \"startswith\""));
+            .andExpect(jsonPath("$.error.match[0]").value("must be one of \"contains\", \"exact\", or \"startswith\""));
 
         // The service should not have been called, because there was an error before that
         assertThat(mockService.count, equalTo(0));
     }
 
     @Test
-    public void testDescriptorRelationValidationPost() throws Exception {
+    public void testDescriptorMatchalidationPost() throws Exception {
         String body = String.join("\n",  new String[] {
                 "{",
                 "\"label\": \"fubar\",",
-                "\"relation\": \"invalid_enum_value\"",
+                "\"match\": \"invalid_enum_value\"",
                 "}",
         });
         MockHttpServletRequestBuilder request =
@@ -219,7 +219,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
             .andExpect(status().isBadRequest())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
             .andExpect(jsonPath("$.error.label").doesNotExist())
-            .andExpect(jsonPath("$.error.relation[0]").value("must be one of \"contains\", \"exact\", or \"startswith\""));
+            .andExpect(jsonPath("$.error.match[0]").value("must be one of \"contains\", \"exact\", or \"startswith\""));
 
         // The service should not have been called, because there was an error before that
         assertThat(mockService.count, equalTo(0));
@@ -246,5 +246,4 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
         // The service should not have been called, because there was an error before that
         assertThat(mockService.count, equalTo(0));
     }
-
 }
