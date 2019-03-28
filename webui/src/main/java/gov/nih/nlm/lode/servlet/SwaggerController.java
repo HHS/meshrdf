@@ -44,7 +44,7 @@ public class SwaggerController {
 
     @GetMapping
     public void redirectToUi(HttpServletRequest request, HttpServletResponse response) {
-        response.setHeader("Location", getContextPath()+"swagger/ui");
+        response.setHeader("Location", getContextPath()+"/swagger/ui");
         response.setStatus(HttpStatus.TEMPORARY_REDIRECT.value());
     }
 

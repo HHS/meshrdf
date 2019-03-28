@@ -2,6 +2,7 @@ package gov.nih.nlm.lode.tests.lookup;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -83,5 +84,13 @@ public class SwaggerControllerTest extends AbstractTestNGSpringContextTests {
     @Test
     public void testUIAsPetstore() throws Exception {
         uiGuts("petstore.swagger.io", "https");
+    }
+
+    @Test
+    public void testRedirectToUI() throws Exception {
+        MockHttpServletRequestBuilder request = get("/swagger");
+        mvc.perform(request)
+            .andExpect(status().isTemporaryRedirect())
+            .andExpect(header().string("Location", "/testing/swagger/ui"));
     }
 }
