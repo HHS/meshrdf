@@ -13,9 +13,11 @@
 
     <modules>
         <module>webui</module>
-    </modules>
+   </modules>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <!-- May need to be changed to run unit tests  -->
         <virtuosoServerName>localhost</virtuosoServerName>
         <virtuosoUserName>dba</virtuosoUserName>
@@ -24,6 +26,37 @@
         <!-- May need to be changed to deploy to Maven repository  -->
         <release.repo.url>http://localhost:8081/nexus/libs-release-local</release.repo.url>
         <snapshot.repo.url>http://localhost:8081/nexus/libs-snapshot-local</snapshot.repo.url>
+
+        <!-- Versions -->
+        <springframework.version>4.3.22.RELEASE</springframework.version>
+        <lodestar.version>1.4.2-SNAPSHOT</lodestar.version>
+        <jena.version>3.10.0</jena.version>
+
+        <maven.compiler.source.version>11</maven.compiler.source.version>
+        <maven.compiler.target.version>11</maven.compiler.target.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${springframework.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>ebi-lode</groupId>
+                <artifactId>lode-virtuoso-impl</artifactId>
+                <version>${lodestar.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ebi-lode</groupId>
+                <artifactId>web-ui</artifactId>
+                <version>${lodestar.version}</version>
+                <type>war</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

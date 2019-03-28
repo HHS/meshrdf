@@ -16,16 +16,8 @@
     </parent>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <groups>unit</groups>
         <skipTests>false</skipTests>
-
-        <!-- Requires that virtuoso lodestar be similarly built -->
-        <org.springframework.version>4.3.20.RELEASE</org.springframework.version>
-
-        <!-- NOTE: match version built from lodestar repository -->
-        <lodestar.version>1.4.1</lodestar.version>
-
         <updatesPath>/usr/nlm/meshlocal/state/updating</updatesPath>
         <updateMaxSeconds>10800</updateMaxSeconds>
     </properties>
@@ -48,7 +40,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.2.2</version>
                 <configuration>
                     <webResources>
                         <resource>
@@ -107,8 +99,24 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                      <execution>
+                          <phase>prepare-package</phase>
+                          <goals>
+                              <goal>copy-dependencies</goal>
+                          </goals>
+                          <configuration>
+                              <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                          </configuration>
+                      </execution>
+                </executions>
+            </plugin>                       
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.1</version>
+                <version>3.0.0-M3</version>
                 <configuration>
                     <skipTests>${skipTests}</skipTests>
                     <groups>${groups}</groups>
@@ -129,9 +137,9 @@
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>4.0.0</version>
+                <version>5.0.0-M2</version>
                 <configuration>
-                    <cveValidForHours>12</cveValidForHours>
+                    <cveValidForHours>96</cveValidForHours>
                 </configuration>
                 <executions>
                     <execution>
@@ -144,7 +152,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.1.1</version>
                 <configuration>
                     <descriptors>
                         <descriptor>src/main/assembly/dist.xml</descriptor>
@@ -171,35 +179,43 @@
         <dependency>
             <groupId>ebi-lode</groupId>
             <artifactId>lode-virtuoso-impl</artifactId>
-            <version>${lodestar.version}</version>
         </dependency>
 
         <dependency>
             <groupId>ebi-lode</groupId>
             <artifactId>web-ui</artifactId>
-            <version>${lodestar.version}</version>
             <type>war</type>
             <scope>runtime</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.21</version>            
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>apache-jena-libs</artifactId>
+            <version>3.10.0</version>
+            <type>pom</type>
         </dependency>
 
         <!-- Override Spring version used by Lodestar -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${org.springframework.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${org.springframework.version}</version>
         </dependency>
 
         <!-- ... and add spring-test -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${org.springframework.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -211,6 +227,11 @@
         </dependency>
 
         <!--  Enable JSON Logging -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
         <dependency>
             <groupId>net.logstash.log4j</groupId>
             <artifactId>jsonevent-layout</artifactId>
@@ -256,6 +277,23 @@
             <version>1.2.2</version>
         </dependency>
 
+        <!-- We need to validate our inputs  -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.15.Final</version>
+        </dependency>        
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        
         <!-- We want Java melody in the WAR for monitoring -->
         <dependency>
             <groupId>net.bull.javamelody</groupId>
@@ -263,7 +301,7 @@
             <version>1.74.0</version>
             <scope>runtime</scope>
         </dependency>
-
+        
         <!-- Needed by JavaMelody to enable XML/JSON responses -->
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
@@ -301,6 +339,14 @@
             <version>2.1.4.1-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <distributionManagement>

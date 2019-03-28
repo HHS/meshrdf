@@ -2,11 +2,14 @@
   "name": "nlm-meshrdf-lodestar",
   "version": "1.0.0",
   "description": "A version of Lodestar customized by NLM for MeSH RDF",
-  "main": "",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/HHS/meshrdf",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HHS/meshrdf.git"
+  },
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -21,5 +24,10 @@
     "gulp-merge": "^0.1.1",
     "gulp-minify": "^3.1.0",
     "gulp-wrap": "^0.14.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/HHS/meshrdf/issues"
+  },
+  "homepage": "https://github.com/HHS/meshrdf#readme",
+  "keywords": []
 }

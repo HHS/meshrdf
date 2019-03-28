@@ -15,7 +15,9 @@
 
     <context:annotation-config/>
 
-    <context:component-scan base-package="gov.nih.nlm.lode.servlet" />
+    <context:component-scan base-package="gov.nih.nlm.lode.servlet, gov.nih.nlm.lode.service" />
+    
+    <mvc:annotation-driven />
 
     <bean name="explorerConfig" class="uk.ac.ebi.fgpt.lode.impl.DefaultExplorerViewConfigImpl"/>
 
