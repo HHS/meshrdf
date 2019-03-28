@@ -4,14 +4,13 @@ info:
   version: "1.0.0"
   title: "MeSH RDF API"
 host: "localhost:8080"
-basePath: "/mesh/servlet"
+basePath: "/mesh"
 schemes:
-- "http"
 - "https"
 paths:
   /lookup/descriptor:
     get:
-      summary: "Search for Descriptors, also known as headings."
+      summary: "Search for Descriptors, also known as Headings."
       operationId: "lookupDescriptors"
       tags:
         - "lookup"
@@ -59,7 +58,7 @@ paths:
           schema:
             $ref: "#/definitions/Errors"
     post:
-      summary: "Search for Descriptors, alsko known as headings"
+      summary: "Search for Descriptors, alsko known as Headings"
       operationId: "lookupDescriptorsPost"
       tags:
         - "lookup"
@@ -111,7 +110,7 @@ paths:
             $ref: "#/definitions/Errors"
   /lookup/pair:
     get:
-      summary: "Search for descriptor-qualifier pairs, also known as subheadings."
+      summary: "Search for Descriptor-Qualifier pairs, also known as Subheadings."
       operationId: "lookupPairs"
       tags:
         - "lookup"
@@ -166,7 +165,7 @@ paths:
           schema:
             $ref: "#/definitions/Errors"
     post:
-      summary: "Search for descriptor-qualifier pairs, also known as subheadings."
+      summary: "Search for Descriptor-Qualifier pairs, also known as Subheadings."
       operationId: "lookupPairsPost"
       tags:
         - "lookup"
@@ -224,7 +223,7 @@ paths:
             $ref: "#/definitions/Errors"
   /lookup/qualifiers:
     get:
-      summary: "Return all allowed qualifiers for a Descriptor."
+      summary: "Return all allowed Qualifiers for a Descriptor."
       operationId: "lookupQualifiers"
       tags:
         - "lookup"
@@ -259,7 +258,7 @@ paths:
             $ref: "#/definitions/Errors"
   /lookup/label:
     get:
-      summary: "Return the label or labels for a resource."
+      summary: "Return the label or labels for a Resource URI."
       operationId: "lookupLabels"
       tags:
         - "lookup"

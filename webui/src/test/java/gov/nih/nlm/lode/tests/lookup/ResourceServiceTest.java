@@ -28,7 +28,7 @@ import uk.ac.ebi.fgpt.lode.exception.LodeException;
 @ContextConfiguration(locations={"classpath:spring-test-context.xml"})
 @WebAppConfiguration
 @Test(groups = "unit")
-public class TestResourceService extends AbstractTestNGSpringContextTests {
+public class ResourceServiceTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
     private JenaResourceService service;

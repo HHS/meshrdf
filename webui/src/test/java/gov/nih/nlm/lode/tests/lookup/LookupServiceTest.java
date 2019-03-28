@@ -39,7 +39,7 @@ import gov.nih.nlm.lode.service.LookupServiceImpl;
 @ContextConfiguration(locations={"classpath:spring-test-context.xml"})
 @WebAppConfiguration
 @Test(groups = "unit")
-public class TestLookupService extends AbstractTestNGSpringContextTests {
+public class LookupServiceTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
     private LookupService serviceIntf;

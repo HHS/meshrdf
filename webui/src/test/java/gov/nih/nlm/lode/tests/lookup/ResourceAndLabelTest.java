@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import gov.nih.nlm.lode.model.ResourceAndLabel;
 
-public class TestResourceAndLabel {
+public class ResourceAndLabelTest {
 
     @Test
     public void noArgumentConstructor() {

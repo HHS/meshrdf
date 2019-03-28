@@ -39,7 +39,7 @@ import gov.nih.nlm.lode.servlet.LookupController;
 @ContextConfiguration(locations={"classpath:spring-test-context.xml"})
 @WebAppConfiguration
 @Test(groups = "unit")
-public class TestLookupController extends AbstractTestNGSpringContextTests {
+public class LookupControllerTest extends AbstractTestNGSpringContextTests {
 
     private MockLookupService mockService;
     private MockMvc mvc;
