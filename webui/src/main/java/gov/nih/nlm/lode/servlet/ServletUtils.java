@@ -13,4 +13,12 @@ public class ServletUtils {
         return request.getRemoteAddr();
     }
 
+    public static String getHost(HttpServletRequest request) {
+        String host = request.getHeader("X-Forwarded-Host");
+        if (host == null) {
+            host = request.getHeader("Host");
+        }
+        return host;
+    }
+
 }

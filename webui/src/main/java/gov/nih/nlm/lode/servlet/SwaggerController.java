@@ -52,7 +52,7 @@ public class SwaggerController {
     public ModelAndView swaggerUi(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType(MediaType.TEXT_HTML_VALUE);
         ModelAndView mv = new ModelAndView("internal/swaggerui", HttpStatus.OK);
-        String host = request.getHeader("Host");
+        String host = ServletUtils.getHost(request);
         String scheme = (host.startsWith("localhost") ? "http": "https");
         String swaggerSpec = String.format("%s://%s%s/swagger/swagger.json", scheme, host, getContextPath());
         mv.addObject("specUri", swaggerSpec);
@@ -66,7 +66,7 @@ public class SwaggerController {
         Map<String,Object> swaggerSpec = (Map<String,Object>) ((HashMap<String,Object>) getSwaggerData()).clone();
 
         /* adjust to this request */
-        String host = request.getHeader("host");
+        String host = ServletUtils.getHost(request);
         if (host != null) {
             String protocol = host.startsWith("localhost") ? "http" : "https";
             swaggerSpec.put("schemes", new String[] { protocol });
