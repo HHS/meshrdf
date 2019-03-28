@@ -70,7 +70,7 @@ public class ModelMapTest {
 
 		ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         service.query(describeQuery, "RDF/XML", false, buffer);
-        assertThat(buffer.size(), is(anyOf(equalTo(1672), equalTo(1647), equalTo(1612))));
+        assertThat(buffer.size(), is(anyOf(equalTo(1672), equalTo(1647), equalTo(1612), equalTo(1585))));
 
         buffer.reset();
         service.query(describeQuery, "TURTLE", false,  buffer);
