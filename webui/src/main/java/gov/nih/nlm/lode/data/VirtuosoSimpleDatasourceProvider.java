@@ -1,12 +1,13 @@
-package gov.nih.nlm.lode.tests;
+package gov.nih.nlm.lode.data;
 
 import java.sql.SQLException;
+
 import javax.sql.DataSource;
 
-import virtuoso.jdbc4.VirtuosoDataSource;
 import uk.ac.ebi.fgpt.lode.utils.DatasourceProvider;
+import virtuoso.jdbc4.VirtuosoDataSource;
 
-public class VirtuosoTestDatasourceProvider implements DatasourceProvider {
+public class VirtuosoSimpleDatasourceProvider implements DatasourceProvider {
 
     private String serverName;
     private String userName;
@@ -14,11 +15,17 @@ public class VirtuosoTestDatasourceProvider implements DatasourceProvider {
 
     private DataSource dataSource;
 
-    public VirtuosoTestDatasourceProvider() {
-        serverName = null;
-        userName = null;
-        password = null;
+    public VirtuosoSimpleDatasourceProvider(String userName, String password) {
+        this("localhost", userName, password);
+    }
+    public VirtuosoSimpleDatasourceProvider(String serverName, String userName, String password) {
+        this.serverName = serverName;
+        this.userName = userName;
+        this.password = password;
         dataSource = null;
+    }
+    public VirtuosoSimpleDatasourceProvider() {
+        this("localhost", "dba", "dba");
     }
 
     public String getServerName() {
@@ -45,6 +52,7 @@ public class VirtuosoTestDatasourceProvider implements DatasourceProvider {
         this.password = password;
     }
 
+    @Override
     public DataSource getDataSource() throws SQLException {
         if (dataSource == null) {
             VirtuosoDataSource virtuosoSource = new VirtuosoDataSource();
