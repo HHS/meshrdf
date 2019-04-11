@@ -1,3 +1,6 @@
+/open DEFAULT
+/open PRINTING
+
 import org.apache.jena.graph.Graph;
 import org.apache.jena.query.ParameterizedSparqlString;
 import org.apache.jena.query.Query;
@@ -18,6 +21,7 @@ import gov.nih.nlm.lode.data.VirtuosoSimpleDatasourceProvider;
 
 var yaml = new Yaml();
 var mapper = new ObjectMapper();
+var pretty = mapper.writerWithDefaultPrettyPrinter();
 
 
 public DatasourceProvider getProvider(String hostname, String username, String password) {
