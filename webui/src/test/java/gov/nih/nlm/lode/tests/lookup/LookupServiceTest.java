@@ -3,6 +3,7 @@ package gov.nih.nlm.lode.tests.lookup;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
@@ -17,6 +18,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.jena.query.QueryException;
+import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.Syntax;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -60,47 +64,58 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         assertThat(service.getResourceService(), notNullValue());
     }
 
-    @Test
-    public void testDescriptorQueriesExist() throws Exception {
+
+    public void queryExistsGuts(String queryKey) throws Exception {
         LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
-        for (LabelMatch rel : LabelMatch.values()) {
-            String queryKey = LookupServiceImpl.DESCRIPTOR_QUERY_PREFIX+rel.toString().toLowerCase();
-            String query = service.getQuery(queryKey);
-            assertThat(
-                queryKey+" query is not null",
+        String query = service.getQuery(queryKey);
+        assertThat(
+                queryKey+": query is not null",
                 query, notNullValue());
             assertThat(
-                queryKey+" query is not empty",
+                queryKey+": query is not empty",
                 query.length(), greaterThan(0));
+
+        try {
+            QueryFactory.create(query, Syntax.syntaxARQ);
+        } catch (QueryException e) {
+            assertThat(queryKey+": query should parse properly", not(true));
+        }
+    }
+
+    @Test
+    public void testDescriptorQueriesExist() throws Exception {
+        for (LabelMatch rel : LabelMatch.values()) {
+            String queryKey = LookupServiceImpl.DESCRIPTOR_QUERY_PREFIX+rel.toString().toLowerCase();
+            queryExistsGuts(queryKey);
         }
     }
 
     @Test
     public void testPairQueriesExist() throws Exception {
-        LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
         for (LabelMatch rel : LabelMatch.values()) {
             String queryKey = LookupServiceImpl.PAIR_QUERY_PREFIX+rel.toString().toLowerCase();
-            String query = service.getQuery(queryKey);
-            assertThat(
-                queryKey+" query is not null",
-                query, notNullValue());
-            assertThat(
-                queryKey+" query is not empty",
-                query.length(), greaterThan(0));
+            queryExistsGuts(queryKey);
         }
     }
 
     @Test
     public void testQualifierQueriesExist() throws Exception {
-        LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
-        String queryKey = LookupServiceImpl.ALLOWED_QUALIFERS_ID;
-        String query = service.getQuery(queryKey);
-        assertThat(
-            queryKey+" query is not null",
-            query, notNullValue());
-        assertThat(
-            queryKey+" query is not empty",
-            query.length(), greaterThan(0));
+        queryExistsGuts(LookupServiceImpl.ALLOWED_QUALIFERS_ID);
+    }
+
+    @Test
+    public void testDescriptorConceptsQueryExists() throws Exception {
+        queryExistsGuts(LookupServiceImpl.DESCRIPTOR_CONCEPTS_ID);
+    }
+
+    @Test
+    public void testDescriptorEntriesQuery() throws Exception {
+        queryExistsGuts(LookupServiceImpl.DESCRIPTOR_TERMS_ID);
+    }
+
+    @Test
+    public void testDescriptorSeeAlsoQuery() throws Exception {
+        queryExistsGuts(LookupServiceImpl.DESCRIPTOR_SEEALSO_ID);
     }
 
     public void descriptorExactGuts(String label) throws Exception {

@@ -92,6 +92,12 @@ public class JenaResourceServiceImpl implements JenaResourceService {
     }
 
     @Override
+    public Collection<ResourceAndLabel> getChildResources(String query, String parentUri)
+            throws LodeException {
+        return getResources(query, null, 0, parentUri);
+    }
+
+    @Override
     public Collection<String> getResourceLabels(String query, String resourceUri) throws LodeException {
         QuerySolutionMap initialBinding = new QuerySolutionMap();
         initialBinding.add("resource", ResourceFactory.createResource(resourceUri));
@@ -136,4 +142,5 @@ public class JenaResourceServiceImpl implements JenaResourceService {
     public void setFulltextMinLength(int fulltextMinLength) {
         this.fulltextMinLength = fulltextMinLength;
     }
+
 }

@@ -4,21 +4,29 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-@JsonPropertyOrder("resource,label")
+@JsonPropertyOrder("resource,label,preferred")
+@JsonInclude(Include.NON_NULL)
 public class ResourceAndLabel {
 
     private String resource;
     private String label;
+    private Boolean preferred;
 
     public ResourceAndLabel() {
         this(null, null);
     }
     public ResourceAndLabel(String resource, String label) {
+        this(resource, label, null);
+    }
+    public ResourceAndLabel(String resource, String label, Boolean preferred) {
         this.resource = resource;
         this.label = label;
+        this.preferred = preferred;
     }
 
     @JsonProperty
@@ -37,6 +45,14 @@ public class ResourceAndLabel {
         this.label = label;
     }
 
+    @JsonProperty
+    public Boolean getPreferred() {
+        return preferred;
+    }
+    public void setPreferred(Boolean preferred) {
+        this.preferred = preferred;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) { return false; }
@@ -49,6 +65,7 @@ public class ResourceAndLabel {
                 .appendSuper(super.equals(obj))
                 .append(resource, rhs.resource)
                 .append(label, rhs.label)
+                .append(preferred, rhs.preferred)
                 .isEquals();
     }
 
@@ -57,6 +74,7 @@ public class ResourceAndLabel {
         return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
                 .append("resource", resource)
                 .append("label", label)
+                .append("preferred", preferred)
                 .toString();
     }
 }

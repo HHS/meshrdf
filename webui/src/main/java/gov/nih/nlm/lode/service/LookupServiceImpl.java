@@ -34,6 +34,9 @@ public class LookupServiceImpl implements LookupService {
     public static final String PAIR_QUERY_PREFIX = "pair_";
     public static final String ALLOWED_QUALIFERS_ID = "allowed_qualifiers";
     public static final String RESOURCE_LABEL_ID = "label_for_resource";
+    public static final String DESCRIPTOR_CONCEPTS_ID = "descriptor_concepts";
+    public static final String DESCRIPTOR_SEEALSO_ID = "descriptor_seealso";
+    public static final String DESCRIPTOR_TERMS_ID = "descriptor_terms";
 
     private Resource queryResource;
     private Map<String,Object> queryMap;
@@ -54,12 +57,27 @@ public class LookupServiceImpl implements LookupService {
 
     @Override
     public Collection<ResourceAndLabel> allowedQualifiers(String descriptorUri) throws LodeException {
-        return getResourceService().getResources(getQuery(ALLOWED_QUALIFERS_ID), null, 0, descriptorUri);
+        return getResourceService().getChildResources(getQuery(ALLOWED_QUALIFERS_ID), descriptorUri);
     }
 
     @Override
     public Collection<String> lookupLabel(String resourceUri) throws LodeException {
         return getResourceService().getResourceLabels(getQuery(RESOURCE_LABEL_ID), resourceUri);
+    }
+
+    @Override
+    public Collection<ResourceAndLabel> lookupDescriptorConcepts(String descriptorUri) throws LodeException {
+        return getResourceService().getChildResources(getQuery(DESCRIPTOR_CONCEPTS_ID), descriptorUri);
+    }
+
+    @Override
+    public Collection<ResourceAndLabel> lookupDescriptorTerms(String descriptorUri) throws LodeException {
+        return getResourceService().getChildResources(getQuery(DESCRIPTOR_TERMS_ID), descriptorUri);
+    }
+
+    @Override
+    public Collection<ResourceAndLabel> lookupDescriptorSeeAlso(String descriptorUri) throws LodeException {
+        return getResourceService().getChildResources(getQuery(DESCRIPTOR_SEEALSO_ID), descriptorUri);
     }
 
     public Resource getQueryResource() {

@@ -135,3 +135,66 @@ label_for_resource: |
       ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
     }
+
+descriptor_concepts: |
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+
+    SELECT ?resource ?label ?preferred
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?parent meshv:active "true"^^xsd:boolean .
+      {
+        ?parent meshv:preferredConcept ?resource .
+        BIND("true"^^xsd:boolean AS ?preferred) .
+      } UNION {
+        ?parent meshv:concept ?resource .
+        BIND("false"^^xsd:boolean AS ?preferred) .
+        MINUS {
+          ?parent meshv:preferredConcept ?resource .
+        }
+      }
+      ?resource rdfs:label ?label .
+    } ORDER BY DESC(?preferred) ?label
+
+descriptor_terms: |
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+
+    SELECT ?concept ?resource ?label ?preferred
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?parent meshv:active "true"^^xsd:boolean .
+      {
+        ?parent meshv:preferredConcept ?concept .
+        ?concept meshv:preferredTerm ?resource .
+        BIND("true"^^xsd:boolean AS ?preferred) .
+      } UNION {
+        ?parent meshv:concept ?concept .
+        ?concept meshv:term ?resource .
+        BIND("false"^^xsd:boolean AS ?preferred) .
+        MINUS {
+          ?parent meshv:preferredConcept ?concept .
+          ?concept meshv:preferredTerm ?resource .
+        }
+      }
+      ?resource meshv:prefLabel ?label .
+    } ORDER BY DESC(?preferred) ?label
+
+descriptor_seealso: |
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+
+    SELECT ?resource ?label
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?parent meshv:active "true"^^xsd:boolean .
+      ?parent meshv:seeAlso ?resource .
+      ?resource rdfs:label ?label .
+    } ORDER BY ?label

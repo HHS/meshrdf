@@ -71,4 +71,36 @@ public class MockLookupService implements LookupService {
         resourceUri = null;
         descriptorUri = null;
     }
+
+    @Override
+    public Collection<ResourceAndLabel> lookupDescriptorConcepts(String descriptorUri) throws LodeException {
+        count++;
+        this.descriptorUri = descriptorUri;
+        return Arrays.asList(new ResourceAndLabel[] {
+            new ResourceAndLabel("http://id.nlm.nih.gov/mesh/M0483545", "Kidney Diseases, Cystic", true),
+            new ResourceAndLabel("http://id.nlm.nih.gov/mesh/M0012030", "Kidney, Cystic", false),
+        });
+    }
+
+    @Override
+    public Collection<ResourceAndLabel> lookupDescriptorTerms(String descriptorUri) throws LodeException {
+        count++;
+        this.descriptorUri = descriptorUri;
+        return Arrays.asList(new ResourceAndLabel[] {
+            new ResourceAndLabel("http://id.nlm.nih.gov/mesh/T63134", "Kidney Diseases, Cystic", true),
+            new ResourceAndLabel("http://id.nlm.nih.gov/mesh/T63136", "Cystic Kidney Diseases", false),
+            new ResourceAndLabel("http://id.nlm.nih.gov/mesh/T63135", "Cystic Renal Diseases", false),
+            new ResourceAndLabel("http://id.nlm.nih.gov/mesh/T023084", "Kidney, Cystic", false),
+        });
+    }
+
+    @Override
+    public Collection<ResourceAndLabel> lookupDescriptorSeeAlso(String descriptorUri) throws LodeException {
+        count++;
+        this.descriptorUri = descriptorUri;
+        return Arrays.asList(new ResourceAndLabel[] {
+            new ResourceAndLabel("http://id.nlm.nih.gov/mesh/D064793", "Teratogenesis"),
+            new ResourceAndLabel("http://id.nlm.nih.gov/mesh/D013723", "Teratogens"),
+        });
+    }
 }

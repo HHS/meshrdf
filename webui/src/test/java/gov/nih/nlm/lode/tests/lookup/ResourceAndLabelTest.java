@@ -18,6 +18,7 @@ public class ResourceAndLabelTest {
         ResourceAndLabel obj = new ResourceAndLabel();
         assertThat(obj.getResource(), nullValue());
         assertThat(obj.getLabel(), nullValue());
+        assertThat(obj.getPreferred(), nullValue());
     }
 
     @Test
@@ -25,6 +26,15 @@ public class ResourceAndLabelTest {
         ResourceAndLabel obj = new ResourceAndLabel("abc", "def");
         assertThat(obj.getResource(), equalTo("abc"));
         assertThat(obj.getLabel(), equalTo("def"));
+        assertThat(obj.getPreferred(), nullValue());
+    }
+
+    @Test
+    public void propertyConstructorPreferred() {
+        ResourceAndLabel obj = new ResourceAndLabel("abc", "def", true);
+        assertThat(obj.getResource(), equalTo("abc"));
+        assertThat(obj.getLabel(), equalTo("def"));
+        assertThat(obj.getPreferred(), equalTo(true));
     }
 
     @Test
@@ -35,5 +45,16 @@ public class ResourceAndLabelTest {
         ObjectMapper mapper = new ObjectMapper();
         String jsonString = mapper.writeValueAsString(obj);
         assertThat(jsonString, equalTo("{\"resource\":\"abc\",\"label\":\"def\"}"));
+    }
+
+    @Test
+    public void serializePreferred() throws JsonProcessingException {
+        ResourceAndLabel obj = new ResourceAndLabel();
+        obj.setResource("abc");
+        obj.setLabel("def");
+        obj.setPreferred(false);
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = mapper.writeValueAsString(obj);
+        assertThat(jsonString, equalTo("{\"resource\":\"abc\",\"label\":\"def\",\"preferred\":false}"));
     }
 }
