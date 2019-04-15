@@ -10,7 +10,7 @@ descriptor_exact: |
       ?resource a meshv:Descriptor .
       ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
-      ?label bif:contains ?bound .
+      ?label bif:contains ?boundstar .
       BIND(LCASE(STR(?label)) AS ?lowerlabel) .
       FILTER(?lowerlabel = ?bound)
     } ORDER BY ?label
@@ -58,7 +58,7 @@ pair_exact: |
     WHERE {
       ?parent meshv:allowableQualifier ?q .
       ?q rdfs:label ?qlabel .
-      ?qlabel bif:contains ?bound .
+      ?qlabel bif:contains ?boundstar .
       BIND(LCASE(STR(?qlabel)) AS ?lowerlabel) .
       FILTER(?lowerlabel = ?bound) .
       ?resource a meshv:AllowedDescriptorQualifierPair .
