@@ -6,6 +6,10 @@ public class ServletUtils {
 
     public static String getClientAddress(HttpServletRequest request) {
         String v;
+        if ((v = request.getHeader("X-Forwarded-For-IPV6")) != null) {
+            // parse and return
+            return v.split(",")[0].trim();
+        }
         if ((v = request.getHeader("X-Forwarded-For")) != null) {
             // parse and return
             return v.split(",")[0].trim();

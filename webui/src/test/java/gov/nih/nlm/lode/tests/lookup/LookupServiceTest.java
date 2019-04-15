@@ -103,14 +103,24 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
             query.length(), greaterThan(0));
     }
 
-    @Test
-    public void testDescriptorExact() throws Exception {
+    public void descriptorExactGuts(String label) throws Exception {
         DescriptorParams criteria = new DescriptorParams();
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
         Collection<ResourceAndLabel> results = serviceIntf.lookupDescriptors(criteria);
         Collection<String> expectedUris = Arrays.asList(Pyrin.EXACT_MATCH_URIS);
         Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
         assertThat(actualUris, equalTo(expectedUris));
+    }
+
+    @Test
+    public void testDescriptorExact() throws Exception {
+        descriptorExactGuts(Pyrin.DESCRIPTOR_LABEL);
+    }
+
+    @Test
+    public void testDescriptorExactUpper() throws Exception {
+        // descriptor exact match should be case insensitive
+        descriptorExactGuts(Pyrin.DESCRIPTOR_LABEL.toUpperCase());
     }
 
     @Test
@@ -125,16 +135,20 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         assertThat(actualUris, equalTo(expectedUris));
     }
 
-    @Test
-    public void testDescriptorStartsWith() throws Exception {
+    public void descriptorStartswithGuts(String label) throws Exception {
         DescriptorParams criteria = new DescriptorParams();
-        criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
+        criteria.setLabel(label);
         criteria.setMatch(LabelMatch.STARTSWITH);
 
         Collection<ResourceAndLabel> results = serviceIntf.lookupDescriptors(criteria);
         Collection<String> expectedUris = Arrays.asList(Pyrin.STARTSWITH_MATCH_URIS);
         Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
         assertThat(actualUris, equalTo(expectedUris));
+    }
+
+    @Test
+    public void testDescriptorStartsWith() throws Exception {
+        descriptorStartswithGuts(Pyrin.DESCRIPTOR_LABEL);
     }
 
     @Test
@@ -161,11 +175,10 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         assertThat(results.size(), equalTo(0));
     }
 
-    @Test
-    public void testPairExact() throws Exception {
+    public void pairExactGuts(String qualifierLabel) throws Exception {
         PairParams criteria = new PairParams();
         criteria.setDescriptor(Pyrin.DESCRIPTOR_URI);
-        criteria.setLabel("chemistry");
+        criteria.setLabel(qualifierLabel);
         criteria.setMatch(LabelMatch.EXACT);
 
         Collection<ResourceAndLabel> results = serviceIntf.lookupPairs(criteria);
@@ -175,6 +188,17 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
             assertThat(result.getResource(), equalTo(Pyrin.CHEMI_QUALIFIER_URIS[1]));
             assertThat(result.getLabel(), equalTo(Pyrin.CHEMI_QUALIFIER_LABELS[1]));
         }
+    }
+
+    @Test
+    public void testPairExact() throws Exception {
+        pairExactGuts("chemistry");
+    }
+
+    @Test
+    public void testPairExactUpper() throws Exception {
+        // exact match should be case-insensitive
+        pairExactGuts("CHEMISTRY");
     }
 
     @Test
@@ -194,11 +218,10 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         assertThat(actualLabels, equalTo(expectedLabels));
     }
 
-    @Test
-    public void testPairStartswith() throws  Exception {
+    public void pairStartswithGuts(String qualifierLabel) throws Exception {
         PairParams criteria = new PairParams();
         criteria.setDescriptor(Pyrin.DESCRIPTOR_URI);
-        criteria.setLabel("chemic");
+        criteria.setLabel(qualifierLabel);
         criteria.setMatch(LabelMatch.STARTSWITH);
 
         Collection<ResourceAndLabel> results = serviceIntf.lookupPairs(criteria);
@@ -209,7 +232,20 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         Collection<String> expectedLabels = Arrays.asList(Pyrin.CHEMI_QUALIFIER_LABELS).subList(0,  1);
         Collection<String> actualLabels = results.stream().map(rl -> rl.getLabel()).collect(Collectors.toList());
         assertThat(actualLabels, equalTo(expectedLabels));
+
     }
+
+    @Test
+    public void testPairStartswith() throws  Exception {
+        pairStartswithGuts("chemic");
+    }
+
+    @Test
+    public void testPairStartswithUpper() throws Exception {
+        // startswith match should be case-insensitive
+        pairStartswithGuts("CHEMIC");
+    }
+
 
     @Test
     public void testAllowedQualifiers() throws Exception {

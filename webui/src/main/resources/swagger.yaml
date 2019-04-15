@@ -8,6 +8,56 @@ basePath: "/mesh"
 schemes:
 - "https"
 paths:
+  /sparql:
+    get:
+      summary: "Perform SPARQL query"
+      operationId: "sparqlQuery"
+      tags:
+        - "sparql"
+      produces:
+        - "application/sparql-results+xml"
+        - "application/sparql-results+json"
+        - "text/csv"
+        - "text/tab-separated-values"
+        - "application/rdf+xml"
+        - "application/rdf+n3"
+        - "application/ld+json"
+        - "text/turtle"
+      parameters:
+        - in: "query"
+          name: "query"
+          description: "This parameter is required and must contain a SPARQL query."
+          required: true
+          type: "string"
+          minLength: 1
+        - in: "query"
+          name: "format"
+          description: "Overrides Accept header based content negotation"
+          type: "string"
+          enum:
+            - XML
+            - JSON
+            - CSV
+            - TSV
+            - RDF/XML
+            - JSON-LD
+            - TURTLE
+            - N3
+        - in: "query"
+          name: "inference"
+          description: "Controls whether the service will use RDFS inference"
+          type: "boolean"
+          default: false
+        - in: "query"
+          name: "offset"
+          description: "Controls the offset into the query results"
+          type: "integer"
+          default: 0
+        - in: "query"
+          name: "limit"
+          description: "Controls the maximum number of resulting rows or triples to return"
+          type: "integer"
+          default: 1000
   /lookup/descriptor:
     get:
       summary: "Search for Descriptors, also known as Headings."

@@ -2,14 +2,17 @@ descriptor_exact: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX bif: <bif:>
     
     SELECT ?resource ?label
-    FROM <http://id.nlm.nih.gov/mesh> 
+    FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
       ?resource a meshv:Descriptor .
       ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
-      ?resource rdfs:label ?bound .
+      ?label bif:contains ?bound .
+      BIND(LCASE(STR(?label)) AS ?lowerlabel) .
+      FILTER(?lowerlabel = ?bound)
     } ORDER BY ?label
 
 descriptor_contains: | 
@@ -24,7 +27,7 @@ descriptor_contains: |
       ?resource a meshv:Descriptor .
       ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
-      ?label bif:contains ?boundstar .
+      ?label bif:contains ?boundstar .      
     } ORDER BY ?label
 
 descriptor_startswith: |
@@ -40,19 +43,24 @@ descriptor_startswith: |
       ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
       ?label bif:contains ?boundstar .
-      FILTER(STRSTARTS(?label, STR(?bound)))
+      BIND(LCASE(STR(?label)) AS ?lowerlabel) .
+      FILTER(STRSTARTS(?lowerlabel, ?bound))
     } ORDER BY ?label
 
 pair_exact: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX bif: <bif:>
 
     SELECT ?resource ?label
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
       ?parent meshv:allowableQualifier ?q .
-      ?q rdfs:label ?bound .
+      ?q rdfs:label ?qlabel .
+      ?qlabel bif:contains ?bound .
+      BIND(LCASE(STR(?qlabel)) AS ?lowerlabel) .
+      FILTER(?lowerlabel = ?bound) .
       ?resource a meshv:AllowedDescriptorQualifierPair .
       ?resource meshv:hasDescriptor ?parent .
       ?resource meshv:hasQualifier ?q .
@@ -92,7 +100,8 @@ pair_startswith: |
       ?parent meshv:allowableQualifier ?q .
       ?q rdfs:label ?qlabel .
       ?qlabel bif:contains ?boundstar .
-      FILTER(STRSTARTS(?qlabel, STR(?bound))) .
+      BIND(LCASE(STR(?qlabel)) AS ?lowerlabel) .
+      FILTER(STRSTARTS(?lowerlabel, ?bound)) .
       ?resource a meshv:AllowedDescriptorQualifierPair .
       ?resource meshv:hasDescriptor ?parent .
       ?resource meshv:hasQualifier ?q .

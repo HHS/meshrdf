@@ -41,13 +41,14 @@ public class JenaResourceServiceImpl implements JenaResourceService {
         QuerySolutionMap initialBinding = new QuerySolutionMap();
         if (label != null) {
             Literal boundstar;
+            label = label.toLowerCase();
+            initialBinding.add("bound", ResourceFactory.createPlainLiteral(label));
             if (label.length() >= fulltextMinLength) {
                 /* Transforms a label like "Chemi" to a literal like "'Chemi*'" for use with bif:contains */
                 boundstar = ResourceFactory.createPlainLiteral("'"+label+"*'");
             } else {
                 boundstar = ResourceFactory.createPlainLiteral(label);
             }
-            initialBinding.add("bound", ResourceFactory.createLangLiteral(label, "en"));
             initialBinding.add("boundstar", boundstar);
         }
         if (parentUri != null) {

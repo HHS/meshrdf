@@ -50,7 +50,8 @@ public class ResourceServiceTest extends AbstractTestNGSpringContextTests {
                 "WHERE {",
                 "  ?resource a meshv:TopicalDescriptor .",
                 "  ?resource rdfs:label ?label .",
-                "  ?resource rdfs:label ?bound .",
+                "  BIND(LCASE(STR(?label)) AS ?lowerlabel) .",
+                "  FILTER(?lowerlabel = ?bound) .",
                 "} ORDER BY ?label"
         });
 
@@ -95,7 +96,8 @@ public class ResourceServiceTest extends AbstractTestNGSpringContextTests {
                 "WHERE {",
                 "  ?resource a meshv:TopicalDescriptor .",
                 "  ?resource rdfs:label ?label .",
-                "  FILTER(STRSTARTS(?label, STR(?bound))) .",
+                "  BIND(LCASE(STR(?label)) AS ?lowerlabel) . ",
+                "  FILTER(STRSTARTS(?lowerlabel, ?bound)) .",
                 "} ORDER BY ?label"
         });
 
