@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "Lookup service for MeSH RDF"
+  description: "Sparql Endpoint and Lookup service for MeSH RDF"
   version: "1.0.0"
   title: "MeSH RDF API"
 host: "localhost:8080"
@@ -58,6 +58,9 @@ paths:
           description: "Controls the maximum number of resulting rows or triples to return"
           type: "integer"
           default: 1000
+      responses:
+        200:
+          description: "polymorphic - may be simple JSON, TSV, CSV, or RDF formats such as JSON-LD"
   /lookup/descriptor:
     get:
       summary: "Search for Descriptors, also known as Headings."
@@ -98,7 +101,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/ResourceAndLabel"
+              $ref: "#/definitions/ResourceResult"
         400:
           description: "invalid parameters"
           examples:
@@ -149,7 +152,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/ResourceAndLabel"
+              $ref: "#/definitions/ResourceResult"
         400:
           description: "invalid parameters"
           examples:
@@ -204,7 +207,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/ResourceAndLabel"
+              $ref: "#/definitions/ResourceResult"
         400:
           description: "invalid parameters"
           examples:
@@ -261,7 +264,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/ResourceAndLabel"
+              $ref: "#/definitions/ResourceResult"
         400:
           description: "invalid parameters"
           examples:
@@ -297,7 +300,48 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/ResourceAndLabel"
+              $ref: "#/definitions/ResourceResult"
+        400:
+          description: "invalid parameters"
+          examples:
+            application/json:
+              error:
+                descriptor: [ "must not be empty" ]
+          schema:
+            $ref: "#/definitions/Errors"
+  /lookup/details:
+    get:
+      summary: "Lookup some details for a descriptor"
+      operationId: "lookupDetails"
+      tags:
+        - "lookup"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "query"
+          name: "descriptor"
+          description: "Specifies the full URI or identifier of a Descriptor."
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "returns a DescriptorDetails object"
+          examples:
+            application/json:
+              descriptor: http://id.nlm.nih.gov/mesh/D006761
+              terms:
+               - label: Hospitals
+                 preferred: true
+                 resource: http://id.nlm.nih.gov/mesh/T020443
+              seealso:
+               - label: Economics, Hospital
+                 resource: http://id.nlm.nih.gov/mesh/D004469
+               - label: Equipment and Supplies, Hospital
+                 resource: http://id.nlm.nih.gov/mesh/D004865
+               - label: Hospital Administration
+                 resource: http://id.nlm.nih.gov/mesh/D006739
+          schema:
+              $ref: "#/definitions/DescriptorDetails"
         400:
           description: "invalid parameters"
           examples:
@@ -340,14 +384,33 @@ paths:
 definitions:
   Errors:
     type: "object"
+    required: ["error"]
     properties:
       error:
         type: "object"
-  ResourceAndLabel:
+  ResourceResult:
     type: "object"
+    required: [ "resource", "label" ]
     properties:
       resource:
         type: "string"
         format: "uri"
       label:
         type: "string"
+      preferred:
+        type: "boolean"
+  DescriptorDetails:
+    type: "object"
+    required: [ "descriptor" ]
+    properties:
+      descriptor:
+        type: "string"
+        format: "uri"
+      seealso:
+        type: "array"
+        items:
+          $ref: "#/definitions/ResourceResult"
+      terms:
+        type: "array"
+        items:
+          $ref: "#/definitions/ResourceResult"

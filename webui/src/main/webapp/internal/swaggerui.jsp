@@ -53,6 +53,8 @@
         ],
         jsonEditor: false,
         defaultModelRendering: 'schema',
+        defaultModelExpandDepth: 3,
+        defaultModelsExpandDepth: 0,
         showRequestHeaders: false,
         showOperationIds: false
       })
