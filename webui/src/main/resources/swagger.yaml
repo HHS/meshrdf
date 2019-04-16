@@ -7,6 +7,9 @@ host: "localhost:8080"
 basePath: "/mesh"
 schemes:
 - "https"
+externalDocs:
+  description: "SPARQL API technical documentation"
+  url: https://hhs.github.io/meshrdf/sparql-and-uri-requests
 paths:
   /sparql:
     get:
