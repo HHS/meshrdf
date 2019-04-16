@@ -16,7 +16,7 @@ import gov.nih.nlm.lode.model.DescriptorParams;
 import gov.nih.nlm.lode.model.JenaResourceService;
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.PairParams;
-import gov.nih.nlm.lode.model.ResourceAndLabel;
+import gov.nih.nlm.lode.model.ResourceResult;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
 
@@ -44,19 +44,19 @@ public class LookupServiceImpl implements LookupService {
 
 
     @Override
-    public Collection<ResourceAndLabel> lookupDescriptors(DescriptorParams criteria) throws LodeException {
+    public Collection<ResourceResult> lookupDescriptors(DescriptorParams criteria) throws LodeException {
         String queryId = DESCRIPTOR_QUERY_PREFIX + criteria.getMatch().toString().toLowerCase();
         return getResourceService().getResources(getQuery(queryId), criteria.getLabel(), criteria.getLimit());
     }
 
     @Override
-    public Collection<ResourceAndLabel> lookupPairs(PairParams criteria) throws LodeException {
+    public Collection<ResourceResult> lookupPairs(PairParams criteria) throws LodeException {
         String queryId = PAIR_QUERY_PREFIX + criteria.getMatch().toString().toLowerCase();
         return getResourceService().getResources(getQuery(queryId), criteria.getLabel(), criteria.getLimit(), criteria.getDescriptor());
     }
 
     @Override
-    public Collection<ResourceAndLabel> allowedQualifiers(String descriptorUri) throws LodeException {
+    public Collection<ResourceResult> allowedQualifiers(String descriptorUri) throws LodeException {
         return getResourceService().getChildResources(getQuery(ALLOWED_QUALIFERS_ID), descriptorUri);
     }
 
@@ -66,17 +66,17 @@ public class LookupServiceImpl implements LookupService {
     }
 
     @Override
-    public Collection<ResourceAndLabel> lookupDescriptorConcepts(String descriptorUri) throws LodeException {
+    public Collection<ResourceResult> lookupDescriptorConcepts(String descriptorUri) throws LodeException {
         return getResourceService().getChildResources(getQuery(DESCRIPTOR_CONCEPTS_ID), descriptorUri);
     }
 
     @Override
-    public Collection<ResourceAndLabel> lookupDescriptorTerms(String descriptorUri) throws LodeException {
+    public Collection<ResourceResult> lookupDescriptorTerms(String descriptorUri) throws LodeException {
         return getResourceService().getChildResources(getQuery(DESCRIPTOR_TERMS_ID), descriptorUri);
     }
 
     @Override
-    public Collection<ResourceAndLabel> lookupDescriptorSeeAlso(String descriptorUri) throws LodeException {
+    public Collection<ResourceResult> lookupDescriptorSeeAlso(String descriptorUri) throws LodeException {
         return getResourceService().getChildResources(getQuery(DESCRIPTOR_SEEALSO_ID), descriptorUri);
     }
 

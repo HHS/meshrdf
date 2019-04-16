@@ -9,37 +9,53 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import gov.nih.nlm.lode.model.ResourceAndLabel;
+import gov.nih.nlm.lode.model.ResourceResult;
 
-public class ResourceAndLabelTest {
+
+@Test(groups="unit")
+public class ResourceResultTest {
 
     @Test
-    public void noArgumentConstructor() {
-        ResourceAndLabel obj = new ResourceAndLabel();
+    public void testConstructor() {
+        ResourceResult obj = new ResourceResult();
         assertThat(obj.getResource(), nullValue());
         assertThat(obj.getLabel(), nullValue());
         assertThat(obj.getPreferred(), nullValue());
     }
 
     @Test
-    public void propertyConstructor() {
-        ResourceAndLabel obj = new ResourceAndLabel("abc", "def");
+    public void testConstructorWithResource() {
+        ResourceResult obj = new ResourceResult("abc", "def");
         assertThat(obj.getResource(), equalTo("abc"));
         assertThat(obj.getLabel(), equalTo("def"));
         assertThat(obj.getPreferred(), nullValue());
     }
 
     @Test
-    public void propertyConstructorPreferred() {
-        ResourceAndLabel obj = new ResourceAndLabel("abc", "def", true);
+    public void testConstructorPreferred() {
+        ResourceResult obj = new ResourceResult("abc", "def", true);
         assertThat(obj.getResource(), equalTo("abc"));
         assertThat(obj.getLabel(), equalTo("def"));
         assertThat(obj.getPreferred(), equalTo(true));
     }
 
     @Test
-    public void serialize() throws JsonProcessingException {
-        ResourceAndLabel obj = new ResourceAndLabel();
+    public void testEqualsWithoutPreferred() {
+        ResourceResult lhs = new ResourceResult("abc", "def");
+        ResourceResult rhs = new ResourceResult("abc", "def");
+        assert(lhs.equals(rhs));
+    }
+
+    @Test
+    public void testEqualsWithPreferred() {
+        ResourceResult lhs = new ResourceResult("abc", "def", true);
+        ResourceResult rhs = new ResourceResult("abc", "def", true);
+        assert(lhs.equals(rhs));
+    }
+
+    @Test
+    public void testSerialize() throws JsonProcessingException {
+        ResourceResult obj = new ResourceResult();
         obj.setResource("abc");
         obj.setLabel("def");
         ObjectMapper mapper = new ObjectMapper();
@@ -48,8 +64,8 @@ public class ResourceAndLabelTest {
     }
 
     @Test
-    public void serializePreferred() throws JsonProcessingException {
-        ResourceAndLabel obj = new ResourceAndLabel();
+    public void testSerializeWithPreferred() throws JsonProcessingException {
+        ResourceResult obj = new ResourceResult();
         obj.setResource("abc");
         obj.setLabel("def");
         obj.setPreferred(false);

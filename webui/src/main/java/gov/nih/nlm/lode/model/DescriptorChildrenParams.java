@@ -2,7 +2,7 @@ package gov.nih.nlm.lode.model;
 
 import javax.validation.constraints.NotEmpty;
 
-public class AllowedQualifierParams {
+public class DescriptorChildrenParams {
 
     @NotEmpty
     private String descriptor;

@@ -39,14 +39,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
-import gov.nih.nlm.lode.model.AllowedQualifierParams;
+import gov.nih.nlm.lode.model.DescriptorChildren;
+import gov.nih.nlm.lode.model.DescriptorChildrenParams;
 import gov.nih.nlm.lode.model.DescriptorParams;
 import gov.nih.nlm.lode.model.LabelMatch;
 import gov.nih.nlm.lode.model.LabelMatchEditor;
 import gov.nih.nlm.lode.model.LabelParams;
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.PairParams;
-import gov.nih.nlm.lode.model.ResourceAndLabel;
+import gov.nih.nlm.lode.model.ResourceResult;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
 @Validated
@@ -96,7 +97,7 @@ public class LookupController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/descriptor", produces="application/json")
-    public Collection<ResourceAndLabel> lookupDescriptors(@Valid DescriptorParams criteria) throws QueryParseException, LodeException, IOException {
+    public Collection<ResourceResult> lookupDescriptors(@Valid DescriptorParams criteria) throws QueryParseException, LodeException, IOException {
         log.trace(String.format("get descriptor criteria label=%s, rel=%s, limit=%s",
                 criteria.getMatch(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
@@ -104,7 +105,7 @@ public class LookupController {
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/descriptor", produces="application/json", consumes="application/json")
-    public Collection<ResourceAndLabel> lookupDescriptorsJson(@Valid @RequestBody DescriptorParams criteria) throws LodeException {
+    public Collection<ResourceResult> lookupDescriptorsJson(@Valid @RequestBody DescriptorParams criteria) throws LodeException {
         log.trace(String.format("post descriptor criteria label=%s, rel=%s, limit=%s",
                 criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
@@ -112,7 +113,7 @@ public class LookupController {
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/descriptor", produces="application/json", consumes="application/x-www-form-urlencoded")
-    public Collection<ResourceAndLabel> lookupDescriptorsForm(@Valid DescriptorParams criteria) throws LodeException {
+    public Collection<ResourceResult> lookupDescriptorsForm(@Valid DescriptorParams criteria) throws LodeException {
         log.trace(String.format("post descriptor criteria label=%s, rel=%s, limit=%s",
                 criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
@@ -120,7 +121,7 @@ public class LookupController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/pair", produces="application/json")
-    public Collection<ResourceAndLabel> lookupPair(@Valid PairParams criteria) throws IOException, LodeException {
+    public Collection<ResourceResult> lookupPair(@Valid PairParams criteria) throws IOException, LodeException {
         log.trace(String.format("get pair criteria label=%s, rel=%s, limit=%s",
                 criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         criteria.setDescriptor(resolveUri(criteria.getDescriptor()));
@@ -129,7 +130,7 @@ public class LookupController {
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/pair", produces="application/json", consumes="application/json")
-    public Collection<ResourceAndLabel> lookupPairJson(@Valid @RequestBody PairParams criteria) throws IOException, LodeException {
+    public Collection<ResourceResult> lookupPairJson(@Valid @RequestBody PairParams criteria) throws IOException, LodeException {
         log.trace(String.format("post pair criteria label=%s, rel=%s, limit=%s",
                 criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         criteria.setDescriptor(resolveUri(criteria.getDescriptor()));
@@ -138,7 +139,7 @@ public class LookupController {
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/pair", produces="application/json", consumes="application/x-www-form-urlencoded")
-    public Collection<ResourceAndLabel> lookupPairForm(@Valid PairParams criteria) throws IOException, LodeException {
+    public Collection<ResourceResult> lookupPairForm(@Valid PairParams criteria) throws IOException, LodeException {
         log.trace(String.format("post pair criteria label=%s, rel=%s, limit=%s",
                 criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         criteria.setDescriptor(resolveUri(criteria.getDescriptor()));
@@ -146,10 +147,22 @@ public class LookupController {
     }
 
     @ResponseStatus(HttpStatus.OK)
+    @GetMapping(path="/details", produces="application/json")
+    public DescriptorChildren lookupDetails(@Valid DescriptorChildrenParams params) throws LodeException {
+        log.trace(String.format("get details descriptor=%s", params.getDescriptor()));
+        String descriptorUri = resolveUri(params.getDescriptor());
+        DescriptorChildren children = new DescriptorChildren(descriptorUri);
+        children.setTerms(getService().lookupDescriptorTerms(descriptorUri));
+        children.setSeeAlso(getService().lookupDescriptorSeeAlso(descriptorUri));
+        return children;
+    }
+
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/qualifiers", produces="application/json")
-    public Collection<ResourceAndLabel> lookupQualifiers(@Valid AllowedQualifierParams params) throws LodeException {
+    public Collection<ResourceResult> lookupQualifiers(@Valid DescriptorChildrenParams params) throws LodeException {
         log.trace(String.format("get qualifiers descriptor=%s", params.getDescriptor()));
-        return getService().allowedQualifiers(resolveUri(params.getDescriptor()));
+        String descriptorUri = resolveUri(params.getDescriptor());
+        return getService().allowedQualifiers(descriptorUri);
     }
 
     @ResponseStatus(HttpStatus.OK)

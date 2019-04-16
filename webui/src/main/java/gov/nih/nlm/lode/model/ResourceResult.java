@@ -11,19 +11,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder("resource,label,preferred")
 @JsonInclude(Include.NON_NULL)
-public class ResourceAndLabel {
+public class ResourceResult {
 
     private String resource;
     private String label;
     private Boolean preferred;
 
-    public ResourceAndLabel() {
+    public ResourceResult() {
         this(null, null);
     }
-    public ResourceAndLabel(String resource, String label) {
+    public ResourceResult(String resource, String label) {
         this(resource, label, null);
     }
-    public ResourceAndLabel(String resource, String label, Boolean preferred) {
+    public ResourceResult(String resource, String label, Boolean preferred) {
         this.resource = resource;
         this.label = label;
         this.preferred = preferred;
@@ -60,10 +60,9 @@ public class ResourceAndLabel {
         if (obj.getClass() != this.getClass()) {
             return false;
         }
-        ResourceAndLabel rhs = (ResourceAndLabel) obj;
+        ResourceResult rhs = (ResourceResult) obj;
         return new EqualsBuilder()
-                .appendSuper(super.equals(obj))
-                .append(resource, rhs.resource)
+                 .append(resource, rhs.resource)
                 .append(label, rhs.label)
                 .append(preferred, rhs.preferred)
                 .isEquals();

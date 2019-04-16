@@ -148,10 +148,10 @@ descriptor_concepts: |
       ?parent meshv:active "true"^^xsd:boolean .
       {
         ?parent meshv:preferredConcept ?resource .
-        BIND("true"^^xsd:boolean AS ?preferred) .
+        BIND(xsd:boolean(1) AS ?preferred) .
       } UNION {
         ?parent meshv:concept ?resource .
-        BIND("false"^^xsd:boolean AS ?preferred) .
+        BIND(xsd:boolean(0) AS ?preferred) .
         MINUS {
           ?parent meshv:preferredConcept ?resource .
         }
@@ -172,11 +172,11 @@ descriptor_terms: |
       {
         ?parent meshv:preferredConcept ?concept .
         ?concept meshv:preferredTerm ?resource .
-        BIND("true"^^xsd:boolean AS ?preferred) .
+        BIND(xsd:boolean(1) AS ?preferred) .
       } UNION {
         ?parent meshv:concept ?concept .
         ?concept meshv:term ?resource .
-        BIND("false"^^xsd:boolean AS ?preferred) .
+        BIND(xsd:boolean(0) AS ?preferred) .
         MINUS {
           ?parent meshv:preferredConcept ?concept .
           ?concept meshv:preferredTerm ?resource .

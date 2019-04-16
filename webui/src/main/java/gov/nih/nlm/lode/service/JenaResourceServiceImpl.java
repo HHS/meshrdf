@@ -19,7 +19,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import gov.nih.nlm.lode.model.JenaResourceService;
-import gov.nih.nlm.lode.model.ResourceAndLabel;
+import gov.nih.nlm.lode.model.ResourceResult;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 import uk.ac.ebi.fgpt.lode.service.JenaQueryExecutionService;
 
@@ -37,7 +37,7 @@ public class JenaResourceServiceImpl implements JenaResourceService {
     private int fulltextMinLength = 4;
 
     @Override
-    public Collection<ResourceAndLabel> getResources(String query, String label, int limit, String parentUri) throws LodeException {
+    public Collection<ResourceResult> getResources(String query, String label, int limit, String parentUri) throws LodeException {
         QuerySolutionMap initialBinding = new QuerySolutionMap();
         if (label != null) {
             Literal boundstar;
@@ -60,7 +60,7 @@ public class JenaResourceServiceImpl implements JenaResourceService {
         Graph g = getExecutionService().getDefaultGraph();
         QueryExecution endpoint = getExecutionService().getQueryExecution(g, query, initialBinding, true);
 
-        ArrayList<ResourceAndLabel> resultList = new ArrayList<ResourceAndLabel>();
+        ArrayList<ResourceResult> resultList = new ArrayList<ResourceResult>();
         try {
             ResultSet results = endpoint.execSelect();
             while (results.hasNext()) {
@@ -70,7 +70,12 @@ public class JenaResourceServiceImpl implements JenaResourceService {
                     continue;
                 }
                 Literal rslabel = solution.getLiteral("label");
-                resultList.add(new ResourceAndLabel(rsuri.getURI(), rslabel.getString()));
+                Literal preferred = solution.getLiteral("preferred");
+                if (preferred != null) {
+                    resultList.add(new ResourceResult(rsuri.getURI(), rslabel.getString(), preferred.getBoolean()));
+                } else {
+                    resultList.add(new ResourceResult(rsuri.getURI(), rslabel.getString()));
+                }
             }
         } catch (Exception ex) {
             log.error("Error retrieving results for " + query, ex);
@@ -86,13 +91,13 @@ public class JenaResourceServiceImpl implements JenaResourceService {
     }
 
     @Override
-    public Collection<ResourceAndLabel> getResources(
+    public Collection<ResourceResult> getResources(
             String query, String label, int limit) throws LodeException {
         return getResources(query, label, limit, null);
     }
 
     @Override
-    public Collection<ResourceAndLabel> getChildResources(String query, String parentUri)
+    public Collection<ResourceResult> getChildResources(String query, String parentUri)
             throws LodeException {
         return getResources(query, null, 0, parentUri);
     }

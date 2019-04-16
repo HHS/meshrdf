@@ -31,7 +31,7 @@ import gov.nih.nlm.lode.model.DescriptorParams;
 import gov.nih.nlm.lode.model.LabelMatch;
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.PairParams;
-import gov.nih.nlm.lode.model.ResourceAndLabel;
+import gov.nih.nlm.lode.model.ResourceResult;
 import gov.nih.nlm.lode.service.LookupServiceImpl;
 
 /**
@@ -121,7 +121,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
     public void descriptorExactGuts(String label) throws Exception {
         DescriptorParams criteria = new DescriptorParams();
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
-        Collection<ResourceAndLabel> results = serviceIntf.lookupDescriptors(criteria);
+        Collection<ResourceResult> results = serviceIntf.lookupDescriptors(criteria);
         Collection<String> expectedUris = Arrays.asList(Pyrin.EXACT_MATCH_URIS);
         Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
         assertThat(actualUris, equalTo(expectedUris));
@@ -144,7 +144,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
         criteria.setMatch(LabelMatch.CONTAINS);
 
-        Collection<ResourceAndLabel> results = serviceIntf.lookupDescriptors(criteria);
+        Collection<ResourceResult> results = serviceIntf.lookupDescriptors(criteria);
         Collection<String> expectedUris = Arrays.asList(Pyrin.CONTAINS_MATCH_URIS);
         Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
         assertThat(actualUris, equalTo(expectedUris));
@@ -155,7 +155,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         criteria.setLabel(label);
         criteria.setMatch(LabelMatch.STARTSWITH);
 
-        Collection<ResourceAndLabel> results = serviceIntf.lookupDescriptors(criteria);
+        Collection<ResourceResult> results = serviceIntf.lookupDescriptors(criteria);
         Collection<String> expectedUris = Arrays.asList(Pyrin.STARTSWITH_MATCH_URIS);
         Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
         assertThat(actualUris, equalTo(expectedUris));
@@ -173,7 +173,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         criteria.setMatch(LabelMatch.CONTAINS);
         criteria.setLimit(2);
 
-        Collection<ResourceAndLabel> results = serviceIntf.lookupDescriptors(criteria);
+        Collection<ResourceResult> results = serviceIntf.lookupDescriptors(criteria);
         Collection<String> expectedUris = Arrays.asList(Pyrin.CONTAINS_MATCH_URIS).subList(0,  2);
         Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
         assertThat(actualUris, equalTo(expectedUris));
@@ -186,7 +186,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         criteria.setLabel("chemical");
         criteria.setMatch(LabelMatch.EXACT);
 
-        Collection<ResourceAndLabel> results = serviceIntf.lookupPairs(criteria);
+        Collection<ResourceResult> results = serviceIntf.lookupPairs(criteria);
         assertThat(results.size(), equalTo(0));
     }
 
@@ -196,10 +196,10 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         criteria.setLabel(qualifierLabel);
         criteria.setMatch(LabelMatch.EXACT);
 
-        Collection<ResourceAndLabel> results = serviceIntf.lookupPairs(criteria);
+        Collection<ResourceResult> results = serviceIntf.lookupPairs(criteria);
         assertThat(results.size(), equalTo(1));
 
-        for (ResourceAndLabel result : results) {
+        for (ResourceResult result : results) {
             assertThat(result.getResource(), equalTo(Pyrin.CHEMI_QUALIFIER_URIS[1]));
             assertThat(result.getLabel(), equalTo(Pyrin.CHEMI_QUALIFIER_LABELS[1]));
         }
@@ -223,7 +223,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         criteria.setLabel("chemi");
         criteria.setMatch(LabelMatch.CONTAINS);
 
-        Collection<ResourceAndLabel> results = serviceIntf.lookupPairs(criteria);
+        Collection<ResourceResult> results = serviceIntf.lookupPairs(criteria);
         Collection<String> expectedUris = Arrays.asList(Pyrin.CHEMI_QUALIFIER_URIS);
         Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
         assertThat(actualUris, equalTo(expectedUris));
@@ -239,7 +239,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         criteria.setLabel(qualifierLabel);
         criteria.setMatch(LabelMatch.STARTSWITH);
 
-        Collection<ResourceAndLabel> results = serviceIntf.lookupPairs(criteria);
+        Collection<ResourceResult> results = serviceIntf.lookupPairs(criteria);
         Collection<String> expectedUris = Arrays.asList(Pyrin.CHEMI_QUALIFIER_URIS).subList(0,  1);;
         Collection<String> actualUris = results.stream().map(rl -> rl.getResource()).collect(Collectors.toList());
         assertThat(actualUris, equalTo(expectedUris));
@@ -264,7 +264,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testAllowedQualifiers() throws Exception {
-        Collection<ResourceAndLabel> actualResults = serviceIntf.allowedQualifiers(Pyrin.DESCRIPTOR_URI);
+        Collection<ResourceResult> actualResults = serviceIntf.allowedQualifiers(Pyrin.DESCRIPTOR_URI);
         assertThat(actualResults.size(), greaterThan(1));
 
         List<String> actualLabels = actualResults.stream().map(rl -> rl.getLabel()).collect(Collectors.toList());

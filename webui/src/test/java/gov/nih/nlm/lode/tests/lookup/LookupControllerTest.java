@@ -360,6 +360,25 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
     }
 
     @Test
+    public void testDescriptorDetailsSeeAlso() throws Exception {
+        // NOTE: These are mock results from the MockLookupService
+        MockHttpServletRequestBuilder request =
+                get("/lookup/details")
+                .param("descriptor", "D013498")
+                .accept(MediaType.APPLICATION_JSON);
+        mvc.perform(request)
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.descriptor").value("http://id.nlm.nih.gov/mesh/D013498"))
+            .andExpect(jsonPath("$.seealso").isArray())
+            .andExpect(jsonPath("$.terms").isArray())
+            .andExpect(jsonPath("$.seealso.length()", Integer.class).value(2))
+            .andExpect(jsonPath("$.terms.length()", Integer.class).value(4));
+
+        assertThat(mockService.count, equalTo(2));
+    }
+
+    @Test
     public void testLabels() throws Exception {
         MockHttpServletRequestBuilder request =
                 get("/lookup/label")
