@@ -30,4 +30,7 @@ function buildNamespaces(year, minYear) {
 	return namespaces;
 }
 
+if (typeof NLM === 'undefined') {
+    var NLM = {};
+}
 var lodeNamespacePrefixes = buildNamespaces(NLM.meshYear, NLM.minYear);
