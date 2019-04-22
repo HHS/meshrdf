@@ -35,6 +35,7 @@ public class SparqlController extends SparqlServlet {
             @RequestParam(value = "inference", required = false) boolean inference,
             HttpServletRequest request,
             HttpServletResponse response) throws QueryParseException, LodeException, IOException {
+        final long startTime = System.currentTimeMillis();
         String v = request.getHeader("Referer");
         MDC.put("webui", v != null && v.contains("/mesh/query"));
         if (query != null)
@@ -46,10 +47,9 @@ public class SparqlController extends SparqlServlet {
         if (offset != null)
             MDC.put("offset", offset);
         MDC.put("inference", inference);
-        DiagnosticHttpServletResponseWrapper wrappedResponse = new DiagnosticHttpServletResponseWrapper(response);
-        super.query(query, format, offset, limit, inference, request, wrappedResponse);
-        MDC.put("responsesize", wrappedResponse.getCount());
-        MDC.put("responsetime", wrappedResponse.getResponseTime());
+        super.query(query, format, offset, limit, inference, request, response);
+        final long responseTime = System.currentTimeMillis() - startTime;
+        MDC.put("responsetime", responseTime);
         apilog.info("sparql query");
         MDC.clear();
     }
