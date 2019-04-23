@@ -19,6 +19,7 @@ import uk.ac.ebi.fgpt.lode.exception.LodeException;
  */
 public class MockLookupService implements LookupService {
     public DescriptorParams desc = null;
+    public DescriptorParams term = null;
     public PairParams pair = null;
     public String descriptorUri = null;
     public String resourceUri = null;
@@ -41,6 +42,16 @@ public class MockLookupService implements LookupService {
         return Arrays.asList(new ResourceResult[] {
             new ResourceResult("http://id.nlm.nih.gov/mesh/DQ1", "First label"),
             new ResourceResult("http://id.nlm.nih.gov/mesh/DQ2", "Later label")
+         });
+    }
+
+    @Override
+    public Collection<ResourceResult> lookupTerms(DescriptorParams criteria) throws LodeException {
+        count++;
+        this.term = criteria;
+        return Arrays.asList(new ResourceResult[] {
+            new ResourceResult("http://id.nlm.nih.gov/mesh/T1", "First label"),
+            new ResourceResult("http://id.nlm.nih.gov/mesh/T2", "Later label")
          });
     }
 

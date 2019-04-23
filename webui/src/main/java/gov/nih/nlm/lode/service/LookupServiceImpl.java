@@ -32,6 +32,7 @@ public class LookupServiceImpl implements LookupService {
 
     public static final String DESCRIPTOR_QUERY_PREFIX = "descriptor_";
     public static final String PAIR_QUERY_PREFIX = "pair_";
+    public static final String TERM_QUERY_PREFIX = "term_";
     public static final String ALLOWED_QUALIFERS_ID = "allowed_qualifiers";
     public static final String RESOURCE_LABEL_ID = "label_for_resource";
     public static final String DESCRIPTOR_CONCEPTS_ID = "descriptor_concepts";
@@ -53,6 +54,12 @@ public class LookupServiceImpl implements LookupService {
     public Collection<ResourceResult> lookupPairs(PairParams criteria) throws LodeException {
         String queryId = PAIR_QUERY_PREFIX + criteria.getMatch().toString().toLowerCase();
         return getResourceService().getResources(getQuery(queryId), criteria.getLabel(), criteria.getLimit(), criteria.getDescriptor());
+    }
+
+    @Override
+    public Collection<ResourceResult> lookupTerms(DescriptorParams criteria) throws LodeException {
+        String queryId = TERM_QUERY_PREFIX + criteria.getMatch().toString().toLowerCase();
+        return getResourceService().getResources(getQuery(queryId), criteria.getLabel(), criteria.getLimit());
     }
 
     @Override

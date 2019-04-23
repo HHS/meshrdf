@@ -109,6 +109,55 @@ pair_startswith: |
       ?resource rdfs:label ?label .
     } ORDER BY ?label
 
+term_exact: |
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX bif: <bif:>
+    
+    SELECT ?resource ?label
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?resource a meshv:Term .
+      ?resource meshv:active "true"^^xsd:boolean .
+      ?resource meshv:prefLabel ?label .
+      ?label bif:contains ?boundstar .
+      BIND(LCASE(STR(?label)) AS ?lowerlabel) .
+      FILTER(?lowerlabel = ?bound)
+    } ORDER BY ?label
+
+term_contains: |
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX bif: <bif:>
+    
+    SELECT ?resource ?label
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?resource a meshv:Term .
+      ?resource meshv:active "true"^^xsd:boolean .
+      ?resource meshv:prefLabel ?label .
+      ?label bif:contains ?boundstar .
+    } ORDER BY ?label
+
+term_startswith: |
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+    PREFIX bif: <bif:>
+    
+    SELECT ?resource ?label
+    FROM <http://id.nlm.nih.gov/mesh>
+    WHERE {
+      ?resource a meshv:Term .
+      ?resource meshv:active "true"^^xsd:boolean .
+      ?resource meshv:prefLabel ?label .
+      ?label bif:contains ?boundstar .
+      BIND(LCASE(STR(?label)) AS ?lowerlabel) .
+      FILTER(STRSTARTS(?lowerlabel, ?bound))
+    } ORDER BY ?label
+
 allowed_qualifiers: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
