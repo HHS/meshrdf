@@ -99,6 +99,14 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
     }
 
     @Test
+    public void testTermQueriesExist() throws Exception {
+        for (LabelMatch match : LabelMatch.values()) {
+            String queryKey = LookupServiceImpl.TERM_QUERY_PREFIX+match.toString().toLowerCase();
+            queryExistsGuts(queryKey);
+        }
+    }
+
+    @Test
     public void testQualifierQueriesExist() throws Exception {
         queryExistsGuts(LookupServiceImpl.ALLOWED_QUALIFERS_ID);
     }

@@ -75,7 +75,9 @@ span.pagmes {
 #lodestar-sparql-form label {
     margin-right: 1em;
 }
-
+#lodestar-sparql-form .CodeMirror {
+    line-height: 1;
+}
 .lodestar-grid12 {
     width: 49.0%;
     display: inline;

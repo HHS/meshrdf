@@ -147,6 +147,15 @@ public class LookupController {
     }
 
     @ResponseStatus(HttpStatus.OK)
+    @GetMapping(path="/term", produces="application/json")
+    public Collection<ResourceResult> lookupTerms(@Valid DescriptorParams criteria) throws QueryParseException, LodeException, IOException {
+        log.trace(String.format("get terms criteria label=%s, rel=%s, limit=%s",
+                criteria.getMatch(), criteria.getMatch(), criteria.getLimit()));
+        return getService().lookupTerms(criteria);
+    }
+
+
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/details", produces="application/json")
     public DescriptorChildren lookupDetails(@Valid DescriptorChildrenParams params) throws LodeException {
         log.trace(String.format("get details descriptor=%s", params.getDescriptor()));

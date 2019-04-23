@@ -18,21 +18,20 @@
     <!--[if lt IE 9]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
+    <%@ include file="prefix.jspf" %>   
+    <!-- <script>
         window.onerror=function(msg) { console.log(msg); $("#jserr pre").append(msg); }
     </script>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <%@ include file="prefix.jspf" %>
+    -->
+    <script src="<%= resourcePrefix %>vendor/js/jquery.min.js"></script>
+    <script src="<%= resourcePrefix  %>vendor/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<%= resourcePrefix %>vendor/css/bootstrap.min.css" />
     <link rel="stylesheet" href="<%= resourcePrefix %>css/lode-style.css"/>
     <link rel="stylesheet" href="<%= resourcePrefix %>codemirror/codemirror.css"/>
     <link rel="stylesheet" href="<%= resourcePrefix %>css/style.css" rel="stylesheet"/>
     <script type="text/javascript" src="<%= resourcePrefix %>codemirror/codemirror.js"></script>
-    <script type="text/javascript" src="<%= resourcePrefix %>codemirror/sparql.js"></script>
+    <script type="text/javascript" src="<%= resourcePrefix %>codemirror/mode/sparql/sparql.js"></script>
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/namespaces.js"></script>
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/queries.js"></script>
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/lode.js"></script>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css"/>
+    <link rel="stylesheet" href="<%= resourcePrefix %>vendor/css/font-awesome.css"/>
