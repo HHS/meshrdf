@@ -24,7 +24,6 @@
     </script>
     -->
     <script src="<%= resourcePrefix %>vendor/js/jquery.min.js"></script>
-    <script src="<%= resourcePrefix %>vendor/js/popper.min.js"></script>
     <script src="<%= resourcePrefix  %>vendor/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="<%= resourcePrefix %>vendor/css/bootstrap.min.css" />
     <link rel="stylesheet" href="<%= resourcePrefix %>css/lode-style.css"/>
@@ -35,5 +34,4 @@
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/namespaces.js"></script>
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/queries.js"></script>
     <script type="text/javascript" src="<%= resourcePrefix %>scripts/lode.js"></script>
-    <link rel="stylesheet"
-          href="<%= resourcePrefix %>vendor/css/font-awesome.css"/>
+    <link rel="stylesheet" href="<%= resourcePrefix %>vendor/css/font-awesome.css"/>

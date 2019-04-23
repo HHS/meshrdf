@@ -13,97 +13,175 @@
         </div>
         <div class="col-md-3">
           <br/>
-          <form class="form-inline" role="form" method="get" action="https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta" target="_self" name="searchForm" id="searchForm">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <i class="fa fa-search"></i>
+          <form role="form" method="get" action="https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta" target="_self" name="searchForm" id="searchForm">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-search"></i>
+                </div>
+                <label for="search" class="hidden">Search</label>
+                <input class="form-control input-sm" type="text" placeholder="Search" name="query" id="search" />
+                <input type="hidden" name="v:project" value="nlm-main-website" >
               </div>
-              <label for="search" class="hidden">Search</label>
-              <input class="form-control input-sm" type="text" placeholder="Search" name="query" id="search" />
-              <input type="hidden" name="v:project" value="nlm-main-website" >
             </div>
           </form>
         </div>
       </div>
       <div>
         <ul id="meshTab" class="nav nav-tabs pull-left" role="navigation">
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <strong>Databases</strong>
               <b class="caret"></b>
             </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="https://www.ncbi.nlm.nih.gov/pubmed/">PubMed/MEDLINE</a>
-              <a class="dropdown-item" href="https://meshb.nlm.nih.gov/">MeSH</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/research/umls/">UMLS</a>
-              <a class="dropdown-item" href="https://clinicaltrials.gov/">ClinicalTrials.gov</a>
-              <a class="dropdown-item" href="https://www.medlineplus.gov/">MedlinePlus</a>
-              <a class="dropdown-item" href="http://toxnet.nlm.nih.gov/">TOXNET</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/hmd/ihm/">Images from the History of Medicine</a>
-              <a class="dropdown-item" href="http://collections.nlm.nih.gov/">Digital Collections</a>
-              <a class="dropdown-item" href="http://locatorplus.gov">LocatorPlus</a>
-              <a class="dropdown-item" href="https://wwwcf2.nlm.nih.gov/nlm_eresources/eresources/search_database.cfm">All NLM Databases &amp; APIs</a>
-            </div>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="https://www.ncbi.nlm.nih.gov/pubmed/">PubMed/MEDLINE</a>
+              </li>
+              <li>
+                <a href="https://meshb.nlm.nih.gov/">MeSH</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/research/umls/">UMLS</a>
+              </li>
+              <li>
+                <a href="https://clinicaltrials.gov/">ClinicalTrials.gov</a>
+              </li>
+              <li>
+                <a href="https://www.medlineplus.gov/">MedlinePlus</a>
+              </li>
+              <li>
+                <a href="http://toxnet.nlm.nih.gov/">TOXNET</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/hmd/ihm/">Images from the History of Medicine</a>
+              </li>
+              <li>
+                <a href="http://collections.nlm.nih.gov/">Digital Collections</a>
+              </li>
+              <li>
+                <a href="http://locatorplus.gov">LocatorPlus</a>
+              </li>
+              <li>
+                <a href="https://wwwcf2.nlm.nih.gov/nlm_eresources/eresources/search_database.cfm">All NLM Databases &amp; APIs</a>
+              </li>
+            </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <strong>Find, Read, Learn</strong>
               <b class="caret"></b>
             </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="https://www.ncbi.nlm.nih.gov/pubmed/">Search biomedical literature</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/medical-terms.html">Find medical terminologies</a>
-              <a class="dropdown-item" href="http://locatorplus.gov/">Search NLM collections</a>
-              <a class="dropdown-item" href="https://www.medlineplus.gov/healthtopics.html">Read about diseases</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/learn-about-drugs.html">Learn about drugs</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/hmd/explore-history.html">Explore history</a>
-              <a class="dropdown-item" href="https://clinicaltrials.gov/">Find a clinical trial</a>
-              <a class="dropdown-item" href="https://www.ncbi.nlm.nih.gov/pmc/">Find free full-text articles</a>
-            </div>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="https://www.ncbi.nlm.nih.gov/pubmed/">Search biomedical literature</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/medical-terms.html">Find medical terminologies</a>
+              </li>
+              <li>
+                <a href="http://locatorplus.gov/">Search NLM collections</a>
+              </li>
+              <li>
+                <a href="https://www.medlineplus.gov/healthtopics.html">Read about diseases</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/learn-about-drugs.html">Learn about drugs</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/hmd/explore-history.html">Explore history</a>
+              </li>
+              <li>
+                <a href="https://clinicaltrials.gov/">Find a clinical trial</a>
+              </li>
+              <li>
+                <a href="https://www.ncbi.nlm.nih.gov/pmc/">Find free full-text articles</a>
+              </li>
+            </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <strong>Explore NLM</strong>
               <b class="caret"></b>
             </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/about/index.html">About NLM</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/hinfo.html">Health Information</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/libserv.html">Library Catalog &amp; Services</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/hmd/index.html">History of Medicine</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/onlineexhibitions.html">Online Exhibitions &amp; Digital Projects</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/portals/publishers.html">Information for Publishers</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/about/visitor.html">Visit the Library</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/information-in-other-languages.html">Health Information in Other Languages</a>
-            </div>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="https://www.nlm.nih.gov/about/index.html">About NLM</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/hinfo.html">Health Information</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/libserv.html">Library Catalog &amp; Services</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/hmd/index.html">History of Medicine</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/onlineexhibitions.html">Online Exhibitions &amp; Digital Projects</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/portals/publishers.html">Information for Publishers</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/about/visitor.html">Visit the Library</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/information-in-other-languages.html">Health Information in Other Languages</a>
+              </li>
+            </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <strong>Research at NLM</strong>
               <b class="caret"></b>
             </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="https://www.ncbi.nlm.nih.gov/projects/genome/guide/human/">Human Genome Resources</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/biomedical.html">Biomedical Research &amp; Informatics</a>
-              <a class="dropdown-item" href="https://sis.nlm.nih.gov/enviro.html">Environmental Health &amp; Toxicology</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/hsrph.html">Health Services Research &amp; Public Health</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/healthit.html">Health Information Technology</a>
-            </div>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="https://www.ncbi.nlm.nih.gov/projects/genome/guide/human/">Human Genome Resources</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/biomedical.html">Biomedical Research &amp; Informatics</a>
+              </li>
+              <li>
+                <a href="https://sis.nlm.nih.gov/enviro.html">Environmental Health &amp; Toxicology</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/hsrph.html">Health Services Research &amp; Public Health</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/healthit.html">Health Information Technology</a>
+              </li>
+            </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <strong>NLM for You</strong>
               <b class="caret"></b>
             </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/grants.html">Grants &amp; Funding</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/healthit/meaningful_use.html">Meaningful Use Tools</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/training.html">Training &amp; Outreach</a>
-              <a class="dropdown-item" href="https://nnlm.gov/">National Network of Medical Libraries</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/regional-activities.html">Regional Activities</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/careers/careers.html">Careers @ NLM</a>
-              <a class="dropdown-item" href="https://www.nlm.nih.gov/mobile/index.html">Mobile Gallery</a>
-            </div>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="https://www.nlm.nih.gov/grants.html">Grants &amp; Funding</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/healthit/meaningful_use.html">Meaningful Use Tools</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/training.html">Training &amp; Outreach</a>
+              </li>
+              <li>
+                <a href="https://nnlm.gov/">National Network of Medical Libraries</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/regional-activities.html">Regional Activities</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/careers/careers.html">Careers @ NLM</a>
+              </li>
+              <li>
+                <a href="https://www.nlm.nih.gov/mobile/index.html">Mobile Gallery</a>
+              </li>
+            </ul>
           </li>
         </ul>
         <div class='nav pull-right'>

@@ -28,7 +28,6 @@ gulp.task('codemirror', function() {
 gulp.task('scripts', function() {
     return gulp.src([
         'node_modules/jquery/dist/jquery.min.js',
-        'node_modules/popper.js/dist/umd/popper.min.js',
         'node_modules/bootstrap/dist/js/bootstrap.min.js',
     ]).pipe(gulp.dest('target/gulp/vendor/js'));
 });
