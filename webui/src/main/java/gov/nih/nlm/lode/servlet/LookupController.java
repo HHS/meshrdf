@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.apache.commons.lang3.tuple.Pair;
@@ -35,6 +37,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -93,6 +96,13 @@ public class LookupController {
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(LabelMatch.class, new LabelMatchEditor());
+    }
+
+    @GetMapping(produces=MediaType.TEXT_HTML_VALUE)
+    public ModelAndView lookupForm(HttpServletRequest request, HttpServletResponse response) {
+        response.setContentType(MediaType.TEXT_HTML_VALUE);
+        ModelAndView mv = new ModelAndView("internal/lookup", HttpStatus.OK);
+        return mv;
     }
 
     @ResponseStatus(HttpStatus.OK)

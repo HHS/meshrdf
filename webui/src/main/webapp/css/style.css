@@ -50,7 +50,7 @@ body {
   color: white;
 }
 
-.tab-pane {
+#home {
   background: white;
   box-shadow: 1px -1px 1px -1px rgba(0,0,0,.4);
   padding: 10px 10px 10px 30px;
