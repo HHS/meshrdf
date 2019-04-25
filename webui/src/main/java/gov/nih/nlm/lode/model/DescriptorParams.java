@@ -11,6 +11,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @JsonInclude(Include.NON_NULL)
@@ -30,6 +31,11 @@ public class DescriptorParams {
     }
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    @JsonProperty("query")
+    public void setQuery(String query) {
+        this.label = query;
     }
 
     public LabelMatch getMatch() {

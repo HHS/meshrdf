@@ -1,0 +1,13 @@
+<%@ page language="java" import="org.owasp.encoder.Encode" pageEncoding="UTF-8"%>
+<div class="container-fluid">
+    <div class="row">
+        <form class="form-inline" method="GET" action="<%= resourcePrefix %>lookup/descriptor">            
+            <div class="form-group">
+                <label for="name">Descriptor/Heading label:</label>
+                <input type="text" name="label" autocomplete="off" placeholder="Descriptor label ..."/>
+            </div>
+        </form>
+    </div>
+    <div class="row results">
+    </div>
+</div>

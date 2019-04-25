@@ -8,7 +8,9 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <lodestar:nlmconfig/>
-    <%@ include file="head.jspf" %>
+    <%@ include file="/internal/head.jspf" %>
+    <link rel="stylesheet" href="<%= resourcePrefix %>vendor/css/select2.min.css"/>
+    <link rel="stylesheet" href="<%= resourcePrefix %>jquery-ui/jquery-ui.min.css"/>
     <lodestar:gtmscript/>
   </head>
 
@@ -43,14 +45,15 @@
                 </div>
                 <div class="col-md-9 tab-content">
                   <div role="tabpanel" class="tab-pane fade template" id="descriptor" aria-labelledby="descriptor-tab">
-                    <p>Descriptor tab-panel</p>
+                    <%@ include file="/internal/lookupDescriptor.jspf" %>
                   </div>
                   <div role="tabpanel" class="tab-pane fade template" id="pair" aria-labelledby="pair-tab">
-                    <p>Pair tab panel</p>
+                    <%@ include file="/internal/lookupPair.jspf" %>
                   </div>
                 </div>
               </div>
             </div>
+            <script src="<%= resourcePrefix %>jquery-ui/jquery-ui.min.js"></script>
             <script src="<%= resourcePrefix %>vendor/js/handlebars.runtime.min.js"></script>
             <script src="<%= resourcePrefix %>scripts/templates-min.js"></script>
             <script src="<%= resourcePrefix %>scripts/lookup.js"></script>

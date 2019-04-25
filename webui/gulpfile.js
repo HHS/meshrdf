@@ -6,6 +6,7 @@ var declare = require('gulp-declare');
 var concat = require('gulp-concat');
 var del = require('del');
 var minify = require('gulp-minify');
+var rev = require('gulp-rev');
 var Handlebars = require('handlebars');
 
 gulp.task('codemirror', function() {
@@ -25,12 +26,29 @@ gulp.task('codemirror', function() {
     return merge(codemirror_lib, codemirror_xml, codemirror_sparql);
 });
 
+gulp.task('jqueryui', function() {
+	var jscss = gulp.src([
+		'node_modules/jquery-ui-dist/*.min.js',
+		'node_modules/jquery-ui-dist/*.min.css',
+	]).pipe(gulp.dest('target/gulp/jquery-ui'));
+	
+	var images = gulp.src([
+		'node_modules/jquery-ui-dist/images/*',		
+	]).pipe(gulp.dest('target/gulp/jquery-ui/images'));
+	
+	return merge(jscss, images);
+})
+
 gulp.task('scripts', function() {
     return gulp.src([
         'node_modules/jquery/dist/jquery.min.js',
         'node_modules/bootstrap/dist/js/bootstrap.min.js',
         'node_modules/handlebars/dist/handlebars.runtime.min.js',
-    ]).pipe(gulp.dest('target/gulp/vendor/js'));
+        'node_modules/select2/dist/js/select2.min.js',
+        'node_modules/jquery.autocomplete/jquery.autocomplete.js',
+        'node_modules/jquery-typeahead/dist/jquery.typeahead.min.js',
+    ])
+    .pipe(gulp.dest('target/gulp/vendor/js'));
 });
 
 gulp.task('styles', function() {
@@ -40,6 +58,8 @@ gulp.task('styles', function() {
         'node_modules/font-awesome/css/font-awesome.css',
         'node_modules/font-awesome/css/font-awesome.min.css',
         'node_modules/font-awesome/css/font-awesome.css.map',
+        'node_modules/select2/dist/css/select2.min.css',
+        'node_modules/jquery-typeahead/dist/jquery.typeahead.min.css',
     ]).pipe(gulp.dest('target/gulp/vendor/css/'));
  });
 
@@ -67,8 +87,9 @@ gulp.task('templates', function() {
 gulp.task('build', gulp.series(
         'scripts',        
         'templates',
-        'styles',
+        'styles',        
         'fonts',
+        'jqueryui',
         'codemirror',
 ));
 

@@ -1,0 +1,14 @@
+<%@ page language="java" import="org.owasp.encoder.Encode" pageEncoding="UTF-8"%>
+<div class="container-fluid">
+    <div class="row">
+        <form class="form-inline" method="GET" action="<%= resourcePrefix %>lookup/pair">
+            <div class="form-group">
+                <input type="hidden" name="match" value="startswith"/>
+                <input type="hidden" name="descriptor" value=""/>
+                <select name="label" class="form-control"></select>
+            </div>
+        </form>
+    </div>
+    <div class="row results">
+    </div>
+</div>
