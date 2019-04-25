@@ -9,7 +9,6 @@
     <meta name="author" content="" />
     <lodestar:nlmconfig/>
     <%@ include file="/internal/head.jspf" %>
-    <link rel="stylesheet" href="<%= resourcePrefix %>vendor/css/select2.min.css"/>
     <link rel="stylesheet" href="<%= resourcePrefix %>jquery-ui/jquery-ui.min.css"/>
     <lodestar:gtmscript/>
   </head>

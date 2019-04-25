@@ -3,9 +3,11 @@
     <div class="row">
         <form class="form-inline" method="GET" action="<%= resourcePrefix %>lookup/pair">
             <div class="form-group">
-                <input type="hidden" name="match" value="startswith"/>
                 <input type="hidden" name="descriptor" value=""/>
-                <select name="label" class="form-control"></select>
+                <label for="descriptor_label">Descriptor:</label>
+                <input type="text" name="descriptor_label" class="form-control" placeholder="Descriptor label..."/>
+                <label for="label">Qualifier:</label>
+                <input type="text" name="label" class="form-control" placeholder="Qualifier label..."/>
             </div>
         </form>
     </div>

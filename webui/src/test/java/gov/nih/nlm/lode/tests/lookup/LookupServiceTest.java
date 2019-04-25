@@ -291,4 +291,18 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         assertThat(actualLabels.size(), equalTo(1));
         assertThat(actualLabels, equalTo(Collections.singletonList(Pyrin.DESCRIPTOR_LABEL)));
     }
+
+    @Test
+    public void testLookupTermExact() throws Exception {
+        String expectedLabel = "Child Psychology";
+        DescriptorParams criteria = new DescriptorParams();
+        criteria.setLabel(expectedLabel);
+        Collection<ResourceResult> actualTerms = serviceIntf.lookupTerms(criteria);
+        assertThat(actualTerms.size(), greaterThan(0));
+
+        List<String> actualLabels = actualTerms.stream()
+                                               .map(r -> r.getLabel())
+                                               .collect(Collectors.toList());
+        assertThat(actualLabels.get(0), equalTo(expectedLabel));
+    }
 }
