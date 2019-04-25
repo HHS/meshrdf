@@ -44,9 +44,6 @@ gulp.task('scripts', function() {
         'node_modules/jquery/dist/jquery.min.js',
         'node_modules/bootstrap/dist/js/bootstrap.min.js',
         'node_modules/handlebars/dist/handlebars.runtime.min.js',
-        'node_modules/select2/dist/js/select2.min.js',
-        'node_modules/jquery.autocomplete/jquery.autocomplete.js',
-        'node_modules/jquery-typeahead/dist/jquery.typeahead.min.js',
     ])
     .pipe(gulp.dest('target/gulp/vendor/js'));
 });
@@ -58,8 +55,6 @@ gulp.task('styles', function() {
         'node_modules/font-awesome/css/font-awesome.css',
         'node_modules/font-awesome/css/font-awesome.min.css',
         'node_modules/font-awesome/css/font-awesome.css.map',
-        'node_modules/select2/dist/css/select2.min.css',
-        'node_modules/jquery-typeahead/dist/jquery.typeahead.min.css',
     ]).pipe(gulp.dest('target/gulp/vendor/css/'));
  });
 
