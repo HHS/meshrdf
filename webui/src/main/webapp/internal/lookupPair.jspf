@@ -5,9 +5,11 @@
             <div class="form-group">
                 <input type="hidden" name="descriptor" value=""/>
                 <label for="descriptor_label">Descriptor:</label>
-                <input type="text" name="descriptor_label" class="form-control" placeholder="Descriptor label..."/>
+                <input type="text" name="descriptor_label" class="form-control"
+                        autocomplete="false" placeholder="Descriptor label..."/>
                 <label for="label">Qualifier:</label>
-                <input type="text" name="label" class="form-control" placeholder="Qualifier label..."/>
+                <input type="text" name="label" class="form-control disabled"
+                        autocomplete="false" placeholder="Qualifier label..."/>
             </div>
         </form>
     </div>

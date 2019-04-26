@@ -122,7 +122,7 @@ function _parseOptions(options) {
     if (lodestarIslogging) {
         $('#lode-log').show();
         log("Parsed options...");
-        log(_options)
+        log(_options);
     }
 }
 
@@ -364,7 +364,7 @@ function _buildSparqlPage(element) {
     section1.append (
         $("<input id='offset' name='offset' type='hidden' value='0' />")
 
-    )
+    );
 
 
     section1.append($("<p></p>")
@@ -380,11 +380,11 @@ function _buildSparqlPage(element) {
 
     section2.append(
         $("<p></p>").append("<h3>Example Queries</h3>")
-    )
+    );
 
     section2.append(
         ("<ul id='queries_list'></ul>")
-    )
+    );
 
     element.append(sparqlForm);
 
@@ -512,12 +512,12 @@ function querySparql () {
                 location.href = lodestarQueryService + "?query=" + encodeURIComponent(querytext) + "&format=TURTLE";
             }
             else  {
-                displayError("You can only render graph queries in either HTML, RDF/XML, RDF/JSON, RDF/N3, or TURTLE format")
+                displayError("You can only render graph queries in either HTML, RDF/XML, RDF/JSON, RDF/N3, or TURTLE format");
                 return;
             }
         }
         else if (match[1].toUpperCase() == 'DELETE' || match[1].toUpperCase() == 'UPDATE') {
-            displayError("UPDATE or DELETE queries not allowed")
+            displayError("UPDATE or DELETE queries not allowed");
             return;
         }
         else {
@@ -545,7 +545,7 @@ function querySparql () {
                   encodeURIComponent(querytext) + "&format=TSV&limit=" + limit + "&offset=" + offset+ "&inference=" + rdfs;
             }
             else  {
-                displayError("You can only render SELECT queries in either HTML, XML, CSV, TSV or JSON format")
+                displayError("You can only render SELECT queries in either HTML, XML, CSV, TSV or JSON format");
                 return;
             }
         }
@@ -565,7 +565,7 @@ function querySparql () {
             hideBusyMessage();
             displayError(request.responseText);
         }
-    })
+    });
 }
 
 function setNextPrevUrl (queryString, limit, offset, rdfs) {
@@ -643,7 +643,7 @@ function renderGraphQuery (graph, tableid) {
                     td.append(linkSpan);
                 }
                 else {
-                    td.append (resource)
+                    td.append (resource);
                 }
                 tr.append(td);
             }
@@ -658,7 +658,7 @@ function displayPagination()  {
         prevA = $('<a></a>');
         prevA.attr('href',"?" + lodestarPrevUrl);
         prevA.attr('class',"pag prev");
-        prevA.text("Previous")
+        prevA.text("Previous");
     }
     else {
         prevA = $('<span>Previous</span>');
@@ -667,12 +667,12 @@ function displayPagination()  {
     var nextA = $('<a></a>');
     nextA.attr('href',"?" + lodestarNextUrl);
     nextA.attr('class',"pag next");
-    nextA.text("Next")
+    nextA.text("Next");
 
     var pagtext = $('<span></span>');
     pagtext.attr('class', "pag pagmes");
     pagtext.text('');
-    pagtext.text($('#limit').val() + ' results per page (offset ' + $('#offset').val() + ")")
+    pagtext.text($('#limit').val() + ' results per page (offset ' + $('#offset').val() + ")");
     $('#pagination').append(prevA);
     $('#pagination').append(pagtext);
     $('#pagination').append(nextA);
@@ -680,7 +680,7 @@ function displayPagination()  {
 }
 
 function renderSparqlResultJsonAsTable (json, tableid) {
-    log("sparql query rendering json")
+    log("sparql query rendering json");
 
     // clear existing content
     $("#" + tableid).html("");
@@ -698,7 +698,7 @@ function renderSparqlResultJsonAsTable (json, tableid) {
                     var _results = _json.results.bindings;
 
                     if (_results.length ==0) {
-                        alert("No results for query")
+                        alert("No results for query");
                     }
                     else {
                         var _variables = _json.head.vars;
@@ -742,17 +742,13 @@ function renderSparqlResultJsonAsTable (json, tableid) {
                 $("#" + tableid).append(row);
             }
             else {
-                alert("no results!")
+                alert("no results!");
             }
-
         }
         catch (err) {
             displayError("Problem rendering results: "+ err.message);
         }
-
     }
-
-
 }
 
 function _formatNode (node, varName) {
@@ -882,7 +878,7 @@ function setExampleQueries() {
                 a.text (shortname);
 
                 $(a).click(function () {
-                    _setTextAreQuery(this)
+                    _setTextAreQuery(this);
                 });
 
                 var li = $('<li></li>');
@@ -945,7 +941,7 @@ function _formatBlankNode(node, varName) {
 function _formatUnbound(node, varName) {
     var span = document.createElement('span');
     span.className = 'unbound';
-    span.title = 'Unbound'
+    span.title = 'Unbound';
     span.appendChild(document.createTextNode('-'));
     return span;
 }
@@ -1044,7 +1040,7 @@ function renderResourceTypes(element) {
                                 p.append(_hrefBuilder(uri, label, true));
                                 if (description) {
                                     p.append(" : ");
-                                    p.append(description)
+                                    p.append(description);
                                 }
                                 p.append($("<br/>"));
                             }
@@ -1065,7 +1061,7 @@ function renderResourceTypes(element) {
                 hideBusyMessage();
                 displayError(request.responseText);
             }
-        })
+        });
     }
 }
 
@@ -1104,7 +1100,7 @@ function renderAllResourceTypes(element, exclude) {
                                 p.append(_hrefBuilder(uri, label, true));
                                 if (description) {
                                     p.append(" : ");
-                                    p.append(description)
+                                    p.append(description);
                                 }
                                 p.append($("<br/>"));
                             }
@@ -1119,7 +1115,7 @@ function renderAllResourceTypes(element, exclude) {
                 hideBusyMessage();
                 displayError(request.responseText);
             }
-        })
+        });
     }
 }
 
@@ -1134,7 +1130,7 @@ function getIdentifier(href) {
     var formMatch  = href.match(/https?:\/\/[^\/]+\/[^\/]+\/([^\.]+)/);
     if (match) {
         var queryString = match[1];
-        var uriMatch = queryString.match(/uri=([^&]+)/)
+        var uriMatch = queryString.match(/uri=([^&]+)/);
         if (uriMatch) {
             return uriMatch[1];
         }
@@ -1353,7 +1349,7 @@ function renderRelatedToObjects(element) {
                                     $('ul li.more').remove();
                                     $('ul li:gt('+z+')').show();
                                 });
-                                maxReached = true
+                                maxReached = true;
                             }
 
                             if (uri == undefined){
@@ -1392,10 +1388,10 @@ function renderRelatedToObjects(element) {
                                 typelist.append("<a href='"+lodestarDescribeUrl+"?uri=" + encodeURIComponent(typeUri) + "'>"+  typeLabel +"</a>");
                             }
                             if (data[x].relatedObjectTypes.length > y+1) {
-                                typelist.append(", ")
+                                typelist.append(", ");
                             }
                             else {
-                                typelist.append(")")
+                                typelist.append(")");
                             }
                         }
                         propertyP.after(typelist);
@@ -1409,7 +1405,7 @@ function renderRelatedToObjects(element) {
                 hideBusyMessage();
                 displayError(request.responseText);
             }
-        })
+        });
     }
 }
 
@@ -1453,23 +1449,23 @@ function renderRelatedFromSubjects(element) {
 
                         for (var y = 0; y <data[x].relatedObjectTypes.length; y++) {
                             if (y == 0) {
-                                typelist.append("(")
+                                typelist.append("(");
                             }
                             var typeUri = data[x].relatedObjectTypes[y].uri;
                             var typeLabel = data[x].relatedObjectTypes[y].label;
                             var typeDesc = data[x].relatedObjectTypes[y].description;
                             typelist.append("<a title='"+ typeUri + "' href='"+lodestarDescribeUrl+"?uri=" + encodeURIComponent(typeUri) + "'>"+  typeLabel +"</a>");
                             if (data[x].relatedObjectTypes.length > y+1) {
-                                typelist.append(", ")
+                                typelist.append(", ");
                             }
                             else {
-                                typelist.append(") ")
+                                typelist.append(") ");
                             }
                         }
 
                         div.append(typelist);
                         var propertyP = $("<a style='font-weight: bold;' href='"+lodestarDescribeUrl+"?uri=" + encodeURIComponent(propertyUri) + "'>"+  propertyLabel +"</a>");
-                        div.append(propertyP)
+                        div.append(propertyP);
 
                         var list = $('<ul></ul>');
 
@@ -1483,7 +1479,7 @@ function renderRelatedFromSubjects(element) {
                                     $('ul li.more').remove();
                                     $('ul li:gt('+z+')').show();
                                 });
-                                maxReached = true
+                                maxReached = true;
                             }
 
                             if (uri == undefined){
@@ -1513,7 +1509,7 @@ function renderRelatedFromSubjects(element) {
                 hideBusyMessage();
                 displayError(request.responseText);
             }
-        })
+        });
     }
 }
 
@@ -1576,7 +1572,7 @@ function _getPrefixes () {
     if (this.queryNamespaces === undefined) {
         this.queryNamespaces = buildNamespaces(NLM.meshYear, NLM.meshYear - 2);
     }
-    for (prefix in this.queryNamespaces) {
+    for (var prefix in this.queryNamespaces) {
         var uri = this.queryNamespaces[prefix];
         prefixes = prefixes + 'PREFIX ' + prefix + ': <' + uri + '>\n';
     }

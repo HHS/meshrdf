@@ -26,6 +26,28 @@ gulp.task('codemirror', function() {
     return merge(codemirror_lib, codemirror_xml, codemirror_sparql);
 });
 
+gulp.task('jslint', function() {
+    const jshint = require('gulp-jshint');
+    return gulp.src('src/main/webapp/scripts/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+});
+
+gulp.task('csslint', function() {
+    const stylelint = require('gulp-stylelint');
+    return gulp.src('src/main/webapp/css/*.css')
+        .pipe(stylelint({
+            reporters: [
+                {formatter: 'string', console: true}
+            ]
+        }));
+});
+
+gulp.task('lint', gulp.series(
+    'jslint',
+    'csslint')
+);
+
 gulp.task('jqueryui', function() {
 	var jscss = gulp.src([
 		'node_modules/jquery-ui-dist/*.min.js',

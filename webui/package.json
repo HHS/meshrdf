@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "node node_modules/gulp/bin/gulp.js --no-color clean",
     "build": "node node_modules/gulp/bin/gulp.js --no-color build",
+    "lint": "node node_modules/gulp/bin/gulp.js --no-color lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,15 +29,30 @@
     "gulp-concat": "^2.6.1",
     "gulp-declare": "^0.3.0",
     "gulp-handlebars": "^5.0.2",
+    "gulp-jshint": "^2.1.0",
     "gulp-merge": "^0.1.1",
     "gulp-minify": "^3.1.0",
     "gulp-rev": "^9.0.0",
+    "gulp-stylelint": "^9.0.0",
     "gulp-wrap": "^0.14.0",
-    "merge-stream": "^1.0.1"
+    "jshint": "^2.10.2",
+    "merge-stream": "^1.0.1",
+    "stylelint": "^10.0.1",
+    "stylelint-config-recommended": "^2.2.0"
   },
   "bugs": {
     "url": "https://github.com/HHS/meshrdf/issues"
   },
   "homepage": "https://github.com/HHS/meshrdf#readme",
-  "keywords": []
+  "keywords": [],
+  "jshintConfig": {
+    "undef": true,
+    "unused": true
+  },
+  "stylelint": {
+    "extends": "stylelint-config-recommended",
+    "rules": {
+      "no-descending-specificity": null
+    }
+  }
 }

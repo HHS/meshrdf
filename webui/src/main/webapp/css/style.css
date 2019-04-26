@@ -63,10 +63,10 @@ body {
   margin-right: 50px;
 }
 
-a.white-strong:hover,
-a.white-strong:focus,
+.white-strong,
 a.white-strong,
-.white-strong {
+a.white-strong:hover,
+a.white-strong:focus {
   color: white;
   font-weight: bold;
   text-decoration: none;

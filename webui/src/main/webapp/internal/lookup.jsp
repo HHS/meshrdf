@@ -10,6 +10,7 @@
     <lodestar:nlmconfig/>
     <%@ include file="/internal/head.jspf" %>
     <link rel="stylesheet" href="<%= resourcePrefix %>jquery-ui/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="<%= resourcePrefix %>/css/lookup.css"/>
     <lodestar:gtmscript/>
   </head>
 

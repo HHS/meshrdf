@@ -1,10 +1,13 @@
-<div class="list-group">
-  <ol>
-    {{#each result~}}
-        <li>
-          <span class="lklbl">{{label}}</span>
-          <span class="lkdat">{{resource}}</span>
-        </li>
-    {{~/each}}
-  </ol>
+<div>
+    <div class="lk-results">
+		{{#each result~}}
+			<span class="lk-label">{{label}}</span>
+			<span class="lk-resource">{{resource}}</span>
+		{{~/each}}
+	</div>
+	<div class="details">
+		<div id="qual"/>
+		<div id="seealso"/>
+		<div id="terms"/>
+	</div>
 </div>
