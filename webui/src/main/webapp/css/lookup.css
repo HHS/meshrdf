@@ -1,16 +1,9 @@
 .results {
 	padding-top: 10px;
 }
-.results .lk-resource ::before {
-	content: " (";
-	color: green;
-}
-.results .lk-resource ::after {
-	content: ")";
-	color: green;
-}
 .results .lk-label {
 	padding-right: 1.5em;
+	width: 20em;
 }
 .results .lk-resource {
 	color: green;

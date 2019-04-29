@@ -47,7 +47,7 @@ public class JenaResourceServiceImpl implements JenaResourceService {
                 /* Transforms a label like "Chemi" to a literal like "'Chemi*'" for use with bif:contains */
                 boundstar = ResourceFactory.createPlainLiteral("'"+label+"*'");
             } else {
-                boundstar = ResourceFactory.createPlainLiteral(label);
+                boundstar = ResourceFactory.createPlainLiteral("'"+label+"'");
             }
             initialBinding.add("boundstar", boundstar);
         }

@@ -11,6 +11,7 @@
             <button type="reset" class="btn btn-default">Clear</button>
         </form>
     </div>
+    <div class="loader hidden"></div>
     <div class="row results">
     </div>
 </div>

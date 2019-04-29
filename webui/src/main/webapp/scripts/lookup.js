@@ -68,6 +68,10 @@
                         htmlText = Handlebars.templates.lookupResults({result: response});
                         $descresults.html(htmlText);
 
+                        /* show the spinner */
+                        var loadingCount = 2;
+                        $descresults.find('.loader').removeClass('hidden');
+
                         /* Load the qualifiers */
                         $.ajax({
                             url: "/mesh/lookup/qualifiers/",
@@ -80,6 +84,10 @@
                                 if (response.length > 0) {
                                     var htmlText = Handlebars.templates.descQualifiers({'qualifiers': response});
                                     $descresults.find('#qual').html(htmlText);
+                                }
+                                /* hide the spinner if both came back*/
+                                if (--loadingCount <= 0) {
+                                    $descresults.find('.loader').addClass('hidden');
                                 }
                             }
                         });
@@ -102,6 +110,11 @@
                                     var termsText = Handlebars.templates.descTerms(response);
                                     $descresults.find('#terms').html(termsText);
                                 }
+
+                                /* hide the spinner if both came back*/
+                                if (--loadingCount <= 0) {
+                                    $descresults.find('.loader').addClass('hidden');
+                                }
                             }
                         });
                     }
@@ -117,7 +130,7 @@
     	var $pairform = $('#pair form');
         var $pairResults = $('#pair results');
         $pairform.submit(function (ev) {
-            console.log("pair form submission");           
+            console.log("pair form submission");
             ev.preventDefault();
             $pairResults.html('<div class="alert alert-warn">Not yet implemented</div>');
         });
