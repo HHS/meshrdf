@@ -265,6 +265,10 @@ paths:
           description: "Specifies the full URI or identifier of a Descriptor."
           required: true
           type: "string"
+        - in: "query"
+          name: "includes"
+          description: "Comma-separated list of categories from the set 'seealso','qualifiers','terms'"
+          type: "string"
       responses:
         200:
           description: "returns a DescriptorDetails object"

@@ -171,8 +171,16 @@ public class LookupController {
         log.trace(String.format("get details descriptor=%s", params.getDescriptor()));
         String descriptorUri = resolveUri(params.getDescriptor());
         DescriptorChildren children = new DescriptorChildren(descriptorUri);
-        children.setTerms(getService().lookupDescriptorTerms(descriptorUri));
-        children.setSeeAlso(getService().lookupDescriptorSeeAlso(descriptorUri));
+
+        if (params.includes("qualifiers")) {
+            children.setQualifiers(getService().allowedQualifiers(descriptorUri));
+        }
+        if (params.includes("seealso")) {
+            children.setSeeAlso(getService().lookupDescriptorSeeAlso(descriptorUri));
+        }
+        if (params.includes("terms")) {
+            children.setTerms(getService().lookupDescriptorTerms(descriptorUri));
+        }
         return children;
     }
 

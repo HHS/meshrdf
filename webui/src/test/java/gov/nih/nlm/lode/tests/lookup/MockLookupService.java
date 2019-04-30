@@ -2,6 +2,8 @@ package gov.nih.nlm.lode.tests.lookup;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import gov.nih.nlm.lode.model.DescriptorParams;
 import gov.nih.nlm.lode.model.LookupService;
@@ -24,9 +26,11 @@ public class MockLookupService implements LookupService {
     public String descriptorUri = null;
     public String resourceUri = null;
     public int count = 0;
+    public Set<String> methodsCalled = new HashSet<String>();
 
     @Override
     public Collection<ResourceResult> lookupDescriptors(DescriptorParams criteria) throws LodeException {
+        methodsCalled.add("lookupDescriptors");
         count++;
         this.desc= criteria;
         return Arrays.asList(new ResourceResult[] {
@@ -37,6 +41,7 @@ public class MockLookupService implements LookupService {
 
     @Override
     public Collection<ResourceResult> lookupPairs(PairParams criteria) throws LodeException {
+        methodsCalled.add("lookupPairs");
         count++;
         this.pair = criteria;
         return Arrays.asList(new ResourceResult[] {
@@ -47,6 +52,7 @@ public class MockLookupService implements LookupService {
 
     @Override
     public Collection<ResourceResult> lookupTerms(DescriptorParams criteria) throws LodeException {
+        methodsCalled.add("lookupTerms");
         count++;
         this.term = criteria;
         return Arrays.asList(new ResourceResult[] {
@@ -57,6 +63,7 @@ public class MockLookupService implements LookupService {
 
     @Override
     public Collection<ResourceResult> allowedQualifiers(String descriptorUri) throws LodeException {
+        methodsCalled.add("allowedQualifiers");
         count++;
         this.descriptorUri = descriptorUri;
         return Arrays.asList(new ResourceResult[] {
@@ -67,6 +74,7 @@ public class MockLookupService implements LookupService {
 
     @Override
     public Collection<String> lookupLabel(String resourceUri) throws LodeException {
+        methodsCalled.add("lookupLabel");
         count++;
         this.resourceUri = resourceUri;
         return Arrays.asList(new String[] {
@@ -81,10 +89,12 @@ public class MockLookupService implements LookupService {
         pair = null;
         resourceUri = null;
         descriptorUri = null;
+        methodsCalled.clear();
     }
 
     @Override
     public Collection<ResourceResult> lookupDescriptorConcepts(String descriptorUri) throws LodeException {
+        methodsCalled.add("lookupDescriptorConcepts");
         count++;
         this.descriptorUri = descriptorUri;
         return Arrays.asList(new ResourceResult[] {
@@ -95,6 +105,7 @@ public class MockLookupService implements LookupService {
 
     @Override
     public Collection<ResourceResult> lookupDescriptorTerms(String descriptorUri) throws LodeException {
+        methodsCalled.add("lookupDescriptorTerms");
         count++;
         this.descriptorUri = descriptorUri;
         return Arrays.asList(new ResourceResult[] {
@@ -107,6 +118,7 @@ public class MockLookupService implements LookupService {
 
     @Override
     public Collection<ResourceResult> lookupDescriptorSeeAlso(String descriptorUri) throws LodeException {
+        methodsCalled.add("lookupDescriptorSeeAlso");
         count++;
         this.descriptorUri = descriptorUri;
         return Arrays.asList(new ResourceResult[] {
