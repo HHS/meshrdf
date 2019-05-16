@@ -2,20 +2,22 @@
     'use strict';
 
     $(document).ready(function() {
-    	var $descform = $('#descriptor form');
-        var $descresults = $('#descriptor .results');
+    	var $descForm = $('#descriptor form');
+        var $descResults = $('#descriptor .results');
+        var $descSpinner = $('#descriptor .spinner');
 
-    	$descform.find("input[name=label]").autocomplete({
+    	$descForm.find("input[name=label]").autocomplete({
     		minLength: 3,
             open: function(ev, ui) {
-                $descresults.empty();
+                $descResults.empty();
+                $descSpinner.html(Handlebars.templates.ringSpinner());
             },
             select: function(ev, ui) {
-                $descform.trigger('submit');
+                $descForm.trigger('submit');
             },
     		source: function(request, callback) {
     			$.ajax({
-    			    url: $descform.attr('action'),
+    			    url: $descForm.attr('action'),
     			    type: "get",
     			    dataType: "json",
     			    data: {
@@ -24,33 +26,38 @@
                         limit: 20,
     			    },
     			    success: function(response) {
+                        $descSpinner.empty();
                         if (response.length == 0) {
                             var htmlText = Handlebars.templates.lookupNoMatch();
-                            $descresults.html(htmlText);
+                            $descResults.html(htmlText);
                         }
                         callback(response.map(function(r) {
                             return r.label;
                         }));
 
                     },
-                    error: function(xhr) {}
+                    error: function(xhr) {
+                        $descSpinner.empty();
+                        console.log(xhr);
+                    }
     			});
     		}
     	});
 
-    	$descform.on('reset', function (ev) {
+    	$descForm.on('reset', function (ev) {
     	    console.log("form is reset");
-            $descresults.empty();
-            $descform.find(".spinner").empty();
+            $descResults.empty();
+            $descSpinner.empty();
     	});
 
-    	$descform.submit(function (ev) {
+    	$descForm.submit(function (ev) {
     	    console.log("form is submit");
-            $descresults.empty();
+            $descResults.empty();
+            $descSpinner.html(Handlebars.templates.ringSpinner());
             ev.preventDefault();
-            var labelValue = $descform.find("input[name=label]").val();
+            var labelValue = $descForm.find("input[name=label]").val();
             $.ajax({
-                url: $descform.attr('action'),
+                url: $descForm.attr('action'),
                 type: "get",
                 dataType: "json",
                 data: {
@@ -62,12 +69,12 @@
                     var htmlText;
                     if (response.length == 0) {
                         htmlText = Handlebars.templates.lookupNoMatch();
-                        $descresults.html(htmlText);
+                        $descResults.html(htmlText);
+                        $descSpinner.empty();
                     } else {
                         var resource = response[0].resource;
-
                         htmlText = Handlebars.templates.lookupResults({result: response});
-                        $descresults.html(htmlText);
+                        $descResults.html(htmlText);
 
                         /* Load the qualifiers, see also, and terms */
                         $.ajax({
@@ -76,27 +83,28 @@
                                 "descriptor": resource
                             },
                             success: function(response) {
+                                $descSpinner.empty();
                                 console.log("details response");
                                 console.log(response);
                                 if (response.seealso.length > 0) {
                                     var seealsoText = Handlebars.templates.descSeeAlso(response);
-                                    $descresults.find('#seealso').html(seealsoText);
+                                    $descResults.find('#seealso').html(seealsoText);
                                 }
 
                                 if (response.terms.length > 0) {
                                     var termsText = Handlebars.templates.descTerms(response);
-                                    $descresults.find('#terms').html(termsText);
+                                    $descResults.find('#terms').html(termsText);
                                 }
                                 if (response.qualifiers.length > 0) {
                                     var qualText = Handlebars.templates.descQualifiers(response);
-                                    $descresults.find('#qual').html(htmlText);
+                                    $descResults.find('#qual').html(qualText);
                                 }
-
-                                /* hide the spinner if both came back*/
-                                if (--loadingCount <= 0) {
-                                    $descresults.find('.loader').addClass('hidden');
-                                }
+                            },
+                            error: function(xhr) {
+                                $descSpinner.empty();
+                                console.log(xhr);
                             }
+
                         });
                     }
                 },
@@ -110,11 +118,12 @@
 
     	var $pairForm = $('#pair form');
         var $pairResults = $('#pair .results');
+        var $pairSpinner = $('#pair .spinner');
 
         $pairForm.find('input[name=descriptor_label]').autocomplete({
             minLength: 3,
             open: function(ev, ui) {
-                $pairForm.find('.spinner').html(Handlebars.templates.ringSpinner());
+                $pairSpinner.html(Handlebars.templates.ringSpinner());
                 $pairForm.find('input[name=label]').attr('disabled', true);
             },
             select: function(ev, ui) {
@@ -122,7 +131,7 @@
             },
             source: function(request, callback) {
                 $.ajax({
-                    url: $descform.attr('action'),
+                    url: $descForm.attr('action'),
                     type: "get",
                     dataType: "json",
                     data: {
@@ -131,29 +140,33 @@
                         limit: 20,
                     },
                     success: function(response) {
-                        $pairForm.find('.spinner').empty();
+                        $pairSpinner.empty();
                         if (response.length == 0) {
                             var htmlText = Handlebars.templates.lookupNoMatch();
-                            $pairresults.html(htmlText);
+                            $pairResults.html(htmlText);
                         }
                         callback(response.map(function(r) {
                             return r.label;
                         }));
 
                     },
-                    error: function(xhr) {}
+                    error: function(xhr) {
+                        console.log(xhr);
+                        $pairSpinner.empty();
+                    }
                 });
             }
         });
         $pairForm.on('reset', function(ev) {
             $pairForm.find('input[name=label]').attr('disabled', true);
-            $pairForm.find('.spinner').empty();
             $pairResults.empty();
+            $pairSpinner.empty();
         });
         $pairForm.submit(function (ev) {
             console.log("pair form submission");
             ev.preventDefault();
             $pairResults.html('<div class="alert alert-warn">Not yet implemented</div>');
+            $pairSpinner.empty();
         });
 
         $("#lookupTabs a:first").tab('show');
