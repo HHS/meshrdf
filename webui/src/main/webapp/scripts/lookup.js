@@ -2,67 +2,100 @@
     'use strict';
 
     $(document).ready(function() {
-    	var $descForm = $('#descriptor form');
+        var autocompleteDataKey = 'mrdfAuto';
+        var descriptorKey = 'mrdfDescriptor';
+        var submitDataKey = 'mrdfSubmit';
+
+        var $descForm = $('#descriptor form');
         var $descResults = $('#descriptor .results');
         var $descSpinner = $('#descriptor .spinner');
 
-    	$descForm.find("input[name=label]").autocomplete({
-    		minLength: 3,
+        function handlerFor($spinner, $results) {
+            return function(xhr) {
+                $spinner.empty();
+                if (xhr.status == 400) {
+                    console.log(xhr.responseJSON);
+                } else {
+                    console.log(xhr.status, xhr.responseText);
+                }
+            };
+        }
+
+    	$descForm.find('input[name=label]').autocomplete({
+    		minLength: 4,
             open: function(ev, ui) {
                 $descResults.empty();
-                $descSpinner.html(Handlebars.templates.ringSpinner());
             },
             select: function(ev, ui) {
+                $descForm.data(descriptorKey, ui.item);
                 $descForm.trigger('submit');
             },
     		source: function(request, callback) {
+    		    $descForm.removeData(autocompleteDataKey);
+                $descSpinner.html(Handlebars.templates.ringSpinner());
     			$.ajax({
     			    url: $descForm.attr('action'),
-    			    type: "get",
-    			    dataType: "json",
     			    data: {
     			        match: "startswith",
     			        label: request.term,
                         limit: 20,
     			    },
     			    success: function(response) {
+    			        $descForm.data(autocompleteDataKey, response);
                         $descSpinner.empty();
                         if (response.length == 0) {
                             var htmlText = Handlebars.templates.lookupNoMatch();
                             $descResults.html(htmlText);
+                        } else {
+                            callback(response);
                         }
-                        callback(response.map(function(r) {
-                            return r.label;
-                        }));
-
                     },
-                    error: function(xhr) {
-                        $descSpinner.empty();
-                        console.log(xhr);
-                    }
+                    error: handlerFor($descSpinner, $descResults),
     			});
     		}
     	});
 
     	$descForm.on('reset', function (ev) {
-    	    console.log("form is reset");
             $descResults.empty();
             $descSpinner.empty();
+            $descForm.removeData([autocompleteDataKey, descriptorKey, submitDataKey]);
     	});
 
-    	$descForm.submit(function (ev) {
-    	    console.log("form is submit");
-            $descResults.empty();
-            $descSpinner.html(Handlebars.templates.ringSpinner());
-            ev.preventDefault();
-            var labelValue = $descForm.find("input[name=label]").val();
+        /* Load the qualifiers, see also, and terms */
+    	var lookupDetails = function(resource) {
+    	    $descForm.removeData(submitDataKey);
+            $.ajax({
+                url: '/mesh/lookup/details',
+                data: {
+                    descriptor: resource
+                },
+                success: function(response) {
+                    $descSpinner.empty();
+                    $descForm.data(submitDataKey, response);
+                    if (response.seealso.length > 0) {
+                        var seealsoText = Handlebars.templates.descSeeAlso(response);
+                        $descResults.find('#seealso').html(seealsoText);
+                    }
+
+                    if (response.terms.length > 0) {
+                        var termsText = Handlebars.templates.descTerms(response);
+                        $descResults.find('#terms').html(termsText);
+                    }
+                    if (response.qualifiers.length > 0) {
+                        var qualText = Handlebars.templates.descQualifiers(response);
+                        $descResults.find('#qual').html(qualText);
+                    }
+                },
+                error: handlerFor($descSpinner, $descResults),
+            });
+    	};
+
+    	var lookupDescriptorExact = function(label) {
             $.ajax({
                 url: $descForm.attr('action'),
-                type: "get",
-                dataType: "json",
                 data: {
-                    match: "exact",
-                    label: labelValue,
+                    match: 'exact',
+                    label: label,
                 },
                 success: function(response) {
                     // double check that there are matches
@@ -72,48 +105,23 @@
                         $descResults.html(htmlText);
                         $descSpinner.empty();
                     } else {
-                        var resource = response[0].resource;
+                        $descForm.data(descriptorKey, response[0]);
                         htmlText = Handlebars.templates.lookupResults({result: response});
                         $descResults.html(htmlText);
-
-                        /* Load the qualifiers, see also, and terms */
-                        $.ajax({
-                            url: "/mesh/lookup/details/",
-                            data: {
-                                "descriptor": resource
-                            },
-                            success: function(response) {
-                                $descSpinner.empty();
-                                console.log("details response");
-                                console.log(response);
-                                if (response.seealso.length > 0) {
-                                    var seealsoText = Handlebars.templates.descSeeAlso(response);
-                                    $descResults.find('#seealso').html(seealsoText);
-                                }
-
-                                if (response.terms.length > 0) {
-                                    var termsText = Handlebars.templates.descTerms(response);
-                                    $descResults.find('#terms').html(termsText);
-                                }
-                                if (response.qualifiers.length > 0) {
-                                    var qualText = Handlebars.templates.descQualifiers(response);
-                                    $descResults.find('#qual').html(qualText);
-                                }
-                            },
-                            error: function(xhr) {
-                                $descSpinner.empty();
-                                console.log(xhr);
-                            }
-
-                        });
+                        lookupDetails(response[0].resource);
                     }
                 },
-                error: function(xhr) {
-                    console.log("error response");
-                    console.log(xhr);
-                    // label is required...
-                }
+                error: handlerFor($descSpinner, $descResults),
             });
+    	};
+
+    	$descForm.submit(function (ev) {
+            $descResults.empty();
+            $descSpinner.html(Handlebars.templates.ringSpinner());
+            $descForm.removeData(submitDataKey);
+            ev.preventDefault();
+            var labelValue = $descForm.find("input[name=label]").val();
+            lookupDescriptorExact(labelValue);
         });
 
     	var $pairForm = $('#pair form');
@@ -121,39 +129,61 @@
         var $pairSpinner = $('#pair .spinner');
 
         $pairForm.find('input[name=descriptor_label]').autocomplete({
-            minLength: 3,
+            minLength: 4,
             open: function(ev, ui) {
-                $pairSpinner.html(Handlebars.templates.ringSpinner());
                 $pairForm.find('input[name=label]').attr('disabled', true);
             },
             select: function(ev, ui) {
-                $pairForm.find('input[name=label]').removeAttr('disabled').focus();
+                $pairSpinner.empty();
+                $pairForm.data(descriptorKey, ui.item);
+                $pairForm.find('input[name=label]').removeAttr('disabled').focus().autocomplete('search', '');
+                $pairResults.empty();
             },
             source: function(request, callback) {
+                $pairForm.removeData(autocompleteDataKey);
                 $.ajax({
                     url: $descForm.attr('action'),
-                    type: "get",
-                    dataType: "json",
                     data: {
-                        match: "startswith",
+                        match: 'startswith',
                         label: request.term,
                         limit: 20,
                     },
                     success: function(response) {
+                        $pairForm.data(autocompleteDataKey, response);
                         $pairSpinner.empty();
                         if (response.length == 0) {
                             var htmlText = Handlebars.templates.lookupNoMatch();
                             $pairResults.html(htmlText);
                         }
-                        callback(response.map(function(r) {
-                            return r.label;
-                        }));
-
+                        callback(response);
                     },
-                    error: function(xhr) {
-                        console.log(xhr);
+                    error: handlerFor($pairSpinner, $pairResults),
+                });
+            }
+        });
+
+        $pairForm.find('input[name=label]').autocomplete({
+            minLength: 0,
+            open: function(ev, ui) {
+                $pairSpinner.html(Handlebars.templates.ringSpinner());
+            },
+            select: function(ev, ui) {
+                $pairSpinner.empty();
+                $pairForm.trigger('submit');
+            },
+            source: function(request, callback) {
+                $pairSpinner.html(Handlebars.templates.ringSpinner());
+                $.ajax({
+                    url: '/mesh/lookup/qualifiers/',
+                    data: {
+                        descriptor: $pairForm.data(descriptorKey).resource
+                    },
+                    success: function(response) {
                         $pairSpinner.empty();
-                    }
+                        $pairForm.data(autocompleteDataKey, response);
+                        callback(response);
+                    },
+                    error: handlerFor($pairSpinner, $pairResults),
                 });
             }
         });
@@ -161,12 +191,36 @@
             $pairForm.find('input[name=label]').attr('disabled', true);
             $pairResults.empty();
             $pairSpinner.empty();
+            $pairForm.removeData([autocompleteDataKey, descriptorKey, submitDataKey]);
         });
         $pairForm.submit(function (ev) {
-            console.log("pair form submission");
             ev.preventDefault();
-            $pairResults.html('<div class="alert alert-warn">Not yet implemented</div>');
-            $pairSpinner.empty();
+            $pairSpinner.html(Handlebars.templates.ringSpinner());
+            var qualifierLabel = $pairForm.find('input[name=label]').val();
+            var descriptorLabel = $pairForm.find('input[name=descriptor_label]').val();
+            var descriptor = $pairForm.data(descriptorKey);
+            if (descriptor && descriptorLabel === descriptor.label) {
+                $.ajax({
+                    url: $pairForm.attr('action'),
+                    data: {
+                        descriptor: descriptor.resource,
+                        label: qualifierLabel,
+                    },
+                    success: function(response) {
+                        $pairSpinner.empty();
+                        var htmlText;
+                        if (response.length == 0) {
+                            htmlText = Handlebars.templates.lookupNoMatch();
+                            $pairResults.html(htmlText);
+                        } else {
+                            $pairForm.data(descriptorKey, response[0]);
+                            htmlText = Handlebars.templates.lookupResults({result: response});
+                            $pairResults.html(htmlText);
+                        }
+                    },
+                    error: handlerFor($pairSpinner, $pairResults),
+                });
+            }
         });
 
         $("#lookupTabs a:first").tab('show');
