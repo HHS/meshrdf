@@ -1,5 +1,11 @@
 package gov.nih.nlm.lode.servlet;
 
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 public class ServletUtils {
@@ -23,6 +29,21 @@ public class ServletUtils {
             host = request.getHeader("Host");
         }
         return host;
+    }
+
+    public static Map<String,List<String>> getHeaders(HttpServletRequest request) {
+        Map<String,List<String>> headers = new HashMap<String,List<String>>();
+        Enumeration<String> names = request.getHeaderNames();
+        while (names.hasMoreElements()) {
+            String headerName = names.nextElement();
+            Enumeration<String> values = request.getHeaders(headerName);
+            List<String> valuesList = new LinkedList<String>();
+            while (values.hasMoreElements()) {
+                valuesList.add(values.nextElement());
+            }
+            headers.put(headerName, valuesList);
+        }
+        return headers;
     }
 
 }
