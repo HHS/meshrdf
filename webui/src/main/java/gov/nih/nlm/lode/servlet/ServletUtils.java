@@ -8,17 +8,20 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 public class ServletUtils {
 
     public static String getClientAddress(HttpServletRequest request) {
         String v;
         if ((v = request.getHeader("X-Forwarded-For-IPV6")) != null) {
             // parse and return
-            return v.split(",")[0].trim();
+            String[] values = v.split(",");
+            return values[values.length - 1];
         }
         if ((v = request.getHeader("X-Forwarded-For")) != null) {
             // parse and return
-            return v.split(",")[0].trim();
+            String[] values = v.split(",");
+            return values[values.length - 1];
         }
         return request.getRemoteAddr();
     }
