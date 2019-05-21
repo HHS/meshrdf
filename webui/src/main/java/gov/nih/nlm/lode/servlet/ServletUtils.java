@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 public class ServletUtils {
 
     public static String getClientAddress(HttpServletRequest request) {
-        String v;
-        if ((v = request.getHeader("X-Forwarded-For-IPV6")) != null) {
-            // parse and return
-            String[] values = v.split(",");
-            return values[values.length - 1];
-        }
-        if ((v = request.getHeader("X-Forwarded-For")) != null) {
-            // parse and return
-            String[] values = v.split(",");
-            return values[values.length - 1];
+        // X-Forwarded-For-IPV6 takes precedence
+        String xff = request.getHeader("X-Forwarded-For-IPV6");
+        if (xff == null)
+            xff = request.getHeader("X-Forwarded-For");
+
+        // If either is present, we parse in the same manner //
+        if (xff != null) {
+            // seperate by commas and take the right most
+            String[] xffValues = xff.split(",");
+            return xffValues[xffValues.length - 1].trim();
         }
         return request.getRemoteAddr();
     }
