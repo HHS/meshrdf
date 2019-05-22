@@ -108,15 +108,15 @@ public class LookupController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/descriptor", produces="application/json")
     public Collection<ResourceResult> lookupDescriptors(@Valid DescriptorParams criteria) throws QueryParseException, LodeException, IOException {
-        log.trace(String.format("get descriptor criteria label=%s, rel=%s, limit=%s",
-                criteria.getMatch(), criteria.getMatch(), criteria.getLimit()));
+        log.info(String.format("get descriptor criteria label=%s, rel=%s, limit=%s",
+                criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/descriptor", produces="application/json", consumes="application/json")
     public Collection<ResourceResult> lookupDescriptorsJson(@Valid @RequestBody DescriptorParams criteria) throws LodeException {
-        log.trace(String.format("post descriptor criteria label=%s, rel=%s, limit=%s",
+        log.info(String.format("post descriptor criteria label=%s, rel=%s, limit=%s",
                 criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
     }
@@ -124,7 +124,7 @@ public class LookupController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/descriptor", produces="application/json", consumes="application/x-www-form-urlencoded")
     public Collection<ResourceResult> lookupDescriptorsForm(@Valid DescriptorParams criteria) throws LodeException {
-        log.trace(String.format("post descriptor criteria label=%s, rel=%s, limit=%s",
+        log.info(String.format("post descriptor criteria label=%s, rel=%s, limit=%s",
                 criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupDescriptors(criteria);
     }
@@ -132,7 +132,7 @@ public class LookupController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/pair", produces="application/json")
     public Collection<ResourceResult> lookupPair(@Valid PairParams criteria) throws IOException, LodeException {
-        log.trace(String.format("get pair criteria label=%s, rel=%s, limit=%s",
+        log.info(String.format("get pair criteria label=%s, rel=%s, limit=%s",
                 criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         criteria.setDescriptor(resolveUri(criteria.getDescriptor()));
         return getService().lookupPairs(criteria);
@@ -141,7 +141,7 @@ public class LookupController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/pair", produces="application/json", consumes="application/json")
     public Collection<ResourceResult> lookupPairJson(@Valid @RequestBody PairParams criteria) throws IOException, LodeException {
-        log.trace(String.format("post pair criteria label=%s, rel=%s, limit=%s",
+        log.info(String.format("post pair criteria label=%s, rel=%s, limit=%s",
                 criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         criteria.setDescriptor(resolveUri(criteria.getDescriptor()));
         return getService().lookupPairs(criteria);
@@ -150,7 +150,7 @@ public class LookupController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/pair", produces="application/json", consumes="application/x-www-form-urlencoded")
     public Collection<ResourceResult> lookupPairForm(@Valid PairParams criteria) throws IOException, LodeException {
-        log.trace(String.format("post pair criteria label=%s, rel=%s, limit=%s",
+        log.info(String.format("post pair criteria label=%s, rel=%s, limit=%s",
                 criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
         criteria.setDescriptor(resolveUri(criteria.getDescriptor()));
         return getService().lookupPairs(criteria);
@@ -159,7 +159,7 @@ public class LookupController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/term", produces="application/json")
     public Collection<ResourceResult> lookupTerms(@Valid DescriptorParams criteria) throws QueryParseException, LodeException, IOException {
-        log.trace(String.format("get terms criteria label=%s, rel=%s, limit=%s",
+        log.info(String.format("get terms criteria label=%s, rel=%s, limit=%s",
                 criteria.getMatch(), criteria.getMatch(), criteria.getLimit()));
         return getService().lookupTerms(criteria);
     }
@@ -168,7 +168,7 @@ public class LookupController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/details", produces="application/json")
     public DescriptorChildren lookupDetails(@Valid DescriptorChildrenParams params) throws LodeException {
-        log.trace(String.format("get details descriptor=%s", params.getDescriptor()));
+        log.info(String.format("get details descriptor=%s, includes=%s", params.getDescriptor(), params.getIncludes()));
         String descriptorUri = resolveUri(params.getDescriptor());
         DescriptorChildren children = new DescriptorChildren(descriptorUri);
 
@@ -187,7 +187,7 @@ public class LookupController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/qualifiers", produces="application/json")
     public Collection<ResourceResult> lookupQualifiers(@Valid DescriptorChildrenParams params) throws LodeException {
-        log.trace(String.format("get qualifiers descriptor=%s", params.getDescriptor()));
+        log.info(String.format("get qualifiers descriptor=%s", params.getDescriptor()));
         String descriptorUri = resolveUri(params.getDescriptor());
         return getService().allowedQualifiers(descriptorUri);
     }
@@ -195,7 +195,7 @@ public class LookupController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/label", produces="application/json")
     public Collection<String> lookupLabel(@Valid LabelParams params) throws LodeException {
-        log.trace(String.format("get label resource=%s", params.getResource()));
+        log.info(String.format("get label resource=%s", params.getResource()));
         return getService().lookupLabel(resolveUri(params.getResource()));
     }
 

@@ -32,6 +32,8 @@ public class LogContextFilter extends OncePerRequestFilter {
             MDC.put("cliaddr", v);
         if ((v = request.getHeader("X-Forwarded-For")) != null)
             MDC.put("xff", v);
+        if ((v = request.getHeader("X-Forwarded-For-IPV6")) != null)
+            MDC.put("xff6", v);
         if ((v = request.getRequestedSessionId()) != null)
             MDC.put("requestedsession", v);
         MDC.put("referrer", request.getHeader("Referer") != null);
