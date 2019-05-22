@@ -1,13 +1,17 @@
 package gov.nih.nlm.lode.tests;
 
+import static org.hamcrest.CoreMatchers.endsWith;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.CoreMatchers.startsWith;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import java.util.List;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.By;
-
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 
 import gov.nih.nlm.occs.selenium.SeleniumTest;
 
@@ -122,6 +126,10 @@ public class LodeBaseTest extends SeleniumTest {
 
   public void openQueryPage() {
     driver.get(getLodeBaseUrl() + "/query");
+  }
+
+  public void openLookupPage() {
+      driver.get(getLodeBaseUrl() + "/lookup");
   }
 
   public void openExplorerPage(String relativeUri, boolean usePrefix) {

@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>MeSH SPARQL Explorer</title>
+    <title>MeSH RDF Explorer</title>
     <meta name="description" content="" />
     <meta name="author" content="" />
     <lodestar:nlmconfig/>
