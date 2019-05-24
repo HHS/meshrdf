@@ -57,30 +57,6 @@
         <mime-type>application/rdf+xml</mime-type>
     </mime-mapping>
 
-    <!-- Provide monitoring via JavaMelody after ContextLoaderListener -->
-    <filter>
-        <filter-name>javamelody</filter-name>
-        <filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
-        <async-supported>true</async-supported>
-        <init-param>
-            <param-name>system-actions-enabled</param-name>
-            <param-value>false</param-value>
-        </init-param>
-        <init-param>
-            <param-name>displayed-counters</param-name>
-            <param-value>http,sql,error,jsp,log</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>javamelody</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>ASYNC</dispatcher>
-    </filter-mapping>
-    <listener>
-        <listener-class>net.bull.javamelody.SessionListener</listener-class>
-    </listener>
-
     <!-- enable cors -->
     <filter>
         <filter-name>cors</filter-name>
