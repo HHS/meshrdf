@@ -15,6 +15,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import gov.nih.nlm.lode.servlet.SwaggerController;
@@ -30,7 +31,8 @@ public class SwaggerControllerTest extends AbstractTestNGSpringContextTests {
 
     private MockMvc mvc;
 
-    public SwaggerControllerTest() {
+    @BeforeClass(groups = "unit")
+    public void setUp() {
         SwaggerController controller = new SwaggerController();
         Resource swaggerSpec = new InputStreamResource(getClass().getClassLoader().getResourceAsStream("swagger.yaml"));
         controller.setSwaggerResource(swaggerSpec);
