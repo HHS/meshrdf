@@ -16,7 +16,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "3.3.7",
+    "bootstrap": "3.4.1",
     "codemirror": "5.46.0",
     "font-awesome": "4.7.0",
     "handlebars": "4.1.2",
