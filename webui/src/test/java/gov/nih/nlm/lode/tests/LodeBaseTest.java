@@ -63,19 +63,22 @@ public class LodeBaseTest extends SeleniumTest {
     assertThat(query.getAttribute("href"), endsWith("/query"));
     assertThat(query.getAttribute("href"), startsWith(getLodeBaseUrl()));
 
-    WebElement techdocs = navi.findElement(By.xpath("li[3]/a"));
+    WebElement lookup = navi.findElement(By.xpath("li[3]/a"));
+    elementTextShouldBe(lookup, "Lookup");
+
+    WebElement techdocs = navi.findElement(By.xpath("li[4]/a"));
     elementTextShouldBe(techdocs, "Documentation");
 
-    WebElement samples = navi.findElement(By.xpath("li[4]/a"));
+    WebElement samples = navi.findElement(By.xpath("li[5]/a"));
     elementTextShouldBe(samples, "Sample Queries");
 
-    WebElement download = navi.findElement(By.xpath("li[5]/a"));
+    WebElement download = navi.findElement(By.xpath("li[6]/a"));
     elementTextShouldBe(download, "Download");
 
-    WebElement apidoc = navi.findElement(By.xpath("li[6]/a"));
+    WebElement apidoc = navi.findElement(By.xpath("li[7]/a"));
     elementTextShouldBe(apidoc, "API");
 
-    WebElement meshhome = navi.findElement(By.xpath("li[7]/a"));
+    WebElement meshhome = navi.findElement(By.xpath("li[8]/a"));
     elementTextShouldBe(meshhome, "MeSH Home");
     assertThat(meshhome.getAttribute("href"), endsWith("://www.nlm.nih.gov/mesh/"));
 
