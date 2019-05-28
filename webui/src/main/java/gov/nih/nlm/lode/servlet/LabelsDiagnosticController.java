@@ -1,8 +1,8 @@
 package gov.nih.nlm.lode.servlet;
 
-import javax.sql.DataSource;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,9 +11,7 @@ import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
-import java.io.PrintWriter;
+import javax.sql.DataSource;
 
 import org.owasp.encoder.Encode;
 import org.slf4j.Logger;
@@ -29,7 +27,7 @@ import uk.ac.ebi.fgpt.lode.utils.DatasourceProvider;
 // NOTE:
 //   This is diagnostic code, please comment in if you want to run it.
 @Controller
-@RequestMapping("/labels")
+@RequestMapping("/internalonly/labels")
 public class LabelsDiagnosticController {
 
   private Logger log = LoggerFactory.getLogger(getClass());

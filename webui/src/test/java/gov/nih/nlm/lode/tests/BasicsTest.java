@@ -1,7 +1,7 @@
 package gov.nih.nlm.lode.tests;
 
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 
@@ -36,6 +36,16 @@ public class BasicsTest extends LodeBaseTest {
     WebElement navi = navigationShouldBeValid();
     shouldBeValidLinks(navi.findElements(By.tagName("a")));
     noPageErrors();
+  }
+
+  @Test
+  public void testLookupPage() {
+      openLookupPage();
+      titleShouldBe("MeSH RDF Explorer");
+      elementShouldContain(By.cssSelector(".meshrdf-heading > h1"), "Medical Subject Headings");
+      WebElement navi = navigationShouldBeValid();
+      shouldBeValidLinks(navi.findElements(By.tagName("a")));
+      noPageErrors();
   }
 
   @Test

@@ -33,6 +33,11 @@ public class DiagnosticHttpServletResponseWrapper extends HttpServletResponseWra
 
     @Override
     public ServletOutputStream getOutputStream() throws IOException {
+        /* NOTE: There seems to be a race condition here, and perhaps synchronized must be added.
+         *       it seems possible that this will not be enough.   A better clue may be to use the
+         *       servlet context in the logContextFilter and look for a variable that reflects the
+         *       size of data logged on the way out.  This makes the filter somewhat Tomcat specific.
+         */
         if (countingStream == null) {
             countingStream = new CountingServletOutputStream(super.getOutputStream());
         }

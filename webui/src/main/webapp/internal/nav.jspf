@@ -6,8 +6,9 @@
           <h1>Medical Subject Headings <span class='rdf'>RDF</span></h1>
         </div>
         <ul class="nav nav-pills pull-left">
-          <li role="presentation"><a href="<%= resourcePrefix.isEmpty() ? "./" : Encode.forHtmlAttribute(resourcePrefix) %>">Home</a></li>
+          <li role="presentation"><a href="<%= Encode.forHtmlAttribute(resourcePrefix) %>">Home</a></li>
           <li role="presentation"><a href="<%= Encode.forHtmlAttribute(resourcePrefix) %>query">SPARQL Query Editor</a></li>
+          <li role="presentation"><a href="<%= Encode.forHtmlAttribute(resourcePrefix) %>lookup">Lookup</a></li>
           <li role="presentation"><a href="https://hhs.github.io/meshrdf/">Documentation</a></li>
           <li role="presentation"><a href="https://hhs.github.io/meshrdf/sample-queries">Sample Queries</a></li>
           <li role="presentation"><a href="ftp://ftp.nlm.nih.gov/online/mesh/rdf/">Download</a></li>

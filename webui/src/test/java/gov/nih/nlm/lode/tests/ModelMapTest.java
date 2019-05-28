@@ -1,21 +1,22 @@
 package gov.nih.nlm.lode.tests;
 
+import static org.hamcrest.CoreMatchers.anyOf;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import java.io.ByteArrayOutputStream;
 import java.net.URL;
 
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.StmtIterator;
+import org.apache.jena.riot.RDFDataMgr;
 import org.testng.annotations.Test;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import org.apache.jena.riot.RDFDataMgr;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
-
-import uk.ac.ebi.fgpt.lode.impl.JenaSparqlService;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
+import uk.ac.ebi.fgpt.lode.impl.JenaSparqlService;
 
 
 @Test(groups = "unit")
@@ -69,7 +70,7 @@ public class ModelMapTest {
 
 		ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         service.query(describeQuery, "RDF/XML", false, buffer);
-        assertThat(buffer.size(), is(anyOf(equalTo(1672), equalTo(1647))));
+        assertThat(buffer.size(), is(anyOf(equalTo(1672), equalTo(1647), equalTo(1612), equalTo(1585))));
 
         buffer.reset();
         service.query(describeQuery, "TURTLE", false,  buffer);

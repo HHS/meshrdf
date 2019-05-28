@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
+import gov.nih.nlm.lode.data.VirtuosoSimpleDatasourceProvider;
 import gov.nih.nlm.lode.servlet.MeshStatus;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -89,7 +90,7 @@ public class MeshStatusTest extends AbstractTestNGSpringContextTests {
     @Test
     public void testMeshVirtuosoConnectError() {
         // not real connection parameters
-        VirtuosoTestDatasourceProvider brokenProvider = new VirtuosoTestDatasourceProvider();
+        VirtuosoSimpleDatasourceProvider brokenProvider = new VirtuosoSimpleDatasourceProvider();
         brokenProvider.setServerName("localhost");
         brokenProvider.setUserName("notrealuser");
         brokenProvider.setPassword("notrealpassword");

@@ -1,0 +1,362 @@
+swagger: "2.0"
+info:
+  description: "Sparql Endpoint and Lookup service for MeSH RDF"
+  version: "1.0.0"
+  title: "MeSH RDF API"
+host: "localhost:8080"
+basePath: "/mesh"
+schemes:
+- "https"
+externalDocs:
+  description: "SPARQL API technical documentation"
+  url: https://hhs.github.io/meshrdf/sparql-and-uri-requests
+paths:
+  /sparql:
+    get:
+      summary: "Perform SPARQL query"
+      operationId: "sparqlQuery"
+      tags:
+        - "sparql"
+      produces:
+        - "application/sparql-results+xml"
+        - "application/sparql-results+json"
+        - "text/csv"
+        - "text/tab-separated-values"
+        - "application/rdf+xml"
+        - "application/rdf+n3"
+        - "application/ld+json"
+        - "text/turtle"
+      parameters:
+        - in: "query"
+          name: "query"
+          description: "This parameter is required and must contain a SPARQL query."
+          required: true
+          type: "string"
+          minLength: 1
+        - in: "query"
+          name: "format"
+          description: "Overrides Accept header based content negotation"
+          type: "string"
+          enum:
+            - XML
+            - JSON
+            - CSV
+            - TSV
+            - RDF/XML
+            - JSON-LD
+            - TURTLE
+            - N3
+        - in: "query"
+          name: "inference"
+          description: "Controls whether the service will use RDFS inference"
+          type: "boolean"
+          default: false
+        - in: "query"
+          name: "offset"
+          description: "Controls the offset into the query results"
+          type: "integer"
+          default: 0
+        - in: "query"
+          name: "limit"
+          description: "Controls the maximum number of resulting rows or triples to return"
+          type: "integer"
+          default: 1000
+      responses:
+        200:
+          description: "polymorphic - may be simple JSON, TSV, CSV, or RDF formats such as JSON-LD"
+  /lookup/descriptor:
+    get:
+      summary: "Search for Descriptors, also known as Headings."
+      operationId: "lookupDescriptors"
+      tags:
+        - "lookup"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "query"
+          name: "label"
+          description: "Provides the text to search for in the label of each Descriptor."
+          required: true
+          type: "string"
+          minLength: 1
+        - in: "query"
+          name: "match"
+          description: "Determines how the label parameter is matched against Descriptor labels."
+          type: "string"
+          default: "exact"
+          enum: ["exact", "contains", "startswith"]
+        - in: "query"
+          name: "limit"
+          description: "Specifies the maximum number of matches to return."
+          type: "integer"
+          default: 10
+          minimum: 1
+          maximum: 50
+      responses:
+        200:
+          description: "array of zero or more descriptors and their labels"
+          examples:
+            application/json:
+              - resource: "http://id.nlm.nih.gov/mesh/D000071198"
+                label: "Pyrin"
+              - resource: "http://id.nlm.nih.gov/mesh/D000071198"
+                label: "Pyrin Domain"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ResourceResult"
+        400:
+          description: "invalid parameters"
+          examples:
+            application/json:
+              error:
+                label: [ "must not be empty" ]
+          schema:
+            $ref: "#/definitions/Errors"
+  /lookup/pair:
+    get:
+      summary: "Search for Descriptor-Qualifier pairs, also known as Subheadings."
+      operationId: "lookupPairs"
+      tags:
+        - "lookup"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "query"
+          name: "label"
+          description: "Provides the text to search for in the label of each Quallifier."
+          required: true
+          type: "string"
+          minLength: 1
+        - in: "query"
+          name: "descriptor"
+          description: "Specifies the full URI or identifier of a Descriptor."
+          required: true
+          type: "string"
+          minLength: 1
+        - in: "query"
+          name: "match"
+          description: "Determines how the label parameter is matched against Qualifier labels."
+          type: "string"
+          default: "exact"
+          enum: ["exact", "contains", "startswith"]
+        - in: "query"
+          name: "limit"
+          description: "Specifies the maximum number of matches to return."
+          type: "integer"
+          default: 10
+          minimum: 1
+          maximum: 50
+      responses:
+        200:
+          description: "array of zero or more descriptor-qualifier pairs and their labels"
+          examples:
+            application/json:
+              - resource: "http://id.nlm.nih.gov/mesh/D000071198Q000138"
+                label: "Pyrin/chemical synthesis"
+              - resource: "http://id.nlm.nih.gov/mesh/D000071198Q000737"
+                label: "Pyrin/chemistry"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ResourceResult"
+        400:
+          description: "invalid parameters"
+          examples:
+            application/json:
+              error:
+                descriptor: [ "must not be empty" ]
+                label: [ "must not be empty" ]
+          schema:
+            $ref: "#/definitions/Errors"
+  /lookup/term:
+    get:
+      summary: "Search for Entry Terms"
+      operationId: "lookupTerms"
+      tags:
+        - "lookup"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "query"
+          name: "label"
+          description: "Provides the text to search for in the label of each Term."
+          required: true
+          type: "string"
+          minLength: 1
+        - in: "query"
+          name: "match"
+          description: "Determines how the label parameter is matched against preferred labels."
+          type: "string"
+          default: "exact"
+          enum: ["exact", "contains", "startswith"]
+        - in: "query"
+          name: "limit"
+          description: "Specifies the maximum number of matches to return."
+          type: "integer"
+          default: 10
+          minimum: 1
+          maximum: 50
+      responses:
+        200:
+          description: "array of zero or more terms and their labels"
+          examples:
+            application/json:
+              - resource: "http://id.nlm.nih.gov/mesh/T000893683"
+                label: "Pyrin"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ResourceResult"
+        400:
+          description: "invalid parameters"
+          examples:
+            application/json:
+              error:
+                label: [ "must not be empty" ]
+          schema:
+            $ref: "#/definitions/Errors"
+  /lookup/qualifiers:
+    get:
+      summary: "Return all allowed Qualifiers for a Descriptor."
+      operationId: "lookupQualifiers"
+      tags:
+        - "lookup"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "query"
+          name: "descriptor"
+          description: "Specifies the full URI or identifier of a Descriptor."
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "array of zero or more qualifiers and their labels"
+          examples:
+            application/json:
+              - resource: "http://id.nlm.nih.gov/mesh/Q000008"
+                label: "administration & dosage"
+              - resource: "http://id.nlm.nih.gov/mesh/Q000009"
+                label: "adverse effects"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/ResourceResult"
+        400:
+          description: "invalid parameters"
+          examples:
+            application/json:
+              error:
+                descriptor: [ "must not be empty" ]
+          schema:
+            $ref: "#/definitions/Errors"
+  /lookup/details:
+    get:
+      summary: "Lookup some details for a descriptor"
+      operationId: "lookupDetails"
+      tags:
+        - "lookup"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "query"
+          name: "descriptor"
+          description: "Specifies the full URI or identifier of a Descriptor."
+          required: true
+          type: "string"
+        - in: "query"
+          name: "includes"
+          description: "Comma-separated list of categories from the set 'seealso','qualifiers','terms'"
+          type: "string"
+      responses:
+        200:
+          description: "returns a DescriptorDetails object"
+          examples:
+            application/json:
+              descriptor: http://id.nlm.nih.gov/mesh/D006761
+              terms:
+               - label: Hospitals
+                 preferred: true
+                 resource: http://id.nlm.nih.gov/mesh/T020443
+              seealso:
+               - label: Economics, Hospital
+                 resource: http://id.nlm.nih.gov/mesh/D004469
+               - label: Equipment and Supplies, Hospital
+                 resource: http://id.nlm.nih.gov/mesh/D004865
+               - label: Hospital Administration
+                 resource: http://id.nlm.nih.gov/mesh/D006739
+          schema:
+              $ref: "#/definitions/DescriptorDetails"
+        400:
+          description: "invalid parameters"
+          examples:
+            application/json:
+              error:
+                descriptor: [ "must not be empty" ]
+          schema:
+            $ref: "#/definitions/Errors"
+  /lookup/label:
+    get:
+      summary: "Return the label or labels for a Resource URI."
+      operationId: "lookupLabels"
+      tags:
+        - "lookup"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "query"
+          name: "resource"
+          description: "Specifies the full URI or identifier of a resource."
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "zero or more labels"
+          examples:
+            application/json: 
+              - Pyrin
+          schema:
+            type: array
+            items:
+              type: "string"
+        400:
+          description: "invalid parameters"
+          examples:
+            error:
+              resource: [ "must not be empty" ]
+          schema:
+            $ref: "#/definitions/Errors"
+definitions:
+  Errors:
+    type: "object"
+    required: ["error"]
+    properties:
+      error:
+        type: "object"
+  ResourceResult:
+    type: "object"
+    required: [ "resource", "label" ]
+    properties:
+      resource:
+        type: "string"
+        format: "uri"
+      label:
+        type: "string"
+      preferred:
+        type: "boolean"
+  DescriptorDetails:
+    type: "object"
+    required: [ "descriptor" ]
+    properties:
+      descriptor:
+        type: "string"
+        format: "uri"
+      seealso:
+        type: "array"
+        items:
+          $ref: "#/definitions/ResourceResult"
+      terms:
+        type: "array"
+        items:
+          $ref: "#/definitions/ResourceResult"

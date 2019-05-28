@@ -1,0 +1,13 @@
+.results {
+	padding-top: 10px;
+}
+.results .lk-label {
+	padding-right: 1.5em;
+	width: 20em;
+}
+.results .lk-resource {
+	color: green;
+}
+.results .loading {
+	color: green;
+}

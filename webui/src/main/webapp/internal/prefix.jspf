@@ -7,6 +7,6 @@
   Now, we preserve this so we can easily change the expected prefix in code.
 --%>
 <%
-  String resourcePrefix = "/mesh/";
+  final String resourcePrefix = application.getContextPath() + "/";
 %>
 <!-- resourcePrefix = '<%= Encode.forHtml(resourcePrefix) %>' -->

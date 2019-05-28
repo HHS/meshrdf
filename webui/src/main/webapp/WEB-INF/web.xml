@@ -57,30 +57,6 @@
         <mime-type>application/rdf+xml</mime-type>
     </mime-mapping>
 
-    <!-- Provide monitoring via JavaMelody after ContextLoaderListener -->
-    <filter>
-        <filter-name>javamelody</filter-name>
-        <filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
-        <async-supported>true</async-supported>
-        <init-param>
-            <param-name>system-actions-enabled</param-name>
-            <param-value>false</param-value>
-        </init-param>
-        <init-param>
-            <param-name>displayed-counters</param-name>
-            <param-value>http,sql,error,jsp,log</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>javamelody</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>ASYNC</dispatcher>
-    </filter-mapping>
-    <listener>
-        <listener-class>net.bull.javamelody.SessionListener</listener-class>
-    </listener>
-
     <!-- enable cors -->
     <filter>
         <filter-name>cors</filter-name>
@@ -90,6 +66,8 @@
         <filter-name>cors</filter-name>
         <url-pattern>/sparql</url-pattern>
         <url-pattern>/status</url-pattern>
+        <url-pattern>/lookup</url-pattern>
+        <url-pattern>/swagger/swagger</url-pattern>
         <url-pattern>*.json</url-pattern>
         <url-pattern>*.json-ld</url-pattern>
     </filter-mapping>
@@ -103,11 +81,11 @@
         <filter-name>validation</filter-name>
         <url-pattern>*.jsp</url-pattern>
     </filter-mapping>
-
+    
     <!-- Tuckey URL rewrite filters -->
     <filter>
       <filter-name>UrlRewriteFilter</filter-name>
-      <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
       <init-param>
         <param-name>logLevel</param-name>
         <!-- Can set to sysout:DEBUG to get information -->
@@ -120,6 +98,17 @@
       <url-pattern>/*</url-pattern>
       <dispatcher>REQUEST</dispatcher>
       <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <!-- Enhance logging -->
+    <filter>
+        <filter-name>logcontext</filter-name>
+        <filter-class>gov.nih.nlm.lode.servlet.LogContextFilter</filter-class>       
+    </filter>
+    <filter-mapping>
+        <filter-name>logcontext</filter-name>
+        <url-pattern>/servlet/*</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
 
     <resource-ref>

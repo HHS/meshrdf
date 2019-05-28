@@ -15,7 +15,9 @@
 
     <context:annotation-config/>
 
-    <context:component-scan base-package="gov.nih.nlm.lode.servlet" />
+    <context:component-scan base-package="gov.nih.nlm.lode.servlet, gov.nih.nlm.lode.service" />
+    
+    <mvc:annotation-driven />
 
     <bean name="explorerConfig" class="uk.ac.ebi.fgpt.lode.impl.DefaultExplorerViewConfigImpl"/>
 
@@ -33,7 +35,7 @@
     </bean>
 
     <!-- During testing, we use a different provider than in the web application -->
-    <bean id="virtuosoDataSourceProvider" class="gov.nih.nlm.lode.tests.VirtuosoTestDatasourceProvider">
+    <bean id="virtuosoDataSourceProvider" class="gov.nih.nlm.lode.data.VirtuosoSimpleDatasourceProvider">
         <property name="serverName" value="${virtuosoServerName}"/>
         <property name="userName" value="${virtuosoUserName}"/>
         <property name="password" value="${virtuosoPassword}"/>
