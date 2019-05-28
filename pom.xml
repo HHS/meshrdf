@@ -13,7 +13,7 @@
 
     <modules>
         <module>webui</module>
-   </modules>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
