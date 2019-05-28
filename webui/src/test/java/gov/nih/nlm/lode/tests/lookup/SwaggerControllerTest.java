@@ -7,8 +7,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.net.URISyntaxException;
-
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.test.context.ContextConfiguration;
@@ -17,7 +15,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import gov.nih.nlm.lode.servlet.SwaggerController;
@@ -33,8 +30,7 @@ public class SwaggerControllerTest extends AbstractTestNGSpringContextTests {
 
     private MockMvc mvc;
 
-    @BeforeClass
-    public void setUp() throws URISyntaxException {
+    public SwaggerControllerTest() {
         SwaggerController controller = new SwaggerController();
         Resource swaggerSpec = new InputStreamResource(getClass().getClassLoader().getResourceAsStream("swagger.yaml"));
         controller.setSwaggerResource(swaggerSpec);
