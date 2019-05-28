@@ -42,13 +42,12 @@ import gov.nih.nlm.lode.service.LookupServiceImpl;
  */
 @ContextConfiguration(locations={"classpath:spring-test-context.xml"})
 @WebAppConfiguration
-@Test(groups = "unit")
 public class LookupServiceTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
     private LookupService serviceIntf;
 
-    @Test
+    @Test(groups = "unit")
     public void testWiring() throws IOException {
         assertThat(serviceIntf, notNullValue());
         assertThat(serviceIntf, instanceOf(LookupServiceImpl.class));
@@ -82,7 +81,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         }
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testDescriptorQueriesExist() throws Exception {
         for (LabelMatch rel : LabelMatch.values()) {
             String queryKey = LookupServiceImpl.DESCRIPTOR_QUERY_PREFIX+rel.toString().toLowerCase();
@@ -90,7 +89,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         }
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testPairQueriesExist() throws Exception {
         for (LabelMatch rel : LabelMatch.values()) {
             String queryKey = LookupServiceImpl.PAIR_QUERY_PREFIX+rel.toString().toLowerCase();
@@ -98,7 +97,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         }
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testTermQueriesExist() throws Exception {
         for (LabelMatch match : LabelMatch.values()) {
             String queryKey = LookupServiceImpl.TERM_QUERY_PREFIX+match.toString().toLowerCase();
@@ -106,22 +105,22 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         }
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testQualifierQueriesExist() throws Exception {
         queryExistsGuts(LookupServiceImpl.ALLOWED_QUALIFERS_ID);
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testDescriptorConceptsQueryExists() throws Exception {
         queryExistsGuts(LookupServiceImpl.DESCRIPTOR_CONCEPTS_ID);
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testDescriptorEntriesQuery() throws Exception {
         queryExistsGuts(LookupServiceImpl.DESCRIPTOR_TERMS_ID);
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testDescriptorSeeAlsoQuery() throws Exception {
         queryExistsGuts(LookupServiceImpl.DESCRIPTOR_SEEALSO_ID);
     }
@@ -135,18 +134,18 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         assertThat(actualUris, equalTo(expectedUris));
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testDescriptorExact() throws Exception {
         descriptorExactGuts(Pyrin.DESCRIPTOR_LABEL);
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testDescriptorExactUpper() throws Exception {
         // descriptor exact match should be case insensitive
         descriptorExactGuts(Pyrin.DESCRIPTOR_LABEL.toUpperCase());
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testDescriptorContains() throws Exception {
         DescriptorParams criteria = new DescriptorParams();
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
@@ -169,12 +168,12 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         assertThat(actualUris, equalTo(expectedUris));
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testDescriptorStartsWith() throws Exception {
         descriptorStartswithGuts(Pyrin.DESCRIPTOR_LABEL);
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testDescriptorLimit() throws Exception {
         DescriptorParams criteria = new DescriptorParams();
         criteria.setLabel(Pyrin.DESCRIPTOR_LABEL);
@@ -187,7 +186,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         assertThat(actualUris, equalTo(expectedUris));
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testPairExactNone() throws Exception {
         PairParams criteria = new PairParams();
         criteria.setDescriptor(Pyrin.EXACT_MATCH_URIS[0]);
@@ -213,18 +212,18 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         }
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testPairExact() throws Exception {
         pairExactGuts("chemistry");
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testPairExactUpper() throws Exception {
         // exact match should be case-insensitive
         pairExactGuts("CHEMISTRY");
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testPairContains() throws Exception {
         PairParams criteria = new PairParams();
         criteria.setDescriptor(Pyrin.DESCRIPTOR_URI);
@@ -258,19 +257,19 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
 
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testPairStartswith() throws  Exception {
         pairStartswithGuts("chemic");
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testPairStartswithUpper() throws Exception {
         // startswith match should be case-insensitive
         pairStartswithGuts("CHEMIC");
     }
 
 
-    @Test
+    @Test(groups = "unit")
     public void testAllowedQualifiers() throws Exception {
         Collection<ResourceResult> actualResults = serviceIntf.allowedQualifiers(Pyrin.DESCRIPTOR_URI);
         assertThat(actualResults.size(), greaterThan(1));
@@ -279,20 +278,20 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         assertThat(actualLabels, hasItem(equalTo("chemistry")));
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testLookupLabelNoMatch() throws Exception {
         Collection<String> actualLabels = serviceIntf.lookupLabel("http://id.nlnm.nih.gov/mesh/D0123456789");
         assertThat(actualLabels.size(), equalTo(0));
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testLookupLabel() throws Exception {
         Collection<String> actualLabels = serviceIntf.lookupLabel(Pyrin.DESCRIPTOR_URI);
         assertThat(actualLabels.size(), equalTo(1));
         assertThat(actualLabels, equalTo(Collections.singletonList(Pyrin.DESCRIPTOR_LABEL)));
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testLookupTermExact() throws Exception {
         String expectedLabel = "Child Psychology";
         DescriptorParams criteria = new DescriptorParams();

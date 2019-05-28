@@ -29,7 +29,6 @@ import gov.nih.nlm.lode.servlet.SwaggerController;
  */
 @ContextConfiguration(locations={"classpath:spring-test-context.xml"})
 @WebAppConfiguration
-@Test(groups = "unit")
 public class SwaggerControllerTest extends AbstractTestNGSpringContextTests {
 
     private MockMvc mvc;
@@ -59,12 +58,12 @@ public class SwaggerControllerTest extends AbstractTestNGSpringContextTests {
                     .andExpect(jsonPath("$.baseUri").value("/testing"));
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testSpecAsPetstore() throws Exception {
         specGuts("petstore.swagger.io", "https");
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testSpecOnLocalhost() throws Exception {
         specGuts("localhost:8081", "http");
     }
@@ -83,17 +82,17 @@ public class SwaggerControllerTest extends AbstractTestNGSpringContextTests {
                     .andExpect(model().attribute("specUri", expectedUri));
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testUIOnLocalhost() throws Exception {
         uiGuts("localhost", "http");
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testUIAsPetstore() throws Exception {
         uiGuts("petstore.swagger.io", "https");
     }
 
-    @Test
+    @Test(groups = "unit")
     public void testRedirectToUI() throws Exception {
         MockHttpServletRequestBuilder request = get("/swagger");
         mvc.perform(request)
