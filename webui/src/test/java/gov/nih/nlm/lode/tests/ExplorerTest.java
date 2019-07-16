@@ -1,7 +1,7 @@
 package gov.nih.nlm.lode.tests;
 
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class ExplorerTest extends LodeBaseTest {
@@ -60,7 +60,7 @@ public class ExplorerTest extends LodeBaseTest {
     public void testSCRChemical() {
         openExplorerPage("C000621506");
         shouldBeExplorerPage();
-        shouldBeAbout("CXXC5 protein, zebrafish");
+        shouldBeAbout("cxxc5a protein, zebrafish");
         shouldBeResourceType("MeSH SCR Chemical");
     }
 
