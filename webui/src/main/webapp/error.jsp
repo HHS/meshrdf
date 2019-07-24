@@ -9,17 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script class="static" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script class="static" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
-    <script type="text/javascript">var switchTo5x=true;</script>
-    <script class="static" type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="vendor/js/jquery.min.js"></script>
+    <script src="vendor/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="vendor/css/bootstrap.min.css" />
+    <script>var switchTo5x=true;</script>
+    <script src="https://ws.sharethis.com/button/buttons.js"></script>
+    <script>
       stLight.options({
         publisher: "e9b3d8ae-cb2a-4d2b-b8a6-a3c03949ec62",
         doNotHash: false,
