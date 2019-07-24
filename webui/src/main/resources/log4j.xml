@@ -23,11 +23,13 @@
     <logger name="uk.ac.ebi.fgpt" additivity="false">
         <level value="INFO"/>
         <appender-ref ref="file"/>
+        <appender-ref ref="console"/>
     </logger>
 
     <logger name="gov.nih.nlm.lode" additivity="false">
         <level value="INFO"/>
         <appender-ref ref="file"/>
+        <appender-ref ref="console"/>
     </logger>
 
     <root>

@@ -12,7 +12,7 @@
         <script type="text/javascript">
           var switchTo5x = true;
         </script>
-        <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+        <script class="static" type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
         <script type="text/javascript">
           stLight.options({
             publisher: "e9b3d8ae-cb2a-4d2b-b8a6-a3c03949ec62",

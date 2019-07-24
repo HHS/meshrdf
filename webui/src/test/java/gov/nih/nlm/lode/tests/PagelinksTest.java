@@ -1,8 +1,9 @@
 package gov.nih.nlm.lode.tests;
 
 import java.util.List;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
@@ -13,7 +14,7 @@ public class PagelinksTest extends LodeBaseTest {
   @Test
   public void testHomeScriptTags() {
     openHomePage();
-    List<WebElement> links = driver.findElements(By.xpath("//script[@src]"));
+    List<WebElement> links = driver.findElements(By.xpath("//script[@class='static'][@src]"));
     shouldBeValidLinks(links);
     noPageErrors();
   }
@@ -21,6 +22,7 @@ public class PagelinksTest extends LodeBaseTest {
   @Test
   public void testHomeLinkTags() {
     openHomePage();
+
     List<WebElement> links = driver.findElements(By.xpath("//head/link[@src]"));
     shouldBeValidLinks(links);
     noPageErrors();
@@ -41,7 +43,7 @@ public class PagelinksTest extends LodeBaseTest {
   @Test
   public void testExplorerScriptTags() {
     openExplorerPage(false);
-    List<WebElement> links = driver.findElements(By.xpath("//script[@src]"));
+    List<WebElement> links = driver.findElements(By.xpath("//script[@class='static'][@src]"));
     shouldBeValidLinks(links);
   }
 

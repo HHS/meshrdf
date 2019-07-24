@@ -14,11 +14,11 @@
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script class="static" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script class="static" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
     <script type="text/javascript">var switchTo5x=true;</script>
-    <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+    <script class="static" type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">
       stLight.options({
         publisher: "e9b3d8ae-cb2a-4d2b-b8a6-a3c03949ec62",
