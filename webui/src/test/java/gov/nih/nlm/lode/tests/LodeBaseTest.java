@@ -87,7 +87,6 @@ public class LodeBaseTest extends SeleniumTest {
 
   public void shouldBeValidLinks(List<WebElement> links) {
     // Disabled to troubleshoot deployment issues
-    /*
     LinkChecker linkcheck = new LinkChecker(getCurrentBaseUrl());
     linkcheck.setConnectTimeout(5);
     linkcheck.setSocketTimeout(10);
@@ -104,7 +103,6 @@ public class LodeBaseTest extends SeleniumTest {
       linkcheck.add(href);
     }
     linkcheck.shouldBeValid();
-    */
   }
 
   public void shouldBeExplorerPage() {
@@ -130,15 +128,23 @@ public class LodeBaseTest extends SeleniumTest {
     driver.get(getLodeBaseUrl());
   }
 
+  public String getQueryPageUrl() {
+      return getLodeBaseUrl() + "/query";
+  }
+
+  public String getLookupPageUrl() {
+      return getLodeBaseUrl() + "/lookup";
+  }
+
   public void openQueryPage() {
-    driver.get(getLodeBaseUrl() + "/query");
+      driver.get(getQueryPageUrl());
   }
 
   public void openLookupPage() {
-      driver.get(getLodeBaseUrl() + "/lookup");
+      driver.get(getLookupPageUrl());
   }
 
-  public void openExplorerPage(String relativeUri, boolean usePrefix) {
+  public String getExplorerPageUrl(String relativeUri, boolean usePrefix) {
       if (relativeUri == null || relativeUri.length() == 0) {
           relativeUri = OFLAXIN_RELURI;
       }
@@ -146,17 +152,29 @@ public class LodeBaseTest extends SeleniumTest {
           relativeUri = '/'+relativeUri;
       }
       String prefix = (usePrefix ? YEAR_PREFIX : "");
-      String uri = getLodeBaseUrl() + prefix + relativeUri;
-      driver.get(uri);
+      return getLodeBaseUrl() + prefix + relativeUri;
+  }
+  public String getExplorerPageUrl(String relativeUri) {
+      return getExplorerPageUrl(relativeUri, false);
+  }
+  public String getExplorerPageUrl(boolean usePrefix) {
+      return getExplorerPageUrl(null, usePrefix);
+  }
+  public String getExplorerPageUrl() {
+      return getExplorerPageUrl(null, false);
+  }
+
+  public void openExplorerPage(String relativeUri, boolean usePrefix) {
+      driver.get(getExplorerPageUrl(relativeUri, usePrefix));
   }
   public void openExplorerPage(String relativeUri) {
-      openExplorerPage(relativeUri, false);
+      driver.get(getExplorerPageUrl(relativeUri));
   }
-  public void openExplorerPage(Boolean usePrefix) {
-      openExplorerPage(null, usePrefix);
+  public void openExplorerPage(boolean usePrefix) {
+      driver.get(getExplorerPageUrl(usePrefix));
   }
   public void openExplorerPage() {
-      openExplorerPage(null, false);
+      driver.get(getExplorerPageUrl());
   }
 
   public void noPageErrors() {
