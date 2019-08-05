@@ -55,6 +55,7 @@
             </div>
             <script src="<%= resourcePrefix %>jquery-ui/jquery-ui.min.js"></script>
             <script src="<%= resourcePrefix %>vendor/js/handlebars.runtime.min.js"></script>
+            <script src="<%= resourcePrefix %>vendor/js/url-polyfill.min.js"></script>
             <script src="<%= resourcePrefix %>scripts/templates-min.js"></script>
             <script src="<%= resourcePrefix %>scripts/lookup.js"></script>
           </div>
