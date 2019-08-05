@@ -12,7 +12,7 @@
           <li role="presentation"><a href="https://hhs.github.io/meshrdf/">Documentation</a></li>
           <li role="presentation"><a href="https://hhs.github.io/meshrdf/sample-queries">Sample Queries</a></li>
           <li role="presentation"><a href="ftp://ftp.nlm.nih.gov/online/mesh/rdf/">Download</a></li>
-          <li role="presentation"><a href="https://hhs.github.io/meshrdf/sparql-and-uri-requests">API</a></li>
+          <li role="presentation"><a href="<%= Encode.forHtmlAttribute(resourcePrefix) %>swagger/ui">API</a></li>
           <li role="presentation"><a href="https://www.nlm.nih.gov/mesh/">MeSH Home</a></li>
         </ul>
       </div>

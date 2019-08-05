@@ -18,16 +18,6 @@
     <script src="vendor/js/jquery.min.js"></script>
     <script src="vendor/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="vendor/css/bootstrap.min.css" />
-    <script>var switchTo5x=true;</script>
-    <script src="https://ws.sharethis.com/button/buttons.js"></script>
-    <script>
-      stLight.options({
-        publisher: "e9b3d8ae-cb2a-4d2b-b8a6-a3c03949ec62",
-        doNotHash: false,
-        doNotCopy: false,
-        hashAddressBar: false,
-        shorten:false});
-    </script>
     <%@ include file="internal/prefix.jspf" %>
     <style>
         <%@ include file="css/style.css" %>

@@ -14,15 +14,12 @@
     <meta property="twitter:site" content="@nlm_news" />
     <meta property="twitter:title" content="MeSH Linked Data" />
     <meta property="twitter:description" content="Persistent URLs, Ontology, and SPARQL endpoint about Medical Subject Headings for semantic web researchers and developers."/>
-
-    <!--[if lt IE 9]>
-      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
     <%@ include file="prefix.jspf" %>   
     <!-- <script>
         window.onerror=function(msg) { console.log(msg); $("#jserr pre").append(msg); }
     </script>
     -->
+    <lodestar:nlmconfig/>
     <script src="<%= resourcePrefix %>vendor/js/jquery.min.js"></script>
     <script src="<%= resourcePrefix  %>vendor/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="<%= resourcePrefix %>vendor/css/bootstrap.min.css" />
