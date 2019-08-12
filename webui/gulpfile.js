@@ -80,6 +80,7 @@ gulp.task('scripts', function() {
         'node_modules/bootstrap/dist/js/bootstrap.min.js',
         'node_modules/handlebars/dist/handlebars.runtime.min.js',
         'node_modules/url-polyfill/url-polyfill.min.js',
+        'node_modules/es6-object-assign/dist/object-assign-auto.min.js',
     ])
     .pipe(gulp.dest('target/gulp/vendor/js'));
 });
@@ -133,7 +134,7 @@ gulp.task('templates', function() {
 
 
 gulp.task('build', gulp.series(
-        'scripts',        
+        'scripts',
         'templates',
         'styles',        
         'fonts',
