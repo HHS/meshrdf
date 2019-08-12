@@ -25,15 +25,17 @@
     "url-polyfill": "1.1.7"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-declare": "^0.3.0",
     "gulp-handlebars": "^5.0.2",
     "gulp-jshint": "^2.1.0",
     "gulp-merge": "^0.1.1",
     "gulp-minify": "^3.1.0",
-    "gulp-react": "^4.0.0",
     "gulp-rev": "^9.0.0",
     "gulp-stylelint": "^9.0.0",
     "gulp-wrap": "^0.14.0",
