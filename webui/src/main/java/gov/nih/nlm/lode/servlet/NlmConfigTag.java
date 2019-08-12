@@ -1,12 +1,10 @@
 package gov.nih.nlm.lode.servlet;
 
 import java.io.IOException;
-
 import java.time.LocalDate;
 
-import javax.servlet.jsp.JspWriter;
-import javax.servlet.ServletContext;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
 
@@ -24,8 +22,8 @@ public class NlmConfigTag extends TagSupport {
             + "var NLM = (function() {"
             + "  return {"
             + "    meshYear: %d,"
-            + "    minYear: %d,"
-            + "  }"
+            + "    minYear: %d"
+            + "  };"
             + "})();"
             + "</script>\n";
 

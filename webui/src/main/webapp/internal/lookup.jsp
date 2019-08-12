@@ -7,7 +7,6 @@
     <title>MeSH RDF Explorer</title>
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <lodestar:nlmconfig/>
     <%@ include file="/internal/head.jspf" %>
     <link rel="stylesheet" href="<%= resourcePrefix %>jquery-ui/jquery-ui.min.css"/>
     <link rel="stylesheet" href="<%= resourcePrefix %>/css/lookup.css"/>
@@ -56,6 +55,7 @@
             </div>
             <script src="<%= resourcePrefix %>jquery-ui/jquery-ui.min.js"></script>
             <script src="<%= resourcePrefix %>vendor/js/handlebars.runtime.min.js"></script>
+            <script src="<%= resourcePrefix %>vendor/js/url-polyfill.min.js"></script>
             <script src="<%= resourcePrefix %>scripts/templates-min.js"></script>
             <script src="<%= resourcePrefix %>scripts/lookup.js"></script>
           </div>

@@ -66,6 +66,7 @@ gulp.task('scripts', function() {
         'node_modules/jquery/dist/jquery.min.js',
         'node_modules/bootstrap/dist/js/bootstrap.min.js',
         'node_modules/handlebars/dist/handlebars.runtime.min.js',
+        'node_modules/url-polyfill/url-polyfill.min.js',
     ])
     .pipe(gulp.dest('target/gulp/vendor/js'));
 });
