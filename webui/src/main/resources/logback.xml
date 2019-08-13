@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <Pattern>%d %level [%thread] %logger{36} - %msg%n</Pattern>
+    </layout>
+  </appender>
+  
+  <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>lodestar.jsonl</file>
+    <layout class="net.logstash.logback.layout.LogstashLayout"/>
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <fileNamePattern>lodestar.jsonl.%i</fileNamePattern>
+      <maxIndex>5</maxIndex>
+    </rollingPolicy>
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <maxFileSize>32MB</maxFileSize>
+    </triggeringPolicy>    
+  </appender>
+  
+  <logger name="org.springframework" level="info" additivity="false">
+    <appender-ref ref="console"/>
+  </logger>
+
+  <logger name="uk.ac.ebi.fgpt" level="info" additivity="false">
+    <appender-ref ref="console"/>
+    <appender-ref ref="file"/>
+  </logger>
+  
+  <logger name="gov.nih.nlm.lode" level="info" additivity="false">
+    <appender-ref ref="console"/>
+    <appender-ref ref="file"/>
+  </logger>
+  
+  <root level="error">
+    <appender-ref ref="console"/>
+  </root>
+</configuration>

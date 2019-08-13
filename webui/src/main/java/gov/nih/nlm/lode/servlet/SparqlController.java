@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.jena.query.QueryParseException;
-import org.apache.log4j.MDC;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import gov.nih.nlm.lode.utils.LoggingContext;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 import uk.ac.ebi.fgpt.lode.servlet.SparqlServlet;
 
@@ -37,20 +37,20 @@ public class SparqlController extends SparqlServlet {
             HttpServletResponse response) throws QueryParseException, LodeException, IOException {
         final long startTime = System.currentTimeMillis();
         String v = request.getHeader("Referer");
-        MDC.put("webui", v != null && v.contains("/mesh/query"));
+        LoggingContext.put("webui", v != null && v.contains("/mesh/query"));
         if (query != null)
-            MDC.put("query", query);
+            LoggingContext.put("query", query);
         if (format != null)
-            MDC.put("format", format);
+            LoggingContext.put("format", format);
         if (limit != null)
-            MDC.put("limit", limit);
+            LoggingContext.put("limit", limit);
         if (offset != null)
-            MDC.put("offset", offset);
-        MDC.put("inference", inference);
+            LoggingContext.put("offset", offset);
+        LoggingContext.put("inference", inference);
         super.query(query, format, offset, limit, inference, request, response);
         final long responseTime = System.currentTimeMillis() - startTime;
-        MDC.put("responsetime", responseTime);
+        LoggingContext.put("responsetime", responseTime);
         apilog.info("sparql query");
-        MDC.clear();
+        LoggingContext.clear();
     }
 }

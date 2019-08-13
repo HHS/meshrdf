@@ -12,8 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.MDC;
 import org.springframework.web.filter.OncePerRequestFilter;
+
+import gov.nih.nlm.lode.utils.LoggingContext;
 
 public class LogContextFilter extends OncePerRequestFilter {
 
@@ -23,20 +24,20 @@ public class LogContextFilter extends OncePerRequestFilter {
 
         String v;
         if ((v = request.getHeader("User-Agent")) != null)
-            MDC.put("ua", v);
+            LoggingContext.put("ua", v);
         if ((v = (String) request.getAttribute("javax.servlet.forward.request_uri")) == null) {
             v = request.getRequestURI();
         }
-        MDC.put("path", v);
+        LoggingContext.put("path", v);
         if ((v = ServletUtils.getClientAddress(request)) != null)
-            MDC.put("cliaddr", v);
+            LoggingContext.put("cliaddr", v);
         if ((v = request.getHeader("X-Forwarded-For")) != null)
-            MDC.put("xff", v);
+            LoggingContext.put("xff", v);
         if ((v = request.getHeader("X-Forwarded-For-IPV6")) != null)
-            MDC.put("xff6", v);
+            LoggingContext.put("xff6", v);
         if ((v = request.getRequestedSessionId()) != null)
-            MDC.put("requestedsession", v);
-        MDC.put("referrer", request.getHeader("Referer") != null);
+            LoggingContext.put("requestedsession", v);
+        LoggingContext.put("referrer", request.getHeader("Referer") != null);
         HttpSession session = request.getSession();
         if (session != null) {
             // Convert session datetime into a zoned date time
@@ -45,10 +46,10 @@ public class LogContextFilter extends OncePerRequestFilter {
                     ZoneId.systemDefault()
             );
             // print that as ISO8601 formatted timestamp
-            MDC.put("sessiontime", zdt.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
-            MDC.put("sessionid", session.getId());
+            LoggingContext.put("sessiontime", zdt.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+            LoggingContext.put("sessionid", session.getId());
         }
         chain.doFilter(request, response);
-        MDC.clear();
+        LoggingContext.clear();
     }
 }

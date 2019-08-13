@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+ <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>nlm-lode</artifactId>
@@ -63,34 +63,6 @@
                             <filtering>false</filtering>
                         </resource>
                     </webResources>
-                    <overlays>
-                        <overlay>
-                            <groupId>ebi-lode</groupId>
-                            <artifactId>web-ui</artifactId>                        
-                            <excludes>
-                                <exclude>index.html</exclude>
-                                <exclude>query.html</exclude>
-                                <exclude>explore.html</exclude>
-                                <exclude>WEB-INF/lib/httpclient-4.2.6.jar</exclude>
-                                <exclude>WEB-INF/lib/httpcore-4.2.5.jar</exclude>
-                                <exclude>WEB-INF/lib/commons-codec-1.6.jar</exclude>
-                                <exclude>WEB-INF/lib/lode-*.jar</exclude>
-                                <exculde>WEB-INF/lib/xercesImpl-*.jar</exculde>
-                                <exclude>WEB-INF/lib/jackson-databind-*.jar</exclude>
-                                <exclude>WEB-INF/lib/jackson-core-*.jar</exclude>
-                                <exclude>WEB-INF/lib/jackson-mapper-asl-*.jar</exclude>
-                                <exclude>WEB-INF/lib/jackson-core-asl-*.jar</exclude>                               
-                                <exclude>WEB-INF/lib/jackson-annotations-*.jar</exclude>
-                                <exclude>WEB-INF/lib/spring-core-*.jar</exclude>
-                                <exclude>WEB-INF/lib/spring-expression-*.jar</exclude>
-                                <exclude>WEB-INF/lib/spring-beans-*.jar</exclude>
-                                <exclude>WEB-INF/lib/spring-web-*.jar</exclude>
-                                <exclude>WEB-INF/lib/spring-aop-*.jar</exclude>
-                                <exclude>WEB-INF/lib/spring-context-*.jar</exclude>
-                                <exclude>WEB-INF/lib/spring-webmvc-*.jar</exclude>
-                            </excludes>
-                        </overlay>
-                    </overlays>
                 </configuration>
             </plugin>
             <plugin>
@@ -212,15 +184,22 @@
         <dependency>
             <groupId>ebi-lode</groupId>
             <artifactId>lode-virtuoso-impl</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
-        <dependency>
-            <groupId>ebi-lode</groupId>
-            <artifactId>web-ui</artifactId>
-            <type>war</type>
-            <scope>runtime</scope>
-        </dependency>
-        
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
@@ -238,6 +217,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -258,17 +243,20 @@
             <version>2.4.0</version>
             <scope>test</scope>
         </dependency>
-
-        <!--  Enable JSON Logging -->
+        
+        <!-- Logback logging with JSON -->
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
         </dependency>
         <dependency>
-            <groupId>net.logstash.log4j</groupId>
-            <artifactId>jsonevent-layout</artifactId>
-            <version>1.7</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>        
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>6.1</version>
         </dependency>
 
         <!--
