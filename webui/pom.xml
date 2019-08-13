@@ -44,17 +44,18 @@
                 <configuration>
                     <webResources>
                         <resource>
-                            <directory>src/main/webapp</directory>
+                            <directory>${project.basedir}/src/main/webapp</directory>
+                            <filtering>false</filtering>
                         </resource>
                         <resource>
-                            <directory>../meta</directory>
+                            <directory>${project.basedir}/../meta</directory>
                             <includes>
                                 <include>*.ttl</include>
                                 <include>*.owl</include>
                             </includes>
                         </resource>
                         <resource>
-                            <directory>src/main/about</directory>
+                            <directory>${project.basedir}/src/main/filtered</directory>
                             <filtering>true</filtering>
                         </resource>
                         <resource>
