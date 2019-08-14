@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-    <layout class="ch.qos.logback.classic.PatternLayout">
-      <Pattern>%d %level [%thread] %logger{36} (%F:%L)- %msg%n</Pattern>     
-    </layout>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>%d %level [%thread] %logger{36} - %msg%n</pattern>
+    </encoder>
   </appender>
   
   <logger name="org.springframework" level="info" additivity="false">

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
+<configuration debug="true">
   <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-    <layout class="ch.qos.logback.classic.PatternLayout">
-      <Pattern>%d %level [%thread] %logger{36} - %msg%n</Pattern>
-    </layout>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>%d %level [%thread] %logger{36} - %msg%n</pattern>
+    </encoder>
   </appender>
   
   <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>lodestar.jsonl</file>
-    <layout class="net.logstash.logback.layout.LogstashLayout"/>
+    <file>${catalina.base}/logs/lodestar.jsonl</file>
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
     <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
       <fileNamePattern>lodestar.jsonl.%i</fileNamePattern>
       <maxIndex>5</maxIndex>

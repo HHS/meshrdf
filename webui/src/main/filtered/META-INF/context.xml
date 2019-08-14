@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+    <!-- These are pulled into the Spring properties and used as Spring @Value annotations -->
+    <Parameter name="updatesPath" value="${updatesPath}" override="true"/>
+    <Parameter name="updateMaxSeconds" value="${updateMaxSeconds}" override="true"/>
+
+    <!-- This is pulled into the logback.xml configuration -->
+    <Environment name="lodestar.log.prefix" type="java.lang.String" value="${logPrefix}" override="true"/>
+
+    <!-- This bootstraps the database -->
+    <Resource
+        name="jdbc/virtuoso"
+        auth="Container"
+        factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+        type="javax.sql.DataSource"
+        description="Virtuoso Pool"
+        driverClassName="virtuoso.jdbc4.Driver"
+        url="jdbc:virtuoso://${virtuosoServerName}:1111/CHARSET=UTF-8"
+        username="${virtuosoUserName}"
+        password="${virtuosoPassword}"
+        initialSize="0"
+        minIdle="0"
+        maxIdle="4"
+        maxActive="4"
+        maxTotal="4"
+        logAbandoned="true"
+        maxAge="1800"
+    />
+</Context>
