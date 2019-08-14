@@ -20,6 +20,7 @@
         <skipTests>false</skipTests>
         <updatesPath>/usr/nlm/meshlocal/state/updating</updatesPath>
         <updateMaxSeconds>10800</updateMaxSeconds>
+        <logPrefix></logPrefix>
     </properties>
 
     <build>

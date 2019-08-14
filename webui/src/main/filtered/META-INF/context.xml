@@ -4,6 +4,9 @@
     <Parameter name="updatesPath" value="${updatesPath}" override="true"/>
     <Parameter name="updateMaxSeconds" value="${updateMaxSeconds}" override="true"/>
 
+    <!-- This is pulled into the logback configuration as a JNDI export -->
+    <Environment name="lodestar.log.prefix" value="${logPrefix}" type="java.lang.String" override="true"/>
+
     <!-- This bootstraps the database -->
     <Resource
         name="jdbc/virtuoso"
