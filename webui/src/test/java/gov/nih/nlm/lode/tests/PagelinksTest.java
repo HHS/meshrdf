@@ -19,6 +19,7 @@ public class PagelinksTest extends LodeBaseTest {
       shouldBeValidElements(links);
   }
 
+  @Test(enabled = false)
   public void shouldBeValidElements(List<Element> links) {
       // Disabled to troubleshoot deployment issues
       LinkChecker linkcheck = new LinkChecker(getLodeBaseUrl());
@@ -38,7 +39,6 @@ public class PagelinksTest extends LodeBaseTest {
       }
       linkcheck.shouldBeValid();
   }
-
 
   @Test
   public void testHomeLinkTags() throws IOException {
