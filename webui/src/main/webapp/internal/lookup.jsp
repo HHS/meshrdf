@@ -29,7 +29,7 @@
           <div id="main" class="grid_24" id="sparql-content">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-lg-7">
+                <div class="col-lg-8">
                   <div class="col-lg-3">
                     <ul id="lookupTabs" class="nav nav-pills nav-stacked" role="tablist">
                       <li role="presentation">
@@ -53,7 +53,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                   <div class="container-fluid">
                     <h3>MeSH RDF Lookup Service</h3>
                     <p>This page contains the Lookup service for MESH RDF. Each Lookup is a simple GET API with CGI parameters
