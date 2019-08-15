@@ -1,16 +1,16 @@
 <%@ page language="java" import="org.owasp.encoder.Encode" pageEncoding="UTF-8"%>
 <div class="container-fluid">
-    <div class="row">
-        <form class="form-inline" method="GET" action="<%= resourcePrefix %>lookup/descriptor">            
-            <div class="form-group">
-                <label for="name">Descriptor:</label>
-                <input type="text" class="form-control" name="label"
-                       autocomplete="off" placeholder="Descriptor label ..."/>
-            </div>
-            <button type="submit" class="btn btn-default">Find</button>
-            <button type="reset" class="btn btn-default">Clear</button>
-        </form>
-    </div>
-    <div class="row results"></div>
-    <div class="row spinner"></div>
+  <div class="row">
+    <form class="form-inline" method="GET" action="<%= resourcePrefix %>lookup/descriptor">            
+      <div class="form-group">
+        <label for="name">Descriptor:</label>
+        <input type="text" class="form-control" name="label"
+               autocomplete="off" placeholder="Descriptor label ..."/>
+      </div>
+      <button type="submit" class="btn btn-default">Find</button>
+      <button type="reset" class="btn btn-default">Clear</button>
+    </form>
+  </div>
+  <div class="row results"></div>
+  <div class="row spinner"></div>
 </div>
