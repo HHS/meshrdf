@@ -43,7 +43,7 @@ public class PagelinksTest extends LodeBaseTest {
   @Test
   public void testHomeLinkTags() throws IOException {
       Document doc = Jsoup.connect(getLodeBaseUrl()).get();
-      List<Element> links = doc.select("head > link[src]");
+      List<Element> links = doc.select("head > link[href]");
       shouldBeValidElements(links);
   }
 

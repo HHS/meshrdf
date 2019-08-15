@@ -41,8 +41,9 @@ public class BasicsTest extends LodeBaseTest {
   @Test
   public void testLookupPage() {
       openLookupPage();
-      titleShouldBe("MeSH RDF Explorer");
+      titleShouldBe("MeSH RDF Lookup Service");
       elementShouldContain(By.cssSelector(".meshrdf-heading > h1"), "Medical Subject Headings");
+      elementShouldContain(By.cssSelector("#main h3"), "MeSH RDF Lookup Service");
       WebElement navi = navigationShouldBeValid();
       shouldBeValidLinks(navi.findElements(By.tagName("a")));
       noPageErrors();
