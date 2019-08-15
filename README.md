@@ -251,7 +251,9 @@ some properties.
 
 Here's an example command-line with profile `meshrdf`:
 
-    mvn -D meshrdf clean package
+    mvn -Pmeshrdf clean package
+
+To run such a build on Tomcat, you will need to provide a file `src/main/filtered/META-INF/context.xml`. Git is setup to ignore such a file so that git does not include servernames, usernames, and passwords and so that the build artifact on CI/CD is likewise free of them.
 
 ## Technical documentation on GitHub pages
 
