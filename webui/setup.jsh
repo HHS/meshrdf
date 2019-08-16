@@ -10,6 +10,8 @@ import org.apache.jena.vocabulary.*;
 
 import org.yaml.snakeyaml.Yaml;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
+import org.apache.commons.io.IOUtils;
 
 import uk.ac.ebi.fgpt.lode.impl.JenaVirtuosoConnectionPoolService;
 import uk.ac.ebi.fgpt.lode.impl.JenaHttpExecutorService;
@@ -17,8 +19,6 @@ import uk.ac.ebi.fgpt.lode.service.JenaQueryExecutionService;
 import uk.ac.ebi.fgpt.lode.utils.DatasourceProvider;
 
 import gov.nih.nlm.lode.data.VirtuosoSimpleDatasourceProvider;
-
-import com.jayway.jsonpath.JsonPath;
 
 var yaml = new Yaml();
 var mapper = new ObjectMapper();
