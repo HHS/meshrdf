@@ -57,7 +57,7 @@
         jsonEditor: false,
         defaultModelRendering: 'schema',
         defaultModelExpandDepth: 3,
-        defaultModelsExpandDepth: 0,
+        defaultModelsExpandDepth: -1,
         showRequestHeaders: false,
         showOperationIds: false
       })

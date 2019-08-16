@@ -20,7 +20,7 @@ gulp.task('codemirror', function() {
     var codemirror_xml = gulp.src([
         'node_modules/codemirror/mode/xml/xml.js',
     ]).pipe(gulp.dest('target/gulp/codemirror/mode/xml'));
-    
+
     var codemirror_sparql = gulp.src([
         'node_modules/codemirror/mode/sparql/sparql.js',
     ]).pipe(gulp.dest('target/gulp/codemirror/mode/sparql'));
@@ -34,7 +34,6 @@ gulp.task('jslint', function() {
     const jshint = require('gulp-jshint');
     return gulp.src([
       'src/main/webapp/scripts/*.js',
-      'src/main/javascript/*.js',
     ])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
@@ -65,13 +64,13 @@ gulp.task('jqueryui', function() {
 		'node_modules/jquery-ui-dist/*.min.js',
 		'node_modules/jquery-ui-dist/*.min.css',
 	]).pipe(gulp.dest('target/gulp/jquery-ui'));
-	
+
 	var images = gulp.src([
-		'node_modules/jquery-ui-dist/images/*',		
+		'node_modules/jquery-ui-dist/images/*',
 	]).pipe(gulp.dest('target/gulp/jquery-ui/images'));
-	
+
 	return merge(jscss, images);
-})
+});
 
 
 gulp.task('scripts', function() {
@@ -83,20 +82,6 @@ gulp.task('scripts', function() {
         'node_modules/es6-object-assign/dist/object-assign-auto.min.js',
     ])
     .pipe(gulp.dest('target/gulp/vendor/js'));
-});
-
-
-gulp.task('jsbundle', function() {
-	return gulp.src([
-		'src/main/javascript/*.jsx',
-		'src/main/javascript/*.js',
-	])
-	.pipe(babel({
-		presets: ['@babel/preset-env', '@babel/preset-react']
-  }))
-  .pipe(concat('bundle.js'))
-  .pipe(minify())
-	.pipe(gulp.dest('target/gulp/js'));
 });
 
 
@@ -134,12 +119,12 @@ gulp.task('templates', function() {
 
 
 gulp.task('build', gulp.series(
-        'scripts',
-        'templates',
-        'styles',        
-        'fonts',
-        'jqueryui',
-        'codemirror',
+		  'scripts',
+          'templates',
+          'styles',
+          'fonts',
+          'jqueryui',
+          'codemirror',
 ));
 
 
@@ -155,6 +140,9 @@ gulp.task('clean', function() {
         'target/gulp/**/*.woff',
         'target/gulp/**/*.otf',
         'target/gulp/**/*.woff2',
-		
+
 	]);
 });
+
+
+gulp.task('default', gulp.series('build'));

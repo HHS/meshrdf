@@ -67,9 +67,9 @@ public class SwaggerController {
 
         /* adjust to this request */
         String host = ServletUtils.getHost(request);
+        String scheme = (host.startsWith("localhost") ? "http": "https");
         if (host != null) {
-            String protocol = host.startsWith("localhost") ? "http" : "https";
-            swaggerSpec.put("schemes", new String[] { protocol });
+            swaggerSpec.put("schemes", new String[] { scheme });
             swaggerSpec.put("host", host);
         }
         swaggerSpec.put("baseUri", getContextPath());
