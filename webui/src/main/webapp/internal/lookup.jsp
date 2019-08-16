@@ -65,8 +65,9 @@
                       <li>Determining the RDF URI of a descriptor/qualifier pair.</li>
                       <li>Obtaining details about a descriptor using its ID or URI, including qualifiers, related descriptors, and terms.</li>
                     </ul>
+                    <p>See the <a href="/mesh/swagger/ui">swagger API</a> for documentation.</p>
                   </div>
-                </div>                
+                </div>
               </div>
             </div>
           </div>

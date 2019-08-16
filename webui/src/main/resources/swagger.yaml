@@ -10,6 +10,11 @@ schemes:
 externalDocs:
   description: "SPARQL API technical documentation"
   url: https://hhs.github.io/meshrdf/sparql-and-uri-requests
+tags:
+  - name: sparql
+    description: The SPARQL 1.1 endpoint returns RDF results and graphs - see the <a href="/mesh/query">query page</a>
+  - name: lookup
+    description: The lookup API returns simple JSON - see the <a href="/mesh/lookup">lookup page</a>
 paths:
   /sparql:
     get:
