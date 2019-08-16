@@ -18,6 +18,7 @@ import uk.ac.ebi.fgpt.lode.utils.DatasourceProvider;
 
 import gov.nih.nlm.lode.data.VirtuosoSimpleDatasourceProvider;
 
+import com.jayway.jsonpath.JsonPath;
 
 var yaml = new Yaml();
 var mapper = new ObjectMapper();
