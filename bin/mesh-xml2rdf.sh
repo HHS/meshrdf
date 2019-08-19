@@ -107,15 +107,15 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-java $MESH_JAVA_OPTS -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/desc$YEAR.xml" \
-    -xsl:xslt/desc.xsl $URI_YEAR_PARAM >> "$OUTFILE-dups.nt"
+java $MESH_JAVA_OPTS -cp "$_CP" net.sf.saxon.Transform -s:"$MESHRDF_HOME/data/desc$YEAR.xml" \
+    -xsl:xslt/desc.xsl $OASIS_CATALOG_ARG $URI_YEAR_PARAM >> "$OUTFILE-dups.nt"
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/desc$YEAR.xml" 1>&2
     exit 1
 fi
 
-java $MESH_JAVA_OPTS -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/supp$YEAR.xml" \
-    -xsl:xslt/supp.xsl $URI_YEAR_PARAM >> "$OUTFILE-dups.nt"
+java $MESH_JAVA_OPTS -cp "$_CP" net.sf.saxon.Transform -s:"$MESHRDF_HOME/data/supp$YEAR.xml" \
+    -xsl:xslt/supp.xsl $OASIS_CATALOG_ARG $URI_YEAR_PARAM >> "$OUTFILE-dups.nt"
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/supp$YEAR.xml" 1>&2
     exit 1
