@@ -66,7 +66,7 @@
         <filter-name>cors</filter-name>
         <url-pattern>/sparql</url-pattern>
         <url-pattern>/status</url-pattern>
-        <url-pattern>/lookup</url-pattern>
+        <url-pattern>/lookup/*</url-pattern>
         <url-pattern>/swagger/swagger</url-pattern>
         <url-pattern>*.json</url-pattern>
         <url-pattern>*.json-ld</url-pattern>
