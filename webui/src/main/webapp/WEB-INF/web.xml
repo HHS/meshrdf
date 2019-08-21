@@ -60,7 +60,7 @@
     <!-- enable cors -->
     <filter>
         <filter-name>cors</filter-name>
-        <filter-class>uk.ac.ebi.fgpt.lode.servlet.CorsFilter</filter-class>
+        <filter-class>gov.nih.nlm.lode.servlet.CorsFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>cors</filter-name>
