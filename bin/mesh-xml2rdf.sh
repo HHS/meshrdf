@@ -30,17 +30,20 @@ else
 fi
 cd $($READLINK -e `dirname $0`/..)
 
+OASIS_CATALOG=""
 MESH_JAVA_OPTS="-Xms4g -Xmx4g"
 
-while getopts "h:j:y:x:o:u" opt; do
+while getopts "h:j:r:y:x:o:c:u" opt; do
   case $opt in
     h) export MESHRDF_HOME=$OPTARG ;;
     j) export SAXON_JAR=$OPTARG ;;
+    r) export RESOLVER_JAR=$OPTARG ;;
     y) export MESHRDF_YEAR=$OPTARG ;; 
+    c) export OASIS_CATALOG=$OPTARG ;;
     u) export MESHRDF_URI_YEAR="yes" ;;
     o) export OUTFILE_FORCE=$OPTARG ;;
     x) export MESH_JAVA_OPTS=$OPTARG ;;
-    *) echo "Usage: $0 [-h mesh-rdf-home] [-j saxon-jar-path] [-x mesh_java_opts] [-y year ]" 1>&2 ; exit 1 ;;
+    *) echo "Usage: $0 [-h mesh-rdf-home] [-j saxon-jar-path] [-r resolver-jar-path] [-c xml-catalog-path]  [-x mesh_java_opts] [-y year ]" 1>&2 ; exit 1 ;;
   esac
 done
 shift $(($OPTIND - 1))
@@ -55,6 +58,9 @@ if [ -z "$SAXON_JAR" ]; then
     echo "Please define SAXON_JAR environment variable" 1>&2
     exit 1
 fi
+
+# NOTE: will be the classpath for running Saxon, we may need resolver
+_CP="$SAXON_JAR"
 
 # Can override default year with MESHRDF_YEAR environment variable
 YEAR=${MESHRDF_YEAR:-2019}
@@ -73,6 +79,18 @@ else
     URI_PREFIX="http://id.nlm.nih.gov/mesh"
 fi
 
+if [ -n "$OASIS_CATALOG" ]; then
+    if [ -z "$RESOLVER_JAR" ]; then
+        echo "Please define RESOLVER_JAR environment variable to use -c for XML Catalog" 1>&2
+        exit 1
+    fi
+    OASIS_CATALOG_ARG="-catalog:$OASIS_CATALOG"
+    _CP="$SAXON_JAR:$RESOLVER_JAR"
+else
+    OASIS_CATALOG_ARG=""
+fi
+    
+
 if [ -n "$OUTFILE_FORCE" ]; then
     OUTFILE=$OUTFILE_FORCE
 fi
@@ -82,22 +100,22 @@ fi
 
 mkdir -p $OUTDIR
 
-java $MESH_JAVA_OPTS -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/qual$YEAR.xml" \
-    -xsl:xslt/qual.xsl $URI_YEAR_PARAM > "$OUTFILE-dups.nt"
+java $MESH_JAVA_OPTS -cp "$_CP" net.sf.saxon.Transform -s:"$MESHRDF_HOME/data/qual$YEAR.xml" \
+    -xsl:xslt/qual.xsl $OASIS_CATALOG_ARG $URI_YEAR_PARAM > "$OUTFILE-dups.nt"
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/qual$YEAR.xml" 1>&2
     exit 1
 fi
 
-java $MESH_JAVA_OPTS -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/desc$YEAR.xml" \
-    -xsl:xslt/desc.xsl $URI_YEAR_PARAM >> "$OUTFILE-dups.nt"
+java $MESH_JAVA_OPTS -cp "$_CP" net.sf.saxon.Transform -s:"$MESHRDF_HOME/data/desc$YEAR.xml" \
+    -xsl:xslt/desc.xsl $OASIS_CATALOG_ARG $URI_YEAR_PARAM >> "$OUTFILE-dups.nt"
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/desc$YEAR.xml" 1>&2
     exit 1
 fi
 
-java $MESH_JAVA_OPTS -jar $SAXON_JAR -s:"$MESHRDF_HOME/data/supp$YEAR.xml" \
-    -xsl:xslt/supp.xsl $URI_YEAR_PARAM >> "$OUTFILE-dups.nt"
+java $MESH_JAVA_OPTS -cp "$_CP" net.sf.saxon.Transform -s:"$MESHRDF_HOME/data/supp$YEAR.xml" \
+    -xsl:xslt/supp.xsl $OASIS_CATALOG_ARG $URI_YEAR_PARAM >> "$OUTFILE-dups.nt"
 if [ $? -ne 0 ]; then
     echo "Error converting $MESHRDF_HOME/data/supp$YEAR.xml" 1>&2
     exit 1
