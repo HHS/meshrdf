@@ -1,5 +1,6 @@
 package gov.nih.nlm.lode.service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -17,6 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import com.ibm.icu.text.Transliterator;
 
 import gov.nih.nlm.lode.model.JenaResourceService;
 import gov.nih.nlm.lode.model.ResourceResult;
@@ -36,20 +39,37 @@ public class JenaResourceServiceImpl implements JenaResourceService {
     private JenaQueryExecutionService executionService;
     private int fulltextMinLength = 4;
 
+    public String buildContainsArg(String label) throws LodeException {
+        StringBuffer termbuf = new StringBuffer();
+        try {
+            termbuf.append("'");
+            for (String term : TextUtils.tokenize(label)) {
+                if (term.length() >= fulltextMinLength) {
+                    /* Transforms a label like "Chemi" to a literal like "'Chemi*'" for use with bif:contains */
+                    termbuf.append(term);
+                    termbuf.append("* ");
+                } else {
+                    termbuf.append(term);
+                    termbuf.append(" ");
+                }
+            }
+            termbuf.append("'");
+        } catch (IOException ex) {
+            log.error("unable to tokenize label", ex);
+            throw new LodeException("unable to tokenize label", ex);
+        }
+        return termbuf.toString();
+    }
+
     @Override
     public Collection<ResourceResult> getResources(String query, String label, int limit, String parentUri) throws LodeException {
         QuerySolutionMap initialBinding = new QuerySolutionMap();
         if (label != null) {
-            Literal boundstar;
-            label = label.toLowerCase();
-            initialBinding.add("bound", ResourceFactory.createPlainLiteral(label));
-            if (label.length() >= fulltextMinLength) {
-                /* Transforms a label like "Chemi" to a literal like "'Chemi*'" for use with bif:contains */
-                boundstar = ResourceFactory.createPlainLiteral("'"+label+"*'");
-            } else {
-                boundstar = ResourceFactory.createPlainLiteral("'"+label+"'");
-            }
-            initialBinding.add("boundstar", boundstar);
+            Transliterator transformer = Transliterator.getInstance("Latin-ASCII");
+            String bound = transformer.transform(label).toLowerCase();
+            initialBinding.add("bound", ResourceFactory.createPlainLiteral(bound));
+            String boundstar = buildContainsArg(bound);
+            initialBinding.add("boundstar", ResourceFactory.createPlainLiteral(boundstar));
         }
         if (parentUri != null) {
             initialBinding.add("parent", ResourceFactory.createResource(parentUri));
