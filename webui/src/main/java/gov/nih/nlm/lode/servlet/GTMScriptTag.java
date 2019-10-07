@@ -2,8 +2,9 @@ package gov.nih.nlm.lode.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.TagSupport;
 
 /**
@@ -12,6 +13,8 @@ import javax.servlet.jsp.tagext.TagSupport;
 public class GTMScriptTag extends TagSupport {
 
     private static final long serialVersionUID = 1L;
+
+    public static final String GTM_PARAM_NAME = "gtmcode";
 
     private static final String TAG_FORMAT =
             "<script>" +
@@ -24,22 +27,20 @@ public class GTMScriptTag extends TagSupport {
             "(window,document,'script','dataLayer','%s');" +
             "</script>\n";
 
-    /**
-     * This is a careful wrapping of the system property, in case some administrator
-     * is using a system property to inject JavaScript or something.
-     *
-     * @return gtmcode - validated gtmcode property
-     */
-    public static String getGTMCode() {
-        return SafeProperty.getProperty("meshrdf.gtmcode", "GTM-[A-Z0-9]+");
+    private String gtmcode;
+
+    @Override
+    public void setPageContext(PageContext context) {
+        super.setPageContext(context);
+        gtmcode = ServletUtils.getParameter(context.getServletContext(), GTM_PARAM_NAME);
     }
 
     @Override
     public int doStartTag() throws JspException {
+
         JspWriter out = pageContext.getOut();
         try {
             out.print("<!-- Google Tag Manager -->\n");
-            String gtmcode = getGTMCode();
             if (null != gtmcode) {
                 out.print(String.format(TAG_FORMAT, gtmcode));
             }

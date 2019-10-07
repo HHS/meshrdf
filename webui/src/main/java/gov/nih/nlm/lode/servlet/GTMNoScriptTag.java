@@ -21,12 +21,13 @@ public class GTMNoScriptTag extends GTMScriptTag {
             "height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\">"+
             "</iframe></noscript>\n";
 
+    private String gtmcode;
+
     @Override
     public int doStartTag() throws JspException {
         JspWriter out = pageContext.getOut();
         try {
             out.print("<!-- Google Tag Manager (noscript) -->\n");
-            String gtmcode = getGTMCode();
             if (null != gtmcode) {
                 out.print(String.format(TAG_FORMAT, gtmcode));
             }

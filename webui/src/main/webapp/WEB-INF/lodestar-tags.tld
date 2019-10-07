@@ -13,6 +13,11 @@
         <body-content>empty</body-content>
     </tag>
     <tag>
+        <name>qualtrics</name>
+        <tag-class>gov.nih.nlm.lode.servlet.QualtricsSurveyTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
         <name>gtmnoscript</name>
         <tag-class>gov.nih.nlm.lode.servlet.GTMNoScriptTag</tag-class>
         <body-content>empty</body-content>

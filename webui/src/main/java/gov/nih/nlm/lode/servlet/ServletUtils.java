@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -47,6 +48,31 @@ public class ServletUtils {
             headers.put(headerName, valuesList);
         }
         return headers;
+    }
+
+    public static String getParameter(ServletContext context, String paramName, String defaultValue) {
+        String value = context.getInitParameter(paramName);
+        if (value == null || value.length() == 0) {
+            value = defaultValue;
+        }
+        return value;
+    }
+
+    public static String getParameter(ServletContext context, String paramName) {
+        return getParameter(context, paramName, null);
+    }
+
+    public static int getIntParameter(ServletContext context, String paramName, int defaultValue) {
+        String rawValue = context.getInitParameter(paramName);
+        try {
+            return Integer.parseInt(rawValue);
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
+    }
+
+    public static int getIntParameter(ServletContext context, String paramName) {
+        return getIntParameter(context, paramName, 0);
     }
 
 }
