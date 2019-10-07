@@ -12,7 +12,7 @@
     <parent>
         <groupId>gov.nih.nlm.lode</groupId>
         <artifactId>meshrdf</artifactId>
-        <version>1.1.5</version>
+        <version>1.1.6-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -21,6 +21,9 @@
         <updatesPath>/usr/nlm/meshlocal/state/updating</updatesPath>
         <updateMaxSeconds>10800</updateMaxSeconds>
         <logPrefix></logPrefix>
+        <qualtrics.url></qualtrics.url>
+        <qualtrics.width></qualtrics.width>
+        <qualtrics.height></qualtrics.height>
     </properties>
 
     <build>
