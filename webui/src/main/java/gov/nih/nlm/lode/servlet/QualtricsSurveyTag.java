@@ -42,6 +42,6 @@ public class QualtricsSurveyTag extends TagSupport {
                 throw new JspException("IOException", e);
             }
         }
-        return super.doStartTag();
+        return SKIP_BODY;
     }
 }

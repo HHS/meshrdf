@@ -13,7 +13,7 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.mock.web.MockPageContext;
 import org.springframework.mock.web.MockServletContext;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import gov.nih.nlm.lode.servlet.GTMNoScriptTag;
@@ -24,11 +24,11 @@ public class TestGTMScriptTag {
     /* A fake GTM code to test */
     private static final String GTM_TESTCODE = "GTM-PPP9999";
 
-    MockHttpServletResponse response;
+    private MockHttpServletResponse response;
     private MockServletContext servletContext;
     private MockPageContext pageContext;
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         MockHttpServletRequest request = new MockHttpServletRequest();
         response = new MockHttpServletResponse();
@@ -42,7 +42,6 @@ public class TestGTMScriptTag {
         servletContext = null;
         pageContext = null;
     }
-
 
     @Test(groups="unit")
     public void testGTMScriptTag() throws JspException, UnsupportedEncodingException {

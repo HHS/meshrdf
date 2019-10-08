@@ -21,8 +21,6 @@ public class GTMNoScriptTag extends GTMScriptTag {
             "height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\">"+
             "</iframe></noscript>\n";
 
-    private String gtmcode;
-
     @Override
     public int doStartTag() throws JspException {
         JspWriter out = pageContext.getOut();
@@ -35,7 +33,7 @@ public class GTMNoScriptTag extends GTMScriptTag {
         } catch (IOException e) {
             throw new JspException("IOException", e);
         }
-        return super.doStartTag();
+        return SKIP_BODY;
     }
 
 }

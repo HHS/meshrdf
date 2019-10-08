@@ -27,7 +27,7 @@ public class GTMScriptTag extends TagSupport {
             "(window,document,'script','dataLayer','%s');" +
             "</script>\n";
 
-    private String gtmcode;
+    protected String gtmcode;
 
     @Override
     public void setPageContext(PageContext context) {
@@ -48,6 +48,6 @@ public class GTMScriptTag extends TagSupport {
         } catch (IOException e) {
             throw new JspException("IOException", e);
         }
-        return super.doStartTag();
+        return SKIP_BODY;
     }
 }

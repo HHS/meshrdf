@@ -13,7 +13,7 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.mock.web.MockPageContext;
 import org.springframework.mock.web.MockServletContext;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import gov.nih.nlm.lode.servlet.QualtricsSurveyTag;
@@ -25,7 +25,7 @@ public class TestQualtricsSurveyTag {
     private MockServletContext servletContext;
     private MockPageContext pageContext;
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         MockHttpServletRequest request = new MockHttpServletRequest();
         response = new MockHttpServletResponse();
