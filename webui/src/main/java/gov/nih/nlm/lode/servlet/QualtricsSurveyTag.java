@@ -34,13 +34,15 @@ public class QualtricsSurveyTag extends TagSupport {
 
     @Override
     public int doStartTag() throws JspException {
-        if (url != null) {
-            JspWriter out = pageContext.getOut();
-            try {
+        JspWriter out = pageContext.getOut();
+        try {
+            if (url != null) {
                 out.print(String.format(TAG_FORMAT, url, height, width));
-            } catch (IOException e) {
-                throw new JspException("IOException", e);
+            } else {
+                out.print("<!-- Qualtrics survey not configured -->");
             }
+        } catch (IOException e) {
+            throw new JspException("IOException", e);
         }
         return SKIP_BODY;
     }

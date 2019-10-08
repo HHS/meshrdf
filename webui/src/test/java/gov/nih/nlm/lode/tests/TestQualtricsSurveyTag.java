@@ -47,7 +47,7 @@ public class TestQualtricsSurveyTag {
         tag.doStartTag();
 
         String content = response.getContentAsString();
-        assertThat(content, equalTo(""));
+        assertThat(content, equalTo("<!-- Qualtrics survey not configured -->"));
     }
 
     @Test(groups = "unit")
@@ -59,7 +59,7 @@ public class TestQualtricsSurveyTag {
         tag.doStartTag();
 
         String content = response.getContentAsString();
-        assertThat(content, equalTo(""));
+        assertThat(content, equalTo("<!-- Qualtrics survey not configured -->"));
     }
 
     @Test(groups = "unit")
