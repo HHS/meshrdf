@@ -13,6 +13,7 @@
 
   <body onload="$('#sparql-content').sparql({namespaces : lodeNamespacePrefixes, inference: true});">
     <lodestar:gtmnoscript/>
+    <lodestar:qualtrics/>
     <div class="skipnav"><a href="#sparql-content" class="skipnav">Skip Navigation</a></div>
     <div class="header">
       <%@ include file="/internal/header.html" %>
