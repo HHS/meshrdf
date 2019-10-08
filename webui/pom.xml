@@ -23,9 +23,7 @@
         <updateMaxSeconds>10800</updateMaxSeconds>
         <logPrefix></logPrefix>
         <gtmcode>GTM-MT6MLL</gtmcode>
-        <qualtrics.url>https://nlmenterprise.co1.qualtrics.com/jfe/form/SV_cvCBOTdP6FibROJ</qualtrics.url>
-        <qualtrics.width></qualtrics.width>
-        <qualtrics.height></qualtrics.height>
+        <surveyUrl>https://nlmenterprise.co1.qualtrics.com/jfe/form/SV_cvCBOTdP6FibROJ</surveyUrl>
     </properties>
 
     <build>

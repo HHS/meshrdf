@@ -14,11 +14,13 @@
 
     <body>
       <lodestar:gtmnoscript/>
-      <lodestar:qualtrics/>
       <div class="skipnav"><a class="skipnav" href="#main">Skip Navigation</a>
       </div>
       <div class="header">
         <%@ include file="internal/header.html" %>
+      </div>
+      <div class="container-fluid">
+        <lodestar:survey/>
       </div>
       <div class="container-fluid">
         <div id="meshTabContent" class="tab-content">

@@ -16,7 +16,6 @@
       namespaces : lodeNamespacePrefixes
     });">
     <lodestar:gtmnoscript/>
-    <lodestar:qualtrics/>
     <div class="skipnav"><a href="#data-explorer-content" class="skipnav">Skip Navigation</a></div>
     <div class="header">
       <%@ include file="internal/header.html" %>

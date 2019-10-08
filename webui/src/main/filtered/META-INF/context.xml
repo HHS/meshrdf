@@ -6,9 +6,7 @@
     
     <!-- These are read directly by the lodestar tag library -->
     <Parameter name="gtmcode" value="${gtmcode}" override="true"/>
-    <Parameter name="qualtrics.url" value="${qualtrics.url}" override="true"/>
-    <Parameter name="qualtrics.width" value="${qualtrics.width}" override="true"/>
-    <Parameter name="qualtrics.height" value="${qualtrics.height}" override="true"/>
+    <Parameter name="qualtricsUrl" value="${qualtricsUrl}" override="true"/>
 
     <!-- This is pulled into the logback configuration as a JNDI export -->
     <Environment name="lodestar.log.prefix" value="${logPrefix}" type="java.lang.String" override="true"/>

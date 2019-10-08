@@ -16,10 +16,10 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import gov.nih.nlm.lode.servlet.QualtricsSurveyTag;
+import gov.nih.nlm.lode.servlet.SurveyTag;
 
 
-public class TestQualtricsSurveyTag {
+public class TestSurveyTag {
 
     private MockHttpServletResponse response;
     private MockServletContext servletContext;
@@ -42,57 +42,38 @@ public class TestQualtricsSurveyTag {
 
     @Test(groups = "unit")
     public void testNullUrl() throws JspException, UnsupportedEncodingException {
-        QualtricsSurveyTag tag = new QualtricsSurveyTag();
+        SurveyTag tag = new SurveyTag();
         tag.setPageContext(pageContext);
         tag.doStartTag();
 
         String content = response.getContentAsString();
-        assertThat(content, equalTo("<!-- Qualtrics survey not configured -->"));
+        assertThat(content, equalTo("<!-- survey not configured -->"));
     }
 
     @Test(groups = "unit")
     public void testEmptyUrl() throws JspException, UnsupportedEncodingException {
-        servletContext.addInitParameter(QualtricsSurveyTag.URL_PARAM_NAME, "");
+        servletContext.addInitParameter(SurveyTag.URL_PARAM_NAME, "");
 
-        QualtricsSurveyTag tag = new QualtricsSurveyTag();
+        SurveyTag tag = new SurveyTag();
         tag.setPageContext(pageContext);
         tag.doStartTag();
 
         String content = response.getContentAsString();
-        assertThat(content, equalTo("<!-- Qualtrics survey not configured -->"));
+        assertThat(content, equalTo("<!-- survey not configured -->"));
     }
 
     @Test(groups = "unit")
     public void testUrlDefaultWidthHeight() throws JspException, UnsupportedEncodingException {
         String expectedUrl = "https://short-survey.com/toehunthehune";
-        servletContext.addInitParameter(QualtricsSurveyTag.URL_PARAM_NAME, expectedUrl);
+        servletContext.addInitParameter(SurveyTag.URL_PARAM_NAME, expectedUrl);
 
-        QualtricsSurveyTag tag = new QualtricsSurveyTag();
+        SurveyTag tag = new SurveyTag();
         tag.setPageContext(pageContext);
         tag.doStartTag();
 
         String content = response.getContentAsString();
 
         assertThat(content, containsString(String.format("src=\"%s\"", expectedUrl)));
-        assertThat(content, containsString("width=\"800px\""));
-        assertThat(content, containsString("height=\"600px\""));
-    }
-
-    @Test(groups = "unit")
-    public void testOverrideWidthHeight() throws JspException, UnsupportedEncodingException {
-        String expectedUrl = "https://short-survey.com/ZZEOTUHEG8G89";
-        servletContext.addInitParameter(QualtricsSurveyTag.URL_PARAM_NAME, expectedUrl);
-        servletContext.addInitParameter(QualtricsSurveyTag.WIDTH_PARAM_NAME, "677");
-        servletContext.addInitParameter(QualtricsSurveyTag.HEIGHT_PARAM_NAME, "877");
-
-        QualtricsSurveyTag tag = new QualtricsSurveyTag();
-        tag.setPageContext(pageContext);
-        tag.doStartTag();
-
-        String content = response.getContentAsString();
-
-        assertThat(content, containsString(String.format("src=\"%s\"", expectedUrl)));
-        assertThat(content, containsString("width=\"677px\""));
-        assertThat(content, containsString("height=\"877px\""));
+        assertThat(content, containsString("class=\"survey\""));
     }
 }

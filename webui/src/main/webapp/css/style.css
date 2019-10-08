@@ -164,3 +164,10 @@ ul#queries_list {
   float: right;
   padding-right: 15px;
 }
+
+.survey {
+  width: 80%;
+  height: 600px;
+  margin: 0 auto;
+  display: block;
+}

@@ -9,27 +9,20 @@ import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.TagSupport;
 
 
-public class QualtricsSurveyTag extends TagSupport {
+public class SurveyTag extends TagSupport {
 
     private static final long serialVersionUID = 1L;
 
-    private static final String TAG_FORMAT = "<iframe src=\"%s\" height=\"%dpx\" width=\"%dpx\"></iframe>\n";
-
-    public static final String URL_PARAM_NAME = "qualtrics.url";
-    public static final String HEIGHT_PARAM_NAME = "qualtrics.height";
-    public static final String WIDTH_PARAM_NAME = "qualtrics.width";
+    private static final String TAG_FORMAT = "<iframe src=\"%s\" class=\"survey\"></iframe>\n";
+    public static final String URL_PARAM_NAME = "surveyUrl";
 
     private String url;
-    private int height;
-    private int width;
 
     @Override
     public void setPageContext(PageContext context) {
         super.setPageContext(context);
         ServletContext servletContext = context.getServletContext();
         url = ServletUtils.getParameter(servletContext, URL_PARAM_NAME);
-        height = ServletUtils.getIntParameter(servletContext, HEIGHT_PARAM_NAME, 600);
-        width = ServletUtils.getIntParameter(servletContext, WIDTH_PARAM_NAME, 800);
     }
 
     @Override
@@ -37,9 +30,9 @@ public class QualtricsSurveyTag extends TagSupport {
         JspWriter out = pageContext.getOut();
         try {
             if (url != null) {
-                out.print(String.format(TAG_FORMAT, url, height, width));
+                out.print(String.format(TAG_FORMAT, url));
             } else {
-                out.print("<!-- Qualtrics survey not configured -->");
+                out.print("<!-- survey not configured -->");
             }
         } catch (IOException e) {
             throw new JspException("IOException", e);
