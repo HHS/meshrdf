@@ -18,10 +18,12 @@
     <properties>
         <groups>unit</groups>
         <skipTests>false</skipTests>
+        <!-- These affect context.xml and code be overridden by the container, or by ~/.m2/settings.xml -->
         <updatesPath>/usr/nlm/meshlocal/state/updating</updatesPath>
         <updateMaxSeconds>10800</updateMaxSeconds>
         <logPrefix></logPrefix>
-        <qualtrics.url></qualtrics.url>
+        <gtmcode>GTM-MT6MLL</gtmcode>
+        <qualtrics.url>https://nlmenterprise.co1.qualtrics.com/jfe/form/SV_cvCBOTdP6FibROJ</qualtrics.url>
         <qualtrics.width></qualtrics.width>
         <qualtrics.height></qualtrics.height>
     </properties>

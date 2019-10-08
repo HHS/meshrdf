@@ -21,6 +21,7 @@
     <div class="header">
       <%@ include file="/internal/header.html" %>
     </div>
+    <lodestar:qualtrics/>
     <div class="container-fluid">
       <div id="meshTabContent" class="tab-content">
         <div class="tab-pane fade in active" id="home">
