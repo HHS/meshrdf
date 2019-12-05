@@ -20,6 +20,9 @@
         <%@ include file="internal/header.html" %>
       </div>
       <div class="container-fluid">
+        <lodestar:survey/>
+      </div>
+      <div class="container-fluid">
         <div id="meshTabContent" class="tab-content">
           <div class="tab-pane fade in active" id="home">
             <div class="navi">
