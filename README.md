@@ -59,9 +59,9 @@ This saves the XML files to the `data` subdirectory of `$MESHRDF_HOME`.
 
 By default, it downloads the following:
 
-* `desc2019.xml`
-* `qual2019.xml`
-* `supp2019.xml`
+* `desc2020.xml`
+* `qual2020.xml`
+* `supp2020.xml`
 
 If you want to download a different year's data, use the `-y` argument when executing the script.
 For example:
@@ -109,7 +109,7 @@ The conversion script is `bin/mesh-xml2rdf.sh`. This shell script will run the X
 the three main MeSH XML files into RDF N-Triples format, and put the results into the
 `$MESHRDF_HOME/out` directory.
 
-By default, it looks for 2019 data files, and will produce `mesh.nt`, which is the
+By default, it looks for 2020 data files, and will produce `mesh.nt`, which is the
 RDF in N-triples format, and `mesh.nt.gz`, a gzipped version. Also by default, these
 data files will have RDF URIs that do not include the year. For example, the descriptor for
 Ofloxacin would have the URI `http://id.nlm.nih.gov/mesh/D015242`.
