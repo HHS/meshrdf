@@ -12,6 +12,7 @@
                 xmlns:xs="&xs;"
                 exclude-result-prefixes="xs f">
 
+  <xsl:param name='label-lang' select='"en"'/>
   <xsl:param name='uri-year-segment' select='""'/>
   <xsl:variable name='mesh-prefix'>
     <xsl:choose>
