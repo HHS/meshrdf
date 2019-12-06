@@ -171,7 +171,7 @@ public class QueryTest extends LodeBaseTest {
 
         int numMatched = 0;
         List<WebElement> rows = findElements(By.cssSelector(FOR_LODESTAR_RESULT_ROWS));
-        assertEquals(rows.size(), 49);
+        assertEquals(rows.size(), 50);
         for (WebElement row : rows) {
             WebElement link = row.findElement(By.xpath("td[1]/span/a"));
             String linktext = link.getText();
