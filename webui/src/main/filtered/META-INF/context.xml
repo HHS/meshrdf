@@ -3,6 +3,11 @@
     <!-- These are pulled into the Spring properties and used as Spring @Value annotations -->
     <Parameter name="updatesPath" value="${updatesPath}" override="true"/>
     <Parameter name="updateMaxSeconds" value="${updateMaxSeconds}" override="true"/>
+    
+    <!-- These are read directly by the lodestar tag library -->
+    <Parameter name="gtmcode" value="${gtmcode}" override="true"/>
+    <Parameter name="surveyUrl" value="${surveyUrl}" override="true"/>
+    <Parameter name="meshrdf.year" value="${meshrdf.year}" override="true"/>
 
     <!-- This is pulled into the logback configuration as a JNDI export -->
     <Environment name="lodestar.log.prefix" value="${logPrefix}" type="java.lang.String" override="true"/>

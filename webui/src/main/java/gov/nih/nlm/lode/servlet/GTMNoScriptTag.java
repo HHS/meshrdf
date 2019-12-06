@@ -26,7 +26,6 @@ public class GTMNoScriptTag extends GTMScriptTag {
         JspWriter out = pageContext.getOut();
         try {
             out.print("<!-- Google Tag Manager (noscript) -->\n");
-            String gtmcode = getGTMCode();
             if (null != gtmcode) {
                 out.print(String.format(TAG_FORMAT, gtmcode));
             }
@@ -34,7 +33,7 @@ public class GTMNoScriptTag extends GTMScriptTag {
         } catch (IOException e) {
             throw new JspException("IOException", e);
         }
-        return super.doStartTag();
+        return SKIP_BODY;
     }
 
 }

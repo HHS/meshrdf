@@ -28,8 +28,14 @@ public class NlmConfigTag extends TagSupport {
             + "</script>\n";
 
     public int getMeshYear() {
-        // check whether there is a system property
+        // check whether there is a system property (takes priority)
         Object value = SafeProperty.getProperty(MESHRDF_YEAR, "[0-9]{4}");
+        if (value != null) {
+            return Integer.parseInt((String) value);
+        }
+
+        // check whether there is a container parameter
+        value = ServletUtils.getParameter(pageContext.getServletContext(), MESHRDF_YEAR);
         if (value != null) {
             return Integer.parseInt((String) value);
         }
