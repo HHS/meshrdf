@@ -7,6 +7,7 @@
     <!-- These are read directly by the lodestar tag library -->
     <Parameter name="gtmcode" value="${gtmcode}" override="true"/>
     <Parameter name="surveyUrl" value="${surveyUrl}" override="true"/>
+    <Parameter name="meshrdf.year" value="${meshrdf.year}" override="true"/>
 
     <!-- This is pulled into the logback configuration as a JNDI export -->
     <Environment name="lodestar.log.prefix" value="${logPrefix}" type="java.lang.String" override="true"/>

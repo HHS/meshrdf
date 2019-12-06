@@ -63,7 +63,7 @@ fi
 _CP="$SAXON_JAR"
 
 # Can override default year with MESHRDF_YEAR environment variable
-YEAR=${MESHRDF_YEAR:-2019}
+YEAR=${MESHRDF_YEAR:-2020}
 
 # Set the output file name, and the parameter that controls the RDF URIs,
 # according to whether or not MESHRDF_URI_YEAR is "yes"
@@ -126,7 +126,7 @@ if [ -f "$MESHRDF_HOME/data/cns-disease-2014AB.nt" ]; then
         "$MESHRDF_HOME/data/cns-disease-2014AB.nt" >> "$OUTFILE-dups.nt"
 fi
 
-sort -u -T"$OUTDIR" "$OUTFILE-dups.nt" > "$OUTFILE.nt"
+/usr/bin/sort -u -T"$OUTDIR" "$OUTFILE-dups.nt" > "$OUTFILE.nt"
 if [ $? -ne 0 ]; then 
     echo "Error deduplicating $OUTFILE-dups.nt" 1>&2
     exit 1
