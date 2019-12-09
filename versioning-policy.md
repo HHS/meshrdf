@@ -17,9 +17,9 @@ MeSH RDF will use the following conventions for URIs, graphs and filenames:
 MeSH RDF will follow established MeSH versioning practices, but MeSH RDF will be expressed in non-versioned and versioned URIs. Unless there is a specific use case for using the versioned data, NLM recommends using the current, non-versioned URIs and graph. For example, the Descriptor for Ofloxacin will have the following URIs:
 
 * http://id.nlm.nih.gov/mesh/D015242 (current, non-versioned)
+* http://id.nlm.nih.gov/mesh/2020/D015242 (2020, versioned)
 * http://id.nlm.nih.gov/mesh/2019/D015242 (2019, versioned)
 * http://id.nlm.nih.gov/mesh/2018/D015242 (2018, versioned)
-* http://id.nlm.nih.gov/mesh/2017/D015242 (2017, versioned)
 
 The non-versioned URI reflects the current state of MeSH at any given time. Requesting data from versioned URIs will return the most recent snapshot of the data from that year. For the current year, versioned data will mirror non-versioned data until NLM archives the versioned data in November. At that point, the versioned data will become static. NLM plans to retain no more than three years of versioned URIs, and NLM will not produce versioned URIs for data prior to 2015 MeSH. 
 
