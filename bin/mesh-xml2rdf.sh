@@ -126,7 +126,7 @@ if [ -f "$MESHRDF_HOME/data/cns-disease-2014AB.nt" ]; then
         "$MESHRDF_HOME/data/cns-disease-2014AB.nt" >> "$OUTFILE-dups.nt"
 fi
 
-/usr/bin/sort -u -T"$OUTDIR" "$OUTFILE-dups.nt" > "$OUTFILE.nt"
+sort -u -T"$OUTDIR" "$OUTFILE-dups.nt" > "$OUTFILE.nt"
 if [ $? -ne 0 ]; then 
     echo "Error deduplicating $OUTFILE-dups.nt" 1>&2
     exit 1
