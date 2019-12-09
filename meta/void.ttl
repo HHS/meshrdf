@@ -61,5 +61,5 @@
     void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/rdf/mesh.nt" ;
     void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/rdf/2020/mesh2020.nt" ;
     void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/rdf/2019/mesh2019.nt" ;
-    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/rdf/2018/mesh2018.nt" ;
+    void:dataDump "ftp://ftp.nlm.nih.gov/online/mesh/rdf/2018/mesh2018.nt" .
 
