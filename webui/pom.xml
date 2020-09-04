@@ -12,7 +12,7 @@
     <parent>
         <groupId>gov.nih.nlm.lode</groupId>
         <artifactId>meshrdf</artifactId>
-        <version>1.1.8-SNAPSHOT-3</version>
+        <version>1.1.8-SNAPSHOT-4</version>
     </parent>
 
     <properties>
