@@ -4,7 +4,7 @@
     <groupId>gov.nih.nlm.lode</groupId>
     <artifactId>meshrdf</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.8-SNAPSHOT</version>
+    <version>1.1.8</version>
     <name>NLM MeSH RDF parent project</name>
     <scm>
         <url>https://github.com/HHS/meshrdf</url>
