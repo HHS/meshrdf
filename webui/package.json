@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "3.4.1",
-    "codemirror": "5.46.0",
+    "codemirror": "5.57.0",
     "es6-object-assign": "1.1.0",
     "font-awesome": "4.7.0",
     "handlebars": "4.7.6",
@@ -26,9 +26,9 @@
     "url-polyfill": "1.1.7"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
-    "del": "^3.0.0",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "del": "^5.1.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
@@ -38,12 +38,13 @@
     "gulp-merge": "^0.1.1",
     "gulp-minify": "^3.1.0",
     "gulp-rev": "^9.0.0",
-    "gulp-stylelint": "^9.0.0",
-    "gulp-wrap": "^0.14.0",
-    "jshint": "^2.11.0",
-    "merge-stream": "^1.0.1",
-    "stylelint": "^10.0.1",
-    "stylelint-config-recommended": "^2.2.0"
+    "gulp-stylelint": "^13.0.0",
+    "gulp-wrap": "^0.15.0",
+    "jshint": "^2.12.0",
+    "lodash": "^4.17.19",
+    "merge-stream": "^2.0.0",
+    "stylelint": ">=13.7.0",
+    "stylelint-config-recommended": "^3.0.0"
   },
   "bugs": {
     "url": "https://github.com/HHS/meshrdf/issues"
