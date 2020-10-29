@@ -26,6 +26,9 @@ public class DescriptorParams {
     @Max(50)
     private int limit = 10;
 
+    @MeshYear
+    private String year = "current";
+
     public String getLabel() {
         return label;
     }
@@ -54,6 +57,12 @@ public class DescriptorParams {
     public void setLimit(int limit) {
         this.limit = limit;
     }
+    public String getYear() {
+        return year;
+    }
+    public void setYear(String year) {
+        this.year = year;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -68,6 +77,7 @@ public class DescriptorParams {
                 .append(label, rhs.label)
                 .append(match, rhs.match)
                 .append(limit, rhs.limit)
+                .append(year, rhs.year)
                 .isEquals();
     }
 
@@ -77,6 +87,7 @@ public class DescriptorParams {
                 .append("label", label)
                 .append("relation", match)
                 .append("limit", limit)
+                .append("year", year)
                 .toString();
     }
 }

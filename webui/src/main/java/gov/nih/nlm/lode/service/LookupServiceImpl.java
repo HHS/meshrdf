@@ -96,6 +96,10 @@ public class LookupServiceImpl implements LookupService {
         this.queryResource = resource;
     }
 
+    public String getGraphUri(final String year) {
+        return "http://id.nlm.nih.gov/mesh";
+    }
+
     public synchronized String getQuery(final String queryId) throws LodeException {
         Object query = getQueryMap().get(queryId);
         if (query == null) {

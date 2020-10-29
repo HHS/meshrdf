@@ -72,6 +72,47 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
         assertThat(mockService.count, equalTo(1));
         assertThat(mockService.desc.getLabel(), equalTo("fubar"));
         assertThat(mockService.desc.getMatch(), equalTo(LabelMatch.CONTAINS));
+        assertThat(mockService.desc.getYear(), equalTo("current"));
+        assertThat(mockService.desc.getLimit(), equalTo(10));
+    }
+
+    @Test
+    public void testGetDescriptorYearInterim() throws Exception {
+        MockHttpServletRequestBuilder request =
+                get("/lookup/descriptor")
+                .param("label",  "fubar")
+                .param("match", "contains")
+                .param("year", "interim")
+               .accept(MediaType.APPLICATION_JSON);
+        mvc.perform(request)
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/D1"))
+            .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/D2"));
+        assertThat(mockService.count, equalTo(1));
+        assertThat(mockService.desc.getLabel(), equalTo("fubar"));
+        assertThat(mockService.desc.getMatch(), equalTo(LabelMatch.CONTAINS));
+        assertThat(mockService.desc.getYear(), equalTo("interim"));
+        assertThat(mockService.desc.getLimit(), equalTo(10));
+    }
+
+    @Test
+    public void testGetDescriptorYear2018() throws Exception {
+        MockHttpServletRequestBuilder request =
+                get("/lookup/descriptor")
+                .param("label",  "fubar")
+                .param("match", "contains")
+                .param("year", "2018")
+               .accept(MediaType.APPLICATION_JSON);
+        mvc.perform(request)
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/D1"))
+            .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/D2"));
+        assertThat(mockService.count, equalTo(1));
+        assertThat(mockService.desc.getLabel(), equalTo("fubar"));
+        assertThat(mockService.desc.getMatch(), equalTo(LabelMatch.CONTAINS));
+        assertThat(mockService.desc.getYear(), equalTo("2018"));
         assertThat(mockService.desc.getLimit(), equalTo(10));
     }
 
@@ -92,11 +133,12 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
         assertThat(mockService.desc.getLabel(), equalTo("fubar"));
         assertThat(mockService.desc.getMatch(), equalTo(LabelMatch.EXACT));
         assertThat(mockService.desc.getLimit(), equalTo(10));
+        assertThat(mockService.desc.getYear(), equalTo("current"));
     }
 
     @Test
     public void testPostDescriptorForm() throws Exception {
-        String body = "label=density";
+        String body = "label=density&year=2019";
         MockHttpServletRequestBuilder request =
                 post("/lookup/descriptor")
                 .accept(MediaType.APPLICATION_JSON)
@@ -110,6 +152,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
         assertThat(mockService.count, equalTo(1));
         assertThat(mockService.desc.getLabel(), equalTo("density"));
         assertThat(mockService.desc.getMatch(), equalTo(LabelMatch.EXACT));
+        assertThat(mockService.desc.getYear(), equalTo("2019"));
         assertThat(mockService.desc.getLimit(), equalTo(10));
     }
 
@@ -204,6 +247,26 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
     }
 
     @Test
+    public void testGetDescriptorYearFubarIsInvalid() throws Exception {
+        /*
+         * This tests a couple of things:
+         *   - The get request is validated
+         *   - The meshYear may not be "fubar"
+         */
+        MockHttpServletRequestBuilder request =
+                get("/lookup/descriptor")
+                .param("year", "fubar")
+                .accept(MediaType.APPLICATION_JSON);
+        mvc.perform(request)
+            .andExpect(status().isBadRequest())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.error.year[0]").value("must be current, interim, or a positive number"));
+
+        // The service should not have been called, because there was an error before that
+        assertThat(mockService.count, equalTo(0));
+    }
+
+    @Test
     public void testDescriptorPostValidated() throws Exception {
         /*
          * This tests a couple of things:
@@ -227,6 +290,33 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
             .andExpect(content().contentType("application/json;charset=UTF-8"))
             .andExpect(jsonPath("$.error.label[0]").value("must not be empty"))
             .andExpect(jsonPath("$.error.limit[0]").value("must be less than or equal to 50"));
+
+        // The service should not have been called, because there was an error before that
+        assertThat(mockService.count, equalTo(0));
+    }
+
+    @Test
+    public void testPostDescriptorYearFubarIsInvalid() throws Exception {
+        /*
+         * This tests a couple of things:
+         *   - The POST request is validated
+         *   - The meshYear may not be "fubar"
+         */
+        String body = String.join("\n",  new String[] {
+                "{",
+                "\"label\": \"smoky\",",
+                "\"year\": \"fubar\"",
+                "}",
+        });
+        MockHttpServletRequestBuilder request =
+                post("/lookup/descriptor")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body);
+        mvc.perform(request)
+            .andExpect(status().isBadRequest())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.error.year[0]").value("must be current, interim, or a positive number"));
 
         // The service should not have been called, because there was an error before that
         assertThat(mockService.count, equalTo(0));
