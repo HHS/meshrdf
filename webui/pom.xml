@@ -24,6 +24,7 @@
         <logPrefix></logPrefix>
         <gtmcode>GTM-PCV9JFW</gtmcode>
         <meshrdf.year>2020</meshrdf.year>
+        <meshrdf.interim>true</meshrdf.interim>
         <surveyUrl></surveyUrl>
     </properties>
 
