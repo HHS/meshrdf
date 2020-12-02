@@ -95,7 +95,7 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
         assertThat(graphUri, equalTo("http://id.nlm.nih.gov/mesh/2018"));
     }
 
-    @Test(groups = "unit")
+    @Test(groups = "unit", enabled=false)
     public void testGetGraphUriInterim() {
         LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
         String graphUri = service.getGraphUri("interim");
