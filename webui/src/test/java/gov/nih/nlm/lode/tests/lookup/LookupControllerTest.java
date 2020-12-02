@@ -14,6 +14,7 @@ import java.net.URISyntaxException;
 import java.net.URLEncoder;
 
 import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockServletContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -43,11 +44,13 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
 
     private MockLookupService mockService;
     private MockMvc mvc;
+    private MockServletContext context;
 
     @BeforeClass
     public void setUp() throws URISyntaxException {
+        context = new MockServletContext();
         mockService = new MockLookupService();
-        LookupController controller = new LookupController(mockService);
+        LookupController controller = new LookupController(mockService, context);
         controller.setBaseUri(new URI("http://id.nlm.nih.gov/mesh/"));
         mvc = MockMvcBuilders.standaloneSetup(controller).build();
     }

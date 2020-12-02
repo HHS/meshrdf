@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -62,12 +63,15 @@ public class LookupController {
 
     private LookupService service;
 
+    private ServletContext context;
+
     @Value("${lode.explorer.service.baseuri:}")
     private URI baseUri = null;
 
     @Autowired
-    public LookupController(LookupService service) {
+    public LookupController(LookupService service, ServletContext context) {
         this.service = service;
+        this.context = context;
     }
 
     public LookupService getService() {
