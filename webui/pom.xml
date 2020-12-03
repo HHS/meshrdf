@@ -81,7 +81,7 @@
                     <webResources>
                         <resource>
                             <directory>${project.basedir}/src/main/webapp</directory>
-                            <filtering>false</filtering>
+                            <filtering>true</filtering>
                         </resource>
                         <resource>
                             <directory>${project.basedir}/../meta</directory>
@@ -89,10 +89,6 @@
                                 <include>*.ttl</include>
                                 <include>*.owl</include>
                             </includes>
-                        </resource>
-                        <resource>
-                            <directory>${project.basedir}/src/main/filtered</directory>
-                            <filtering>true</filtering>
                         </resource>
                         <resource>
                             <directory>${project.build.directory}/gulp</directory>
