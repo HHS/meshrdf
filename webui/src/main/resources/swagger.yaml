@@ -301,6 +301,26 @@ paths:
                 descriptor: [ "must not be empty" ]
           schema:
             $ref: "#/definitions/Errors"
+  /lookup/years:
+    get:
+      summary: "Returns the current status of various years in MeSH RDF"
+      operationId: "getValidYears"
+      tags:
+        - "lookup"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "current and interim years"
+          examples:
+            application/json:
+              current: 2020
+              interim: 2021
+              years:
+               - 2021
+               - 2020
+               - 2019
+               - 2018
   /lookup/label:
     get:
       summary: "Return the label or labels for a Resource URI."

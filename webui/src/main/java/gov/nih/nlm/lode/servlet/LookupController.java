@@ -43,6 +43,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
+import gov.nih.nlm.lode.model.ConfigService;
 import gov.nih.nlm.lode.model.DescriptorChildren;
 import gov.nih.nlm.lode.model.DescriptorChildrenParams;
 import gov.nih.nlm.lode.model.DescriptorParams;
@@ -52,6 +53,7 @@ import gov.nih.nlm.lode.model.LabelParams;
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.PairParams;
 import gov.nih.nlm.lode.model.ResourceResult;
+import gov.nih.nlm.lode.model.ValidYears;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
 
 @Validated
@@ -62,30 +64,32 @@ public class LookupController {
     private Logger log = LoggerFactory.getLogger(getClass());
 
     private LookupService service;
-
-    private ServletContext context;
+    private ConfigService config;
 
     @Value("${lode.explorer.service.baseuri:}")
     private URI baseUri = null;
 
     @Autowired
-    public LookupController(LookupService service, ServletContext context) {
+    public LookupController(LookupService service, ConfigService config) {
         this.service = service;
-        this.context = context;
+        this.config = config;
     }
 
     public LookupService getService() {
         return service;
     }
-
     public void setService(LookupService service) {
         this.service = service;
     }
-
+    public ConfigService getConfigService() {
+        return config;
+    }
+    public void setConfig(ConfigService configService) {
+        this.config = configService;
+    }
     public URI getBaseUri() {
         return this.baseUri;
     }
-
     public void setBaseUri(URI baseUri) {
         this.baseUri = baseUri;
     }
@@ -168,6 +172,11 @@ public class LookupController {
         return getService().lookupTerms(criteria);
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(path="/years", produces="application/json")
+    public ValidYears lookupDetails() {
+        return getConfigService().getValidYears();
+    }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/details", produces="application/json")

@@ -25,7 +25,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import gov.nih.nlm.lode.model.ConfigService;
 import gov.nih.nlm.lode.model.LabelMatch;
+import gov.nih.nlm.lode.service.ConfigServiceImpl;
 import gov.nih.nlm.lode.servlet.LookupController;
 
 
@@ -43,14 +45,18 @@ import gov.nih.nlm.lode.servlet.LookupController;
 public class LookupControllerTest extends AbstractTestNGSpringContextTests {
 
     private MockLookupService mockService;
+    private ConfigService mockConfig;
     private MockMvc mvc;
     private MockServletContext context;
 
     @BeforeClass
     public void setUp() throws URISyntaxException {
         context = new MockServletContext();
+        context.setInitParameter(ConfigService.MESHRDF_YEAR, "2018");
+        context.setInitParameter(ConfigService.MESHRDF_INTERIM, "true");
         mockService = new MockLookupService();
-        LookupController controller = new LookupController(mockService, context);
+        mockConfig = new ConfigServiceImpl(context);
+        LookupController controller = new LookupController(mockService, mockConfig);
         controller.setBaseUri(new URI("http://id.nlm.nih.gov/mesh/"));
         mvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
@@ -526,9 +532,21 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                 get("/lookup/label")
                 .param("resource", "")
                 .accept(MediaType.APPLICATION_JSON);
-     mvc.perform(request)
+        mvc.perform(request)
             .andExpect(status().isBadRequest())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
             .andExpect(jsonPath("$.error.resource").value("must not be empty"));
+    }
+
+    @Test
+    public void testGetValidYears() throws Exception {
+        MockHttpServletRequestBuilder request =
+                get("/lookup/years")
+                .accept(MediaType.APPLICATION_JSON);
+        mvc.perform(request)
+           .andExpect(status().isOk())
+           .andExpect(content().contentType("application/json;charset=UTF-8"))
+           .andExpect(jsonPath("$.current").value(2018))
+           .andExpect(jsonPath("$.interim").value(2019));
     }
 }
