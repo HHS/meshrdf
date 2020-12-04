@@ -82,6 +82,27 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
     }
 
     @Test(groups = "unit")
+    public void testGetGraphUriCurrent() {
+        LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
+        String graphUri = service.getGraphUri("current");
+        assertThat(graphUri, equalTo("http://id.nlm.nih.gov/mesh"));
+    }
+
+    @Test(groups = "unit")
+    public void testGetGraphUriNumeric() {
+        LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
+        String graphUri = service.getGraphUri("2018");
+        assertThat(graphUri, equalTo("http://id.nlm.nih.gov/mesh/2018"));
+    }
+
+    @Test(groups = "unit", enabled=false)
+    public void testGetGraphUriInterim() {
+        LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
+        String graphUri = service.getGraphUri("interim");
+        assertThat(graphUri, equalTo("http://id.nlm.nih.gov/mesh/2021"));
+    }
+
+    @Test(groups = "unit")
     public void testDescriptorQueriesExist() throws Exception {
         for (LabelMatch rel : LabelMatch.values()) {
             String queryKey = LookupServiceImpl.DESCRIPTOR_QUERY_PREFIX+rel.toString().toLowerCase();

@@ -12,7 +12,7 @@
     <parent>
         <groupId>gov.nih.nlm.lode</groupId>
         <artifactId>meshrdf</artifactId>
-        <version>1.1.8</version>
+        <version>1.1.9</version>
     </parent>
 
     <properties>
@@ -23,7 +23,8 @@
         <updateMaxSeconds>10800</updateMaxSeconds>
         <logPrefix></logPrefix>
         <gtmcode>GTM-PCV9JFW</gtmcode>
-        <meshrdf.year>2020</meshrdf.year>
+        <meshrdf.year>2021</meshrdf.year>
+        <meshrdf.interim>false</meshrdf.interim>
         <surveyUrl></surveyUrl>
     </properties>
 
@@ -80,7 +81,7 @@
                     <webResources>
                         <resource>
                             <directory>${project.basedir}/src/main/webapp</directory>
-                            <filtering>false</filtering>
+                            <filtering>true</filtering>
                         </resource>
                         <resource>
                             <directory>${project.basedir}/../meta</directory>
@@ -88,10 +89,6 @@
                                 <include>*.ttl</include>
                                 <include>*.owl</include>
                             </includes>
-                        </resource>
-                        <resource>
-                            <directory>${project.basedir}/src/main/filtered</directory>
-                            <filtering>true</filtering>
                         </resource>
                         <resource>
                             <directory>${project.build.directory}/gulp</directory>

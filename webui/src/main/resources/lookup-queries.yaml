@@ -8,11 +8,13 @@ descriptor_exact: |
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
       ?resource a meshv:Descriptor .
-      ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
       ?label bif:contains ?boundstar .
       BIND(LCASE(STR(?label)) AS ?lowerlabel) .
-      FILTER(?lowerlabel = ?bound)
+      FILTER(?lowerlabel = ?bound) .
+      MINUS {
+        ?resource meshv:active "false"^^xsd:boolean .
+      }
     } ORDER BY ?label
 
 descriptor_contains: | 
@@ -25,9 +27,11 @@ descriptor_contains: |
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
       ?resource a meshv:Descriptor .
-      ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
-      ?label bif:contains ?boundstar .      
+      ?label bif:contains ?boundstar .
+      MINUS {
+        ?resource meshv:active "false"^^xsd:boolean .
+      }
     } ORDER BY ?label
 
 descriptor_startswith: |
@@ -40,11 +44,13 @@ descriptor_startswith: |
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
       ?resource a meshv:Descriptor .
-      ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
       ?label bif:contains ?boundstar .
       BIND(LCASE(STR(?label)) AS ?lowerlabel) .
-      FILTER(STRSTARTS(?lowerlabel, ?bound))
+      FILTER(STRSTARTS(?lowerlabel, ?bound)) .
+      MINUS {
+        ?resource meshv:active "false"^^xsd:boolean .
+      }
     } ORDER BY ?label
 
 pair_exact: |
@@ -64,8 +70,10 @@ pair_exact: |
       ?resource a meshv:AllowedDescriptorQualifierPair .
       ?resource meshv:hasDescriptor ?parent .
       ?resource meshv:hasQualifier ?q .
-      ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
+      MINUS {
+         ?resource meshv:active "false"^^xsd:boolean .      
+      }
     } ORDER BY ?label
 
 pair_contains: |
@@ -83,8 +91,10 @@ pair_contains: |
       ?resource a meshv:AllowedDescriptorQualifierPair .
       ?resource meshv:hasDescriptor ?parent .
       ?resource meshv:hasQualifier ?q .
-      ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
+      MINUS {
+         ?resource meshv:active "false"^^xsd:boolean .
+      }
     } ORDER BY ?label
 
 pair_startswith: |
@@ -105,8 +115,10 @@ pair_startswith: |
       ?resource a meshv:AllowedDescriptorQualifierPair .
       ?resource meshv:hasDescriptor ?parent .
       ?resource meshv:hasQualifier ?q .
-      ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
+      MINUS {
+         ?resource meshv:active "false"^^xsd:boolean .
+      }
     } ORDER BY ?label
 
 term_exact: |
@@ -119,11 +131,13 @@ term_exact: |
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
       ?resource a meshv:Term .
-      ?resource meshv:active "true"^^xsd:boolean .
       ?resource meshv:prefLabel ?label .
       ?label bif:contains ?boundstar .
       BIND(LCASE(STR(?label)) AS ?lowerlabel) .
-      FILTER(?lowerlabel = ?bound)
+      FILTER(?lowerlabel = ?bound) .
+      MINUS {
+        ?resource meshv:active "false"^^xsd:boolean .
+      }
     } ORDER BY ?label
 
 term_contains: |
@@ -136,9 +150,11 @@ term_contains: |
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
       ?resource a meshv:Term .
-      ?resource meshv:active "true"^^xsd:boolean .
       ?resource meshv:prefLabel ?label .
       ?label bif:contains ?boundstar .
+      MINUS {
+        ?resource meshv:active "false"^^xsd:boolean .
+      }
     } ORDER BY ?label
 
 term_startswith: |
@@ -151,11 +167,13 @@ term_startswith: |
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
       ?resource a meshv:Term .
-      ?resource meshv:active "true"^^xsd:boolean .
       ?resource meshv:prefLabel ?label .
       ?label bif:contains ?boundstar .
       BIND(LCASE(STR(?label)) AS ?lowerlabel) .
-      FILTER(STRSTARTS(?lowerlabel, ?bound))
+      FILTER(STRSTARTS(?lowerlabel, ?bound)) .
+      MINUS {
+        ?resource meshv:active "false"^^xsd:boolean .
+      }
     } ORDER BY ?label
 
 allowed_qualifiers: |
@@ -169,8 +187,10 @@ allowed_qualifiers: |
       ?parent a meshv:Descriptor .
       ?parent meshv:active "true"^^xsd:boolean .
       ?parent meshv:allowableQualifier ?resource .
-      ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
+      MINUS {
+        ?resource meshv:active "false"^^xsd:boolean .
+      }
     } ORDER BY ?label
 
 label_for_resource: |
@@ -181,20 +201,20 @@ label_for_resource: |
     SELECT ?label
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
-      ?resource meshv:active "true"^^xsd:boolean .
       ?resource rdfs:label ?label .
+      MINUS {
+        ?resource meshv:active "false"^^xsd:boolean .
+      }
     }
 
 descriptor_concepts: |
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-    PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
 
     SELECT ?resource ?label ?preferred
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
-      ?parent meshv:active "true"^^xsd:boolean .
       {
         ?parent meshv:preferredConcept ?resource .
         BIND(xsd:boolean(1) AS ?preferred) .
@@ -206,6 +226,9 @@ descriptor_concepts: |
         }
       }
       ?resource rdfs:label ?label .
+      MINUS {
+        ?parent meshv:active "false"^^xsd:boolean .
+      }
     } ORDER BY DESC(?preferred) ?label
 
 descriptor_terms: |
@@ -217,7 +240,6 @@ descriptor_terms: |
     SELECT ?concept ?resource ?label ?preferred
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
-      ?parent meshv:active "true"^^xsd:boolean .
       {
         ?parent meshv:preferredConcept ?concept .
         ?concept meshv:preferredTerm ?resource .
@@ -232,6 +254,9 @@ descriptor_terms: |
         }
       }
       ?resource meshv:prefLabel ?label .
+      MINUS {
+        ?parent meshv:active "false"^^xsd:boolean .
+      }
     } ORDER BY DESC(?preferred) ?label
 
 descriptor_seealso: |
@@ -243,7 +268,9 @@ descriptor_seealso: |
     SELECT ?resource ?label
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
-      ?parent meshv:active "true"^^xsd:boolean .
       ?parent meshv:seeAlso ?resource .
       ?resource rdfs:label ?label .
+      MINUS {
+        ?parent meshv:active "false"^^xsd:boolean .
+      }
     } ORDER BY ?label

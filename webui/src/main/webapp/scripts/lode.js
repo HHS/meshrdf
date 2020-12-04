@@ -339,8 +339,10 @@ function _buildSparqlPage(element) {
 
     select = $("<select name='year' id='year'></select>")
               .append("<option value='current'>Current</option>");
-    var interimYear = NLM.meshYear + 1;
-    select.append("<option value='"+interimYear+"'>"+interimYear+" (interim)</option>");
+    if (NLM.meshInterim) {
+	    var interimYear = NLM.meshYear + 1;
+	    select.append("<option value='"+interimYear+"'>"+interimYear+" (interim)</option>");
+	}
     for (var i in [0, 1, 2]) {
         var year = NLM.meshYear - i;
         select.append("<option value='"+year+"'>"+year+"</option>");
@@ -1572,7 +1574,8 @@ function renderJson(uri) {
 function _getPrefixes () {
     var prefixes = '';
     if (this.queryNamespaces === undefined) {
-        this.queryNamespaces = buildNamespaces(NLM.meshYear+1, NLM.meshYear - 2);
+        var startYear = NLM.meshInterim ? NLM.meshYear + 1 : NLM.meshYear;
+        this.queryNamespaces = buildNamespaces(startYear, NLM.meshYear - 2);
     }
     for (var prefix in this.queryNamespaces) {
         var uri = this.queryNamespaces[prefix];

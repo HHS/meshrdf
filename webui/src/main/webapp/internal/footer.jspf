@@ -21,7 +21,7 @@
     </div>
     <div class="col-md-5 small">
       <span class="version">
-        Version <%@ include file="/internal/about.html" %>
+        Version ${project.version}
       </span>
     </div>
   </div>

@@ -17,10 +17,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import uk.ac.ebi.fgpt.lode.utils.DatasourceProvider;
 
 @ContextConfiguration(locations = {"classpath:spring-test-context.xml"})
+@WebAppConfiguration
 @Test(groups = "unit")
 public class MeshStatusTest extends AbstractTestNGSpringContextTests {
 

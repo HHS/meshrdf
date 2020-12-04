@@ -47,44 +47,72 @@ public class LookupServiceImpl implements LookupService {
     @Override
     public Collection<ResourceResult> lookupDescriptors(DescriptorParams criteria) throws LodeException {
         String queryId = DESCRIPTOR_QUERY_PREFIX + criteria.getMatch().toString().toLowerCase();
-        return getResourceService().getResources(getQuery(queryId), criteria.getLabel(), criteria.getLimit());
+        return getResourceService().getResources(
+                getQuery(queryId),
+                criteria.getLabel(),
+                criteria.getLimit()
+        );
     }
 
     @Override
     public Collection<ResourceResult> lookupPairs(PairParams criteria) throws LodeException {
         String queryId = PAIR_QUERY_PREFIX + criteria.getMatch().toString().toLowerCase();
-        return getResourceService().getResources(getQuery(queryId), criteria.getLabel(), criteria.getLimit(), criteria.getDescriptor());
+        return getResourceService().getResources(
+                getQuery(queryId),
+                criteria.getLabel(),
+                criteria.getLimit(),
+                criteria.getDescriptor()
+        );
     }
 
     @Override
     public Collection<ResourceResult> lookupTerms(DescriptorParams criteria) throws LodeException {
         String queryId = TERM_QUERY_PREFIX + criteria.getMatch().toString().toLowerCase();
-        return getResourceService().getResources(getQuery(queryId), criteria.getLabel(), criteria.getLimit());
+        return getResourceService().getResources(
+                getQuery(queryId),
+                criteria.getLabel(),
+                criteria.getLimit()
+        );
     }
 
     @Override
     public Collection<ResourceResult> allowedQualifiers(String descriptorUri) throws LodeException {
-        return getResourceService().getChildResources(getQuery(ALLOWED_QUALIFERS_ID), descriptorUri);
+        return getResourceService().getChildResources(
+                getQuery(ALLOWED_QUALIFERS_ID),
+                descriptorUri
+        );
     }
 
     @Override
     public Collection<String> lookupLabel(String resourceUri) throws LodeException {
-        return getResourceService().getResourceLabels(getQuery(RESOURCE_LABEL_ID), resourceUri);
+        return getResourceService().getResourceLabels(
+                getQuery(RESOURCE_LABEL_ID),
+                resourceUri
+        );
     }
 
     @Override
     public Collection<ResourceResult> lookupDescriptorConcepts(String descriptorUri) throws LodeException {
-        return getResourceService().getChildResources(getQuery(DESCRIPTOR_CONCEPTS_ID), descriptorUri);
+        return getResourceService().getChildResources(
+                getQuery(DESCRIPTOR_CONCEPTS_ID),
+                descriptorUri
+        );
     }
 
     @Override
     public Collection<ResourceResult> lookupDescriptorTerms(String descriptorUri) throws LodeException {
-        return getResourceService().getChildResources(getQuery(DESCRIPTOR_TERMS_ID), descriptorUri);
+        return getResourceService().getChildResources(
+                getQuery(DESCRIPTOR_TERMS_ID),
+                descriptorUri
+        );
     }
 
     @Override
     public Collection<ResourceResult> lookupDescriptorSeeAlso(String descriptorUri) throws LodeException {
-        return getResourceService().getChildResources(getQuery(DESCRIPTOR_SEEALSO_ID), descriptorUri);
+        return getResourceService().getChildResources(
+                getQuery(DESCRIPTOR_SEEALSO_ID),
+                descriptorUri
+        );
     }
 
     public Resource getQueryResource() {
@@ -96,14 +124,38 @@ public class LookupServiceImpl implements LookupService {
         this.queryResource = resource;
     }
 
-    public synchronized String getQuery(final String queryId) throws LodeException {
-        Object query = getQueryMap().get(queryId);
+    public String getGraphUri(final String year) {
+        if (year.equals("current")) {
+            return "http://id.nlm.nih.gov/mesh";
+        } else if (year.matches("[0-9]+")) {
+            return String.format("http://id.nlm.nih.gov/mesh/%s", year);
+        } else if (year.equals("interim")) {
+            return "http://id.nlm.nih.gov/mesh";
+        } else {
+            throw new IllegalArgumentException(
+                String.format("mesh year `%s` is invalid", year)
+            );
+        }
+    }
+
+    public String getQuery(final String queryId) throws LodeException {
+        return this.getQuery(queryId, null);
+    }
+
+    public synchronized String getQuery(final String queryId, final String graphUri) throws LodeException {
+        String query = (String)getQueryMap().get(queryId);
         if (query == null) {
             throw new LodeException(String.format("%s: query not found", queryId));
         } else if (!(query instanceof String)) {
             throw new LodeException(String.format("%s: query not a String", queryId));
         }
-        return (String) query;
+        if (graphUri != null) {
+            query = query.replace(
+                    "FROM <http://id.nlm.nih.gov/mesh>",
+                    String.format("FROM <%s>", graphUri)
+            );
+        }
+        return query;
     }
 
     public synchronized final Map<String,Object> getQueryMap() throws LodeException {
