@@ -12,7 +12,7 @@
     <parent>
         <groupId>gov.nih.nlm.lode</groupId>
         <artifactId>meshrdf</artifactId>
-        <version>1.1.9</version>
+        <version>1.1.10-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -23,8 +23,9 @@
         <updateMaxSeconds>10800</updateMaxSeconds>
         <logPrefix></logPrefix>
         <gtmcode>GTM-PCV9JFW</gtmcode>
-        <meshrdf.year>2021</meshrdf.year>
-        <meshrdf.interim>false</meshrdf.interim>
+        <!-- Temporary set back to develop API -->
+        <meshrdf.year>2020</meshrdf.year>
+        <meshrdf.interim>true</meshrdf.interim>
         <surveyUrl></surveyUrl>
     </properties>
 
