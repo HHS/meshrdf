@@ -59,14 +59,14 @@ This saves the XML files to the `data` subdirectory of `$MESHRDF_HOME`.
 
 By default, it downloads the following:
 
-* `desc2020.xml`
-* `qual2020.xml`
-* `supp2020.xml`
+* `desc2021.xml`
+* `qual2021.xml`
+* `supp2021.xml`
 
 If you want to download a different year's data, use the `-y` argument when executing the script.
 For example:
 
-    bin/fetch-mesh-xml.sh -y 2016
+    bin/fetch-mesh-xml.sh -y 2019
 
 When downloading a year less than or equal to 2015, `bin/fetch-mesh-xml.sh` will also download the DTDs.
 For example:
@@ -117,7 +117,7 @@ Ofloxacin would have the URI `http://id.nlm.nih.gov/mesh/D015242`.
 As with the fetch script, described above, you can use the `-y` argument to
 specify that it convert a different set of data files. For example:
 
-    bin/mesh-xml2rdf.sh -y 2016
+    bin/mesh-xml2rdf.sh -y 2019
 
 This uses the 2016 data files to produce the "current" RDF output files `out/mesh.nt`
 and `out/mesh.nt.gz`.
@@ -125,10 +125,10 @@ and `out/mesh.nt.gz`.
 To produce RDF data that has URIs with the year, you should also use the `-u` argument.
 For example, the following generates RDF URIs that include the year:
 
-    bin/mesh-xml2rdf.sh -y 2016 -u
+    bin/mesh-xml2rdf.sh -y 2019 -u
 
-In this case, the output data files will be written to `out/2016/mesh2016.nt` and
-`out/2015/mesh2016.nt.gz`.
+In this case, the output data files will be written to `out/2016/mesh2019.nt` and
+`out/2015/mesh2019.nt.gz`.
 
 ### URI preservation and versioning
 
