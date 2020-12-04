@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   description: "Sparql Endpoint and Lookup service for MeSH RDF"
-  version: "1.0.0"
+  version: "1.0.1"
   title: "MeSH RDF API"
 host: "localhost:8080"
 basePath: "/mesh"
