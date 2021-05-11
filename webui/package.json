@@ -41,7 +41,7 @@
     "gulp-stylelint": "^13.0.0",
     "gulp-wrap": "^0.15.0",
     "jshint": "^2.12.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "merge-stream": "^2.0.0",
     "stylelint": ">=13.7.0",
     "stylelint-config-recommended": "^3.0.0"
