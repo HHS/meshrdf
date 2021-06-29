@@ -131,13 +131,13 @@
                 <executions>
                     <!-- Ensure that npm install is run during the build -->
                     <execution>
-                        <id>npm install (initialization)</id>
+                        <id>yarn install (initialization)</id>
                         <phase>initialize</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>npm</executable>
+                            <executable>yarn</executable>
                             <arguments>
                                 <argument>install</argument>
                             </arguments>
@@ -145,13 +145,13 @@
                     </execution>
                     <!--  Ensure that npm build is run during build -->
                     <execution>
-                        <id>npm build (compile)</id>
+                        <id>yarn build (compile)</id>
                         <phase>compile</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>npm</executable>
+                            <executable>yarn</executable>
                             <arguments>
                                 <argument>run</argument>
                                 <argument>build</argument>
