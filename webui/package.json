@@ -17,10 +17,10 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "3.4.1",
-    "codemirror": "5.57.0",
+    "codemirror": "^5.62.0",
     "es6-object-assign": "1.1.0",
     "font-awesome": "4.7.0",
-    "handlebars": "4.7.6",
+    "handlebars": "^4.7.7",
     "jquery": "3.5.0",
     "jquery-ui-dist": "1.12.1",
     "url-polyfill": "1.1.7"
@@ -29,7 +29,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "del": "^5.1.0",
-    "gulp": "^4.0.0",
+    "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-declare": "^0.3.0",
