@@ -4,9 +4,9 @@
   "description": "A version of Lodestar customized by NLM for MeSH RDF",
   "main": "gulpfile.js",
   "scripts": {
-    "clean": "node node_modules/gulp/bin/gulp.js --no-color clean",
-    "build": "node node_modules/gulp/bin/gulp.js --no-color build",
-    "lint": "node node_modules/gulp/bin/gulp.js --no-color lint",
+    "clean": "gulp --no-color clean",
+    "build": "gulp --no-color build",
+    "lint": "gulp --no-color lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,7 +29,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "del": "^5.1.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-declare": "^0.3.0",
@@ -45,6 +45,10 @@
     "merge-stream": "^2.0.0",
     "stylelint": ">=13.7.0",
     "stylelint-config-recommended": "^3.0.0"
+  },
+  "resolutions": {
+    "glob-parent": "^5.1.2",
+    "yargs-parser": "^13.1.2"
   },
   "bugs": {
     "url": "https://github.com/HHS/meshrdf/issues"
