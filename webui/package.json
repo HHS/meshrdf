@@ -47,7 +47,8 @@
     "stylelint-config-recommended": "^3.0.0"
   },
   "resolutions": {
-    "glob-parent": "^5.1.2"
+    "glob-parent": "^5.1.2",
+    "yargs-parser": "^13.1.2"
   },
   "bugs": {
     "url": "https://github.com/HHS/meshrdf/issues"
