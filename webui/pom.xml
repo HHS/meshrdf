@@ -23,9 +23,8 @@
         <updateMaxSeconds>10800</updateMaxSeconds>
         <logPrefix></logPrefix>
         <gtmcode>GTM-PCV9JFW</gtmcode>
-        <!-- Temporary set back to develop API -->
-        <meshrdf.year>2020</meshrdf.year>
-        <meshrdf.interim>true</meshrdf.interim>
+        <meshrdf.year>2021</meshrdf.year>
+        <meshrdf.interim>false</meshrdf.interim>
         <surveyUrl></surveyUrl>
     </properties>
 
