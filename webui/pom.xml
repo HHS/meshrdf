@@ -137,8 +137,9 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>yarn</executable>
+                            <executable>npx</executable>
                             <arguments>
+                                <argument>yarn</argument>
                                 <argument>install</argument>
                             </arguments>
                         </configuration>
@@ -151,8 +152,9 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>yarn</executable>
+                            <executable>npx</executable>
                             <arguments>
+                                <argument>yarn</argument>
                                 <argument>run</argument>
                                 <argument>build</argument>
                             </arguments>
