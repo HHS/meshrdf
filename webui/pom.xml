@@ -131,30 +131,28 @@
                 <executions>
                     <!-- Ensure that npm install is run during the build -->
                     <execution>
-                        <id>yarn install (initialization)</id>
+                        <id>npm install (initialization)</id>
                         <phase>initialize</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>npx</executable>
+                            <executable>npm</executable>
                             <arguments>
-                                <argument>yarn</argument>
                                 <argument>install</argument>
                             </arguments>
                         </configuration>
                     </execution>
                     <!--  Ensure that npm build is run during build -->
                     <execution>
-                        <id>yarn build (compile)</id>
+                        <id>npm build (compile)</id>
                         <phase>compile</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>npx</executable>
+                            <executable>npm</executable>
                             <arguments>
-                                <argument>yarn</argument>
                                 <argument>run</argument>
                                 <argument>build</argument>
                             </arguments>
