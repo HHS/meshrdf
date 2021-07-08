@@ -6,6 +6,6 @@ public interface ConfigService {
     public static final int MESHRDF_MINYEAR = 2015;
 
     public int getMeshYear();
-    public Integer getInterimYear(int meshYear);
+    public Integer getInterimYear();
     public ValidYears getValidYears();
 }

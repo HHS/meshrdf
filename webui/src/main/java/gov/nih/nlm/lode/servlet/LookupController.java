@@ -113,27 +113,37 @@ public class LookupController {
         return mv;
     }
 
+    protected void massageCriteria(DescriptorParams criteria) {
+        if (criteria.getYear() == "interim") {
+            Integer year = config.getInterimYear();
+            criteria.setYear(year != null ? year.toString() : null);
+        }
+    }
+
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/descriptor", produces="application/json")
     public Collection<ResourceResult> lookupDescriptors(@Valid DescriptorParams criteria) throws QueryParseException, LodeException, IOException {
-        log.info(String.format("get descriptor criteria label=%s, rel=%s, limit=%s",
-                criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
+        log.info(String.format("get descriptor criteria label=%s, rel=%s, year=%s, limit=%s",
+                criteria.getLabel(), criteria.getMatch(), criteria.getYear(), criteria.getLimit()));
+        massageCriteria(criteria);
         return getService().lookupDescriptors(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/descriptor", produces="application/json", consumes="application/json")
     public Collection<ResourceResult> lookupDescriptorsJson(@Valid @RequestBody DescriptorParams criteria) throws LodeException {
-        log.info(String.format("post descriptor criteria label=%s, rel=%s, limit=%s",
-                criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
+        log.info(String.format("post descriptor criteria label=%s, rel=%s, year=%s, limit=%s",
+                criteria.getLabel(), criteria.getMatch(), criteria.getYear(), criteria.getLimit()));
+        massageCriteria(criteria);
         return getService().lookupDescriptors(criteria);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(path="/descriptor", produces="application/json", consumes="application/x-www-form-urlencoded")
     public Collection<ResourceResult> lookupDescriptorsForm(@Valid DescriptorParams criteria) throws LodeException {
-        log.info(String.format("post descriptor criteria label=%s, rel=%s, limit=%s",
-                criteria.getLabel(), criteria.getMatch(), criteria.getLimit()));
+        log.info(String.format("post descriptor criteria label=%s, rel=%s, year=%s, limit=%s",
+                criteria.getLabel(), criteria.getMatch(), criteria.getYear(), criteria.getLimit()));
+        massageCriteria(criteria);
         return getService().lookupDescriptors(criteria);
     }
 

@@ -101,7 +101,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
         assertThat(mockService.count, equalTo(1));
         assertThat(mockService.desc.getLabel(), equalTo("fubar"));
         assertThat(mockService.desc.getMatch(), equalTo(LabelMatch.CONTAINS));
-        assertThat(mockService.desc.getYear(), equalTo("interim"));
+        assertThat(mockService.desc.getYear(), equalTo("2019"));
         assertThat(mockService.desc.getLimit(), equalTo(10));
     }
 
