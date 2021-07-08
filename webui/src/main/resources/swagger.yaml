@@ -91,6 +91,12 @@ paths:
           default: "exact"
           enum: ["exact", "contains", "startswith"]
         - in: "query"
+          name: "year"
+          description: "Which year to query"
+          type: "string"
+          default: "current"
+          enum: ["current", "interim", "2021", "2020", "2019"]
+        - in: "query"
           name: "limit"
           description: "Specifies the maximum number of matches to return."
           type: "integer"
