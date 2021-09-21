@@ -47,8 +47,10 @@ public class LookupServiceImpl implements LookupService {
     @Override
     public Collection<ResourceResult> lookupDescriptors(DescriptorParams criteria) throws LodeException {
         String queryId = DESCRIPTOR_QUERY_PREFIX + criteria.getMatch().toString().toLowerCase();
+        String graphUri = getGraphUri(criteria.getYear());
+        String queryString = getQuery(queryId, graphUri);
         return getResourceService().getResources(
-                getQuery(queryId),
+                queryString,
                 criteria.getLabel(),
                 criteria.getLimit()
         );

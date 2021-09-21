@@ -36,8 +36,9 @@ public class ConfigServiceImpl implements ConfigService {
     }
 
     @Override
-    public Integer getInterimYear(int meshYear) {
+    public Integer getInterimYear() {
         // check whether there is a container parameter
+        int meshYear = getMeshYear();
         Object value = ServletUtils.getParameter(servletContext, MESHRDF_INTERIM);
         if (value != null && BooleanUtils.toBoolean((String) value)) {
             return meshYear+1;
@@ -47,8 +48,18 @@ public class ConfigServiceImpl implements ConfigService {
 
     @Override
     public ValidYears getValidYears() {
-        int current = this.getMeshYear();
-        Integer interim = this.getInterimYear(current);
-        return new ValidYears(current, interim);
+        int current = getMeshYear();
+        Integer interim = this.getInterimYear();
+        ValidYears validYears = new ValidYears(current, interim);
+        if (interim != null) {
+            validYears.setYears(new Integer[] {
+                interim, current, current - 1, current - 2
+            });
+        } else {
+            validYears.setYears(new Integer[] {
+                current, current - 1, current - 2
+            });
+        }
+        return validYears;
     }
 }
