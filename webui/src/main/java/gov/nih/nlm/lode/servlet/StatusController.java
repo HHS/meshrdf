@@ -44,7 +44,7 @@ public class StatusController {
             status.check();
 
             resp.setContentType("application/json; charset=UTF-8");
-            if (status.getStatusCode() != MeshStatus.STATUS_OK) {
+            if (status.getStatusCode() == MeshStatus.STATUS_ERROR) {
                 resp.setStatus(status.getStatusCode());
                 if (status.isUpdating()) {
                     resp.addHeader("Retry-After", "300");
