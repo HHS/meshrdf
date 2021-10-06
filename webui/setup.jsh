@@ -20,6 +20,9 @@ import uk.ac.ebi.fgpt.lode.utils.DatasourceProvider;
 
 import gov.nih.nlm.lode.data.VirtuosoSimpleDatasourceProvider;
 
+System.setProperty("catalina.base", "target");
+new File("target/logs").mkdirs();
+
 var yaml = new Yaml();
 var mapper = new ObjectMapper();
 var pretty = mapper.writerWithDefaultPrettyPrinter();
