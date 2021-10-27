@@ -1371,11 +1371,16 @@ function renderRelatedToObjects(element) {
                                 }
                             }
                             else {
+                                var describeThisUri = lodestarDescribeUrl + "?uri=" + encodeURIComponent(uri);
+                                if (uri.match(/https?:\/\/id\.nlm\.nih\.gov\/mesh\//)) {
+                                    var parsed = new URL(uri);
+                                    describeThisUri = document.location.origin + parsed.pathname;
+                                }
                                 if (maxReached) {
-                                    list.append("<li style='display:none'><a href='"+lodestarDescribeUrl+"?uri=" + encodeURIComponent(uri) + "'>"+  label +"</a></li>");
+                                    list.append("<li style='display:none'><a href='"+ describeThisUri +"'>"+ label +" </a></li>");
                                 }
                                 else {
-                                    list.append("<li><a href='"+lodestarDescribeUrl+"?uri=" + encodeURIComponent(uri) + "'>"+  label +"</a></li>");
+                                    list.append("<li><a href='"+ describeThisUri +"'>"+ label +"</a></li>");
                                 }
                             }
                         }
@@ -1501,11 +1506,16 @@ function renderRelatedFromSubjects(element) {
                                 }
                             }
                             else {
+                                var describeThisUri = lodestarDescribeUrl + "?uri=" + encodeURIComponent(uri);
+                                if (uri.match(/https?:\/\/id\.nlm\.nih\.gov\/mesh\//)) {
+                                    var parsed = new URL(uri);
+                                    describeThisUri = document.location.origin + parsed.pathname;
+                                }
                                 if (maxReached) {
-                                    list.append("<li style='display:none'><a href='"+lodestarDescribeUrl+"?uri=" + encodeURIComponent(uri) + "'>"+  label +"</a></li>");
+                                    list.append("<li style='display:none'><a href='"+ describeThisUri +"'>"+ label +"</a></li>");
                                 }
                                 else {
-                                    list.append("<li><a href='"+lodestarDescribeUrl+"?uri=" + encodeURIComponent(uri) + "'>"+  label +"</a></li>");
+                                    list.append("<li><a href='"+ describeThisUri +"'>"+ label +"</a></li>");
                                 }
                             }
                         }
