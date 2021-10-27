@@ -833,10 +833,16 @@ function _hrefBuilder(uri, label, internal) {
 
     }
     else {
-        a.attr('href', uri);
-        a.attr('title', uri);
-        a.attr('target', 'blank');
-
+        if (uri.match(/^(https?|ftp|mailto|irc|gopher|news):/)) {
+            a.attr('href', uri);
+            a.attr('title', uri);
+            a.attr('target', 'blank');
+        } else {
+            console.log('Unsupported uri', uri);
+            a.attr('href', '#');
+            a.attr('title', uri);
+            a.attr('target', 'blank');
+        }
     }
     a.attr('class', className);
     a.text(label);
