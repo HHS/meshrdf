@@ -16,7 +16,7 @@ public class MeshYearValidator implements
     public boolean isValid(String meshYear,
       ConstraintValidatorContext cxt) {
         if (meshYear == null)
-            return false;
+            return true;
         return meshYear.matches("[0-9]+") ||
                meshYear.equals("current") ||
                meshYear.equals("interim");

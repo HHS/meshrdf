@@ -37,9 +37,15 @@
   </rule>
 
   <rule>
-    <name>query-to-jsp</name>
-    <from casesensitive="true">^/query$</from>
-    <to last='true'>/query.jsp</to>
+    <name>query-to-editor</name>
+    <from casesensitive="true">^/query/?$</from>
+    <to last='true'>/servlet/editor</to>
+  </rule>
+
+  <rule>
+    <name>query-to-editor-submit</name>
+    <from casesensitive="true">^/query/?\?(.*)$</from>
+    <to last='true'>/servlet/editor?$1</to>
   </rule>
 
   <rule>
