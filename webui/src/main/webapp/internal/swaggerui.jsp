@@ -43,6 +43,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.23.1/swagger-ui-standalone-preset.js"></script>
     <script id="swagger-start">
     window.onload = function() {
+
+      // If the user provide search parameters/query part,
+      // strip them and redirect.
+      var url = new URL(document.location.href);
+      if (url.search !== "") {
+        document.location.href = url.origin + url.pathname + url.hash;
+        // NEVER REACHED
+      }
+
       // Begin Swagger UI call region
       const ui = SwaggerUIBundle({
         url: "${specUri}",
