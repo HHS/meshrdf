@@ -28,6 +28,8 @@ public class LodeBaseTest extends SeleniumTest {
   public String getLodeBaseUrl() {
     if (baseUrl == null || baseUrl.equals("")) {
       return "https://iddev.nlm.nih.gov/mesh";
+    } else if (baseUrl.endsWith("/")) {
+      return baseUrl.substring(0, baseUrl.length() - 1);
     } else {
       return baseUrl;
     }
@@ -125,7 +127,7 @@ public class LodeBaseTest extends SeleniumTest {
   }
 
   public void openHomePage() {
-    driver.get(getLodeBaseUrl());
+      driver.get(getLodeBaseUrl());
   }
 
   public String getQueryPageUrl() {
