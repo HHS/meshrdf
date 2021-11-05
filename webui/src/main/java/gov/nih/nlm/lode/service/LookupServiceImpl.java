@@ -13,12 +13,12 @@ import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 
 import gov.nih.nlm.lode.model.DescriptorParams;
+import gov.nih.nlm.lode.model.ConfigService;
 import gov.nih.nlm.lode.model.JenaResourceService;
 import gov.nih.nlm.lode.model.LookupService;
 import gov.nih.nlm.lode.model.PairParams;
 import gov.nih.nlm.lode.model.ResourceResult;
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
-
 
 /**
  * Responsible for looking up the URIs of descriptors, DQPairs, etc.
@@ -41,8 +41,9 @@ public class LookupServiceImpl implements LookupService {
 
     private Resource queryResource;
     private Map<String,Object> queryMap;
-    private JenaResourceService resourceService;
 
+    private ConfigService configService;
+    private JenaResourceService resourceService;
 
     @Override
     public Collection<ResourceResult> lookupDescriptors(DescriptorParams criteria) throws LodeException {
@@ -129,10 +130,16 @@ public class LookupServiceImpl implements LookupService {
     public String getGraphUri(final String year) {
         if (year.equals("current")) {
             return "http://id.nlm.nih.gov/mesh";
+        } else if (year.equals("interim")) {
+            Integer interim = configService.getValidYears().getInterim();
+            if (interim == null) {
+                throw new IllegalArgumentException(
+                    String.format("mesh year `%s` is invalid", year)
+                );
+            }
+            return String.format("http://id.nlm.nih.gov/mesh/%d", interim);
         } else if (year.matches("[0-9]+")) {
             return String.format("http://id.nlm.nih.gov/mesh/%s", year);
-        } else if (year.equals("interim")) {
-            return "http://id.nlm.nih.gov/mesh";
         } else {
             throw new IllegalArgumentException(
                 String.format("mesh year `%s` is invalid", year)
@@ -176,9 +183,15 @@ public class LookupServiceImpl implements LookupService {
     public JenaResourceService getResourceService() {
         return resourceService;
     }
-
     @Autowired
     public void setResourceService(JenaResourceService resourceService) {
         this.resourceService = resourceService;
+    }
+    public ConfigService getConfigService() {
+        return configService;
+    }
+    @Autowired
+    public void setConfigService(ConfigService configService) {
+        this.configService = configService;
     }
  }

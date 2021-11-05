@@ -1,5 +1,8 @@
 package gov.nih.nlm.lode.servlet;
 
+import static gov.nih.nlm.lode.utils.SwaggerUtil.getParameter;
+
+import java.lang.ClassCastException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +29,8 @@ import org.yaml.snakeyaml.Yaml;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import uk.ac.ebi.fgpt.lode.exception.LodeException;
+import gov.nih.nlm.lode.model.ConfigService;
+
 
 @RestController
 @RequestMapping(path="swagger")
@@ -36,11 +41,18 @@ public class SwaggerController {
     @Value("${lode.swagger:classpath:swagger.yaml}")
     private Resource swaggerResource;
 
+    private ConfigService config;
+
     /* Default is for testing  */
     @Autowired(required = false)
     private ServletContext servletContext = null;
 
     private Map<String,Object> swaggerData = null;
+
+    @Autowired
+    public SwaggerController(ConfigService config) {
+        this.config = config;
+    }
 
     @GetMapping
     public void redirectToUi(HttpServletRequest request, HttpServletResponse response) {
@@ -59,6 +71,8 @@ public class SwaggerController {
         return mv;
     }
 
+
+
     @GetMapping(path="swagger", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
     public @ResponseBody void swaggerSpec(HttpServletRequest request, HttpServletResponse response) throws IOException, LodeException {
         /* get clone of swagger spec */
@@ -73,6 +87,11 @@ public class SwaggerController {
             swaggerSpec.put("host", host);
         }
         swaggerSpec.put("baseUri", getContextPath());
+
+        /* Modify year Param */
+        Map<String, Object> year = getParameter(swaggerSpec, "/lookup/descriptor", "get", "year");
+        if (year != null) {
+            year.put("enum", config.getValidYears().dropdownValues());        }
 
         /* Write that data as JSON */
         ObjectMapper mapper = new ObjectMapper();

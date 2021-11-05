@@ -546,7 +546,9 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
         mvc.perform(request)
            .andExpect(status().isOk())
            .andExpect(content().contentType("application/json;charset=UTF-8"))
-           .andExpect(jsonPath("$.current").value(2018))
-           .andExpect(jsonPath("$.interim").value(2019));
+           .andExpect(jsonPath("$[0]").value("current"))
+           .andExpect(jsonPath("$[1]").value("interim"))
+           .andExpect(jsonPath("$[2]").value("2019"))
+           .andExpect(jsonPath("$[3]").value("2018"));
     }
 }

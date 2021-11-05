@@ -9,6 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
+import org.springframework.mock.web.MockServletContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -18,6 +19,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import gov.nih.nlm.lode.model.ConfigService;
+import gov.nih.nlm.lode.service.ConfigServiceImpl;
 import gov.nih.nlm.lode.servlet.SwaggerController;
 
 /**
@@ -30,10 +33,16 @@ import gov.nih.nlm.lode.servlet.SwaggerController;
 public class SwaggerControllerTest extends AbstractTestNGSpringContextTests {
 
     private MockMvc mvc;
+    private MockServletContext context;
+    private ConfigService mockConfig;
 
     @BeforeClass(groups = "unit")
     public void setUp() {
-        SwaggerController controller = new SwaggerController();
+        context = new MockServletContext();
+        context.setInitParameter(ConfigService.MESHRDF_YEAR, "2018");
+        context.setInitParameter(ConfigService.MESHRDF_INTERIM, "true");
+        mockConfig = new ConfigServiceImpl(context);
+        SwaggerController controller = new SwaggerController(mockConfig);
         Resource swaggerSpec = new InputStreamResource(getClass().getClassLoader().getResourceAsStream("swagger.yaml"));
         controller.setSwaggerResource(swaggerSpec);
         mvc = MockMvcBuilders.standaloneSetup(controller).build();

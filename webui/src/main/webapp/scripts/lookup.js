@@ -13,6 +13,25 @@
     history.pushState(state, '', queryString);
   }
 
+  function populateYears() {
+    var years;
+    if (NLM.meshInterim) {
+      years = [
+        "current",
+        "interim",
+        NLM.meshYear + 1, 
+        NLM.meshYear, NLM.meshYear - 1, NLM.meshYear - 2
+      ];
+    } else {
+      years = [
+        "current",
+        NLM.meshYear, NLM.meshYear - 1, NLM.meshYear - 2
+      ];
+    }
+    var htmlText = Handlebars.templates.yearsOptions({years: years});
+    $('#descriptor form select').html(htmlText);
+  }
+
   $(document).ready(function() {
     var autocompleteDataKey = 'mrdfAuto';
     var descriptorKey = 'mrdfDescriptor';
@@ -21,6 +40,8 @@
     var $descForm = $('#descriptor form');
     var $descResults = $('#descriptor .results');
     var $descSpinner = $('#descriptor .spinner');
+
+    populateYears();
 
     function handlerFor($spinner, $results) {
       return function(xhr) {
@@ -102,12 +123,13 @@
       });
     };
 
-    var lookupDescriptorExact = function(label) {
+    var lookupDescriptorExact = function(label, year) {
       $.ajax({
         url: $descForm.attr('action'),
         data: {
           match: 'exact',
           label: label,
+          year: year,
         },
         success: function(response) {
           // double check that there are matches
@@ -133,8 +155,9 @@
       $descForm.removeData(submitDataKey);
       ev.preventDefault();
       var labelValue = $descForm.find("input[name=label]").val();
-      mergeState({label: labelValue});
-      lookupDescriptorExact(labelValue);
+      var yearValue = $descForm.find("select[name=year]").val();
+      mergeState({label: labelValue, year: yearValue});
+      lookupDescriptorExact(labelValue, yearValue);
     });
 
     var $pairForm = $('#pair form');

@@ -320,13 +320,12 @@ paths:
           description: "current and interim years"
           examples:
             application/json:
-              current: 2020
-              interim: 2021
-              years:
-               - 2021
-               - 2020
-               - 2019
-               - 2018
+               - current
+               - "interim"
+               - "2021"
+               - "2020"
+               - "2019"
+               - "2018"
   /lookup/label:
     get:
       summary: "Return the label or labels for a Resource URI."
