@@ -22,6 +22,7 @@ import uk.ac.ebi.fgpt.lode.utils.GraphQueryFormats;
 import uk.ac.ebi.fgpt.lode.utils.TupleQueryFormats;
 
 import gov.nih.nlm.lode.data.VirtuosoSimpleDatasourceProvider;
+import gov.nih.nlm.lode.util.SwaggerUtil;
 
 System.setProperty("catalina.base", "target");
 new File("target/logs").mkdirs();

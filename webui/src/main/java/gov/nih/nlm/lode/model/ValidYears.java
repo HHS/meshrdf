@@ -1,5 +1,8 @@
 package gov.nih.nlm.lode.model;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -43,6 +46,18 @@ public class ValidYears {
     }
     public void setYears(Integer[] years) {
         this.years = years;
+    }
+    
+    public List<String> dropdownValues() {
+        ArrayList<String> values = new ArrayList<String>();
+        values.add("current");
+        if (interim != null) {
+            values.add("interim");
+        }
+        for (Integer year : years) {
+            values.add(year.toString());
+        }
+        return values;
     }
 
     /* overrides */
