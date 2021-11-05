@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<%= resourcePrefix %>jquery-ui/jquery-ui.min.css"/>
     <link rel="stylesheet" href="<%= resourcePrefix %>css/lookup.css"/>
     <link rel="stylesheet" href="<%= resourcePrefix %>css/loader.css"/>
+    <lodestar:nlmconfig/>
     <lodestar:gtmscript/>
   </head>
 
