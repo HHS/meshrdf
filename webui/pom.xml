@@ -24,7 +24,7 @@
         <logPrefix></logPrefix>
         <gtmcode>GTM-PCV9JFW</gtmcode>
         <meshrdf.year>2021</meshrdf.year>
-        <meshrdf.interim>true</meshrdf.interim>
+        <meshrdf.interim>false</meshrdf.interim>
         <surveyUrl></surveyUrl>
     </properties>
 
