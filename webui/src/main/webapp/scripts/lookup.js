@@ -61,7 +61,7 @@
       },
       select: function(ev, ui) {
         $descForm.data(descriptorKey, ui.item);
-        $descForm.trigger('submit');
+        // $descForm.trigger('submit');
       },
       source: function(request, callback) {
         $descForm.removeData(autocompleteDataKey);

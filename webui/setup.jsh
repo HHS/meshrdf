@@ -1,6 +1,8 @@
 /open DEFAULT
 /open PRINTING
 
+import java.util.regex.Pattern;
+
 import org.apache.jena.graph.Graph;
 import org.apache.jena.query.ParameterizedSparqlString;
 import org.apache.jena.query.Query;
@@ -22,7 +24,7 @@ import uk.ac.ebi.fgpt.lode.utils.GraphQueryFormats;
 import uk.ac.ebi.fgpt.lode.utils.TupleQueryFormats;
 
 import gov.nih.nlm.lode.data.VirtuosoSimpleDatasourceProvider;
-import gov.nih.nlm.lode.util.SwaggerUtil;
+import gov.nih.nlm.lode.utils.SwaggerUtil;
 
 System.setProperty("catalina.base", "target");
 new File("target/logs").mkdirs();

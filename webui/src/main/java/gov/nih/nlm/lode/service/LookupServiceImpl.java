@@ -3,6 +3,8 @@ package gov.nih.nlm.lode.service;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,11 +41,15 @@ public class LookupServiceImpl implements LookupService {
     public static final String DESCRIPTOR_SEEALSO_ID = "descriptor_seealso";
     public static final String DESCRIPTOR_TERMS_ID = "descriptor_terms";
 
+    public static final String GRAPH_EXPR = "(http:\\/\\/id\\.nlm\\.nih\\.gov\\/mesh\\/2[0-9]{3})\\/.*";
+
     private Resource queryResource;
     private Map<String,Object> queryMap;
 
     private ConfigService configService;
     private JenaResourceService resourceService;
+
+    private Pattern graphPattern = Pattern.compile(GRAPH_EXPR);
 
     @Override
     public Collection<ResourceResult> lookupDescriptors(DescriptorParams criteria) throws LodeException {
@@ -60,11 +66,14 @@ public class LookupServiceImpl implements LookupService {
     @Override
     public Collection<ResourceResult> lookupPairs(PairParams criteria) throws LodeException {
         String queryId = PAIR_QUERY_PREFIX + criteria.getMatch().toString().toLowerCase();
+        String descriptorUri = criteria.getDescriptor();
+        String graphUri = getGraphUriFromResource(descriptorUri);
+        String queryString = getQuery(queryId, graphUri);
         return getResourceService().getResources(
-                getQuery(queryId),
+                queryString,
                 criteria.getLabel(),
                 criteria.getLimit(),
-                criteria.getDescriptor()
+                descriptorUri
         );
     }
 
@@ -80,40 +89,50 @@ public class LookupServiceImpl implements LookupService {
 
     @Override
     public Collection<ResourceResult> allowedQualifiers(String descriptorUri) throws LodeException {
+        String graphUri = getGraphUriFromResource(descriptorUri);
+        String queryString = getQuery(ALLOWED_QUALIFERS_ID, graphUri);
         return getResourceService().getChildResources(
-                getQuery(ALLOWED_QUALIFERS_ID),
+                queryString,
                 descriptorUri
         );
     }
 
     @Override
     public Collection<String> lookupLabel(String resourceUri) throws LodeException {
+        String graphUri = getGraphUriFromResource(resourceUri);
+        String queryString = getQuery(RESOURCE_LABEL_ID, graphUri);
         return getResourceService().getResourceLabels(
-                getQuery(RESOURCE_LABEL_ID),
+                queryString,
                 resourceUri
         );
     }
 
     @Override
     public Collection<ResourceResult> lookupDescriptorConcepts(String descriptorUri) throws LodeException {
+        String graphUri = getGraphUriFromResource(descriptorUri);
+        String queryString = getQuery(DESCRIPTOR_CONCEPTS_ID, graphUri);
         return getResourceService().getChildResources(
-                getQuery(DESCRIPTOR_CONCEPTS_ID),
+                queryString,
                 descriptorUri
         );
     }
 
     @Override
     public Collection<ResourceResult> lookupDescriptorTerms(String descriptorUri) throws LodeException {
+        String graphUri = getGraphUriFromResource(descriptorUri);
+        String queryString = getQuery(DESCRIPTOR_TERMS_ID, graphUri);
         return getResourceService().getChildResources(
-                getQuery(DESCRIPTOR_TERMS_ID),
+                queryString,
                 descriptorUri
         );
     }
 
     @Override
     public Collection<ResourceResult> lookupDescriptorSeeAlso(String descriptorUri) throws LodeException {
+        String graphUri = getGraphUriFromResource(descriptorUri);
+        String queryString = getQuery(DESCRIPTOR_SEEALSO_ID, graphUri);
         return getResourceService().getChildResources(
-                getQuery(DESCRIPTOR_SEEALSO_ID),
+                queryString,
                 descriptorUri
         );
     }
@@ -125,6 +144,15 @@ public class LookupServiceImpl implements LookupService {
     @Value("${lode.lookup.queries:classpath:lookup-queries.yaml}")
     public void setQueryResource(Resource resource) {
         this.queryResource = resource;
+    }
+
+    public String getGraphUriFromResource(final String resourceUri) {
+        Matcher matcher = graphPattern.matcher(resourceUri);
+        if (matcher.matches()) {
+            return matcher.group(1);
+        } else {
+            return "http://id.nlm.nih.gov/mesh";
+        }
     }
 
     public String getGraphUri(final String year) {

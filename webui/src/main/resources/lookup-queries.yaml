@@ -185,10 +185,10 @@ allowed_qualifiers: |
     FROM <http://id.nlm.nih.gov/mesh>
     WHERE {
       ?parent a meshv:Descriptor .
-      ?parent meshv:active "true"^^xsd:boolean .
       ?parent meshv:allowableQualifier ?resource .
       ?resource rdfs:label ?label .
       MINUS {
+        ?parent meshv:active "false"^^xsd:boolean .
         ?resource meshv:active "false"^^xsd:boolean .
       }
     } ORDER BY ?label
