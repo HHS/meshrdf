@@ -185,7 +185,7 @@ public class LookupController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path="/years", produces="application/json")
-    public List<String> lookupDetails() {
+    public List<String> lookupYears() {
         return getConfigService().getValidYears().dropdownValues();
     }
 

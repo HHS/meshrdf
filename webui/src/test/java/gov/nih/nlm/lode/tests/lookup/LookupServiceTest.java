@@ -99,6 +99,20 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
     public void testGetGraphUriInterim() {
         LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
         String graphUri = service.getGraphUri("interim");
+        assertThat(graphUri, equalTo("http://id.nlm.nih.gov/mesh/2022"));
+    }
+
+    @Test(groups = "unit")
+    public void testGetGraphUriFromResourceNoMatch() {
+        LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
+        String graphUri = service.getGraphUriFromResource(Pyrin.DESCRIPTOR_URI);
+        assertThat(graphUri, equalTo("http://id.nlm.nih.gov/mesh"));
+    }
+
+    @Test(groups = "unit")
+    public void testGetGraphUriFromResource() {
+        LookupServiceImpl service = (LookupServiceImpl) serviceIntf;
+        String graphUri = service.getGraphUriFromResource(Pyrin.DESCRIPTOR_YEAR_URI);
         assertThat(graphUri, equalTo("http://id.nlm.nih.gov/mesh/2021"));
     }
 
@@ -293,6 +307,15 @@ public class LookupServiceTest extends AbstractTestNGSpringContextTests {
     @Test(groups = "unit")
     public void testAllowedQualifiers() throws Exception {
         Collection<ResourceResult> actualResults = serviceIntf.allowedQualifiers(Pyrin.DESCRIPTOR_URI);
+        assertThat(actualResults.size(), greaterThan(1));
+
+        List<String> actualLabels = actualResults.stream().map(rl -> rl.getLabel()).collect(Collectors.toList());
+        assertThat(actualLabels, hasItem(equalTo("chemistry")));
+    }
+
+    @Test(groups = "unit")
+    public void testAllowedQualifiersYear() throws Exception {
+        Collection<ResourceResult> actualResults = serviceIntf.allowedQualifiers(Pyrin.DESCRIPTOR_YEAR_URI);
         assertThat(actualResults.size(), greaterThan(1));
 
         List<String> actualLabels = actualResults.stream().map(rl -> rl.getLabel()).collect(Collectors.toList());

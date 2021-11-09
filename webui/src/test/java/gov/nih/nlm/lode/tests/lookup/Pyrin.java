@@ -11,6 +11,7 @@ public class Pyrin {
     public static String DESCRIPTOR_LABEL = "Pyrin";
     public static String IDENTIFIER = "D000071198";
     public static String DESCRIPTOR_URI = "http://id.nlm.nih.gov/mesh/"+IDENTIFIER;
+    public static String DESCRIPTOR_YEAR_URI = "http://id.nlm.nih.gov/mesh/2021/"+IDENTIFIER;
 
     public static String[] EXACT_MATCH_URIS = new String[] { DESCRIPTOR_URI };
 
