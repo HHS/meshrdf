@@ -824,23 +824,23 @@ function _hrefBuilder(uri, label, internal) {
 
     var linkSpan  = $('<span/>');
 
+    var safeuri;
+    if (uri.match(/^(https?|ftp|mailto|irc|gopher|news):/)) {
+        safeuri = uri;
+    } else {
+        safeuri = '#';
+        console.log('Unsupported uri', uri);
+    }
+
     var a = $('<a />');
     if (internal) {
         a.attr('href', internalHref);
         a.attr('title', uri);
-
     }
     else {
-        if (uri.match(/^(https?|ftp|mailto|irc|gopher|news):/)) {
-            a.attr('href', uri);
-            a.attr('title', uri);
-            a.attr('target', 'blank');
-        } else {
-            console.log('Unsupported uri', uri);
-            a.attr('href', '#');
-            a.attr('title', uri);
-            a.attr('target', 'blank');
-        }
+        a.attr('href', safeuri)
+        a.attr('title', uri);
+        a.attr('target', 'blank');
     }
     a.attr('class', className);
     a.text(label);
@@ -855,7 +855,7 @@ function _hrefBuilder(uri, label, internal) {
         img.attr('title', 'Resolve URI on the web');
 
         var ea = $('<a />');
-        ea.attr('href', uri);
+        ea.attr('href', safeuri);
         ea.attr('title', uri);
         ea.attr('class', 'externallink');
         ea.attr('target', 'blank');
