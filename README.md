@@ -59,9 +59,9 @@ This saves the XML files to the `data` subdirectory of `$MESHRDF_HOME`.
 
 By default, it downloads the following:
 
-* `desc2021.xml`
-* `qual2021.xml`
-* `supp2021.xml`
+* `desc2022.xml`
+* `qual2022.xml`
+* `supp2022.xml`
 
 If you want to download a different year's data, use the `-y` argument when executing the script.
 For example:
