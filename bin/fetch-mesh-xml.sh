@@ -19,13 +19,13 @@ fi
 mkdir -p "$MESHRDF_HOME/data"
 
 # CAn override default year with MESHRDF_YEAR environment variable
-YEAR=${MESHRDF_YEAR:-2021}
+YEAR=${MESHRDF_YEAR:-2022}
 
 # Can override default URI with MESHRDF_URI environment variable
-if [ $YEAR -lt "2021" ]; then
-    URI=${MESHRDF_URI:-ftp://ftp.nlm.nih.gov/online/mesh/$YEAR}
+if [ $YEAR -lt "2022" ]; then
+    URI=${MESHRDF_URI:-https://nlmpubs.nlm.nih.gov/projects/mesh/$YEAR/xmlmesh}
 else
-    URI=${MESHRDF_URI:-ftp://ftp.nlm.nih.gov/online/mesh/MESH_FILES/xmlmesh}
+    URI=${MESHRDF_URI:-https://nlmpubs.nlm.nih.gov/projects/mesh/MESH_FILES/xmlmesh}
 fi
 
 
