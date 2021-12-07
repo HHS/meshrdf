@@ -8,13 +8,19 @@ resource: false
 
 ## Latest Release
 
+### December 6, 2021
+
+* MeSH RDF has been updated to include the 2022 MesH data.
+* The new graph, http://id.nlm.nih.gov/mesh/2022/, will stay in sync with the http://id.nlm.nih.gov/mesh/ graph until 2023 MeSH data is released.
+* The graph for 2021 MeSH data, http://id.nlm.nih.gov/mesh/2021/, is now static.
+
+## Prior Releases
+
 ### November 9, 2019
 
 * MeSH RDF has been updated to include the 2020 MesH data.
 * The new graph, http://id.nlm.nih.gov/mesh/2020/, will stay in sync with the http://id.nlm.nih.gov/mesh/ graph until 2021 MeSH data is released.
 * The graph for 2019 MeSH data, http://id.nlm.nih.gov/mesh/2019/, is now static.
-
-## Prior Releases
 
 ### November 21, 2018
 
