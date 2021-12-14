@@ -30,9 +30,10 @@
         <!-- Versions -->
         <springframework.version>4.3.30.RELEASE</springframework.version>
         <lodestar.version>1.4.2-SNAPSHOT</lodestar.version>
-        <logback.version>1.2.3</logback.version>
-        <slf4j.version>1.7.28</slf4j.version>
+        <logback.version>1.2.8</logback.version>
+        <slf4j.version>1.7.32</slf4j.version>
         <jena.version>3.10.0</jena.version>
+        <logstash.encoder.version>7.0.1</logstash.encoder.version>
 
         <maven.compiler.source.version>11</maven.compiler.source.version>
         <maven.compiler.target.version>11</maven.compiler.target.version>
@@ -64,6 +65,11 @@
                 <version>${logback.version}</version>
             </dependency>
             <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>jcl-over-slf4j</artifactId>
                 <version>${slf4j.version}</version>
@@ -72,6 +78,11 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash.encoder.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
