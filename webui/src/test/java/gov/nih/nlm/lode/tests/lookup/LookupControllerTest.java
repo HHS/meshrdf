@@ -75,7 +75,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/D1"))
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/D2"));
         assertThat(mockService.count, equalTo(1));
@@ -95,7 +95,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/D1"))
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/D2"));
         assertThat(mockService.count, equalTo(1));
@@ -115,7 +115,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/D1"))
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/D2"));
         assertThat(mockService.count, equalTo(1));
@@ -135,7 +135,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                 .content(body);
         mvc.perform(request)
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/D1"))
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/D2"));
         assertThat(mockService.count, equalTo(1));
@@ -155,7 +155,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                 .content(body);
         mvc.perform(request)
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/D1"))
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/D2"));
         assertThat(mockService.count, equalTo(1));
@@ -175,7 +175,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                 .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/DQ1"))
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/DQ2"));
         assertThat(mockService.count, equalTo(1));
@@ -201,7 +201,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                 .content(body);
         mvc.perform(request)
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/DQ1"))
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/DQ2"));
         assertThat(mockService.count, equalTo(1));
@@ -222,7 +222,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                 .content(body);
         mvc.perform(request)
            .andExpect(status().isOk())
-           .andExpect(content().contentType("application/json;charset=UTF-8"))
+           .andExpect(content().contentType("application/json"))
            .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/DQ1"))
            .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/DQ2"));
         assertThat(mockService.count, equalTo(1));
@@ -427,7 +427,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$[0].resource").value("http://id.nlm.nih.gov/mesh/Q1"))
             .andExpect(jsonPath("$[1].resource").value("http://id.nlm.nih.gov/mesh/Q2"));
         assertThat(mockService.count, equalTo(1));
@@ -467,7 +467,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                 .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$.descriptor").value("http://id.nlm.nih.gov/mesh/D013498"))
             .andExpect(jsonPath("$.seealso").isArray())
             .andExpect(jsonPath("$.terms").isArray())
@@ -489,7 +489,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                 .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$.descriptor").value("http://id.nlm.nih.gov/mesh/D013498"))
             .andExpect(jsonPath("$.seealso").isArray())
             .andExpect(jsonPath("$.seealso.length()", Integer.class).value(2))
@@ -509,7 +509,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                 .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$.descriptor").value("http://id.nlm.nih.gov/mesh/2021/D013498"))
             .andExpect(jsonPath("$.seealso").isArray())
             .andExpect(jsonPath("$.terms").isArray())
@@ -529,7 +529,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                 .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
             .andExpect(status().isOk())
-            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(content().contentType("application/json"))
             .andExpect(jsonPath("$[0]").value("Mean Older Sibling Syndrome"));
         assertThat(mockService.count, equalTo(1));
 
@@ -567,7 +567,7 @@ public class LookupControllerTest extends AbstractTestNGSpringContextTests {
                 .accept(MediaType.APPLICATION_JSON);
         mvc.perform(request)
            .andExpect(status().isOk())
-           .andExpect(content().contentType("application/json;charset=UTF-8"))
+           .andExpect(content().contentType("application/json"))
            .andExpect(jsonPath("$[0]").value("current"))
            .andExpect(jsonPath("$[1]").value("interim"))
            .andExpect(jsonPath("$[2]").value("2019"))
