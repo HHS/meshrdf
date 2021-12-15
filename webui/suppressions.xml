@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Suppressions file for dependency-check-plugin -->
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+    <suppress>
+        <notes><![CDATA[
+        We do not use SocketAppender or SMTPAppender
+        ]]></notes>
+        <packageUrl regex="true">^pkg:maven/log4j/log4j@.*$</packageUrl>
+        <cve>CVE-2019-17571</cve>
+        <cve>CVE-2020-9488</cve>
+    </suppress>
+</suppressions>
