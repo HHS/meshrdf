@@ -4,7 +4,7 @@
     <groupId>gov.nih.nlm.lode</groupId>
     <artifactId>meshrdf</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.14</version>
+    <version>1.1.15</version>
     <name>NLM MeSH RDF parent project</name>
     <scm>
         <url>https://github.com/HHS/meshrdf</url>
@@ -29,11 +29,11 @@
 
         <!-- Versions -->
         <springframework.version>5.3.13</springframework.version>
-        <lodestar.version>1.4.1001</lodestar.version>
-        <log4j.version>1.2.17</log4j.version>
+        <lodestar.version>1.4.1002</lodestar.version>
+        <logback.version>1.2.9</logback.version>
         <slf4j.version>1.7.32</slf4j.version>
         <jena.version>3.17.0</jena.version>
-        <logstash.layout.version>1.7</logstash.layout.version>
+        <logstash.layout.version>7.0.1</logstash.layout.version>
 
         <maven.compiler.source.version>11</maven.compiler.source.version>
         <maven.compiler.target.version>11</maven.compiler.target.version>
@@ -60,9 +60,14 @@
                 <type>war</type>
             </dependency>
             <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.version}</version>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -71,12 +76,12 @@
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
+                <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>net.logstash.log4j</groupId>
-                <artifactId>jsonevent-layout</artifactId>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
                 <version>${logstash.layout.version}</version>
             </dependency>
         </dependencies>
