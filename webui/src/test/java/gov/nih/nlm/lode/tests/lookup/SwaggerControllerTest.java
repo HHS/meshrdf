@@ -53,7 +53,7 @@ public class SwaggerControllerTest extends AbstractTestNGSpringContextTests {
          * This one tests that X-Forwarded-Host takes precedence
          */
         MockHttpServletRequestBuilder request =
-                get("/swagger/swagger")
+                get("/swagger/swagger.json")
                 .header("X-Forwarded-Host", host)
                 .header("Host", "127.0.0.1:8080");
         mvc.perform(request)
@@ -79,7 +79,7 @@ public class SwaggerControllerTest extends AbstractTestNGSpringContextTests {
         /*
          * This one tests the fall-back to the Host header
          */
-        String expectedUri = String.format("%s://%s/testing/swagger/swagger", scheme, host);
+        String expectedUri = String.format("%s://%s/testing/swagger/swagger.json", scheme, host);
         MockHttpServletRequestBuilder request =
                 get("/swagger/ui")
                 .header("Host", host);
