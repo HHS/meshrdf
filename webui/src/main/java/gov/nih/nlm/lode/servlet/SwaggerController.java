@@ -66,14 +66,14 @@ public class SwaggerController {
         ModelAndView mv = new ModelAndView("internal/swaggerui", HttpStatus.OK);
         String host = ServletUtils.getHost(request);
         String scheme = (host.startsWith("localhost") ? "http": "https");
-        String swaggerSpec = String.format("%s://%s%s/swagger/swagger.json", scheme, host, getContextPath());
+        String swaggerSpec = String.format("%s://%s%s/swagger/swagger", scheme, host, getContextPath());
         mv.addObject("specUri", swaggerSpec);
         return mv;
     }
 
 
 
-    @GetMapping(path="swagger", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(path="swagger", produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody void swaggerSpec(HttpServletRequest request, HttpServletResponse response) throws IOException, LodeException {
         /* get clone of swagger spec */
         @SuppressWarnings("unchecked")
@@ -95,7 +95,7 @@ public class SwaggerController {
 
         /* Write that data as JSON */
         ObjectMapper mapper = new ObjectMapper();
-        response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         ServletOutputStream out = response.getOutputStream();
 
         mapper.writeValue(out, swaggerSpec);

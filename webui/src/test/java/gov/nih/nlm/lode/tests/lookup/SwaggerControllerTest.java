@@ -58,7 +58,7 @@ public class SwaggerControllerTest extends AbstractTestNGSpringContextTests {
                 .header("Host", "127.0.0.1:8080");
         mvc.perform(request)
                     .andExpect(status().isOk())
-                    .andExpect(content().contentType("application/json;charset=UTF-8"))
+                    .andExpect(content().contentType("application/json"))
                     .andExpect(jsonPath("$.host").value(host))
                     .andExpect(jsonPath("$.schemes").isArray())
                     .andExpect(jsonPath("$.schemes").value(scheme))
@@ -79,7 +79,7 @@ public class SwaggerControllerTest extends AbstractTestNGSpringContextTests {
         /*
          * This one tests the fall-back to the Host header
          */
-        String expectedUri = String.format("%s://%s/testing/swagger/swagger.json", scheme, host);
+        String expectedUri = String.format("%s://%s/testing/swagger/swagger", scheme, host);
         MockHttpServletRequestBuilder request =
                 get("/swagger/ui")
                 .header("Host", host);
