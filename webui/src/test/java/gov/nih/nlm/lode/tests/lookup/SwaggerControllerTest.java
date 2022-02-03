@@ -53,12 +53,12 @@ public class SwaggerControllerTest extends AbstractTestNGSpringContextTests {
          * This one tests that X-Forwarded-Host takes precedence
          */
         MockHttpServletRequestBuilder request =
-                get("/swagger/swagger")
+                get("/swagger/swagger.json")
                 .header("X-Forwarded-Host", host)
                 .header("Host", "127.0.0.1:8080");
         mvc.perform(request)
                     .andExpect(status().isOk())
-                    .andExpect(content().contentType("application/json;charset=UTF-8"))
+                    .andExpect(content().contentType("application/json"))
                     .andExpect(jsonPath("$.host").value(host))
                     .andExpect(jsonPath("$.schemes").isArray())
                     .andExpect(jsonPath("$.schemes").value(scheme))
