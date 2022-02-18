@@ -50,7 +50,8 @@
     "glob-parent": "^5.1.2",
     "yargs-parser": "^13.1.2",
     "set-value": "^2.0.1",
-    "postcss": "^8.2.13"
+    "postcss": "^8.2.13",
+    "shelljs": "^0.8.5"
   },
   "bugs": {
     "url": "https://github.com/HHS/meshrdf/issues"
