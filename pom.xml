@@ -28,7 +28,7 @@
         <snapshot.repo.url>http://localhost:8081/nexus/libs-snapshot-local</snapshot.repo.url>
 
         <!-- Versions -->
-        <springframework.version>5.3.13</springframework.version>
+        <springframework.version>5.3.18</springframework.version>
         <lodestar.version>1.4.1002</lodestar.version>
         <logback.version>1.2.9</logback.version>
         <slf4j.version>1.7.32</slf4j.version>
