@@ -59,9 +59,9 @@ This saves the XML files to the `data` subdirectory of `$MESHRDF_HOME`.
 
 By default, it downloads the following:
 
-* `desc2022.xml`
-* `qual2022.xml`
-* `supp2022.xml`
+* `desc2024.xml`
+* `qual2024.xml`
+* `supp2024.xml`
 
 If you want to download a different year's data, use the `-y` argument when executing the script.
 For example:
@@ -119,7 +119,7 @@ specify that it convert a different set of data files. For example:
 
     bin/mesh-xml2rdf.sh -y 2019
 
-This uses the 2016 data files to produce the "current" RDF output files `out/mesh.nt`
+This uses the 2019 data files to produce the "current" RDF output files `out/mesh.nt`
 and `out/mesh.nt.gz`.
 
 To produce RDF data that has URIs with the year, you should also use the `-u` argument.
@@ -127,8 +127,8 @@ For example, the following generates RDF URIs that include the year:
 
     bin/mesh-xml2rdf.sh -y 2019 -u
 
-In this case, the output data files will be written to `out/2016/mesh2019.nt` and
-`out/2015/mesh2019.nt.gz`.
+In this case, the output data files will be written to `out/2019/mesh2019.nt` and
+`out/2019/mesh2019.nt.gz`.
 
 ### URI preservation and versioning
 
