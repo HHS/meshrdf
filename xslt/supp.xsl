@@ -62,6 +62,12 @@
             <xsl:when test='@SCRClass = "4"'>
               <uri prefix='&meshv;'>SCR_Organism</uri>
             </xsl:when>
+            <xsl:when test='@SCRClass = "5"'>
+              <uri prefix='&meshv;'>SCR_Population</uri>
+            </xsl:when>
+            <xsl:when test='@SCRClass = "6"'>
+              <uri prefix='&meshv;'>SCR_Anatomy</uri>
+            </xsl:when>            
           </xsl:choose>
         </xsl:with-param>
       </xsl:call-template>

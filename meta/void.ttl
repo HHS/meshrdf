@@ -59,6 +59,8 @@
 
 # Data dump files
     void:dataDump "https://nlmpubs.nlm.nih.gov/projects/mesh/rdf/mesh.nt" ;
+    void:dataDump "https://nlmpubs.nlm.nih.gov/projects/mesh/rdf/2024/mesh2024.nt" ;
+    void:dataDump "https://nlmpubs.nlm.nih.gov/projects/mesh/rdf/2023/mesh2023.nt" ;
     void:dataDump "https://nlmpubs.nlm.nih.gov/projects/mesh/rdf/2022/mesh2022.nt" ;
     void:dataDump "https://nlmpubs.nlm.nih.gov/projects/mesh/rdf/2021/mesh2021.nt" ;
     void:dataDump "https://nlmpubs.nlm.nih.gov/projects/mesh/rdf/2020/mesh2020.nt" .
