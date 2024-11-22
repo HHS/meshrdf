@@ -69,6 +69,11 @@
       </xsl:call-template>
 
   -->
+   <!-- Function to trim leading and trailing whitespace -->
+   <xsl:function name="f:trim-literal" as="xs:string">
+        <xsl:param name="text" as="xs:string"/>
+        <xsl:value-of select="normalize-space($text)"/>
+   </xsl:function>
 
   <xsl:template name='triple'>
     <xsl:param name='doc'/>
@@ -84,23 +89,19 @@
 
     <!-- Strip leading and/or trailing whitespace from all literal values.  See issue #27.  We will issue a warning when these are
       encountered, and strip them out. -->
-    <xsl:variable name='o' as="element()">
-      <xsl:variable name='oo' select='$spec/*[3]'/>
+        <xsl:variable name='o' as='element()'>
+            <xsl:variable name='oo' select='$spec/*[3]'/>
+
+            <!-- Always apply trim-literal to literal values -->
       <xsl:choose>
-        <xsl:when test="$oo/self::literal and matches($oo, '(^\s+)|(\s+$)')">
-          <xsl:message>
-            <xsl:text>&#xA;------------------------------------------------------------&#xA;</xsl:text>
-            <xsl:text>Warning: literal value that has leading or trailing whitespace: '</xsl:text>
-            <xsl:value-of select='$oo'/>
-            <xsl:text>'</xsl:text>
-          </xsl:message>
+                <xsl:when test='$oo/self::literal'>
           <literal>
             <xsl:copy-of select='$oo/@*'/>
-            <xsl:value-of select="replace($oo, '^\s+|\s+$', '')"/>
+            <xsl:value-of select='f:trim-literal($oo)'/>
           </literal>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:copy-of select='$oo'/>
+            <xsl:copy-of select='$oo'/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -453,7 +454,7 @@
           select='key("tree-numbers", $parent-tree-number)'/>
 
         <xsl:if test='$parent-tree-number-element'>
-          <xsl:if test='ancestor::DescriptorRecord'>
+            <xsl:for-each select='$parent-tree-number-element/ancestor::DescriptorRecord'>
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
                 <desc>Also create a simple meshv:broader relationship between this descriptor and
@@ -463,12 +464,12 @@
                 <xsl:copy-of select="$parent"/>
                 <uri prefix='&meshv;'>broaderDescriptor</uri>
                 <uri prefix='{$mesh-prefix}'>
-                  <xsl:value-of select="$parent-tree-number-element/ancestor::DescriptorRecord/DescriptorUI"/>
+                  <xsl:value-of select='DescriptorUI'/>
                 </uri>
               </xsl:with-param>
             </xsl:call-template>
-          </xsl:if>
-          <xsl:if test='ancestor::QualifierRecord'>
+          </xsl:for-each>
+	  <xsl:for-each select='$parent-tree-number-element/ancestor::QualifierRecord'>
             <xsl:call-template name='triple'>
               <xsl:with-param name="doc">
                 <desc>Also create a simple meshv:broader relationship between this qualifier and
@@ -478,11 +479,11 @@
                 <xsl:copy-of select="$parent"/>
                 <uri prefix='&meshv;'>broaderQualifier</uri>
                 <uri prefix='{$mesh-prefix}'>
-                  <xsl:value-of select="$parent-tree-number-element/ancestor::QualifierRecord/QualifierUI"/>
+                  <xsl:value-of select='QualifierUI'/>
                 </uri>
               </xsl:with-param>
             </xsl:call-template>
-          </xsl:if>
+          </xsl:for-each>
         </xsl:if>
       </xsl:if>
     </xsl:for-each>
