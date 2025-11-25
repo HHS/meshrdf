@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "gulp --no-color clean",
     "build": "gulp --no-color build",
-    "lint": "gulp --no-color lint",
+    "lint": "gulp --no-color lint && npm run lint:css",
+    "lint:css": "stylelint 'src/**/*.css'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,41 +17,40 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "3.4.1",
+    "bootstrap": "^3.4.1",
     "codemirror": "^5.62.0",
     "es6-object-assign": "1.1.0",
     "font-awesome": "4.7.0",
     "handlebars": "^4.7.7",
-    "jquery": "3.6.0",
-    "jquery-ui-dist": "1.12.1",
+    "jquery": "^3.7.1",
+    "jquery-ui-dist": "^1.13.3",
     "url-polyfill": "1.1.7"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "del": "^5.1.0",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.1",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-declare": "^0.3.0",
     "gulp-handlebars": "^5.0.2",
     "gulp-jshint": "^2.1.0",
     "gulp-merge": "^0.1.1",
-    "gulp-minify": "^3.1.0",
+    "gulp-minify": "^3.0.0",
     "gulp-rev": "^9.0.0",
-    "gulp-stylelint": "^13.0.0",
     "gulp-wrap": "^0.15.0",
     "jshint": "^2.12.0",
     "lodash": "^4.17.19",
     "merge-stream": "^2.0.0",
-    "stylelint": ">=13.7.0",
-    "stylelint-config-recommended": "^3.0.0"
+    "stylelint": "^14.16.1",
+    "stylelint-config-recommended": "^9.0.0"
   },
   "resolutions": {
     "glob-parent": "^5.1.2",
     "yargs-parser": "^13.1.2",
     "set-value": "^2.0.1",
-    "postcss": "^8.2.13",
+    "postcss": "^8.4.31",
     "shelljs": "^0.8.5",
     "minimist": "^1.2.6"
   },
