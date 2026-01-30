@@ -63,7 +63,7 @@ fi
 _CP="$SAXON_JAR"
 
 # Can override default year with MESHRDF_YEAR environment variable
-YEAR=${MESHRDF_YEAR:-2024}
+YEAR=${MESHRDF_YEAR:-2026}
 
 # Set the output file name, and the parameter that controls the RDF URIs,
 # according to whether or not MESHRDF_URI_YEAR is "yes"

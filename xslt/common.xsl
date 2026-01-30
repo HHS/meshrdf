@@ -12,6 +12,9 @@
                 xmlns:xs="&xs;"
                 exclude-result-prefixes="xs f">
 
+  <!-- Strip unnecessary whitespace-only text nodes -->
+  <xsl:strip-space elements="*" />
+  
   <xsl:param name='label-lang' select='"en"'/>
   <xsl:param name='uri-year-segment' select='""'/>
   <xsl:variable name='mesh-prefix'>
@@ -277,6 +280,37 @@
         </xsl:with-param>
       </xsl:call-template>
     </xsl:if>
+    <!-- DateIntroduced, is the new data element added with 2026 DTD changes   -->
+    <xsl:if test="DateIntroduced">
+      <xsl:call-template name='triple'>
+        <xsl:with-param name="doc">
+          <desc>A record has a date on which it was introduced.</desc>
+        </xsl:with-param>
+        <xsl:with-param name='spec'>
+          <xsl:copy-of select="$parent"/>
+          <uri prefix='&meshv;'>dateIntroduced</uri>
+          <xsl:call-template name="DateLiteral">
+            <xsl:with-param name="context" select="DateIntroduced"/>
+          </xsl:call-template>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:if>
+    
+    <!-- LastUpdated, is the new data element added with 2026 DTD changes -->
+    <xsl:if test="LastUpdated">
+      <xsl:call-template name='triple'>
+        <xsl:with-param name="doc">
+          <desc>A record can have a date on which it was last updated.</desc>
+        </xsl:with-param>
+        <xsl:with-param name='spec'>
+          <xsl:copy-of select="$parent"/>
+          <uri prefix='&meshv;'>lastUpdated</uri>
+          <xsl:call-template name="DateLiteral">
+            <xsl:with-param name="context" select="LastUpdated"/>
+          </xsl:call-template>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:if> 
 
     <!--
       Tranformation rule: activeMeSHYear
