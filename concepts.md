@@ -59,10 +59,16 @@ meshv:PublicationType | meshv:concept | meshv:Concept
 meshv:PublicationType | meshv:preferredConcept | meshv:Concept
 meshv:Qualifier | meshv:concept | meshv:Concept
 meshv:Qualifier | meshv:preferredConcept | meshv:Concept
+meshv:SCR_Anatomy | meshv:concept | meshv:Concept
+meshv:SCR_Anatomy | meshv:preferredConcept | meshv:Concept
 meshv:SCR_Chemical | meshv:concept | meshv:Concept
 meshv:SCR_Chemical | meshv:preferredConcept | meshv:Concept
 meshv:SCR_Disease | meshv:concept | meshv:Concept
 meshv:SCR_Disease | meshv:preferredConcept | meshv:Concept
+meshv:SCR_Organism | meshv:concept | meshv:Concept
+meshv:SCR_Organism | meshv:preferredConcept | meshv:Concept
+meshv:SCR_Population | meshv:concept | meshv:Concept
+meshv:SCR_Population | meshv:preferredConcept | meshv:Concept
 meshv:SCR_Protocol | meshv:concept | meshv:Concept
 meshv:SCR_Protocol | meshv:preferredConcept | meshv:Concept
 meshv:SupplementaryConceptRecord | meshv:concept | meshv:Concept
