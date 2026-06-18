@@ -17,8 +17,11 @@ meshv:GeographicalDescriptor | rdfs:subClassOf | meshv:Descriptor
 meshv:TopicalDescriptor | rdfs:subClassOf | meshv:Descriptor
 meshv:PublicationType | rdfs:subClassOf | meshv:Descriptor
 meshv:CheckTag | rdfs:subClassOf | meshv:Descriptor
+meshv:SCR_Anatomy | rdfs:subClassOf | meshv:SupplementaryConceptRecord
 meshv:SCR_Chemical | rdfs:subClassOf | meshv:SupplementaryConceptRecord
 meshv:SCR_Disease | rdfs:subClassOf | meshv:SupplementaryConceptRecord
+meshv:SCR_Organism | rdfs:subClassOf | meshv:SupplementaryConceptRecord
+meshv:SCR_Population | rdfs:subClassOf | meshv:SupplementaryConceptRecord
 meshv:SCR_Protocol | rdfs:subClassOf | meshv:SupplementaryConceptRecord
 
 

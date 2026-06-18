@@ -6,10 +6,13 @@ categories:
 - Data Model
 ---
 
-Supplementary Concept Records are created in MeSH to account for the large volume of chemical names that are found in biomedical literature. In MeSH RDF, these are represented by the super class meshv:SupplementaryConceptRecord, which has three sub-classes:
+Supplementary Concept Records are created in MeSH to account for concepts that are not represented as descriptors. In MeSH RDF, these are represented by the super class meshv:SupplementaryConceptRecord, which has six sub-classes:
 
+*  meshv:SCR_Anatomy
 *  meshv:SCR_Chemical
 *  meshv:SCR_Disease
+*  meshv:SCR_Organism
+*  meshv:SCR_Population
 *  meshv:SCR_Protocol
 
 
@@ -35,6 +38,22 @@ Supplementary Concept Records are created in MeSH to account for the large volum
 {:.data-table-long .row-border .hover }
 Subject | Predicate | Object
 ------- | --------- | -------
+meshv:SCR_Anatomy | meshv:concept | meshv:Concept
+meshv:SCR_Anatomy | meshv:indexerConsiderAlso | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Anatomy | meshv:indexerConsiderAlso | meshv:Descriptor
+meshv:SCR_Anatomy | meshv:indexerConsiderAlso | meshv:DescriptorQualifierPair
+meshv:SCR_Anatomy | meshv:indexerConsiderAlso | meshv:DisallowedDescriptorQualifierPair
+meshv:SCR_Anatomy | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
+meshv:SCR_Anatomy | meshv:mappedTo | meshv:Descriptor
+meshv:SCR_Anatomy | meshv:mappedTo | meshv:TopicalDescriptor
+meshv:SCR_Anatomy | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:SCR_Anatomy | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:SCR_Anatomy | meshv:preferredConcept | meshv:Concept
+meshv:SCR_Anatomy | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Anatomy | meshv:preferredMappedTo | meshv:Descriptor
+meshv:SCR_Anatomy | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
+meshv:SCR_Anatomy | meshv:preferredMappedTo | meshv:TopicalDescriptor
+meshv:SCR_Anatomy | meshv:preferredTerm | meshv:Term
 meshv:SCR_Chemical | meshv:concept | meshv:Concept
 meshv:SCR_Chemical | meshv:indexerConsiderAlso | meshv:AllowedDescriptorQualifierPair
 meshv:SCR_Chemical | meshv:indexerConsiderAlso | meshv:Descriptor
@@ -64,6 +83,38 @@ meshv:SCR_Disease | meshv:preferredMappedTo | meshv:Descriptor
 meshv:SCR_Disease | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
 meshv:SCR_Disease | meshv:preferredMappedTo | meshv:TopicalDescriptor
 meshv:SCR_Disease | meshv:preferredTerm | meshv:Term
+meshv:SCR_Organism | meshv:concept | meshv:Concept
+meshv:SCR_Organism | meshv:indexerConsiderAlso | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Organism | meshv:indexerConsiderAlso | meshv:Descriptor
+meshv:SCR_Organism | meshv:indexerConsiderAlso | meshv:DescriptorQualifierPair
+meshv:SCR_Organism | meshv:indexerConsiderAlso | meshv:DisallowedDescriptorQualifierPair
+meshv:SCR_Organism | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
+meshv:SCR_Organism | meshv:mappedTo | meshv:Descriptor
+meshv:SCR_Organism | meshv:mappedTo | meshv:TopicalDescriptor
+meshv:SCR_Organism | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:SCR_Organism | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:SCR_Organism | meshv:preferredConcept | meshv:Concept
+meshv:SCR_Organism | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Organism | meshv:preferredMappedTo | meshv:Descriptor
+meshv:SCR_Organism | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
+meshv:SCR_Organism | meshv:preferredMappedTo | meshv:TopicalDescriptor
+meshv:SCR_Organism | meshv:preferredTerm | meshv:Term
+meshv:SCR_Population | meshv:concept | meshv:Concept
+meshv:SCR_Population | meshv:indexerConsiderAlso | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Population | meshv:indexerConsiderAlso | meshv:Descriptor
+meshv:SCR_Population | meshv:indexerConsiderAlso | meshv:DescriptorQualifierPair
+meshv:SCR_Population | meshv:indexerConsiderAlso | meshv:DisallowedDescriptorQualifierPair
+meshv:SCR_Population | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
+meshv:SCR_Population | meshv:mappedTo | meshv:Descriptor
+meshv:SCR_Population | meshv:mappedTo | meshv:TopicalDescriptor
+meshv:SCR_Population | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:SCR_Population | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:SCR_Population | meshv:preferredConcept | meshv:Concept
+meshv:SCR_Population | meshv:preferredMappedTo | meshv:AllowedDescriptorQualifierPair
+meshv:SCR_Population | meshv:preferredMappedTo | meshv:Descriptor
+meshv:SCR_Population | meshv:preferredMappedTo | meshv:DescriptorQualifierPair
+meshv:SCR_Population | meshv:preferredMappedTo | meshv:TopicalDescriptor
+meshv:SCR_Population | meshv:preferredTerm | meshv:Term
 meshv:SCR_Protocol | meshv:concept | meshv:Concept
 meshv:SCR_Protocol | meshv:indexerConsiderAlso | meshv:Descriptor
 meshv:SCR_Protocol | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
@@ -113,6 +164,16 @@ N/A | N/A | N/A
 {:.data-table-long .row-border .hover}
 Subject | Predicate
 ------- | ---------
+meshv:SCR_Anatomy | meshv:active
+meshv:SCR_Anatomy | meshv:dateCreated
+meshv:SCR_Anatomy | meshv:dateRevised
+meshv:SCR_Anatomy | meshv:frequency
+meshv:SCR_Anatomy | meshv:identifier
+meshv:SCR_Anatomy | meshv:lastActiveYear
+meshv:SCR_Anatomy | meshv:note
+meshv:SCR_Anatomy | meshv:previousIndexing
+meshv:SCR_Anatomy | meshv:source
+meshv:SCR_Anatomy | rdfs:label
 meshv:SCR_Chemical | meshv:active
 meshv:SCR_Chemical | meshv:dateCreated
 meshv:SCR_Chemical | meshv:dateRevised
@@ -133,6 +194,26 @@ meshv:SCR_Disease | meshv:note
 meshv:SCR_Disease | meshv:previousIndexing
 meshv:SCR_Disease | meshv:source
 meshv:SCR_Disease | rdfs:label
+meshv:SCR_Organism | meshv:active
+meshv:SCR_Organism | meshv:dateCreated
+meshv:SCR_Organism | meshv:dateRevised
+meshv:SCR_Organism | meshv:frequency
+meshv:SCR_Organism | meshv:identifier
+meshv:SCR_Organism | meshv:lastActiveYear
+meshv:SCR_Organism | meshv:note
+meshv:SCR_Organism | meshv:previousIndexing
+meshv:SCR_Organism | meshv:source
+meshv:SCR_Organism | rdfs:label
+meshv:SCR_Population | meshv:active
+meshv:SCR_Population | meshv:dateCreated
+meshv:SCR_Population | meshv:dateRevised
+meshv:SCR_Population | meshv:frequency
+meshv:SCR_Population | meshv:identifier
+meshv:SCR_Population | meshv:lastActiveYear
+meshv:SCR_Population | meshv:note
+meshv:SCR_Population | meshv:previousIndexing
+meshv:SCR_Population | meshv:source
+meshv:SCR_Population | rdfs:label
 meshv:SCR_Protocol | meshv:active
 meshv:SCR_Protocol | meshv:dateCreated
 meshv:SCR_Protocol | meshv:dateRevised
@@ -195,4 +276,3 @@ where {
     mesh:C012211 meshv:indexerConsiderAlso ?ica .
       }
 ```
-

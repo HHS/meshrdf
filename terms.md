@@ -102,8 +102,11 @@ meshv:Descriptor | meshv:preferredTerm | meshv:Term
 meshv:GeographicalDescriptor | meshv:preferredTerm | meshv:Term
 meshv:PublicationType | meshv:preferredTerm | meshv:Term
 meshv:Qualifier | meshv:preferredTerm | meshv:Term
+meshv:SCR_Anatomy | meshv:preferredTerm | meshv:Term
 meshv:SCR_Chemical | meshv:preferredTerm | meshv:Term
 meshv:SCR_Disease | meshv:preferredTerm | meshv:Term
+meshv:SCR_Organism | meshv:preferredTerm | meshv:Term
+meshv:SCR_Population | meshv:preferredTerm | meshv:Term
 meshv:SCR_Protocol | meshv:preferredTerm | meshv:Term
 meshv:SupplementaryConceptRecord | meshv:preferredTerm | meshv:Term
 meshv:TopicalDescriptor | meshv:preferredTerm | meshv:Term
