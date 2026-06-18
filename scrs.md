@@ -6,10 +6,13 @@ categories:
 - Data Model
 ---
 
-Supplementary Concept Records are created in MeSH to account for the large volume of chemical names that are found in biomedical literature. In MeSH RDF, these are represented by the super class meshv:SupplementaryConceptRecord, which has three sub-classes:
+Supplementary Concept Records are created in MeSH to account for concepts that are not represented as descriptors. In MeSH RDF, these are represented by the super class meshv:SupplementaryConceptRecord, which has six sub-classes:
 
+*  meshv:SCR_Anatomy
 *  meshv:SCR_Chemical
 *  meshv:SCR_Disease
+*  meshv:SCR_Organism
+*  meshv:SCR_Population
 *  meshv:SCR_Protocol
 
 
@@ -170,7 +173,7 @@ meshv:SCR_Anatomy | meshv:lastActiveYear
 meshv:SCR_Anatomy | meshv:note
 meshv:SCR_Anatomy | meshv:previousIndexing
 meshv:SCR_Anatomy | meshv:source
-meshv:SCR_Anatomy | rdfs:label 
+meshv:SCR_Anatomy | rdfs:label
 meshv:SCR_Chemical | meshv:active
 meshv:SCR_Chemical | meshv:dateCreated
 meshv:SCR_Chemical | meshv:dateRevised
@@ -273,4 +276,3 @@ where {
     mesh:C012211 meshv:indexerConsiderAlso ?ica .
       }
 ```
-
