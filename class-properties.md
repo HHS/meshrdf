@@ -55,7 +55,6 @@ meshv:Qualifier | meshv:lastActiveYear
 meshv:Qualifier | meshv:onlineNote
 meshv:Qualifier | rdfs:label
 meshv:SCR_Anatomy | meshv:active
-meshv:SCR_Anatomy | meshv:dateCreated
 meshv:SCR_Anatomy | meshv:dateRevised
 meshv:SCR_Anatomy | meshv:frequency
 meshv:SCR_Anatomy | meshv:identifier
@@ -83,7 +82,6 @@ meshv:SCR_Disease | meshv:previousIndexing
 meshv:SCR_Disease | meshv:source
 meshv:SCR_Disease | rdfs:label
 meshv:SCR_Organism | meshv:active
-meshv:SCR_Organism | meshv:dateCreated
 meshv:SCR_Organism | meshv:dateRevised
 meshv:SCR_Organism | meshv:frequency
 meshv:SCR_Organism | meshv:identifier
@@ -93,7 +91,6 @@ meshv:SCR_Organism | meshv:previousIndexing
 meshv:SCR_Organism | meshv:source
 meshv:SCR_Organism | rdfs:label
 meshv:SCR_Population | meshv:active
-meshv:SCR_Population | meshv:dateCreated
 meshv:SCR_Population | meshv:dateRevised
 meshv:SCR_Population | meshv:frequency
 meshv:SCR_Population | meshv:identifier

@@ -121,7 +121,6 @@ Subject | Predicate
 meshv:Term | meshv:abbreviation
 meshv:Term | meshv:active
 meshv:Term | meshv:altLabel
-meshv:Term | meshv:dateCreated
 meshv:Term | meshv:entryVersion
 meshv:Term | meshv:identifier
 meshv:Term | meshv:lastActiveYear
