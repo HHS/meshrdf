@@ -62,8 +62,6 @@ Subject | Predicate
 ------- | ---------
 meshv:Qualifier | meshv:active
 meshv:Qualifier | meshv:annotation
-meshv:Qualifier | meshv:dateCreated
-meshv:Qualifier | meshv:dateEstablished
 meshv:Qualifier | meshv:dateRevised
 meshv:Qualifier | meshv:historyNote
 meshv:Qualifier | meshv:identifier
