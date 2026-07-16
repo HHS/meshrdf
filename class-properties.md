@@ -12,7 +12,6 @@ Subject Class | Property (Literal)
 meshv:AllowedDescriptorQualifierPair | rdfs:label
 meshv:CheckTag | meshv:active
 meshv:CheckTag | meshv:annotation
-meshv:CheckTag | meshv:dateCreated
 meshv:CheckTag | meshv:dateRevised
 meshv:CheckTag | meshv:historyNote
 meshv:CheckTag | meshv:identifier
@@ -30,8 +29,6 @@ meshv:Concept | rdfs:label
 meshv:Concept | meshv:active
 meshv:DisallowedDescriptorQualifierPair | rdfs:label
 meshv:GeographicalDescriptor | meshv:annotation
-meshv:GeographicalDescriptor | meshv:dateCreated
-meshv:GeographicalDescriptor | meshv:dateEstablished
 meshv:GeographicalDescriptor | meshv:dateRevised
 meshv:GeographicalDescriptor | meshv:historyNote
 meshv:GeographicalDescriptor | meshv:identifier
@@ -42,8 +39,6 @@ meshv:GeographicalDescriptor | rdfs:label
 meshv:GeographicalDescriptor | meshv:nlmClassificationNumber
 meshv:PublicationType | meshv:active
 meshv:PublicationType | meshv:annotation
-meshv:PublicationType | meshv:dateCreated
-meshv:PublicationType | meshv:dateEstablished
 meshv:PublicationType | meshv:dateRevised
 meshv:PublicationType | meshv:historyNote
 meshv:PublicationType | meshv:identifier
@@ -53,8 +48,6 @@ meshv:PublicationType | rdfs:label
 meshv:PublicationType | meshv:nlmClassificationNumber
 meshv:Qualifier | meshv:active
 meshv:Qualifier | meshv:annotation
-meshv:Qualifier | meshv:dateCreated
-meshv:Qualifier | meshv:dateEstablished
 meshv:Qualifier | meshv:dateRevised
 meshv:Qualifier | meshv:historyNote
 meshv:Qualifier | meshv:identifier
@@ -72,7 +65,6 @@ meshv:SCR_Anatomy | meshv:previousIndexing
 meshv:SCR_Anatomy | meshv:source
 meshv:SCR_Anatomy | rdfs:label
 meshv:SCR_Chemical | meshv:active
-meshv:SCR_Chemical | meshv:dateCreated
 meshv:SCR_Chemical | meshv:dateRevised
 meshv:SCR_Chemical | meshv:frequency
 meshv:SCR_Chemical | meshv:identifier
@@ -82,7 +74,6 @@ meshv:SCR_Chemical | meshv:previousIndexing
 meshv:SCR_Chemical | meshv:source
 meshv:SCR_Chemical | rdfs:label
 meshv:SCR_Disease | meshv:active
-meshv:SCR_Disease | meshv:dateCreated
 meshv:SCR_Disease | meshv:dateRevised
 meshv:SCR_Disease | meshv:frequency
 meshv:SCR_Disease | meshv:identifier
@@ -112,7 +103,6 @@ meshv:SCR_Population | meshv:previousIndexing
 meshv:SCR_Population | meshv:source
 meshv:SCR_Population | rdfs:label
 meshv:SCR_Protocol | meshv:active
-meshv:SCR_Protocol | meshv:dateCreated
 meshv:SCR_Protocol | meshv:dateRevised
 meshv:SCR_Protocol | meshv:frequency
 meshv:SCR_Protocol | meshv:identifier
@@ -124,7 +114,6 @@ meshv:SCR_Protocol | rdfs:label
 meshv:Term | meshv:active
 meshv:Term | meshv:abbreviation
 meshv:Term | meshv:altLabel
-meshv:Term | meshv:dateCreated
 meshv:Term | meshv:entryVersion
 meshv:Term | meshv:identifier
 meshv:Term | meshv:lastActiveYear
@@ -135,8 +124,6 @@ meshv:Term | meshv:thesaurusID
 meshv:TopicalDescriptor | meshv:active
 meshv:TopicalDescriptor | meshv:annotation
 meshv:TopicalDescriptor | meshv:considerAlso
-meshv:TopicalDescriptor | meshv:dateCreated
-meshv:TopicalDescriptor | meshv:dateEstablished
 meshv:TopicalDescriptor | meshv:dateRevised
 meshv:TopicalDescriptor | meshv:historyNote
 meshv:TopicalDescriptor | meshv:identifier
