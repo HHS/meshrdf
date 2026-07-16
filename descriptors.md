@@ -218,7 +218,6 @@ Subject | Predicate
 ------- | ---------
 meshv:CheckTag | meshv:active
 meshv:CheckTag | meshv:annotation
-meshv:CheckTag | meshv:dateCreated
 meshv:CheckTag | meshv:dateRevised
 meshv:CheckTag | meshv:historyNote
 meshv:CheckTag | meshv:identifier
@@ -228,8 +227,6 @@ meshv:CheckTag | meshv:nlmClassificationNumber
 meshv:Descriptor | meshv:active
 meshv:Descriptor | meshv:annotation
 meshv:Descriptor | meshv:considerAlso
-meshv:Descriptor | meshv:dateCreated
-meshv:Descriptor | meshv:dateEstablished
 meshv:Descriptor | meshv:dateRevised
 meshv:Descriptor | meshv:historyNote
 meshv:Descriptor | meshv:identifier
@@ -240,8 +237,6 @@ meshv:Descriptor | meshv:publicMeSHNote
 meshv:Descriptor | rdfs:label
 meshv:Descriptor | meshv:nlmClassificationNumber
 meshv:GeographicalDescriptor | meshv:annotation
-meshv:GeographicalDescriptor | meshv:dateCreated
-meshv:GeographicalDescriptor | meshv:dateEstablished
 meshv:GeographicalDescriptor | meshv:dateRevised
 meshv:GeographicalDescriptor | meshv:historyNote
 meshv:GeographicalDescriptor | meshv:identifier
@@ -252,8 +247,6 @@ meshv:GeographicalDescriptor | rdfs:label
 meshv:GeographicalDescriptor | meshv:active
 meshv:GeographicalDescriptor | meshv:nlmClassificationNumber
 meshv:PublicationType | meshv:annotation
-meshv:PublicationType | meshv:dateCreated
-meshv:PublicationType | meshv:dateEstablished
 meshv:PublicationType | meshv:dateRevised
 meshv:PublicationType | meshv:historyNote
 meshv:PublicationType | meshv:identifier
@@ -264,8 +257,6 @@ meshv:PublicationType | meshv:nlmClassificationNumber
 meshv:TopicalDescriptor | meshv:active
 meshv:TopicalDescriptor | meshv:annotation
 meshv:TopicalDescriptor | meshv:considerAlso
-meshv:TopicalDescriptor | meshv:dateCreated
-meshv:TopicalDescriptor | meshv:dateEstablished
 meshv:TopicalDescriptor | meshv:dateRevised
 meshv:TopicalDescriptor | meshv:historyNote
 meshv:TopicalDescriptor | meshv:identifier
