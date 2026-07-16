@@ -175,7 +175,6 @@ meshv:SCR_Anatomy | meshv:previousIndexing
 meshv:SCR_Anatomy | meshv:source
 meshv:SCR_Anatomy | rdfs:label
 meshv:SCR_Chemical | meshv:active
-meshv:SCR_Chemical | meshv:dateCreated
 meshv:SCR_Chemical | meshv:dateRevised
 meshv:SCR_Chemical | meshv:frequency
 meshv:SCR_Chemical | meshv:identifier
@@ -185,7 +184,6 @@ meshv:SCR_Chemical | meshv:previousIndexing
 meshv:SCR_Chemical | meshv:source
 meshv:SCR_Chemical | rdfs:label
 meshv:SCR_Disease | meshv:active
-meshv:SCR_Disease | meshv:dateCreated
 meshv:SCR_Disease | meshv:dateRevised
 meshv:SCR_Disease | meshv:frequency
 meshv:SCR_Disease | meshv:identifier
@@ -215,7 +213,6 @@ meshv:SCR_Population | meshv:previousIndexing
 meshv:SCR_Population | meshv:source
 meshv:SCR_Population | rdfs:label
 meshv:SCR_Protocol | meshv:active
-meshv:SCR_Protocol | meshv:dateCreated
 meshv:SCR_Protocol | meshv:dateRevised
 meshv:SCR_Protocol | meshv:frequency
 meshv:SCR_Protocol | meshv:identifier
@@ -225,7 +222,6 @@ meshv:SCR_Protocol | meshv:previousIndexing
 meshv:SCR_Protocol | meshv:source
 meshv:SCR_Protocol | rdfs:label
 meshv:SupplementaryConceptRecord | meshv:active
-meshv:SupplementaryConceptRecord | meshv:dateCreated
 meshv:SupplementaryConceptRecord | meshv:dateRevised
 meshv:SupplementaryConceptRecord | meshv:frequency
 meshv:SupplementaryConceptRecord | meshv:identifier
