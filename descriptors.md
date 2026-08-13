@@ -147,6 +147,14 @@ meshv:PublicationType | meshv:broaderDescriptor | meshv:Descriptor
 meshv:PublicationType | meshv:broaderDescriptor | meshv:PublicationType
 meshv:PublicationType | meshv:seeAlso | meshv:Descriptor
 meshv:PublicationType | meshv:seeAlso | meshv:PublicationType
+meshv:SCR_Anatomy | meshv:indexerConsiderAlso | meshv:Descriptor
+meshv:SCR_Anatomy | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
+meshv:SCR_Anatomy | meshv:mappedTo | meshv:Descriptor
+meshv:SCR_Anatomy | meshv:mappedTo | meshv:TopicalDescriptor
+meshv:SCR_Anatomy | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:SCR_Anatomy | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:SCR_Anatomy | meshv:preferredMappedTo | meshv:Descriptor
+meshv:SCR_Anatomy | meshv:preferredMappedTo | meshv:TopicalDescriptor
 meshv:SCR_Chemical | meshv:indexerConsiderAlso | meshv:Descriptor
 meshv:SCR_Chemical | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
 meshv:SCR_Chemical | meshv:mappedTo | meshv:Descriptor
@@ -161,6 +169,22 @@ meshv:SCR_Disease | meshv:mappedTo | meshv:Descriptor
 meshv:SCR_Disease | meshv:mappedTo | meshv:TopicalDescriptor
 meshv:SCR_Disease | meshv:preferredMappedTo | meshv:Descriptor
 meshv:SCR_Disease | meshv:preferredMappedTo | meshv:TopicalDescriptor
+meshv:SCR_Organism | meshv:indexerConsiderAlso | meshv:Descriptor
+meshv:SCR_Organism | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
+meshv:SCR_Organism | meshv:mappedTo | meshv:Descriptor
+meshv:SCR_Organism | meshv:mappedTo | meshv:TopicalDescriptor
+meshv:SCR_Organism | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:SCR_Organism | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:SCR_Organism | meshv:preferredMappedTo | meshv:Descriptor
+meshv:SCR_Organism | meshv:preferredMappedTo | meshv:TopicalDescriptor
+meshv:SCR_Population | meshv:indexerConsiderAlso | meshv:Descriptor
+meshv:SCR_Population | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
+meshv:SCR_Population | meshv:mappedTo | meshv:Descriptor
+meshv:SCR_Population | meshv:mappedTo | meshv:TopicalDescriptor
+meshv:SCR_Population | meshv:pharmacologicalAction | meshv:Descriptor
+meshv:SCR_Population | meshv:pharmacologicalAction | meshv:TopicalDescriptor
+meshv:SCR_Population | meshv:preferredMappedTo | meshv:Descriptor
+meshv:SCR_Population | meshv:preferredMappedTo | meshv:TopicalDescriptor
 meshv:SCR_Protocol | meshv:indexerConsiderAlso | meshv:Descriptor
 meshv:SCR_Protocol | meshv:indexerConsiderAlso | meshv:TopicalDescriptor
 meshv:SCR_Protocol | meshv:mappedTo | meshv:Descriptor
@@ -194,7 +218,6 @@ Subject | Predicate
 ------- | ---------
 meshv:CheckTag | meshv:active
 meshv:CheckTag | meshv:annotation
-meshv:CheckTag | meshv:dateCreated
 meshv:CheckTag | meshv:dateRevised
 meshv:CheckTag | meshv:historyNote
 meshv:CheckTag | meshv:identifier
@@ -204,8 +227,6 @@ meshv:CheckTag | meshv:nlmClassificationNumber
 meshv:Descriptor | meshv:active
 meshv:Descriptor | meshv:annotation
 meshv:Descriptor | meshv:considerAlso
-meshv:Descriptor | meshv:dateCreated
-meshv:Descriptor | meshv:dateEstablished
 meshv:Descriptor | meshv:dateRevised
 meshv:Descriptor | meshv:historyNote
 meshv:Descriptor | meshv:identifier
@@ -216,8 +237,6 @@ meshv:Descriptor | meshv:publicMeSHNote
 meshv:Descriptor | rdfs:label
 meshv:Descriptor | meshv:nlmClassificationNumber
 meshv:GeographicalDescriptor | meshv:annotation
-meshv:GeographicalDescriptor | meshv:dateCreated
-meshv:GeographicalDescriptor | meshv:dateEstablished
 meshv:GeographicalDescriptor | meshv:dateRevised
 meshv:GeographicalDescriptor | meshv:historyNote
 meshv:GeographicalDescriptor | meshv:identifier
@@ -228,8 +247,6 @@ meshv:GeographicalDescriptor | rdfs:label
 meshv:GeographicalDescriptor | meshv:active
 meshv:GeographicalDescriptor | meshv:nlmClassificationNumber
 meshv:PublicationType | meshv:annotation
-meshv:PublicationType | meshv:dateCreated
-meshv:PublicationType | meshv:dateEstablished
 meshv:PublicationType | meshv:dateRevised
 meshv:PublicationType | meshv:historyNote
 meshv:PublicationType | meshv:identifier
@@ -240,8 +257,6 @@ meshv:PublicationType | meshv:nlmClassificationNumber
 meshv:TopicalDescriptor | meshv:active
 meshv:TopicalDescriptor | meshv:annotation
 meshv:TopicalDescriptor | meshv:considerAlso
-meshv:TopicalDescriptor | meshv:dateCreated
-meshv:TopicalDescriptor | meshv:dateEstablished
 meshv:TopicalDescriptor | meshv:dateRevised
 meshv:TopicalDescriptor | meshv:historyNote
 meshv:TopicalDescriptor | meshv:identifier
