@@ -36,6 +36,43 @@ public class ResourceServiceTest extends AbstractTestNGSpringContextTests {
     private JenaResourceService service;
 
 
+    /*
+     * "Athlete's Heart" is stored in the full-text index as athlete, s and heart.
+     * UAX#29 keeps an apostrophe between two letters inside the Lucene token, so
+     * "athlete's" used to be appended raw into this single-quoted argument, which
+     * left a stray quote in it and asked for a token the index does not hold.
+     */
+    @Test
+    public void testContainsArgSplitsOnApostrophe() throws LodeException {
+        JenaResourceServiceImpl impl = (JenaResourceServiceImpl) service;
+
+        assertThat(impl.buildContainsArg("athlete's heart"), equalTo("'athlete* s heart* '"));
+        assertThat(impl.buildContainsArg("morgagni's hernia"), equalTo("'morgagni* s hernia* '"));
+
+        // A trailing apostrophe and one between a digit and a hyphen are already
+        // dropped by the tokenizer, so these must not change.
+        assertThat(impl.buildContainsArg("wilms' tumor gene"), equalTo("'wilms* tumor* gene* '"));
+        assertThat(impl.buildContainsArg("abacavir 5'-phosphate"), equalTo("'abacavir* 5 phosphate* '"));
+
+        // No apostrophe at all, unchanged.
+        assertThat(impl.buildContainsArg("crohn disease"), equalTo("'crohn* disease* '"));
+    }
+
+    /* The argument is a single-quoted literal, so it must not contain a stray quote. */
+    @Test
+    public void testContainsArgIsWellQuoted() throws LodeException {
+        JenaResourceServiceImpl impl = (JenaResourceServiceImpl) service;
+
+        for (String label : new String[] {
+            "athlete's heart", "morgagni's hernia", "wilms' tumor gene",
+            "abacavir 5'-phosphate", "crohn disease",
+        }) {
+            String arg = impl.buildContainsArg(label);
+            String body = arg.substring(1, arg.length() - 1);
+            assertThat("stray quote for label " + label, body.indexOf('\''), equalTo(-1));
+        }
+    }
+
     @Test
     public void testWiring() {
         assertThat(service, notNullValue());

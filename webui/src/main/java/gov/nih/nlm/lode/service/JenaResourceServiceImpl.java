@@ -43,7 +43,17 @@ public class JenaResourceServiceImpl implements JenaResourceService {
         StringBuffer termbuf = new StringBuffer();
         try {
             termbuf.append("'");
-            for (String term : TextUtils.tokenize(label)) {
+            /*
+             * Treat an apostrophe as a token separator before tokenizing.
+             *
+             * Lucene's StandardTokenizer follows UAX#29, which classifies U+0027 as
+             * MidLetter and so keeps an apostrophe that sits between two letters
+             * inside the token. "athlete's" therefore arrived here intact and was
+             * appended straight into this single-quoted argument, which both broke
+             * the quoting and asked the full-text index for a token it does not
+             * hold: the index stores "Athlete's Heart" as athlete, s and heart.
+             */
+            for (String term : TextUtils.tokenize(label.replace('\'', ' '))) {
                 if (term.length() >= fulltextMinLength) {
                     /* Transforms a label like "Chemi" to a literal like "'Chemi*'" for use with bif:contains */
                     termbuf.append(term);
